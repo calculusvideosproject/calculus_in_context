@@ -1,0 +1,8882 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 0 0 612 792
+%%Creator: Mathematica
+%%OriginalTitle: contour2.eps
+%%CreationDate: Sat 15 Aug 1992 19:20:47
+%%EndComments
+
+-65 -23 translate
+
+/Mnodistort true def
+130 dict begin
+/Mfixwid true def
+/Mrot 0 def
+/Mpstart {
+    MathPictureStart
+} bind def
+/Mpend {
+    MathPictureEnd
+} bind def
+/Mscale {
+    0 1 0 1
+    5 -1 roll
+    MathScale
+} bind def
+/Plain	/Symbol findfont def
+/Bold	/Times-Bold findfont def
+/Italic /Times-Italic findfont def
+/MathPictureStart {
+	/Mimatrix
+	 matrix currentmatrix
+	def
+	gsave
+	newpath
+	Mleft
+	Mbottom
+	translate
+	1 -1 scale
+	/Mtmatrix
+	matrix currentmatrix
+	def
+	Plain
+	Mfontsize scalefont
+	setfont
+	0 setgray
+	0 setlinewidth
+} bind def
+/MathPictureEnd {
+	grestore
+} bind def
+/MathSubStart {
+        Mgmatrix Mtmatrix
+        Mleft Mbottom
+        Mwidth Mheight
+        8 -2 roll
+        moveto
+        Mtmatrix setmatrix
+        currentpoint
+        Mgmatrix setmatrix
+        10 -2 roll
+        moveto
+        Mtmatrix setmatrix
+        currentpoint
+        2 copy translate
+        /Mtmatrix matrix currentmatrix def
+        /Mleft 0 def
+        /Mbottom 0 def
+        3 -1 roll
+        exch sub
+        /Mheight exch def
+        sub
+        /Mwidth exch def
+} bind def
+/MathSubEnd {
+        /Mheight exch def
+        /Mwidth exch def
+        /Mbottom exch def
+        /Mleft exch def
+        /Mtmatrix exch def
+        dup setmatrix
+        /Mgmatrix exch def
+} bind def
+/Mdot {
+	moveto
+	0 0 rlineto
+	stroke
+} bind def
+/Mtetra {
+	moveto
+	lineto
+	lineto
+	lineto
+	fill
+} bind def
+/Metetra {
+	moveto
+	lineto
+	lineto
+	lineto
+	closepath
+	gsave
+	fill
+	grestore
+	0 setgray
+	stroke
+} bind def
+/Mistroke {
+	flattenpath
+	0 0 0
+	{
+	4 2 roll
+	pop pop
+	}
+	{
+	4 -1 roll
+	2 index
+	sub dup mul
+	4 -1 roll
+	2 index
+	sub dup mul
+	add sqrt
+	4 -1 roll
+	add
+	3 1 roll
+	}
+	{
+	stop
+	}
+	{
+	stop
+	}
+	pathforall
+	pop pop
+	currentpoint
+	stroke
+	moveto
+	currentdash
+	3 -1 roll
+	add
+	setdash
+} bind def
+/Mfstroke {
+	stroke
+	currentdash
+	pop 0
+	setdash
+} bind def
+/Mrotsboxa {
+	gsave
+	dup
+	/Mrot
+	exch def
+	Mrotcheck
+	Mtmatrix
+	dup
+	setmatrix
+	7 1 roll
+	4 index
+	4 index
+	translate
+	rotate
+	3 index
+	-1 mul
+	3 index
+	-1 mul
+	translate
+	/Mtmatrix
+	matrix
+	currentmatrix
+	def
+	grestore
+	Msboxa
+	3  -1 roll
+	/Mtmatrix
+	exch def
+	/Mrot
+	0 def
+} bind def
+/Msboxa {
+	newpath
+	5 -1 roll
+	Mvboxa
+	pop
+	Mboxout
+	6 -1 roll
+	5 -1 roll
+	4 -1 roll
+	Msboxa1
+	5 -3 roll
+	Msboxa1
+	Mboxrot
+	[
+	7 -2 roll
+	2 copy
+	[
+	3 1 roll
+	10 -1 roll
+	9 -1 roll
+	]
+	6 1 roll
+	5 -2 roll
+	]
+} bind def
+/Msboxa1 {
+	sub
+	2 div
+	dup
+	2 index
+	1 add
+	mul
+	3 -1 roll
+	-1 add
+	3 -1 roll
+	mul
+} bind def
+/Mvboxa	{
+	Mfixwid
+	{
+	Mvboxa1
+	}
+	{
+	dup
+	Mwidthcal
+	0 exch
+	{
+	add
+	}
+	forall
+	exch
+	Mvboxa1
+	4 index
+	7 -1 roll
+	add
+	4 -1 roll
+	pop
+	3 1 roll
+	}
+	ifelse
+} bind def
+/Mvboxa1 {
+	gsave
+	newpath
+	[ true
+	3 -1 roll
+	{
+	Mbbox
+	5 -1 roll
+	{
+	0
+	5 1 roll
+	}
+	{
+	7 -1 roll
+	exch sub
+	(m) stringwidth pop
+	.3 mul
+	sub
+	7 1 roll
+	6 -1 roll
+	4 -1 roll
+	Mmin
+	3 -1 roll
+	5 index
+	add
+	5 -1 roll
+	4 -1 roll
+	Mmax
+	4 -1 roll
+	}
+	ifelse
+	false
+	}
+	forall
+	{ stop } if
+	counttomark
+	1 add
+	4 roll
+	]
+	grestore
+} bind def
+/Mbbox {
+	0 0 moveto
+	false charpath
+	flattenpath
+	pathbbox
+	newpath
+} bind def
+/Mmin {
+	2 copy
+	gt
+	{ exch } if
+	pop
+} bind def
+/Mmax {
+	2 copy
+	lt
+	{ exch } if
+	pop
+} bind def
+/Mrotshowa {
+	dup
+	/Mrot
+	exch def
+	Mrotcheck
+	Mtmatrix
+	dup
+	setmatrix
+	7 1 roll
+	4 index
+	4 index
+	translate
+	rotate
+	3 index
+	-1 mul
+	3 index
+	-1 mul
+	translate
+	/Mtmatrix
+	matrix
+	currentmatrix
+	def
+	Mgmatrix setmatrix
+	Mshowa
+	/Mtmatrix
+	exch def
+	/Mrot 0 def
+} bind def
+/Mshowa {
+	4 -2 roll
+	moveto
+	2 index
+	Mtmatrix setmatrix
+	Mvboxa
+	7 1 roll
+	Mboxout
+	6 -1 roll
+	5 -1 roll
+	4 -1 roll
+	Mshowa1
+	4 1 roll
+	Mshowa1
+	rmoveto
+	currentpoint
+	Mfixwid
+	{
+	Mshowax
+	}
+	{
+	Mshoway
+	}
+	ifelse
+	pop pop pop pop
+	Mgmatrix setmatrix
+} bind def
+/Mshowax {
+	0 1
+        4 index length
+        -1 add
+        {
+        2 index
+        4 index
+        2 index
+        get
+        3 index
+        add
+        moveto
+        4 index
+        exch get
+        show
+        } for
+} bind def
+/Mshoway {
+        3 index
+        Mwidthcal
+        5 1 roll
+	0 1
+	4 index length
+	-1 add
+	{
+	2 index
+	4 index
+	2 index
+	get
+	3 index
+	add
+	moveto
+	4 index
+	exch get
+	[
+	6 index
+	aload
+	length
+	2 add
+	-1 roll
+	{
+	pop
+	Strform
+	stringwidth
+	pop
+	neg
+	exch
+	add
+	0 rmoveto
+	}
+	exch
+	kshow
+	cleartomark
+	} for
+	pop
+} bind def
+/Mwidthcal {
+	[
+	exch
+	{
+	Mwidthcal1
+	}
+	forall
+	]
+	[
+	exch
+	dup
+	Maxlen
+	-1 add
+	0 1
+	3 -1 roll
+	{
+	[
+	exch
+	2 index
+	{
+	1 index
+	Mget
+	exch
+	}
+	forall
+	pop
+	Maxget
+	exch
+	}
+	for
+	pop
+	]
+	Mreva
+} bind def
+/Mreva	{
+	[
+	exch
+	aload
+	length
+	-1 1
+	{1 roll}
+	for
+	]
+} bind def
+/Mget	{
+	1 index
+	length
+	-1 add
+	1 index
+	ge
+	{
+	get
+	}
+	{
+	pop pop
+	0
+	}
+	ifelse
+} bind def
+/Maxlen	{
+	[
+	exch
+	{
+	length
+	}
+	forall
+	Maxget
+} bind def
+/Maxget	{
+	counttomark
+	-1 add
+	1 1
+	3 -1 roll
+	{
+	pop
+	Mmax
+	}
+	for
+	exch
+	pop
+} bind def
+/Mwidthcal1 {
+	[
+	exch
+	{
+	Strform
+	stringwidth
+	pop
+	}
+	forall
+	]
+} bind def
+/Strform {
+	/tem (x) def
+	tem 0
+	3 -1 roll
+	put
+	tem
+} bind def
+/Mshowa1 {
+	2 copy
+	add
+	4 1 roll
+	sub
+	mul
+	sub
+	-2 div
+} bind def
+/MathScale {
+	Mwidth
+	Mheight
+	Mlp
+	translate
+	scale
+	/Msaveaa exch def
+	/Msavebb exch def
+	/Msavecc exch def
+	/Msavedd exch def
+	/Mgmatrix
+	matrix currentmatrix
+	def
+} bind def
+/Mlp {
+	3 copy
+	Mlpfirst
+	{
+	Mnodistort
+	{
+	Mmin
+	dup
+	} if
+	4 index
+	2 index
+	2 index
+	Mlprun
+	11 index
+	11 -1 roll
+	10 -4 roll
+	Mlp1
+	8 index
+	9 -5 roll
+	Mlp1
+	4 -1 roll
+	and
+	{ exit } if
+	3 -1 roll
+	pop pop
+	} loop
+	exch
+	3 1 roll
+	7 -3 roll
+	pop pop pop
+} bind def
+/Mlpfirst {
+	3 -1 roll
+	dup length
+	2 copy
+	-2 add
+	get
+	aload
+	pop pop pop
+	4 -2 roll
+	-1 add
+	get
+	aload
+	pop pop pop
+	6 -1 roll
+	3 -1 roll
+	5 -1 roll
+	sub
+	dup /MsaveAx exch def
+	div
+	4 1 roll
+	exch sub
+	dup /MsaveAy exch def
+	div
+} bind def
+/Mlprun {
+	2 copy
+	4 index
+	0 get
+	dup
+	4 1 roll
+	Mlprun1
+	3 copy
+	8 -2 roll
+	9 -1 roll
+	{
+	3 copy
+	Mlprun1
+	3 copy
+	11 -3 roll
+	/gt Mlpminmax
+	8 3 roll
+	11 -3 roll
+	/lt Mlpminmax
+	8 3 roll
+	} forall
+	pop pop pop pop
+	3 1 roll
+	pop pop
+	aload pop
+	5 -1 roll
+	aload pop
+	exch
+	6 -1 roll
+	Mlprun2
+	8 2 roll
+	4 -1 roll
+	Mlprun2
+	6 2 roll
+	3 -1 roll
+	Mlprun2
+	4 2 roll
+	exch
+	Mlprun2
+	6 2 roll
+} bind def
+/Mlprun1 {
+	aload pop
+	exch
+	6 -1 roll
+	5 -1 roll
+	mul add
+	4 -2 roll
+	mul
+	3 -1 roll
+	add
+} bind def
+/Mlprun2 {
+	2 copy
+	add 2 div
+	3 1 roll
+	exch sub
+} bind def
+/Mlpminmax {
+	cvx
+	2 index
+	6 index
+	2 index
+	exec
+	{
+	7 -3 roll
+	4 -1 roll
+	} if
+	1 index
+	5 index
+	3 -1 roll
+	exec
+	{
+	4 1 roll
+	pop
+	5 -1 roll
+	aload
+	pop pop
+	4 -1 roll
+	aload pop
+	[
+	8 -2 roll
+	pop
+	5 -2 roll
+	pop
+	6 -2 roll
+	pop
+	5 -1 roll
+	]
+	4 1 roll
+	pop
+	}
+	{
+	pop pop pop
+	} ifelse
+} bind def
+/Mlp1 {
+	5 index
+	3 index	sub
+	5 index
+	2 index mul
+	1 index
+	le
+	1 index
+	0 le
+	or
+	dup
+	not
+	{
+	1 index
+	3 index	div
+	.99999 mul
+	8 -1 roll
+	pop
+	7 1 roll
+	}
+	if
+	8 -1 roll
+	2 div
+	7 -2 roll
+	pop sub
+	5 index
+	6 -3 roll
+	pop pop
+	mul sub
+	exch
+} bind def
+/intop 0 def
+/inrht 0 def
+/inflag 0 def
+/outflag 0 def
+/xadrht 0 def
+/xadlft 0 def
+/yadtop 0 def
+/yadbot 0 def
+/Minner {
+	outflag
+	1
+	eq
+	{
+	/outflag 0 def
+	/intop 0 def
+	/inrht 0 def
+	} if
+	5 index
+	gsave
+	Mtmatrix setmatrix
+	Mvboxa pop
+	grestore
+	3 -1 roll
+	pop
+	dup
+	intop
+	gt
+	{
+	/intop
+	exch def
+	}
+	{ pop }
+	ifelse
+	dup
+	inrht
+	gt
+	{
+	/inrht
+	exch def
+	}
+	{ pop }
+	ifelse
+	pop
+	/inflag
+	1 def
+} bind def
+/Mouter {
+	/xadrht 0 def
+	/xadlft 0 def
+	/yadtop 0 def
+	/yadbot 0 def
+	inflag
+	1 eq
+	{
+	dup
+	0 lt
+	{
+	dup
+	intop
+	mul
+	neg
+	/yadtop
+	exch def
+	} if
+	dup
+	0 gt
+	{
+	dup
+	intop
+	mul
+	/yadbot
+	exch def
+	}
+	if
+	pop
+	dup
+	0 lt
+	{
+	dup
+	inrht
+	mul
+	neg
+	/xadrht
+	exch def
+	} if
+	dup
+	0 gt
+	{
+	dup
+	inrht
+	mul
+	/xadlft
+	exch def
+	} if
+	pop
+	/outflag 1 def
+	}
+	{ pop pop}
+	ifelse
+	/inflag 0 def
+	/inrht 0 def
+	/intop 0 def
+} bind def
+/Mboxout {
+	outflag
+	1
+	eq
+	{
+	4 -1
+	roll
+	xadlft
+	leadjust
+	add
+	sub
+	4 1 roll
+	3 -1
+	roll
+	yadbot
+	leadjust
+	add
+	sub
+	3 1
+	roll
+	exch
+	xadrht
+	leadjust
+	add
+	add
+	exch
+	yadtop
+	leadjust
+	add
+	add
+	/outflag 0 def
+	/xadlft 0 def
+	/yadbot 0 def
+	/xadrht 0 def
+	/yadtop 0 def
+	} if
+} bind def
+/leadjust {
+	(m) stringwidth pop
+	.5 mul
+} bind def
+/Mrotcheck {
+	dup
+	90
+	eq
+	{
+	yadbot
+	/yadbot
+	xadrht
+	def
+	/xadrht
+	yadtop
+	def
+	/yadtop
+	xadlft
+	def
+	/xadlft
+	exch
+	def
+	}
+	if
+	dup
+	cos
+	1 index
+	sin
+	Checkaux
+	dup
+	cos
+	1 index
+	sin neg
+	exch
+	Checkaux
+	3 1 roll
+	pop pop
+} bind def
+/Checkaux {
+	4 index
+	exch
+	4 index
+	mul
+	3 1 roll
+	mul add
+	4 1 roll
+} bind def
+/Mboxrot {
+	Mrot
+	90 eq
+	{
+	brotaux
+	4 2
+	roll
+	}
+	if
+	Mrot
+	180 eq
+	{
+	4 2
+        roll
+	brotaux
+	4 2
+	roll
+	brotaux
+	}
+	if
+	Mrot
+	270 eq
+	{
+	4 2
+	roll
+	brotaux
+	}
+	if
+} bind def
+/brotaux {
+	neg
+	exch
+	neg
+} bind def
+/Mabswid {
+	Mimatrix
+	0 get
+	Mgmatrix
+	0 get
+	div
+	mul
+	setlinewidth
+} bind def
+/Mabsdash {
+	exch
+	Mimatrix
+	0 get
+	Mgmatrix
+	0 get
+	div
+	[
+	3 1 roll
+	exch
+	{
+	exch
+	dup
+	3 -1 roll
+	mul
+	exch
+	}
+	forall
+	pop ]
+	exch
+	setdash
+} bind def
+/colorimage where
+{ pop }
+{
+/colorimage {
+3 1 roll
+ pop pop
+ 5 -1 roll
+ mul
+ 4 1 roll
+{
+currentfile
+1 index
+readhexstring
+pop }
+image
+} bind def
+} ifelse
+/sampledsound where
+{ pop}
+{ /sampledsound {
+exch
+pop
+exch
+5 1 roll
+mul
+4 idiv
+mul
+2 idiv
+exch pop
+exch
+/Mtempproc exch def
+{ Mtempproc pop }
+repeat
+} bind def
+} ifelse
+
+/Mleft		0.000000 def
+/Mbottom	180.000000 def
+/Mwidth		180.000000 def
+/Mheight	180.000000 def
+/Mfontsize 12 def
+/Plain /Symbol findfont def
+
+% % % % % % % % % % % % % % custom insert - begin % % % % % % % % % % % % % % 
+%
+% PLACE THIS JUST BEFORE THE LINES:	1 -1 scale
+%		  ~~~~~~		
+%					%%Creator: Mathematica
+%					%%AspectRatio: 0.61803 
+%
+%
+
+/printscale .75 def
+/screenstretch {printscale 1.3 mul} def
+/double {screenstretch 2 mul} def
+
+ printscale printscale scale	    % scale for printing
+% screenstretch screenstretch scale % printing scale on screen
+% double double scale               % magnified screen
+
+% ----------------- arrow drawing procedures ------------------
+
+/arrow 
+{-4 0 rmoveto
+ 0  1 rlineto
+ 4 -1 rlineto
+-4 -1 rlineto
+ 0  1 rlineto
+ 4 0 rlineto} def
+
+/rightarrow {arrow} def
+/uparrow {90 rotate arrow -90 rotate} def
+/leftarrow {180 rotate arrow -180 rotate} def
+/downarrow {-90 rotate arrow 90 rotate} def
+/rarrowto {					% stack: dx dy
+  2 copy
+  dup mul exch dup mul add  sqrt		% length of arrow
+  3 1 roll exch atan dup 				% angle
+  rotate exch 0 rlineto arrow neg rotate	% make arrow
+} def
+/arrowto {					% stack: x y
+  currentpoint 3 -1 roll sub neg 3 1 roll sub exch rarrowto
+} def
+
+% ------------------ graphics instructions --------------------
+
+.3 setlinewidth
+
+% position the origin
+% 100 300 moveto				% screen origin
+ 36 0 moveto
+currentpoint translate
+
+% -------------------- font codes --------------------------
+
+/typesize {10 printscale div} def
+
+/makeTR {/Times-Roman findfont typesize scalefont} def
+/makeTB {/Times-Bold findfont typesize scalefont} def
+/makeTI {/Times-Italic findfont typesize scalefont} def
+/makeSYM {/Symbol findfont typesize scalefont} def
+
+/TR {makeTR setfont} def
+/TB {makeTB setfont} def
+/TI {makeTI setfont} def
+/SYM {makeSYM setfont} def
+
+% ---------------string placing procedures-------------------
+
+% stack: fontcode string x y 
+
+/placeBL {moveto show} def
+/placeBR {moveto dup stringwidth pop neg 0 rmoveto show} def
+/placeBC {moveto dup stringwidth pop 2 div neg 0 rmoveto show} def
+/placeTL {moveto 0 typesize neg rmoveto show} def
+/placeTR {moveto dup stringwidth pop neg typesize neg rmoveto show} def
+/placeTC {moveto dup stringwidth pop 2 div neg typesize neg rmoveto show} def
+
+newpath
+90 7 moveto
+67 -84 arrowto
+98 7 moveto
+120 -84 arrowto
+115 -183 moveto
+94 -105 arrowto
+stroke
+
+% my labels
+TR (saddles) 94 12 placeBC
+(maximum) 100 -181 placeTC
+
+%
+%
+% % % % % % % % % % % % % custom inset - end % % % % % % % % % % % %
+
+1 -1 scale
+%!
+%%Creator: Mathematica
+%%AspectRatio: 1 
+MathPictureStart
+/Symbol findfont 10  scalefont  setfont
+% Scaling calculations
+0.5 0.240385 0.019231 0.240385 [
+[(-2)] 0.01923 0 0 2 Msboxa
+[(-1)] 0.25962 0 0 2 Msboxa
+[(0)] 0.5 0 0 2 Msboxa
+[(1)] 0.74038 0 0 2 Msboxa
+[(2)] 0.98077 0 0 2 Msboxa
+[(0)] -0.0125 0.01923 1 0 Msboxa
+[(1)] -0.0125 0.25962 1 0 Msboxa
+[(2)] -0.0125 0.5 1 0 Msboxa
+[(3)] -0.0125 0.74038 1 0 Msboxa
+[(4)] -0.0125 0.98077 1 0 Msboxa
+[ -0.001 -0.001 0 0 ]
+[ 1.001 1.001 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+%%Object: ContourGraphics
+[ ] 0 setdash
+0 setgray
+gsave
+gsave
+gsave
+0.001 setlinewidth
+0.01923 0 moveto
+0.01923 0.00625 lineto
+stroke
+grestore
+[(-2)] 0.01923 0 0 2 Mshowa
+gsave
+0.001 setlinewidth
+0.25962 0 moveto
+0.25962 0.00625 lineto
+stroke
+grestore
+[(-1)] 0.25962 0 0 2 Mshowa
+gsave
+0.001 setlinewidth
+0.5 0 moveto
+0.5 0.00625 lineto
+stroke
+grestore
+[(0)] 0.5 0 0 2 Mshowa
+gsave
+0.001 setlinewidth
+0.74038 0 moveto
+0.74038 0.00625 lineto
+stroke
+grestore
+[(1)] 0.74038 0 0 2 Mshowa
+gsave
+0.001 setlinewidth
+0.98077 0 moveto
+0.98077 0.00625 lineto
+stroke
+grestore
+[(2)] 0.98077 0 0 2 Mshowa
+gsave
+0.001 setlinewidth
+0.06731 0 moveto
+0.06731 0.00375 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.11538 0 moveto
+0.11538 0.00375 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.16346 0 moveto
+0.16346 0.00375 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.21154 0 moveto
+0.21154 0.00375 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.30769 0 moveto
+0.30769 0.00375 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.35577 0 moveto
+0.35577 0.00375 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.40385 0 moveto
+0.40385 0.00375 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.45192 0 moveto
+0.45192 0.00375 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.54808 0 moveto
+0.54808 0.00375 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.59615 0 moveto
+0.59615 0.00375 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.64423 0 moveto
+0.64423 0.00375 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.69231 0 moveto
+0.69231 0.00375 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.78846 0 moveto
+0.78846 0.00375 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.83654 0 moveto
+0.83654 0.00375 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.88462 0 moveto
+0.88462 0.00375 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.93269 0 moveto
+0.93269 0.00375 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0 0 moveto
+1 0 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0 0.01923 moveto
+0.00625 0.01923 lineto
+stroke
+grestore
+[(0)] -0.0125 0.01923 1 0 Mshowa
+gsave
+0.001 setlinewidth
+0 0.25962 moveto
+0.00625 0.25962 lineto
+stroke
+grestore
+[(1)] -0.0125 0.25962 1 0 Mshowa
+gsave
+0.001 setlinewidth
+0 0.5 moveto
+0.00625 0.5 lineto
+stroke
+grestore
+[(2)] -0.0125 0.5 1 0 Mshowa
+gsave
+0.001 setlinewidth
+0 0.74038 moveto
+0.00625 0.74038 lineto
+stroke
+grestore
+[(3)] -0.0125 0.74038 1 0 Mshowa
+gsave
+0.001 setlinewidth
+0 0.98077 moveto
+0.00625 0.98077 lineto
+stroke
+grestore
+[(4)] -0.0125 0.98077 1 0 Mshowa
+gsave
+0.001 setlinewidth
+0 0.06731 moveto
+0.00375 0.06731 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0 0.11538 moveto
+0.00375 0.11538 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0 0.16346 moveto
+0.00375 0.16346 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0 0.21154 moveto
+0.00375 0.21154 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0 0.30769 moveto
+0.00375 0.30769 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0 0.35577 moveto
+0.00375 0.35577 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0 0.40385 moveto
+0.00375 0.40385 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0 0.45192 moveto
+0.00375 0.45192 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0 0.54808 moveto
+0.00375 0.54808 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0 0.59615 moveto
+0.00375 0.59615 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0 0.64423 moveto
+0.00375 0.64423 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0 0.69231 moveto
+0.00375 0.69231 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0 0.78846 moveto
+0.00375 0.78846 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0 0.83654 moveto
+0.00375 0.83654 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0 0.88462 moveto
+0.00375 0.88462 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0 0.93269 moveto
+0.00375 0.93269 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0 0 moveto
+0 1 lineto
+stroke
+grestore
+grestore
+gsave
+gsave
+0.001 setlinewidth
+0.01923 0.99375 moveto
+0.01923 1 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.25962 0.99375 moveto
+0.25962 1 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.5 0.99375 moveto
+0.5 1 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.74038 0.99375 moveto
+0.74038 1 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.98077 0.99375 moveto
+0.98077 1 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.06731 0.99625 moveto
+0.06731 1 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.11538 0.99625 moveto
+0.11538 1 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.16346 0.99625 moveto
+0.16346 1 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.21154 0.99625 moveto
+0.21154 1 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.30769 0.99625 moveto
+0.30769 1 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.35577 0.99625 moveto
+0.35577 1 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.40385 0.99625 moveto
+0.40385 1 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.45192 0.99625 moveto
+0.45192 1 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.54808 0.99625 moveto
+0.54808 1 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.59615 0.99625 moveto
+0.59615 1 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.64423 0.99625 moveto
+0.64423 1 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.69231 0.99625 moveto
+0.69231 1 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.78846 0.99625 moveto
+0.78846 1 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.83654 0.99625 moveto
+0.83654 1 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.88462 0.99625 moveto
+0.88462 1 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.93269 0.99625 moveto
+0.93269 1 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0 1 moveto
+1 1 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.99375 0.01923 moveto
+1 0.01923 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.99375 0.25962 moveto
+1 0.25962 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.99375 0.5 moveto
+1 0.5 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.99375 0.74038 moveto
+1 0.74038 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.99375 0.98077 moveto
+1 0.98077 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.99625 0.06731 moveto
+1 0.06731 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.99625 0.11538 moveto
+1 0.11538 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.99625 0.16346 moveto
+1 0.16346 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.99625 0.21154 moveto
+1 0.21154 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.99625 0.30769 moveto
+1 0.30769 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.99625 0.35577 moveto
+1 0.35577 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.99625 0.40385 moveto
+1 0.40385 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.99625 0.45192 moveto
+1 0.45192 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.99625 0.54808 moveto
+1 0.54808 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.99625 0.59615 moveto
+1 0.59615 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.99625 0.64423 moveto
+1 0.64423 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.99625 0.69231 moveto
+1 0.69231 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.99625 0.78846 moveto
+1 0.78846 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.99625 0.83654 moveto
+1 0.83654 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.99625 0.88462 moveto
+1 0.88462 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.99625 0.93269 moveto
+1 0.93269 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+1 0 moveto
+1 1 lineto
+stroke
+grestore
+grestore
+gsave
+grestore
+grestore
+0 0 moveto
+1 0 lineto
+1 1 lineto
+0 1 lineto
+closepath
+clip
+newpath
+gsave
+gsave
+0.001 setlinewidth
+0.07411 0.03486 moveto
+0.0781 0.02854 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.07411 0.03486 moveto
+0.0713 0.03885 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.0819 0.02303 moveto
+0.08426 0.01923 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.0819 0.02303 moveto
+0.0781 0.02854 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.11179 0.0333 moveto
+0.11735 0.02422 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.11252 0.03403 moveto
+0.11735 0.02614 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.11179 0.0333 moveto
+0.10802 0.03885 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.11252 0.03403 moveto
+0.10924 0.03885 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.11935 0.02123 moveto
+0.12056 0.01923 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.12012 0.022 moveto
+0.12179 0.01923 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.11935 0.02123 moveto
+0.11735 0.02422 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.12012 0.022 moveto
+0.11735 0.02614 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.15175 0.03401 moveto
+0.15659 0.02587 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.15175 0.03401 moveto
+0.14853 0.03885 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.15923 0.02186 moveto
+0.16078 0.01923 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.15923 0.02186 moveto
+0.15659 0.02587 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.19489 0.0379 moveto
+0.19584 0.03628 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.19489 0.0379 moveto
+0.19427 0.03885 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.20256 0.02595 moveto
+0.20649 0.01923 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.20256 0.02595 moveto
+0.19584 0.03628 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.25091 0.03505 moveto
+0.25471 0.0286 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.25091 0.03505 moveto
+0.24841 0.03885 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.25845 0.02297 moveto
+0.26069 0.01923 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.25845 0.02297 moveto
+0.25471 0.0286 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.32431 0.02996 moveto
+0.3314 0.01923 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.32431 0.02996 moveto
+0.31781 0.03885 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.44859 0.03651 moveto
+0.45094 0.03498 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.44859 0.03651 moveto
+0.44475 0.03885 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.46205 0.03034 moveto
+0.47057 0.02657 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.46205 0.03034 moveto
+0.45094 0.03498 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.47662 0.02528 moveto
+0.49019 0.02225 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.47662 0.02528 moveto
+0.47057 0.02657 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.4932 0.02225 moveto
+0.50981 0.02225 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.4932 0.02225 moveto
+0.49019 0.02225 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.52943 0.02657 moveto
+0.51365 0.02307 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.50981 0.02225 moveto
+0.51365 0.02307 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.54906 0.03498 moveto
+0.54219 0.03199 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.52943 0.02657 moveto
+0.54219 0.03199 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.54906 0.03498 moveto
+0.55525 0.03885 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.6686 0.01923 moveto
+0.67284 0.02527 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.68219 0.03885 moveto
+0.67284 0.02527 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.73931 0.01923 moveto
+0.74529 0.0286 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.75159 0.03885 moveto
+0.74529 0.0286 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.79351 0.01923 moveto
+0.80416 0.03628 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.80573 0.03885 moveto
+0.80416 0.03628 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.83922 0.01923 moveto
+0.84341 0.02587 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.85147 0.03885 moveto
+0.84341 0.02587 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.87944 0.01923 moveto
+0.88265 0.02422 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.87821 0.01923 moveto
+0.88265 0.02614 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.89198 0.03885 moveto
+0.88265 0.02422 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.89076 0.03885 moveto
+0.88265 0.02614 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91574 0.01923 moveto
+0.9219 0.02854 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.9287 0.03885 moveto
+0.9219 0.02854 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.05807 0.05807 moveto
+0.05848 0.05746 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.05807 0.05807 moveto
+0.05777 0.05848 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.06627 0.04664 moveto
+0.0713 0.03885 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.06627 0.04664 moveto
+0.05848 0.05746 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.0961 0.05685 moveto
+0.09772 0.05429 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.09681 0.05756 moveto
+0.09772 0.05612 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.0961 0.05685 moveto
+0.09494 0.05848 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.09681 0.05756 moveto
+0.09616 0.05848 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.10406 0.04519 moveto
+0.10802 0.03885 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.10481 0.04594 moveto
+0.10924 0.03885 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.10406 0.04519 moveto
+0.09772 0.05429 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.10481 0.04594 moveto
+0.09772 0.05612 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.13628 0.05779 moveto
+0.13697 0.05667 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.13628 0.05779 moveto
+0.13581 0.05848 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.14417 0.04605 moveto
+0.14853 0.03885 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.14417 0.04605 moveto
+0.13697 0.05667 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.18754 0.05017 moveto
+0.19427 0.03885 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.18754 0.05017 moveto
+0.18201 0.05848 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.24345 0.04721 moveto
+0.24841 0.03885 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.24345 0.04721 moveto
+0.23596 0.05848 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.30831 0.05321 moveto
+0.31358 0.04488 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.30831 0.05321 moveto
+0.30461 0.05848 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.31613 0.0414 moveto
+0.31781 0.03885 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.31613 0.0414 moveto
+0.31358 0.04488 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.42541 0.05257 moveto
+0.43132 0.0475 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.42541 0.05257 moveto
+0.41797 0.05848 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.43667 0.0442 moveto
+0.44475 0.03885 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.43667 0.0442 moveto
+0.43132 0.0475 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.56868 0.0475 moveto
+0.55525 0.03885 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.56868 0.0475 moveto
+0.58203 0.05848 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.68219 0.03885 moveto
+0.68642 0.04488 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.69539 0.05848 moveto
+0.68642 0.04488 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.75159 0.03885 moveto
+0.76262 0.05618 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.76404 0.05848 moveto
+0.76262 0.05618 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.80573 0.03885 moveto
+0.8085 0.04319 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.81799 0.05848 moveto
+0.8085 0.04319 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.85147 0.03885 moveto
+0.86303 0.05667 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.86419 0.05848 moveto
+0.86303 0.05667 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.89198 0.03885 moveto
+0.90228 0.05429 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.89076 0.03885 moveto
+0.90228 0.05612 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.90506 0.05848 moveto
+0.90228 0.05429 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.90384 0.05848 moveto
+0.90228 0.05612 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.9287 0.03885 moveto
+0.94152 0.05746 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.94223 0.05848 moveto
+0.94152 0.05746 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.05014 0.06976 moveto
+0.05777 0.05848 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.05014 0.06976 moveto
+0.04384 0.0781 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.08831 0.06868 moveto
+0.09494 0.05848 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.08904 0.06942 moveto
+0.09616 0.05848 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.08831 0.06868 moveto
+0.08146 0.0781 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.08904 0.06942 moveto
+0.08273 0.0781 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.12869 0.06982 moveto
+0.13581 0.05848 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.12869 0.06982 moveto
+0.12286 0.0781 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.17217 0.07405 moveto
+0.17622 0.06742 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.17217 0.07405 moveto
+0.1694 0.0781 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.17983 0.06209 moveto
+0.18201 0.05848 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.17983 0.06209 moveto
+0.17622 0.06742 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.22825 0.07126 moveto
+0.23509 0.05983 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.22825 0.07126 moveto
+0.22365 0.0781 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.23563 0.05902 moveto
+0.23596 0.05848 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.23563 0.05902 moveto
+0.23509 0.05983 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.29247 0.07662 moveto
+0.29396 0.07421 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.29247 0.07662 moveto
+0.29145 0.0781 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.30048 0.065 moveto
+0.30461 0.05848 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.30048 0.065 moveto
+0.29396 0.07421 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.40468 0.07108 moveto
+0.4117 0.06373 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.40468 0.07108 moveto
+0.39735 0.0781 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.41461 0.0614 moveto
+0.41797 0.05848 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.41461 0.0614 moveto
+0.4117 0.06373 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.5883 0.06373 moveto
+0.58203 0.05848 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.60265 0.0781 moveto
+0.5883 0.06373 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.69539 0.05848 moveto
+0.70604 0.07421 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.70855 0.0781 moveto
+0.70604 0.07421 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.76404 0.05848 moveto
+0.76491 0.05983 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.77635 0.0781 moveto
+0.76491 0.05983 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.81799 0.05848 moveto
+0.82378 0.06742 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.8306 0.0781 moveto
+0.82378 0.06742 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.86419 0.05848 moveto
+0.86657 0.06202 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.87714 0.0781 moveto
+0.86657 0.06202 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.90506 0.05848 moveto
+0.91139 0.06759 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.90384 0.05848 moveto
+0.9074 0.0636 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91854 0.0781 moveto
+0.91139 0.06759 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91727 0.0781 moveto
+0.9074 0.0636 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.94223 0.05848 moveto
+0.94405 0.061 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.95616 0.0781 moveto
+0.94405 0.061 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.03349 0.09236 moveto
+0.03885 0.08481 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.03349 0.09236 moveto
+0.02922 0.09772 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.04179 0.08104 moveto
+0.04384 0.0781 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.04179 0.08104 moveto
+0.03885 0.08481 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.07205 0.09168 moveto
+0.0781 0.0828 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.07278 0.0924 moveto
+0.0781 0.08459 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.07205 0.09168 moveto
+0.06744 0.09772 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.07278 0.0924 moveto
+0.06871 0.09772 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.08011 0.08011 moveto
+0.08146 0.0781 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.08088 0.08088 moveto
+0.08273 0.0781 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.08011 0.08011 moveto
+0.0781 0.0828 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.08088 0.08088 moveto
+0.0781 0.08459 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.11276 0.09313 moveto
+0.11735 0.08612 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.11276 0.09313 moveto
+0.10938 0.09772 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.12071 0.08146 moveto
+0.12286 0.0781 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.12071 0.08146 moveto
+0.11735 0.08612 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.15642 0.09755 moveto
+0.15659 0.09726 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.15642 0.09755 moveto
+0.15629 0.09772 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.16449 0.086 moveto
+0.1694 0.0781 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.16449 0.086 moveto
+0.15659 0.09726 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.21279 0.09505 moveto
+0.21546 0.09066 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.21279 0.09505 moveto
+0.21096 0.09772 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.22056 0.0832 moveto
+0.22365 0.0781 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.22056 0.0832 moveto
+0.21546 0.09066 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.28491 0.08868 moveto
+0.29145 0.0781 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.28491 0.08868 moveto
+0.2786 0.09772 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.38562 0.09127 moveto
+0.39207 0.08344 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.38562 0.09127 moveto
+0.37973 0.09772 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.39479 0.08082 moveto
+0.39735 0.0781 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.39479 0.08082 moveto
+0.39207 0.08344 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.60265 0.0781 moveto
+0.60793 0.08344 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.62027 0.09772 moveto
+0.60793 0.08344 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.70855 0.0781 moveto
+0.71353 0.08559 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.7214 0.09772 moveto
+0.71353 0.08559 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.77635 0.0781 moveto
+0.78454 0.09066 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.78904 0.09772 moveto
+0.78454 0.09066 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.8306 0.0781 moveto
+0.84341 0.09726 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.84371 0.09772 moveto
+0.84341 0.09726 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.87714 0.0781 moveto
+0.88265 0.08612 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.89062 0.09772 moveto
+0.88265 0.08612 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91854 0.0781 moveto
+0.9219 0.0828 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91727 0.0781 moveto
+0.9219 0.08459 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.93256 0.09772 moveto
+0.9219 0.0828 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.93129 0.09772 moveto
+0.9219 0.08459 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.95616 0.0781 moveto
+0.96115 0.08481 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.97078 0.09772 moveto
+0.96115 0.08481 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.02499 0.10348 moveto
+0.02922 0.09772 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.02499 0.10348 moveto
+0.01923 0.11048 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.05528 0.11414 moveto
+0.05848 0.10968 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.05598 0.11485 moveto
+0.05848 0.11138 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.05528 0.11414 moveto
+0.0527 0.11735 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.05598 0.11485 moveto
+0.05398 0.11735 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.06375 0.10299 moveto
+0.06744 0.09772 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.0645 0.10374 moveto
+0.06871 0.09772 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.06375 0.10299 moveto
+0.05848 0.10968 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.0645 0.10374 moveto
+0.05848 0.11138 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.09633 0.11595 moveto
+0.09772 0.11392 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.09633 0.11595 moveto
+0.09526 0.11735 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.1047 0.1047 moveto
+0.10938 0.09772 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.1047 0.1047 moveto
+0.09772 0.11392 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.14871 0.10947 moveto
+0.15629 0.09772 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.14871 0.10947 moveto
+0.14296 0.11735 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.20518 0.10707 moveto
+0.21096 0.09772 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.20518 0.10707 moveto
+0.19797 0.11735 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.26929 0.1123 moveto
+0.27433 0.10409 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.26929 0.1123 moveto
+0.26577 0.11735 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.27696 0.10036 moveto
+0.2786 0.09772 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.27696 0.10036 moveto
+0.27433 0.10409 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.3677 0.11259 moveto
+0.37245 0.10617 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.3677 0.11259 moveto
+0.36376 0.11735 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.37647 0.10174 moveto
+0.37973 0.09772 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.37647 0.10174 moveto
+0.37245 0.10617 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.62027 0.09772 moveto
+0.62755 0.10617 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.63624 0.11735 moveto
+0.62755 0.10617 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.7214 0.09772 moveto
+0.72567 0.10409 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.73423 0.11735 moveto
+0.72567 0.10409 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.78904 0.09772 moveto
+0.79807 0.11125 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.80203 0.11735 moveto
+0.79807 0.11125 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.84371 0.09772 moveto
+0.8444 0.09872 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.85704 0.11735 moveto
+0.8444 0.09872 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.89062 0.09772 moveto
+0.90228 0.11392 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.90474 0.11735 moveto
+0.90228 0.11392 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.93256 0.09772 moveto
+0.94152 0.10968 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.93129 0.09772 moveto
+0.94152 0.11138 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.9473 0.11735 moveto
+0.94152 0.10968 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.94602 0.11735 moveto
+0.94152 0.11138 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.97078 0.09772 moveto
+0.98077 0.11048 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.03793 0.13605 moveto
+0.03885 0.13484 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.03863 0.13675 moveto
+0.03885 0.13645 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.03793 0.13605 moveto
+0.03715 0.13697 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.03863 0.13675 moveto
+0.03844 0.13697 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.04681 0.1253 moveto
+0.0527 0.11735 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.04754 0.12604 moveto
+0.05398 0.11735 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.04681 0.1253 moveto
+0.03885 0.13484 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.04754 0.12604 moveto
+0.03885 0.13645 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.08816 0.12741 moveto
+0.09526 0.11735 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.08816 0.12741 moveto
+0.08053 0.13697 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.13245 0.13245 moveto
+0.13697 0.12576 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.13245 0.13245 moveto
+0.129 0.13697 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.14058 0.12095 moveto
+0.14296 0.11735 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.14058 0.12095 moveto
+0.13697 0.12576 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.18942 0.13055 moveto
+0.19584 0.12048 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.18942 0.13055 moveto
+0.18476 0.13697 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.19715 0.11866 moveto
+0.19797 0.11735 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.19715 0.11866 moveto
+0.19584 0.12048 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.25351 0.13577 moveto
+0.25471 0.13384 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.25351 0.13577 moveto
+0.25266 0.13697 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.26154 0.12418 moveto
+0.26577 0.11735 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.26154 0.12418 moveto
+0.25471 0.13384 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.35052 0.13466 moveto
+0.35283 0.1313 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.35052 0.13466 moveto
+0.34872 0.13697 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.35914 0.12366 moveto
+0.36376 0.11735 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.35914 0.12366 moveto
+0.35283 0.1313 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.63624 0.11735 moveto
+0.64717 0.1313 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.65128 0.13697 moveto
+0.64717 0.1313 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.73423 0.11735 moveto
+0.74529 0.13384 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.74734 0.13697 moveto
+0.74529 0.13384 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.80203 0.11735 moveto
+0.80416 0.12048 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.81524 0.13697 moveto
+0.80416 0.12048 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.85704 0.11735 moveto
+0.86303 0.12576 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.871 0.13697 moveto
+0.86303 0.12576 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.90474 0.11735 moveto
+0.91243 0.1275 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91947 0.13697 moveto
+0.91243 0.1275 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.9473 0.11735 moveto
+0.96115 0.13484 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.94602 0.11735 moveto
+0.96115 0.13645 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.96285 0.13697 moveto
+0.96115 0.13484 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.96156 0.13697 moveto
+0.96115 0.13645 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.02926 0.147 moveto
+0.03715 0.13697 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.02999 0.14773 moveto
+0.03844 0.13697 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.02926 0.147 moveto
+0.02075 0.15659 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.02999 0.14773 moveto
+0.02212 0.15659 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.07104 0.14953 moveto
+0.0781 0.14007 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.07104 0.14953 moveto
+0.06506 0.15659 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.0795 0.13837 moveto
+0.08053 0.13697 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.0795 0.13837 moveto
+0.0781 0.14007 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.11567 0.15491 moveto
+0.11735 0.15255 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.11567 0.15491 moveto
+0.11431 0.15659 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.12422 0.14385 moveto
+0.129 0.13697 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.12422 0.14385 moveto
+0.11735 0.15255 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.17321 0.15359 moveto
+0.17622 0.14907 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.17321 0.15359 moveto
+0.17094 0.15659 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.18139 0.14214 moveto
+0.18476 0.13697 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.18139 0.14214 moveto
+0.17622 0.14907 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.24589 0.14777 moveto
+0.25266 0.13697 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.24589 0.14777 moveto
+0.23954 0.15659 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.34243 0.1462 moveto
+0.34872 0.13697 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.34243 0.1462 moveto
+0.33435 0.15659 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.65128 0.13697 moveto
+0.66268 0.15248 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.66565 0.15659 moveto
+0.66268 0.15248 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.74734 0.13697 moveto
+0.75171 0.14339 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.76046 0.15659 moveto
+0.75171 0.14339 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.81524 0.13697 moveto
+0.82378 0.14907 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.82906 0.15659 moveto
+0.82378 0.14907 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.871 0.13697 moveto
+0.88265 0.15255 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.88569 0.15659 moveto
+0.88265 0.15255 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91947 0.13697 moveto
+0.9219 0.14007 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.93494 0.15659 moveto
+0.9219 0.14007 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.96285 0.13697 moveto
+0.97179 0.14762 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.96156 0.13697 moveto
+0.96372 0.13954 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.97925 0.15659 moveto
+0.97179 0.14762 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.97788 0.15659 moveto
+0.96372 0.13954 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.02007 0.15743 moveto
+0.02075 0.15659 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.02082 0.15818 moveto
+0.02212 0.15659 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.02007 0.15743 moveto
+0.01923 0.15833 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.02082 0.15818 moveto
+0.01923 0.1599 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.0533 0.17104 moveto
+0.05848 0.16452 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.0533 0.17104 moveto
+0.04862 0.17622 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.06219 0.16031 moveto
+0.06506 0.15659 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.06219 0.16031 moveto
+0.05848 0.16452 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.10729 0.16616 moveto
+0.11431 0.15659 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.10729 0.16616 moveto
+0.09886 0.17622 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.15651 0.17613 moveto
+0.15659 0.17601 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.15651 0.17613 moveto
+0.15644 0.17622 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.16512 0.16512 moveto
+0.17094 0.15659 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.16512 0.16512 moveto
+0.15659 0.17601 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.22991 0.17104 moveto
+0.23509 0.16301 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.22991 0.17104 moveto
+0.22607 0.17622 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.23781 0.15931 moveto
+0.23954 0.15659 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.23781 0.15931 moveto
+0.23509 0.16301 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.32607 0.16909 moveto
+0.3332 0.15816 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.32607 0.16909 moveto
+0.32071 0.17622 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.33389 0.15728 moveto
+0.33435 0.15659 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.33389 0.15728 moveto
+0.3332 0.15816 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.66565 0.15659 moveto
+0.6668 0.15816 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.67929 0.17622 moveto
+0.6668 0.15816 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.76046 0.15659 moveto
+0.76491 0.16301 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.77393 0.17622 moveto
+0.76491 0.16301 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.82906 0.15659 moveto
+0.84341 0.17601 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.84356 0.17622 moveto
+0.84341 0.17601 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.88569 0.15659 moveto
+0.89717 0.17111 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.90114 0.17622 moveto
+0.89717 0.17111 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.93494 0.15659 moveto
+0.94152 0.16452 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.95138 0.17622 moveto
+0.94152 0.16452 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.97925 0.15659 moveto
+0.98077 0.15833 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.97788 0.15659 moveto
+0.98077 0.1599 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.0349 0.19188 moveto
+0.03885 0.18723 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.0349 0.19188 moveto
+0.03106 0.19584 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.0442 0.18157 moveto
+0.04862 0.17622 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.0442 0.18157 moveto
+0.03885 0.18723 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.08973 0.18784 moveto
+0.09772 0.1776 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.08973 0.18784 moveto
+0.08256 0.19584 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.09837 0.17686 moveto
+0.09886 0.17622 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.09837 0.17686 moveto
+0.09772 0.1776 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.1483 0.18754 moveto
+0.15644 0.17622 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.1483 0.18754 moveto
+0.14141 0.19584 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.21353 0.1939 moveto
+0.21546 0.19101 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.21353 0.1939 moveto
+0.21202 0.19584 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.22187 0.18262 moveto
+0.22607 0.17622 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.22187 0.18262 moveto
+0.21546 0.19101 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.30983 0.1921 moveto
+0.31358 0.18625 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.30983 0.1921 moveto
+0.30704 0.19584 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.3179 0.18054 moveto
+0.32071 0.17622 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.3179 0.18054 moveto
+0.31358 0.18625 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.67929 0.17622 moveto
+0.68642 0.18625 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.69296 0.19584 moveto
+0.68642 0.18625 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.77393 0.17622 moveto
+0.78454 0.19101 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.78798 0.19584 moveto
+0.78454 0.19101 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.84356 0.17622 moveto
+0.84409 0.1769 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.85859 0.19584 moveto
+0.84409 0.1769 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.90114 0.17622 moveto
+0.90228 0.1776 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91744 0.19584 moveto
+0.90228 0.1776 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.95138 0.17622 moveto
+0.96115 0.18723 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.96894 0.19584 moveto
+0.96115 0.18723 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.0255 0.20211 moveto
+0.03106 0.19584 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.0255 0.20211 moveto
+0.01923 0.20826 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.07148 0.20884 moveto
+0.0781 0.20092 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.07148 0.20884 moveto
+0.06509 0.21546 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.08056 0.1983 moveto
+0.08256 0.19584 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.08056 0.1983 moveto
+0.0781 0.20092 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.13084 0.20934 moveto
+0.13697 0.20133 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.13084 0.20934 moveto
+0.1254 0.21546 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.13952 0.19839 moveto
+0.14141 0.19584 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.13952 0.19839 moveto
+0.13697 0.20133 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.20544 0.20544 moveto
+0.21202 0.19584 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.20544 0.20544 moveto
+0.1974 0.21546 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.29353 0.21503 moveto
+0.29396 0.21437 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.29353 0.21503 moveto
+0.2932 0.21546 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.30193 0.20381 moveto
+0.30704 0.19584 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.30193 0.20381 moveto
+0.29396 0.21437 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.69296 0.19584 moveto
+0.70604 0.21437 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.7068 0.21546 moveto
+0.70604 0.21437 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.78798 0.19584 moveto
+0.79833 0.20963 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.8026 0.21546 moveto
+0.79833 0.20963 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.85859 0.19584 moveto
+0.86303 0.20133 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.8746 0.21546 moveto
+0.86303 0.20133 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91744 0.19584 moveto
+0.9219 0.20092 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.93491 0.21546 moveto
+0.9219 0.20092 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.96894 0.19584 moveto
+0.98077 0.20826 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.05248 0.22909 moveto
+0.05848 0.22246 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.05248 0.22909 moveto
+0.04622 0.23509 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.062 0.21899 moveto
+0.06509 0.21546 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.062 0.21899 moveto
+0.05848 0.22246 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.1127 0.23043 moveto
+0.11735 0.22478 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.1127 0.23043 moveto
+0.10824 0.23509 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.12183 0.21995 moveto
+0.1254 0.21546 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.12183 0.21995 moveto
+0.11735 0.22478 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.18843 0.22768 moveto
+0.19584 0.21747 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.18843 0.22768 moveto
+0.18211 0.23509 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.19675 0.21638 moveto
+0.1974 0.21546 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.19675 0.21638 moveto
+0.19584 0.21747 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.28578 0.22691 moveto
+0.2932 0.21546 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.28578 0.22691 moveto
+0.27949 0.23509 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.7068 0.21546 moveto
+0.7087 0.21812 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.72051 0.23509 moveto
+0.7087 0.21812 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.8026 0.21546 moveto
+0.80416 0.21747 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.81789 0.23509 moveto
+0.80416 0.21747 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.8746 0.21546 moveto
+0.88265 0.22478 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.89176 0.23509 moveto
+0.88265 0.22478 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.93491 0.21546 moveto
+0.94152 0.22246 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.95378 0.23509 moveto
+0.94152 0.22246 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.03269 0.24855 moveto
+0.03885 0.24228 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.03269 0.24855 moveto
+0.02567 0.25471 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.04263 0.23886 moveto
+0.04622 0.23509 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.04263 0.23886 moveto
+0.03885 0.24228 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.09379 0.25077 moveto
+0.09772 0.24635 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.09379 0.25077 moveto
+0.08969 0.25471 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.10338 0.24074 moveto
+0.10824 0.23509 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.10338 0.24074 moveto
+0.09772 0.24635 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.17076 0.24925 moveto
+0.17622 0.24223 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.17076 0.24925 moveto
+0.16575 0.25471 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.17958 0.23845 moveto
+0.18211 0.23509 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.17958 0.23845 moveto
+0.17622 0.24223 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.26931 0.24968 moveto
+0.27433 0.24216 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.26931 0.24968 moveto
+0.26528 0.25471 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.27745 0.2382 moveto
+0.27949 0.23509 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.27745 0.2382 moveto
+0.27433 0.24216 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.72051 0.23509 moveto
+0.72567 0.24216 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.73472 0.25471 moveto
+0.72567 0.24216 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.81789 0.23509 moveto
+0.82378 0.24223 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.83425 0.25471 moveto
+0.82378 0.24223 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.89176 0.23509 moveto
+0.90228 0.24635 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91031 0.25471 moveto
+0.90228 0.24635 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.96115 0.24228 moveto
+0.95378 0.23509 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.96115 0.24228 moveto
+0.97433 0.25471 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.02238 0.25786 moveto
+0.02567 0.25471 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.02238 0.25786 moveto
+0.01923 0.26045 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.07404 0.27028 moveto
+0.0781 0.2661 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.07404 0.27028 moveto
+0.06941 0.27433 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.08408 0.26069 moveto
+0.08969 0.25471 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.08408 0.26069 moveto
+0.0781 0.2661 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.15233 0.27007 moveto
+0.15659 0.265 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.15233 0.27007 moveto
+0.14807 0.27433 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.16165 0.25977 moveto
+0.16575 0.25471 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.16165 0.25977 moveto
+0.15659 0.265 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.25235 0.27197 moveto
+0.25471 0.2686 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.25235 0.27197 moveto
+0.25034 0.27433 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.261 0.261 moveto
+0.26528 0.25471 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.261 0.261 moveto
+0.25471 0.2686 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.48567 0.26982 moveto
+0.49019 0.26825 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.48567 0.26982 moveto
+0.47109 0.27433 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.50373 0.26825 moveto
+0.50981 0.26825 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.49019 0.26825 moveto
+0.50373 0.26825 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.50981 0.26825 moveto
+0.52891 0.27433 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.73472 0.25471 moveto
+0.74529 0.2686 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.74966 0.27433 moveto
+0.74529 0.2686 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.83425 0.25471 moveto
+0.84341 0.265 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.85193 0.27433 moveto
+0.84341 0.265 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.9219 0.2661 moveto
+0.91031 0.25471 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.9219 0.2661 moveto
+0.93059 0.27433 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.98077 0.26045 moveto
+0.97433 0.25471 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.05339 0.28886 moveto
+0.05848 0.2841 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.05339 0.28886 moveto
+0.04693 0.29396 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.06386 0.27971 moveto
+0.06941 0.27433 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.06386 0.27971 moveto
+0.05848 0.2841 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.13304 0.29003 moveto
+0.13697 0.28576 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.13304 0.29003 moveto
+0.12871 0.29396 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.14286 0.28022 moveto
+0.14807 0.27433 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.14286 0.28022 moveto
+0.13697 0.28576 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.23475 0.29362 moveto
+0.23509 0.29318 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.23475 0.29362 moveto
+0.23444 0.29396 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.24394 0.28319 moveto
+0.25034 0.27433 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.24394 0.28319 moveto
+0.23509 0.29318 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.44813 0.29114 moveto
+0.45094 0.2882 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.44813 0.29114 moveto
+0.44492 0.29396 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.45942 0.28281 moveto
+0.47057 0.27453 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.45942 0.28281 moveto
+0.45094 0.2882 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.47071 0.27448 moveto
+0.47109 0.27433 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.47071 0.27448 moveto
+0.47057 0.27453 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.52943 0.27453 moveto
+0.52891 0.27433 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.54906 0.2882 moveto
+0.53004 0.27494 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.52943 0.27453 moveto
+0.53004 0.27494 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.54906 0.2882 moveto
+0.55508 0.29396 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.74966 0.27433 moveto
+0.76491 0.29318 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.76556 0.29396 moveto
+0.76491 0.29318 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.85193 0.27433 moveto
+0.86303 0.28576 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.86303 0.28576 moveto
+0.87129 0.29396 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.94152 0.2841 moveto
+0.93059 0.27433 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.94152 0.2841 moveto
+0.95307 0.29396 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.03173 0.30645 moveto
+0.03885 0.30046 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.03173 0.30645 moveto
+0.0216 0.31358 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.04262 0.29772 moveto
+0.04693 0.29396 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.04262 0.29772 moveto
+0.03885 0.30046 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.1128 0.30903 moveto
+0.11735 0.30456 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.1128 0.30903 moveto
+0.10719 0.31358 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.1231 0.29971 moveto
+0.12871 0.29396 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.1231 0.29971 moveto
+0.11735 0.30456 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.22612 0.30461 moveto
+0.23444 0.29396 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.22612 0.30461 moveto
+0.21743 0.31358 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.42912 0.31139 moveto
+0.43132 0.3083 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.42912 0.31139 moveto
+0.42717 0.31358 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.43866 0.3013 moveto
+0.44492 0.29396 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.43866 0.3013 moveto
+0.43132 0.3083 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.55508 0.29396 moveto
+0.56868 0.3083 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.57283 0.31358 moveto
+0.56868 0.3083 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.76556 0.29396 moveto
+0.77011 0.29916 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.78257 0.31358 moveto
+0.77011 0.29916 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.88265 0.30456 moveto
+0.87129 0.29396 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.88265 0.30456 moveto
+0.89281 0.31358 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.96115 0.30046 moveto
+0.95307 0.29396 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.96115 0.30046 moveto
+0.9784 0.31358 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.02027 0.31462 moveto
+0.0216 0.31358 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.02027 0.31462 moveto
+0.01923 0.31528 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.09148 0.32695 moveto
+0.09772 0.32148 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.09148 0.32695 moveto
+0.08277 0.3332 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.10225 0.3181 moveto
+0.10719 0.31358 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.10225 0.3181 moveto
+0.09772 0.32148 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.20737 0.32511 moveto
+0.21546 0.31571 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.20737 0.32511 moveto
+0.19863 0.3332 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.21655 0.31466 moveto
+0.21743 0.31358 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.21655 0.31466 moveto
+0.21546 0.31571 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.42122 0.3231 moveto
+0.42717 0.31358 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.42122 0.3231 moveto
+0.41298 0.3332 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.57283 0.31358 moveto
+0.58404 0.32894 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.58702 0.3332 moveto
+0.58404 0.32894 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.78257 0.31358 moveto
+0.78454 0.31571 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.80137 0.3332 moveto
+0.78454 0.31571 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.90228 0.32148 moveto
+0.89281 0.31358 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.90228 0.32148 moveto
+0.91723 0.3332 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.98077 0.31528 moveto
+0.9784 0.31358 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.05698 0.35133 moveto
+0.05848 0.35022 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.05698 0.35133 moveto
+0.05448 0.35283 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.06896 0.34368 moveto
+0.0781 0.33664 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.06896 0.34368 moveto
+0.05848 0.35022 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.08018 0.33529 moveto
+0.08277 0.3332 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.08018 0.33529 moveto
+0.0781 0.33664 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.18752 0.3445 moveto
+0.19584 0.3359 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.18752 0.3445 moveto
+0.17728 0.35283 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.19729 0.33466 moveto
+0.19863 0.3332 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.19729 0.33466 moveto
+0.19584 0.3359 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.40576 0.34689 moveto
+0.4117 0.33523 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.40576 0.34689 moveto
+0.40156 0.35283 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.41254 0.33405 moveto
+0.41298 0.3332 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.41254 0.33405 moveto
+0.4117 0.33523 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.58702 0.3332 moveto
+0.5883 0.33523 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.59844 0.35283 moveto
+0.5883 0.33523 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.80416 0.3359 moveto
+0.80137 0.3332 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.80416 0.3359 moveto
+0.82272 0.35283 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.9219 0.33664 moveto
+0.91723 0.3332 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.94152 0.35022 moveto
+0.93264 0.34394 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.9219 0.33664 moveto
+0.93264 0.34394 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.94152 0.35022 moveto
+0.94552 0.35283 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.03273 0.36632 moveto
+0.03885 0.3624 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.03273 0.36632 moveto
+0.02072 0.37245 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.04511 0.35908 moveto
+0.05448 0.35283 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.04511 0.35908 moveto
+0.03885 0.3624 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.15496 0.37081 moveto
+0.15659 0.36942 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.15496 0.37081 moveto
+0.15249 0.37245 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.16637 0.3626 moveto
+0.17622 0.35373 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.16637 0.3626 moveto
+0.15659 0.36942 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.17674 0.35334 moveto
+0.17728 0.35283 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.17674 0.35334 moveto
+0.17622 0.35373 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.39136 0.37174 moveto
+0.39207 0.37019 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.39136 0.37174 moveto
+0.39088 0.37245 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.39878 0.35954 moveto
+0.40156 0.35283 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.39878 0.35954 moveto
+0.39207 0.37019 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.59844 0.35283 moveto
+0.60793 0.37019 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.60912 0.37245 moveto
+0.60793 0.37019 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.82378 0.35373 moveto
+0.82272 0.35283 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.84341 0.36942 moveto
+0.82789 0.35694 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.82378 0.35373 moveto
+0.82789 0.35694 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.84341 0.36942 moveto
+0.84751 0.37245 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.96115 0.3624 moveto
+0.94552 0.35283 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.96115 0.3624 moveto
+0.97928 0.37245 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.01977 0.37299 moveto
+0.02072 0.37245 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.01977 0.37299 moveto
+0.01923 0.37323 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.13177 0.38687 moveto
+0.13697 0.3831 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.13177 0.38687 moveto
+0.12235 0.39207 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.14371 0.37919 moveto
+0.15249 0.37245 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.14371 0.37919 moveto
+0.13697 0.3831 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.38592 0.38592 moveto
+0.39088 0.37245 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.38592 0.38592 moveto
+0.38213 0.39207 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.60912 0.37245 moveto
+0.61041 0.37493 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.61787 0.39207 moveto
+0.61041 0.37493 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.86303 0.3831 moveto
+0.84751 0.37245 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.86303 0.3831 moveto
+0.87765 0.39207 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.98077 0.37323 moveto
+0.97928 0.37245 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.09362 0.4076 moveto
+0.09772 0.40527 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.09362 0.4076 moveto
+0.0839 0.4117 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.10687 0.40122 moveto
+0.11735 0.39493 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.10687 0.40122 moveto
+0.09772 0.40527 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.11929 0.39402 moveto
+0.12235 0.39207 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.11929 0.39402 moveto
+0.11735 0.39493 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.3802 0.39982 moveto
+0.38213 0.39207 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.3802 0.39982 moveto
+0.37394 0.4117 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.61787 0.39207 moveto
+0.62541 0.40956 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.62606 0.4117 moveto
+0.62541 0.40956 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.88265 0.39493 moveto
+0.87765 0.39207 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.90228 0.40527 moveto
+0.88826 0.39768 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.88265 0.39493 moveto
+0.88826 0.39768 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.90228 0.40527 moveto
+0.9161 0.4117 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.03713 0.42959 moveto
+0.03885 0.42888 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.03713 0.42959 moveto
+0.03122 0.43132 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.05201 0.42485 moveto
+0.05848 0.42207 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.05201 0.42485 moveto
+0.03885 0.42888 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.06633 0.41955 moveto
+0.0781 0.41421 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.06633 0.41955 moveto
+0.05848 0.42207 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.07998 0.41357 moveto
+0.0839 0.4117 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.07998 0.41357 moveto
+0.0781 0.41421 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.36944 0.42831 moveto
+0.37245 0.41664 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.36944 0.42831 moveto
+0.36759 0.43132 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.37383 0.41307 moveto
+0.37394 0.4117 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.37383 0.41307 moveto
+0.37245 0.41664 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.62606 0.4117 moveto
+0.62755 0.41664 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.63241 0.43132 moveto
+0.62755 0.41664 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.9219 0.41421 moveto
+0.9161 0.4117 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.94152 0.42207 moveto
+0.92578 0.41558 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.9219 0.41421 moveto
+0.92578 0.41558 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.96115 0.42888 moveto
+0.95713 0.4273 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.94152 0.42207 moveto
+0.95713 0.4273 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.96115 0.42888 moveto
+0.96878 0.43132 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.02218 0.43427 moveto
+0.03122 0.43132 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.02218 0.43427 moveto
+0.01923 0.4349 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.36649 0.44498 moveto
+0.36759 0.43132 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.36649 0.44498 moveto
+0.36342 0.45094 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.63241 0.43132 moveto
+0.63522 0.43899 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.63658 0.45094 moveto
+0.63522 0.43899 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.98077 0.4349 moveto
+0.96878 0.43132 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.36342 0.45094 moveto
+0.36671 0.46482 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.36671 0.46482 moveto
+0.36514 0.47057 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.63658 0.45094 moveto
+0.63834 0.46173 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.63834 0.46173 moveto
+0.63486 0.47057 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.36514 0.47057 moveto
+0.37245 0.47804 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.39207 0.48614 moveto
+0.383 0.48112 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.37245 0.47804 moveto
+0.383 0.48112 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.4117 0.4894 moveto
+0.41047 0.48897 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.39207 0.48614 moveto
+0.41047 0.48897 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.4117 0.4894 moveto
+0.42011 0.49019 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.58769 0.48957 moveto
+0.5883 0.4894 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.58769 0.48957 moveto
+0.57989 0.49019 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.60516 0.48742 moveto
+0.60793 0.48614 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.60516 0.48742 moveto
+0.5883 0.4894 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.62108 0.48371 moveto
+0.62755 0.47804 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.62108 0.48371 moveto
+0.60793 0.48614 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.63312 0.47614 moveto
+0.63486 0.47057 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.63312 0.47614 moveto
+0.62755 0.47804 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.03065 0.50161 moveto
+0.03885 0.5012 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.01923 0.50109 moveto
+0.03065 0.50161 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.05042 0.50175 moveto
+0.05848 0.50132 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.03885 0.5012 moveto
+0.05042 0.50175 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.07021 0.50192 moveto
+0.0781 0.50147 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.05848 0.50132 moveto
+0.07021 0.50192 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.09003 0.50212 moveto
+0.09772 0.50165 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.0781 0.50147 moveto
+0.09003 0.50212 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.10989 0.50236 moveto
+0.11735 0.50187 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.09772 0.50165 moveto
+0.10989 0.50236 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.12981 0.50265 moveto
+0.13697 0.50214 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.11735 0.50187 moveto
+0.12981 0.50265 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.14978 0.503 moveto
+0.15659 0.50247 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.13697 0.50214 moveto
+0.14978 0.503 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.16985 0.50344 moveto
+0.17622 0.5029 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.15659 0.50247 moveto
+0.16985 0.50344 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.19005 0.50402 moveto
+0.19584 0.50346 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.17622 0.5029 moveto
+0.19005 0.50402 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.21043 0.50478 moveto
+0.21546 0.50422 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.19584 0.50346 moveto
+0.21043 0.50478 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.23112 0.50584 moveto
+0.23509 0.50533 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.21546 0.50422 moveto
+0.23112 0.50584 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.25231 0.50742 moveto
+0.25471 0.50703 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.23509 0.50533 moveto
+0.25231 0.50742 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.25471 0.50703 moveto
+0.27352 0.50981 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.43132 0.4909 moveto
+0.42011 0.49019 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.45094 0.4917 moveto
+0.432 0.49087 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.432 0.49087 moveto
+0.43132 0.4909 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.47057 0.49215 moveto
+0.45241 0.49165 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.45241 0.49165 moveto
+0.45094 0.4917 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.49019 0.49236 moveto
+0.4725 0.49213 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.4725 0.49213 moveto
+0.47057 0.49215 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.50981 0.49236 moveto
+0.49236 0.49236 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.49236 0.49236 moveto
+0.49019 0.49236 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.51202 0.49239 moveto
+0.52943 0.49215 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.50981 0.49236 moveto
+0.51202 0.49239 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.53145 0.49221 moveto
+0.54906 0.4917 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.52943 0.49215 moveto
+0.53145 0.49221 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.55063 0.49177 moveto
+0.56868 0.4909 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.54906 0.4917 moveto
+0.55063 0.49177 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.56944 0.49095 moveto
+0.57989 0.49019 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.56868 0.4909 moveto
+0.56944 0.49095 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.74529 0.50703 moveto
+0.74203 0.50655 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.74203 0.50655 moveto
+0.72648 0.50981 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.76491 0.50533 moveto
+0.75981 0.50471 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.75981 0.50471 moveto
+0.74529 0.50703 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.78454 0.50422 moveto
+0.7783 0.50358 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.7783 0.50358 moveto
+0.76491 0.50533 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.80416 0.50346 moveto
+0.79717 0.50282 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.79717 0.50282 moveto
+0.78454 0.50422 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.82378 0.5029 moveto
+0.81626 0.50229 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.81626 0.50229 moveto
+0.80416 0.50346 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.84341 0.50247 moveto
+0.83548 0.50189 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.83548 0.50189 moveto
+0.82378 0.5029 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.86303 0.50214 moveto
+0.8548 0.50158 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.8548 0.50158 moveto
+0.84341 0.50247 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.88265 0.50187 moveto
+0.87419 0.50134 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.87419 0.50134 moveto
+0.86303 0.50214 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.90228 0.50165 moveto
+0.89362 0.50115 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.89362 0.50115 moveto
+0.88265 0.50187 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.9219 0.50147 moveto
+0.91308 0.501 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91308 0.501 moveto
+0.90228 0.50165 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.94152 0.50132 moveto
+0.93258 0.50087 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.93258 0.50087 moveto
+0.9219 0.50147 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.96115 0.5012 moveto
+0.95209 0.50076 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.95209 0.50076 moveto
+0.94152 0.50132 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.98077 0.50109 moveto
+0.97163 0.50067 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.97163 0.50067 moveto
+0.96115 0.5012 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.27433 0.51003 moveto
+0.27352 0.50981 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.29396 0.51963 moveto
+0.27515 0.51062 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.27433 0.51003 moveto
+0.27515 0.51062 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.30146 0.52943 moveto
+0.29396 0.51963 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.69922 0.52261 moveto
+0.70604 0.51963 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.69922 0.52261 moveto
+0.69854 0.52943 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.71007 0.51384 moveto
+0.72567 0.51003 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.71007 0.51384 moveto
+0.70604 0.51963 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.72579 0.50993 moveto
+0.72648 0.50981 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.72579 0.50993 moveto
+0.72567 0.51003 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.29969 0.53517 moveto
+0.30146 0.52943 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.30267 0.54906 moveto
+0.29969 0.53517 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.69535 0.53836 moveto
+0.69854 0.52943 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.69733 0.54906 moveto
+0.69535 0.53836 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.30004 0.55515 moveto
+0.30267 0.54906 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.30004 0.55515 moveto
+0.29975 0.56868 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.69733 0.54906 moveto
+0.69768 0.56032 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.70025 0.56868 moveto
+0.69768 0.56032 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.03885 0.58108 moveto
+0.02697 0.57642 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.01923 0.57291 moveto
+0.02697 0.57642 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.03885 0.58108 moveto
+0.0538 0.5883 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.29786 0.57259 moveto
+0.29975 0.56868 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.29786 0.57259 moveto
+0.29546 0.5883 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.70025 0.56868 moveto
+0.70364 0.5859 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.70454 0.5883 moveto
+0.70364 0.5859 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.9559 0.58306 moveto
+0.96115 0.58108 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.9559 0.58306 moveto
+0.9462 0.5883 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.96939 0.57692 moveto
+0.98077 0.57291 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.96939 0.57692 moveto
+0.96115 0.58108 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.05848 0.59092 moveto
+0.0538 0.5883 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.0781 0.6032 moveto
+0.06605 0.59588 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.05848 0.59092 moveto
+0.06605 0.59588 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.0781 0.6032 moveto
+0.08478 0.60793 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.29095 0.60492 moveto
+0.29396 0.59349 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.29095 0.60492 moveto
+0.29085 0.60793 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.29495 0.5893 moveto
+0.29546 0.5883 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.29495 0.5893 moveto
+0.29396 0.59349 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.70454 0.5883 moveto
+0.70604 0.59349 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.70915 0.60793 moveto
+0.70604 0.59349 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91891 0.60493 moveto
+0.9219 0.6032 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91891 0.60493 moveto
+0.91522 0.60793 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.93045 0.59685 moveto
+0.94152 0.59092 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.93045 0.59685 moveto
+0.9219 0.6032 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.94308 0.58986 moveto
+0.9462 0.5883 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.94308 0.58986 moveto
+0.94152 0.59092 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.09772 0.61894 moveto
+0.08478 0.60793 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.09772 0.61894 moveto
+0.10673 0.62755 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.28688 0.62048 moveto
+0.29085 0.60793 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.28688 0.62048 moveto
+0.28607 0.62755 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.70915 0.60793 moveto
+0.70963 0.61152 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.71393 0.62755 moveto
+0.70963 0.61152 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.89752 0.62279 moveto
+0.90228 0.61894 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.89752 0.62279 moveto
+0.89327 0.62755 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.90777 0.61342 moveto
+0.91522 0.60793 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.90777 0.61342 moveto
+0.90228 0.61894 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.10673 0.62755 moveto
+0.11735 0.64013 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.12277 0.64717 moveto
+0.11735 0.64013 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.28301 0.63623 moveto
+0.28607 0.62755 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.28301 0.63623 moveto
+0.28112 0.64717 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.71393 0.62755 moveto
+0.71589 0.6374 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.71888 0.64717 moveto
+0.71589 0.6374 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.87934 0.64386 moveto
+0.88265 0.64013 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.87934 0.64386 moveto
+0.87723 0.64717 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.88797 0.63287 moveto
+0.89327 0.62755 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.88797 0.63287 moveto
+0.88265 0.64013 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.01923 0.6522 moveto
+0.03451 0.6668 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.12277 0.64717 moveto
+0.1307 0.66052 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.13472 0.6668 moveto
+0.1307 0.66052 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.27925 0.65209 moveto
+0.28112 0.64717 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.27925 0.65209 moveto
+0.27604 0.6668 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.71888 0.64717 moveto
+0.7231 0.66423 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.72396 0.6668 moveto
+0.7231 0.66423 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.87125 0.6554 moveto
+0.87723 0.64717 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.87125 0.6554 moveto
+0.86528 0.6668 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.97285 0.65888 moveto
+0.98077 0.6522 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.97285 0.65888 moveto
+0.96549 0.6668 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.03451 0.6668 moveto
+0.03885 0.67162 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.05128 0.68642 moveto
+0.03885 0.67162 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.13472 0.6668 moveto
+0.13697 0.67142 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.14385 0.68642 moveto
+0.13697 0.67142 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.27153 0.68361 moveto
+0.27433 0.67281 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.27153 0.68361 moveto
+0.27117 0.68642 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.27555 0.66801 moveto
+0.27604 0.6668 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.27555 0.66801 moveto
+0.27433 0.67281 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.72396 0.6668 moveto
+0.72567 0.67281 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.72883 0.68642 moveto
+0.72567 0.67281 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.85795 0.68134 moveto
+0.86303 0.67142 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.85795 0.68134 moveto
+0.85615 0.68642 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.86443 0.6682 moveto
+0.86528 0.6668 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.86443 0.6682 moveto
+0.86303 0.67142 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.95398 0.67926 moveto
+0.96115 0.67162 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.95398 0.67926 moveto
+0.94872 0.68642 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.9633 0.66895 moveto
+0.96549 0.6668 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.9633 0.66895 moveto
+0.96115 0.67162 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.05128 0.68642 moveto
+0.05848 0.69661 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.06478 0.70604 moveto
+0.05848 0.69661 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.14385 0.68642 moveto
+0.14706 0.69651 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.15071 0.70604 moveto
+0.14706 0.69651 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.2675 0.69922 moveto
+0.27117 0.68642 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.2675 0.69922 moveto
+0.26639 0.70604 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.72883 0.68642 moveto
+0.72953 0.69029 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.73361 0.70604 moveto
+0.72953 0.69029 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.85236 0.69537 moveto
+0.85615 0.68642 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.85236 0.69537 moveto
+0.84929 0.70604 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.93752 0.70204 moveto
+0.94152 0.69661 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.93752 0.70204 moveto
+0.93522 0.70604 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.9455 0.69039 moveto
+0.94872 0.68642 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.9455 0.69039 moveto
+0.94152 0.69661 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.06478 0.70604 moveto
+0.07238 0.71994 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.07573 0.72567 moveto
+0.07238 0.71994 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.15071 0.70604 moveto
+0.15542 0.72449 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.15579 0.72567 moveto
+0.15542 0.72449 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.26364 0.71497 moveto
+0.26639 0.70604 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.26364 0.71497 moveto
+0.26156 0.72567 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.73361 0.70604 moveto
+0.73576 0.71613 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.73844 0.72567 moveto
+0.73576 0.71613 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.84776 0.7104 moveto
+0.84929 0.70604 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.84776 0.7104 moveto
+0.84421 0.72567 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.93001 0.71416 moveto
+0.93522 0.70604 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.93001 0.71416 moveto
+0.92427 0.72567 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.02138 0.74529 moveto
+0.01923 0.74187 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.07573 0.72567 moveto
+0.0781 0.73066 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.08479 0.74529 moveto
+0.0781 0.73066 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.15579 0.72567 moveto
+0.15659 0.72959 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.1597 0.74529 moveto
+0.15659 0.72959 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.25988 0.73084 moveto
+0.26156 0.72567 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.25988 0.73084 moveto
+0.25671 0.74529 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.45052 0.74487 moveto
+0.45094 0.74474 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.45052 0.74487 moveto
+0.44934 0.74529 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.46642 0.74115 moveto
+0.47057 0.74028 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.46642 0.74115 moveto
+0.45094 0.74474 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.48369 0.73879 moveto
+0.49019 0.73811 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.48369 0.73879 moveto
+0.47057 0.74028 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.50264 0.73811 moveto
+0.50981 0.73811 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.50264 0.73811 moveto
+0.49019 0.73811 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.52943 0.74028 moveto
+0.52384 0.7397 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.50981 0.73811 moveto
+0.52384 0.7397 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.54906 0.74474 moveto
+0.54835 0.74458 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.52943 0.74028 moveto
+0.54835 0.74458 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.54906 0.74474 moveto
+0.55066 0.74529 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.73844 0.72567 moveto
+0.74243 0.74243 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.74329 0.74529 moveto
+0.74243 0.74243 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.84062 0.74251 moveto
+0.84341 0.72959 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.84062 0.74251 moveto
+0.8403 0.74529 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.84403 0.72629 moveto
+0.84421 0.72567 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.84403 0.72629 moveto
+0.84341 0.72959 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91704 0.74043 moveto
+0.9219 0.73066 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91704 0.74043 moveto
+0.91521 0.74529 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.92342 0.72718 moveto
+0.92427 0.72567 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.92342 0.72718 moveto
+0.9219 0.73066 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.97938 0.7439 moveto
+0.98077 0.74187 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.97938 0.7439 moveto
+0.97862 0.74529 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.02138 0.74529 moveto
+0.02381 0.74987 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.03231 0.76491 moveto
+0.02381 0.74987 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.08479 0.74529 moveto
+0.08847 0.75566 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.09219 0.76491 moveto
+0.08847 0.75566 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.1597 0.74529 moveto
+0.16001 0.74871 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.16255 0.76491 moveto
+0.16001 0.74871 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.2524 0.76261 moveto
+0.25471 0.75299 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.2524 0.76261 moveto
+0.25206 0.76491 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.2562 0.74679 moveto
+0.25671 0.74529 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.2562 0.74679 moveto
+0.25471 0.75299 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.40908 0.7623 moveto
+0.4117 0.76078 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.40908 0.7623 moveto
+0.40513 0.76491 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.42199 0.75558 moveto
+0.43132 0.75138 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.42199 0.75558 moveto
+0.4117 0.76078 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.43578 0.74975 moveto
+0.44934 0.74529 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.43578 0.74975 moveto
+0.43132 0.75138 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.56868 0.75138 moveto
+0.55066 0.74529 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.5883 0.76078 moveto
+0.58054 0.75715 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.56868 0.75138 moveto
+0.58054 0.75715 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.5883 0.76078 moveto
+0.59487 0.76491 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.74329 0.74529 moveto
+0.74529 0.75299 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.74794 0.76491 moveto
+0.74529 0.75299 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.8379 0.75941 moveto
+0.8403 0.74529 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.8379 0.75941 moveto
+0.83745 0.76491 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91129 0.75431 moveto
+0.91521 0.74529 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91129 0.75431 moveto
+0.90781 0.76491 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.972 0.75614 moveto
+0.97862 0.74529 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.972 0.75614 moveto
+0.96769 0.76491 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.03231 0.76491 moveto
+0.03885 0.77879 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.04149 0.78454 moveto
+0.03885 0.77879 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.09219 0.76491 moveto
+0.09772 0.78298 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.09819 0.78454 moveto
+0.09772 0.78298 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.16255 0.76491 moveto
+0.1629 0.77122 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.16452 0.78454 moveto
+0.1629 0.77122 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.24859 0.77841 moveto
+0.25206 0.76491 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.24859 0.77841 moveto
+0.24754 0.78454 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.38551 0.77798 moveto
+0.39207 0.77307 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.38551 0.77798 moveto
+0.37782 0.78454 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.39695 0.76979 moveto
+0.40513 0.76491 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.39695 0.76979 moveto
+0.39207 0.77307 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.60793 0.77307 moveto
+0.59487 0.76491 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.60793 0.77307 moveto
+0.62218 0.78454 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.74794 0.76491 moveto
+0.74853 0.76816 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.75246 0.78454 moveto
+0.74853 0.76816 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.83588 0.77701 moveto
+0.83745 0.76491 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.83588 0.77701 moveto
+0.83548 0.78454 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.9019 0.78416 moveto
+0.90228 0.78298 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.9019 0.78416 moveto
+0.90181 0.78454 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.90629 0.76892 moveto
+0.90781 0.76491 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.90629 0.76892 moveto
+0.90228 0.78298 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.95925 0.78264 moveto
+0.96115 0.77879 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.95925 0.78264 moveto
+0.95851 0.78454 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.96538 0.76915 moveto
+0.96769 0.76491 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.96538 0.76915 moveto
+0.96115 0.77879 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.04149 0.78454 moveto
+0.04304 0.78872 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.04939 0.80416 moveto
+0.04304 0.78872 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.09819 0.78454 moveto
+0.09831 0.78513 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.10327 0.80416 moveto
+0.09831 0.78513 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.16452 0.78454 moveto
+0.16474 0.79268 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.16577 0.80416 moveto
+0.16474 0.79268 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.24488 0.79433 moveto
+0.24754 0.78454 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.24488 0.79433 moveto
+0.24301 0.80416 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.36455 0.79626 moveto
+0.37245 0.78885 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.36455 0.79626 moveto
+0.35717 0.80416 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.37477 0.78686 moveto
+0.37782 0.78454 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.37477 0.78686 moveto
+0.37245 0.78885 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.62755 0.78885 moveto
+0.62218 0.78454 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.64283 0.80416 moveto
+0.62755 0.78885 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.75246 0.78454 moveto
+0.75428 0.79353 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.75699 0.80416 moveto
+0.75428 0.79353 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.83446 0.79521 moveto
+0.83548 0.78454 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.83446 0.79521 moveto
+0.83423 0.80416 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.89764 0.79952 moveto
+0.90181 0.78454 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.89764 0.79952 moveto
+0.89673 0.80416 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.95332 0.79634 moveto
+0.95851 0.78454 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.95332 0.79634 moveto
+0.95061 0.80416 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.04939 0.80416 moveto
+0.05458 0.81989 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.05603 0.82378 moveto
+0.05458 0.81989 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.10327 0.80416 moveto
+0.10446 0.81089 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.10737 0.82378 moveto
+0.10446 0.81089 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.16577 0.80416 moveto
+0.16579 0.81336 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.16645 0.82378 moveto
+0.16579 0.81336 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.24126 0.81033 moveto
+0.24301 0.80416 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.24126 0.81033 moveto
+0.23847 0.82378 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.34576 0.81671 moveto
+0.35283 0.80855 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.34576 0.81671 moveto
+0.34043 0.82378 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.35494 0.80628 moveto
+0.35717 0.80416 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.35494 0.80628 moveto
+0.35283 0.80855 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.64283 0.80416 moveto
+0.64717 0.80855 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.65957 0.82378 moveto
+0.64717 0.80855 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.75699 0.80416 moveto
+0.76029 0.81916 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.76153 0.82378 moveto
+0.76029 0.81916 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.83357 0.81395 moveto
+0.83423 0.80416 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.83357 0.81395 moveto
+0.83355 0.82378 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.894 0.81551 moveto
+0.89673 0.80416 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.894 0.81551 moveto
+0.89263 0.82378 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.94804 0.81067 moveto
+0.95061 0.80416 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.94804 0.81067 moveto
+0.94397 0.82378 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.05603 0.82378 moveto
+0.05848 0.83213 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.06174 0.84341 moveto
+0.05848 0.83213 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.10737 0.82378 moveto
+0.10903 0.83509 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.11066 0.84341 moveto
+0.10903 0.83509 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.16626 0.83345 moveto
+0.16645 0.82378 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.16664 0.84341 moveto
+0.16626 0.83345 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.23414 0.84246 moveto
+0.23509 0.83816 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.23414 0.84246 moveto
+0.234 0.84341 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.2377 0.8264 moveto
+0.23847 0.82378 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.2377 0.8264 moveto
+0.23509 0.83816 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.32881 0.83901 moveto
+0.3332 0.83283 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.32881 0.83901 moveto
+0.32612 0.84341 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.33709 0.82767 moveto
+0.34043 0.82378 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.33709 0.82767 moveto
+0.3332 0.83283 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.65957 0.82378 moveto
+0.6668 0.83283 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.67388 0.84341 moveto
+0.6668 0.83283 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.76153 0.82378 moveto
+0.76491 0.83816 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.766 0.84341 moveto
+0.76491 0.83816 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.83317 0.83317 moveto
+0.83355 0.82378 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.83336 0.84341 moveto
+0.83317 0.83317 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.89091 0.83204 moveto
+0.89263 0.82378 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.89091 0.83204 moveto
+0.88934 0.84341 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.93887 0.84076 moveto
+0.94152 0.83213 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.93887 0.84076 moveto
+0.93826 0.84341 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.94333 0.82559 moveto
+0.94397 0.82378 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.94333 0.82559 moveto
+0.94152 0.83213 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.06174 0.84341 moveto
+0.06265 0.84758 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.06665 0.86303 moveto
+0.06265 0.84758 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.11066 0.84341 moveto
+0.11244 0.85812 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.11327 0.86303 moveto
+0.11244 0.85812 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.16626 0.85308 moveto
+0.16664 0.84341 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.16643 0.86303 moveto
+0.16626 0.85308 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.23052 0.85847 moveto
+0.234 0.84341 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.23052 0.85847 moveto
+0.22977 0.86303 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.31344 0.86289 moveto
+0.31358 0.86264 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.31344 0.86289 moveto
+0.31336 0.86303 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.32092 0.85074 moveto
+0.32612 0.84341 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.32092 0.85074 moveto
+0.31358 0.86264 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.67388 0.84341 moveto
+0.68642 0.86264 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.68664 0.86303 moveto
+0.68642 0.86264 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.766 0.84341 moveto
+0.76622 0.84472 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.77023 0.86303 moveto
+0.76622 0.84472 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.83319 0.85281 moveto
+0.83336 0.84341 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.83357 0.86303 moveto
+0.83319 0.85281 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.88833 0.84908 moveto
+0.88934 0.84341 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.88833 0.84908 moveto
+0.88673 0.86303 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.93474 0.85625 moveto
+0.93826 0.84341 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.93474 0.85625 moveto
+0.93335 0.86303 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.06665 0.86303 moveto
+0.06856 0.87311 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.07077 0.88265 moveto
+0.06856 0.87311 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.11327 0.86303 moveto
+0.11495 0.88026 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.1153 0.88265 moveto
+0.11495 0.88026 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.16591 0.87234 moveto
+0.16643 0.86303 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.16591 0.87234 moveto
+0.16588 0.88265 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.22698 0.87455 moveto
+0.22977 0.86303 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.22698 0.87455 moveto
+0.22553 0.88265 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.30618 0.87525 moveto
+0.31336 0.86303 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.30618 0.87525 moveto
+0.30243 0.88265 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.44993 0.88164 moveto
+0.45094 0.88127 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.44993 0.88164 moveto
+0.44737 0.88265 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.46543 0.87752 moveto
+0.47057 0.87627 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.46543 0.87752 moveto
+0.45094 0.88127 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.48231 0.87478 moveto
+0.49019 0.87383 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.48231 0.87478 moveto
+0.47057 0.87627 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.50981 0.87383 moveto
+0.50099 0.87383 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.50099 0.87383 moveto
+0.49019 0.87383 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.52943 0.87627 moveto
+0.52218 0.8754 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.50981 0.87383 moveto
+0.52218 0.8754 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.54906 0.88127 moveto
+0.54722 0.88082 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.52943 0.87627 moveto
+0.54722 0.88082 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.54906 0.88127 moveto
+0.55263 0.88265 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.68664 0.86303 moveto
+0.68688 0.86349 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.69757 0.88265 moveto
+0.68688 0.86349 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.77023 0.86303 moveto
+0.77146 0.86958 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.77447 0.88265 moveto
+0.77146 0.86958 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.83357 0.86303 moveto
+0.83359 0.87284 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.83412 0.88265 moveto
+0.83359 0.87284 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.88619 0.86657 moveto
+0.88673 0.86303 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.88619 0.86657 moveto
+0.8847 0.88265 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.93111 0.87224 moveto
+0.93335 0.86303 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.93111 0.87224 moveto
+0.92923 0.88265 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.07077 0.88265 moveto
+0.07321 0.89738 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.07422 0.90228 moveto
+0.07321 0.89738 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.1153 0.88265 moveto
+0.11677 0.9017 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.11684 0.90228 moveto
+0.11677 0.9017 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.16526 0.89132 moveto
+0.16588 0.88265 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.16526 0.89132 moveto
+0.16504 0.90228 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.2235 0.89069 moveto
+0.22553 0.88265 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.2235 0.89069 moveto
+0.22129 0.90228 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.29269 0.90101 moveto
+0.29396 0.89841 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.29269 0.90101 moveto
+0.29216 0.90228 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.29929 0.88799 moveto
+0.30243 0.88265 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.29929 0.88799 moveto
+0.29396 0.89841 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.40979 0.90037 moveto
+0.4117 0.89913 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.40979 0.90037 moveto
+0.40709 0.90228 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.42234 0.8933 moveto
+0.43132 0.88875 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.42234 0.8933 moveto
+0.4117 0.89913 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.43568 0.88701 moveto
+0.44737 0.88265 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.43568 0.88701 moveto
+0.43132 0.88875 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.56868 0.88875 moveto
+0.55263 0.88265 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.5883 0.89913 moveto
+0.58174 0.89571 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.56868 0.88875 moveto
+0.58174 0.89571 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.5883 0.89913 moveto
+0.59291 0.90228 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.69757 0.88265 moveto
+0.70604 0.89841 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.70784 0.90228 moveto
+0.70604 0.89841 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.77447 0.88265 moveto
+0.77687 0.89461 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.77871 0.90228 moveto
+0.77687 0.89461 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.83412 0.88265 moveto
+0.83434 0.89321 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.83496 0.90228 moveto
+0.83434 0.89321 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.88447 0.88447 moveto
+0.8847 0.88265 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.88447 0.88447 moveto
+0.88316 0.90228 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.92793 0.88868 moveto
+0.92923 0.88265 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.92793 0.88868 moveto
+0.92578 0.90228 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.07422 0.90228 moveto
+0.07687 0.92067 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.0771 0.9219 moveto
+0.07687 0.92067 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.11684 0.90228 moveto
+0.11735 0.91093 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.11799 0.9219 moveto
+0.11735 0.91093 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.16437 0.91006 moveto
+0.16504 0.90228 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.16437 0.91006 moveto
+0.16395 0.9219 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.22008 0.90689 moveto
+0.22129 0.90228 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.22008 0.90689 moveto
+0.21704 0.9219 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.28628 0.91422 moveto
+0.29216 0.90228 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.28628 0.91422 moveto
+0.28303 0.9219 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.38688 0.9167 moveto
+0.39207 0.91247 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.38688 0.9167 moveto
+0.38103 0.9219 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.39803 0.90823 moveto
+0.40709 0.90228 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.39803 0.90823 moveto
+0.39207 0.91247 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.60793 0.91247 moveto
+0.59291 0.90228 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.60793 0.91247 moveto
+0.61897 0.9219 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.70784 0.90228 moveto
+0.70928 0.90551 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.71697 0.9219 moveto
+0.70928 0.90551 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.77871 0.90228 moveto
+0.78244 0.9198 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.78296 0.9219 moveto
+0.78244 0.9198 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.83496 0.90228 moveto
+0.83539 0.91388 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.83605 0.9219 moveto
+0.83539 0.91388 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.88202 0.92126 moveto
+0.88265 0.91093 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.88202 0.92126 moveto
+0.88201 0.9219 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.88311 0.90273 moveto
+0.88316 0.90228 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.88311 0.90273 moveto
+0.88265 0.91093 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.92515 0.90553 moveto
+0.92578 0.90228 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.92515 0.90553 moveto
+0.9229 0.9219 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.0771 0.9219 moveto
+0.0781 0.92998 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.07954 0.94152 moveto
+0.0781 0.92998 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.11799 0.92254 moveto
+0.11799 0.9219 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.11878 0.94152 moveto
+0.11799 0.92254 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.16329 0.9286 moveto
+0.16395 0.9219 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.16329 0.9286 moveto
+0.16264 0.94152 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.2133 0.93936 moveto
+0.21546 0.92896 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.2133 0.93936 moveto
+0.21296 0.94152 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.2167 0.92314 moveto
+0.21704 0.9219 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.2167 0.92314 moveto
+0.21546 0.92896 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.27426 0.94145 moveto
+0.27433 0.94128 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.27426 0.94145 moveto
+0.27424 0.94152 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.28015 0.92772 moveto
+0.28303 0.9219 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.28015 0.92772 moveto
+0.27433 0.94128 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.36629 0.93536 moveto
+0.37245 0.92923 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.36629 0.93536 moveto
+0.36065 0.94152 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.37632 0.92577 moveto
+0.38103 0.9219 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.37632 0.92577 moveto
+0.37245 0.92923 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.62755 0.92923 moveto
+0.61897 0.9219 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.63935 0.94152 moveto
+0.62755 0.92923 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.71697 0.9219 moveto
+0.72567 0.94128 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.72576 0.94152 moveto
+0.72567 0.94128 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.78296 0.9219 moveto
+0.78454 0.92896 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.78704 0.94152 moveto
+0.78454 0.92896 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.83605 0.9219 moveto
+0.83673 0.93484 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.83736 0.94152 moveto
+0.83673 0.93484 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.88121 0.94008 moveto
+0.88201 0.9219 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.88122 0.94152 moveto
+0.88121 0.94008 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.92057 0.94019 moveto
+0.9219 0.92998 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.92057 0.94019 moveto
+0.92046 0.94152 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.92276 0.92276 moveto
+0.9229 0.9219 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.92276 0.92276 moveto
+0.9219 0.92998 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.07954 0.94152 moveto
+0.07964 0.94306 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.08157 0.96115 moveto
+0.07964 0.94306 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.11876 0.94293 moveto
+0.11878 0.94152 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.11924 0.96115 moveto
+0.11876 0.94293 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.16204 0.94697 moveto
+0.16264 0.94152 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.16204 0.94697 moveto
+0.16114 0.96115 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.20991 0.95559 moveto
+0.21296 0.94152 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.20991 0.95559 moveto
+0.20899 0.96115 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.2685 0.95531 moveto
+0.27424 0.94152 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.2685 0.95531 moveto
+0.26643 0.96115 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.34763 0.95595 moveto
+0.35283 0.94972 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.34763 0.95595 moveto
+0.3437 0.96115 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.35674 0.94544 moveto
+0.36065 0.94152 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.35674 0.94544 moveto
+0.35283 0.94972 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.63935 0.94152 moveto
+0.64717 0.94972 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.6563 0.96115 moveto
+0.64717 0.94972 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.72576 0.94152 moveto
+0.72582 0.94168 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.73357 0.96115 moveto
+0.72582 0.94168 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.78704 0.94152 moveto
+0.78756 0.94454 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.79101 0.96115 moveto
+0.78756 0.94454 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.83736 0.94152 moveto
+0.83832 0.95606 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.83886 0.96115 moveto
+0.83832 0.95606 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.88073 0.95922 moveto
+0.88122 0.94152 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.88076 0.96115 moveto
+0.88073 0.95922 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91864 0.95788 moveto
+0.92046 0.94152 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91864 0.95788 moveto
+0.91843 0.96115 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.08157 0.96115 moveto
+0.08176 0.96481 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.08321 0.98077 moveto
+0.08176 0.96481 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.11918 0.96298 moveto
+0.11924 0.96115 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.1194 0.98077 moveto
+0.11918 0.96298 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.16065 0.9652 moveto
+0.16114 0.96115 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.16065 0.9652 moveto
+0.15948 0.98077 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.20657 0.97188 moveto
+0.20899 0.96115 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.20657 0.97188 moveto
+0.20502 0.98077 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.26296 0.9694 moveto
+0.26643 0.96115 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.26296 0.9694 moveto
+0.25885 0.98077 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.33059 0.97816 moveto
+0.3332 0.97444 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.33059 0.97816 moveto
+0.32894 0.98077 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.33893 0.96687 moveto
+0.3437 0.96115 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.33893 0.96687 moveto
+0.3332 0.97444 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.48918 0.97976 moveto
+0.49019 0.97963 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.48918 0.97976 moveto
+0.4816 0.98077 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.50981 0.97963 moveto
+0.50867 0.97963 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.50867 0.97963 moveto
+0.49019 0.97963 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.50981 0.97963 moveto
+0.5184 0.98077 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.6563 0.96115 moveto
+0.6668 0.97444 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.67106 0.98077 moveto
+0.6668 0.97444 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.73357 0.96115 moveto
+0.73836 0.97384 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.74115 0.98077 moveto
+0.73836 0.97384 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.79101 0.96115 moveto
+0.79245 0.96906 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.79498 0.98077 moveto
+0.79245 0.96906 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.83886 0.96115 moveto
+0.84014 0.9775 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.84052 0.98077 moveto
+0.84014 0.9775 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.88054 0.97866 moveto
+0.88076 0.96115 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.8806 0.98077 moveto
+0.88054 0.97866 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91703 0.9759 moveto
+0.91843 0.96115 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91703 0.9759 moveto
+0.91679 0.98077 lineto
+stroke
+grestore
+grestore
+% End of Graphics
+MathPictureEnd%%PSTrailer
+end
+
+% Mathematica code
+%
+% ContourPlot[2 x^2 y - y^2 - 4 x^2 + 3 y,
+% 	{x, -2, 2}, {y, 0, 4},
+% 	PlotPoints -> 50,
+% 	Contours -> {-11.97, -9.97, -7.97, -5.97, -3.97, 
+% 		-1.97, .03, 2.03, 4.03, 6.03, 8.03},
+% 	ContourShading -> False
+% ]
+
+%
+% the following scale is needed to convert back to my coordinate system;
+% no other scaling changes are needed.
+
+1 -1 scale
+
+/arrow 
+{-2 0 rmoveto
+ 0  1 rlineto
+ 4 -1 rlineto
+-4 -1 rlineto
+ 0  1 rlineto
+ 2 0 rlineto} def
+
+/rightarrow {arrow} def
+/uparrow {90 rotate arrow -90 rotate} def
+/leftarrow {180 rotate arrow -180 rotate} def
+/downarrow {-90 rotate arrow 90 rotate} def
+/bigdot {currentpoint 1.5 0 360 arc fill} def	
+/smalldot {currentpoint 1 0 360 arc fill} def	
+/rarrowto {					% stack: dx dy
+  2 copy
+  dup mul exch dup mul add  sqrt		% length of arrow
+  3 1 roll exch atan dup 				% angle
+  rotate exch 0 rlineto arrow neg rotate	% make arrow
+} def
+/arrowto {					% stack: x y
+  currentpoint 3 -1 roll sub neg 3 1 roll sub exch rarrowto
+} def
+
+gsave
+newpath
+.4 setgray
+0 50 500 
+{ 0 moveto
+  0 -400 rlineto
+} for
+0 -50 -300 
+{ 0 exch moveto
+  500 0 rlineto
+} for
+% stroke			% comment out here to eliminate grid lines
+grestore
+
+%%EPS Trailer

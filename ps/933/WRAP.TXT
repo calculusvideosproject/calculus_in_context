@@ -1,0 +1,59 @@
+surface =
+Plot3D[ - x^4 + 8 x^2 + 2 x  - 3 y^2, 
+	{x, -3, 3}, {y, -3, 3},
+	PlotRange -> {-40, 30},
+	PlotPoints -> {25, 15},
+	BoxRatios -> {1, 1,.9},
+	AxesEdge -> None,
+	ViewPoint->{-1.665, -4.407, 0.918}
+]
+
+curtain = 
+ParametricPlot3D[
+	{t, .2 - 2 Sin[.6 (t + .4)], z},
+	{t, -3, 3}, {z, -40, 15},
+	PlotPoints -> {21, 9},
+	BoxRatios -> {1, 1,.9},
+	AxesEdge -> None,
+	ViewPoint->{-1.665, -4.407, 0.918}
+]
+
+curve = 
+ParametricPlot3D[
+	{t, .2 - 2 Sin[.6 (t + .4)], 
+	 .02 - t^4 + 8 t^2 + 2 t - 3 (.2 - 2 Sin[.6 (t + .4)])^2},
+	{t, -3, 3}, 
+	BoxRatios -> {1, 1,.9},
+	AxesEdge -> None,
+	ViewPoint->{-1.665, -4.407, 0.918}
+]
+
+curvein = 
+ParametricPlot3D[
+	{t, .18 - 2 Sin[.6 (t + .4)], 
+	  - t^4 + 8 t^2 + 2 t - 3 (.2 - 2 Sin[.6 (t + .4)])^2},
+	{t, -3, 3}, 
+	BoxRatios -> {1, 1,.9},
+	AxesEdge -> None,
+	ViewPoint->{-1.665, -4.407, 0.918}
+]
+
+Show[ surface, curtain, curve]
+
+Show[curtain, curvein,
+	Boxed -> False,
+	BoxRatios -> {1, 1, .8}
+]
+
+graph = 
+Plot[- t^4 + 8 t^2 + 2 t - 3 (.2 - 2 Sin[.6 (t + .4)])^2,
+	{t, -3, 3},
+	PlotRange -> {-38, 15},
+	Ticks -> None,
+	Frame -> True,
+	Axes -> False,
+	GridLines -> {{-3, -2.7, -2.4, -2.1, -1.8, -1.5, -1.2, -.9, 
+		-.6, -.3, 0, .3, .6, .9, 1.2, 1.5, 1.8, 2.1, 2.4, 2.7, 3}, 
+		{-40, -33.125, -26.25, -19.375, -12.5, -5.625, 1.25, 8.125, 15}
+	}
+]

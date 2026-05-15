@@ -1,0 +1,3740 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 0 0 612 792
+%%Creator: Mathematica
+%%OriginalTitle: wrap2a.eps
+%%CreationDate: Thu 13 Aug 1992 11:59:12
+%%EndComments
+
+-45 0 translate
+
+/Mnodistort true def
+130 dict begin
+/Mfixwid true def
+/Mrot 0 def
+/Mpstart {
+    MathPictureStart
+} bind def
+/Mpend {
+    MathPictureEnd
+} bind def
+/Mscale {
+    0 1 0 1
+    5 -1 roll
+    MathScale
+} bind def
+/Plain	/Symbol findfont def
+/Bold	/Times-Bold findfont def
+/Italic /Times-Italic findfont def
+/MathPictureStart {
+	/Mimatrix
+	 matrix currentmatrix
+	def
+	gsave
+	newpath
+	Mleft
+	Mbottom
+	translate
+	1 -1 scale
+	/Mtmatrix
+	matrix currentmatrix
+	def
+	Plain
+	Mfontsize scalefont
+	setfont
+	0 setgray
+	0 setlinewidth
+} bind def
+/MathPictureEnd {
+	grestore
+} bind def
+/MathSubStart {
+        Mgmatrix Mtmatrix
+        Mleft Mbottom
+        Mwidth Mheight
+        8 -2 roll
+        moveto
+        Mtmatrix setmatrix
+        currentpoint
+        Mgmatrix setmatrix
+        10 -2 roll
+        moveto
+        Mtmatrix setmatrix
+        currentpoint
+        2 copy translate
+        /Mtmatrix matrix currentmatrix def
+        /Mleft 0 def
+        /Mbottom 0 def
+        3 -1 roll
+        exch sub
+        /Mheight exch def
+        sub
+        /Mwidth exch def
+} bind def
+/MathSubEnd {
+        /Mheight exch def
+        /Mwidth exch def
+        /Mbottom exch def
+        /Mleft exch def
+        /Mtmatrix exch def
+        dup setmatrix
+        /Mgmatrix exch def
+} bind def
+/Mdot {
+	moveto
+	0 0 rlineto
+	stroke
+} bind def
+/Mtetra {
+	moveto
+	lineto
+	lineto
+	lineto
+	fill
+} bind def
+/Metetra {
+	moveto
+	lineto
+	lineto
+	lineto
+	closepath
+	gsave
+	fill
+	grestore
+	0 setgray
+	stroke
+} bind def
+/Mistroke {
+	flattenpath
+	0 0 0
+	{
+	4 2 roll
+	pop pop
+	}
+	{
+	4 -1 roll
+	2 index
+	sub dup mul
+	4 -1 roll
+	2 index
+	sub dup mul
+	add sqrt
+	4 -1 roll
+	add
+	3 1 roll
+	}
+	{
+	stop
+	}
+	{
+	stop
+	}
+	pathforall
+	pop pop
+	currentpoint
+	stroke
+	moveto
+	currentdash
+	3 -1 roll
+	add
+	setdash
+} bind def
+/Mfstroke {
+	stroke
+	currentdash
+	pop 0
+	setdash
+} bind def
+/Mrotsboxa {
+	gsave
+	dup
+	/Mrot
+	exch def
+	Mrotcheck
+	Mtmatrix
+	dup
+	setmatrix
+	7 1 roll
+	4 index
+	4 index
+	translate
+	rotate
+	3 index
+	-1 mul
+	3 index
+	-1 mul
+	translate
+	/Mtmatrix
+	matrix
+	currentmatrix
+	def
+	grestore
+	Msboxa
+	3  -1 roll
+	/Mtmatrix
+	exch def
+	/Mrot
+	0 def
+} bind def
+/Msboxa {
+	newpath
+	5 -1 roll
+	Mvboxa
+	pop
+	Mboxout
+	6 -1 roll
+	5 -1 roll
+	4 -1 roll
+	Msboxa1
+	5 -3 roll
+	Msboxa1
+	Mboxrot
+	[
+	7 -2 roll
+	2 copy
+	[
+	3 1 roll
+	10 -1 roll
+	9 -1 roll
+	]
+	6 1 roll
+	5 -2 roll
+	]
+} bind def
+/Msboxa1 {
+	sub
+	2 div
+	dup
+	2 index
+	1 add
+	mul
+	3 -1 roll
+	-1 add
+	3 -1 roll
+	mul
+} bind def
+/Mvboxa	{
+	Mfixwid
+	{
+	Mvboxa1
+	}
+	{
+	dup
+	Mwidthcal
+	0 exch
+	{
+	add
+	}
+	forall
+	exch
+	Mvboxa1
+	4 index
+	7 -1 roll
+	add
+	4 -1 roll
+	pop
+	3 1 roll
+	}
+	ifelse
+} bind def
+/Mvboxa1 {
+	gsave
+	newpath
+	[ true
+	3 -1 roll
+	{
+	Mbbox
+	5 -1 roll
+	{
+	0
+	5 1 roll
+	}
+	{
+	7 -1 roll
+	exch sub
+	(m) stringwidth pop
+	.3 mul
+	sub
+	7 1 roll
+	6 -1 roll
+	4 -1 roll
+	Mmin
+	3 -1 roll
+	5 index
+	add
+	5 -1 roll
+	4 -1 roll
+	Mmax
+	4 -1 roll
+	}
+	ifelse
+	false
+	}
+	forall
+	{ stop } if
+	counttomark
+	1 add
+	4 roll
+	]
+	grestore
+} bind def
+/Mbbox {
+	0 0 moveto
+	false charpath
+	flattenpath
+	pathbbox
+	newpath
+} bind def
+/Mmin {
+	2 copy
+	gt
+	{ exch } if
+	pop
+} bind def
+/Mmax {
+	2 copy
+	lt
+	{ exch } if
+	pop
+} bind def
+/Mrotshowa {
+	dup
+	/Mrot
+	exch def
+	Mrotcheck
+	Mtmatrix
+	dup
+	setmatrix
+	7 1 roll
+	4 index
+	4 index
+	translate
+	rotate
+	3 index
+	-1 mul
+	3 index
+	-1 mul
+	translate
+	/Mtmatrix
+	matrix
+	currentmatrix
+	def
+	Mgmatrix setmatrix
+	Mshowa
+	/Mtmatrix
+	exch def
+	/Mrot 0 def
+} bind def
+/Mshowa {
+	4 -2 roll
+	moveto
+	2 index
+	Mtmatrix setmatrix
+	Mvboxa
+	7 1 roll
+	Mboxout
+	6 -1 roll
+	5 -1 roll
+	4 -1 roll
+	Mshowa1
+	4 1 roll
+	Mshowa1
+	rmoveto
+	currentpoint
+	Mfixwid
+	{
+	Mshowax
+	}
+	{
+	Mshoway
+	}
+	ifelse
+	pop pop pop pop
+	Mgmatrix setmatrix
+} bind def
+/Mshowax {
+	0 1
+        4 index length
+        -1 add
+        {
+        2 index
+        4 index
+        2 index
+        get
+        3 index
+        add
+        moveto
+        4 index
+        exch get
+        show
+        } for
+} bind def
+/Mshoway {
+        3 index
+        Mwidthcal
+        5 1 roll
+	0 1
+	4 index length
+	-1 add
+	{
+	2 index
+	4 index
+	2 index
+	get
+	3 index
+	add
+	moveto
+	4 index
+	exch get
+	[
+	6 index
+	aload
+	length
+	2 add
+	-1 roll
+	{
+	pop
+	Strform
+	stringwidth
+	pop
+	neg
+	exch
+	add
+	0 rmoveto
+	}
+	exch
+	kshow
+	cleartomark
+	} for
+	pop
+} bind def
+/Mwidthcal {
+	[
+	exch
+	{
+	Mwidthcal1
+	}
+	forall
+	]
+	[
+	exch
+	dup
+	Maxlen
+	-1 add
+	0 1
+	3 -1 roll
+	{
+	[
+	exch
+	2 index
+	{
+	1 index
+	Mget
+	exch
+	}
+	forall
+	pop
+	Maxget
+	exch
+	}
+	for
+	pop
+	]
+	Mreva
+} bind def
+/Mreva	{
+	[
+	exch
+	aload
+	length
+	-1 1
+	{1 roll}
+	for
+	]
+} bind def
+/Mget	{
+	1 index
+	length
+	-1 add
+	1 index
+	ge
+	{
+	get
+	}
+	{
+	pop pop
+	0
+	}
+	ifelse
+} bind def
+/Maxlen	{
+	[
+	exch
+	{
+	length
+	}
+	forall
+	Maxget
+} bind def
+/Maxget	{
+	counttomark
+	-1 add
+	1 1
+	3 -1 roll
+	{
+	pop
+	Mmax
+	}
+	for
+	exch
+	pop
+} bind def
+/Mwidthcal1 {
+	[
+	exch
+	{
+	Strform
+	stringwidth
+	pop
+	}
+	forall
+	]
+} bind def
+/Strform {
+	/tem (x) def
+	tem 0
+	3 -1 roll
+	put
+	tem
+} bind def
+/Mshowa1 {
+	2 copy
+	add
+	4 1 roll
+	sub
+	mul
+	sub
+	-2 div
+} bind def
+/MathScale {
+	Mwidth
+	Mheight
+	Mlp
+	translate
+	scale
+	/Msaveaa exch def
+	/Msavebb exch def
+	/Msavecc exch def
+	/Msavedd exch def
+	/Mgmatrix
+	matrix currentmatrix
+	def
+} bind def
+/Mlp {
+	3 copy
+	Mlpfirst
+	{
+	Mnodistort
+	{
+	Mmin
+	dup
+	} if
+	4 index
+	2 index
+	2 index
+	Mlprun
+	11 index
+	11 -1 roll
+	10 -4 roll
+	Mlp1
+	8 index
+	9 -5 roll
+	Mlp1
+	4 -1 roll
+	and
+	{ exit } if
+	3 -1 roll
+	pop pop
+	} loop
+	exch
+	3 1 roll
+	7 -3 roll
+	pop pop pop
+} bind def
+/Mlpfirst {
+	3 -1 roll
+	dup length
+	2 copy
+	-2 add
+	get
+	aload
+	pop pop pop
+	4 -2 roll
+	-1 add
+	get
+	aload
+	pop pop pop
+	6 -1 roll
+	3 -1 roll
+	5 -1 roll
+	sub
+	dup /MsaveAx exch def
+	div
+	4 1 roll
+	exch sub
+	dup /MsaveAy exch def
+	div
+} bind def
+/Mlprun {
+	2 copy
+	4 index
+	0 get
+	dup
+	4 1 roll
+	Mlprun1
+	3 copy
+	8 -2 roll
+	9 -1 roll
+	{
+	3 copy
+	Mlprun1
+	3 copy
+	11 -3 roll
+	/gt Mlpminmax
+	8 3 roll
+	11 -3 roll
+	/lt Mlpminmax
+	8 3 roll
+	} forall
+	pop pop pop pop
+	3 1 roll
+	pop pop
+	aload pop
+	5 -1 roll
+	aload pop
+	exch
+	6 -1 roll
+	Mlprun2
+	8 2 roll
+	4 -1 roll
+	Mlprun2
+	6 2 roll
+	3 -1 roll
+	Mlprun2
+	4 2 roll
+	exch
+	Mlprun2
+	6 2 roll
+} bind def
+/Mlprun1 {
+	aload pop
+	exch
+	6 -1 roll
+	5 -1 roll
+	mul add
+	4 -2 roll
+	mul
+	3 -1 roll
+	add
+} bind def
+/Mlprun2 {
+	2 copy
+	add 2 div
+	3 1 roll
+	exch sub
+} bind def
+/Mlpminmax {
+	cvx
+	2 index
+	6 index
+	2 index
+	exec
+	{
+	7 -3 roll
+	4 -1 roll
+	} if
+	1 index
+	5 index
+	3 -1 roll
+	exec
+	{
+	4 1 roll
+	pop
+	5 -1 roll
+	aload
+	pop pop
+	4 -1 roll
+	aload pop
+	[
+	8 -2 roll
+	pop
+	5 -2 roll
+	pop
+	6 -2 roll
+	pop
+	5 -1 roll
+	]
+	4 1 roll
+	pop
+	}
+	{
+	pop pop pop
+	} ifelse
+} bind def
+/Mlp1 {
+	5 index
+	3 index	sub
+	5 index
+	2 index mul
+	1 index
+	le
+	1 index
+	0 le
+	or
+	dup
+	not
+	{
+	1 index
+	3 index	div
+	.99999 mul
+	8 -1 roll
+	pop
+	7 1 roll
+	}
+	if
+	8 -1 roll
+	2 div
+	7 -2 roll
+	pop sub
+	5 index
+	6 -3 roll
+	pop pop
+	mul sub
+	exch
+} bind def
+/intop 0 def
+/inrht 0 def
+/inflag 0 def
+/outflag 0 def
+/xadrht 0 def
+/xadlft 0 def
+/yadtop 0 def
+/yadbot 0 def
+/Minner {
+	outflag
+	1
+	eq
+	{
+	/outflag 0 def
+	/intop 0 def
+	/inrht 0 def
+	} if
+	5 index
+	gsave
+	Mtmatrix setmatrix
+	Mvboxa pop
+	grestore
+	3 -1 roll
+	pop
+	dup
+	intop
+	gt
+	{
+	/intop
+	exch def
+	}
+	{ pop }
+	ifelse
+	dup
+	inrht
+	gt
+	{
+	/inrht
+	exch def
+	}
+	{ pop }
+	ifelse
+	pop
+	/inflag
+	1 def
+} bind def
+/Mouter {
+	/xadrht 0 def
+	/xadlft 0 def
+	/yadtop 0 def
+	/yadbot 0 def
+	inflag
+	1 eq
+	{
+	dup
+	0 lt
+	{
+	dup
+	intop
+	mul
+	neg
+	/yadtop
+	exch def
+	} if
+	dup
+	0 gt
+	{
+	dup
+	intop
+	mul
+	/yadbot
+	exch def
+	}
+	if
+	pop
+	dup
+	0 lt
+	{
+	dup
+	inrht
+	mul
+	neg
+	/xadrht
+	exch def
+	} if
+	dup
+	0 gt
+	{
+	dup
+	inrht
+	mul
+	/xadlft
+	exch def
+	} if
+	pop
+	/outflag 1 def
+	}
+	{ pop pop}
+	ifelse
+	/inflag 0 def
+	/inrht 0 def
+	/intop 0 def
+} bind def
+/Mboxout {
+	outflag
+	1
+	eq
+	{
+	4 -1
+	roll
+	xadlft
+	leadjust
+	add
+	sub
+	4 1 roll
+	3 -1
+	roll
+	yadbot
+	leadjust
+	add
+	sub
+	3 1
+	roll
+	exch
+	xadrht
+	leadjust
+	add
+	add
+	exch
+	yadtop
+	leadjust
+	add
+	add
+	/outflag 0 def
+	/xadlft 0 def
+	/yadbot 0 def
+	/xadrht 0 def
+	/yadtop 0 def
+	} if
+} bind def
+/leadjust {
+	(m) stringwidth pop
+	.5 mul
+} bind def
+/Mrotcheck {
+	dup
+	90
+	eq
+	{
+	yadbot
+	/yadbot
+	xadrht
+	def
+	/xadrht
+	yadtop
+	def
+	/yadtop
+	xadlft
+	def
+	/xadlft
+	exch
+	def
+	}
+	if
+	dup
+	cos
+	1 index
+	sin
+	Checkaux
+	dup
+	cos
+	1 index
+	sin neg
+	exch
+	Checkaux
+	3 1 roll
+	pop pop
+} bind def
+/Checkaux {
+	4 index
+	exch
+	4 index
+	mul
+	3 1 roll
+	mul add
+	4 1 roll
+} bind def
+/Mboxrot {
+	Mrot
+	90 eq
+	{
+	brotaux
+	4 2
+	roll
+	}
+	if
+	Mrot
+	180 eq
+	{
+	4 2
+        roll
+	brotaux
+	4 2
+	roll
+	brotaux
+	}
+	if
+	Mrot
+	270 eq
+	{
+	4 2
+	roll
+	brotaux
+	}
+	if
+} bind def
+/brotaux {
+	neg
+	exch
+	neg
+} bind def
+/Mabswid {
+	Mimatrix
+	0 get
+	Mgmatrix
+	0 get
+	div
+	mul
+	setlinewidth
+} bind def
+/Mabsdash {
+	exch
+	Mimatrix
+	0 get
+	Mgmatrix
+	0 get
+	div
+	[
+	3 1 roll
+	exch
+	{
+	exch
+	dup
+	3 -1 roll
+	mul
+	exch
+	}
+	forall
+	pop ]
+	exch
+	setdash
+} bind def
+/colorimage where
+{ pop }
+{
+/colorimage {
+3 1 roll
+ pop pop
+ 5 -1 roll
+ mul
+ 4 1 roll
+{
+currentfile
+1 index
+readhexstring
+pop }
+image
+} bind def
+} ifelse
+/sampledsound where
+{ pop}
+{ /sampledsound {
+exch
+pop
+exch
+5 1 roll
+mul
+4 idiv
+mul
+2 idiv
+exch pop
+exch
+/Mtempproc exch def
+{ Mtempproc pop }
+repeat
+} bind def
+} ifelse
+
+/Mleft		0.000000 def
+/Mbottom	166.333511 def
+/Mwidth		157.144043 def
+/Mheight	166.333511 def
+/Mfontsize 12 def
+/Plain /Symbol findfont def
+
+% % % % % % % % % % % % % % custom insert - begin % % % % % % % % % % % % % % 
+%
+% PLACE THIS JUST BEFORE THE LINES:	1 -1 scale
+%		  ~~~~~~		
+%					%%Creator: Mathematica
+%					%%AspectRatio: 0.61803 
+%
+%
+
+/printscale .75 def
+/screenstretch {printscale 1.3 mul} def
+/double {screenstretch 2 mul} def
+
+ printscale printscale scale	    % scale for printing
+% screenstretch screenstretch scale % printing scale on screen
+% double double scale               % magnified screen
+
+% ----------------- arrow drawing procedures ------------------
+
+/arrow 
+{-4 0 rmoveto
+ 0  1 rlineto
+ 4 -1 rlineto
+-4 -1 rlineto
+ 0  1 rlineto
+ 4 0 rlineto} def
+
+/rightarrow {arrow} def
+/uparrow {90 rotate arrow -90 rotate} def
+/leftarrow {180 rotate arrow -180 rotate} def
+/downarrow {-90 rotate arrow 90 rotate} def
+/rarrowto {					% stack: dx dy
+  2 copy
+  dup mul exch dup mul add  sqrt		% length of arrow
+  3 1 roll exch atan dup 				% angle
+  rotate exch 0 rlineto arrow neg rotate	% make arrow
+} def
+/arrowto {					% stack: x y
+  currentpoint 3 -1 roll sub neg 3 1 roll sub exch rarrowto
+} def
+
+% ------------------ graphics instructions --------------------
+
+.3 setlinewidth
+
+% position the origin
+% 100 300 moveto				% screen origin
+ -20 -10 moveto
+currentpoint translate
+
+% -------------------- font codes --------------------------
+
+/typesize {10 printscale div} def
+
+/makeTR {/Times-Roman findfont typesize scalefont} def
+/makeTB {/Times-Bold findfont typesize scalefont} def
+/makeTI {/Times-Italic findfont typesize scalefont} def
+/makeSYM {/Symbol findfont typesize scalefont} def
+
+/TR {makeTR setfont} def
+/TB {makeTB setfont} def
+/TI {makeTI setfont} def
+/SYM {makeSYM setfont} def
+
+% ---------------string placing procedures-------------------
+
+% stack: fontcode string x y 
+
+/placeBL {moveto show} def
+/placeBR {moveto dup stringwidth pop neg 0 rmoveto show} def
+/placeBC {moveto dup stringwidth pop 2 div neg 0 rmoveto show} def
+/placeTL {moveto 0 typesize neg rmoveto show} def
+/placeTR {moveto dup stringwidth pop neg typesize neg rmoveto show} def
+/placeTC {moveto dup stringwidth pop 2 div neg typesize neg rmoveto show} def
+
+1 setlinewidth
+140 -75 moveto
+33 -3 rarrowto
+stroke
+
+% my labels
+
+%
+%
+% % % % % % % % % % % % % custom inset - end % % % % % % % % % % % %
+
+1 -1 scale
+%!
+%%Creator: Mathematica
+%%AspectRatio: 1.05848 
+MathPictureStart
+/Symbol findfont 10  scalefont  setfont
+% Scaling calculations
+-0.059272 1.097634 0.027441 1.097634 [
+[ 0 0 0 0 ]
+[ 1 1.058478 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+%%Object: Graphics3D
+[ ] 0 setdash
+0 setgray
+0 0 moveto
+1 0 lineto
+1 1.05848 lineto
+0 1.05848 lineto
+closepath
+clip
+newpath
+gsave
+0.001 setlinewidth
+0.44411 0.36356 moveto 0.53063 0.36373 lineto 0.53045 0.27584 lineto gsave
+0.708 0.556 0.68 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.53045 0.27584 moveto 0.44431 0.27566 lineto 0.44411 0.36356 lineto gsave
+0.708 0.556 0.68 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.61371 0.26927 moveto 0.53045 0.27584 lineto 0.53063 0.36373 lineto gsave
+0.664 0.521 0.679 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.36078 0.35717 moveto 0.44411 0.36356 lineto 0.44431 0.27566 lineto gsave
+0.749 0.59 0.679 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.44431 0.27566 moveto 0.36134 0.26872 lineto 0.36078 0.35717 lineto gsave
+0.749 0.59 0.679 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.44391 0.45224 moveto 0.53081 0.45239 lineto 0.53063 0.36373 lineto gsave
+0.708 0.556 0.68 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.53063 0.36373 moveto 0.44411 0.36356 lineto 0.44391 0.45224 lineto gsave
+0.708 0.556 0.68 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.61425 0.35767 moveto 0.53063 0.36373 lineto 0.53081 0.45239 lineto gsave
+0.664 0.521 0.679 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.53063 0.36373 moveto 0.61425 0.35767 lineto 0.61371 0.26927 lineto gsave
+0.664 0.521 0.679 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.36022 0.44639 moveto 0.44391 0.45224 lineto 0.44411 0.36356 lineto gsave
+0.749 0.59 0.679 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.44411 0.36356 moveto 0.36078 0.35717 lineto 0.36022 0.44639 lineto gsave
+0.749 0.59 0.679 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.68809 0.25629 moveto 0.61371 0.26927 lineto 0.61425 0.35767 lineto gsave
+0.61 0.477 0.675 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.28666 0.34489 moveto 0.36078 0.35717 lineto 0.36134 0.26872 lineto gsave
+0.794 0.627 0.674 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.36134 0.26872 moveto 0.28756 0.25541 lineto 0.28666 0.34489 lineto gsave
+0.794 0.627 0.674 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.44371 0.54169 moveto 0.53099 0.54183 lineto 0.53081 0.45239 lineto gsave
+0.708 0.556 0.68 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.53081 0.45239 moveto 0.44391 0.45224 lineto 0.44371 0.54169 lineto gsave
+0.708 0.556 0.68 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.6148 0.44685 moveto 0.53081 0.45239 lineto 0.53099 0.54183 lineto gsave
+0.664 0.521 0.679 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.53081 0.45239 moveto 0.6148 0.44685 lineto 0.61425 0.35767 lineto gsave
+0.664 0.521 0.679 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.35965 0.5364 moveto 0.44371 0.54169 lineto 0.44391 0.45224 lineto gsave
+0.749 0.59 0.679 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.44391 0.45224 moveto 0.36022 0.44639 lineto 0.35965 0.5364 lineto gsave
+0.749 0.59 0.679 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.68897 0.34569 moveto 0.61425 0.35767 lineto 0.6148 0.44685 lineto gsave
+0.61 0.477 0.675 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.61425 0.35767 moveto 0.68897 0.34569 lineto 0.68809 0.25629 lineto gsave
+0.61 0.477 0.675 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.28576 0.43516 moveto 0.36022 0.44639 lineto 0.36078 0.35717 lineto gsave
+0.794 0.627 0.674 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.36078 0.35717 moveto 0.28666 0.34489 lineto 0.28576 0.43516 lineto gsave
+0.794 0.627 0.674 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.44238 0.51517 moveto
+0.4454 0.51486 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.53046 0.5162 moveto
+0.53164 0.51639 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.5508 0.51938 moveto
+0.55194 0.51956 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.44351 0.63193 moveto 0.53117 0.63206 lineto 0.53099 0.54183 lineto gsave
+0.708 0.556 0.68 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.53099 0.54183 moveto 0.44371 0.54169 lineto 0.44351 0.63193 lineto gsave
+0.708 0.556 0.68 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.61536 0.53681 moveto 0.53099 0.54183 lineto 0.53117 0.63206 lineto gsave
+0.664 0.521 0.679 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.53099 0.54183 moveto 0.61536 0.53681 lineto 0.6148 0.44685 lineto gsave
+0.664 0.521 0.679 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.35907 0.6272 moveto 0.44351 0.63193 lineto 0.44371 0.54169 lineto gsave
+0.749 0.59 0.679 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.44371 0.54169 moveto 0.35965 0.5364 lineto 0.35907 0.6272 lineto gsave
+0.749 0.59 0.679 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.68986 0.43589 moveto 0.6148 0.44685 lineto 0.61536 0.53681 lineto gsave
+0.61 0.477 0.675 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.6148 0.44685 moveto 0.68986 0.43589 lineto 0.68897 0.34569 lineto gsave
+0.61 0.477 0.675 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.28485 0.52623 moveto 0.35965 0.5364 lineto 0.36022 0.44639 lineto gsave
+0.794 0.627 0.674 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.36022 0.44639 moveto 0.28576 0.43516 lineto 0.28485 0.52623 lineto gsave
+0.794 0.627 0.674 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.44331 0.72297 moveto 0.53135 0.72308 lineto 0.53117 0.63206 lineto gsave
+0.708 0.556 0.68 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.53117 0.63206 moveto 0.44351 0.63193 lineto 0.44331 0.72297 lineto gsave
+0.708 0.556 0.68 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.61591 0.62757 moveto 0.53117 0.63206 lineto 0.53135 0.72308 lineto gsave
+0.664 0.521 0.679 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.53117 0.63206 moveto 0.61591 0.62757 lineto 0.61536 0.53681 lineto gsave
+0.664 0.521 0.679 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.35849 0.71882 moveto 0.44331 0.72297 lineto 0.44351 0.63193 lineto gsave
+0.749 0.59 0.679 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.44351 0.63193 moveto 0.35907 0.6272 lineto 0.35849 0.71882 lineto gsave
+0.749 0.59 0.679 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.74774 0.23764 moveto 0.68809 0.25629 lineto 0.68897 0.34569 lineto gsave
+0.529 0.412 0.664 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.22761 0.32742 moveto 0.28666 0.34489 lineto 0.28756 0.25541 lineto gsave
+0.851 0.675 0.663 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.28756 0.25541 moveto 0.22879 0.23649 lineto 0.22761 0.32742 lineto gsave
+0.851 0.675 0.663 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.69075 0.5269 moveto 0.61536 0.53681 lineto 0.61591 0.62757 lineto gsave
+0.61 0.477 0.675 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.61536 0.53681 moveto 0.69075 0.5269 lineto 0.68986 0.43589 lineto gsave
+0.61 0.477 0.675 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.61415 0.53494 moveto
+0.6161 0.5355 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.28393 0.61812 moveto 0.35907 0.6272 lineto 0.35965 0.5364 lineto gsave
+0.794 0.627 0.674 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.35965 0.5364 moveto 0.28485 0.52623 lineto 0.28393 0.61812 lineto gsave
+0.794 0.627 0.674 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.35837 0.53518 moveto
+0.36084 0.53427 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.4431 0.81482 moveto 0.53154 0.81491 lineto 0.53135 0.72308 lineto gsave
+0.708 0.556 0.68 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.53135 0.72308 moveto 0.44331 0.72297 lineto 0.4431 0.81482 lineto gsave
+0.708 0.556 0.68 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.61647 0.71914 moveto 0.53135 0.72308 lineto 0.53154 0.81491 lineto gsave
+0.664 0.521 0.679 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.53135 0.72308 moveto 0.61647 0.71914 lineto 0.61591 0.62757 lineto gsave
+0.664 0.521 0.679 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.3579 0.81125 moveto 0.4431 0.81482 lineto 0.44331 0.72297 lineto gsave
+0.749 0.59 0.679 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.44331 0.72297 moveto 0.35849 0.71882 lineto 0.3579 0.81125 lineto gsave
+0.749 0.59 0.679 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.7489 0.32848 moveto 0.68897 0.34569 lineto 0.68986 0.43589 lineto gsave
+0.529 0.412 0.664 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.68897 0.34569 moveto 0.7489 0.32848 lineto 0.74774 0.23764 lineto gsave
+0.529 0.412 0.664 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.22643 0.41918 moveto 0.28576 0.43516 lineto 0.28666 0.34489 lineto gsave
+0.851 0.675 0.663 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.28666 0.34489 moveto 0.22761 0.32742 lineto 0.22643 0.41918 lineto gsave
+0.851 0.675 0.663 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.69165 0.61872 moveto 0.61591 0.62757 lineto 0.61647 0.71914 lineto gsave
+0.61 0.477 0.675 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.61591 0.62757 moveto 0.69165 0.61872 lineto 0.69075 0.5269 lineto gsave
+0.61 0.477 0.675 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.28301 0.71084 moveto 0.35849 0.71882 lineto 0.35907 0.6272 lineto gsave
+0.794 0.627 0.674 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.35907 0.6272 moveto 0.28393 0.61812 lineto 0.28301 0.71084 lineto gsave
+0.794 0.627 0.674 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.4429 0.90748 moveto 0.53173 0.90756 lineto 0.53154 0.81491 lineto gsave
+0.708 0.556 0.68 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.53154 0.81491 moveto 0.4431 0.81482 lineto 0.4429 0.90748 lineto gsave
+0.708 0.556 0.68 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.61704 0.81153 moveto 0.53154 0.81491 lineto 0.53173 0.90756 lineto gsave
+0.664 0.521 0.679 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.53154 0.81491 moveto 0.61704 0.81153 lineto 0.61647 0.71914 lineto gsave
+0.664 0.521 0.679 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.35731 0.90452 moveto 0.4429 0.90748 lineto 0.4431 0.81482 lineto gsave
+0.749 0.59 0.679 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.4431 0.81482 moveto 0.3579 0.81125 lineto 0.35731 0.90452 lineto gsave
+0.749 0.59 0.679 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.75007 0.42015 moveto 0.68986 0.43589 lineto 0.69075 0.5269 lineto gsave
+0.529 0.412 0.664 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.68986 0.43589 moveto 0.75007 0.42015 lineto 0.7489 0.32848 lineto gsave
+0.529 0.412 0.664 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.22523 0.51177 moveto 0.28485 0.52623 lineto 0.28576 0.43516 lineto gsave
+0.851 0.675 0.663 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.28576 0.43516 moveto 0.22643 0.41918 lineto 0.22523 0.51177 lineto gsave
+0.851 0.675 0.663 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.69256 0.71137 moveto 0.61647 0.71914 lineto 0.61704 0.81153 lineto gsave
+0.61 0.477 0.675 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.61647 0.71914 moveto 0.69256 0.71137 lineto 0.69165 0.61872 lineto gsave
+0.61 0.477 0.675 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.28207 0.80441 moveto 0.3579 0.81125 lineto 0.35849 0.71882 lineto gsave
+0.794 0.627 0.674 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.35849 0.71882 moveto 0.28301 0.71084 lineto 0.28207 0.80441 lineto gsave
+0.794 0.627 0.674 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.44269 1.00098 moveto 0.53191 1.00104 lineto 0.53173 0.90756 lineto gsave
+0.708 0.556 0.68 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.53173 0.90756 moveto 0.4429 0.90748 lineto 0.44269 1.00098 lineto gsave
+0.708 0.556 0.68 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.61761 0.90475 moveto 0.53173 0.90756 lineto 0.53191 1.00104 lineto gsave
+0.664 0.521 0.679 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.53173 0.90756 moveto 0.61761 0.90475 lineto 0.61704 0.81153 lineto gsave
+0.664 0.521 0.679 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.35672 0.99862 moveto 0.44269 1.00098 lineto 0.4429 0.90748 lineto gsave
+0.749 0.59 0.679 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.4429 0.90748 moveto 0.35731 0.90452 lineto 0.35672 0.99862 lineto gsave
+0.749 0.59 0.679 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.75126 0.51265 moveto 0.69075 0.5269 lineto 0.69165 0.61872 lineto gsave
+0.529 0.412 0.664 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.68966 0.55935 moveto
+0.69218 0.56015 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.69075 0.5269 moveto 0.75126 0.51265 lineto 0.75007 0.42015 lineto gsave
+0.529 0.412 0.664 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.22403 0.60521 moveto 0.28393 0.61812 lineto 0.28485 0.52623 lineto gsave
+0.851 0.675 0.663 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.28485 0.52623 moveto 0.22523 0.51177 lineto 0.22403 0.60521 lineto gsave
+0.851 0.675 0.663 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.69348 0.80486 moveto 0.61704 0.81153 lineto 0.61761 0.90475 lineto gsave
+0.61 0.477 0.675 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.61704 0.81153 moveto 0.69348 0.80486 lineto 0.69256 0.71137 lineto gsave
+0.61 0.477 0.675 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.28113 0.89882 moveto 0.35731 0.90452 lineto 0.3579 0.81125 lineto gsave
+0.794 0.627 0.674 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.3579 0.81125 moveto 0.28207 0.80441 lineto 0.28113 0.89882 lineto gsave
+0.794 0.627 0.674 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.78723 0.2145 moveto 0.74774 0.23764 lineto 0.7489 0.32848 lineto gsave
+0.368 0.283 0.627 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.53191 1.00104 moveto 0.61819 0.99881 lineto 0.61761 0.90475 lineto gsave
+0.664 0.521 0.679 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.75245 0.60599 moveto 0.69165 0.61872 lineto 0.69256 0.71137 lineto gsave
+0.529 0.412 0.664 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.69165 0.61872 moveto 0.75245 0.60599 lineto 0.75126 0.51265 lineto gsave
+0.529 0.412 0.664 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.18906 0.30588 moveto 0.22761 0.32742 lineto 0.22879 0.23649 lineto gsave
+0.934 0.745 0.623 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.22879 0.23649 moveto 0.19044 0.21315 lineto 0.18906 0.30588 lineto gsave
+0.934 0.745 0.623 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.22281 0.6995 moveto 0.28301 0.71084 lineto 0.28393 0.61812 lineto gsave
+0.851 0.675 0.663 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.28393 0.61812 moveto 0.22403 0.60521 lineto 0.22281 0.6995 lineto gsave
+0.851 0.675 0.663 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.69441 0.89919 moveto 0.61761 0.90475 lineto 0.61819 0.99881 lineto gsave
+0.61 0.477 0.675 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.61761 0.90475 moveto 0.69441 0.89919 lineto 0.69348 0.80486 lineto gsave
+0.61 0.477 0.675 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.28017 0.99409 moveto 0.35672 0.99862 lineto 0.35731 0.90452 lineto gsave
+0.794 0.627 0.674 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.35731 0.90452 moveto 0.28113 0.89882 lineto 0.28017 0.99409 lineto gsave
+0.794 0.627 0.674 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.78859 0.30713 moveto 0.7489 0.32848 lineto 0.75007 0.42015 lineto gsave
+0.368 0.283 0.627 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.7489 0.32848 moveto 0.78859 0.30713 lineto 0.78723 0.2145 lineto gsave
+0.368 0.283 0.627 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.75366 0.70019 moveto 0.69256 0.71137 lineto 0.69348 0.80486 lineto gsave
+0.529 0.412 0.664 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.69256 0.71137 moveto 0.75366 0.70019 lineto 0.75245 0.60599 lineto gsave
+0.529 0.412 0.664 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.18767 0.39947 moveto 0.22643 0.41918 lineto 0.22761 0.32742 lineto gsave
+0.934 0.745 0.623 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.22761 0.32742 moveto 0.18906 0.30588 lineto 0.18767 0.39947 lineto gsave
+0.934 0.745 0.623 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.22158 0.79466 moveto 0.28207 0.80441 lineto 0.28301 0.71084 lineto gsave
+0.851 0.675 0.663 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.28301 0.71084 moveto 0.22281 0.6995 lineto 0.22158 0.79466 lineto gsave
+0.851 0.675 0.663 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.61819 0.99881 moveto 0.69535 0.99439 lineto 0.69441 0.89919 lineto gsave
+0.61 0.477 0.675 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.78997 0.40061 moveto 0.75007 0.42015 lineto 0.75126 0.51265 lineto gsave
+0.368 0.283 0.627 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.75007 0.42015 moveto 0.78997 0.40061 lineto 0.78859 0.30713 lineto gsave
+0.368 0.283 0.627 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.75487 0.79526 moveto 0.69348 0.80486 lineto 0.69441 0.89919 lineto gsave
+0.529 0.412 0.664 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.69348 0.80486 moveto 0.75487 0.79526 lineto 0.75366 0.70019 lineto gsave
+0.529 0.412 0.664 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.18627 0.49393 moveto 0.22523 0.51177 lineto 0.22643 0.41918 lineto gsave
+0.934 0.745 0.623 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.22643 0.41918 moveto 0.18767 0.39947 lineto 0.18627 0.49393 lineto gsave
+0.934 0.745 0.623 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.22034 0.89071 moveto 0.28113 0.89882 lineto 0.28207 0.80441 lineto gsave
+0.851 0.675 0.663 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.28207 0.80441 moveto 0.22158 0.79466 lineto 0.22034 0.89071 lineto gsave
+0.851 0.675 0.663 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.79137 0.49496 moveto 0.75126 0.51265 lineto 0.75245 0.60599 lineto gsave
+0.368 0.283 0.627 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.75126 0.51265 moveto 0.79137 0.49496 lineto 0.78997 0.40061 lineto gsave
+0.368 0.283 0.627 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.7561 0.8912 moveto 0.69441 0.89919 lineto 0.69535 0.99439 lineto gsave
+0.529 0.412 0.664 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.69441 0.89919 moveto 0.7561 0.8912 lineto 0.75487 0.79526 lineto gsave
+0.529 0.412 0.664 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.18486 0.58926 moveto 0.22403 0.60521 lineto 0.22523 0.51177 lineto gsave
+0.934 0.745 0.623 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.22523 0.51177 moveto 0.18627 0.49393 lineto 0.18486 0.58926 lineto gsave
+0.934 0.745 0.623 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.21908 0.98765 moveto 0.28017 0.99409 lineto 0.28113 0.89882 lineto gsave
+0.851 0.675 0.663 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.28113 0.89882 moveto 0.22034 0.89071 lineto 0.21908 0.98765 lineto gsave
+0.851 0.675 0.663 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.75141 0.57362 moveto
+0.75259 0.57365 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.79277 0.59019 moveto 0.75245 0.60599 lineto 0.75366 0.70019 lineto gsave
+0.368 0.283 0.627 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.75245 0.60599 moveto 0.79277 0.59019 lineto 0.79137 0.49496 lineto gsave
+0.368 0.283 0.627 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.69535 0.99439 moveto 0.75734 0.98804 lineto 0.7561 0.8912 lineto gsave
+0.529 0.412 0.664 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.18343 0.6855 moveto 0.22281 0.6995 lineto 0.22403 0.60521 lineto gsave
+0.934 0.745 0.623 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.22403 0.60521 moveto 0.18486 0.58926 lineto 0.18343 0.6855 lineto gsave
+0.934 0.745 0.623 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.2235 0.60386 moveto
+0.22511 0.60295 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.802 0.18853 moveto 0.78723 0.2145 lineto 0.78859 0.30713 lineto gsave
+0 0 0.427 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.17552 0.28182 moveto 0.18906 0.30588 lineto 0.19044 0.21315 lineto gsave
+0.986 0.799 0.403 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.19044 0.21315 moveto 0.17699 0.18708 lineto 0.17552 0.28182 lineto gsave
+0.986 0.799 0.403 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.79419 0.68631 moveto 0.75366 0.70019 lineto 0.75487 0.79526 lineto gsave
+0.368 0.283 0.627 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.75366 0.70019 moveto 0.79419 0.68631 lineto 0.79277 0.59019 lineto gsave
+0.368 0.283 0.627 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.18199 0.78264 moveto 0.22158 0.79466 lineto 0.22281 0.6995 lineto gsave
+0.934 0.745 0.623 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.22281 0.6995 moveto 0.18343 0.6855 lineto 0.18199 0.78264 lineto gsave
+0.934 0.745 0.623 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.80347 0.28316 moveto 0.78859 0.30713 lineto 0.78997 0.40061 lineto gsave
+0 0 0.427 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.78859 0.30713 moveto 0.80347 0.28316 lineto 0.802 0.18853 lineto gsave
+0 0 0.427 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.17404 0.37745 moveto 0.18767 0.39947 lineto 0.18906 0.30588 lineto gsave
+0.986 0.799 0.403 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.18906 0.30588 moveto 0.17552 0.28182 lineto 0.17404 0.37745 lineto gsave
+0.986 0.799 0.403 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.79562 0.78333 moveto 0.75487 0.79526 lineto 0.7561 0.8912 lineto gsave
+0.368 0.283 0.627 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.75487 0.79526 moveto 0.79562 0.78333 lineto 0.79419 0.68631 lineto gsave
+0.368 0.283 0.627 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.18053 0.88069 moveto 0.22034 0.89071 lineto 0.22158 0.79466 lineto gsave
+0.934 0.745 0.623 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.22158 0.79466 moveto 0.18199 0.78264 lineto 0.18053 0.88069 lineto gsave
+0.934 0.745 0.623 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.80495 0.37867 moveto 0.78997 0.40061 lineto 0.79137 0.49496 lineto gsave
+0 0 0.427 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.78997 0.40061 moveto 0.80495 0.37867 lineto 0.80347 0.28316 lineto gsave
+0 0 0.427 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.17254 0.47399 moveto 0.18627 0.49393 lineto 0.18767 0.39947 lineto gsave
+0.986 0.799 0.403 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.18767 0.39947 moveto 0.17404 0.37745 lineto 0.17254 0.47399 lineto gsave
+0.986 0.799 0.403 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.79707 0.88127 moveto 0.7561 0.8912 lineto 0.75734 0.98804 lineto gsave
+0.368 0.283 0.627 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.7561 0.8912 moveto 0.79707 0.88127 lineto 0.79562 0.78333 lineto gsave
+0.368 0.283 0.627 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.17906 0.97968 moveto 0.21908 0.98765 lineto 0.22034 0.89071 lineto gsave
+0.934 0.745 0.623 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.22034 0.89071 moveto 0.18053 0.88069 lineto 0.17906 0.97968 lineto gsave
+0.934 0.745 0.623 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.80645 0.4751 moveto 0.79137 0.49496 lineto 0.79277 0.59019 lineto gsave
+0 0 0.427 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.79202 0.56264 moveto
+0.79244 0.56232 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.79137 0.49496 moveto 0.80645 0.4751 lineto 0.80495 0.37867 lineto gsave
+0 0 0.427 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.17103 0.57145 moveto 0.18486 0.58926 lineto 0.18627 0.49393 lineto gsave
+0.986 0.799 0.403 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.18627 0.49393 moveto 0.17254 0.47399 lineto 0.17103 0.57145 lineto gsave
+0.986 0.799 0.403 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.75734 0.98804 moveto 0.79853 0.98014 lineto 0.79707 0.88127 lineto gsave
+0.368 0.283 0.627 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.80796 0.57244 moveto 0.79277 0.59019 lineto 0.79419 0.68631 lineto gsave
+0 0 0.427 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.79277 0.59019 moveto 0.80796 0.57244 lineto 0.80645 0.4751 lineto gsave
+0 0 0.427 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.1695 0.66984 moveto 0.18343 0.6855 lineto 0.18486 0.58926 lineto gsave
+0.986 0.799 0.403 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.18486 0.58926 moveto 0.17103 0.57145 lineto 0.1695 0.66984 lineto gsave
+0.986 0.799 0.403 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.18414 0.62005 moveto
+0.18507 0.62001 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.78906 0.16187 moveto 0.802 0.18853 lineto 0.80347 0.28316 lineto gsave
+0.975 0.776 0.352 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.80948 0.67071 moveto 0.79419 0.68631 lineto 0.79562 0.78333 lineto gsave
+0 0 0.427 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.79419 0.68631 moveto 0.80948 0.67071 lineto 0.80796 0.57244 lineto gsave
+0 0 0.427 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.18993 0.25723 moveto 0.17552 0.28182 lineto 0.17699 0.18708 lineto gsave
+0 0 0.381 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.17699 0.18708 moveto 0.19136 0.16046 lineto 0.18993 0.25723 lineto gsave
+0 0 0.381 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.16796 0.76919 moveto 0.18199 0.78264 lineto 0.18343 0.6855 lineto gsave
+0.986 0.799 0.403 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.18343 0.6855 moveto 0.1695 0.66984 lineto 0.16796 0.76919 lineto gsave
+0.986 0.799 0.403 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.7905 0.25854 moveto 0.80347 0.28316 lineto 0.80495 0.37867 lineto gsave
+0.975 0.776 0.352 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.80347 0.28316 moveto 0.7905 0.25854 lineto 0.78906 0.16187 lineto gsave
+0.975 0.776 0.352 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.81102 0.76994 moveto 0.79562 0.78333 lineto 0.79707 0.88127 lineto gsave
+0 0 0.427 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.79562 0.78333 moveto 0.81102 0.76994 lineto 0.80948 0.67071 lineto gsave
+0 0 0.427 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.18848 0.35495 moveto 0.17404 0.37745 lineto 0.17552 0.28182 lineto gsave
+0 0 0.381 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.17552 0.28182 moveto 0.18993 0.25723 lineto 0.18848 0.35495 lineto gsave
+0 0 0.381 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.1664 0.86949 moveto 0.18053 0.88069 lineto 0.18199 0.78264 lineto gsave
+0.986 0.799 0.403 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.18199 0.78264 moveto 0.16796 0.76919 lineto 0.1664 0.86949 lineto gsave
+0.986 0.799 0.403 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.79195 0.35614 moveto 0.80495 0.37867 lineto 0.80645 0.4751 lineto gsave
+0.975 0.776 0.352 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.80495 0.37867 moveto 0.79195 0.35614 lineto 0.7905 0.25854 lineto gsave
+0.975 0.776 0.352 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.81258 0.87012 moveto 0.79707 0.88127 lineto 0.79853 0.98014 lineto gsave
+0 0 0.427 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.79707 0.88127 moveto 0.81258 0.87012 lineto 0.81102 0.76994 lineto gsave
+0 0 0.427 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.18702 0.45361 moveto 0.17254 0.47399 lineto 0.17404 0.37745 lineto gsave
+0 0 0.381 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.17404 0.37745 moveto 0.18848 0.35495 lineto 0.18702 0.45361 lineto gsave
+0 0 0.381 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.16483 0.97078 moveto 0.17906 0.97968 lineto 0.18053 0.88069 lineto gsave
+0.986 0.799 0.403 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.18053 0.88069 moveto 0.1664 0.86949 lineto 0.16483 0.97078 lineto gsave
+0.986 0.799 0.403 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.79342 0.45469 moveto 0.80645 0.4751 lineto 0.80796 0.57244 lineto gsave
+0.975 0.776 0.352 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.008 setlinewidth
+0.80691 0.51869 moveto
+0.80706 0.51347 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.80645 0.4751 moveto 0.79342 0.45469 lineto 0.79195 0.35614 lineto gsave
+0.975 0.776 0.352 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.79853 0.98014 moveto 0.81415 0.97127 lineto 0.81258 0.87012 lineto gsave
+0 0 0.427 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.18554 0.55323 moveto 0.17103 0.57145 lineto 0.17254 0.47399 lineto gsave
+0 0 0.381 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.17254 0.47399 moveto 0.18702 0.45361 lineto 0.18554 0.55323 lineto gsave
+0 0 0.381 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.7949 0.5542 moveto 0.80796 0.57244 lineto 0.80948 0.67071 lineto gsave
+0.975 0.776 0.352 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.80796 0.57244 moveto 0.7949 0.5542 lineto 0.79342 0.45469 lineto gsave
+0.975 0.776 0.352 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.008 setlinewidth
+0.80537 0.49629 moveto
+0.80706 0.51347 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.18405 0.65384 moveto 0.1695 0.66984 lineto 0.17103 0.57145 lineto gsave
+0 0 0.381 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.17103 0.57145 moveto 0.18554 0.55323 lineto 0.18405 0.65384 lineto gsave
+0 0 0.381 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.008 setlinewidth
+0.17064 0.60413 moveto
+0.17145 0.59502 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.74777 0.13703 moveto 0.78906 0.16187 lineto 0.7905 0.25854 lineto gsave
+0.935 0.738 0.612 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.7964 0.65469 moveto 0.80948 0.67071 lineto 0.81102 0.76994 lineto gsave
+0.975 0.776 0.352 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.80948 0.67071 moveto 0.7964 0.65469 lineto 0.7949 0.5542 lineto gsave
+0.975 0.776 0.352 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.23279 0.23445 moveto 0.18993 0.25723 lineto 0.19136 0.16046 lineto gsave
+0.366 0.273 0.617 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.19136 0.16046 moveto 0.23405 0.13579 lineto 0.23279 0.23445 lineto gsave
+0.366 0.273 0.617 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.008 setlinewidth
+0.80154 0.47757 moveto
+0.80537 0.49629 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.18254 0.75543 moveto 0.16796 0.76919 lineto 0.1695 0.66984 lineto gsave
+0 0 0.381 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.1695 0.66984 moveto 0.18405 0.65384 lineto 0.18254 0.75543 lineto gsave
+0 0 0.381 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.008 setlinewidth
+0.17145 0.59502 moveto
+0.17453 0.58184 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.74903 0.2356 moveto 0.7905 0.25854 lineto 0.79195 0.35614 lineto gsave
+0.935 0.738 0.612 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.7905 0.25854 moveto 0.74903 0.2356 lineto 0.74777 0.13703 lineto gsave
+0.935 0.738 0.612 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.79791 0.75616 moveto 0.81102 0.76994 lineto 0.81258 0.87012 lineto gsave
+0.975 0.776 0.352 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.81102 0.76994 moveto 0.79791 0.75616 lineto 0.7964 0.65469 lineto gsave
+0.975 0.776 0.352 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.23153 0.33409 moveto 0.18848 0.35495 lineto 0.18993 0.25723 lineto gsave
+0.366 0.273 0.617 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.18993 0.25723 moveto 0.23279 0.23445 lineto 0.23153 0.33409 lineto gsave
+0.366 0.273 0.617 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.18102 0.85804 moveto 0.1664 0.86949 lineto 0.16796 0.76919 lineto gsave
+0 0 0.381 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.16796 0.76919 moveto 0.18254 0.75543 lineto 0.18102 0.85804 lineto gsave
+0 0 0.381 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.008 setlinewidth
+0.79558 0.4577 moveto
+0.80154 0.47757 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.75031 0.33514 moveto 0.79195 0.35614 lineto 0.79342 0.45469 lineto gsave
+0.935 0.738 0.612 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.79195 0.35614 moveto 0.75031 0.33514 lineto 0.74903 0.2356 lineto gsave
+0.935 0.738 0.612 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.008 setlinewidth
+0.17453 0.58184 moveto
+0.17979 0.56609 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.79944 0.85865 moveto 0.81258 0.87012 lineto 0.81415 0.97127 lineto gsave
+0.975 0.776 0.352 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.81258 0.87012 moveto 0.79944 0.85865 lineto 0.79791 0.75616 lineto gsave
+0.975 0.776 0.352 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.23025 0.43471 moveto 0.18702 0.45361 lineto 0.18848 0.35495 lineto gsave
+0.366 0.273 0.617 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.18848 0.35495 moveto 0.23153 0.33409 lineto 0.23025 0.43471 lineto gsave
+0.366 0.273 0.617 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.17948 0.96166 moveto 0.16483 0.97078 lineto 0.1664 0.86949 lineto gsave
+0 0 0.381 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.1664 0.86949 moveto 0.18102 0.85804 lineto 0.17948 0.96166 lineto gsave
+0 0 0.381 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.008 setlinewidth
+0.79357 0.45257 moveto
+0.79558 0.4577 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.75161 0.43566 moveto 0.79342 0.45469 lineto 0.7949 0.5542 lineto gsave
+0.935 0.738 0.612 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.79342 0.45469 moveto 0.75161 0.43566 lineto 0.75031 0.33514 lineto gsave
+0.935 0.738 0.612 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.008 setlinewidth
+0.78749 0.43706 moveto
+0.79265 0.45023 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.81415 0.97127 moveto 0.80098 0.96215 lineto 0.79944 0.85865 lineto gsave
+0.975 0.776 0.352 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.22895 0.53634 moveto 0.18554 0.55323 lineto 0.18702 0.45361 lineto gsave
+0.366 0.273 0.617 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.18702 0.45361 moveto 0.23025 0.43471 lineto 0.22895 0.53634 lineto gsave
+0.366 0.273 0.617 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.008 setlinewidth
+0.17979 0.56609 moveto
+0.18534 0.55257 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.75291 0.53719 moveto 0.7949 0.5542 lineto 0.7964 0.65469 lineto gsave
+0.935 0.738 0.612 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.7949 0.5542 moveto 0.75291 0.53719 lineto 0.75161 0.43566 lineto gsave
+0.935 0.738 0.612 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.008 setlinewidth
+0.7773 0.41612 moveto
+0.78749 0.43706 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.22765 0.63899 moveto 0.18405 0.65384 lineto 0.18554 0.55323 lineto gsave
+0.366 0.273 0.617 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.18554 0.55323 moveto 0.22895 0.53634 lineto 0.22765 0.63899 lineto gsave
+0.366 0.273 0.617 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.008 setlinewidth
+0.186 0.55097 moveto
+0.18722 0.548 lineto
+stroke
+grestore
+gsave
+0.008 setlinewidth
+0.18722 0.548 moveto
+0.19679 0.52788 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.30151 0.21589 moveto 0.23279 0.23445 lineto 0.23405 0.13579 lineto gsave
+0.538 0.414 0.658 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.23405 0.13579 moveto 0.30245 0.1157 lineto 0.30151 0.21589 lineto gsave
+0.538 0.414 0.658 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.008 setlinewidth
+0.76506 0.39535 moveto
+0.7773 0.41612 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.75423 0.63974 moveto 0.7964 0.65469 lineto 0.79791 0.75616 lineto gsave
+0.935 0.738 0.612 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.7964 0.65469 moveto 0.75423 0.63974 lineto 0.75291 0.53719 lineto gsave
+0.935 0.738 0.612 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.22633 0.74267 moveto 0.18254 0.75543 lineto 0.18405 0.65384 lineto gsave
+0.366 0.273 0.617 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.18405 0.65384 moveto 0.22765 0.63899 lineto 0.22633 0.74267 lineto gsave
+0.366 0.273 0.617 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.30057 0.3171 moveto 0.23153 0.33409 lineto 0.23279 0.23445 lineto gsave
+0.538 0.414 0.658 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.23279 0.23445 moveto 0.30151 0.21589 lineto 0.30057 0.3171 lineto gsave
+0.538 0.414 0.658 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.008 setlinewidth
+0.19679 0.52788 moveto
+0.20847 0.50608 lineto
+stroke
+grestore
+gsave
+0.008 setlinewidth
+0.75083 0.37523 moveto
+0.76506 0.39535 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.75556 0.74331 moveto 0.79791 0.75616 lineto 0.79944 0.85865 lineto gsave
+0.935 0.738 0.612 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.79791 0.75616 moveto 0.75556 0.74331 lineto 0.75423 0.63974 lineto gsave
+0.935 0.738 0.612 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.225 0.8474 moveto 0.18102 0.85804 lineto 0.18254 0.75543 lineto gsave
+0.366 0.273 0.617 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.18254 0.75543 moveto 0.22633 0.74267 lineto 0.225 0.8474 lineto gsave
+0.366 0.273 0.617 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.29962 0.41932 moveto 0.23025 0.43471 lineto 0.23153 0.33409 lineto gsave
+0.538 0.414 0.658 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.23153 0.33409 moveto 0.30057 0.3171 lineto 0.29962 0.41932 lineto gsave
+0.538 0.414 0.658 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.008 setlinewidth
+0.20847 0.50608 moveto
+0.22218 0.48303 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.75691 0.84794 moveto 0.79944 0.85865 lineto 0.80098 0.96215 lineto gsave
+0.935 0.738 0.612 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.79944 0.85865 moveto 0.75691 0.84794 lineto 0.75556 0.74331 lineto gsave
+0.935 0.738 0.612 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.22365 0.9532 moveto 0.17948 0.96166 lineto 0.18102 0.85804 lineto gsave
+0.366 0.273 0.617 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.18102 0.85804 moveto 0.225 0.8474 lineto 0.22365 0.9532 lineto gsave
+0.366 0.273 0.617 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.29865 0.52258 moveto 0.22895 0.53634 lineto 0.23025 0.43471 lineto gsave
+0.538 0.414 0.658 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.008 setlinewidth
+0.22218 0.48303 moveto
+0.22895 0.47274 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.23025 0.43471 moveto 0.29962 0.41932 lineto 0.29865 0.52258 lineto gsave
+0.538 0.414 0.658 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.008 setlinewidth
+0.23106 0.46954 moveto
+0.23786 0.4592 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.58825 0.10255 moveto 0.67639 0.11572 lineto 0.67732 0.21592 lineto gsave
+0.781 0.612 0.671 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.39006 0.20374 moveto 0.30151 0.21589 lineto 0.30245 0.1157 lineto gsave
+0.624 0.484 0.671 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.30245 0.1157 moveto 0.39056 0.10254 lineto 0.39006 0.20374 lineto gsave
+0.624 0.484 0.671 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.80098 0.96215 moveto 0.75826 0.95363 lineto 0.75691 0.84794 lineto gsave
+0.935 0.738 0.612 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.008 setlinewidth
+0.23786 0.4592 moveto
+0.2554 0.43511 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.29768 0.62689 moveto 0.22765 0.63899 lineto 0.22895 0.53634 lineto gsave
+0.538 0.414 0.658 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.22895 0.53634 moveto 0.29865 0.52258 lineto 0.29768 0.62689 lineto gsave
+0.538 0.414 0.658 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.58875 0.20375 moveto 0.67732 0.21592 lineto 0.67827 0.31712 lineto gsave
+0.781 0.612 0.671 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.67732 0.21592 moveto 0.58875 0.20375 lineto 0.58825 0.10255 lineto gsave
+0.781 0.612 0.671 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.38955 0.30596 moveto 0.30057 0.3171 lineto 0.30151 0.21589 lineto gsave
+0.624 0.484 0.671 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.30151 0.21589 moveto 0.39006 0.20374 lineto 0.38955 0.30596 lineto gsave
+0.624 0.484 0.671 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.008 setlinewidth
+0.2554 0.43511 moveto
+0.27469 0.41126 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.2967 0.73227 moveto 0.22633 0.74267 lineto 0.22765 0.63899 lineto gsave
+0.538 0.414 0.658 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.22765 0.63899 moveto 0.29768 0.62689 lineto 0.2967 0.73227 lineto gsave
+0.538 0.414 0.658 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.008 setlinewidth
+0.27469 0.41126 moveto
+0.29559 0.38819 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.58925 0.30598 moveto 0.67827 0.31712 lineto 0.67922 0.41934 lineto gsave
+0.781 0.612 0.671 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.67827 0.31712 moveto 0.58925 0.30598 lineto 0.58875 0.20375 lineto gsave
+0.781 0.612 0.671 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.38904 0.40923 moveto 0.29962 0.41932 lineto 0.30057 0.3171 lineto gsave
+0.624 0.484 0.671 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.30057 0.3171 moveto 0.38955 0.30596 lineto 0.38904 0.40923 lineto gsave
+0.624 0.484 0.671 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.4894 0.09796 moveto 0.58825 0.10255 lineto 0.58875 0.20375 lineto gsave
+0.731 0.571 0.675 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.4894 0.19951 moveto 0.39006 0.20374 lineto 0.39056 0.10254 lineto gsave
+0.682 0.531 0.675 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.39056 0.10254 moveto 0.4894 0.09796 lineto 0.4894 0.19951 lineto gsave
+0.682 0.531 0.675 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.008 setlinewidth
+0.65606 0.3401 moveto
+0.67865 0.35788 lineto
+stroke
+grestore
+gsave
+0.008 setlinewidth
+0.29559 0.38819 moveto
+0.29923 0.38465 lineto
+stroke
+grestore
+gsave
+0.008 setlinewidth
+0.3012 0.38273 moveto
+0.31795 0.36642 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.29571 0.83873 moveto 0.225 0.8474 lineto 0.22633 0.74267 lineto gsave
+0.538 0.414 0.658 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.22633 0.74267 moveto 0.2967 0.73227 lineto 0.29571 0.83873 lineto gsave
+0.538 0.414 0.658 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.58875 0.20375 moveto 0.4894 0.19951 lineto 0.4894 0.09796 lineto gsave
+0.731 0.571 0.675 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.58976 0.40924 moveto 0.67922 0.41934 lineto 0.68018 0.5226 lineto gsave
+0.781 0.612 0.671 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.67922 0.41934 moveto 0.58976 0.40924 lineto 0.58925 0.30598 lineto gsave
+0.781 0.612 0.671 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.008 setlinewidth
+0.6322 0.32415 moveto
+0.65606 0.3401 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.38853 0.51356 moveto 0.29865 0.52258 lineto 0.29962 0.41932 lineto gsave
+0.624 0.484 0.671 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.29962 0.41932 moveto 0.38904 0.40923 lineto 0.38853 0.51356 lineto gsave
+0.624 0.484 0.671 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.008 setlinewidth
+0.31795 0.36642 moveto
+0.34161 0.34644 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.4894 0.19951 moveto 0.58875 0.20375 lineto 0.58925 0.30598 lineto gsave
+0.731 0.571 0.675 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.4894 0.30209 moveto 0.38955 0.30596 lineto 0.39006 0.20374 lineto gsave
+0.682 0.531 0.675 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.39006 0.20374 moveto 0.4894 0.19951 lineto 0.4894 0.30209 lineto gsave
+0.682 0.531 0.675 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.008 setlinewidth
+0.60725 0.31045 moveto
+0.6322 0.32415 lineto
+stroke
+grestore
+gsave
+0.008 setlinewidth
+0.34161 0.34644 moveto
+0.36639 0.32869 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.2947 0.9463 moveto 0.22365 0.9532 lineto 0.225 0.8474 lineto gsave
+0.538 0.414 0.658 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.225 0.8474 moveto 0.29571 0.83873 lineto 0.2947 0.9463 lineto gsave
+0.538 0.414 0.658 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.58925 0.30598 moveto 0.4894 0.30209 lineto 0.4894 0.19951 lineto gsave
+0.731 0.571 0.675 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.008 setlinewidth
+0.5908 0.30341 moveto
+0.60725 0.31045 lineto
+stroke
+grestore
+gsave
+0.008 setlinewidth
+0.36639 0.32869 moveto
+0.38874 0.31556 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.59027 0.51357 moveto 0.68018 0.5226 lineto 0.68115 0.6269 lineto gsave
+0.781 0.612 0.671 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.68018 0.5226 moveto 0.59027 0.51357 lineto 0.58976 0.40924 lineto gsave
+0.781 0.612 0.671 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.38801 0.61896 moveto 0.29768 0.62689 lineto 0.29865 0.52258 lineto gsave
+0.624 0.484 0.671 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.29865 0.52258 moveto 0.38853 0.51356 lineto 0.38801 0.61896 lineto gsave
+0.624 0.484 0.671 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.4894 0.30209 moveto 0.58925 0.30598 lineto 0.58976 0.40924 lineto gsave
+0.731 0.571 0.675 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.008 setlinewidth
+0.58139 0.29939 moveto
+0.58785 0.30215 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.4894 0.40572 moveto 0.38904 0.40923 lineto 0.38955 0.30596 lineto gsave
+0.682 0.531 0.675 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.38955 0.30596 moveto 0.4894 0.30209 lineto 0.4894 0.40572 lineto gsave
+0.682 0.531 0.675 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.008 setlinewidth
+0.39005 0.31479 moveto
+0.39212 0.31358 lineto
+stroke
+grestore
+gsave
+0.008 setlinewidth
+0.55483 0.2913 moveto
+0.58139 0.29939 lineto
+stroke
+grestore
+gsave
+0.008 setlinewidth
+0.39212 0.31358 moveto
+0.41858 0.30144 lineto
+stroke
+grestore
+gsave
+0.008 setlinewidth
+0.52775 0.28644 moveto
+0.55483 0.2913 lineto
+stroke
+grestore
+gsave
+0.008 setlinewidth
+0.41858 0.30144 moveto
+0.44558 0.29252 lineto
+stroke
+grestore
+gsave
+0.008 setlinewidth
+0.50038 0.28498 moveto
+0.52775 0.28644 lineto
+stroke
+grestore
+gsave
+0.008 setlinewidth
+0.44558 0.29252 moveto
+0.47292 0.28701 lineto
+stroke
+grestore
+gsave
+0.008 setlinewidth
+0.47292 0.28701 moveto
+0.48753 0.28593 lineto
+stroke
+grestore
+gsave
+0.008 setlinewidth
+0.49107 0.28567 moveto
+0.50038 0.28498 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.58976 0.40924 moveto 0.4894 0.40572 lineto 0.4894 0.30209 lineto gsave
+0.731 0.571 0.675 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.59079 0.61897 moveto 0.68115 0.6269 lineto 0.68213 0.73228 lineto gsave
+0.781 0.612 0.671 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.68115 0.6269 moveto 0.59079 0.61897 lineto 0.59027 0.51357 lineto gsave
+0.781 0.612 0.671 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.38748 0.72545 moveto 0.2967 0.73227 lineto 0.29768 0.62689 lineto gsave
+0.624 0.484 0.671 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.29768 0.62689 moveto 0.38801 0.61896 lineto 0.38748 0.72545 lineto gsave
+0.624 0.484 0.671 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.4894 0.40572 moveto 0.58976 0.40924 lineto 0.59027 0.51357 lineto gsave
+0.731 0.571 0.675 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.48939 0.51042 moveto 0.38853 0.51356 lineto 0.38904 0.40923 lineto gsave
+0.682 0.531 0.675 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.38904 0.40923 moveto 0.4894 0.40572 lineto 0.48939 0.51042 lineto gsave
+0.682 0.531 0.675 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.59027 0.51357 moveto 0.48939 0.51042 lineto 0.4894 0.40572 lineto gsave
+0.731 0.571 0.675 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.59132 0.72546 moveto 0.68213 0.73228 lineto 0.68312 0.83874 lineto gsave
+0.781 0.612 0.671 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.68213 0.73228 moveto 0.59132 0.72546 lineto 0.59079 0.61897 lineto gsave
+0.781 0.612 0.671 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.38695 0.83305 moveto 0.29571 0.83873 lineto 0.2967 0.73227 lineto gsave
+0.624 0.484 0.671 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.2967 0.73227 moveto 0.38748 0.72545 lineto 0.38695 0.83305 lineto gsave
+0.624 0.484 0.671 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.48939 0.51042 moveto 0.59027 0.51357 lineto 0.59079 0.61897 lineto gsave
+0.731 0.571 0.675 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.48939 0.6162 moveto 0.38801 0.61896 lineto 0.38853 0.51356 lineto gsave
+0.682 0.531 0.675 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.38853 0.51356 moveto 0.48939 0.51042 lineto 0.48939 0.6162 lineto gsave
+0.682 0.531 0.675 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.59079 0.61897 moveto 0.48939 0.6162 lineto 0.48939 0.51042 lineto gsave
+0.731 0.571 0.675 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.59185 0.83306 moveto 0.68312 0.83874 lineto 0.68413 0.94631 lineto gsave
+0.781 0.612 0.671 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.68312 0.83874 moveto 0.59185 0.83306 lineto 0.59132 0.72546 lineto gsave
+0.781 0.612 0.671 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.38641 0.94178 moveto 0.2947 0.9463 lineto 0.29571 0.83873 lineto gsave
+0.624 0.484 0.671 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.29571 0.83873 moveto 0.38695 0.83305 lineto 0.38641 0.94178 lineto gsave
+0.624 0.484 0.671 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.48939 0.6162 moveto 0.59079 0.61897 lineto 0.59132 0.72546 lineto gsave
+0.731 0.571 0.675 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.48939 0.72308 moveto 0.38748 0.72545 lineto 0.38801 0.61896 lineto gsave
+0.682 0.531 0.675 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.38801 0.61896 moveto 0.48939 0.6162 lineto 0.48939 0.72308 lineto gsave
+0.682 0.531 0.675 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.59132 0.72546 moveto 0.48939 0.72308 lineto 0.48939 0.6162 lineto gsave
+0.731 0.571 0.675 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.68413 0.94631 moveto 0.59238 0.94178 lineto 0.59185 0.83306 lineto gsave
+0.781 0.612 0.671 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.48939 0.72308 moveto 0.59132 0.72546 lineto 0.59185 0.83306 lineto gsave
+0.731 0.571 0.675 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.48939 0.83107 moveto 0.38695 0.83305 lineto 0.38748 0.72545 lineto gsave
+0.682 0.531 0.675 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.38748 0.72545 moveto 0.48939 0.72308 lineto 0.48939 0.83107 lineto gsave
+0.682 0.531 0.675 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.59185 0.83306 moveto 0.48939 0.83107 lineto 0.48939 0.72308 lineto gsave
+0.731 0.571 0.675 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.48939 0.83107 moveto 0.59185 0.83306 lineto 0.59238 0.94178 lineto gsave
+0.731 0.571 0.675 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.48939 0.9402 moveto 0.38641 0.94178 lineto 0.38695 0.83305 lineto gsave
+0.682 0.531 0.675 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.38695 0.83305 moveto 0.48939 0.83107 lineto 0.48939 0.9402 lineto gsave
+0.682 0.531 0.675 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.59238 0.94178 moveto 0.48939 0.9402 lineto 0.48939 0.83107 lineto gsave
+0.731 0.571 0.675 setrgbcolor
+fill grestore
+stroke
+grestore
+gsave
+grestore
+% End of Graphics
+MathPictureEnd%%PSTrailer
+end
+
+% Mathematica code
+%
+% Show[cylinderslit1, curveslit1,
+% 	Boxed -> False,
+% 	Axes -> False,
+% 	BoxRatios -> {.8, .8, 1}
+% ]
+% cylinderslit1 = 
+% ParametricPlot3D[
+% 	{2 Cos[.1 Pi + .95 t], 2 Sin[.1 Pi + .95 t], z},
+% 	{t, 0, 2 Pi}, {z, -50, 100},
+% 	PlotPoints -> {21, 9},
+% 	BoxRatios -> {1, 1,.9},
+% 	ViewPoint->{3.897, -2.648, 0.918}
+% ]
+% curveslit1 = 
+% ParametricPlot3D[
+% 	{2 Cos[.1 Pi + .95 t], 2 Sin[.1 Pi + .95 t], 
+% 	(2 Cos[t])^2 + 8 (2 Cos[t]) (2 Sin[t]) + 
+% 	3 (2 Sin[t]) ^2 - 5 (2 Cos[t]) + 1}, 
+% 	{t, 0 , 2 Pi},
+% 	ViewPoint->{3.593, -3.168, 0.933}
+% ]
+
+%
+% the following scale is needed to convert back to my coordinate system;
+% no other scaling changes are needed.
+
+1 -1 scale
+
+/arrow 
+{-2 0 rmoveto
+ 0  1 rlineto
+ 4 -1 rlineto
+-4 -1 rlineto
+ 0  1 rlineto
+ 2 0 rlineto} def
+
+/rightarrow {arrow} def
+/uparrow {90 rotate arrow -90 rotate} def
+/leftarrow {180 rotate arrow -180 rotate} def
+/downarrow {-90 rotate arrow 90 rotate} def
+/bigdot {currentpoint 1.5 0 360 arc fill} def	
+/smalldot {currentpoint 1 0 360 arc fill} def	
+/rarrowto {					% stack: dx dy
+  2 copy
+  dup mul exch dup mul add  sqrt		% length of arrow
+  3 1 roll exch atan dup 				% angle
+  rotate exch 0 rlineto arrow neg rotate	% make arrow
+} def
+/arrowto {					% stack: x y
+  currentpoint 3 -1 roll sub neg 3 1 roll sub exch rarrowto
+} def
+
+gsave
+newpath
+.4 setgray
+0 50 500 
+{ 0 moveto
+  0 -400 rlineto
+} for
+0 -50 -300 
+{ 0 exch moveto
+  500 0 rlineto
+} for
+% stroke			% comment out here to eliminate grid lines
+grestore
+
+%%EPS Trailer
