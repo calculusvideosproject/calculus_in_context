@@ -1,0 +1,2455 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 0 0 612 792
+%%Creator: Mathematica
+%%Title: Clipboard
+%%CreationDate: Sometime Sometime
+%%EndComments
+/Mnodistort true def
+130 dict begin
+/Mfixwid true def
+/Mrot 0 def
+/Mpstart {
+    MathPictureStart
+} bind def
+/Mpend {
+    MathPictureEnd
+} bind def
+/Mscale {
+    0 1 0 1
+    5 -1 roll
+    MathScale
+} bind def
+/Plain	/Times-Roman findfont def
+/Bold	/Times-Bold findfont def
+/Italic /Times-Italic findfont def
+/MathPictureStart {
+	/Mimatrix
+	 matrix currentmatrix
+	def
+	gsave
+	newpath
+	Mleft
+	Mbottom
+	translate
+	1 -1 scale
+	/Mtmatrix
+	matrix currentmatrix
+	def
+	Plain
+	Mfontsize scalefont
+	setfont
+	0 setgray
+	0 setlinewidth
+} bind def
+/MathPictureEnd {
+	grestore
+} bind def
+/MathSubStart {
+        Mgmatrix Mtmatrix
+        Mleft Mbottom
+        Mwidth Mheight
+        8 -2 roll
+        moveto
+        Mtmatrix setmatrix
+        currentpoint
+        Mgmatrix setmatrix
+        10 -2 roll
+        moveto
+        Mtmatrix setmatrix
+        currentpoint
+        2 copy translate
+        /Mtmatrix matrix currentmatrix def
+        /Mleft 0 def
+        /Mbottom 0 def
+        3 -1 roll
+        exch sub
+        /Mheight exch def
+        sub
+        /Mwidth exch def
+} bind def
+/MathSubEnd {
+        /Mheight exch def
+        /Mwidth exch def
+        /Mbottom exch def
+        /Mleft exch def
+        /Mtmatrix exch def
+        dup setmatrix
+        /Mgmatrix exch def
+} bind def
+/Mdot {
+	moveto
+	0 0 rlineto
+	stroke
+} bind def
+/Mtetra {
+	moveto
+	lineto
+	lineto
+	lineto
+	fill
+} bind def
+/Metetra {
+	moveto
+	lineto
+	lineto
+	lineto
+	closepath
+	gsave
+	fill
+	grestore
+	0 setgray
+	stroke
+} bind def
+/Mistroke {
+	flattenpath
+	0 0 0
+	{
+	4 2 roll
+	pop pop
+	}
+	{
+	4 -1 roll
+	2 index
+	sub dup mul
+	4 -1 roll
+	2 index
+	sub dup mul
+	add sqrt
+	4 -1 roll
+	add
+	3 1 roll
+	}
+	{
+	stop
+	}
+	{
+	stop
+	}
+	pathforall
+	pop pop
+	currentpoint
+	stroke
+	moveto
+	currentdash
+	3 -1 roll
+	add
+	setdash
+} bind def
+/Mfstroke {
+	stroke
+	currentdash
+	pop 0
+	setdash
+} bind def
+/Mrotsboxa {
+	gsave
+	dup
+	/Mrot
+	exch def
+	Mrotcheck
+	Mtmatrix
+	dup
+	setmatrix
+	7 1 roll
+	4 index
+	4 index
+	translate
+	rotate
+	3 index
+	-1 mul
+	3 index
+	-1 mul
+	translate
+	/Mtmatrix
+	matrix
+	currentmatrix
+	def
+	grestore
+	Msboxa
+	3  -1 roll
+	/Mtmatrix
+	exch def
+	/Mrot
+	0 def
+} bind def
+/Msboxa {
+	newpath
+	5 -1 roll
+	Mvboxa
+	pop
+	Mboxout
+	6 -1 roll
+	5 -1 roll
+	4 -1 roll
+	Msboxa1
+	5 -3 roll
+	Msboxa1
+	Mboxrot
+	[
+	7 -2 roll
+	2 copy
+	[
+	3 1 roll
+	10 -1 roll
+	9 -1 roll
+	]
+	6 1 roll
+	5 -2 roll
+	]
+} bind def
+/Msboxa1 {
+	sub
+	2 div
+	dup
+	2 index
+	1 add
+	mul
+	3 -1 roll
+	-1 add
+	3 -1 roll
+	mul
+} bind def
+/Mvboxa	{
+	Mfixwid
+	{
+	Mvboxa1
+	}
+	{
+	dup
+	Mwidthcal
+	0 exch
+	{
+	add
+	}
+	forall
+	exch
+	Mvboxa1
+	4 index
+	7 -1 roll
+	add
+	4 -1 roll
+	pop
+	3 1 roll
+	}
+	ifelse
+} bind def
+/Mvboxa1 {
+	gsave
+	newpath
+	[ true
+	3 -1 roll
+	{
+	Mbbox
+	5 -1 roll
+	{
+	0
+	5 1 roll
+	}
+	{
+	7 -1 roll
+	exch sub
+	(m) stringwidth pop
+	.3 mul
+	sub
+	7 1 roll
+	6 -1 roll
+	4 -1 roll
+	Mmin
+	3 -1 roll
+	5 index
+	add
+	5 -1 roll
+	4 -1 roll
+	Mmax
+	4 -1 roll
+	}
+	ifelse
+	false
+	}
+	forall
+	{ stop } if
+	counttomark
+	1 add
+	4 roll
+	]
+	grestore
+} bind def
+/Mbbox {
+	0 0 moveto
+	false charpath
+	flattenpath
+	pathbbox
+	newpath
+} bind def
+/Mmin {
+	2 copy
+	gt
+	{ exch } if
+	pop
+} bind def
+/Mmax {
+	2 copy
+	lt
+	{ exch } if
+	pop
+} bind def
+/Mrotshowa {
+	dup
+	/Mrot
+	exch def
+	Mrotcheck
+	Mtmatrix
+	dup
+	setmatrix
+	7 1 roll
+	4 index
+	4 index
+	translate
+	rotate
+	3 index
+	-1 mul
+	3 index
+	-1 mul
+	translate
+	/Mtmatrix
+	matrix
+	currentmatrix
+	def
+	Mgmatrix setmatrix
+	Mshowa
+	/Mtmatrix
+	exch def
+	/Mrot 0 def
+} bind def
+/Mshowa {
+	4 -2 roll
+	moveto
+	2 index
+	Mtmatrix setmatrix
+	Mvboxa
+	7 1 roll
+	Mboxout
+	6 -1 roll
+	5 -1 roll
+	4 -1 roll
+	Mshowa1
+	4 1 roll
+	Mshowa1
+	rmoveto
+	currentpoint
+	Mfixwid
+	{
+	Mshowax
+	}
+	{
+	Mshoway
+	}
+	ifelse
+	pop pop pop pop
+	Mgmatrix setmatrix
+} bind def
+/Mshowax {
+	0 1
+        4 index length
+        -1 add
+        {
+        2 index
+        4 index
+        2 index
+        get
+        3 index
+        add
+        moveto
+        4 index
+        exch get
+        show
+        } for
+} bind def
+/Mshoway {
+        3 index
+        Mwidthcal
+        5 1 roll
+	0 1
+	4 index length
+	-1 add
+	{
+	2 index
+	4 index
+	2 index
+	get
+	3 index
+	add
+	moveto
+	4 index
+	exch get
+	[
+	6 index
+	aload
+	length
+	2 add
+	-1 roll
+	{
+	pop
+	Strform
+	stringwidth
+	pop
+	neg
+	exch
+	add
+	0 rmoveto
+	}
+	exch
+	kshow
+	cleartomark
+	} for
+	pop
+} bind def
+/Mwidthcal {
+	[
+	exch
+	{
+	Mwidthcal1
+	}
+	forall
+	]
+	[
+	exch
+	dup
+	Maxlen
+	-1 add
+	0 1
+	3 -1 roll
+	{
+	[
+	exch
+	2 index
+	{
+	1 index
+	Mget
+	exch
+	}
+	forall
+	pop
+	Maxget
+	exch
+	}
+	for
+	pop
+	]
+	Mreva
+} bind def
+/Mreva	{
+	[
+	exch
+	aload
+	length
+	-1 1
+	{1 roll}
+	for
+	]
+} bind def
+/Mget	{
+	1 index
+	length
+	-1 add
+	1 index
+	ge
+	{
+	get
+	}
+	{
+	pop pop
+	0
+	}
+	ifelse
+} bind def
+/Maxlen	{
+	[
+	exch
+	{
+	length
+	}
+	forall
+	Maxget
+} bind def
+/Maxget	{
+	counttomark
+	-1 add
+	1 1
+	3 -1 roll
+	{
+	pop
+	Mmax
+	}
+	for
+	exch
+	pop
+} bind def
+/Mwidthcal1 {
+	[
+	exch
+	{
+	Strform
+	stringwidth
+	pop
+	}
+	forall
+	]
+} bind def
+/Strform {
+	/tem (x) def
+	tem 0
+	3 -1 roll
+	put
+	tem
+} bind def
+/Mshowa1 {
+	2 copy
+	add
+	4 1 roll
+	sub
+	mul
+	sub
+	-2 div
+} bind def
+/MathScale {
+	Mwidth
+	Mheight
+	Mlp
+	translate
+	scale
+	/Msaveaa exch def
+	/Msavebb exch def
+	/Msavecc exch def
+	/Msavedd exch def
+	/Mgmatrix
+	matrix currentmatrix
+	def
+} bind def
+/Mlp {
+	3 copy
+	Mlpfirst
+	{
+	Mnodistort
+	{
+	Mmin
+	dup
+	} if
+	4 index
+	2 index
+	2 index
+	Mlprun
+	11 index
+	11 -1 roll
+	10 -4 roll
+	Mlp1
+	8 index
+	9 -5 roll
+	Mlp1
+	4 -1 roll
+	and
+	{ exit } if
+	3 -1 roll
+	pop pop
+	} loop
+	exch
+	3 1 roll
+	7 -3 roll
+	pop pop pop
+} bind def
+/Mlpfirst {
+	3 -1 roll
+	dup length
+	2 copy
+	-2 add
+	get
+	aload
+	pop pop pop
+	4 -2 roll
+	-1 add
+	get
+	aload
+	pop pop pop
+	6 -1 roll
+	3 -1 roll
+	5 -1 roll
+	sub
+	dup /MsaveAx exch def
+	div
+	4 1 roll
+	exch sub
+	dup /MsaveAy exch def
+	div
+} bind def
+/Mlprun {
+	2 copy
+	4 index
+	0 get
+	dup
+	4 1 roll
+	Mlprun1
+	3 copy
+	8 -2 roll
+	9 -1 roll
+	{
+	3 copy
+	Mlprun1
+	3 copy
+	11 -3 roll
+	/gt Mlpminmax
+	8 3 roll
+	11 -3 roll
+	/lt Mlpminmax
+	8 3 roll
+	} forall
+	pop pop pop pop
+	3 1 roll
+	pop pop
+	aload pop
+	5 -1 roll
+	aload pop
+	exch
+	6 -1 roll
+	Mlprun2
+	8 2 roll
+	4 -1 roll
+	Mlprun2
+	6 2 roll
+	3 -1 roll
+	Mlprun2
+	4 2 roll
+	exch
+	Mlprun2
+	6 2 roll
+} bind def
+/Mlprun1 {
+	aload pop
+	exch
+	6 -1 roll
+	5 -1 roll
+	mul add
+	4 -2 roll
+	mul
+	3 -1 roll
+	add
+} bind def
+/Mlprun2 {
+	2 copy
+	add 2 div
+	3 1 roll
+	exch sub
+} bind def
+/Mlpminmax {
+	cvx
+	2 index
+	6 index
+	2 index
+	exec
+	{
+	7 -3 roll
+	4 -1 roll
+	} if
+	1 index
+	5 index
+	3 -1 roll
+	exec
+	{
+	4 1 roll
+	pop
+	5 -1 roll
+	aload
+	pop pop
+	4 -1 roll
+	aload pop
+	[
+	8 -2 roll
+	pop
+	5 -2 roll
+	pop
+	6 -2 roll
+	pop
+	5 -1 roll
+	]
+	4 1 roll
+	pop
+	}
+	{
+	pop pop pop
+	} ifelse
+} bind def
+/Mlp1 {
+	5 index
+	3 index	sub
+	5 index
+	2 index mul
+	1 index
+	le
+	1 index
+	0 le
+	or
+	dup
+	not
+	{
+	1 index
+	3 index	div
+	.99999 mul
+	8 -1 roll
+	pop
+	7 1 roll
+	}
+	if
+	8 -1 roll
+	2 div
+	7 -2 roll
+	pop sub
+	5 index
+	6 -3 roll
+	pop pop
+	mul sub
+	exch
+} bind def
+/intop 0 def
+/inrht 0 def
+/inflag 0 def
+/outflag 0 def
+/xadrht 0 def
+/xadlft 0 def
+/yadtop 0 def
+/yadbot 0 def
+/Minner {
+	outflag
+	1
+	eq
+	{
+	/outflag 0 def
+	/intop 0 def
+	/inrht 0 def
+	} if
+	5 index
+	gsave
+	Mtmatrix setmatrix
+	Mvboxa pop
+	grestore
+	3 -1 roll
+	pop
+	dup
+	intop
+	gt
+	{
+	/intop
+	exch def
+	}
+	{ pop }
+	ifelse
+	dup
+	inrht
+	gt
+	{
+	/inrht
+	exch def
+	}
+	{ pop }
+	ifelse
+	pop
+	/inflag
+	1 def
+} bind def
+/Mouter {
+	/xadrht 0 def
+	/xadlft 0 def
+	/yadtop 0 def
+	/yadbot 0 def
+	inflag
+	1 eq
+	{
+	dup
+	0 lt
+	{
+	dup
+	intop
+	mul
+	neg
+	/yadtop
+	exch def
+	} if
+	dup
+	0 gt
+	{
+	dup
+	intop
+	mul
+	/yadbot
+	exch def
+	}
+	if
+	pop
+	dup
+	0 lt
+	{
+	dup
+	inrht
+	mul
+	neg
+	/xadrht
+	exch def
+	} if
+	dup
+	0 gt
+	{
+	dup
+	inrht
+	mul
+	/xadlft
+	exch def
+	} if
+	pop
+	/outflag 1 def
+	}
+	{ pop pop}
+	ifelse
+	/inflag 0 def
+	/inrht 0 def
+	/intop 0 def
+} bind def
+/Mboxout {
+	outflag
+	1
+	eq
+	{
+	4 -1
+	roll
+	xadlft
+	leadjust
+	add
+	sub
+	4 1 roll
+	3 -1
+	roll
+	yadbot
+	leadjust
+	add
+	sub
+	3 1
+	roll
+	exch
+	xadrht
+	leadjust
+	add
+	add
+	exch
+	yadtop
+	leadjust
+	add
+	add
+	/outflag 0 def
+	/xadlft 0 def
+	/yadbot 0 def
+	/xadrht 0 def
+	/yadtop 0 def
+	} if
+} bind def
+/leadjust {
+	(m) stringwidth pop
+	.5 mul
+} bind def
+/Mrotcheck {
+	dup
+	90
+	eq
+	{
+	yadbot
+	/yadbot
+	xadrht
+	def
+	/xadrht
+	yadtop
+	def
+	/yadtop
+	xadlft
+	def
+	/xadlft
+	exch
+	def
+	}
+	if
+	dup
+	cos
+	1 index
+	sin
+	Checkaux
+	dup
+	cos
+	1 index
+	sin neg
+	exch
+	Checkaux
+	3 1 roll
+	pop pop
+} bind def
+/Checkaux {
+	4 index
+	exch
+	4 index
+	mul
+	3 1 roll
+	mul add
+	4 1 roll
+} bind def
+/Mboxrot {
+	Mrot
+	90 eq
+	{
+	brotaux
+	4 2
+	roll
+	}
+	if
+	Mrot
+	180 eq
+	{
+	4 2
+        roll
+	brotaux
+	4 2
+	roll
+	brotaux
+	}
+	if
+	Mrot
+	270 eq
+	{
+	4 2
+	roll
+	brotaux
+	}
+	if
+} bind def
+/brotaux {
+	neg
+	exch
+	neg
+} bind def
+/Mabswid {
+	Mimatrix
+	0 get
+	Mgmatrix
+	0 get
+	div
+	mul
+	setlinewidth
+} bind def
+/Mabsdash {
+	exch
+	Mimatrix
+	0 get
+	Mgmatrix
+	0 get
+	div
+	[
+	3 1 roll
+	exch
+	{
+	exch
+	dup
+	3 -1 roll
+	mul
+	exch
+	}
+	forall
+	pop ]
+	exch
+	setdash
+} bind def
+/colorimage where
+{ pop }
+{
+/colorimage {
+3 1 roll
+ pop pop
+ 5 -1 roll
+ mul
+ 4 1 roll
+{
+currentfile
+1 index
+readhexstring
+pop }
+image
+} bind def
+} ifelse
+/sampledsound where
+{ pop}
+{ /sampledsound {
+exch
+pop
+exch
+5 1 roll
+mul
+4 idiv
+mul
+2 idiv
+exch pop
+exch
+/Mtempproc exch def
+{ Mtempproc pop }
+repeat
+} bind def
+} ifelse
+
+/Mleft		0.000000 def
+/Mbottom	364.225037 def
+/Mwidth		135.154907 def
+/Mheight	364.225037 def
+/Mfontsize 12 def
+/Plain /Times-Roman findfont def
+
+% % % % % % % % % % % % % % custom insert - begin % % % % % % % % % % % % % % 
+%
+% PLACE THIS JUST BEFORE THE LINES:	1 -1 scale
+%		  ~~~~~~		
+%					%%Creator: Mathematica
+%					%%AspectRatio: 0.61803 
+%
+%
+
+1 1 scale
+-45 0 translate
+
+/printscale .62 def
+/screenstretch {printscale 1.3 mul} def
+/double {screenstretch 2 mul} def
+
+ printscale printscale scale	    % scale for printing
+% screenstretch screenstretch scale % printing scale on screen
+% double double scale               % magnified screen
+
+% ----------------- arrow drawing procedures ------------------
+
+/arrow 
+{-2 0 rmoveto
+ 0  1 rlineto
+ 4 -1 rlineto
+-4 -1 rlineto
+ 0  1 rlineto
+ 2 0 rlineto} def
+
+/rightarrow {arrow} def
+/uparrow {90 rotate arrow -90 rotate} def
+/leftarrow {180 rotate arrow -180 rotate} def
+/downarrow {-90 rotate arrow 90 rotate} def
+
+% ------------------ graphics instructions --------------------
+
+.3 setlinewidth
+
+% position the origin
+% 100 300 moveto				% screen origin
+ 520 -80 moveto
+currentpoint translate
+
+gsave
+newpath
+10 -200 moveto
+-1 186 rlineto
+150 -90 rlineto
+closepath
+1 setgray
+fill
+grestore
+
+gsave
+newpath
+6 -238 moveto
+133 rotate
+87 0 rlineto
+arrow
+-133 rotate
+6 -14 moveto
+150 rotate
+60 0 rlineto
+arrow
+-150 rotate
+104 -40 moveto
+0 -20 rlineto
+downarrow
+stroke
+grestore
+
+newpath
+60 -286 moveto
+0 230 rlineto
+uparrow
+110 -210 moveto
+141 rotate
+120 0 rlineto
+arrow
+-141 rotate
+stroke
+
+
+% -------------------- font codes --------------------------
+
+/typesize {10 printscale div} def
+
+/makeTR {/Times-Roman findfont typesize scalefont} def
+/makeTB {/Times-Bold findfont typesize scalefont} def
+/makeTI {/Times-Italic findfont typesize scalefont} def
+/makeSYM {/Symbol findfont typesize scalefont} def
+
+/TR {makeTR setfont} def
+/TB {makeTB setfont} def
+/TI {makeTI setfont} def
+/SYM {makeSYM setfont} def
+
+% ---------------string placing procedures-------------------
+
+% stack: fontcode string x y 
+
+/placeBL {moveto show} def
+/placeBR {moveto dup stringwidth pop neg 0 rmoveto show} def
+/placeBC {moveto dup stringwidth pop 2 div neg 0 rmoveto show} def
+/placeTL {moveto 0 typesize neg rmoveto show} def
+/placeTR {moveto dup stringwidth pop neg typesize neg rmoveto show} def
+/placeTC {moveto dup stringwidth pop 2 div neg typesize neg rmoveto show} def
+
+
+% my labels
+TI (y) 18 -123 placeBL
+(z) 50 -56 placeBL
+(x = ) 89 -33 placeBL
+TR (0) show
+%
+%
+% % % % % % % % % % % % % custom inset - end % % % % % % % % % % % %
+
+1 -1 scale
+%!
+%%Creator: Mathematica
+%%AspectRatio: 2.71148 
+MathPictureStart
+/Times-Roman findfont 10  scalefont  setfont
+% Scaling calculations
+-0.898604 2.727578 0.068189 2.727578 [
+[(-4)] 0.91183 0.0341 0.009568 1 Msboxa
+[(-2)] 0.67951 0.25758 0.004569 1 Msboxa
+[(0)] 0.46519 0.46375 3.5484e-18 1 Msboxa
+[(2)] 0.26685 0.65454 -0.004193 1 Msboxa
+[(4)] 0.08278 0.83161 -0.008054 1 Msboxa
+[(-10)] 0.9411 0.41733 -1 0.896238 Msboxa
+[(0)] 0.94858 1.05217 -1 0.78571 Msboxa
+[(10)] 0.95629 1.70462 -1 0.67241 Msboxa
+[ 0 0 0 0 ]
+[ 1 2.711478 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+%%Object: SurfaceGraphics
+[ ] 0 setdash
+0 setgray
+gsave
+gsave
+0.001 setlinewidth
+0.91215 0.06819 moveto
+0.91215 0.06819 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91215 0.06819 moveto
+0.89986 0.08 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91215 0.06819 moveto
+0.89986 0.08 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91215 0.06819 moveto
+0.89986 0.08 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91215 0.06819 moveto
+0.89986 0.08 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91215 0.06819 moveto
+0.89986 0.08 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91215 0.06819 moveto
+0.89986 0.08 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91215 0.06819 moveto
+0.90478 0.07528 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91215 0.06819 moveto
+0.90478 0.07528 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91215 0.06819 moveto
+0.90478 0.07528 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91215 0.06819 moveto
+0.90478 0.07528 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91215 0.06819 moveto
+0.90478 0.07528 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91215 0.06819 moveto
+0.90478 0.07528 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91215 0.06819 moveto
+0.90478 0.07528 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91215 0.06819 moveto
+0.90478 0.07528 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91215 0.06819 moveto
+0.90478 0.07528 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91215 0.06819 moveto
+0.90478 0.07528 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91215 0.06819 moveto
+0.90478 0.07528 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91215 0.06819 moveto
+0.90478 0.07528 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91215 0.06819 moveto
+0.90478 0.07528 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91215 0.06819 moveto
+0.90478 0.07528 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91215 0.06819 moveto
+0.90478 0.07528 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91215 0.06819 moveto
+0.90478 0.07528 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91215 0.06819 moveto
+0.90478 0.07528 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91215 0.06819 moveto
+0.90478 0.07528 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91215 0.06819 moveto
+0.90478 0.07528 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91215 0.06819 moveto
+0.90478 0.07528 lineto
+stroke
+grestore
+grestore
+gsave
+gsave
+0.001 setlinewidth
+0.91215 0.06819 moveto
+0.08251 0.8657 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91215 0.06819 moveto
+0.91232 0.08524 lineto
+stroke
+grestore
+[(-4)] 0.91183 0.0341 0.009568 1 Mshowa
+gsave
+0.001 setlinewidth
+0.67966 0.29168 moveto
+0.67974 0.30872 lineto
+stroke
+grestore
+[(-2)] 0.67951 0.25758 0.004569 1 Mshowa
+gsave
+0.001 setlinewidth
+0.46519 0.49785 moveto
+0.46519 0.51489 lineto
+stroke
+grestore
+[(0)] 0.46519 0.46375 3.5484e-18 1 Mshowa
+gsave
+0.001 setlinewidth
+0.26671 0.68863 moveto
+0.26664 0.70568 lineto
+stroke
+grestore
+[(2)] 0.26685 0.65454 -0.004193 1 Mshowa
+gsave
+0.001 setlinewidth
+0.08251 0.8657 moveto
+0.08237 0.88275 lineto
+stroke
+grestore
+[(4)] 0.08278 0.83161 -0.008054 1 Mshowa
+gsave
+0.001 setlinewidth
+0.86411 0.11438 moveto
+0.86419 0.1246 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.81685 0.1598 moveto
+0.81693 0.17003 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.77037 0.20448 moveto
+0.77044 0.21471 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.72465 0.24843 moveto
+0.72471 0.25866 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.63539 0.33423 moveto
+0.63543 0.34446 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.59183 0.37611 moveto
+0.59186 0.38634 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.54895 0.41733 moveto
+0.54897 0.42755 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.50674 0.4579 moveto
+0.50675 0.46813 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.42427 0.53718 moveto
+0.42426 0.54741 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.38398 0.57591 moveto
+0.38396 0.58614 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.3443 0.61405 moveto
+0.34427 0.62428 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.30521 0.65162 moveto
+0.30518 0.66185 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.22878 0.7251 moveto
+0.22873 0.73533 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.1914 0.76102 moveto
+0.19134 0.77125 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.15457 0.79643 moveto
+0.15451 0.80665 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.11828 0.83131 moveto
+0.1182 0.84154 lineto
+stroke
+grestore
+grestore
+gsave
+gsave
+0.001 setlinewidth
+0.91215 0.06819 moveto
+0.93181 2.12248 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91571 0.44008 moveto
+0.90302 0.45146 lineto
+stroke
+grestore
+[(-10)] 0.9411 0.41733 -1 0.896238 Mshowa
+gsave
+0.001 setlinewidth
+0.92177 1.07323 moveto
+0.90837 1.08377 lineto
+stroke
+grestore
+[(0)] 0.94858 1.05217 -1 0.78571 Mshowa
+gsave
+0.001 setlinewidth
+0.92799 1.72365 moveto
+0.91385 1.73316 lineto
+stroke
+grestore
+[(10)] 0.95629 1.70462 -1 0.67241 Mshowa
+gsave
+0.001 setlinewidth
+0.91691 0.56536 moveto
+0.90921 0.5721 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91812 0.69132 moveto
+0.91033 0.69795 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91933 0.81794 moveto
+0.91146 0.82447 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.92055 0.94525 moveto
+0.91259 0.95167 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.923 1.20191 moveto
+0.91487 1.20812 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.92424 1.33129 moveto
+0.91602 1.33738 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.92548 1.46137 moveto
+0.91718 1.46733 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.92674 1.59215 moveto
+0.91834 1.59799 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91452 0.31546 moveto
+0.90699 0.32238 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91333 0.1915 moveto
+0.90588 0.1985 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.92926 1.85586 moveto
+0.92068 1.86143 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.93053 1.9888 moveto
+0.92186 1.99423 lineto
+stroke
+grestore
+grestore
+0 0 moveto
+1 0 lineto
+1 2.71148 lineto
+0 2.71148 lineto
+closepath
+clip
+newpath
+gsave
+0.001 setlinewidth
+0.91215 0.06819 moveto
+0.93181 2.12248 lineto
+stroke
+0.93181 2.12248 moveto
+0.06819 2.64329 lineto
+stroke
+0.06819 2.64329 moveto
+0.08251 0.8657 lineto
+stroke
+0.08251 0.8657 moveto
+0.91215 0.06819 lineto
+stroke
+0.91215 0.06819 moveto
+0.08251 0.8657 lineto
+stroke
+0.08251 0.8657 moveto
+0.06819 2.64329 lineto
+stroke
+0.06819 2.64329 moveto
+0.93181 2.12248 lineto
+stroke
+0.93181 2.12248 moveto
+0.91215 0.06819 lineto
+stroke
+0.91215 0.06819 moveto
+0.93181 2.12248 lineto
+stroke
+0.93181 2.12248 moveto
+0.93181 2.12248 lineto
+stroke
+0.93181 2.12248 moveto
+0.91215 0.06819 lineto
+stroke
+0.91215 0.06819 moveto
+0.91215 0.06819 lineto
+stroke
+0.08251 0.8657 moveto
+0.08251 0.8657 lineto
+stroke
+0.08251 0.8657 moveto
+0.06819 2.64329 lineto
+stroke
+0.06819 2.64329 moveto
+0.06819 2.64329 lineto
+stroke
+0.06819 2.64329 moveto
+0.08251 0.8657 lineto
+stroke
+grestore
+gsave
+0.31 0.227 0.597 setrgbcolor
+0.015 setlinewidth
+0.13216 1.04696 0.08251 0.8657 0.08251 0.8657 0.13216 1.04696 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.13216 1.04696 0.08251 0.8657 0.08251 0.8657 0.13216 1.04696 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.13216 1.04696 0.08251 0.8657 0.08251 0.8657 0.13216 1.04696 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.13216 1.04696 0.08251 0.8657 0.08251 0.8657 0.13216 1.04696 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.13216 1.04696 0.08251 0.8657 0.08251 0.8657 0.13216 1.04696 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.13216 1.04696 0.08251 0.8657 0.08251 0.8657 0.13216 1.04696 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.13216 1.04696 0.08251 0.8657 0.08251 0.8657 0.13216 1.04696 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.13216 1.04696 0.08251 0.8657 0.08251 0.8657 0.13216 1.04696 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.13216 1.04696 0.08251 0.8657 0.08251 0.8657 0.13216 1.04696 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.13216 1.04696 0.08251 0.8657 0.08251 0.8657 0.13216 1.04696 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.13216 1.04696 0.08251 0.8657 0.08251 0.8657 0.13216 1.04696 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.13216 1.04696 0.08251 0.8657 0.08251 0.8657 0.13216 1.04696 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.13216 1.04696 0.08251 0.8657 0.08251 0.8657 0.13216 1.04696 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.13216 1.04696 0.08251 0.8657 0.08251 0.8657 0.13216 1.04696 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.18357 1.19754 0.13216 1.04696 0.13216 1.04696 0.18357 1.19754 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.18357 1.19754 0.13216 1.04696 0.13216 1.04696 0.18357 1.19754 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.18357 1.19754 0.13216 1.04696 0.13216 1.04696 0.18357 1.19754 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.18357 1.19754 0.13216 1.04696 0.13216 1.04696 0.18357 1.19754 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.18357 1.19754 0.13216 1.04696 0.13216 1.04696 0.18357 1.19754 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.18357 1.19754 0.13216 1.04696 0.13216 1.04696 0.18357 1.19754 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.18357 1.19754 0.13216 1.04696 0.13216 1.04696 0.18357 1.19754 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.18357 1.19754 0.13216 1.04696 0.13216 1.04696 0.18357 1.19754 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.18357 1.19754 0.13216 1.04696 0.13216 1.04696 0.18357 1.19754 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.18357 1.19754 0.13216 1.04696 0.13216 1.04696 0.18357 1.19754 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.18357 1.19754 0.13216 1.04696 0.13216 1.04696 0.18357 1.19754 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.18357 1.19754 0.13216 1.04696 0.13216 1.04696 0.18357 1.19754 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.18357 1.19754 0.13216 1.04696 0.13216 1.04696 0.18357 1.19754 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.18357 1.19754 0.13216 1.04696 0.13216 1.04696 0.18357 1.19754 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.23669 1.31571 0.18357 1.19754 0.18357 1.19754 0.23669 1.31571 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.23669 1.31571 0.18357 1.19754 0.18357 1.19754 0.23669 1.31571 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.23669 1.31571 0.18357 1.19754 0.18357 1.19754 0.23669 1.31571 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.23669 1.31571 0.18357 1.19754 0.18357 1.19754 0.23669 1.31571 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.23669 1.31571 0.18357 1.19754 0.18357 1.19754 0.23669 1.31571 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.23669 1.31571 0.18357 1.19754 0.18357 1.19754 0.23669 1.31571 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.23669 1.31571 0.18357 1.19754 0.18357 1.19754 0.23669 1.31571 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.23669 1.31571 0.18357 1.19754 0.18357 1.19754 0.23669 1.31571 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.23669 1.31571 0.18357 1.19754 0.18357 1.19754 0.23669 1.31571 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.23669 1.31571 0.18357 1.19754 0.18357 1.19754 0.23669 1.31571 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.23669 1.31571 0.18357 1.19754 0.18357 1.19754 0.23669 1.31571 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.23669 1.31571 0.18357 1.19754 0.18357 1.19754 0.23669 1.31571 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.23669 1.31571 0.18357 1.19754 0.18357 1.19754 0.23669 1.31571 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.23669 1.31571 0.18357 1.19754 0.18357 1.19754 0.23669 1.31571 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.29148 1.39981 0.23669 1.31571 0.23669 1.31571 0.29148 1.39981 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.29148 1.39981 0.23669 1.31571 0.23669 1.31571 0.29148 1.39981 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.29148 1.39981 0.23669 1.31571 0.23669 1.31571 0.29148 1.39981 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.29148 1.39981 0.23669 1.31571 0.23669 1.31571 0.29148 1.39981 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.29148 1.39981 0.23669 1.31571 0.23669 1.31571 0.29148 1.39981 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.29148 1.39981 0.23669 1.31571 0.23669 1.31571 0.29148 1.39981 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.29148 1.39981 0.23669 1.31571 0.23669 1.31571 0.29148 1.39981 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.29148 1.39981 0.23669 1.31571 0.23669 1.31571 0.29148 1.39981 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.29148 1.39981 0.23669 1.31571 0.23669 1.31571 0.29148 1.39981 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.29148 1.39981 0.23669 1.31571 0.23669 1.31571 0.29148 1.39981 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.29148 1.39981 0.23669 1.31571 0.23669 1.31571 0.29148 1.39981 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.29148 1.39981 0.23669 1.31571 0.23669 1.31571 0.29148 1.39981 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.29148 1.39981 0.23669 1.31571 0.23669 1.31571 0.29148 1.39981 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.29148 1.39981 0.23669 1.31571 0.23669 1.31571 0.29148 1.39981 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.34788 1.44822 0.29148 1.39981 0.29148 1.39981 0.34788 1.44822 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.34788 1.44822 0.29148 1.39981 0.29148 1.39981 0.34788 1.44822 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.34788 1.44822 0.29148 1.39981 0.29148 1.39981 0.34788 1.44822 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.34788 1.44822 0.29148 1.39981 0.29148 1.39981 0.34788 1.44822 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.34788 1.44822 0.29148 1.39981 0.29148 1.39981 0.34788 1.44822 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.34788 1.44822 0.29148 1.39981 0.29148 1.39981 0.34788 1.44822 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.34788 1.44822 0.29148 1.39981 0.29148 1.39981 0.34788 1.44822 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.34788 1.44822 0.29148 1.39981 0.29148 1.39981 0.34788 1.44822 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.34788 1.44822 0.29148 1.39981 0.29148 1.39981 0.34788 1.44822 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.34788 1.44822 0.29148 1.39981 0.29148 1.39981 0.34788 1.44822 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.34788 1.44822 0.29148 1.39981 0.29148 1.39981 0.34788 1.44822 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.34788 1.44822 0.29148 1.39981 0.29148 1.39981 0.34788 1.44822 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.34788 1.44822 0.29148 1.39981 0.29148 1.39981 0.34788 1.44822 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.34788 1.44822 0.29148 1.39981 0.29148 1.39981 0.34788 1.44822 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.40581 1.45942 0.34788 1.44822 0.34788 1.44822 0.40581 1.45942 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.40581 1.45942 0.34788 1.44822 0.34788 1.44822 0.40581 1.45942 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.40581 1.45942 0.34788 1.44822 0.34788 1.44822 0.40581 1.45942 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.40581 1.45942 0.34788 1.44822 0.34788 1.44822 0.40581 1.45942 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.40581 1.45942 0.34788 1.44822 0.34788 1.44822 0.40581 1.45942 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.40581 1.45942 0.34788 1.44822 0.34788 1.44822 0.40581 1.45942 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.40581 1.45942 0.34788 1.44822 0.34788 1.44822 0.40581 1.45942 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.40581 1.45942 0.34788 1.44822 0.34788 1.44822 0.40581 1.45942 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.40581 1.45942 0.34788 1.44822 0.34788 1.44822 0.40581 1.45942 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.40581 1.45942 0.34788 1.44822 0.34788 1.44822 0.40581 1.45942 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.40581 1.45942 0.34788 1.44822 0.34788 1.44822 0.40581 1.45942 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.40581 1.45942 0.34788 1.44822 0.34788 1.44822 0.40581 1.45942 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.40581 1.45942 0.34788 1.44822 0.34788 1.44822 0.40581 1.45942 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.40581 1.45942 0.34788 1.44822 0.34788 1.44822 0.40581 1.45942 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.46519 1.43198 0.40581 1.45942 0.40581 1.45942 0.46519 1.43198 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.46519 1.43198 0.40581 1.45942 0.40581 1.45942 0.46519 1.43198 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.46519 1.43198 0.40581 1.45942 0.40581 1.45942 0.46519 1.43198 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.46519 1.43198 0.40581 1.45942 0.40581 1.45942 0.46519 1.43198 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.46519 1.43198 0.40581 1.45942 0.40581 1.45942 0.46519 1.43198 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.46519 1.43198 0.40581 1.45942 0.40581 1.45942 0.46519 1.43198 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.46519 1.43198 0.40581 1.45942 0.40581 1.45942 0.46519 1.43198 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.46519 1.43198 0.40581 1.45942 0.40581 1.45942 0.46519 1.43198 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.46519 1.43198 0.40581 1.45942 0.40581 1.45942 0.46519 1.43198 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.46519 1.43198 0.40581 1.45942 0.40581 1.45942 0.46519 1.43198 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.46519 1.43198 0.40581 1.45942 0.40581 1.45942 0.46519 1.43198 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.46519 1.43198 0.40581 1.45942 0.40581 1.45942 0.46519 1.43198 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.46519 1.43198 0.40581 1.45942 0.40581 1.45942 0.46519 1.43198 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.46519 1.43198 0.40581 1.45942 0.40581 1.45942 0.46519 1.43198 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.52592 1.3646 0.46519 1.43198 0.46519 1.43198 0.52592 1.3646 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.52592 1.3646 0.46519 1.43198 0.46519 1.43198 0.52592 1.3646 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.52592 1.3646 0.46519 1.43198 0.46519 1.43198 0.52592 1.3646 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.52592 1.3646 0.46519 1.43198 0.46519 1.43198 0.52592 1.3646 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.52592 1.3646 0.46519 1.43198 0.46519 1.43198 0.52592 1.3646 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.52592 1.3646 0.46519 1.43198 0.46519 1.43198 0.52592 1.3646 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.52592 1.3646 0.46519 1.43198 0.46519 1.43198 0.52592 1.3646 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.52592 1.3646 0.46519 1.43198 0.46519 1.43198 0.52592 1.3646 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.52592 1.3646 0.46519 1.43198 0.46519 1.43198 0.52592 1.3646 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.52592 1.3646 0.46519 1.43198 0.46519 1.43198 0.52592 1.3646 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.52592 1.3646 0.46519 1.43198 0.46519 1.43198 0.52592 1.3646 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.52592 1.3646 0.46519 1.43198 0.46519 1.43198 0.52592 1.3646 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.52592 1.3646 0.46519 1.43198 0.46519 1.43198 0.52592 1.3646 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.52592 1.3646 0.46519 1.43198 0.46519 1.43198 0.52592 1.3646 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.5879 1.25613 0.52592 1.3646 0.52592 1.3646 0.5879 1.25613 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.5879 1.25613 0.52592 1.3646 0.52592 1.3646 0.5879 1.25613 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.5879 1.25613 0.52592 1.3646 0.52592 1.3646 0.5879 1.25613 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.5879 1.25613 0.52592 1.3646 0.52592 1.3646 0.5879 1.25613 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.5879 1.25613 0.52592 1.3646 0.52592 1.3646 0.5879 1.25613 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.5879 1.25613 0.52592 1.3646 0.52592 1.3646 0.5879 1.25613 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.5879 1.25613 0.52592 1.3646 0.52592 1.3646 0.5879 1.25613 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.5879 1.25613 0.52592 1.3646 0.52592 1.3646 0.5879 1.25613 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.5879 1.25613 0.52592 1.3646 0.52592 1.3646 0.5879 1.25613 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.5879 1.25613 0.52592 1.3646 0.52592 1.3646 0.5879 1.25613 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.5879 1.25613 0.52592 1.3646 0.52592 1.3646 0.5879 1.25613 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.5879 1.25613 0.52592 1.3646 0.52592 1.3646 0.5879 1.25613 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.5879 1.25613 0.52592 1.3646 0.52592 1.3646 0.5879 1.25613 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.5879 1.25613 0.52592 1.3646 0.52592 1.3646 0.5879 1.25613 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.65102 1.10554 0.5879 1.25613 0.5879 1.25613 0.65102 1.10554 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.65102 1.10554 0.5879 1.25613 0.5879 1.25613 0.65102 1.10554 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.65102 1.10554 0.5879 1.25613 0.5879 1.25613 0.65102 1.10554 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.65102 1.10554 0.5879 1.25613 0.5879 1.25613 0.65102 1.10554 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.65102 1.10554 0.5879 1.25613 0.5879 1.25613 0.65102 1.10554 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.65102 1.10554 0.5879 1.25613 0.5879 1.25613 0.65102 1.10554 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.65102 1.10554 0.5879 1.25613 0.5879 1.25613 0.65102 1.10554 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.65102 1.10554 0.5879 1.25613 0.5879 1.25613 0.65102 1.10554 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.65102 1.10554 0.5879 1.25613 0.5879 1.25613 0.65102 1.10554 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.65102 1.10554 0.5879 1.25613 0.5879 1.25613 0.65102 1.10554 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.65102 1.10554 0.5879 1.25613 0.5879 1.25613 0.65102 1.10554 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.65102 1.10554 0.5879 1.25613 0.5879 1.25613 0.65102 1.10554 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.65102 1.10554 0.5879 1.25613 0.5879 1.25613 0.65102 1.10554 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.65102 1.10554 0.5879 1.25613 0.5879 1.25613 0.65102 1.10554 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.71514 0.912 0.65102 1.10554 0.65102 1.10554 0.71514 0.912 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.71514 0.912 0.65102 1.10554 0.65102 1.10554 0.71514 0.912 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.71514 0.912 0.65102 1.10554 0.65102 1.10554 0.71514 0.912 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.71514 0.912 0.65102 1.10554 0.65102 1.10554 0.71514 0.912 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.71514 0.912 0.65102 1.10554 0.65102 1.10554 0.71514 0.912 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.71514 0.912 0.65102 1.10554 0.65102 1.10554 0.71514 0.912 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.71514 0.912 0.65102 1.10554 0.65102 1.10554 0.71514 0.912 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.71514 0.912 0.65102 1.10554 0.65102 1.10554 0.71514 0.912 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.71514 0.912 0.65102 1.10554 0.65102 1.10554 0.71514 0.912 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.71514 0.912 0.65102 1.10554 0.65102 1.10554 0.71514 0.912 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.71514 0.912 0.65102 1.10554 0.65102 1.10554 0.71514 0.912 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.71514 0.912 0.65102 1.10554 0.65102 1.10554 0.71514 0.912 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.71514 0.912 0.65102 1.10554 0.65102 1.10554 0.71514 0.912 Metetra
+0.311 0.227 0.597 setrgbcolor
+0.71514 0.912 0.65102 1.10554 0.65102 1.10554 0.71514 0.912 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.78014 0.67486 0.71514 0.912 0.71514 0.912 0.78014 0.67486 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.78014 0.67486 0.71514 0.912 0.71514 0.912 0.78014 0.67486 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.78014 0.67486 0.71514 0.912 0.71514 0.912 0.78014 0.67486 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.78014 0.67486 0.71514 0.912 0.71514 0.912 0.78014 0.67486 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.78014 0.67486 0.71514 0.912 0.71514 0.912 0.78014 0.67486 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.78014 0.67486 0.71514 0.912 0.71514 0.912 0.78014 0.67486 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.78014 0.67486 0.71514 0.912 0.71514 0.912 0.78014 0.67486 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.78014 0.67486 0.71514 0.912 0.71514 0.912 0.78014 0.67486 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.78014 0.67486 0.71514 0.912 0.71514 0.912 0.78014 0.67486 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.78014 0.67486 0.71514 0.912 0.71514 0.912 0.78014 0.67486 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.78014 0.67486 0.71514 0.912 0.71514 0.912 0.78014 0.67486 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.78014 0.67486 0.71514 0.912 0.71514 0.912 0.78014 0.67486 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.78014 0.67486 0.71514 0.912 0.71514 0.912 0.78014 0.67486 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.78014 0.67486 0.71514 0.912 0.71514 0.912 0.78014 0.67486 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.84586 0.39367 0.78014 0.67486 0.78014 0.67486 0.84586 0.39367 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.84586 0.39367 0.78014 0.67486 0.78014 0.67486 0.84586 0.39367 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.84586 0.39367 0.78014 0.67486 0.78014 0.67486 0.84586 0.39367 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.84586 0.39367 0.78014 0.67486 0.78014 0.67486 0.84586 0.39367 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.84586 0.39367 0.78014 0.67486 0.78014 0.67486 0.84586 0.39367 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.84586 0.39367 0.78014 0.67486 0.78014 0.67486 0.84586 0.39367 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.84586 0.39367 0.78014 0.67486 0.78014 0.67486 0.84586 0.39367 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.84586 0.39367 0.78014 0.67486 0.78014 0.67486 0.84586 0.39367 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.84586 0.39367 0.78014 0.67486 0.78014 0.67486 0.84586 0.39367 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.84586 0.39367 0.78014 0.67486 0.78014 0.67486 0.84586 0.39367 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.84586 0.39367 0.78014 0.67486 0.78014 0.67486 0.84586 0.39367 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.84586 0.39367 0.78014 0.67486 0.78014 0.67486 0.84586 0.39367 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.84586 0.39367 0.78014 0.67486 0.78014 0.67486 0.84586 0.39367 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.84586 0.39367 0.78014 0.67486 0.78014 0.67486 0.84586 0.39367 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.91215 0.06819 0.84586 0.39367 0.84586 0.39367 0.91215 0.06819 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.91215 0.06819 0.84586 0.39367 0.84586 0.39367 0.91215 0.06819 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.91215 0.06819 0.84586 0.39367 0.84586 0.39367 0.91215 0.06819 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.91215 0.06819 0.84586 0.39367 0.84586 0.39367 0.91215 0.06819 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.91215 0.06819 0.84586 0.39367 0.84586 0.39367 0.91215 0.06819 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.91215 0.06819 0.84586 0.39367 0.84586 0.39367 0.91215 0.06819 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.91215 0.06819 0.84586 0.39367 0.84586 0.39367 0.91215 0.06819 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.91215 0.06819 0.84586 0.39367 0.84586 0.39367 0.91215 0.06819 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.91215 0.06819 0.84586 0.39367 0.84586 0.39367 0.91215 0.06819 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.91215 0.06819 0.84586 0.39367 0.84586 0.39367 0.91215 0.06819 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.91215 0.06819 0.84586 0.39367 0.84586 0.39367 0.91215 0.06819 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.91215 0.06819 0.84586 0.39367 0.84586 0.39367 0.91215 0.06819 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.91215 0.06819 0.84586 0.39367 0.84586 0.39367 0.91215 0.06819 Metetra
+0.31 0.227 0.597 setrgbcolor
+0.91215 0.06819 0.84586 0.39367 0.84586 0.39367 0.91215 0.06819 Metetra
+grestore
+%
+gsave
+0.001 setlinewidth
+0.91215 0.06819 moveto
+0.93181 2.12248 lineto
+stroke
+0.93181 2.12248 moveto
+0.06819 2.64329 lineto
+stroke
+0.06819 2.64329 moveto
+0.08251 0.8657 lineto
+stroke
+0.08251 0.8657 moveto
+0.91215 0.06819 lineto
+stroke
+0.91215 0.06819 moveto
+0.93181 2.12248 lineto
+stroke
+0.93181 2.12248 moveto
+0.93181 2.12248 lineto
+stroke
+0.93181 2.12248 moveto
+0.91215 0.06819 lineto
+stroke
+0.91215 0.06819 moveto
+0.91215 0.06819 lineto
+stroke
+grestore
+%
+gsave
+gsave
+0.001 setlinewidth
+0.91215 0.06819 moveto
+0.91215 0.06819 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91215 0.06819 moveto
+0.89986 0.08 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91215 0.06819 moveto
+0.89986 0.08 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91215 0.06819 moveto
+0.89986 0.08 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91215 0.06819 moveto
+0.89986 0.08 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91215 0.06819 moveto
+0.89986 0.08 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91215 0.06819 moveto
+0.89986 0.08 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91215 0.06819 moveto
+0.90478 0.07528 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91215 0.06819 moveto
+0.90478 0.07528 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91215 0.06819 moveto
+0.90478 0.07528 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91215 0.06819 moveto
+0.90478 0.07528 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91215 0.06819 moveto
+0.90478 0.07528 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91215 0.06819 moveto
+0.90478 0.07528 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91215 0.06819 moveto
+0.90478 0.07528 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91215 0.06819 moveto
+0.90478 0.07528 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91215 0.06819 moveto
+0.90478 0.07528 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91215 0.06819 moveto
+0.90478 0.07528 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91215 0.06819 moveto
+0.90478 0.07528 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91215 0.06819 moveto
+0.90478 0.07528 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91215 0.06819 moveto
+0.90478 0.07528 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91215 0.06819 moveto
+0.90478 0.07528 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91215 0.06819 moveto
+0.90478 0.07528 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91215 0.06819 moveto
+0.90478 0.07528 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91215 0.06819 moveto
+0.90478 0.07528 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91215 0.06819 moveto
+0.90478 0.07528 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91215 0.06819 moveto
+0.90478 0.07528 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91215 0.06819 moveto
+0.90478 0.07528 lineto
+stroke
+grestore
+grestore
+gsave
+gsave
+0.001 setlinewidth
+0.91215 0.06819 moveto
+0.08251 0.8657 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91215 0.06819 moveto
+0.91232 0.08524 lineto
+stroke
+grestore
+[(-4)] 0.91183 0.0341 0.009568 1 Mshowa
+gsave
+0.001 setlinewidth
+0.67966 0.29168 moveto
+0.67974 0.30872 lineto
+stroke
+grestore
+[(-2)] 0.67951 0.25758 0.004569 1 Mshowa
+gsave
+0.001 setlinewidth
+0.46519 0.49785 moveto
+0.46519 0.51489 lineto
+stroke
+grestore
+[(0)] 0.46519 0.46375 3.5484e-18 1 Mshowa
+gsave
+0.001 setlinewidth
+0.26671 0.68863 moveto
+0.26664 0.70568 lineto
+stroke
+grestore
+[(2)] 0.26685 0.65454 -0.004193 1 Mshowa
+gsave
+0.001 setlinewidth
+0.08251 0.8657 moveto
+0.08237 0.88275 lineto
+stroke
+grestore
+[(4)] 0.08278 0.83161 -0.008054 1 Mshowa
+gsave
+0.001 setlinewidth
+0.86411 0.11438 moveto
+0.86419 0.1246 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.81685 0.1598 moveto
+0.81693 0.17003 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.77037 0.20448 moveto
+0.77044 0.21471 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.72465 0.24843 moveto
+0.72471 0.25866 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.63539 0.33423 moveto
+0.63543 0.34446 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.59183 0.37611 moveto
+0.59186 0.38634 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.54895 0.41733 moveto
+0.54897 0.42755 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.50674 0.4579 moveto
+0.50675 0.46813 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.42427 0.53718 moveto
+0.42426 0.54741 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.38398 0.57591 moveto
+0.38396 0.58614 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.3443 0.61405 moveto
+0.34427 0.62428 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.30521 0.65162 moveto
+0.30518 0.66185 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.22878 0.7251 moveto
+0.22873 0.73533 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.1914 0.76102 moveto
+0.19134 0.77125 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.15457 0.79643 moveto
+0.15451 0.80665 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.11828 0.83131 moveto
+0.1182 0.84154 lineto
+stroke
+grestore
+grestore
+gsave
+gsave
+0.001 setlinewidth
+0.91215 0.06819 moveto
+0.93181 2.12248 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91571 0.44008 moveto
+0.90302 0.45146 lineto
+stroke
+grestore
+[(-10)] 0.9411 0.41733 -1 0.896238 Mshowa
+gsave
+0.001 setlinewidth
+0.92177 1.07323 moveto
+0.90837 1.08377 lineto
+stroke
+grestore
+[(0)] 0.94858 1.05217 -1 0.78571 Mshowa
+gsave
+0.001 setlinewidth
+0.92799 1.72365 moveto
+0.91385 1.73316 lineto
+stroke
+grestore
+[(10)] 0.95629 1.70462 -1 0.67241 Mshowa
+gsave
+0.001 setlinewidth
+0.91691 0.56536 moveto
+0.90921 0.5721 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91812 0.69132 moveto
+0.91033 0.69795 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91933 0.81794 moveto
+0.91146 0.82447 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.92055 0.94525 moveto
+0.91259 0.95167 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.923 1.20191 moveto
+0.91487 1.20812 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.92424 1.33129 moveto
+0.91602 1.33738 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.92548 1.46137 moveto
+0.91718 1.46733 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.92674 1.59215 moveto
+0.91834 1.59799 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91452 0.31546 moveto
+0.90699 0.32238 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.91333 0.1915 moveto
+0.90588 0.1985 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.92926 1.85586 moveto
+0.92068 1.86143 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.93053 1.9888 moveto
+0.92186 1.99423 lineto
+stroke
+grestore
+grestore
+% End of Graphics
+MathPictureEnd%%PSTrailer
+end
+
+% Mathematica code
+%
+% Plot3D[x^2 - y^2, {x, 0, .0001}, {y, -4, 4},
+%	BoxRatios -> {0, 1, .8},
+%	ViewPoint->{-1.855, -5.153, 1.615},
+%	AxesEdge-> {Automatic, {-1,-1}, {1, -1}},
+%	PlotRange -> {-16,16}
+% ]
+%
+
+%%EPS Trailer

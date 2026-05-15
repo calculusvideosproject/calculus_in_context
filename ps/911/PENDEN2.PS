@@ -1,0 +1,3439 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 0 0 612 792
+%%Creator: Mathematica
+%%Title: Clipboard
+%%CreationDate: Sometime Sometime
+%%EndComments
+0 setlinewidth /setlinewidth { pop } def
+/Mnodistort true def
+130 dict begin
+/Mfixwid true def
+/Mrot 0 def
+/Mpstart {
+    MathPictureStart
+} bind def
+/Mpend {
+    MathPictureEnd
+} bind def
+/Mscale {
+    0 1 0 1
+    5 -1 roll
+    MathScale
+} bind def
+/Plain	/Times-Roman findfont def
+/Bold	/Times-Bold findfont def
+/Italic /Times-Italic findfont def
+/MathPictureStart {
+	/Mimatrix
+	 matrix currentmatrix
+	def
+	gsave
+	newpath
+	Mleft
+	Mbottom
+	translate
+	1 -1 scale
+	/Mtmatrix
+	matrix currentmatrix
+	def
+	Plain
+	Mfontsize scalefont
+	setfont
+	0 setgray
+	0 setlinewidth
+} bind def
+/MathPictureEnd {
+	grestore
+} bind def
+/MathSubStart {
+        Mgmatrix Mtmatrix
+        Mleft Mbottom
+        Mwidth Mheight
+        8 -2 roll
+        moveto
+        Mtmatrix setmatrix
+        currentpoint
+        Mgmatrix setmatrix
+        10 -2 roll
+        moveto
+        Mtmatrix setmatrix
+        currentpoint
+        2 copy translate
+        /Mtmatrix matrix currentmatrix def
+        /Mleft 0 def
+        /Mbottom 0 def
+        3 -1 roll
+        exch sub
+        /Mheight exch def
+        sub
+        /Mwidth exch def
+} bind def
+/MathSubEnd {
+        /Mheight exch def
+        /Mwidth exch def
+        /Mbottom exch def
+        /Mleft exch def
+        /Mtmatrix exch def
+        dup setmatrix
+        /Mgmatrix exch def
+} bind def
+/Mdot {
+	moveto
+	0 0 rlineto
+	stroke
+} bind def
+/Mtetra {
+	moveto
+	lineto
+	lineto
+	lineto
+	fill
+} bind def
+/Metetra {
+	moveto
+	lineto
+	lineto
+	lineto
+	closepath
+	gsave
+	fill
+	grestore
+	0 setgray
+	stroke
+} bind def
+/Mistroke {
+	flattenpath
+	0 0 0
+	{
+	4 2 roll
+	pop pop
+	}
+	{
+	4 -1 roll
+	2 index
+	sub dup mul
+	4 -1 roll
+	2 index
+	sub dup mul
+	add sqrt
+	4 -1 roll
+	add
+	3 1 roll
+	}
+	{
+	stop
+	}
+	{
+	stop
+	}
+	pathforall
+	pop pop
+	currentpoint
+	stroke
+	moveto
+	currentdash
+	3 -1 roll
+	add
+	setdash
+} bind def
+/Mfstroke {
+	stroke
+	currentdash
+	pop 0
+	setdash
+} bind def
+/Mrotsboxa {
+	gsave
+	dup
+	/Mrot
+	exch def
+	Mrotcheck
+	Mtmatrix
+	dup
+	setmatrix
+	7 1 roll
+	4 index
+	4 index
+	translate
+	rotate
+	3 index
+	-1 mul
+	3 index
+	-1 mul
+	translate
+	/Mtmatrix
+	matrix
+	currentmatrix
+	def
+	grestore
+	Msboxa
+	3  -1 roll
+	/Mtmatrix
+	exch def
+	/Mrot
+	0 def
+} bind def
+/Msboxa {
+	newpath
+	5 -1 roll
+	Mvboxa
+	pop
+	Mboxout
+	6 -1 roll
+	5 -1 roll
+	4 -1 roll
+	Msboxa1
+	5 -3 roll
+	Msboxa1
+	Mboxrot
+	[
+	7 -2 roll
+	2 copy
+	[
+	3 1 roll
+	10 -1 roll
+	9 -1 roll
+	]
+	6 1 roll
+	5 -2 roll
+	]
+} bind def
+/Msboxa1 {
+	sub
+	2 div
+	dup
+	2 index
+	1 add
+	mul
+	3 -1 roll
+	-1 add
+	3 -1 roll
+	mul
+} bind def
+/Mvboxa	{
+	Mfixwid
+	{
+	Mvboxa1
+	}
+	{
+	dup
+	Mwidthcal
+	0 exch
+	{
+	add
+	}
+	forall
+	exch
+	Mvboxa1
+	4 index
+	7 -1 roll
+	add
+	4 -1 roll
+	pop
+	3 1 roll
+	}
+	ifelse
+} bind def
+/Mvboxa1 {
+	gsave
+	newpath
+	[ true
+	3 -1 roll
+	{
+	Mbbox
+	5 -1 roll
+	{
+	0
+	5 1 roll
+	}
+	{
+	7 -1 roll
+	exch sub
+	(m) stringwidth pop
+	.3 mul
+	sub
+	7 1 roll
+	6 -1 roll
+	4 -1 roll
+	Mmin
+	3 -1 roll
+	5 index
+	add
+	5 -1 roll
+	4 -1 roll
+	Mmax
+	4 -1 roll
+	}
+	ifelse
+	false
+	}
+	forall
+	{ stop } if
+	counttomark
+	1 add
+	4 roll
+	]
+	grestore
+} bind def
+/Mbbox {
+	0 0 moveto
+	false charpath
+	flattenpath
+	pathbbox
+	newpath
+} bind def
+/Mmin {
+	2 copy
+	gt
+	{ exch } if
+	pop
+} bind def
+/Mmax {
+	2 copy
+	lt
+	{ exch } if
+	pop
+} bind def
+/Mrotshowa {
+	dup
+	/Mrot
+	exch def
+	Mrotcheck
+	Mtmatrix
+	dup
+	setmatrix
+	7 1 roll
+	4 index
+	4 index
+	translate
+	rotate
+	3 index
+	-1 mul
+	3 index
+	-1 mul
+	translate
+	/Mtmatrix
+	matrix
+	currentmatrix
+	def
+	Mgmatrix setmatrix
+	Mshowa
+	/Mtmatrix
+	exch def
+	/Mrot 0 def
+} bind def
+/Mshowa {
+	4 -2 roll
+	moveto
+	2 index
+	Mtmatrix setmatrix
+	Mvboxa
+	7 1 roll
+	Mboxout
+	6 -1 roll
+	5 -1 roll
+	4 -1 roll
+	Mshowa1
+	4 1 roll
+	Mshowa1
+	rmoveto
+	currentpoint
+	Mfixwid
+	{
+	Mshowax
+	}
+	{
+	Mshoway
+	}
+	ifelse
+	pop pop pop pop
+	Mgmatrix setmatrix
+} bind def
+/Mshowax {
+	0 1
+        4 index length
+        -1 add
+        {
+        2 index
+        4 index
+        2 index
+        get
+        3 index
+        add
+        moveto
+        4 index
+        exch get
+        show
+        } for
+} bind def
+/Mshoway {
+        3 index
+        Mwidthcal
+        5 1 roll
+	0 1
+	4 index length
+	-1 add
+	{
+	2 index
+	4 index
+	2 index
+	get
+	3 index
+	add
+	moveto
+	4 index
+	exch get
+	[
+	6 index
+	aload
+	length
+	2 add
+	-1 roll
+	{
+	pop
+	Strform
+	stringwidth
+	pop
+	neg
+	exch
+	add
+	0 rmoveto
+	}
+	exch
+	kshow
+	cleartomark
+	} for
+	pop
+} bind def
+/Mwidthcal {
+	[
+	exch
+	{
+	Mwidthcal1
+	}
+	forall
+	]
+	[
+	exch
+	dup
+	Maxlen
+	-1 add
+	0 1
+	3 -1 roll
+	{
+	[
+	exch
+	2 index
+	{
+	1 index
+	Mget
+	exch
+	}
+	forall
+	pop
+	Maxget
+	exch
+	}
+	for
+	pop
+	]
+	Mreva
+} bind def
+/Mreva	{
+	[
+	exch
+	aload
+	length
+	-1 1
+	{1 roll}
+	for
+	]
+} bind def
+/Mget	{
+	1 index
+	length
+	-1 add
+	1 index
+	ge
+	{
+	get
+	}
+	{
+	pop pop
+	0
+	}
+	ifelse
+} bind def
+/Maxlen	{
+	[
+	exch
+	{
+	length
+	}
+	forall
+	Maxget
+} bind def
+/Maxget	{
+	counttomark
+	-1 add
+	1 1
+	3 -1 roll
+	{
+	pop
+	Mmax
+	}
+	for
+	exch
+	pop
+} bind def
+/Mwidthcal1 {
+	[
+	exch
+	{
+	Strform
+	stringwidth
+	pop
+	}
+	forall
+	]
+} bind def
+/Strform {
+	/tem (x) def
+	tem 0
+	3 -1 roll
+	put
+	tem
+} bind def
+/Mshowa1 {
+	2 copy
+	add
+	4 1 roll
+	sub
+	mul
+	sub
+	-2 div
+} bind def
+/MathScale {
+	Mwidth
+	Mheight
+	Mlp
+	translate
+	scale
+	/Msaveaa exch def
+	/Msavebb exch def
+	/Msavecc exch def
+	/Msavedd exch def
+	/Mgmatrix
+	matrix currentmatrix
+	def
+} bind def
+/Mlp {
+	3 copy
+	Mlpfirst
+	{
+	Mnodistort
+	{
+	Mmin
+	dup
+	} if
+	4 index
+	2 index
+	2 index
+	Mlprun
+	11 index
+	11 -1 roll
+	10 -4 roll
+	Mlp1
+	8 index
+	9 -5 roll
+	Mlp1
+	4 -1 roll
+	and
+	{ exit } if
+	3 -1 roll
+	pop pop
+	} loop
+	exch
+	3 1 roll
+	7 -3 roll
+	pop pop pop
+} bind def
+/Mlpfirst {
+	3 -1 roll
+	dup length
+	2 copy
+	-2 add
+	get
+	aload
+	pop pop pop
+	4 -2 roll
+	-1 add
+	get
+	aload
+	pop pop pop
+	6 -1 roll
+	3 -1 roll
+	5 -1 roll
+	sub
+	dup /MsaveAx exch def
+	div
+	4 1 roll
+	exch sub
+	dup /MsaveAy exch def
+	div
+} bind def
+/Mlprun {
+	2 copy
+	4 index
+	0 get
+	dup
+	4 1 roll
+	Mlprun1
+	3 copy
+	8 -2 roll
+	9 -1 roll
+	{
+	3 copy
+	Mlprun1
+	3 copy
+	11 -3 roll
+	/gt Mlpminmax
+	8 3 roll
+	11 -3 roll
+	/lt Mlpminmax
+	8 3 roll
+	} forall
+	pop pop pop pop
+	3 1 roll
+	pop pop
+	aload pop
+	5 -1 roll
+	aload pop
+	exch
+	6 -1 roll
+	Mlprun2
+	8 2 roll
+	4 -1 roll
+	Mlprun2
+	6 2 roll
+	3 -1 roll
+	Mlprun2
+	4 2 roll
+	exch
+	Mlprun2
+	6 2 roll
+} bind def
+/Mlprun1 {
+	aload pop
+	exch
+	6 -1 roll
+	5 -1 roll
+	mul add
+	4 -2 roll
+	mul
+	3 -1 roll
+	add
+} bind def
+/Mlprun2 {
+	2 copy
+	add 2 div
+	3 1 roll
+	exch sub
+} bind def
+/Mlpminmax {
+	cvx
+	2 index
+	6 index
+	2 index
+	exec
+	{
+	7 -3 roll
+	4 -1 roll
+	} if
+	1 index
+	5 index
+	3 -1 roll
+	exec
+	{
+	4 1 roll
+	pop
+	5 -1 roll
+	aload
+	pop pop
+	4 -1 roll
+	aload pop
+	[
+	8 -2 roll
+	pop
+	5 -2 roll
+	pop
+	6 -2 roll
+	pop
+	5 -1 roll
+	]
+	4 1 roll
+	pop
+	}
+	{
+	pop pop pop
+	} ifelse
+} bind def
+/Mlp1 {
+	5 index
+	3 index	sub
+	5 index
+	2 index mul
+	1 index
+	le
+	1 index
+	0 le
+	or
+	dup
+	not
+	{
+	1 index
+	3 index	div
+	.99999 mul
+	8 -1 roll
+	pop
+	7 1 roll
+	}
+	if
+	8 -1 roll
+	2 div
+	7 -2 roll
+	pop sub
+	5 index
+	6 -3 roll
+	pop pop
+	mul sub
+	exch
+} bind def
+/intop 0 def
+/inrht 0 def
+/inflag 0 def
+/outflag 0 def
+/xadrht 0 def
+/xadlft 0 def
+/yadtop 0 def
+/yadbot 0 def
+/Minner {
+	outflag
+	1
+	eq
+	{
+	/outflag 0 def
+	/intop 0 def
+	/inrht 0 def
+	} if
+	5 index
+	gsave
+	Mtmatrix setmatrix
+	Mvboxa pop
+	grestore
+	3 -1 roll
+	pop
+	dup
+	intop
+	gt
+	{
+	/intop
+	exch def
+	}
+	{ pop }
+	ifelse
+	dup
+	inrht
+	gt
+	{
+	/inrht
+	exch def
+	}
+	{ pop }
+	ifelse
+	pop
+	/inflag
+	1 def
+} bind def
+/Mouter {
+	/xadrht 0 def
+	/xadlft 0 def
+	/yadtop 0 def
+	/yadbot 0 def
+	inflag
+	1 eq
+	{
+	dup
+	0 lt
+	{
+	dup
+	intop
+	mul
+	neg
+	/yadtop
+	exch def
+	} if
+	dup
+	0 gt
+	{
+	dup
+	intop
+	mul
+	/yadbot
+	exch def
+	}
+	if
+	pop
+	dup
+	0 lt
+	{
+	dup
+	inrht
+	mul
+	neg
+	/xadrht
+	exch def
+	} if
+	dup
+	0 gt
+	{
+	dup
+	inrht
+	mul
+	/xadlft
+	exch def
+	} if
+	pop
+	/outflag 1 def
+	}
+	{ pop pop}
+	ifelse
+	/inflag 0 def
+	/inrht 0 def
+	/intop 0 def
+} bind def
+/Mboxout {
+	outflag
+	1
+	eq
+	{
+	4 -1
+	roll
+	xadlft
+	leadjust
+	add
+	sub
+	4 1 roll
+	3 -1
+	roll
+	yadbot
+	leadjust
+	add
+	sub
+	3 1
+	roll
+	exch
+	xadrht
+	leadjust
+	add
+	add
+	exch
+	yadtop
+	leadjust
+	add
+	add
+	/outflag 0 def
+	/xadlft 0 def
+	/yadbot 0 def
+	/xadrht 0 def
+	/yadtop 0 def
+	} if
+} bind def
+/leadjust {
+	(m) stringwidth pop
+	.5 mul
+} bind def
+/Mrotcheck {
+	dup
+	90
+	eq
+	{
+	yadbot
+	/yadbot
+	xadrht
+	def
+	/xadrht
+	yadtop
+	def
+	/yadtop
+	xadlft
+	def
+	/xadlft
+	exch
+	def
+	}
+	if
+	dup
+	cos
+	1 index
+	sin
+	Checkaux
+	dup
+	cos
+	1 index
+	sin neg
+	exch
+	Checkaux
+	3 1 roll
+	pop pop
+} bind def
+/Checkaux {
+	4 index
+	exch
+	4 index
+	mul
+	3 1 roll
+	mul add
+	4 1 roll
+} bind def
+/Mboxrot {
+	Mrot
+	90 eq
+	{
+	brotaux
+	4 2
+	roll
+	}
+	if
+	Mrot
+	180 eq
+	{
+	4 2
+        roll
+	brotaux
+	4 2
+	roll
+	brotaux
+	}
+	if
+	Mrot
+	270 eq
+	{
+	4 2
+	roll
+	brotaux
+	}
+	if
+} bind def
+/brotaux {
+	neg
+	exch
+	neg
+} bind def
+/Mabswid {
+	Mimatrix
+	0 get
+	Mgmatrix
+	0 get
+	div
+	mul
+	setlinewidth
+} bind def
+/Mabsdash {
+	exch
+	Mimatrix
+	0 get
+	Mgmatrix
+	0 get
+	div
+	[
+	3 1 roll
+	exch
+	{
+	exch
+	dup
+	3 -1 roll
+	mul
+	exch
+	}
+	forall
+	pop ]
+	exch
+	setdash
+} bind def
+/colorimage where
+{ pop }
+{
+/colorimage {
+3 1 roll
+ pop pop
+ 5 -1 roll
+ mul
+ 4 1 roll
+{
+currentfile
+1 index
+readhexstring
+pop }
+image
+} bind def
+} ifelse
+/sampledsound where
+{ pop}
+{ /sampledsound {
+exch
+pop
+exch
+5 1 roll
+mul
+4 idiv
+mul
+2 idiv
+exch pop
+exch
+/Mtempproc exch def
+{ Mtempproc pop }
+repeat
+} bind def
+} ifelse
+
+/Mleft		0.000000 def
+/Mbottom	249.148956 def
+/Mwidth		232.150421 def
+/Mheight	249.148956 def
+/Mfontsize 12 def
+/Plain /Times-Roman findfont def
+
+% % % % % % % % % % % % % % custom insert - begin % % % % % % % % % % % % % % 
+%
+% PLACE THIS JUST BEFORE THE LINES:	1 -1 scale
+%		  ~~~~~~		
+%					%%Creator: Mathematica
+%					%%AspectRatio: 0.61803 
+%
+%
+
+/printscale .8 def
+/screenstretch {printscale 1.3 mul} def
+/double {screenstretch 2 mul} def
+
+ printscale printscale scale	    % scale for printing
+% screenstretch screenstretch scale % printing scale on screen
+% double double scale               % magnified screen
+
+% ----------------- arrow drawing procedures ------------------
+
+/arrow 
+{-2 0 rmoveto
+ 0  1 rlineto
+ 4 -1 rlineto
+-4 -1 rlineto
+ 0  1 rlineto
+ 2 0 rlineto} def
+
+/rightarrow {arrow} def
+/uparrow {90 rotate arrow -90 rotate} def
+/leftarrow {180 rotate arrow -180 rotate} def
+/downarrow {-90 rotate arrow 90 rotate} def
+
+% ------------------ graphics instructions --------------------
+
+.3 setlinewidth
+
+% position the origin
+% 100 300 moveto				% screen origin
+-90 -28 moveto
+currentpoint translate
+
+gsave
+newpath
+0.4 setgray
+158 -221 moveto
+-128 16 rlineto
+176 -189 moveto
+-119 13 rlineto
+190 -161 moveto
+-110 11 rlineto
+200.5 -137 moveto
+-100 9 rlineto
+213 -116 moveto
+-92 8 rlineto
+stroke
+grestore
+
+% -------------------- font codes --------------------------
+
+/typesize {10 printscale div} def
+
+/makeTR {/Times-Roman findfont typesize scalefont} def
+/makeTB {/Times-Bold findfont typesize scalefont} def
+/makeTI {/Times-Italic findfont typesize scalefont} def
+/makeSYM {/Symbol findfont typesize scalefont} def
+
+/TR {makeTR setfont} def
+/TB {makeTB setfont} def
+/TI {makeTI setfont} def
+/SYM {makeSYM setfont} def
+
+% ---------------string placing procedures-------------------
+
+% stack: fontcode string x y 
+
+/placeBL {moveto show} def
+/placeBR {moveto dup stringwidth pop neg 0 rmoveto show} def
+/placeBC {moveto dup stringwidth pop 2 div neg 0 rmoveto show} def
+/placeTL {moveto 0 typesize neg rmoveto show} def
+/placeTR {moveto dup stringwidth pop neg typesize neg rmoveto show} def
+/placeTC {moveto dup stringwidth pop 2 div neg typesize neg rmoveto show} def
+
+
+% my labels
+SYM (-p) 162 -224 placeBL
+(p) 194 -165 placeBL
+(2p) 208 -141 placeBL
+(3p) 221 -120 placeBL
+(q) 195 -195 placeBL
+TI (v) 75 -243 placeTC
+(E) -7 -160 placeBR
+
+
+%
+%
+% % % % % % % % % % % % % custom inset - end % % % % % % % % % % % %
+
+1 -1 scale
+%!
+%%Creator: Mathematica
+%%AspectRatio: 1.07322 
+MathPictureStart
+/Times-Roman findfont 10  scalefont  setfont
+% Scaling calculations
+-0.017884 1.202579 0.030064 1.202579 [
+[(0)] 0.77559 0.24951 -1 0.110178 Msboxa
+[(-2)] 0.63746 0.01503 0.005088 1 Msboxa
+[(-1)] 0.4882 0.03399 -0.008946 1 Msboxa
+[(0)] 0.34207 0.05255 -0.022638 1 Msboxa
+[(1)] 0.19898 0.07073 -0.035999 1 Msboxa
+[(2)] 0.05882 0.08853 -0.049042 1 Msboxa
+[(0)] 0.04253 0.11835 1 -0.125863 Msboxa
+[(1)] 0.03609 0.24924 1 -0.116231 Msboxa
+[(2)] 0.02949 0.38337 1 -0.106351 Msboxa
+[(3)] 0.02272 0.52085 1 -0.096213 Msboxa
+[(4)] 0.01579 0.66183 1 -0.085807 Msboxa
+[ 0 0 0 0 ]
+[ 1 1.073222 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+%%Object: SurfaceGraphics
+[ ] 0 setdash
+0 setgray
+gsave
+gsave
+0.001 setlinewidth
+0.63753 0.03006 moveto
+0.95605 0.60206 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.68226 0.11038 moveto
+0.67479 0.11128 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.76065 0.25115 moveto
+0.75318 0.25198 lineto
+stroke
+grestore
+[(0)] 0.77559 0.24951 -1 0.110178 Mshowa
+gsave
+0.001 setlinewidth
+0.8271 0.37049 moveto
+0.81962 0.37125 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.88416 0.47295 moveto
+0.87667 0.47365 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.93367 0.56187 moveto
+0.92618 0.56252 lineto
+stroke
+grestore
+grestore
+gsave
+gsave
+0.001 setlinewidth
+0.63753 0.03006 moveto
+0.05808 0.10355 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.63753 0.03006 moveto
+0.63757 0.03758 lineto
+stroke
+grestore
+[(-2)] 0.63746 0.01503 0.005088 1 Mshowa
+gsave
+0.001 setlinewidth
+0.48806 0.04902 moveto
+0.488 0.05653 lineto
+stroke
+grestore
+[(-1)] 0.4882 0.03399 -0.008946 1 Mshowa
+gsave
+0.001 setlinewidth
+0.34173 0.06758 moveto
+0.34156 0.07509 lineto
+stroke
+grestore
+[(0)] 0.34207 0.05255 -0.022638 1 Mshowa
+gsave
+0.001 setlinewidth
+0.19844 0.08575 moveto
+0.19816 0.09326 lineto
+stroke
+grestore
+[(1)] 0.19898 0.07073 -0.035999 1 Mshowa
+gsave
+0.001 setlinewidth
+0.05808 0.10355 moveto
+0.05771 0.11105 lineto
+stroke
+grestore
+[(2)] 0.05882 0.08853 -0.049042 1 Mshowa
+gsave
+0.001 setlinewidth
+0.60738 0.03389 moveto
+0.60739 0.0384 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.57736 0.03769 moveto
+0.57736 0.0422 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.54747 0.04149 moveto
+0.54745 0.046 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.5177 0.04526 moveto
+0.51768 0.04977 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.45855 0.05276 moveto
+0.4585 0.05727 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.42916 0.05649 moveto
+0.4291 0.061 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.39989 0.0602 moveto
+0.39982 0.06471 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.37075 0.0639 moveto
+0.37066 0.0684 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.31283 0.07124 moveto
+0.31272 0.07575 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.28405 0.07489 moveto
+0.28393 0.0794 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.2554 0.07852 moveto
+0.25526 0.08303 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.22686 0.08214 moveto
+0.22671 0.08665 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.17013 0.08934 moveto
+0.16996 0.09384 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.14195 0.09291 moveto
+0.14176 0.09742 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.11388 0.09647 moveto
+0.11368 0.10098 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.08592 0.10002 moveto
+0.08571 0.10452 lineto
+stroke
+grestore
+grestore
+gsave
+gsave
+0.001 setlinewidth
+0.05808 0.10355 moveto
+0.03006 0.67485 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.05745 0.11648 moveto
+0.06491 0.11554 lineto
+stroke
+grestore
+[(0)] 0.04253 0.11835 1 -0.125863 Mshowa
+gsave
+0.001 setlinewidth
+0.05102 0.24751 moveto
+0.05849 0.24664 lineto
+stroke
+grestore
+[(1)] 0.03609 0.24924 1 -0.116231 Mshowa
+gsave
+0.001 setlinewidth
+0.04444 0.38178 moveto
+0.05191 0.38098 lineto
+stroke
+grestore
+[(2)] 0.02949 0.38337 1 -0.106351 Mshowa
+gsave
+0.001 setlinewidth
+0.03769 0.51941 moveto
+0.04517 0.51869 lineto
+stroke
+grestore
+[(3)] 0.02272 0.52085 1 -0.096213 Mshowa
+gsave
+0.001 setlinewidth
+0.03077 0.66054 moveto
+0.03825 0.6599 lineto
+stroke
+grestore
+[(4)] 0.01579 0.66183 1 -0.085807 Mshowa
+gsave
+0.001 setlinewidth
+0.05618 0.14243 moveto
+0.06065 0.14187 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.0549 0.16851 moveto
+0.05937 0.16796 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.05361 0.19471 moveto
+0.05809 0.19417 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.05232 0.22104 moveto
+0.0568 0.22052 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.04972 0.2741 moveto
+0.0542 0.27359 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.04841 0.30082 moveto
+0.05289 0.30032 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.04709 0.32767 moveto
+0.05157 0.32718 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.04577 0.35466 moveto
+0.05025 0.35417 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.0431 0.40903 moveto
+0.04759 0.40856 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.04176 0.43642 moveto
+0.04624 0.43596 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.04041 0.46395 moveto
+0.04489 0.4635 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.03905 0.49161 moveto
+0.04354 0.49117 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.03632 0.54736 moveto
+0.04081 0.54693 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.03494 0.57544 moveto
+0.03943 0.57502 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.03356 0.60366 moveto
+0.03805 0.60326 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.03216 0.63203 moveto
+0.03666 0.63163 lineto
+stroke
+grestore
+grestore
+0 0 moveto
+1 0 lineto
+1 1.07322 lineto
+0 1.07322 lineto
+closepath
+clip
+newpath
+gsave
+0.001 setlinewidth
+0.63753 0.03006 moveto
+0.64055 0.62311 lineto
+stroke
+0.64055 0.62311 moveto
+0.03006 0.67485 lineto
+stroke
+0.03006 0.67485 moveto
+0.05808 0.10355 lineto
+stroke
+0.05808 0.10355 moveto
+0.63753 0.03006 lineto
+stroke
+0.95605 0.60206 moveto
+0.54763 0.63652 lineto
+stroke
+0.54763 0.63652 moveto
+0.54634 1.04316 lineto
+stroke
+0.54634 1.04316 moveto
+0.96994 1.01971 lineto
+stroke
+0.96994 1.01971 moveto
+0.95605 0.60206 lineto
+stroke
+0.63753 0.03006 moveto
+0.64055 0.62311 lineto
+stroke
+0.64055 0.62311 moveto
+0.96994 1.01971 lineto
+stroke
+0.96994 1.01971 moveto
+0.95605 0.60206 lineto
+stroke
+0.95605 0.60206 moveto
+0.63753 0.03006 lineto
+stroke
+0.05808 0.10355 moveto
+0.54763 0.63652 lineto
+stroke
+0.54763 0.63652 moveto
+0.54634 1.04316 lineto
+stroke
+0.54634 1.04316 moveto
+0.03006 0.67485 lineto
+stroke
+0.03006 0.67485 moveto
+0.05808 0.10355 lineto
+stroke
+gsave
+0.4 setgray
+0.63753 0.03006 moveto
+0.95605 0.60206 lineto
+stroke
+grestore
+gsave
+0.4 setgray
+0.49267 0.04844 moveto
+0.85395 0.61068 lineto
+stroke
+grestore
+gsave
+0.4 setgray
+0.34781 0.06681 moveto
+0.75184 0.61929 lineto
+stroke
+grestore
+gsave
+0.4 setgray
+0.20294 0.08518 moveto
+0.64974 0.6279 lineto
+stroke
+grestore
+gsave
+0.4 setgray
+0.05808 0.10355 moveto
+0.54763 0.63652 lineto
+stroke
+grestore
+grestore
+gsave
+0.2 0.2 0.211 setrgbcolor
+0.0015 setlinewidth
+0.5516 0.93827 0.5378 0.96481 0.54668 0.93384 0.56033 0.90764 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.5427 0.96373 0.52873 0.99059 0.5378 0.96481 0.5516 0.93827 Metetra
+0.889 1 0.585 setrgbcolor
+0.53365 0.97876 0.51953 1.00592 0.52873 0.99059 0.5427 0.96373 Metetra
+1 1 0.846 setrgbcolor
+0.52449 0.97962 0.51023 1.00702 0.51953 1.00592 0.53365 0.97876 Metetra
+1 1 0.937 setrgbcolor
+0.51526 0.96471 0.50087 0.9923 0.51023 1.00702 0.52449 0.97962 Metetra
+1 1 0.946 setrgbcolor
+0.50598 0.93494 0.49149 0.96267 0.50087 0.9923 0.51526 0.96471 Metetra
+1 0.981 0.94 setrgbcolor
+0.49666 0.89355 0.48208 0.92138 0.49149 0.96267 0.50598 0.93494 Metetra
+1 0.958 0.936 setrgbcolor
+0.48729 0.84564 0.47263 0.87354 0.48208 0.92138 0.49666 0.89355 Metetra
+1 0.958 0.936 setrgbcolor
+0.47783 0.79724 0.46308 0.82522 0.47263 0.87354 0.48729 0.84564 Metetra
+1 0.981 0.94 setrgbcolor
+0.46821 0.75443 0.45336 0.78251 0.46308 0.82522 0.47783 0.79724 Metetra
+1 1 0.947 setrgbcolor
+0.45836 0.72242 0.4434 0.75064 0.45336 0.78251 0.46821 0.75443 Metetra
+1 1 0.94 setrgbcolor
+0.44819 0.7048 0.4331 0.73323 0.4434 0.75064 0.45836 0.72242 Metetra
+1 1 0.873 setrgbcolor
+0.43766 0.70311 0.42241 0.73181 0.4331 0.73323 0.44819 0.7048 Metetra
+0.974 1 0.676 setrgbcolor
+0.42671 0.71652 0.41128 0.74556 0.42241 0.73181 0.43766 0.70311 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.41535 0.74201 0.39971 0.77143 0.41128 0.74556 0.42671 0.71652 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.4036 0.77458 0.38774 0.80443 0.39971 0.77143 0.41535 0.74201 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.39155 0.80801 0.37547 0.83829 0.38774 0.80443 0.4036 0.77458 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.3793 0.83564 0.36299 0.86635 0.37547 0.83829 0.39155 0.80801 Metetra
+0.963 1 0.664 setrgbcolor
+0.36697 0.85146 0.35046 0.88255 0.36299 0.86635 0.3793 0.83564 Metetra
+1 1 0.859 setrgbcolor
+0.35468 0.85113 0.33798 0.88254 0.35046 0.88255 0.36697 0.85146 Metetra
+1 1 0.934 setrgbcolor
+0.34251 0.83278 0.32565 0.86445 0.33798 0.88254 0.35468 0.85113 Metetra
+1 1 0.944 setrgbcolor
+0.3305 0.79739 0.31349 0.82923 0.32565 0.86445 0.34251 0.83278 Metetra
+1 0.996 0.94 setrgbcolor
+0.3186 0.74865 0.30146 0.78062 0.31349 0.82923 0.3305 0.79739 Metetra
+1 0.973 0.935 setrgbcolor
+0.30672 0.69234 0.28947 0.72441 0.30146 0.78062 0.3186 0.74865 Metetra
+1 0.973 0.935 setrgbcolor
+0.2947 0.63537 0.27733 0.66755 0.28947 0.72441 0.30672 0.69234 Metetra
+1 0.995 0.94 setrgbcolor
+0.28236 0.58468 0.26485 0.61699 0.27733 0.66755 0.2947 0.63537 Metetra
+1 1 0.945 setrgbcolor
+0.26949 0.54622 0.25182 0.57871 0.26485 0.61699 0.28236 0.58468 Metetra
+1 1 0.938 setrgbcolor
+0.25592 0.52411 0.23807 0.55687 0.25182 0.57871 0.26949 0.54622 Metetra
+1 1 0.883 setrgbcolor
+0.24152 0.52013 0.22345 0.55325 0.23807 0.55687 0.25592 0.52411 Metetra
+1 1 0.743 setrgbcolor
+0.22625 0.53343 0.20792 0.567 0.22345 0.55325 0.24152 0.52013 Metetra
+0.859 1 0.574 setrgbcolor
+0.21012 0.56061 0.19151 0.5947 0.20792 0.567 0.22625 0.53343 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.19328 0.59603 0.17436 0.63069 0.19151 0.5947 0.21012 0.56061 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.17592 0.63253 0.15668 0.66778 0.17436 0.63069 0.19328 0.59603 Metetra
+0.856 1 0.571 setrgbcolor
+0.15831 0.66242 0.13875 0.69825 0.15668 0.66778 0.17592 0.63253 Metetra
+1 1 0.733 setrgbcolor
+0.14074 0.67869 0.12088 0.71504 0.13875 0.69825 0.15831 0.66242 Metetra
+1 1 0.871 setrgbcolor
+0.12346 0.67619 0.10334 0.71298 0.12088 0.71504 0.14074 0.67869 Metetra
+1 1 0.93 setrgbcolor
+0.10665 0.65265 0.08628 0.68979 0.10334 0.71298 0.12346 0.67619 Metetra
+1 1 0.941 setrgbcolor
+0.09033 0.60914 0.06976 0.64653 0.08628 0.68979 0.10665 0.65265 Metetra
+1 1 0.938 setrgbcolor
+0.07441 0.54992 0.05365 0.58749 0.06976 0.64653 0.09033 0.60914 Metetra
+1 0.99 0.934 setrgbcolor
+0.05862 0.48171 0.03769 0.51941 0.05365 0.58749 0.07441 0.54992 Metetra
+0.2 0.2 0.234 setrgbcolor
+0.56538 0.91356 0.5516 0.93827 0.56033 0.90764 0.57393 0.88324 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.55664 0.93872 0.5427 0.96373 0.5516 0.93827 0.56538 0.91356 Metetra
+0.852 1 0.576 setrgbcolor
+0.54774 0.95348 0.53365 0.97876 0.5427 0.96373 0.55664 0.93872 Metetra
+1 1 0.859 setrgbcolor
+0.53871 0.95412 0.52449 0.97962 0.53365 0.97876 0.54774 0.95348 Metetra
+1 1 0.951 setrgbcolor
+0.5296 0.93903 0.51526 0.96471 0.52449 0.97962 0.53871 0.95412 Metetra
+1 1 0.956 setrgbcolor
+0.52042 0.90912 0.50598 0.93494 0.51526 0.96471 0.5296 0.93903 Metetra
+1 0.977 0.947 setrgbcolor
+0.51119 0.86764 0.49666 0.89355 0.50598 0.93494 0.52042 0.90912 Metetra
+1 0.953 0.942 setrgbcolor
+0.50191 0.81965 0.48729 0.84564 0.49666 0.89355 0.51119 0.86764 Metetra
+1 0.953 0.942 setrgbcolor
+0.49253 0.77117 0.47783 0.79724 0.48729 0.84564 0.50191 0.81965 Metetra
+1 0.977 0.947 setrgbcolor
+0.483 0.72827 0.46821 0.75443 0.47783 0.79724 0.49253 0.77117 Metetra
+1 1 0.956 setrgbcolor
+0.47326 0.69612 0.45836 0.72242 0.46821 0.75443 0.483 0.72827 Metetra
+1 1 0.954 setrgbcolor
+0.46323 0.67832 0.44819 0.7048 0.45836 0.72242 0.47326 0.69612 Metetra
+1 1 0.887 setrgbcolor
+0.45285 0.67637 0.43766 0.70311 0.44819 0.7048 0.46323 0.67832 Metetra
+0.945 1 0.675 setrgbcolor
+0.44208 0.68948 0.42671 0.71652 0.43766 0.70311 0.45285 0.67637 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.43092 0.7146 0.41535 0.74201 0.42671 0.71652 0.44208 0.68948 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.41938 0.74679 0.4036 0.77458 0.41535 0.74201 0.43092 0.7146 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.40755 0.77981 0.39155 0.80801 0.4036 0.77458 0.41938 0.74679 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.39552 0.80705 0.3793 0.83564 0.39155 0.80801 0.40755 0.77981 Metetra
+0.934 1 0.662 setrgbcolor
+0.38339 0.82252 0.36697 0.85146 0.3793 0.83564 0.39552 0.80705 Metetra
+1 1 0.873 setrgbcolor
+0.37129 0.82189 0.35468 0.85113 0.36697 0.85146 0.38339 0.82252 Metetra
+1 1 0.948 setrgbcolor
+0.35929 0.80331 0.34251 0.83278 0.35468 0.85113 0.37129 0.82189 Metetra
+1 1 0.955 setrgbcolor
+0.34741 0.76774 0.3305 0.79739 0.34251 0.83278 0.35929 0.80331 Metetra
+1 0.992 0.947 setrgbcolor
+0.33564 0.71887 0.3186 0.74865 0.3305 0.79739 0.34741 0.76774 Metetra
+1 0.968 0.942 setrgbcolor
+0.32388 0.66247 0.30672 0.69234 0.3186 0.74865 0.33564 0.71887 Metetra
+1 0.968 0.942 setrgbcolor
+0.31197 0.6054 0.2947 0.63537 0.30672 0.69234 0.32388 0.66247 Metetra
+1 0.991 0.947 setrgbcolor
+0.29976 0.55458 0.28236 0.58468 0.2947 0.63537 0.31197 0.6054 Metetra
+1 1 0.955 setrgbcolor
+0.28704 0.51594 0.26949 0.54622 0.28236 0.58468 0.29976 0.55458 Metetra
+1 1 0.951 setrgbcolor
+0.27365 0.49358 0.25592 0.52411 0.26949 0.54622 0.28704 0.51594 Metetra
+1 1 0.898 setrgbcolor
+0.25947 0.48927 0.24152 0.52013 0.25592 0.52411 0.27365 0.49358 Metetra
+1 1 0.748 setrgbcolor
+0.24445 0.50216 0.22625 0.53343 0.24152 0.52013 0.25947 0.48927 Metetra
+0.82 0.996 0.564 setrgbcolor
+0.2286 0.52886 0.21012 0.56061 0.22625 0.53343 0.24445 0.50216 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.21206 0.56374 0.19328 0.59603 0.21012 0.56061 0.2286 0.52886 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.19501 0.5997 0.17592 0.63253 0.19328 0.59603 0.21206 0.56374 Metetra
+0.817 0.994 0.561 setrgbcolor
+0.17771 0.62906 0.15831 0.66242 0.17592 0.63253 0.19501 0.5997 Metetra
+1 1 0.737 setrgbcolor
+0.16044 0.64484 0.14074 0.67869 0.15831 0.66242 0.17771 0.62906 Metetra
+1 1 0.885 setrgbcolor
+0.14343 0.64194 0.12346 0.67619 0.14074 0.67869 0.16044 0.64484 Metetra
+1 1 0.945 setrgbcolor
+0.12685 0.61808 0.10665 0.65265 0.12346 0.67619 0.14343 0.64194 Metetra
+1 1 0.952 setrgbcolor
+0.11074 0.57433 0.09033 0.60914 0.10665 0.65265 0.12685 0.61808 Metetra
+1 1 0.947 setrgbcolor
+0.09499 0.51494 0.07441 0.54992 0.09033 0.60914 0.11074 0.57433 Metetra
+1 0.985 0.942 setrgbcolor
+0.07937 0.44659 0.05862 0.48171 0.07441 0.54992 0.09499 0.51494 Metetra
+0.2 0.2 0.258 setrgbcolor
+0.57911 0.89066 0.56538 0.91356 0.57393 0.88324 0.58751 0.86062 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.57053 0.91554 0.55664 0.93872 0.56538 0.91356 0.57911 0.89066 Metetra
+0.809 0.994 0.566 setrgbcolor
+0.56178 0.93006 0.54774 0.95348 0.55664 0.93872 0.57053 0.91554 Metetra
+1 1 0.874 setrgbcolor
+0.55289 0.93048 0.53871 0.95412 0.54774 0.95348 0.56178 0.93006 Metetra
+1 1 0.966 setrgbcolor
+0.5439 0.91523 0.5296 0.93903 0.53871 0.95412 0.55289 0.93048 Metetra
+1 1 0.966 setrgbcolor
+0.53482 0.8852 0.52042 0.90912 0.5296 0.93903 0.5439 0.91523 Metetra
+1 0.972 0.954 setrgbcolor
+0.52568 0.84363 0.51119 0.86764 0.52042 0.90912 0.53482 0.8852 Metetra
+1 0.948 0.948 setrgbcolor
+0.51648 0.79556 0.50191 0.81965 0.51119 0.86764 0.52568 0.84363 Metetra
+1 0.948 0.948 setrgbcolor
+0.50719 0.74701 0.49253 0.77117 0.50191 0.81965 0.51648 0.79556 Metetra
+1 0.972 0.954 setrgbcolor
+0.49775 0.70402 0.483 0.72827 0.49253 0.77117 0.50719 0.74701 Metetra
+1 1 0.966 setrgbcolor
+0.48811 0.67174 0.47326 0.69612 0.483 0.72827 0.49775 0.70402 Metetra
+1 1 0.968 setrgbcolor
+0.47821 0.65376 0.46323 0.67832 0.47326 0.69612 0.48811 0.67174 Metetra
+1 1 0.903 setrgbcolor
+0.46798 0.65158 0.45285 0.67637 0.46323 0.67832 0.47821 0.65376 Metetra
+0.912 1 0.672 setrgbcolor
+0.45739 0.66441 0.44208 0.68948 0.45285 0.67637 0.46798 0.65158 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.44642 0.6892 0.43092 0.7146 0.44208 0.68948 0.45739 0.66441 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.4351 0.72102 0.41938 0.74679 0.43092 0.7146 0.44642 0.6892 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.42349 0.75368 0.40755 0.77981 0.41938 0.74679 0.4351 0.72102 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.41167 0.78056 0.39552 0.80705 0.40755 0.77981 0.42349 0.75368 Metetra
+0.899 1 0.659 setrgbcolor
+0.39975 0.7957 0.38339 0.82252 0.39552 0.80705 0.41167 0.78056 Metetra
+1 1 0.888 setrgbcolor
+0.38782 0.7948 0.37129 0.82189 0.38339 0.82252 0.39975 0.7957 Metetra
+1 1 0.963 setrgbcolor
+0.37598 0.77599 0.35929 0.80331 0.37129 0.82189 0.38782 0.7948 Metetra
+1 1 0.965 setrgbcolor
+0.36424 0.74026 0.34741 0.76774 0.35929 0.80331 0.37598 0.77599 Metetra
+1 0.987 0.955 setrgbcolor
+0.35259 0.69128 0.33564 0.71887 0.34741 0.76774 0.36424 0.74026 Metetra
+1 0.963 0.949 setrgbcolor
+0.34094 0.63477 0.32388 0.66247 0.33564 0.71887 0.35259 0.69128 Metetra
+1 0.963 0.949 setrgbcolor
+0.32915 0.57761 0.31197 0.6054 0.32388 0.66247 0.34094 0.63477 Metetra
+1 0.987 0.955 setrgbcolor
+0.31706 0.52667 0.29976 0.55458 0.31197 0.6054 0.32915 0.57761 Metetra
+1 1 0.966 setrgbcolor
+0.30449 0.48786 0.28704 0.51594 0.29976 0.55458 0.31706 0.52667 Metetra
+1 1 0.966 setrgbcolor
+0.29128 0.46526 0.27365 0.49358 0.28704 0.51594 0.30449 0.48786 Metetra
+1 1 0.914 setrgbcolor
+0.27731 0.46064 0.25947 0.48927 0.27365 0.49358 0.29128 0.46526 Metetra
+0.984 1 0.752 setrgbcolor
+0.26253 0.47316 0.24445 0.50216 0.25947 0.48927 0.27731 0.46064 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.24697 0.49941 0.2286 0.52886 0.24445 0.50216 0.26253 0.47316 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.23072 0.53381 0.21206 0.56374 0.2286 0.52886 0.24697 0.49941 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.21398 0.56926 0.19501 0.5997 0.21206 0.56374 0.23072 0.53381 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.19698 0.59814 0.17771 0.62906 0.19501 0.5997 0.21398 0.56926 Metetra
+0.974 1 0.74 setrgbcolor
+0.17999 0.61348 0.16044 0.64484 0.17771 0.62906 0.19698 0.59814 Metetra
+1 1 0.901 setrgbcolor
+0.16324 0.61019 0.14343 0.64194 0.16044 0.64484 0.17999 0.61348 Metetra
+1 1 0.96 setrgbcolor
+0.14689 0.58603 0.12685 0.61808 0.14343 0.64194 0.16324 0.61019 Metetra
+1 1 0.964 setrgbcolor
+0.13098 0.54206 0.11074 0.57433 0.12685 0.61808 0.14689 0.58603 Metetra
+1 1 0.956 setrgbcolor
+0.1154 0.4825 0.09499 0.51494 0.11074 0.57433 0.13098 0.54206 Metetra
+1 0.98 0.95 setrgbcolor
+0.09995 0.41403 0.07937 0.44659 0.09499 0.51494 0.1154 0.4825 Metetra
+0.2 0.2 0.281 setrgbcolor
+0.59283 0.86955 0.57911 0.89066 0.58751 0.86062 0.60106 0.83978 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.58441 0.89419 0.57053 0.91554 0.57911 0.89066 0.59283 0.86955 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.5758 0.90848 0.56178 0.93006 0.57053 0.91554 0.58441 0.89419 Metetra
+1 1 0.889 setrgbcolor
+0.56705 0.90871 0.55289 0.93048 0.56178 0.93006 0.5758 0.90848 Metetra
+1 1 0.982 setrgbcolor
+0.55816 0.8933 0.5439 0.91523 0.55289 0.93048 0.56705 0.90871 Metetra
+1 1 0.976 setrgbcolor
+0.54919 0.86315 0.53482 0.8852 0.5439 0.91523 0.55816 0.8933 Metetra
+1 0.966 0.961 setrgbcolor
+0.54014 0.8215 0.52568 0.84363 0.53482 0.8852 0.54919 0.86315 Metetra
+1 0.941 0.954 setrgbcolor
+0.53101 0.77336 0.51648 0.79556 0.52568 0.84363 0.54014 0.8215 Metetra
+1 0.941 0.954 setrgbcolor
+0.5218 0.72474 0.50719 0.74701 0.51648 0.79556 0.53101 0.77336 Metetra
+1 0.966 0.961 setrgbcolor
+0.51245 0.68165 0.49775 0.70402 0.50719 0.74701 0.5218 0.72474 Metetra
+1 1 0.976 setrgbcolor
+0.50292 0.64925 0.48811 0.67174 0.49775 0.70402 0.51245 0.68165 Metetra
+1 1 0.984 setrgbcolor
+0.49315 0.63111 0.47821 0.65376 0.48811 0.67174 0.50292 0.64925 Metetra
+1 1 0.92 setrgbcolor
+0.48307 0.62872 0.46798 0.65158 0.47821 0.65376 0.49315 0.63111 Metetra
+0.873 1 0.669 setrgbcolor
+0.47265 0.64128 0.45739 0.66441 0.46798 0.65158 0.48307 0.62872 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.46188 0.66577 0.44642 0.6892 0.45739 0.66441 0.47265 0.64128 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.45077 0.69727 0.4351 0.72102 0.44642 0.6892 0.46188 0.66577 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.43937 0.72959 0.42349 0.75368 0.4351 0.72102 0.45077 0.69727 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.42776 0.75614 0.41167 0.78056 0.42349 0.75368 0.43937 0.72959 Metetra
+0.859 1 0.654 setrgbcolor
+0.41603 0.77098 0.39975 0.7957 0.41167 0.78056 0.42776 0.75614 Metetra
+1 1 0.905 setrgbcolor
+0.40429 0.76983 0.38782 0.7948 0.39975 0.7957 0.41603 0.77098 Metetra
+1 1 0.98 setrgbcolor
+0.3926 0.75082 0.37598 0.77599 0.38782 0.7948 0.40429 0.76983 Metetra
+1 1 0.977 setrgbcolor
+0.381 0.71493 0.36424 0.74026 0.37598 0.77599 0.3926 0.75082 Metetra
+1 0.982 0.964 setrgbcolor
+0.36947 0.66583 0.35259 0.69128 0.36424 0.74026 0.381 0.71493 Metetra
+1 0.957 0.956 setrgbcolor
+0.35792 0.60924 0.34094 0.63477 0.35259 0.69128 0.36947 0.66583 Metetra
+1 0.957 0.956 setrgbcolor
+0.34624 0.55198 0.32915 0.57761 0.34094 0.63477 0.35792 0.60924 Metetra
+1 0.981 0.964 setrgbcolor
+0.33427 0.50093 0.31706 0.52667 0.32915 0.57761 0.34624 0.55198 Metetra
+1 1 0.977 setrgbcolor
+0.32185 0.46195 0.30449 0.48786 0.31706 0.52667 0.33427 0.50093 Metetra
+1 1 0.982 setrgbcolor
+0.30881 0.43914 0.29128 0.46526 0.30449 0.48786 0.32185 0.46195 Metetra
+1 1 0.931 setrgbcolor
+0.29505 0.43423 0.27731 0.46064 0.29128 0.46526 0.30881 0.43914 Metetra
+0.954 1 0.756 setrgbcolor
+0.28051 0.4464 0.26253 0.47316 0.27731 0.46064 0.29505 0.43423 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.26522 0.47225 0.24697 0.49941 0.26253 0.47316 0.28051 0.4464 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.24926 0.50621 0.23072 0.53381 0.24697 0.49941 0.26522 0.47225 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.23282 0.5412 0.21398 0.56926 0.23072 0.53381 0.24926 0.50621 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.21612 0.56963 0.19698 0.59814 0.21398 0.56926 0.23282 0.5412 Metetra
+0.943 1 0.743 setrgbcolor
+0.19941 0.58456 0.17999 0.61348 0.19698 0.59814 0.21612 0.56963 Metetra
+1 1 0.918 setrgbcolor
+0.18292 0.58093 0.16324 0.61019 0.17999 0.61348 0.19941 0.58456 Metetra
+1 1 0.977 setrgbcolor
+0.16679 0.55649 0.14689 0.58603 0.16324 0.61019 0.18292 0.58093 Metetra
+1 1 0.977 setrgbcolor
+0.15107 0.5123 0.13098 0.54206 0.14689 0.58603 0.16679 0.55649 Metetra
+1 1 0.965 setrgbcolor
+0.13567 0.45259 0.1154 0.4825 0.13098 0.54206 0.15107 0.5123 Metetra
+1 0.975 0.958 setrgbcolor
+0.12036 0.38399 0.09995 0.41403 0.1154 0.4825 0.13567 0.45259 Metetra
+0.2 0.2 0.304 setrgbcolor
+0.60653 0.85023 0.59283 0.86955 0.60106 0.83978 0.6146 0.82069 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.59826 0.87464 0.58441 0.89419 0.59283 0.86955 0.60653 0.85023 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.5898 0.88873 0.5758 0.90848 0.58441 0.89419 0.59826 0.87464 Metetra
+1 1 0.907 setrgbcolor
+0.58117 0.88878 0.56705 0.90871 0.5758 0.90848 0.5898 0.88873 Metetra
+1 1 0.999 setrgbcolor
+0.57241 0.87323 0.55816 0.8933 0.56705 0.90871 0.58117 0.88878 Metetra
+1 1 0.986 setrgbcolor
+0.56353 0.84297 0.54919 0.86315 0.55816 0.8933 0.57241 0.87323 Metetra
+1 0.96 0.968 setrgbcolor
+0.55456 0.80123 0.54014 0.8215 0.54919 0.86315 0.56353 0.84297 Metetra
+1 0.935 0.959 setrgbcolor
+0.54552 0.75302 0.53101 0.77336 0.54014 0.8215 0.55456 0.80123 Metetra
+1 0.935 0.959 setrgbcolor
+0.53638 0.70433 0.5218 0.72474 0.53101 0.77336 0.54552 0.75302 Metetra
+1 0.959 0.968 setrgbcolor
+0.52712 0.66116 0.51245 0.68165 0.5218 0.72474 0.53638 0.70433 Metetra
+1 1 0.986 setrgbcolor
+0.5177 0.62865 0.50292 0.64925 0.51245 0.68165 0.52712 0.66116 Metetra
+1 1 1 setrgbcolor
+0.50805 0.61035 0.49315 0.63111 0.50292 0.64925 0.5177 0.62865 Metetra
+1 1 0.939 setrgbcolor
+0.49812 0.60776 0.48307 0.62872 0.49315 0.63111 0.50805 0.61035 Metetra
+0.828 1 0.664 setrgbcolor
+0.48787 0.62009 0.47265 0.64128 0.48307 0.62872 0.49812 0.60776 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.47729 0.64431 0.46188 0.66577 0.47265 0.64128 0.48787 0.62009 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.46638 0.67551 0.45077 0.69727 0.46188 0.66577 0.47729 0.64431 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.45519 0.70752 0.43937 0.72959 0.45077 0.69727 0.46638 0.67551 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.44379 0.73377 0.42776 0.75614 0.43937 0.72959 0.45519 0.70752 Metetra
+0.812 1 0.648 setrgbcolor
+0.43226 0.74835 0.41603 0.77098 0.42776 0.75614 0.44379 0.73377 Metetra
+1 1 0.923 setrgbcolor
+0.42069 0.74696 0.40429 0.76983 0.41603 0.77098 0.43226 0.74835 Metetra
+1 1 0.997 setrgbcolor
+0.40916 0.72776 0.3926 0.75082 0.40429 0.76983 0.42069 0.74696 Metetra
+1 1 0.988 setrgbcolor
+0.39769 0.69173 0.381 0.71493 0.3926 0.75082 0.40916 0.72776 Metetra
+1 0.976 0.972 setrgbcolor
+0.38627 0.64252 0.36947 0.66583 0.381 0.71493 0.39769 0.69173 Metetra
+1 0.95 0.963 setrgbcolor
+0.37483 0.58583 0.35792 0.60924 0.36947 0.66583 0.38627 0.64252 Metetra
+1 0.95 0.963 setrgbcolor
+0.36326 0.52849 0.34624 0.55198 0.35792 0.60924 0.37483 0.58583 Metetra
+1 0.975 0.972 setrgbcolor
+0.35141 0.47732 0.33427 0.50093 0.34624 0.55198 0.36326 0.52849 Metetra
+1 1 0.988 setrgbcolor
+0.33913 0.43819 0.32185 0.46195 0.33427 0.50093 0.35141 0.47732 Metetra
+1 1 0.999 setrgbcolor
+0.32626 0.41518 0.30881 0.43914 0.32185 0.46195 0.33913 0.43819 Metetra
+1 1 0.951 setrgbcolor
+0.31271 0.41001 0.29505 0.43423 0.30881 0.43914 0.32626 0.41518 Metetra
+0.919 1 0.759 setrgbcolor
+0.2984 0.42186 0.28051 0.4464 0.29505 0.43423 0.31271 0.41001 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.28337 0.44734 0.26522 0.47225 0.28051 0.4464 0.2984 0.42186 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.2677 0.4809 0.24926 0.50621 0.26522 0.47225 0.28337 0.44734 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.25155 0.51548 0.23282 0.5412 0.24926 0.50621 0.2677 0.4809 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.23514 0.5435 0.21612 0.56963 0.23282 0.5412 0.25155 0.51548 Metetra
+0.906 1 0.745 setrgbcolor
+0.21871 0.55806 0.19941 0.58456 0.21612 0.56963 0.23514 0.5435 Metetra
+1 1 0.937 setrgbcolor
+0.20247 0.55411 0.18292 0.58093 0.19941 0.58456 0.21871 0.55806 Metetra
+1 1 0.995 setrgbcolor
+0.18656 0.52941 0.16679 0.55649 0.18292 0.58093 0.20247 0.55411 Metetra
+1 1 0.99 setrgbcolor
+0.17103 0.48503 0.15107 0.5123 0.16679 0.55649 0.18656 0.52941 Metetra
+1 0.994 0.975 setrgbcolor
+0.15579 0.42516 0.13567 0.45259 0.15107 0.5123 0.17103 0.48503 Metetra
+1 0.968 0.966 setrgbcolor
+0.14064 0.35644 0.12036 0.38399 0.13567 0.45259 0.15579 0.42516 Metetra
+0.252 0.2 0.327 setrgbcolor
+0.62021 0.83268 0.60653 0.85023 0.6146 0.82069 0.62813 0.80335 Metetra
+0.2 0.2 0.205 setrgbcolor
+0.6121 0.85689 0.59826 0.87464 0.60653 0.85023 0.62021 0.83268 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.60378 0.87078 0.5898 0.88873 0.59826 0.87464 0.6121 0.85689 Metetra
+1 1 0.925 setrgbcolor
+0.59529 0.87067 0.58117 0.88878 0.5898 0.88873 0.60378 0.87078 Metetra
+1 1 1 setrgbcolor
+0.58663 0.85499 0.57241 0.87323 0.58117 0.88878 0.59529 0.87067 Metetra
+1 1 0.997 setrgbcolor
+0.57785 0.82463 0.56353 0.84297 0.57241 0.87323 0.58663 0.85499 Metetra
+1 0.953 0.975 setrgbcolor
+0.56897 0.78281 0.55456 0.80123 0.56353 0.84297 0.57785 0.82463 Metetra
+1 0.927 0.965 setrgbcolor
+0.56 0.73454 0.54552 0.75302 0.55456 0.80123 0.56897 0.78281 Metetra
+1 0.927 0.965 setrgbcolor
+0.55094 0.68578 0.53638 0.70433 0.54552 0.75302 0.56 0.73454 Metetra
+1 0.952 0.975 setrgbcolor
+0.54177 0.64252 0.52712 0.66116 0.53638 0.70433 0.55094 0.68578 Metetra
+1 1 0.996 setrgbcolor
+0.53244 0.60991 0.5177 0.62865 0.52712 0.66116 0.54177 0.64252 Metetra
+1 1 1 setrgbcolor
+0.52291 0.59147 0.50805 0.61035 0.5177 0.62865 0.53244 0.60991 Metetra
+1 1 0.959 setrgbcolor
+0.51313 0.58871 0.49812 0.60776 0.50805 0.61035 0.52291 0.59147 Metetra
+0.776 1 0.657 setrgbcolor
+0.50306 0.60082 0.48787 0.62009 0.49812 0.60776 0.51313 0.58871 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.49266 0.62479 0.47729 0.64431 0.48787 0.62009 0.50306 0.60082 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.48196 0.65572 0.46638 0.67551 0.47729 0.64431 0.49266 0.62479 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.47098 0.68746 0.45519 0.70752 0.46638 0.67551 0.48196 0.65572 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.45978 0.71345 0.44379 0.73377 0.45519 0.70752 0.47098 0.68746 Metetra
+0.758 1 0.639 setrgbcolor
+0.44844 0.72778 0.43226 0.74835 0.44379 0.73377 0.45978 0.71345 Metetra
+1 1 0.942 setrgbcolor
+0.43705 0.72618 0.42069 0.74696 0.43226 0.74835 0.44844 0.72778 Metetra
+1 1 1 setrgbcolor
+0.42566 0.70681 0.40916 0.72776 0.42069 0.74696 0.43705 0.72618 Metetra
+1 1 1 setrgbcolor
+0.41432 0.67065 0.39769 0.69173 0.40916 0.72776 0.42566 0.70681 Metetra
+1 0.968 0.98 setrgbcolor
+0.40302 0.62133 0.38627 0.64252 0.39769 0.69173 0.41432 0.67065 Metetra
+1 0.942 0.97 setrgbcolor
+0.39168 0.56455 0.37483 0.58583 0.38627 0.64252 0.40302 0.62133 Metetra
+1 0.942 0.97 setrgbcolor
+0.38022 0.50711 0.36326 0.52849 0.37483 0.58583 0.39168 0.56455 Metetra
+1 0.968 0.98 setrgbcolor
+0.36848 0.45584 0.35141 0.47732 0.36326 0.52849 0.38022 0.50711 Metetra
+1 1 0.999 setrgbcolor
+0.35634 0.41657 0.33913 0.43819 0.35141 0.47732 0.36848 0.45584 Metetra
+1 1 1 setrgbcolor
+0.34364 0.39337 0.32626 0.41518 0.33913 0.43819 0.35634 0.41657 Metetra
+1 1 0.971 setrgbcolor
+0.33028 0.38796 0.31271 0.41001 0.32626 0.41518 0.34364 0.39337 Metetra
+0.878 1 0.761 setrgbcolor
+0.31621 0.39952 0.2984 0.42186 0.31271 0.41001 0.33028 0.38796 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.30144 0.42467 0.28337 0.44734 0.2984 0.42186 0.31621 0.39952 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.28605 0.45787 0.2677 0.4809 0.28337 0.44734 0.30144 0.42467 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.27019 0.49208 0.25155 0.51548 0.2677 0.4809 0.28605 0.45787 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.25407 0.51974 0.23514 0.5435 0.25155 0.51548 0.27019 0.49208 Metetra
+0.863 1 0.746 setrgbcolor
+0.23791 0.53396 0.21871 0.55806 0.23514 0.5435 0.25407 0.51974 Metetra
+1 1 0.957 setrgbcolor
+0.22191 0.52972 0.20247 0.55411 0.21871 0.55806 0.23791 0.53396 Metetra
+1 1 1 setrgbcolor
+0.20621 0.50479 0.18656 0.52941 0.20247 0.55411 0.22191 0.52972 Metetra
+1 1 1 setrgbcolor
+0.19086 0.46022 0.17103 0.48503 0.18656 0.52941 0.20621 0.50479 Metetra
+1 0.987 0.985 setrgbcolor
+0.17578 0.4002 0.15579 0.42516 0.17103 0.48503 0.19086 0.46022 Metetra
+1 0.96 0.975 setrgbcolor
+0.16078 0.33135 0.14064 0.35644 0.15579 0.42516 0.17578 0.4002 Metetra
+0.311 0.2 0.349 setrgbcolor
+0.63389 0.81689 0.62021 0.83268 0.62813 0.80335 0.64166 0.78774 Metetra
+0.2 0.2 0.231 setrgbcolor
+0.62593 0.84091 0.6121 0.85689 0.62021 0.83268 0.63389 0.81689 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.61776 0.85465 0.60378 0.87078 0.6121 0.85689 0.62593 0.84091 Metetra
+1 1 0.945 setrgbcolor
+0.60939 0.85439 0.59529 0.87067 0.60378 0.87078 0.61776 0.85465 Metetra
+1 1 1 setrgbcolor
+0.60084 0.83859 0.58663 0.85499 0.59529 0.87067 0.60939 0.85439 Metetra
+1 1 1 setrgbcolor
+0.59216 0.80813 0.57785 0.82463 0.58663 0.85499 0.60084 0.83859 Metetra
+1 0.945 0.982 setrgbcolor
+0.58336 0.76624 0.56897 0.78281 0.57785 0.82463 0.59216 0.80813 Metetra
+1 0.919 0.971 setrgbcolor
+0.57446 0.7179 0.56 0.73454 0.56897 0.78281 0.58336 0.76624 Metetra
+1 0.919 0.971 setrgbcolor
+0.56548 0.66907 0.55094 0.68578 0.56 0.73454 0.57446 0.7179 Metetra
+1 0.944 0.982 setrgbcolor
+0.55639 0.62574 0.54177 0.64252 0.55094 0.68578 0.56548 0.66907 Metetra
+1 1 1 setrgbcolor
+0.54717 0.59302 0.53244 0.60991 0.54177 0.64252 0.55639 0.62574 Metetra
+1 1 1 setrgbcolor
+0.53776 0.57446 0.52291 0.59147 0.53244 0.60991 0.54717 0.59302 Metetra
+1 1 0.981 setrgbcolor
+0.52812 0.57153 0.51313 0.58871 0.52291 0.59147 0.53776 0.57446 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.51821 0.58345 0.50306 0.60082 0.51313 0.58871 0.52812 0.57153 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.50801 0.6072 0.49266 0.62479 0.50306 0.60082 0.51821 0.58345 Metetra
+0.2 0.2 0.216 setrgbcolor
+0.4975 0.6379 0.48196 0.65572 0.49266 0.62479 0.50801 0.6072 Metetra
+0.2 0.2 0.216 setrgbcolor
+0.48673 0.66939 0.47098 0.68746 0.48196 0.65572 0.4975 0.6379 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.47573 0.69515 0.45978 0.71345 0.47098 0.68746 0.48673 0.66939 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.46458 0.70926 0.44844 0.72778 0.45978 0.71345 0.47573 0.69515 Metetra
+1 1 0.963 setrgbcolor
+0.45336 0.70747 0.43705 0.72618 0.44844 0.72778 0.46458 0.70926 Metetra
+1 1 1 setrgbcolor
+0.44212 0.68794 0.42566 0.70681 0.43705 0.72618 0.45336 0.70747 Metetra
+1 1 1 setrgbcolor
+0.43091 0.65165 0.41432 0.67065 0.42566 0.70681 0.44212 0.68794 Metetra
+1 0.96 0.988 setrgbcolor
+0.41971 0.60223 0.40302 0.62133 0.41432 0.67065 0.43091 0.65165 Metetra
+1 0.934 0.976 setrgbcolor
+0.40848 0.54537 0.39168 0.56455 0.40302 0.62133 0.41971 0.60223 Metetra
+1 0.934 0.976 setrgbcolor
+0.39712 0.48784 0.38022 0.50711 0.39168 0.56455 0.40848 0.54537 Metetra
+1 0.96 0.988 setrgbcolor
+0.3855 0.43646 0.36848 0.45584 0.38022 0.50711 0.39712 0.48784 Metetra
+1 1 1 setrgbcolor
+0.37349 0.39706 0.35634 0.41657 0.36848 0.45584 0.3855 0.43646 Metetra
+1 1 1 setrgbcolor
+0.36095 0.37369 0.34364 0.39337 0.35634 0.41657 0.37349 0.39706 Metetra
+1 1 0.994 setrgbcolor
+0.34779 0.36807 0.33028 0.38796 0.34364 0.39337 0.36095 0.37369 Metetra
+0.828 1 0.762 setrgbcolor
+0.33395 0.37937 0.31621 0.39952 0.33028 0.38796 0.34779 0.36807 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.31944 0.40423 0.30144 0.42467 0.31621 0.39952 0.33395 0.37937 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.30432 0.4371 0.28605 0.45787 0.30144 0.42467 0.31944 0.40423 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.28875 0.47098 0.27019 0.49208 0.28605 0.45787 0.30432 0.4371 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.27291 0.49832 0.25407 0.51974 0.27019 0.49208 0.28875 0.47098 Metetra
+0.812 1 0.745 setrgbcolor
+0.25701 0.51224 0.23791 0.53396 0.25407 0.51974 0.27291 0.49832 Metetra
+1 1 0.979 setrgbcolor
+0.24125 0.50774 0.22191 0.52972 0.23791 0.53396 0.25701 0.51224 Metetra
+1 1 1 setrgbcolor
+0.22576 0.48259 0.20621 0.50479 0.22191 0.52972 0.24125 0.50774 Metetra
+1 1 1 setrgbcolor
+0.21059 0.43784 0.19086 0.46022 0.20621 0.50479 0.22576 0.48259 Metetra
+1 0.979 0.995 setrgbcolor
+0.19567 0.37769 0.17578 0.4002 0.19086 0.46022 0.21059 0.43784 Metetra
+1 0.952 0.983 setrgbcolor
+0.18081 0.30872 0.16078 0.33135 0.17578 0.4002 0.19567 0.37769 Metetra
+0.369 0.2 0.37 setrgbcolor
+0.64758 0.80284 0.63389 0.81689 0.64166 0.78774 0.65519 0.77386 Metetra
+0.253 0.2 0.257 setrgbcolor
+0.63976 0.82671 0.62593 0.84091 0.63389 0.81689 0.64758 0.80284 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.63173 0.8403 0.61776 0.85465 0.62593 0.84091 0.63976 0.82671 Metetra
+0.982 1 0.965 setrgbcolor
+0.62349 0.83992 0.60939 0.85439 0.61776 0.85465 0.63173 0.8403 Metetra
+1 1 1 setrgbcolor
+0.61505 0.82401 0.60084 0.83859 0.60939 0.85439 0.62349 0.83992 Metetra
+1 0.997 1 setrgbcolor
+0.60646 0.79346 0.59216 0.80813 0.60084 0.83859 0.61505 0.82401 Metetra
+1 0.935 0.989 setrgbcolor
+0.59774 0.75149 0.58336 0.76624 0.59216 0.80813 0.60646 0.79346 Metetra
+0.99 0.91 0.976 setrgbcolor
+0.58892 0.70309 0.57446 0.7179 0.58336 0.76624 0.59774 0.75149 Metetra
+0.99 0.91 0.976 setrgbcolor
+0.58001 0.65419 0.56548 0.66907 0.57446 0.7179 0.58892 0.70309 Metetra
+1 0.935 0.989 setrgbcolor
+0.57101 0.61079 0.55639 0.62574 0.56548 0.66907 0.58001 0.65419 Metetra
+1 0.995 1 setrgbcolor
+0.56188 0.57798 0.54717 0.59302 0.55639 0.62574 0.57101 0.61079 Metetra
+1 1 1 setrgbcolor
+0.55259 0.5593 0.53776 0.57446 0.54717 0.59302 0.56188 0.57798 Metetra
+1 1 1 setrgbcolor
+0.54309 0.55623 0.52812 0.57153 0.53776 0.57446 0.55259 0.5593 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.53335 0.56798 0.51821 0.58345 0.52812 0.57153 0.54309 0.55623 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.52333 0.59154 0.50801 0.6072 0.51821 0.58345 0.53335 0.56798 Metetra
+0.239 0.2 0.24 setrgbcolor
+0.51302 0.62203 0.4975 0.6379 0.50801 0.6072 0.52333 0.59154 Metetra
+0.239 0.2 0.24 setrgbcolor
+0.50245 0.65331 0.48673 0.66939 0.4975 0.6379 0.51302 0.62203 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.49165 0.67886 0.47573 0.69515 0.48673 0.66939 0.50245 0.65331 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.48069 0.69278 0.46458 0.70926 0.47573 0.69515 0.49165 0.67886 Metetra
+1 1 0.985 setrgbcolor
+0.46964 0.69082 0.45336 0.70747 0.46458 0.70926 0.48069 0.69278 Metetra
+1 1 1 setrgbcolor
+0.45855 0.67115 0.44212 0.68794 0.45336 0.70747 0.46964 0.69082 Metetra
+1 1 1 setrgbcolor
+0.44746 0.63474 0.43091 0.65165 0.44212 0.68794 0.45855 0.67115 Metetra
+1 0.951 0.996 setrgbcolor
+0.43637 0.58523 0.41971 0.60223 0.43091 0.65165 0.44746 0.63474 Metetra
+0.998 0.924 0.983 setrgbcolor
+0.42524 0.52827 0.40848 0.54537 0.41971 0.60223 0.43637 0.58523 Metetra
+0.998 0.924 0.983 setrgbcolor
+0.41397 0.47066 0.39712 0.48784 0.40848 0.54537 0.42524 0.52827 Metetra
+1 0.951 0.996 setrgbcolor
+0.40247 0.41918 0.3855 0.43646 0.39712 0.48784 0.41397 0.47066 Metetra
+1 1 1 setrgbcolor
+0.39059 0.37965 0.37349 0.39706 0.3855 0.43646 0.40247 0.41918 Metetra
+1 1 1 setrgbcolor
+0.37821 0.35612 0.36095 0.37369 0.37349 0.39706 0.39059 0.37965 Metetra
+1 1 1 setrgbcolor
+0.36525 0.35032 0.34779 0.36807 0.36095 0.37369 0.37821 0.35612 Metetra
+0.77 1 0.76 setrgbcolor
+0.35163 0.36139 0.33395 0.37937 0.34779 0.36807 0.36525 0.35032 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.33737 0.38598 0.31944 0.40423 0.33395 0.37937 0.35163 0.36139 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.32253 0.41858 0.30432 0.4371 0.31944 0.40423 0.33737 0.38598 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.30723 0.45217 0.28875 0.47098 0.30432 0.4371 0.32253 0.41858 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.29167 0.47922 0.27291 0.49832 0.28875 0.47098 0.30723 0.45217 Metetra
+0.751 1 0.741 setrgbcolor
+0.27603 0.49288 0.25701 0.51224 0.27291 0.49832 0.29167 0.47922 Metetra
+1 1 1 setrgbcolor
+0.2605 0.48815 0.24125 0.50774 0.25701 0.51224 0.27603 0.49288 Metetra
+1 1 1 setrgbcolor
+0.24522 0.46279 0.22576 0.48259 0.24125 0.50774 0.2605 0.48815 Metetra
+1 1 1 setrgbcolor
+0.23022 0.41789 0.21059 0.43784 0.22576 0.48259 0.24522 0.46279 Metetra
+1 0.97 1 setrgbcolor
+0.21545 0.3576 0.19567 0.37769 0.21059 0.43784 0.23022 0.41789 Metetra
+1 0.942 0.991 setrgbcolor
+0.20073 0.2885 0.18081 0.30872 0.19567 0.37769 0.21545 0.3576 Metetra
+0.426 0.2 0.39 setrgbcolor
+0.66127 0.79054 0.64758 0.80284 0.65519 0.77386 0.66872 0.7617 Metetra
+0.322 0.2 0.282 setrgbcolor
+0.6536 0.81428 0.63976 0.82671 0.64758 0.80284 0.66127 0.79054 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.64571 0.82774 0.63173 0.8403 0.63976 0.82671 0.6536 0.81428 Metetra
+0.938 1 0.986 setrgbcolor
+0.63759 0.82724 0.62349 0.83992 0.63173 0.8403 0.64571 0.82774 Metetra
+1 1 1 setrgbcolor
+0.62926 0.81124 0.61505 0.82401 0.62349 0.83992 0.63759 0.82724 Metetra
+1 0.988 1 setrgbcolor
+0.62076 0.78061 0.60646 0.79346 0.61505 0.82401 0.62926 0.81124 Metetra
+0.986 0.925 0.996 setrgbcolor
+0.61212 0.73857 0.59774 0.75149 0.60646 0.79346 0.62076 0.78061 Metetra
+0.974 0.9 0.981 setrgbcolor
+0.60337 0.6901 0.58892 0.70309 0.59774 0.75149 0.61212 0.73857 Metetra
+0.974 0.9 0.981 setrgbcolor
+0.59454 0.64115 0.58001 0.65419 0.58892 0.70309 0.60337 0.6901 Metetra
+0.986 0.925 0.995 setrgbcolor
+0.58561 0.59767 0.57101 0.61079 0.58001 0.65419 0.59454 0.64115 Metetra
+1 0.985 1 setrgbcolor
+0.57658 0.56477 0.56188 0.57798 0.57101 0.61079 0.58561 0.59767 Metetra
+1 1 1 setrgbcolor
+0.56741 0.54598 0.55259 0.5593 0.56188 0.57798 0.57658 0.56477 Metetra
+0.984 1 1 setrgbcolor
+0.55806 0.54279 0.54309 0.55623 0.55259 0.5593 0.56741 0.54598 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.54848 0.55439 0.53335 0.56798 0.54309 0.55623 0.55806 0.54279 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.53864 0.57779 0.52333 0.59154 0.53335 0.56798 0.54848 0.55439 Metetra
+0.306 0.2 0.265 setrgbcolor
+0.52853 0.6081 0.51302 0.62203 0.52333 0.59154 0.53864 0.57779 Metetra
+0.306 0.2 0.265 setrgbcolor
+0.51816 0.6392 0.50245 0.65331 0.51302 0.62203 0.52853 0.6081 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.50756 0.66457 0.49165 0.67886 0.50245 0.65331 0.51816 0.6392 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.49678 0.67833 0.48069 0.69278 0.49165 0.67886 0.50756 0.66457 Metetra
+0.962 1 1 setrgbcolor
+0.48589 0.67622 0.46964 0.69082 0.48069 0.69278 0.49678 0.67833 Metetra
+1 1 1 setrgbcolor
+0.47495 0.65642 0.45855 0.67115 0.46964 0.69082 0.48589 0.67622 Metetra
+1 1 1 setrgbcolor
+0.46398 0.61991 0.44746 0.63474 0.45855 0.67115 0.47495 0.65642 Metetra
+0.993 0.941 1 setrgbcolor
+0.453 0.5703 0.43637 0.58523 0.44746 0.63474 0.46398 0.61991 Metetra
+0.981 0.913 0.989 setrgbcolor
+0.44196 0.51326 0.42524 0.52827 0.43637 0.58523 0.453 0.5703 Metetra
+0.981 0.913 0.989 setrgbcolor
+0.43079 0.45556 0.41397 0.47066 0.42524 0.52827 0.44196 0.51326 Metetra
+0.993 0.94 1 setrgbcolor
+0.41939 0.40398 0.40247 0.41918 0.41397 0.47066 0.43079 0.45556 Metetra
+1 1 1 setrgbcolor
+0.40764 0.36434 0.39059 0.37965 0.40247 0.41918 0.41939 0.40398 Metetra
+1 1 1 setrgbcolor
+0.39543 0.34067 0.37821 0.35612 0.39059 0.37965 0.40764 0.36434 Metetra
+1 1 1 setrgbcolor
+0.38265 0.33469 0.36525 0.35032 0.37821 0.35612 0.39543 0.34067 Metetra
+0.701 1 0.755 setrgbcolor
+0.36926 0.34556 0.35163 0.36139 0.36525 0.35032 0.38265 0.33469 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.35525 0.36993 0.33737 0.38598 0.35163 0.36139 0.36926 0.34556 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.34067 0.40229 0.32253 0.41858 0.33737 0.38598 0.35525 0.36993 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.32565 0.43563 0.30723 0.45217 0.32253 0.41858 0.34067 0.40229 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.31036 0.46244 0.29167 0.47922 0.30723 0.45217 0.32565 0.43563 Metetra
+0.681 1 0.734 setrgbcolor
+0.29498 0.47587 0.27603 0.49288 0.29167 0.47922 0.31036 0.46244 Metetra
+0.981 1 1 setrgbcolor
+0.27968 0.47093 0.2605 0.48815 0.27603 0.49288 0.29498 0.47587 Metetra
+1 1 1 setrgbcolor
+0.2646 0.4454 0.24522 0.46279 0.2605 0.48815 0.27968 0.47093 Metetra
+1 1 1 setrgbcolor
+0.24977 0.40034 0.23022 0.41789 0.24522 0.46279 0.2646 0.4454 Metetra
+1 0.959 1 setrgbcolor
+0.23515 0.33992 0.21545 0.3576 0.23022 0.41789 0.24977 0.40034 Metetra
+0.989 0.93 0.998 setrgbcolor
+0.22057 0.2707 0.20073 0.2885 0.21545 0.3576 0.23515 0.33992 Metetra
+0.481 0.2 0.409 setrgbcolor
+0.67497 0.77998 0.66127 0.79054 0.66872 0.7617 0.68227 0.75125 Metetra
+0.39 0.2 0.306 setrgbcolor
+0.66745 0.8036 0.6536 0.81428 0.66127 0.79054 0.67497 0.77998 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.6597 0.81696 0.64571 0.82774 0.6536 0.81428 0.66745 0.8036 Metetra
+0.884 1 1 setrgbcolor
+0.65171 0.81637 0.63759 0.82724 0.64571 0.82774 0.6597 0.81696 Metetra
+1 1 1 setrgbcolor
+0.64349 0.80027 0.62926 0.81124 0.63759 0.82724 0.65171 0.81637 Metetra
+0.993 0.976 1 setrgbcolor
+0.63507 0.76957 0.62076 0.78061 0.62926 0.81124 0.64349 0.80027 Metetra
+0.968 0.914 1 setrgbcolor
+0.62651 0.72747 0.61212 0.73857 0.62076 0.78061 0.63507 0.76957 Metetra
+0.957 0.889 0.986 setrgbcolor
+0.61783 0.67893 0.60337 0.6901 0.61212 0.73857 0.62651 0.72747 Metetra
+0.957 0.889 0.986 setrgbcolor
+0.60907 0.62991 0.59454 0.64115 0.60337 0.6901 0.61783 0.67893 Metetra
+0.968 0.914 1 setrgbcolor
+0.60022 0.58637 0.58561 0.59767 0.59454 0.64115 0.60907 0.62991 Metetra
+0.992 0.974 1 setrgbcolor
+0.59129 0.55339 0.57658 0.56477 0.58561 0.59767 0.60022 0.58637 Metetra
+1 1 1 setrgbcolor
+0.58223 0.53451 0.56741 0.54598 0.57658 0.56477 0.59129 0.55339 Metetra
+0.939 1 1 setrgbcolor
+0.57302 0.53121 0.55806 0.54279 0.56741 0.54598 0.58223 0.53451 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.5636 0.54269 0.54848 0.55439 0.55806 0.54279 0.57302 0.53121 Metetra
+0.259 0.2 0.2 setrgbcolor
+0.55394 0.56595 0.53864 0.57779 0.54848 0.55439 0.5636 0.54269 Metetra
+0.372 0.2 0.288 setrgbcolor
+0.54403 0.59611 0.52853 0.6081 0.53864 0.57779 0.55394 0.56595 Metetra
+0.372 0.2 0.288 setrgbcolor
+0.53385 0.62706 0.51816 0.6392 0.52853 0.6081 0.54403 0.59611 Metetra
+0.263 0.2 0.2 setrgbcolor
+0.52345 0.65228 0.50756 0.66457 0.51816 0.6392 0.53385 0.62706 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.51286 0.6659 0.49678 0.67833 0.50756 0.66457 0.52345 0.65228 Metetra
+0.912 1 1 setrgbcolor
+0.50213 0.66366 0.48589 0.67622 0.49678 0.67833 0.51286 0.6659 Metetra
+1 1 1 setrgbcolor
+0.49133 0.64375 0.47495 0.65642 0.48589 0.67622 0.50213 0.66366 Metetra
+0.998 0.993 1 setrgbcolor
+0.48048 0.60713 0.46398 0.61991 0.47495 0.65642 0.49133 0.64375 Metetra
+0.974 0.929 1 setrgbcolor
+0.4696 0.55743 0.453 0.5703 0.46398 0.61991 0.48048 0.60713 Metetra
+0.962 0.902 0.995 setrgbcolor
+0.45866 0.50031 0.44196 0.51326 0.453 0.5703 0.4696 0.55743 Metetra
+0.962 0.902 0.995 setrgbcolor
+0.44759 0.44253 0.43079 0.45556 0.44196 0.51326 0.45866 0.50031 Metetra
+0.973 0.928 1 setrgbcolor
+0.43629 0.39086 0.41939 0.40398 0.43079 0.45556 0.44759 0.44253 Metetra
+0.997 0.99 1 setrgbcolor
+0.42467 0.35111 0.40764 0.36434 0.41939 0.40398 0.43629 0.39086 Metetra
+1 1 1 setrgbcolor
+0.41261 0.32731 0.39543 0.34067 0.40764 0.36434 0.42467 0.35111 Metetra
+0.958 1 1 setrgbcolor
+0.40002 0.32118 0.38265 0.33469 0.39543 0.34067 0.41261 0.32731 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.38685 0.33189 0.36926 0.34556 0.38265 0.33469 0.40002 0.32118 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.37308 0.35607 0.35525 0.36993 0.36926 0.34556 0.38685 0.33189 Metetra
+0.22 0.2 0.2 setrgbcolor
+0.35877 0.38822 0.34067 0.40229 0.35525 0.36993 0.37308 0.35607 Metetra
+0.22 0.2 0.2 setrgbcolor
+0.34403 0.42135 0.32565 0.43563 0.34067 0.40229 0.35877 0.38822 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.329 0.44796 0.31036 0.46244 0.32565 0.43563 0.34403 0.42135 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.31387 0.4612 0.29498 0.47587 0.31036 0.46244 0.329 0.44796 Metetra
+0.936 1 1 setrgbcolor
+0.2988 0.45607 0.27968 0.47093 0.29498 0.47587 0.31387 0.4612 Metetra
+1 1 1 setrgbcolor
+0.28391 0.43038 0.2646 0.4454 0.27968 0.47093 0.2988 0.45607 Metetra
+1 1 1 setrgbcolor
+0.26926 0.38518 0.24977 0.40034 0.2646 0.4454 0.28391 0.43038 Metetra
+0.98 0.946 1 setrgbcolor
+0.25478 0.32464 0.23515 0.33992 0.24977 0.40034 0.26926 0.38518 Metetra
+0.968 0.918 1 setrgbcolor
+0.24032 0.2553 0.22057 0.2707 0.23515 0.33992 0.25478 0.32464 Metetra
+0.534 0.2 0.427 setrgbcolor
+0.68869 0.77115 0.67497 0.77998 0.68227 0.75125 0.69584 0.74251 Metetra
+0.455 0.2 0.329 setrgbcolor
+0.68132 0.79468 0.66745 0.8036 0.67497 0.77998 0.68869 0.77115 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.67371 0.80795 0.6597 0.81696 0.66745 0.8036 0.68132 0.79468 Metetra
+0.816 1 1 setrgbcolor
+0.66584 0.80728 0.65171 0.81637 0.6597 0.81696 0.67371 0.80795 Metetra
+0.992 1 1 setrgbcolor
+0.65772 0.79111 0.64349 0.80027 0.65171 0.81637 0.66584 0.80728 Metetra
+0.969 0.963 1 setrgbcolor
+0.6494 0.76034 0.63507 0.76957 0.64349 0.80027 0.65772 0.79111 Metetra
+0.948 0.902 1 setrgbcolor
+0.64091 0.71817 0.62651 0.72747 0.63507 0.76957 0.6494 0.76034 Metetra
+0.939 0.877 0.99 setrgbcolor
+0.6323 0.66958 0.61783 0.67893 0.62651 0.72747 0.64091 0.71817 Metetra
+0.939 0.877 0.99 setrgbcolor
+0.62361 0.6205 0.60907 0.62991 0.61783 0.67893 0.6323 0.66958 Metetra
+0.948 0.901 1 setrgbcolor
+0.61484 0.57688 0.60022 0.58637 0.60907 0.62991 0.62361 0.6205 Metetra
+0.969 0.961 1 setrgbcolor
+0.606 0.54383 0.59129 0.55339 0.60022 0.58637 0.61484 0.57688 Metetra
+0.992 1 1 setrgbcolor
+0.59706 0.52487 0.58223 0.53451 0.59129 0.55339 0.606 0.54383 Metetra
+0.883 1 1 setrgbcolor
+0.58798 0.52148 0.57302 0.53121 0.58223 0.53451 0.59706 0.52487 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.57873 0.53285 0.5636 0.54269 0.57302 0.53121 0.58798 0.52148 Metetra
+0.337 0.2 0.2 setrgbcolor
+0.56925 0.556 0.55394 0.56595 0.5636 0.54269 0.57873 0.53285 Metetra
+0.436 0.2 0.311 setrgbcolor
+0.55953 0.58605 0.54403 0.59611 0.55394 0.56595 0.56925 0.556 Metetra
+0.436 0.2 0.311 setrgbcolor
+0.54955 0.61688 0.53385 0.62706 0.54403 0.59611 0.55953 0.58605 Metetra
+0.34 0.2 0.2 setrgbcolor
+0.53934 0.64198 0.52345 0.65228 0.53385 0.62706 0.54955 0.61688 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.52893 0.65548 0.51286 0.6659 0.52345 0.65228 0.53934 0.64198 Metetra
+0.85 1 1 setrgbcolor
+0.51836 0.65314 0.50213 0.66366 0.51286 0.6659 0.52893 0.65548 Metetra
+0.991 1 1 setrgbcolor
+0.5077 0.63313 0.49133 0.64375 0.50213 0.66366 0.51836 0.65314 Metetra
+0.973 0.979 1 setrgbcolor
+0.49697 0.59642 0.48048 0.60713 0.49133 0.64375 0.5077 0.63313 Metetra
+0.952 0.915 1 setrgbcolor
+0.48619 0.54663 0.4696 0.55743 0.48048 0.60713 0.49697 0.59642 Metetra
+0.942 0.888 1 setrgbcolor
+0.47534 0.48943 0.45866 0.50031 0.4696 0.55743 0.48619 0.54663 Metetra
+0.942 0.888 1 setrgbcolor
+0.46436 0.43156 0.44759 0.44253 0.45866 0.50031 0.47534 0.48943 Metetra
+0.952 0.915 1 setrgbcolor
+0.45317 0.3798 0.43629 0.39086 0.44759 0.44253 0.46436 0.43156 Metetra
+0.972 0.977 1 setrgbcolor
+0.44168 0.33995 0.42467 0.35111 0.43629 0.39086 0.45317 0.3798 Metetra
+0.992 1 1 setrgbcolor
+0.42977 0.31604 0.41261 0.32731 0.42467 0.35111 0.44168 0.33995 Metetra
+0.907 1 1 setrgbcolor
+0.41737 0.30979 0.40002 0.32118 0.41261 0.32731 0.42977 0.31604 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.40441 0.32035 0.38685 0.33189 0.40002 0.32118 0.41737 0.30979 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.39088 0.34438 0.37308 0.35607 0.38685 0.33189 0.40441 0.32035 Metetra
+0.296 0.2 0.2 setrgbcolor
+0.37683 0.37637 0.35877 0.38822 0.37308 0.35607 0.39088 0.34438 Metetra
+0.296 0.2 0.2 setrgbcolor
+0.36236 0.40933 0.34403 0.42135 0.35877 0.38822 0.37683 0.37637 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.3476 0.43577 0.329 0.44796 0.34403 0.42135 0.36236 0.40933 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.33271 0.44885 0.31387 0.4612 0.329 0.44796 0.3476 0.43577 Metetra
+0.879 1 1 setrgbcolor
+0.31787 0.44357 0.2988 0.45607 0.31387 0.4612 0.33271 0.44885 Metetra
+0.989 1 1 setrgbcolor
+0.30317 0.41774 0.28391 0.43038 0.2988 0.45607 0.31787 0.44357 Metetra
+0.976 0.998 1 setrgbcolor
+0.28868 0.37241 0.26926 0.38518 0.28391 0.43038 0.30317 0.41774 Metetra
+0.956 0.932 1 setrgbcolor
+0.27434 0.31174 0.25478 0.32464 0.26926 0.38518 0.28868 0.37241 Metetra
+0.945 0.903 1 setrgbcolor
+0.26002 0.24229 0.24032 0.2553 0.25478 0.32464 0.27434 0.31174 Metetra
+0.585 0.235 0.443 setrgbcolor
+0.70244 0.76405 0.68869 0.77115 0.69584 0.74251 0.70944 0.73548 Metetra
+0.518 0.2 0.35 setrgbcolor
+0.69522 0.78751 0.68132 0.79468 0.68869 0.77115 0.70244 0.76405 Metetra
+0.282 0.2 0.2 setrgbcolor
+0.68774 0.80072 0.67371 0.80795 0.68132 0.79468 0.69522 0.78751 Metetra
+0.733 1 1 setrgbcolor
+0.67999 0.79998 0.66584 0.80728 0.67371 0.80795 0.68774 0.80072 Metetra
+0.954 1 1 setrgbcolor
+0.67198 0.78375 0.65772 0.79111 0.66584 0.80728 0.67999 0.79998 Metetra
+0.943 0.948 1 setrgbcolor
+0.66374 0.75292 0.6494 0.76034 0.65772 0.79111 0.67198 0.78375 Metetra
+0.927 0.888 1 setrgbcolor
+0.65533 0.71069 0.64091 0.71817 0.6494 0.76034 0.66374 0.75292 Metetra
+0.919 0.863 0.994 setrgbcolor
+0.64679 0.66204 0.6323 0.66958 0.64091 0.71817 0.65533 0.71069 Metetra
+0.919 0.863 0.994 setrgbcolor
+0.63817 0.61289 0.62361 0.6205 0.6323 0.66958 0.64679 0.66204 Metetra
+0.927 0.887 1 setrgbcolor
+0.62948 0.56922 0.61484 0.57688 0.62361 0.6205 0.63817 0.61289 Metetra
+0.943 0.946 1 setrgbcolor
+0.62073 0.5361 0.606 0.54383 0.61484 0.57688 0.62948 0.56922 Metetra
+0.957 1 1 setrgbcolor
+0.6119 0.51707 0.59706 0.52487 0.606 0.54383 0.62073 0.5361 Metetra
+0.814 1 1 setrgbcolor
+0.60296 0.5136 0.58798 0.52148 0.59706 0.52487 0.6119 0.51707 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.59386 0.52489 0.57873 0.53285 0.58798 0.52148 0.60296 0.5136 Metetra
+0.412 0.2 0.218 setrgbcolor
+0.58456 0.54796 0.56925 0.556 0.57873 0.53285 0.59386 0.52489 Metetra
+0.498 0.2 0.332 setrgbcolor
+0.57503 0.57792 0.55953 0.58605 0.56925 0.556 0.58456 0.54796 Metetra
+0.498 0.2 0.332 setrgbcolor
+0.56525 0.60866 0.54955 0.61688 0.55953 0.58605 0.57503 0.57792 Metetra
+0.415 0.2 0.221 setrgbcolor
+0.55523 0.63367 0.53934 0.64198 0.54955 0.61688 0.56525 0.60866 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.545 0.64708 0.52893 0.65548 0.53934 0.64198 0.55523 0.63367 Metetra
+0.774 1 1 setrgbcolor
+0.5346 0.64464 0.51836 0.65314 0.52893 0.65548 0.545 0.64708 Metetra
+0.952 1 1 setrgbcolor
+0.52407 0.62455 0.5077 0.63313 0.51836 0.65314 0.5346 0.64464 Metetra
+0.944 0.963 1 setrgbcolor
+0.51346 0.58776 0.49697 0.59642 0.5077 0.63313 0.52407 0.62455 Metetra
+0.928 0.9 1 setrgbcolor
+0.50278 0.53789 0.48619 0.54663 0.49697 0.59642 0.51346 0.58776 Metetra
+0.92 0.874 1 setrgbcolor
+0.49202 0.4806 0.47534 0.48943 0.48619 0.54663 0.50278 0.53789 Metetra
+0.92 0.874 1 setrgbcolor
+0.48113 0.42265 0.46436 0.43156 0.47534 0.48943 0.49202 0.4806 Metetra
+0.928 0.9 1 setrgbcolor
+0.47005 0.37081 0.45317 0.3798 0.46436 0.43156 0.48113 0.42265 Metetra
+0.944 0.961 1 setrgbcolor
+0.45867 0.33087 0.44168 0.33995 0.45317 0.3798 0.47005 0.37081 Metetra
+0.955 1 1 setrgbcolor
+0.44692 0.30686 0.42977 0.31604 0.44168 0.33995 0.45867 0.33087 Metetra
+0.844 1 1 setrgbcolor
+0.4347 0.3005 0.41737 0.30979 0.42977 0.31604 0.44692 0.30686 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.42195 0.31095 0.40441 0.32035 0.41737 0.30979 0.4347 0.3005 Metetra
+0.267 0.2 0.2 setrgbcolor
+0.40866 0.33486 0.39088 0.34438 0.40441 0.32035 0.42195 0.31095 Metetra
+0.371 0.2 0.2 setrgbcolor
+0.39487 0.36673 0.37683 0.37637 0.39088 0.34438 0.40866 0.33486 Metetra
+0.371 0.2 0.2 setrgbcolor
+0.38066 0.39956 0.36236 0.40933 0.37683 0.37637 0.39487 0.36673 Metetra
+0.271 0.2 0.2 setrgbcolor
+0.36616 0.42587 0.3476 0.43577 0.36236 0.40933 0.38066 0.39956 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.35152 0.43882 0.33271 0.44885 0.3476 0.43577 0.36616 0.42587 Metetra
+0.809 1 1 setrgbcolor
+0.3369 0.43342 0.31787 0.44357 0.33271 0.44885 0.35152 0.43882 Metetra
+0.948 1 1 setrgbcolor
+0.32239 0.40747 0.30317 0.41774 0.31787 0.44357 0.3369 0.43342 Metetra
+0.944 0.981 1 setrgbcolor
+0.30806 0.36202 0.28868 0.37241 0.30317 0.41774 0.32239 0.40747 Metetra
+0.929 0.915 1 setrgbcolor
+0.29386 0.30124 0.27434 0.31174 0.28868 0.37241 0.30806 0.36202 Metetra
+0.92 0.887 1 setrgbcolor
+0.27966 0.23167 0.26002 0.24229 0.27434 0.31174 0.29386 0.30124 Metetra
+0.632 0.276 0.458 setrgbcolor
+0.71622 0.75868 0.70244 0.76405 0.70944 0.73548 0.72307 0.73015 Metetra
+0.578 0.2 0.37 setrgbcolor
+0.70915 0.7821 0.69522 0.78751 0.70244 0.76405 0.71622 0.75868 Metetra
+0.377 0.2 0.2 setrgbcolor
+0.7018 0.79525 0.68774 0.80072 0.69522 0.78751 0.70915 0.7821 Metetra
+0.633 1 1 setrgbcolor
+0.69418 0.79447 0.67999 0.79998 0.68774 0.80072 0.7018 0.79525 Metetra
+0.911 1 1 setrgbcolor
+0.68627 0.77819 0.67198 0.78375 0.67999 0.79998 0.69418 0.79447 Metetra
+0.914 0.931 1 setrgbcolor
+0.67812 0.7473 0.66374 0.75292 0.67198 0.78375 0.68627 0.77819 Metetra
+0.904 0.872 1 setrgbcolor
+0.66978 0.70501 0.65533 0.71069 0.66374 0.75292 0.67812 0.7473 Metetra
+0.898 0.849 0.998 setrgbcolor
+0.66131 0.6563 0.64679 0.66204 0.65533 0.71069 0.66978 0.70501 Metetra
+0.898 0.849 0.998 setrgbcolor
+0.65275 0.6071 0.63817 0.61289 0.64679 0.66204 0.66131 0.6563 Metetra
+0.904 0.872 1 setrgbcolor
+0.64414 0.56336 0.62948 0.56922 0.63817 0.61289 0.65275 0.6071 Metetra
+0.914 0.929 1 setrgbcolor
+0.63548 0.53018 0.62073 0.5361 0.62948 0.56922 0.64414 0.56336 Metetra
+0.915 1 1 setrgbcolor
+0.62677 0.51109 0.6119 0.51707 0.62073 0.5361 0.63548 0.53018 Metetra
+0.73 1 1 setrgbcolor
+0.61796 0.50756 0.60296 0.5136 0.6119 0.51707 0.62677 0.51109 Metetra
+0.23 0.2 0.2 setrgbcolor
+0.60902 0.5188 0.59386 0.52489 0.60296 0.5136 0.61796 0.50756 Metetra
+0.485 0.2 0.243 setrgbcolor
+0.5999 0.54181 0.58456 0.54796 0.59386 0.52489 0.60902 0.5188 Metetra
+0.557 0.2 0.352 setrgbcolor
+0.59056 0.57171 0.57503 0.57792 0.58456 0.54796 0.5999 0.54181 Metetra
+0.557 0.2 0.352 setrgbcolor
+0.58097 0.60239 0.56525 0.60866 0.57503 0.57792 0.59056 0.57171 Metetra
+0.487 0.2 0.247 setrgbcolor
+0.57114 0.62734 0.55523 0.63367 0.56525 0.60866 0.58097 0.60239 Metetra
+0.253 0.2 0.2 setrgbcolor
+0.56109 0.64068 0.545 0.64708 0.55523 0.63367 0.57114 0.62734 Metetra
+0.682 1 1 setrgbcolor
+0.55084 0.63818 0.5346 0.64464 0.545 0.64708 0.56109 0.64068 Metetra
+0.905 1 1 setrgbcolor
+0.54045 0.61801 0.52407 0.62455 0.5346 0.64464 0.55084 0.63818 Metetra
+0.912 0.944 1 setrgbcolor
+0.52996 0.58115 0.51346 0.58776 0.52407 0.62455 0.54045 0.61801 Metetra
+0.902 0.883 1 setrgbcolor
+0.51937 0.5312 0.50278 0.53789 0.51346 0.58776 0.52996 0.58115 Metetra
+0.896 0.858 1 setrgbcolor
+0.5087 0.47384 0.49202 0.4806 0.50278 0.53789 0.51937 0.5312 Metetra
+0.896 0.858 1 setrgbcolor
+0.4979 0.4158 0.48113 0.42265 0.49202 0.4806 0.5087 0.47384 Metetra
+0.902 0.883 1 setrgbcolor
+0.48692 0.36388 0.47005 0.37081 0.48113 0.42265 0.4979 0.4158 Metetra
+0.912 0.942 1 setrgbcolor
+0.47567 0.32385 0.45867 0.33087 0.47005 0.37081 0.48692 0.36388 Metetra
+0.911 1 1 setrgbcolor
+0.46406 0.29976 0.44692 0.30686 0.45867 0.33087 0.47567 0.32385 Metetra
+0.766 1 1 setrgbcolor
+0.45202 0.29332 0.4347 0.3005 0.44692 0.30686 0.46406 0.29976 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.43948 0.30369 0.42195 0.31095 0.4347 0.3005 0.45202 0.29332 Metetra
+0.354 0.2 0.2 setrgbcolor
+0.42644 0.32752 0.40866 0.33486 0.42195 0.31095 0.43948 0.30369 Metetra
+0.445 0.2 0.202 setrgbcolor
+0.4129 0.3593 0.39487 0.36673 0.40866 0.33486 0.42644 0.32752 Metetra
+0.445 0.2 0.202 setrgbcolor
+0.39895 0.39204 0.38066 0.39956 0.39487 0.36673 0.4129 0.3593 Metetra
+0.357 0.2 0.2 setrgbcolor
+0.38471 0.41827 0.36616 0.42587 0.38066 0.39956 0.39895 0.39204 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.37031 0.43112 0.35152 0.43882 0.36616 0.42587 0.38471 0.41827 Metetra
+0.724 1 1 setrgbcolor
+0.3559 0.42562 0.3369 0.43342 0.35152 0.43882 0.37031 0.43112 Metetra
+0.899 1 1 setrgbcolor
+0.34159 0.39956 0.32239 0.40747 0.3369 0.43342 0.3559 0.42562 Metetra
+0.909 0.96 1 setrgbcolor
+0.32741 0.35401 0.30806 0.36202 0.32239 0.40747 0.34159 0.39956 Metetra
+0.899 0.896 1 setrgbcolor
+0.31334 0.29311 0.29386 0.30124 0.30806 0.36202 0.32741 0.35401 Metetra
+0.892 0.869 1 setrgbcolor
+0.29927 0.22343 0.27966 0.23167 0.29386 0.30124 0.31334 0.29311 Metetra
+0.677 0.315 0.472 setrgbcolor
+0.73004 0.75504 0.71622 0.75868 0.72307 0.73015 0.73674 0.72653 Metetra
+0.634 0.239 0.389 setrgbcolor
+0.72311 0.77843 0.70915 0.7821 0.71622 0.75868 0.73004 0.75504 Metetra
+0.468 0.2 0.2 setrgbcolor
+0.71591 0.79156 0.7018 0.79525 0.70915 0.7821 0.72311 0.77843 Metetra
+0.517 1 1 setrgbcolor
+0.7084 0.79074 0.69418 0.79447 0.7018 0.79525 0.71591 0.79156 Metetra
+0.859 1 1 setrgbcolor
+0.70059 0.77442 0.68627 0.77819 0.69418 0.79447 0.7084 0.79074 Metetra
+0.882 0.911 1 setrgbcolor
+0.69253 0.74349 0.67812 0.7473 0.68627 0.77819 0.70059 0.77442 Metetra
+0.878 0.856 1 setrgbcolor
+0.68426 0.70115 0.66978 0.70501 0.67812 0.7473 0.69253 0.74349 Metetra
+0.875 0.834 1 setrgbcolor
+0.67586 0.65238 0.66131 0.6563 0.66978 0.70501 0.68426 0.70115 Metetra
+0.875 0.834 1 setrgbcolor
+0.66737 0.60311 0.65275 0.6071 0.66131 0.6563 0.67586 0.65238 Metetra
+0.879 0.855 1 setrgbcolor
+0.65883 0.55932 0.64414 0.56336 0.65275 0.6071 0.66737 0.60311 Metetra
+0.883 0.909 1 setrgbcolor
+0.65026 0.52609 0.63548 0.53018 0.64414 0.56336 0.65883 0.55932 Metetra
+0.867 1 1 setrgbcolor
+0.64166 0.50695 0.62677 0.51109 0.63548 0.53018 0.65026 0.52609 Metetra
+0.63 1 1 setrgbcolor
+0.63299 0.50338 0.61796 0.50756 0.62677 0.51109 0.64166 0.50695 Metetra
+0.336 0.2 0.2 setrgbcolor
+0.6242 0.51458 0.60902 0.5188 0.61796 0.50756 0.63299 0.50338 Metetra
+0.553 0.2 0.268 setrgbcolor
+0.61526 0.53755 0.5999 0.54181 0.60902 0.5188 0.6242 0.51458 Metetra
+0.613 0.214 0.371 setrgbcolor
+0.60611 0.56742 0.59056 0.57171 0.5999 0.54181 0.61526 0.53755 Metetra
+0.613 0.214 0.371 setrgbcolor
+0.59672 0.59807 0.58097 0.60239 0.59056 0.57171 0.60611 0.56742 Metetra
+0.556 0.2 0.271 setrgbcolor
+0.58708 0.62299 0.57114 0.62734 0.58097 0.60239 0.59672 0.59807 Metetra
+0.356 0.2 0.2 setrgbcolor
+0.5772 0.6363 0.56109 0.64068 0.57114 0.62734 0.58708 0.62299 Metetra
+0.573 1 1 setrgbcolor
+0.56711 0.63375 0.55084 0.63818 0.56109 0.64068 0.5772 0.6363 Metetra
+0.851 1 1 setrgbcolor
+0.55685 0.61353 0.54045 0.61801 0.55084 0.63818 0.56711 0.63375 Metetra
+0.876 0.923 1 setrgbcolor
+0.54647 0.57659 0.52996 0.58115 0.54045 0.61801 0.55685 0.61353 Metetra
+0.873 0.864 1 setrgbcolor
+0.53598 0.52657 0.51937 0.5312 0.52996 0.58115 0.54647 0.57659 Metetra
+0.87 0.84 1 setrgbcolor
+0.5254 0.46913 0.5087 0.47384 0.51937 0.5312 0.53598 0.52657 Metetra
+0.87 0.84 1 setrgbcolor
+0.51468 0.41101 0.4979 0.4158 0.5087 0.47384 0.5254 0.46913 Metetra
+0.873 0.864 1 setrgbcolor
+0.5038 0.35901 0.48692 0.36388 0.4979 0.4158 0.51468 0.41101 Metetra
+0.877 0.921 1 setrgbcolor
+0.49267 0.31891 0.47567 0.32385 0.48692 0.36388 0.5038 0.35901 Metetra
+0.86 1 1 setrgbcolor
+0.48121 0.29475 0.46406 0.29976 0.47567 0.32385 0.49267 0.31891 Metetra
+0.673 1 1 setrgbcolor
+0.46934 0.28825 0.45202 0.29332 0.46406 0.29976 0.48121 0.29475 Metetra
+0.2 0.2 0.2 setrgbcolor
+0.45702 0.29856 0.43948 0.30369 0.45202 0.29332 0.46934 0.28825 Metetra
+0.438 0.2 0.2 setrgbcolor
+0.44421 0.32234 0.42644 0.32752 0.43948 0.30369 0.45702 0.29856 Metetra
+0.514 0.2 0.227 setrgbcolor
+0.43092 0.35407 0.4129 0.3593 0.42644 0.32752 0.44421 0.32234 Metetra
+0.514 0.2 0.227 setrgbcolor
+0.41724 0.38677 0.39895 0.39204 0.4129 0.3593 0.43092 0.35407 Metetra
+0.441 0.2 0.2 setrgbcolor
+0.40325 0.41294 0.38471 0.41827 0.39895 0.39204 0.41724 0.38677 Metetra
+0.216 0.2 0.2 setrgbcolor
+0.38909 0.42574 0.37031 0.43112 0.38471 0.41827 0.40325 0.41294 Metetra
+0.623 1 1 setrgbcolor
+0.3749 0.42017 0.3559 0.42562 0.37031 0.43112 0.38909 0.42574 Metetra
+0.841 1 1 setrgbcolor
+0.36076 0.39403 0.34159 0.39956 0.3559 0.42562 0.3749 0.42017 Metetra
+0.868 0.936 1 setrgbcolor
+0.34674 0.34837 0.32741 0.35401 0.34159 0.39956 0.36076 0.39403 Metetra
+0.866 0.875 1 setrgbcolor
+0.3328 0.28737 0.31334 0.29311 0.32741 0.35401 0.34674 0.34837 Metetra
+0.862 0.849 1 setrgbcolor
+0.31885 0.21757 0.29927 0.22343 0.31334 0.29311 0.3328 0.28737 Metetra
+0.719 0.352 0.484 setrgbcolor
+0.7439 0.75313 0.73004 0.75504 0.73674 0.72653 0.75046 0.72461 Metetra
+0.685 0.285 0.405 setrgbcolor
+0.73712 0.77653 0.72311 0.77843 0.73004 0.75504 0.7439 0.75313 Metetra
+0.553 0.2 0.2 setrgbcolor
+0.73005 0.78965 0.71591 0.79156 0.72311 0.77843 0.73712 0.77653 Metetra
+0.389 0.921 0.998 setrgbcolor
+0.72266 0.78881 0.7084 0.79074 0.71591 0.79156 0.73005 0.78965 Metetra
+0.8 0.994 1 setrgbcolor
+0.71496 0.77246 0.70059 0.77442 0.7084 0.79074 0.72266 0.78881 Metetra
+0.847 0.888 1 setrgbcolor
+0.70698 0.74148 0.69253 0.74349 0.70059 0.77442 0.71496 0.77246 Metetra
+0.851 0.837 1 setrgbcolor
+0.69879 0.69909 0.68426 0.70115 0.69253 0.74349 0.70698 0.74148 Metetra
+0.851 0.817 1 setrgbcolor
+0.69045 0.65026 0.67586 0.65238 0.68426 0.70115 0.69879 0.69909 Metetra
+0.851 0.817 1 setrgbcolor
+0.68202 0.60094 0.66737 0.60311 0.67586 0.65238 0.69045 0.65026 Metetra
+0.852 0.837 1 setrgbcolor
+0.67356 0.55709 0.65883 0.55932 0.66737 0.60311 0.68202 0.60094 Metetra
+0.848 0.887 1 setrgbcolor
+0.66508 0.52382 0.65026 0.52609 0.65883 0.55932 0.67356 0.55709 Metetra
+0.812 0.987 1 setrgbcolor
+0.65659 0.50464 0.64166 0.50695 0.65026 0.52609 0.66508 0.52382 Metetra
+0.515 0.998 1 setrgbcolor
+0.64805 0.50104 0.63299 0.50338 0.64166 0.50695 0.65659 0.50464 Metetra
+0.437 0.2 0.2 setrgbcolor
+0.63942 0.51223 0.6242 0.51458 0.63299 0.50338 0.64805 0.50104 Metetra
+0.618 0.2 0.29 setrgbcolor
+0.63065 0.5352 0.61526 0.53755 0.6242 0.51458 0.63942 0.51223 Metetra
+0.664 0.26 0.388 setrgbcolor
+0.62169 0.56507 0.60611 0.56742 0.61526 0.53755 0.63065 0.5352 Metetra
+0.664 0.26 0.388 setrgbcolor
+0.61249 0.59572 0.59672 0.59807 0.60611 0.56742 0.62169 0.56507 Metetra
+0.619 0.2 0.293 setrgbcolor
+0.60304 0.62064 0.58708 0.62299 0.59672 0.59807 0.61249 0.59572 Metetra
+0.456 0.2 0.2 setrgbcolor
+0.59334 0.63393 0.5772 0.6363 0.58708 0.62299 0.60304 0.62064 Metetra
+0.45 0.961 1 setrgbcolor
+0.58341 0.63135 0.56711 0.63375 0.5772 0.6363 0.59334 0.63393 Metetra
+0.787 1 1 setrgbcolor
+0.57328 0.61109 0.55685 0.61353 0.56711 0.63375 0.58341 0.63135 Metetra
+0.836 0.897 1 setrgbcolor
+0.56301 0.57409 0.54647 0.57659 0.55685 0.61353 0.57328 0.61109 Metetra
+0.842 0.843 1 setrgbcolor
+0.55262 0.524 0.53598 0.52657 0.54647 0.57659 0.56301 0.57409 Metetra
+0.842 0.821 1 setrgbcolor
+0.54211 0.46648 0.5254 0.46913 0.53598 0.52657 0.55262 0.524 Metetra
+0.842 0.821 1 setrgbcolor
+0.53149 0.40829 0.51468 0.41101 0.5254 0.46913 0.54211 0.46648 Metetra
+0.842 0.843 1 setrgbcolor
+0.5207 0.3562 0.5038 0.35901 0.51468 0.41101 0.53149 0.40829 Metetra
+0.838 0.896 1 setrgbcolor
+0.50969 0.31604 0.49267 0.31891 0.5038 0.35901 0.5207 0.3562 Metetra
+0.801 0.993 1 setrgbcolor
+0.49837 0.29183 0.48121 0.29475 0.49267 0.31891 0.50969 0.31604 Metetra
+0.566 1 1 setrgbcolor
+0.48668 0.28528 0.46934 0.28825 0.48121 0.29475 0.49837 0.29183 Metetra
+0.304 0.2 0.2 setrgbcolor
+0.47457 0.29557 0.45702 0.29856 0.46934 0.28825 0.48668 0.28528 Metetra
+0.517 0.2 0.2 setrgbcolor
+0.46199 0.31933 0.44421 0.32234 0.45702 0.29856 0.47457 0.29557 Metetra
+0.58 0.2 0.251 setrgbcolor
+0.44896 0.35106 0.43092 0.35407 0.44421 0.32234 0.46199 0.31933 Metetra
+0.58 0.2 0.251 setrgbcolor
+0.43553 0.38376 0.41724 0.38677 0.43092 0.35407 0.44896 0.35106 Metetra
+0.52 0.2 0.2 setrgbcolor
+0.4218 0.40991 0.40325 0.41294 0.41724 0.38677 0.43553 0.38376 Metetra
+0.327 0.2 0.2 setrgbcolor
+0.40788 0.42268 0.38909 0.42574 0.40325 0.41294 0.4218 0.40991 Metetra
+0.507 0.994 1 setrgbcolor
+0.39389 0.41707 0.3749 0.42017 0.38909 0.42574 0.40788 0.42268 Metetra
+0.773 1 1 setrgbcolor
+0.37994 0.39086 0.36076 0.39403 0.3749 0.42017 0.39389 0.41707 Metetra
+0.823 0.908 1 setrgbcolor
+0.36607 0.34512 0.34674 0.34837 0.36076 0.39403 0.37994 0.39086 Metetra
+0.829 0.851 1 setrgbcolor
+0.35226 0.28401 0.3328 0.28737 0.34674 0.34837 0.36607 0.34512 Metetra
+0.83 0.827 1 setrgbcolor
+0.33841 0.2141 0.31885 0.21757 0.3328 0.28737 0.35226 0.28401 Metetra
+0.758 0.388 0.494 setrgbcolor
+0.75782 0.75296 0.7439 0.75313 0.75046 0.72461 0.76422 0.72441 Metetra
+0.733 0.329 0.42 setrgbcolor
+0.75118 0.77638 0.73712 0.77653 0.7439 0.75313 0.75782 0.75296 Metetra
+0.631 0.2 0.2 setrgbcolor
+0.74425 0.78951 0.73005 0.78965 0.73712 0.77653 0.75118 0.77638 Metetra
+0.253 0.819 0.957 setrgbcolor
+0.73698 0.78867 0.72266 0.78881 0.73005 0.78965 0.74425 0.78951 Metetra
+0.732 0.953 1 setrgbcolor
+0.72938 0.7723 0.71496 0.77246 0.72266 0.78881 0.73698 0.78867 Metetra
+0.808 0.863 1 setrgbcolor
+0.72148 0.74129 0.70698 0.74148 0.71496 0.77246 0.72938 0.7723 Metetra
+0.822 0.817 1 setrgbcolor
+0.71336 0.69885 0.69879 0.69909 0.70698 0.74148 0.72148 0.74129 Metetra
+0.826 0.799 1 setrgbcolor
+0.70508 0.64997 0.69045 0.65026 0.69879 0.69909 0.71336 0.69885 Metetra
+0.826 0.799 1 setrgbcolor
+0.69672 0.60059 0.68202 0.60094 0.69045 0.65026 0.70508 0.64997 Metetra
+0.823 0.817 1 setrgbcolor
+0.68833 0.55669 0.67356 0.55709 0.68202 0.60094 0.69672 0.60059 Metetra
+0.81 0.862 1 setrgbcolor
+0.67995 0.52337 0.66508 0.52382 0.67356 0.55709 0.68833 0.55669 Metetra
+0.749 0.949 1 setrgbcolor
+0.67156 0.50417 0.65659 0.50464 0.66508 0.52382 0.67995 0.52337 Metetra
+0.389 0.911 1 setrgbcolor
+0.66315 0.50056 0.64805 0.50104 0.65659 0.50464 0.67156 0.50417 Metetra
+0.532 0.2 0.2 setrgbcolor
+0.65468 0.51176 0.63942 0.51223 0.64805 0.50104 0.66315 0.50056 Metetra
+0.677 0.231 0.311 setrgbcolor
+0.64609 0.53475 0.63065 0.5352 0.63942 0.51223 0.65468 0.51176 Metetra
+0.712 0.304 0.403 setrgbcolor
+0.63731 0.56465 0.62169 0.56507 0.63065 0.5352 0.64609 0.53475 Metetra
+0.712 0.304 0.403 setrgbcolor
+0.62831 0.59533 0.61249 0.59572 0.62169 0.56507 0.63731 0.56465 Metetra
+0.678 0.234 0.314 setrgbcolor
+0.61904 0.62027 0.60304 0.62064 0.61249 0.59572 0.62831 0.59533 Metetra
+0.548 0.2 0.2 setrgbcolor
+0.60951 0.63358 0.59334 0.63393 0.60304 0.62064 0.61904 0.62027 Metetra
+0.318 0.866 1 setrgbcolor
+0.59974 0.631 0.58341 0.63135 0.59334 0.63393 0.60951 0.63358 Metetra
+0.715 0.955 1 setrgbcolor
+0.58975 0.6107 0.57328 0.61109 0.58341 0.63135 0.59974 0.631 Metetra
+0.793 0.869 1 setrgbcolor
+0.57958 0.57366 0.56301 0.57409 0.57328 0.61109 0.58975 0.6107 Metetra
+0.809 0.821 1 setrgbcolor
+0.56928 0.5235 0.55262 0.524 0.56301 0.57409 0.57958 0.57366 Metetra
+0.813 0.801 1 setrgbcolor
+0.55886 0.4659 0.54211 0.46648 0.55262 0.524 0.56928 0.5235 Metetra
+0.813 0.801 1 setrgbcolor
+0.54832 0.40763 0.53149 0.40829 0.54211 0.46648 0.55886 0.4659 Metetra
+0.809 0.821 1 setrgbcolor
+0.53763 0.35547 0.5207 0.3562 0.53149 0.40829 0.54832 0.40763 Metetra
+0.795 0.868 1 setrgbcolor
+0.52673 0.31525 0.50969 0.31604 0.5207 0.3562 0.53763 0.35547 Metetra
+0.735 0.952 1 setrgbcolor
+0.51556 0.291 0.49837 0.29183 0.50969 0.31604 0.52673 0.31525 Metetra
+0.446 0.943 1 setrgbcolor
+0.50405 0.28444 0.48668 0.28528 0.49837 0.29183 0.51556 0.291 Metetra
+0.413 0.2 0.2 setrgbcolor
+0.49214 0.29473 0.47457 0.29557 0.48668 0.28528 0.50405 0.28444 Metetra
+0.591 0.2 0.2 setrgbcolor
+0.47979 0.31851 0.46199 0.31933 0.47457 0.29557 0.49214 0.29473 Metetra
+0.641 0.2 0.273 setrgbcolor
+0.46701 0.35027 0.44896 0.35106 0.46199 0.31933 0.47979 0.31851 Metetra
+0.641 0.2 0.273 setrgbcolor
+0.45384 0.383 0.43553 0.38376 0.44896 0.35106 0.46701 0.35027 Metetra
+0.594 0.2 0.2 setrgbcolor
+0.44036 0.40918 0.4218 0.40991 0.43553 0.38376 0.45384 0.383 Metetra
+0.434 0.2 0.2 setrgbcolor
+0.42667 0.42196 0.40788 0.42268 0.4218 0.40991 0.44036 0.40918 Metetra
+0.38 0.906 1 setrgbcolor
+0.41289 0.41633 0.39389 0.41707 0.40788 0.42268 0.42667 0.42196 Metetra
+0.695 0.957 1 setrgbcolor
+0.39912 0.39008 0.37994 0.39086 0.39389 0.41707 0.41289 0.41633 Metetra
+0.772 0.875 1 setrgbcolor
+0.3854 0.34426 0.36607 0.34512 0.37994 0.39086 0.39912 0.39008 Metetra
+0.79 0.824 1 setrgbcolor
+0.37171 0.28305 0.35226 0.28401 0.36607 0.34512 0.3854 0.34426 Metetra
+0.794 0.802 1 setrgbcolor
+0.35798 0.21303 0.33841 0.2141 0.35226 0.28401 0.37171 0.28305 Metetra
+0.794 0.421 0.504 setrgbcolor
+0.77179 0.75452 0.75782 0.75296 0.76422 0.72441 0.77805 0.72593 Metetra
+0.777 0.37 0.433 setrgbcolor
+0.7653 0.77799 0.75118 0.77638 0.75782 0.75296 0.77179 0.75452 Metetra
+0.701 0.201 0.201 setrgbcolor
+0.7585 0.79116 0.74425 0.78951 0.75118 0.77638 0.7653 0.77799 Metetra
+0.281 0.2 0.2 setrgbcolor
+0.75135 0.79033 0.73698 0.78867 0.74425 0.78951 0.7585 0.79116 Metetra
+0.657 0.904 1 setrgbcolor
+0.74385 0.77395 0.72938 0.7723 0.73698 0.78867 0.75135 0.79033 Metetra
+0.766 0.834 1 setrgbcolor
+0.73604 0.74291 0.72148 0.74129 0.72938 0.7723 0.74385 0.77395 Metetra
+0.792 0.796 1 setrgbcolor
+0.72799 0.70043 0.71336 0.69885 0.72148 0.74129 0.73604 0.74291 Metetra
+0.799 0.78 1 setrgbcolor
+0.71978 0.65149 0.70508 0.64997 0.71336 0.69885 0.72799 0.70043 Metetra
+0.799 0.78 1 setrgbcolor
+0.71148 0.60206 0.69672 0.60059 0.70508 0.64997 0.71978 0.65149 Metetra
+0.792 0.796 1 setrgbcolor
+0.70316 0.55811 0.68833 0.55669 0.69672 0.60059 0.71148 0.60206 Metetra
+0.769 0.834 1 setrgbcolor
+0.69486 0.52476 0.67995 0.52337 0.68833 0.55669 0.70316 0.55811 Metetra
+0.679 0.904 1 setrgbcolor
+0.68658 0.50554 0.67156 0.50417 0.67995 0.52337 0.69486 0.52476 Metetra
+0.258 0.81 1 setrgbcolor
+0.67831 0.50194 0.66315 0.50056 0.67156 0.50417 0.68658 0.50554 Metetra
+0.618 0.2 0.2 setrgbcolor
+0.66999 0.51317 0.65468 0.51176 0.66315 0.50056 0.67831 0.50194 Metetra
+0.731 0.282 0.33 setrgbcolor
+0.66157 0.53621 0.64609 0.53475 0.65468 0.51176 0.66999 0.51317 Metetra
+0.757 0.345 0.417 setrgbcolor
+0.65298 0.56617 0.63731 0.56465 0.64609 0.53475 0.66157 0.53621 Metetra
+0.757 0.345 0.417 setrgbcolor
+0.64417 0.59692 0.62831 0.59533 0.63731 0.56465 0.65298 0.56617 Metetra
+0.732 0.284 0.333 setrgbcolor
+0.63509 0.62191 0.61904 0.62027 0.62831 0.59533 0.64417 0.59692 Metetra
+0.631 0.2 0.2 setrgbcolor
+0.62574 0.63525 0.60951 0.63358 0.61904 0.62027 0.63509 0.62191 Metetra
+0.2 0.758 0.965 setrgbcolor
+0.61612 0.63269 0.59974 0.631 0.60951 0.63358 0.62574 0.63525 Metetra
+0.635 0.902 1 setrgbcolor
+0.60626 0.61237 0.58975 0.6107 0.59974 0.631 0.61612 0.63269 Metetra
+0.745 0.837 1 setrgbcolor
+0.5962 0.57529 0.57958 0.57366 0.58975 0.6107 0.60626 0.61237 Metetra
+0.773 0.796 1 setrgbcolor
+0.58599 0.52507 0.56928 0.5235 0.57958 0.57366 0.5962 0.57529 Metetra
+0.781 0.778 1 setrgbcolor
+0.57566 0.46739 0.55886 0.4659 0.56928 0.5235 0.58599 0.52507 Metetra
+0.781 0.778 1 setrgbcolor
+0.5652 0.40904 0.54832 0.40763 0.55886 0.4659 0.57566 0.46739 Metetra
+0.773 0.796 1 setrgbcolor
+0.5546 0.35682 0.53763 0.35547 0.54832 0.40763 0.5652 0.40904 Metetra
+0.749 0.836 1 setrgbcolor
+0.54382 0.31655 0.52673 0.31525 0.53763 0.35547 0.5546 0.35682 Metetra
+0.66 0.904 1 setrgbcolor
+0.53279 0.29227 0.51556 0.291 0.52673 0.31525 0.54382 0.31655 Metetra
+0.319 0.848 1 setrgbcolor
+0.52145 0.28571 0.50405 0.28444 0.51556 0.291 0.53279 0.29227 Metetra
+0.515 0.2 0.2 setrgbcolor
+0.50974 0.29603 0.49214 0.29473 0.50405 0.28444 0.52145 0.28571 Metetra
+0.659 0.2 0.2 setrgbcolor
+0.49762 0.31987 0.47979 0.31851 0.49214 0.29473 0.50974 0.29603 Metetra
+0.697 0.238 0.293 setrgbcolor
+0.48509 0.35171 0.46701 0.35027 0.47979 0.31851 0.49762 0.31987 Metetra
+0.697 0.238 0.293 setrgbcolor
+0.47218 0.38451 0.45384 0.383 0.46701 0.35027 0.48509 0.35171 Metetra
+0.661 0.2 0.2 setrgbcolor
+0.45894 0.41076 0.44036 0.40918 0.45384 0.383 0.47218 0.38451 Metetra
+0.533 0.2 0.2 setrgbcolor
+0.44549 0.42358 0.42667 0.42196 0.44036 0.40918 0.45894 0.41076 Metetra
+0.249 0.804 1 setrgbcolor
+0.43192 0.41796 0.41289 0.41633 0.42667 0.42196 0.44549 0.42358 Metetra
+0.609 0.9 1 setrgbcolor
+0.41832 0.39168 0.39912 0.39008 0.41289 0.41633 0.43192 0.41796 Metetra
+0.717 0.838 1 setrgbcolor
+0.40475 0.3458 0.3854 0.34426 0.39912 0.39008 0.41832 0.39168 Metetra
+0.748 0.794 1 setrgbcolor
+0.39119 0.28449 0.37171 0.28305 0.3854 0.34426 0.40475 0.3458 Metetra
+0.757 0.776 1 setrgbcolor
+0.37757 0.21436 0.35798 0.21303 0.37171 0.28305 0.39119 0.28449 Metetra
+0.828 0.452 0.512 setrgbcolor
+0.78583 0.75784 0.77179 0.75452 0.77805 0.72593 0.79194 0.72917 Metetra
+0.817 0.408 0.445 setrgbcolor
+0.77949 0.78138 0.7653 0.77799 0.77179 0.75452 0.78583 0.75784 Metetra
+0.763 0.263 0.227 setrgbcolor
+0.77282 0.7946 0.7585 0.79116 0.7653 0.77799 0.77949 0.78138 Metetra
+0.407 0.2 0.2 setrgbcolor
+0.76579 0.7938 0.75135 0.79033 0.7585 0.79116 0.77282 0.7946 Metetra
+0.575 0.846 1 setrgbcolor
+0.75839 0.77743 0.74385 0.77395 0.75135 0.79033 0.76579 0.7938 Metetra
+0.721 0.803 1 setrgbcolor
+0.75066 0.74636 0.73604 0.74291 0.74385 0.77395 0.75839 0.77743 Metetra
+0.759 0.773 1 setrgbcolor
+0.74268 0.70384 0.72799 0.70043 0.73604 0.74291 0.75066 0.74636 Metetra
+0.77 0.76 1 setrgbcolor
+0.73453 0.65485 0.71978 0.65149 0.72799 0.70043 0.74268 0.70384 Metetra
+0.77 0.76 1 setrgbcolor
+0.72629 0.60536 0.71148 0.60206 0.71978 0.65149 0.73453 0.65485 Metetra
+0.759 0.773 1 setrgbcolor
+0.71805 0.56137 0.70316 0.55811 0.71148 0.60206 0.72629 0.60536 Metetra
+0.725 0.803 1 setrgbcolor
+0.70983 0.52799 0.69486 0.52476 0.70316 0.55811 0.71805 0.56137 Metetra
+0.603 0.851 1 setrgbcolor
+0.70167 0.50877 0.68658 0.50554 0.69486 0.52476 0.70983 0.52799 Metetra
+0.2 0.7 0.971 setrgbcolor
+0.69352 0.5052 0.67831 0.50194 0.68658 0.50554 0.70167 0.50877 Metetra
+0.694 0.2 0.2 setrgbcolor
+0.68536 0.51647 0.66999 0.51317 0.67831 0.50194 0.69352 0.5052 Metetra
+0.779 0.329 0.347 setrgbcolor
+0.67711 0.53959 0.66157 0.53621 0.66999 0.51317 0.68536 0.51647 Metetra
+0.797 0.384 0.429 setrgbcolor
+0.66871 0.56964 0.65298 0.56617 0.66157 0.53621 0.67711 0.53959 Metetra
+0.797 0.384 0.429 setrgbcolor
+0.66009 0.60048 0.64417 0.59692 0.65298 0.56617 0.66871 0.56964 Metetra
+0.78 0.331 0.349 setrgbcolor
+0.6512 0.62556 0.63509 0.62191 0.64417 0.59692 0.66009 0.60048 Metetra
+0.705 0.2 0.2 setrgbcolor
+0.64202 0.63896 0.62574 0.63525 0.63509 0.62191 0.6512 0.62556 Metetra
+0.2 0.645 0.904 setrgbcolor
+0.63255 0.63643 0.61612 0.63269 0.62574 0.63525 0.64202 0.63896 Metetra
+0.547 0.841 1 setrgbcolor
+0.62282 0.61612 0.60626 0.61237 0.61612 0.63269 0.63255 0.63643 Metetra
+0.693 0.801 1 setrgbcolor
+0.61288 0.579 0.5962 0.57529 0.60626 0.61237 0.62282 0.61612 Metetra
+0.735 0.769 1 setrgbcolor
+0.60276 0.52872 0.58599 0.52507 0.5962 0.57529 0.61288 0.579 Metetra
+0.748 0.755 1 setrgbcolor
+0.5925 0.47097 0.57566 0.46739 0.58599 0.52507 0.60276 0.52872 Metetra
+0.748 0.755 1 setrgbcolor
+0.58212 0.41254 0.5652 0.40904 0.57566 0.46739 0.5925 0.47097 Metetra
+0.735 0.769 1 setrgbcolor
+0.57162 0.36025 0.5546 0.35682 0.5652 0.40904 0.58212 0.41254 Metetra
+0.698 0.801 1 setrgbcolor
+0.56095 0.31994 0.54382 0.31655 0.5546 0.35682 0.57162 0.36025 Metetra
+0.579 0.847 1 setrgbcolor
+0.55006 0.29565 0.53279 0.29227 0.54382 0.31655 0.56095 0.31994 Metetra
+0.2 0.744 1 setrgbcolor
+0.53889 0.28912 0.52145 0.28571 0.53279 0.29227 0.55006 0.29565 Metetra
+0.605 0.2 0.2 setrgbcolor
+0.52739 0.29951 0.50974 0.29603 0.52145 0.28571 0.53889 0.28912 Metetra
+0.72 0.222 0.214 setrgbcolor
+0.5155 0.32344 0.49762 0.31987 0.50974 0.29603 0.52739 0.29951 Metetra
+0.748 0.287 0.311 setrgbcolor
+0.50321 0.35538 0.48509 0.35171 0.49762 0.31987 0.5155 0.32344 Metetra
+0.748 0.287 0.311 setrgbcolor
+0.49055 0.3883 0.47218 0.38451 0.48509 0.35171 0.50321 0.35538 Metetra
+0.722 0.225 0.217 setrgbcolor
+0.47757 0.41466 0.45894 0.41076 0.47218 0.38451 0.49055 0.3883 Metetra
+0.621 0.2 0.2 setrgbcolor
+0.46435 0.42756 0.44549 0.42358 0.45894 0.41076 0.47757 0.41466 Metetra
+0.2 0.694 0.963 setrgbcolor
+0.45099 0.42197 0.43192 0.41796 0.44549 0.42358 0.46435 0.42756 Metetra
+0.515 0.833 1 setrgbcolor
+0.43756 0.39568 0.41832 0.39168 0.43192 0.41796 0.45099 0.42197 Metetra
+0.657 0.796 1 setrgbcolor
+0.42413 0.34975 0.40475 0.3458 0.41832 0.39168 0.43756 0.39568 Metetra
+0.702 0.762 1 setrgbcolor
+0.41069 0.28835 0.39119 0.28449 0.40475 0.3458 0.42413 0.34975 Metetra
+0.717 0.747 1 setrgbcolor
+0.39718 0.2181 0.37757 0.21436 0.39119 0.28449 0.41069 0.28835 Metetra
+0.858 0.481 0.519 setrgbcolor
+0.79995 0.76292 0.78583 0.75784 0.79194 0.72917 0.8059 0.73415 Metetra
+0.853 0.444 0.455 setrgbcolor
+0.79375 0.78654 0.77949 0.78138 0.78583 0.75784 0.79995 0.76292 Metetra
+0.817 0.32 0.25 setrgbcolor
+0.78721 0.79984 0.77282 0.7946 0.77949 0.78138 0.79375 0.78654 Metetra
+0.52 0.2 0.2 setrgbcolor
+0.7803 0.79909 0.76579 0.7938 0.77282 0.7946 0.78721 0.79984 Metetra
+0.488 0.782 1 setrgbcolor
+0.773 0.78273 0.75839 0.77743 0.76579 0.7938 0.7803 0.79909 Metetra
+0.673 0.769 1 setrgbcolor
+0.76536 0.75165 0.75066 0.74636 0.75839 0.77743 0.773 0.78273 Metetra
+0.724 0.748 1 setrgbcolor
+0.75744 0.70908 0.74268 0.70384 0.75066 0.74636 0.76536 0.75165 Metetra
+0.741 0.738 1 setrgbcolor
+0.74935 0.66004 0.73453 0.65485 0.74268 0.70384 0.75744 0.70908 Metetra
+0.741 0.738 1 setrgbcolor
+0.74118 0.6105 0.72629 0.60536 0.73453 0.65485 0.74935 0.66004 Metetra
+0.725 0.748 1 setrgbcolor
+0.733 0.56646 0.71805 0.56137 0.72629 0.60536 0.74118 0.6105 Metetra
+0.678 0.77 1 setrgbcolor
+0.72488 0.53307 0.70983 0.52799 0.71805 0.56137 0.733 0.56646 Metetra
+0.522 0.792 1 setrgbcolor
+0.71682 0.51386 0.70167 0.50877 0.70983 0.52799 0.72488 0.53307 Metetra
+0.2 0.589 0.906 setrgbcolor
+0.7088 0.51033 0.69352 0.5052 0.70167 0.50877 0.71682 0.51386 Metetra
+0.76 0.22 0.2 setrgbcolor
+0.7008 0.52168 0.68536 0.51647 0.69352 0.5052 0.7088 0.51033 Metetra
+0.823 0.373 0.362 setrgbcolor
+0.69272 0.54489 0.67711 0.53959 0.68536 0.51647 0.7008 0.52168 Metetra
+0.834 0.419 0.439 setrgbcolor
+0.68451 0.57507 0.66871 0.56964 0.67711 0.53959 0.69272 0.54489 Metetra
+0.834 0.419 0.439 setrgbcolor
+0.67608 0.60603 0.66009 0.60048 0.66871 0.56964 0.68451 0.57507 Metetra
+0.824 0.375 0.364 setrgbcolor
+0.66738 0.63122 0.6512 0.62556 0.66009 0.60048 0.67608 0.60603 Metetra
+0.769 0.235 0.2 setrgbcolor
+0.65837 0.64472 0.64202 0.63896 0.6512 0.62556 0.66738 0.63122 Metetra
+0.461 0.2 0.2 setrgbcolor
+0.64905 0.64224 0.63255 0.63643 0.64202 0.63896 0.65837 0.64472 Metetra
+0.454 0.771 1 setrgbcolor
+0.63945 0.62195 0.62282 0.61612 0.63255 0.63643 0.64905 0.64224 Metetra
+0.638 0.761 1 setrgbcolor
+0.62961 0.58481 0.61288 0.579 0.62282 0.61612 0.63945 0.62195 Metetra
+0.694 0.739 1 setrgbcolor
+0.61958 0.53447 0.60276 0.52872 0.61288 0.579 0.62961 0.58481 Metetra
+0.713 0.729 1 setrgbcolor
+0.6094 0.47665 0.5925 0.47097 0.60276 0.52872 0.61958 0.53447 Metetra
+0.713 0.729 1 setrgbcolor
+0.59911 0.41814 0.58212 0.41254 0.5925 0.47097 0.6094 0.47665 Metetra
+0.695 0.74 1 setrgbcolor
+0.58869 0.36579 0.57162 0.36025 0.58212 0.41254 0.59911 0.41814 Metetra
+0.644 0.763 1 setrgbcolor
+0.57814 0.32544 0.56095 0.31994 0.57162 0.36025 0.58869 0.36579 Metetra
+0.492 0.783 1 setrgbcolor
+0.56739 0.30116 0.55006 0.29565 0.56095 0.31994 0.57814 0.32544 Metetra
+0.2 0.635 0.961 setrgbcolor
+0.55639 0.29468 0.53889 0.28912 0.55006 0.29565 0.56739 0.30116 Metetra
+0.685 0.2 0.2 setrgbcolor
+0.54509 0.30515 0.52739 0.29951 0.53889 0.28912 0.55639 0.29468 Metetra
+0.774 0.277 0.236 setrgbcolor
+0.53343 0.32921 0.5155 0.32344 0.52739 0.29951 0.54509 0.30515 Metetra
+0.794 0.332 0.328 setrgbcolor
+0.52139 0.36131 0.50321 0.35538 0.5155 0.32344 0.53343 0.32921 Metetra
+0.794 0.332 0.328 setrgbcolor
+0.50898 0.39439 0.49055 0.3883 0.50321 0.35538 0.52139 0.36131 Metetra
+0.776 0.28 0.239 setrgbcolor
+0.49625 0.42089 0.47757 0.41466 0.49055 0.3883 0.50898 0.39439 Metetra
+0.699 0.2 0.2 setrgbcolor
+0.48326 0.4339 0.46435 0.42756 0.47757 0.41466 0.49625 0.42089 Metetra
+0.2 0.582 0.898 setrgbcolor
+0.4701 0.42839 0.45099 0.42197 0.46435 0.42756 0.48326 0.4339 Metetra
+0.417 0.758 1 setrgbcolor
+0.45685 0.40211 0.43756 0.39568 0.45099 0.42197 0.4701 0.42839 Metetra
+0.594 0.75 1 setrgbcolor
+0.44356 0.35613 0.42413 0.34975 0.43756 0.39568 0.45685 0.40211 Metetra
+0.654 0.727 1 setrgbcolor
+0.43024 0.29465 0.41069 0.28835 0.42413 0.34975 0.44356 0.35613 Metetra
+0.674 0.716 1 setrgbcolor
+0.41683 0.22429 0.39718 0.2181 0.41069 0.28835 0.43024 0.29465 Metetra
+0.886 0.508 0.525 setrgbcolor
+grestore
+gsave
+0.001 setlinewidth
+0.63753 0.03006 moveto
+0.64055 0.62311 lineto
+stroke
+0.64055 0.62311 moveto
+0.03006 0.67485 lineto
+stroke
+0.03006 0.67485 moveto
+0.05808 0.10355 lineto
+stroke
+0.05808 0.10355 moveto
+0.63753 0.03006 lineto
+stroke
+0.63753 0.03006 moveto
+0.64055 0.62311 lineto
+stroke
+0.64055 0.62311 moveto
+0.96994 1.01971 lineto
+stroke
+0.96994 1.01971 moveto
+0.95605 0.60206 lineto
+stroke
+0.95605 0.60206 moveto
+0.63753 0.03006 lineto
+stroke
+grestore
+gsave
+gsave
+0.001 setlinewidth
+0.63753 0.03006 moveto
+0.95605 0.60206 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.68226 0.11038 moveto
+0.67479 0.11128 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.76065 0.25115 moveto
+0.75318 0.25198 lineto
+stroke
+grestore
+[(0)] 0.77559 0.24951 -1 0.110178 Mshowa
+gsave
+0.001 setlinewidth
+0.8271 0.37049 moveto
+0.81962 0.37125 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.88416 0.47295 moveto
+0.87667 0.47365 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.93367 0.56187 moveto
+0.92618 0.56252 lineto
+stroke
+grestore
+grestore
+gsave
+gsave
+0.001 setlinewidth
+0.63753 0.03006 moveto
+0.05808 0.10355 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.63753 0.03006 moveto
+0.63757 0.03758 lineto
+stroke
+grestore
+[(-2)] 0.63746 0.01503 0.005088 1 Mshowa
+gsave
+0.001 setlinewidth
+0.48806 0.04902 moveto
+0.488 0.05653 lineto
+stroke
+grestore
+[(-1)] 0.4882 0.03399 -0.008946 1 Mshowa
+gsave
+0.001 setlinewidth
+0.34173 0.06758 moveto
+0.34156 0.07509 lineto
+stroke
+grestore
+[(0)] 0.34207 0.05255 -0.022638 1 Mshowa
+gsave
+0.001 setlinewidth
+0.19844 0.08575 moveto
+0.19816 0.09326 lineto
+stroke
+grestore
+[(1)] 0.19898 0.07073 -0.035999 1 Mshowa
+gsave
+0.001 setlinewidth
+0.05808 0.10355 moveto
+0.05771 0.11105 lineto
+stroke
+grestore
+[(2)] 0.05882 0.08853 -0.049042 1 Mshowa
+gsave
+0.001 setlinewidth
+0.60738 0.03389 moveto
+0.60739 0.0384 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.57736 0.03769 moveto
+0.57736 0.0422 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.54747 0.04149 moveto
+0.54745 0.046 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.5177 0.04526 moveto
+0.51768 0.04977 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.45855 0.05276 moveto
+0.4585 0.05727 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.42916 0.05649 moveto
+0.4291 0.061 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.39989 0.0602 moveto
+0.39982 0.06471 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.37075 0.0639 moveto
+0.37066 0.0684 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.31283 0.07124 moveto
+0.31272 0.07575 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.28405 0.07489 moveto
+0.28393 0.0794 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.2554 0.07852 moveto
+0.25526 0.08303 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.22686 0.08214 moveto
+0.22671 0.08665 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.17013 0.08934 moveto
+0.16996 0.09384 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.14195 0.09291 moveto
+0.14176 0.09742 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.11388 0.09647 moveto
+0.11368 0.10098 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.08592 0.10002 moveto
+0.08571 0.10452 lineto
+stroke
+grestore
+grestore
+gsave
+gsave
+0.001 setlinewidth
+0.05808 0.10355 moveto
+0.03006 0.67485 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.05745 0.11648 moveto
+0.06491 0.11554 lineto
+stroke
+grestore
+[(0)] 0.04253 0.11835 1 -0.125863 Mshowa
+gsave
+0.001 setlinewidth
+0.05102 0.24751 moveto
+0.05849 0.24664 lineto
+stroke
+grestore
+[(1)] 0.03609 0.24924 1 -0.116231 Mshowa
+gsave
+0.001 setlinewidth
+0.04444 0.38178 moveto
+0.05191 0.38098 lineto
+stroke
+grestore
+[(2)] 0.02949 0.38337 1 -0.106351 Mshowa
+gsave
+0.001 setlinewidth
+0.03769 0.51941 moveto
+0.04517 0.51869 lineto
+stroke
+grestore
+[(3)] 0.02272 0.52085 1 -0.096213 Mshowa
+gsave
+0.001 setlinewidth
+0.03077 0.66054 moveto
+0.03825 0.6599 lineto
+stroke
+grestore
+[(4)] 0.01579 0.66183 1 -0.085807 Mshowa
+gsave
+0.001 setlinewidth
+0.05618 0.14243 moveto
+0.06065 0.14187 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.0549 0.16851 moveto
+0.05937 0.16796 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.05361 0.19471 moveto
+0.05809 0.19417 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.05232 0.22104 moveto
+0.0568 0.22052 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.04972 0.2741 moveto
+0.0542 0.27359 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.04841 0.30082 moveto
+0.05289 0.30032 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.04709 0.32767 moveto
+0.05157 0.32718 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.04577 0.35466 moveto
+0.05025 0.35417 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.0431 0.40903 moveto
+0.04759 0.40856 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.04176 0.43642 moveto
+0.04624 0.43596 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.04041 0.46395 moveto
+0.04489 0.4635 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.03905 0.49161 moveto
+0.04354 0.49117 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.03632 0.54736 moveto
+0.04081 0.54693 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.03494 0.57544 moveto
+0.03943 0.57502 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.03356 0.60366 moveto
+0.03805 0.60326 lineto
+stroke
+grestore
+gsave
+0.001 setlinewidth
+0.03216 0.63203 moveto
+0.03666 0.63163 lineto
+stroke
+grestore
+grestore
+% End of Graphics
+MathPictureEnd%%PSTrailer
+end
+
+% Mathematica code
+%
+% energy2 =
+% Plot3D[ Energy[a, v], {a, -3 Pi /2, 7 Pi / 2}, {v, -2, 2},
+%	AmbientLight -> GrayLevel[.2],
+%	PlotPoints -> {41, 31},
+%	BoxRatios -> {3, 1, 1},
+%	ViewPoint->{-2.202, -0.602, 0.742},
+%	AxesEdge -> {Automatic, {-1,-1}, Automatic},
+%	FaceGrids -> {
+%		{
+%			{0,0,-1},
+%			{
+%				{{-Pi, ""}, {0, ""}, {Pi, ""}, {2 Pi, ""}, {3 %Pi, ""}},
+%				Automatic
+%			}
+%		}
+%	},
+%	Ticks -> {
+%		{{-Pi, ""}, 0, {Pi, ""}, {2 Pi, ""}, {3 Pi, ""}},
+%		Automatic, Automatic
+%	}
+% ]
+%
+% FaceGrids::fgstl: 
+%   {{-Pi, }, {0, }, {Pi, }, {2 Pi, }, {3 Pi, }}
+%     is not a valid grid style specification.
+%
+
+%%EPS Trailer

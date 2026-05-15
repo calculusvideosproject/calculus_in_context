@@ -1,0 +1,82 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 0 0 612.0 792
+
+% THIS IS THE OVERLAY OF WHITE AXES FOR THE HYPERBOLOID SHELLS
+% IMAGE
+
+/printscale .87 def
+/screenstretch {printscale 1.3 mul} def
+/double {screenstretch 2 mul} def
+
+ printscale printscale scale	    % scale for printing
+% screenstretch screenstretch scale % printing scale on screen
+% double double scale               % magnified screen
+
+% ------------------ graphics instructions --------------------
+
+% position the origin
+% 100 500 moveto				% screen origin
+ -13 -8 moveto
+currentpoint translate
+
+% ----------------- arrow drawing procedures ------------------
+
+/arrow 
+{-2 0 rmoveto
+ 0  1 rlineto
+ 4 -1 rlineto
+-4 -1 rlineto
+ 0  1 rlineto
+ 2 0 rlineto} def
+
+/rightarrow {arrow} def
+/uparrow {90 rotate arrow -90 rotate} def
+/leftarrow {180 rotate arrow -180 rotate} def
+/downarrow {-90 rotate arrow 90 rotate} def
+/vector 	% x y -> vector at angle x of length y
+{ exch dup rotate exch 0 rlineto arrow neg rotate} def
+
+% -------------------- font codes --------------------------
+
+/typesize {20 printscale div} def
+
+/makeTR {/Times-Roman findfont typesize scalefont} def
+/makeTB {/Times-Bold findfont typesize scalefont} def
+/makeTI {/Times-Italic findfont typesize scalefont} def
+%/makeSYM {/Symbol findfont typesize scalefont} def
+
+/TR {makeTR setfont} def
+/TB {makeTB setfont} def
+/TI {makeTI setfont} def
+/SYM {makeSYM setfont} def
+
+% ---------------string placing procedures-------------------
+
+% stack: fontcode string x y 
+
+/placeBL {moveto show} def
+/placeBR {moveto dup stringwidth pop neg 0 rmoveto show} def
+/placeBC {moveto dup stringwidth pop 2 div neg 0 rmoveto show} def
+/placeTL {moveto 0 typesize neg rmoveto show} def
+/placeTR {moveto dup stringwidth pop neg typesize neg rmoveto show} def
+/placeTC {moveto dup stringwidth pop 2 div neg typesize neg rmoveto show} def
+
+gsave
+.7 setlinewidth
+1 setgray
+233 -190 moveto
+-141 70 vector
+233 -190 moveto
+-5 112 vector
+233 -190 moveto
+90.5 140 vector
+stroke
+grestore
+
+ 1 setgray
+TI (x) 180 -227 placeBR
+(y) 345 -192 placeBC
+(z) 246 -55 placeBR
+
+
+

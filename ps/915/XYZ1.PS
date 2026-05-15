@@ -1,0 +1,209 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 0 0 612.0 792
+/printscale .6 def
+/screenstretch {printscale 90 50 div mul} def
+/double {screenstretch 2 mul} def
+
+ printscale printscale scale	    % scale for printing
+% screenstretch screenstretch scale % printing scale on screen
+% double double scale               % magnified screen
+
+
+% -------------------- font codes --------------------------
+
+/typesize {10 printscale div} def
+
+/makeTR {/Times-Roman findfont typesize scalefont} def
+/makeTB {/Times-Bold findfont typesize scalefont} def
+/makeTI {/Times-Italic findfont typesize scalefont} def
+/makeSYM {/Symbol findfont typesize scalefont} def
+
+/TR {makeTR setfont} def
+/TB {makeTB setfont} def
+/TI {makeTI setfont} def
+/SYM {makeSYM setfont} def
+
+% ---------------string placing procedures-------------------
+
+% stack: fontcode string x y 
+
+/placeBL {moveto show} def
+/placeBR {moveto dup stringwidth pop neg 0 rmoveto show} def
+/placeBC {moveto dup stringwidth pop 2 div neg 0 rmoveto show} def
+/placeTL {moveto 0 typesize neg rmoveto show} def
+/placeTR {moveto dup stringwidth pop neg typesize neg rmoveto show} def
+/placeTC {moveto dup stringwidth pop 2 div neg typesize neg rmoveto show} def
+
+
+
+% ------------------- program -------------------------
+
+.3 setlinewidth
+
+% position the origin
+% 100 100 moveto				% screen origin
+ 100 -120 moveto
+currentpoint translate
+
+
+% ------ arrow drawing procedures --------
+
+/arrow 
+{-2 0 rmoveto
+ 0  1 rlineto
+ 4 -1 rlineto
+-4 -1 rlineto
+ 0  1 rlineto} def
+
+/rightarrow {arrow} def
+/uparrow {90 rotate arrow -90 rotate} def
+/leftarrow {180 rotate arrow -180 rotate} def
+/downarrow {-90 rotate arrow 90 rotate} def
+
+/vector 	% stack: x y -> vector at angle x of length y
+{ exch dup
+  rotate
+  exch 0
+  rlineto
+  arrow
+  neg rotate
+} def
+
+/hatch 
+{ 0 -2 -70 
+  {0 exch moveto
+  130 0 rlineto
+  } for
+} def
+
+/hatch2 
+{ 0 3 150 
+  {0 moveto
+  0 130 rlineto
+  } for
+} def
+
+%-----------------------------------------
+
+% axes
+newpath
+0 0 moveto
+-7 160 vector
+0 0 moveto
+30 65 vector
+0 0 moveto
+91 90 vector
+stroke
+
+gsave
+
+newpath
+0 0 moveto
+-7 rotate
+110 0 rlineto
+38 rotate
+40 0 rlineto
+closepath
+clip
+
+newpath
+.4 setgray
+hatch
+stroke
+-31 rotate
+grestore
+
+gsave
+newpath
+0 0 moveto
+-7 rotate
+110 0 rmoveto
+38 rotate
+40 0 rmoveto
+currentpoint lineto
+59 rotate
+50 0 rlineto
+0 0 lineto
+-90 rotate
+clip
+
+newpath
+.4 setgray
+hatch2
+stroke
+grestore
+
+% dotted lines
+gsave
+newpath
+[.3 2] 0 setdash
+0 0 moveto
+-7 rotate
+110 0 rlineto
+38 rotate
+40 0 rlineto
+59 rotate
+50 0 rlineto
+-50 0 rmoveto
+-91 rotate
+0 0 lineto
+ stroke
+grestore
+
+% solid line
+0 0 moveto
+-7 rotate
+110 0 rmoveto
+38 rotate
+40 0 rmoveto
+59 rotate
+50 0 rmoveto
+0 0 lineto
+-90 rotate
+ stroke
+
+newpath
+gsave
+1 setgray
+80 5 moveto
+8 1 rlineto
+0 15 rlineto
+-8 -1 rlineto
+closepath
+fill
+grestore
+
+% labels
+TI (x ) 153 -16 placeTC
+TR (axis) show
+TI (y ) 40 38 placeBR
+TR (axis) show
+TI (z ) -10 95 placeBR
+TR (axis) show
+TI (x) 57 -4 placeTC
+(y) 134 -9 placeBL
+(z) 151 29 placeBL
+(p) 89 11 placeBR
+(q) 88 43 placeBR
+TR (\() 151 55 placeBL
+TI (x, y, z) show
+TR (\)) show
+
+
+gsave
+newpath
+.4 setgray
+0 50 300 
+{ 0 moveto
+  0 200 rlineto
+} for
+0 50 200 
+{ 0 exch moveto
+  300 0 rlineto
+} for
+% stroke			% comment out here to eliminate grid lines
+grestore
+
+showpage
+
+
