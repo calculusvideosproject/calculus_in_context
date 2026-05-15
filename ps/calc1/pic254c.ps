@@ -1,0 +1,87 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 0 0 612.0 792
+/Times-Italic findfont
+10 scalefont setfont
+
+%100 300 translate			% print translation
+
+/pcurve
+{x y moveto
+/nx x 1 add def
+/ny nx 72 div 2 exp 72 mul def
+nx ny lineto
+stroke
+/x nx def
+/y ny def
+} def
+
+
+/arrowdict 14 dict def
+arrowdict begin
+ /mtrx matrix def
+end
+
+/arrow
+ {arrowdict begin
+   /headlength exch def
+   /halfheadthickness exch 2 div def
+   /halfthickness exch 2 div def
+   /tipy exch def /tipx exch def
+   /taily exch def /tailx exch def
+   
+   /dx tipx tailx sub def
+   /dy tipy taily sub def
+   /arrowlength dx dx mul dy dy mul add sqrt def
+   /angle dy dx atan def
+   /base arrowlength headlength sub def
+   
+   /savematrix mtrx currentmatrix def
+   
+   tailx taily translate
+   angle rotate
+   0 halfthickness neg moveto
+   base halfthickness neg lineto
+   base halfheadthickness neg lineto
+   arrowlength 0 lineto
+   base halfheadthickness lineto
+   base halfthickness lineto
+   0 halfthickness lineto
+   closepath
+   
+   savematrix setmatrix
+   end
+ }  def
+
+
+
+.25 setlinewidth
+180 0 moveto
+180 90 lineto
+stroke
+36 45 moveto
+324 45 lineto
+stroke
+180 86 180 90 .25 2 4 arrow fill
+320 45 324 45 .25 2 4 arrow fill
+
+172 86 moveto
+(y) show
+320 37 moveto
+(x) show
+/Times-Roman findfont
+10 scalefont setfont
+33 86 moveto
+(c\)) show
+
+
+.9 setlinewidth
+50 82 moveto
+120 82 lineto
+stroke
+192 10 translate
+/x -72 def
+/y 72 def
+150 {pcurve} repeat
+
+showpage
+

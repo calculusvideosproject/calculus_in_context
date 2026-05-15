@@ -1,0 +1,181 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 0 0 612.0 792
+/printscale .8 def
+/recip {1 printscale div} def
+
+%100 300 translate		% print translation
+
+/screenstretch {printscale 90 50 div mul} def
+/double {screenstretch 2 mul} def
+
+printscale printscale scale       %scale for printing
+%screenstretch screenstretch scale %printing scale on screen
+%double double scale               %magnified screen
+
+
+/typesize {10 printscale div} def
+/smalltype typesize .8 mul def
+/tinytype smalltype .8 mul def
+
+/TR
+{/Times-Roman findfont
+typesize scalefont 
+setfont} def
+
+/TI
+{/Times-Italic findfont
+typesize scalefont 
+setfont} def
+
+/SYM
+{/Symbol findfont
+typesize scalefont
+setfont} def
+
+/TR8
+{/Times-Roman findfont
+smalltype scalefont 
+setfont} def
+
+/TI8
+{/Times-Italic findfont
+smalltype scalefont 
+setfont} def
+
+/SYM8
+{/Symbol findfont
+smalltype scalefont
+setfont} def
+
+/SYM6
+{/Symbol findfont
+tinytype scalefont
+setfont} def
+
+% ---------------string placing procedures-------------------
+
+% stack: fontcode string x y 
+
+/placeBL {moveto show} def
+/placeBR {moveto dup stringwidth pop neg 0 rmoveto show} def
+/placeBC {moveto dup stringwidth pop 2 div neg 0 rmoveto show} def
+/placeTL {moveto 0 typesize neg rmoveto show} def
+/placeTR {moveto dup stringwidth pop neg typesize neg rmoveto show} def
+/placeTC {moveto dup stringwidth pop 2 div neg typesize neg rmoveto show} def
+
+% ----------------- arrow drawing procedures ------------------
+
+/arrow 
+{-4 recip mul 	0 		rmoveto
+ 0  		1 recip mul 	rlineto
+ 4 recip mul 	-1 recip mul 	rlineto
+-4 recip mul 	-1 recip mul 	rlineto
+ 0  		1 recip mul 	rlineto
+ 4 recip mul 	0 		rlineto} def
+
+/rarrowto {					% stack: dx dy
+  2 copy
+  dup mul exch dup mul add  sqrt		% length of arrow
+  3 1 roll exch atan dup 				% angle
+  rotate exch 0 rlineto arrow neg rotate	% make arrow
+} def
+/arrowto {					% stack: x y
+  currentpoint 3 -1 roll sub neg 3 1 roll sub exch rarrowto
+} def
+
+
+% ------------------- program -------------------------
+
+.3 setlinewidth
+
+% ------------- first circle -----------------
+
+% position the origin
+%100 30 moveto					% screen origin
+%60 20 moveto					% odd page print origin
+%-40 20 moveto					% even page
+180 -17 moveto
+currentpoint translate
+
+% definition of the function f(x) = e^(-x^2)
+/f {2.71828 exch 100 div dup mul neg exp 100 mul} def 
+
+
+
+
+% draw the graph
+
+gsave
+.9 recip mul setlinewidth
+/initial -30 def
+newpath
+initial dup f moveto			% initial point
+
+/step 10  def
+
+initial step add step 130	% gives x value
+{dup f 				% gives x, y point
+ lineto				% draws line from previous point
+} for
+stroke				% draw the graph
+grestore
+
+% coordinate axes
+newpath
+-40 0 moveto
+180 0 rarrowto
+0 -3 moveto
+0 123 rarrowto
+fill
+100 0 moveto
+0 -3 rlineto
+0 100 f moveto
+-3 0 rlineto
+stroke
+
+gsave					% save solid lines
+newpath
+[1 2] 0 setdash
+2 100 f moveto
+98 0 rlineto
+2 100 moveto
+98 0 rlineto
+100 100 f moveto
+100 0 lineto
+stroke
+grestore					% restore solid lines
+
+% arrow measuring height of graph
+newpath
+100 50 moveto
+100 100 f 1 add arrowto
+100 50 moveto
+100 100 arrowto
+fill
+
+% labels
+TR (0) 0 -1 placeTC
+(1) 100 -1 placeTC
+TR8 (1) -2 102 placeBR
+TI(x) 140 0 placeTC
+(y) -4 119 placeBR
+(e) -20 100 f 3 sub placeBL
+0 5.5 rmoveto
+SYM8 (-1) show
+SYM  (1 - ) 105 100 f 100 add 2 div 3 sub placeBL
+TI (e) show
+0 5.5 rmoveto
+SYM8 (-1) show
+TI (y = e) 130 130 f 8 add placeBL
+0 5.5 rmoveto
+SYM8 (-) show
+TI8 (x) show
+1 3 rmoveto
+SYM6 (2) show
+
+showpage
+
+
+
+
+

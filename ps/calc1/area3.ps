@@ -1,0 +1,186 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 0 0 612.0 792
+/printscale 1 def
+/screenstretch {printscale 1.3 mul} def
+/double {screenstretch 2 mul} def
+
+%100 300 translate		% print translation
+
+ printscale printscale scale	    % scale for printing
+% screenstretch screenstretch scale % printing scale on screen
+% double double scale               % magnified screen
+
+
+% -------------------- font codes --------------------------
+
+/typesize {10 printscale div} def
+
+/makeTR {/Times-Roman findfont typesize scalefont} def
+/makeTB {/Times-Bold findfont typesize scalefont} def
+/makeTI {/Times-Italic findfont typesize scalefont} def
+/makeSYM {/Symbol findfont typesize scalefont} def
+
+/TR {makeTR setfont} def
+/TB {makeTB setfont} def
+/TI {makeTI setfont} def
+/SYM {makeSYM setfont} def
+
+% ---------------string placing procedures-------------------
+
+% stack: fontcode string x y 
+
+/placeBL {moveto show} def
+/placeBR {moveto dup stringwidth pop neg 0 rmoveto show} def
+/placeBC {moveto dup stringwidth pop 2 div neg 0 rmoveto show} def
+/placeTL {moveto 0 typesize neg rmoveto show} def
+/placeTR {moveto dup stringwidth pop neg typesize neg rmoveto show} def
+/placeTC {moveto dup stringwidth pop 2 div neg typesize neg rmoveto show} def
+
+/placeSL   %stack: string x y 
+{ dup neg
+4 1 roll 
+exch
+dup neg
+5 1 roll
+exch
+translate
+90 rotate
+%dup stringwidth pop
+%neg 0
+0 0 moveto
+show
+-90 rotate
+translate} def
+
+
+/placeSC   %stack: string x y 
+{ dup neg
+4 1 roll 
+exch
+dup neg
+5 1 roll
+exch
+translate
+90 rotate
+dup stringwidth pop
+2 div
+neg 0
+moveto
+show
+-90 rotate
+translate} def
+
+
+/placeSR   %stack: string x y 
+{ dup neg
+4 1 roll 
+exch
+dup neg
+5 1 roll
+exch
+translate
+90 rotate
+dup stringwidth pop
+neg 0
+moveto
+show
+-90 rotate
+translate} def
+
+
+
+
+% -------------------------- program -----------------------------
+
+/htick {0 -2 rlineto} def
+/vtick {-2 0 rlineto} def
+
+/arrow 
+{-2 0 rmoveto
+ 0  1 rlineto
+ 4 -1 rlineto
+-4 -1 rlineto
+ 0  1 rlineto} def
+
+/rightarrow {arrow} def
+/uparrow {90 rotate arrow -90 rotate} def
+
+
+.3 setlinewidth
+
+/hscale {currentpoint 
+pop 60 add 0 moveto 
+htick} def
+
+/vscale {currentpoint 30 add 0 exch moveto
+vtick} def
+
+% -------------------- program -----------------------
+
+% origin
+ 65 -120 moveto		% print origin; device origin at top
+% 100 100 moveto	% screen origin
+currentpoint translate
+
+% power graph
+
+gsave						% save black lines
+%shading
+newpath
+0 0 moveto
+0 30 lineto
+ 80 10  90 78 110 75 curveto
+150 69 150 90 180 90 curveto
+230 90 228 32 240 30 curveto
+0 -30 rlineto
+closepath
+.9 setgray
+fill
+grestore						% restore black lines
+
+
+gsave
+newpath
+.9 printscale div setlinewidth
+0 30 moveto
+ 80 10  90 78 110 75 curveto
+150 69 150 90 180 90 curveto
+230 90 228 32 240 30 curveto
+%320 10 330 78 350 75 curveto		% carries the graph into
+stroke						% the next day
+grestore
+
+% axes
+newpath
+0 0 moveto
+255 0 lineto
+rightarrow
+0 0 moveto
+0 105 lineto
+uparrow
+fill
+0 0 moveto 
+4 {hscale} repeat
+0 0 moveto 
+3 {vscale} repeat
+stroke
+
+TR (0) 0 -2 placeTC
+(6) 60 -2 placeTC
+(12) 120 -2 placeTC
+(18) 180 -2 placeTC
+(24) 240 -2 placeTC
+(hours) 255 -2 placeTL
+(time) 255 4 placeBL
+
+(30) -4 27 placeBR
+(60) -4 57 placeBR
+(90) -4 87 placeBR
+(power) -4 103 placeBR
+(megawatts) -24 50 placeSC
+
+(power demand) 98 80 placeBC
+(energy use) 138 35 placeBC
+
+showpage
+

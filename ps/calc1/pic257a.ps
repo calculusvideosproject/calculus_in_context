@@ -1,0 +1,77 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 0 0 612.0 792
+/Times-Italic findfont
+10 scalefont setfont
+
+%100 300 translate			% print translation
+
+10 0 translate
+
+/arrowdict 14 dict def
+arrowdict begin
+ /mtrx matrix def
+end
+
+/arrow
+ {arrowdict begin
+   /headlength exch def
+   /halfheadthickness exch 2 div def
+   /halfthickness exch 2 div def
+   /tipy exch def /tipx exch def
+   /taily exch def /tailx exch def
+   
+   /dx tipx tailx sub def
+   /dy tipy taily sub def
+   /arrowlength dx dx mul dy dy mul add sqrt def
+   /angle dy dx atan def
+   /base arrowlength headlength sub def
+   
+   /savematrix mtrx currentmatrix def
+   
+   tailx taily translate
+   angle rotate
+   0 halfthickness neg moveto
+   base halfthickness neg lineto
+   base halfheadthickness neg lineto
+   arrowlength 0 lineto
+   base halfheadthickness lineto
+   base halfthickness lineto
+   0 halfthickness lineto
+   closepath
+   
+   savematrix setmatrix
+   end
+ }  def
+
+1 .3 scale
+66 56 translate
+.25 setlinewidth
+0 300 54 0 360 arc 
+gsave
+.94 setgray
+fill
+grestore
+stroke
+-54 300 moveto
+-54 0 lineto
+0 0 54 180 360 arc
+54 300 lineto
+stroke
+
+60 125 60 0 .25 2 12 arrow fill
+60 175 60 300 .25 2 12 arrow fill
+58 138 moveto
+gsave
+1 10 3 div scale
+(h) show
+grestore
+0 300 54 300 .25 6 4 arrow fill
+10 300 0 300 .25 6 4 arrow fill
+25 307 moveto
+gsave
+1 10 3 div scale
+(r) show 
+grestore
+
+showpage
+

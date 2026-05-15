@@ -1,0 +1,165 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 0 0 612.0 792
+/printscale 1.6 def
+/recip {1 printscale div} def
+
+%100 300 translate			% print translation
+
+60 -78 translate
+
+printscale printscale scale
+
+% -------------------- font codes --------------------------
+
+/typesize {10 printscale div} def
+/smalltype {7 printscale div} def
+
+/makeTR {/Times-Roman findfont typesize scalefont} def
+/makeTB {/Times-Bold findfont typesize scalefont} def
+/makeTI {/Times-Italic findfont typesize scalefont} def
+/makeSYM {/Symbol findfont typesize scalefont} def
+
+/maketr {/Times-Roman findfont smalltype scalefont} def
+/maketi {/Times-Italic findfont smalltype scalefont} def
+/makesym {/Symbol findfont smalltype scalefont} def
+
+/TR {makeTR setfont} def
+/TB {makeTB setfont} def
+/TI {makeTI setfont} def
+/SYM {makeSYM setfont} def
+
+/tr {maketr setfont} def
+/ti {maketi setfont} def
+/sym {makesym setfont} def
+
+% ---------------string placing procedures-------------------
+
+% stack: fontcode string x y 
+
+/placeBL {moveto show} def
+/placeBR {moveto dup stringwidth pop neg 0 rmoveto show} def
+/placeBC {moveto dup stringwidth pop 2 div neg 0 rmoveto show} def
+/placeTL {moveto 0 typesize neg rmoveto show} def
+/placeTR {moveto dup stringwidth pop neg typesize neg rmoveto show} def
+/placeTC {moveto dup stringwidth pop 2 div neg typesize neg rmoveto show} def
+
+/pcurve
+{x y moveto
+/nx x 1 add def
+/a nx 54 div def
+/ny a 3 exp 4 mul a 2 exp 3 mul add a 2 mul add 1 add 27 mul def
+nx ny lineto
+stroke
+/x nx def
+/y ny def
+} def
+
+/prt-n
+ {(     ) cvs show} def
+ 
+/ylabels
+ {/num num 1 add def
+ /z y 4 add def
+  -1.4 z moveto
+  0 z lineto
+  stroke
+  /y y 27 add def
+  
+	} def 
+	
+/y2labels
+ {/num num 1 add def
+  -14 y moveto num prt-n
+  /z y 4 add def
+  -3 z moveto
+  3 z lineto
+  stroke
+  /y y 27 add def
+  
+	} def 
+
+/arrowdict 14 dict def
+arrowdict begin
+ /mtrx matrix def
+end
+
+/arrow
+ {arrowdict begin
+   /headlength exch def
+   /halfheadthickness exch 2 div def
+   /halfthickness exch 2 div def
+   /tipy exch def /tipx exch def
+   /taily exch def /tailx exch def
+   
+   /dx tipx tailx sub def
+   /dy tipy taily sub def
+   /arrowlength dx dx mul dy dy mul add sqrt def
+   /angle dy dx atan def
+   /base arrowlength headlength sub def
+   
+   /savematrix mtrx currentmatrix def
+   
+   tailx taily translate
+   angle rotate
+   0 halfthickness neg moveto
+   base halfthickness neg lineto
+   base halfheadthickness neg lineto
+   arrowlength 0 lineto
+   base halfheadthickness lineto
+   base halfthickness lineto
+   0 halfthickness lineto
+   closepath
+   
+   savematrix setmatrix
+   end
+ }  def
+
+100 100 translate
+%2 2 scale
+.12 setlinewidth
+0 -70 0 35 .05 1 2 arrow fill
+-70 0 34 0 .1 1 2 arrow fill
+
+TI
+-5 33  moveto
+(y) show
+32 -5 moveto
+(x) show
+-32 -6 moveto
+(r) show
+
+sym
+/num 0 def
+/y -58 def
+4 {ylabels} repeat
+-54 -1.4 moveto
+-54 0 lineto
+stroke
+-56.5 -6 moveto
+(-1) show
+newpath
+-32.67 0 .75 0 360 arc fill
+
+.5 setlinewidth
+/x -58 def
+/a x 54 div def
+/y a 3 exp 4 mul a 2 exp 3 mul add a 2 mul add 1 add 27 mul def
+64 {pcurve} repeat
+.2 setlinewidth
+-58 -70 moveto
+-31.75 35 lineto
+stroke
+-67.09 -70 moveto
+-17.68 35 lineto
+stroke
+
+-54 -54 .75 0 360 arc fill
+-52 -56 moveto
+(\(-1, -2\)) show
+newpath
+-40.5 -13.5 .75 0 360 arc fill
+-38 -15.5 moveto
+(\(-.75, -.5\)) show
+
+showpage
+

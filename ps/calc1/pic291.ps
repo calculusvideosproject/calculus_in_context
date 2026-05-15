@@ -1,0 +1,164 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 0 0 612.0 792
+/printscale .95 def
+/recip {1 printscale div} def
+
+%100 300 translate			% print translation
+20 0 translate
+
+printscale printscale scale
+
+% -------------------- font codes --------------------------
+
+/typesize {10 printscale div} def
+/smalltype {7 printscale div} def
+
+/makeTR {/Times-Roman findfont typesize scalefont} def
+/makeTB {/Times-Bold findfont typesize scalefont} def
+/makeTI {/Times-Italic findfont typesize scalefont} def
+/makeSYM {/Symbol findfont typesize scalefont} def
+
+/maketr {/Times-Roman findfont smalltype scalefont} def
+/maketi {/Times-Italic findfont smalltype scalefont} def
+/makesym {/Symbol findfont smalltype scalefont} def
+
+/TR {makeTR setfont} def
+/TB {makeTB setfont} def
+/TI {makeTI setfont} def
+/SYM {makeSYM setfont} def
+
+/tr {maketr setfont} def
+/ti {maketi setfont} def
+/sym {makesym setfont} def
+
+% ---------------string placing procedures-------------------
+
+% stack: fontcode string x y 
+
+/placeBL {moveto show} def
+/placeBR {moveto dup stringwidth pop neg 0 rmoveto show} def
+/placeBC {moveto dup stringwidth pop 2 div neg 0 rmoveto show} def
+/placeTL {moveto 0 typesize neg rmoveto show} def
+/placeTR {moveto dup stringwidth pop neg typesize neg rmoveto show} def
+/placeTC {moveto dup stringwidth pop 2 div neg typesize neg rmoveto show} def
+
+% ----------------- arrow drawing procedures ------------------
+
+/arrow 
+{-4 recip mul 	0 		rmoveto
+ 0  		1 recip mul 	rlineto
+ 4 recip mul 	-1 recip mul 	rlineto
+-4 recip mul 	-1 recip mul 	rlineto
+ 0  		1 recip mul 	rlineto
+ 4 recip mul 	0 		rlineto} def
+
+/rarrowto {					% stack: dx dy
+  2 copy
+  dup mul exch dup mul add  sqrt		% length of arrow
+  3 1 roll exch atan dup 				% angle
+  rotate exch 0 rlineto arrow neg rotate	% make arrow
+} def
+/arrowto {					% stack: x y
+  currentpoint 3 -1 roll sub neg 3 1 roll sub exch rarrowto
+} def
+
+% ------------------ graphics instructions --------------------
+
+.3 recip mul setlinewidth
+
+% position the origin
+ 50 200 moveto				% screen origin
+0 0  moveto
+currentpoint translate
+
+% --------------------------- grid ---------------------------
+
+gsave
+newpath
+.4 setgray
+0 50 500 
+{ 0 moveto
+  0 300 rlineto
+} for
+0 50 300 
+{ 0 exch moveto
+  500 0 rlineto
+} for
+% stroke			% comment out here to eliminate grid lines
+grestore
+
+/iter
+{/s s 5000 add def
+/st s def
+/x 0 def
+/i 100 def
+0 s .0032 mul moveto
+1000 {curve} repeat
+stroke
+/s st def
+} def
+
+/curve
+{/sp -.00001 s mul i mul def
+/ip i 14 div sp add neg def
+/s s sp .1 mul add def
+/i i ip .1 mul add def
+/x x .288 add def
+x s .0032 mul lineto
+} def
+
+/prt-n
+ {(     ) cvs show} def
+ 
+/y1labels
+ {/num num 5000 add def
+  -22 y 3 add moveto num prt-n
+  /y y 16 add def
+	} def 
+ 
+
+
+ 60 20 translate
+newpath
+0 0 moveto
+0 162 arrowto
+0 0 moveto
+300 0 arrowto
+fill
+
+TI (S) -5 157 placeBR
+(t) 300 2 placeTC
+TR (In every case:) 200 124 placeBL
+TI (R) 205 112 placeBL
+SYM(\(0\) = 0) show
+TI (I) 208 100 placeBL
+SYM(\(0\) = 100) show
+sym
+-2 -9 moveto
+(0) show
+280 -9 moveto
+(100) show
+TR
+120 -12 moveto
+(time \(days\)) show
+
+sym
+/y 28 def
+/num 5000 def
+8 {y1labels} repeat
+-18 14 moveto
+(5000) show
+gsave
+-40 0 translate
+0 0 moveto
+90 rotate
+35 0 moveto
+TR
+(Susceptible Population) show
+grestore
+
+.9 recip mul setlinewidth
+/s 0 def
+9 {iter} repeat
+
+showpage

@@ -1,0 +1,511 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 0 0 612.0 792
+/printscale 1.3 def
+/recip {1 printscale div} def
+/screenstretch {printscale 90 50 div mul} def
+/double {screenstretch 2 mul} def
+
+ 100 300 translate 		% print translation
+
+ printscale printscale scale       %scale for printing
+% screenstretch screenstretch scale %printing scale on screen
+% double double scale               %magnified screen
+
+% -------------------- font codes --------------------------
+
+/typesize {10 printscale div} def
+/smalltype {8 printscale div} def
+
+/makeTR {/Times-Roman findfont typesize scalefont} def
+/makeTB {/Times-Bold findfont typesize scalefont} def
+/makeTI {/Times-Italic findfont typesize scalefont} def
+/makeSYM {/Symbol findfont typesize scalefont} def
+
+/maketr {/Times-Roman findfont smalltype scalefont} def
+/maketi {/Times-Italic findfont smalltype scalefont} def
+/makesym {/Symbol findfont smalltype scalefont} def
+
+/TR {makeTR setfont} def
+/TB {makeTB setfont} def
+/TI {makeTI setfont} def
+/SYM {makeSYM setfont} def
+
+/tr {maketr setfont} def
+/ti {maketi setfont} def
+/sym {makesym setfont} def
+
+% ---------------string placing procedures-------------------
+
+% stack: fontcode string x y 
+
+/placeBL {moveto show} def
+/placeBR {moveto dup stringwidth pop neg 0 rmoveto show} def
+/placeBC {moveto dup stringwidth pop 2 div neg 0 rmoveto show} def
+/placeTL {moveto 0 typesize neg rmoveto show} def
+/placeTR {moveto dup stringwidth pop neg typesize neg rmoveto show} def
+/placeTC {moveto dup stringwidth pop 2 div neg typesize neg rmoveto show} def
+
+% ----------------- arrow drawing procedures ------------------
+
+/arrow 
+{-4 recip mul 	0 		rmoveto
+ 0  		1 recip mul 	rlineto
+ 4 recip mul 	-1 recip mul 	rlineto
+-4 recip mul 	-1 recip mul 	rlineto
+ 0  		1 recip mul 	rlineto
+ 4 recip mul 	0 		rlineto} def
+
+/rarrowto {					% stack: dx dy
+  2 copy
+  dup mul exch dup mul add  sqrt		% length of arrow
+  3 1 roll exch atan dup 				% angle
+  rotate exch 0 rlineto arrow neg rotate	% make arrow
+} def
+/arrowto {					% stack: x y
+  currentpoint 3 -1 roll sub neg 3 1 roll sub exch rarrowto
+} def
+
+% -------------------------- program -----------------------------
+ 
+/Xtrans1 35 def
+/Ytrans1 30 def
+/Sscale 150 def
+/Vscale 150 def
+
+gsave		% before scale change
+ Xtrans1 Ytrans1 translate
+ sym (42000) -3 29 placeBR
+ (44000) -3 60 placeBR
+ (46000) -3 91 placeBR
+ (0) 0 -15 placeTC
+ (1) 50 -15 placeTC
+ (2) 100 -15 placeTC
+ (3) 150 -15 placeTC
+ TI (S) -3 107 placeBR
+ (t) 170 -15 placeTC
+ TR (3 steps) 80 80 placeBL
+ (30 steps) 130 55 placeBL
+ (300 steps) 105 0 placeBL
+ newpath
+ 0 90 moveto
+ 0 20 rarrowto
+ 150 -15.5 moveto
+ 20 0 rarrowto
+ 90 77 moveto
+ 81 58 arrowto   		%3 step
+ 143 52  moveto
+ 131 24 arrowto   		%30 step
+ 120 7 moveto
+ 129 21 arrowto   		%300 step
+ fill
+grestore	% end before scale change
+
+Xtrans1 Ytrans1 translate
+Sscale Vscale scale
+0.002 recip mul setlinewidth
+
+ 0 0 moveto   %y-axis
+ 0 .04 lineto
+ stroke
+ -.015 .035 moveto
+ .015 .045 lineto
+ stroke
+ -.015 .0475 moveto
+ .015 .0575 lineto
+ stroke
+ 0 .0525 moveto
+ 0 0.61803 lineto
+
+ gsave
+  0 -.10301 translate
+  0 0 moveto   %x-axis
+  1 0 lineto
+  stroke
+  0 0 moveto   %y-axis
+  0 .10301 lineto
+  stroke
+  -0.00625 0.10301 moveto
+  0.00625 0.10301 lineto
+  stroke
+  0.16667 -0.008 moveto
+  0.16667 0 lineto
+  stroke
+  0.33333 -0.008 moveto
+  0.33333 0 lineto
+  stroke
+  0.5 -0.008 moveto
+  0.5 0 lineto
+  stroke
+  0.66667 -0.008 moveto
+  0.66667 0 lineto
+  stroke
+  0.83333 -0.008 moveto
+  0.83333 0 lineto
+  stroke
+  1 -0.008 moveto
+  1 0 lineto
+  stroke
+ grestore
+ -0.008 0.10301 moveto
+ 0 0.10301 lineto
+ stroke
+ -0.008 0.20601 moveto
+ 0 0.20601 lineto
+ stroke
+ -0.008 0.30902 moveto
+ 0 0.30902 lineto
+ stroke
+ -0.008 0.41202 moveto
+ 0 0.41202 lineto
+ stroke
+ -0.008 0.51503 moveto
+ 0 0.51503 lineto
+ stroke
+ -0.008 0.61803 moveto
+ 0 0.61803 lineto
+stroke
+
+0.007 recip mul setlinewidth		% 3 step graph
+0 0.55623 moveto
+0.33333 0.45802 lineto
+0.66667 0.3251 lineto
+1 0.14789 lineto
+stroke
+
+0 0.55623 moveto			% 30 step graph
+0.03333 0.54641 lineto
+0.06667 0.53624 lineto
+0.1 0.5257 lineto
+0.13333 0.51478 lineto
+0.16667 0.50347 lineto
+0.2 0.49177 lineto
+0.23333 0.47966 lineto
+0.26667 0.46712 lineto
+0.3 0.45415 lineto
+0.33333 0.44073 lineto
+0.36667 0.42685 lineto
+0.4 0.4125 lineto
+0.43333 0.39766 lineto
+0.46667 0.38233 lineto
+0.5 0.36649 lineto
+0.53333 0.35013 lineto
+0.56667 0.33324 lineto
+0.6 0.3158 lineto
+0.63333 0.2978 lineto
+0.66667 0.27922 lineto
+0.7 0.26007 lineto
+0.73333 0.24032 lineto
+0.76667 0.21996 lineto
+0.8 0.19899 lineto
+0.83333 0.17739 lineto
+0.86667 0.15515 lineto
+0.9 0.13225 lineto
+0.93333 0.1087 lineto
+0.96667 0.08448 lineto
+1 0.05958 lineto
+stroke
+
+0 0.55623 moveto			% 300 step graph
+0.00333 0.55525 lineto
+0.00667 0.55426 lineto
+0.01 0.55327 lineto
+0.01333 0.55228 lineto
+0.01667 0.55128 lineto
+0.02 0.55028 lineto
+0.02333 0.54928 lineto
+0.02667 0.54827 lineto
+0.03 0.54726 lineto
+0.03333 0.54625 lineto
+0.03667 0.54523 lineto
+0.04 0.54421 lineto
+0.04333 0.54318 lineto
+0.04667 0.54215 lineto
+0.05 0.54112 lineto
+0.05333 0.54009 lineto
+0.05667 0.53905 lineto
+0.06 0.538 lineto
+0.06333 0.53695 lineto
+0.06667 0.5359 lineto
+0.07 0.53485 lineto
+0.07333 0.53379 lineto
+0.07667 0.53273 lineto
+0.08 0.53166 lineto
+0.08333 0.53059 lineto
+0.08667 0.52951 lineto
+0.09 0.52844 lineto
+0.09333 0.52735 lineto
+0.09667 0.52627 lineto
+0.1 0.52518 lineto
+0.10333 0.52409 lineto
+0.10667 0.52299 lineto
+0.11 0.52189 lineto
+0.11333 0.52078 lineto
+0.11667 0.51967 lineto
+0.12 0.51856 lineto
+0.12333 0.51744 lineto
+0.12667 0.51632 lineto
+0.13 0.5152 lineto
+0.13333 0.51407 lineto
+0.13667 0.51293 lineto
+0.14 0.5118 lineto
+0.14333 0.51066 lineto
+0.14667 0.50951 lineto
+0.15 0.50836 lineto
+0.15333 0.50721 lineto
+0.15667 0.50605 lineto
+0.16 0.50489 lineto
+0.16333 0.50373 lineto
+0.16667 0.50256 lineto
+0.17 0.50138 lineto
+0.17333 0.50021 lineto
+0.17667 0.49902 lineto
+0.18 0.49784 lineto
+0.18333 0.49665 lineto
+0.18667 0.49545 lineto
+0.19 0.49425 lineto
+0.19333 0.49305 lineto
+0.19667 0.49185 lineto
+0.2 0.49063 lineto
+0.20333 0.48942 lineto
+0.20667 0.4882 lineto
+0.21 0.48697 lineto
+0.21333 0.48575 lineto
+0.21667 0.48451 lineto
+0.22 0.48328 lineto
+0.22333 0.48204 lineto
+0.22667 0.48079 lineto
+0.23 0.47954 lineto
+0.23333 0.47829 lineto
+0.23667 0.47703 lineto
+0.24 0.47577 lineto
+0.24333 0.4745 lineto
+0.24667 0.47323 lineto
+0.25 0.47195 lineto
+0.25333 0.47067 lineto
+0.25667 0.46939 lineto
+0.26 0.4681 lineto
+0.26333 0.4668 lineto
+0.26667 0.4655 lineto
+0.27 0.4642 lineto
+0.27333 0.46289 lineto
+0.27667 0.46158 lineto
+0.28 0.46027 lineto
+0.28333 0.45895 lineto
+0.28667 0.45762 lineto
+0.29 0.45629 lineto
+0.29333 0.45496 lineto
+0.29667 0.45362 lineto
+0.3 0.45227 lineto
+0.30333 0.45092 lineto
+0.30667 0.44957 lineto
+0.31 0.44821 lineto
+0.31333 0.44685 lineto
+0.31667 0.44549 lineto
+0.32 0.44411 lineto
+0.32333 0.44274 lineto
+0.32667 0.44136 lineto
+0.33 0.43997 lineto
+0.33333 0.43858 lineto
+0.33667 0.43719 lineto
+0.34 0.43579 lineto
+0.34333 0.43438 lineto
+0.34667 0.43297 lineto
+0.35 0.43156 lineto
+0.35333 0.43014 lineto
+0.35667 0.42871 lineto
+0.36 0.42729 lineto
+0.36333 0.42585 lineto
+0.36667 0.42441 lineto
+0.37 0.42297 lineto
+0.37333 0.42152 lineto
+0.37667 0.42007 lineto
+0.38 0.41861 lineto
+0.38333 0.41715 lineto
+0.38667 0.41568 lineto
+0.39 0.41421 lineto
+0.39333 0.41273 lineto
+0.39667 0.41125 lineto
+0.4 0.40976 lineto
+0.40333 0.40827 lineto
+0.40667 0.40677 lineto
+0.41 0.40527 lineto
+0.41333 0.40376 lineto
+0.41667 0.40225 lineto
+0.42 0.40073 lineto
+0.42333 0.39921 lineto
+0.42667 0.39768 lineto
+0.43 0.39615 lineto
+0.43333 0.39461 lineto
+0.43667 0.39307 lineto
+0.44 0.39152 lineto
+0.44333 0.38997 lineto
+0.44667 0.38841 lineto
+0.45 0.38684 lineto
+0.45333 0.38527 lineto
+0.45667 0.3837 lineto
+0.46 0.38212 lineto
+0.46333 0.38054 lineto
+0.46667 0.37895 lineto
+0.47 0.37735 lineto
+0.47333 0.37575 lineto
+0.47667 0.37415 lineto
+0.48 0.37254 lineto
+0.48333 0.37092 lineto
+0.48667 0.3693 lineto
+0.49 0.36767 lineto
+0.49333 0.36604 lineto
+0.49667 0.3644 lineto
+0.5 0.36276 lineto
+0.50333 0.36111 lineto
+0.50667 0.35946 lineto
+0.51 0.3578 lineto
+0.51333 0.35613 lineto
+0.51667 0.35446 lineto
+0.52 0.35279 lineto
+0.52333 0.35111 lineto
+0.52667 0.34942 lineto
+0.53 0.34773 lineto
+0.53333 0.34603 lineto
+0.53667 0.34433 lineto
+0.54 0.34262 lineto
+0.54333 0.34091 lineto
+0.54667 0.33919 lineto
+0.55 0.33746 lineto
+0.55333 0.33573 lineto
+0.55667 0.334 lineto
+0.56 0.33226 lineto
+0.56333 0.33051 lineto
+0.56667 0.32876 lineto
+0.57 0.327 lineto
+0.57333 0.32523 lineto
+0.57667 0.32347 lineto
+0.58 0.32169 lineto
+0.58333 0.31991 lineto
+0.58667 0.31812 lineto
+0.59 0.31633 lineto
+0.59333 0.31453 lineto
+0.59667 0.31273 lineto
+0.6 0.31092 lineto
+0.60333 0.3091 lineto
+0.60667 0.30728 lineto
+0.61 0.30546 lineto
+0.61333 0.30362 lineto
+0.61667 0.30178 lineto
+0.62 0.29994 lineto
+0.62333 0.29809 lineto
+0.62667 0.29623 lineto
+0.63 0.29437 lineto
+0.63333 0.2925 lineto
+0.63667 0.29063 lineto
+0.64 0.28875 lineto
+0.64333 0.28687 lineto
+0.64667 0.28497 lineto
+0.65 0.28308 lineto
+0.65333 0.28117 lineto
+0.65667 0.27927 lineto
+0.66 0.27735 lineto
+0.66333 0.27543 lineto
+0.66667 0.2735 lineto
+0.67 0.27157 lineto
+0.67333 0.26963 lineto
+0.67667 0.26769 lineto
+0.68 0.26573 lineto
+0.68333 0.26378 lineto
+0.68667 0.26181 lineto
+0.69 0.25984 lineto
+0.69333 0.25787 lineto
+0.69667 0.25589 lineto
+0.7 0.2539 lineto
+0.70333 0.25191 lineto
+0.70667 0.24991 lineto
+0.71 0.2479 lineto
+0.71333 0.24589 lineto
+0.71667 0.24387 lineto
+0.72 0.24185 lineto
+0.72333 0.23982 lineto
+0.72667 0.23778 lineto
+0.73 0.23574 lineto
+0.73333 0.23369 lineto
+0.73667 0.23163 lineto
+0.74 0.22957 lineto
+0.74333 0.2275 lineto
+0.74667 0.22543 lineto
+0.75 0.22335 lineto
+0.75333 0.22126 lineto
+0.75667 0.21917 lineto
+0.76 0.21707 lineto
+0.76333 0.21496 lineto
+0.76667 0.21285 lineto
+0.77 0.21073 lineto
+0.77333 0.20861 lineto
+0.77667 0.20648 lineto
+0.78 0.20434 lineto
+0.78333 0.20219 lineto
+0.78667 0.20004 lineto
+0.79 0.19789 lineto
+0.79333 0.19572 lineto
+0.79667 0.19355 lineto
+0.8 0.19138 lineto
+0.80333 0.1892 lineto
+0.80667 0.18701 lineto
+0.81 0.18481 lineto
+0.81333 0.18261 lineto
+0.81667 0.1804 lineto
+0.82 0.17819 lineto
+0.82333 0.17596 lineto
+0.82667 0.17374 lineto
+0.83 0.1715 lineto
+0.83333 0.16926 lineto
+0.83667 0.16701 lineto
+0.84 0.16476 lineto
+0.84333 0.1625 lineto
+0.84667 0.16023 lineto
+0.85 0.15796 lineto
+0.85333 0.15568 lineto
+0.85667 0.15339 lineto
+0.86 0.15109 lineto
+0.86333 0.14879 lineto
+0.86667 0.14649 lineto
+0.87 0.14417 lineto
+0.87333 0.14185 lineto
+0.87667 0.13953 lineto
+0.88 0.13719 lineto
+0.88333 0.13485 lineto
+0.88667 0.1325 lineto
+0.89 0.13015 lineto
+0.89333 0.12779 lineto
+0.89667 0.12542 lineto
+0.9 0.12305 lineto
+0.90333 0.12067 lineto
+0.90667 0.11828 lineto
+0.91 0.11588 lineto
+0.91333 0.11348 lineto
+0.91667 0.11107 lineto
+0.92 0.10866 lineto
+0.92333 0.10624 lineto
+0.92667 0.10381 lineto
+0.93 0.10137 lineto
+0.93333 0.09893 lineto
+0.93667 0.09648 lineto
+0.94 0.09403 lineto
+0.94333 0.09156 lineto
+0.94667 0.08909 lineto
+0.95 0.08662 lineto
+0.95333 0.08413 lineto
+0.95667 0.08164 lineto
+0.96 0.07915 lineto
+0.96333 0.07664 lineto
+0.96667 0.07413 lineto
+0.97 0.07161 lineto
+0.97333 0.06909 lineto
+0.97667 0.06656 lineto
+0.98 0.06402 lineto
+0.98333 0.06147 lineto
+0.98667 0.05892 lineto
+0.99 0.05636 lineto
+0.99333 0.05379 lineto
+0.99667 0.05122 lineto
+1 0.04864 lineto
+stroke
+
+showpage

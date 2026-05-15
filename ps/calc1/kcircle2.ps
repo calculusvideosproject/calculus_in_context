@@ -1,0 +1,135 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 0 0 612.0 792
+
+/printscale .7 def
+
+100 300 translate		% print translation
+
+ printscale printscale scale	    % scale for printing
+
+% -------------------- font codes --------------------------
+
+/typesize {10 printscale div} def
+/smalltype {8 printscale div} def
+
+/makeTR {/Times-Roman findfont typesize scalefont} def
+/makeTB {/Times-Bold findfont typesize scalefont} def
+/makeTI {/Times-Italic findfont typesize scalefont} def
+/makeSYM {/Symbol findfont typesize scalefont} def
+
+/maketr {/Times-Roman findfont smalltype scalefont} def
+/maketi {/Times-Italic findfont smalltype scalefont} def
+/makesym {/Symbol findfont smalltype scalefont} def
+
+/TR {makeTR setfont} def
+/TB {makeTB setfont} def
+/TI {makeTI setfont} def
+/SYM {makeSYM setfont} def
+
+/tr {maketr setfont} def
+/ti {maketi setfont} def
+/sym {makesym setfont} def
+
+% ---------------string placing procedures-------------------
+
+% stack: fontcode string x y 
+
+/placeBL {moveto show} def
+/placeBR {moveto dup stringwidth pop neg 0 rmoveto show} def
+/placeBC {moveto dup stringwidth pop 2 div neg 0 rmoveto show} def
+/placeTL {moveto 0 typesize neg rmoveto show} def
+/placeTR {moveto dup stringwidth pop neg typesize neg rmoveto show} def
+/placeTC {moveto dup stringwidth pop 2 div neg typesize neg rmoveto show} def
+
+ /arrowdict 14 dict def
+arrowdict begin
+ /mtrx matrix def
+end
+
+/arrow
+ {arrowdict begin
+   /headlength exch def
+   /halfheadthickness exch 2 div def
+   /halfthickness exch 2 div def
+   /tipy exch def /tipx exch def
+   /taily exch def /tailx exch def
+   
+   /dx tipx tailx sub def
+   /dy tipy taily sub def
+   /arrowlength dx dx mul dy dy mul add sqrt def
+   /angle dy dx atan def
+   /base arrowlength headlength sub def
+   
+   /savematrix mtrx currentmatrix def
+   
+   tailx taily translate
+   angle rotate
+   0 halfthickness neg moveto
+   base halfthickness neg lineto
+   base halfheadthickness neg lineto
+   arrowlength 0 lineto
+   base halfheadthickness lineto
+   base halfthickness lineto
+   0 halfthickness lineto
+   closepath
+   
+   savematrix setmatrix
+   end
+ }  def
+
+.4 setlinewidth
+100 100 80 0 360 arc stroke
+0 100 moveto
+200 100 lineto
+stroke
+100 0 moveto
+100 200 lineto stroke
+100 100 25 0 35 arc stroke
+newpath
+100 200 100 205 .2 2 4 arrow 
+fill
+newpath
+200 100 205 100 .2 2 4 arrow
+fill
+gsave
+
+100 100 translate
+0 0 moveto
+35 rotate
+80 0 lineto
+stroke
+73 0 moveto
+73 7 lineto
+80 7 lineto
+stroke
+80 0 moveto
+80 50 lineto
+stroke
+newpath
+80 50 80 55 .2 2 4 arrow
+fill
+80 0 2 0 360 arc fill
+newpath
+24 -5 25 0 .2 2 4 arrow
+fill
+grestore
+
+TI (t) 130 106 placeBL
+(x) 201 90 placeBL
+(y) 90 201 placeBL
+170 147 moveto
+TR (\(cos) 170 147 placeBL
+2 0 rmoveto
+TI (t) show
+1 0 rmoveto
+TR (, sin) show
+2 0 rmoveto
+TI (t) show
+1 0 rmoveto
+TR (\)) show
+(direction of motion) 140 190 placeBL
+
+
+
+showpage
+

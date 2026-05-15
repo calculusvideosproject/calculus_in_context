@@ -1,0 +1,218 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 0 0 612.0 792
+/printscale .95 def
+/recip {1 printscale div} def
+
+%100 300 translate			% print translation
+
+printscale printscale scale
+
+% -------------------- font codes --------------------------
+
+/typesize {10 printscale div} def
+/smalltype {7 printscale div} def
+
+/makeTR {/Times-Roman findfont typesize scalefont} def
+/makeTB {/Times-Bold findfont typesize scalefont} def
+/makeTI {/Times-Italic findfont typesize scalefont} def
+/makeSYM {/Symbol findfont typesize scalefont} def
+
+/maketr {/Times-Roman findfont smalltype scalefont} def
+/maketi {/Times-Italic findfont smalltype scalefont} def
+/makesym {/Symbol findfont smalltype scalefont} def
+
+/TR {makeTR setfont} def
+/TB {makeTB setfont} def
+/TI {makeTI setfont} def
+/SYM {makeSYM setfont} def
+
+/tr {maketr setfont} def
+/ti {maketi setfont} def
+/sym {makesym setfont} def
+
+% ---------------string placing procedures-------------------
+
+% stack: fontcode string x y 
+
+/placeBL {moveto show} def
+/placeBR {moveto dup stringwidth pop neg 0 rmoveto show} def
+/placeBC {moveto dup stringwidth pop 2 div neg 0 rmoveto show} def
+/placeTL {moveto 0 typesize neg rmoveto show} def
+/placeTR {moveto dup stringwidth pop neg typesize neg rmoveto show} def
+/placeTC {moveto dup stringwidth pop 2 div neg typesize neg rmoveto show} def
+
+% ----------------- arrow drawing procedures ------------------
+
+/arrow 
+{-4 recip mul 	0 		rmoveto
+ 0  		1 recip mul 	rlineto
+ 4 recip mul 	-1 recip mul 	rlineto
+-4 recip mul 	-1 recip mul 	rlineto
+ 0  		1 recip mul 	rlineto
+ 4 recip mul 	0 		rlineto} def
+
+/rarrowto {					% stack: dx dy
+  2 copy
+  dup mul exch dup mul add  sqrt		% length of arrow
+  3 1 roll exch atan dup 				% angle
+  rotate exch 0 rlineto arrow neg rotate	% make arrow
+} def
+/arrowto {					% stack: x y
+  currentpoint 3 -1 roll sub neg 3 1 roll sub exch rarrowto
+} def
+
+% ------------------ graphics instructions --------------------
+
+.3 recip mul setlinewidth
+
+% position the origin
+ 50 200 moveto				% screen origin
+0 0  moveto
+currentpoint translate
+
+% --------------------------- grid ---------------------------
+
+gsave
+newpath
+.4 setgray
+0 50 500 
+{ 0 moveto
+  0 300 rlineto
+} for
+0 50 300 
+{ 0 exch moveto
+  500 0 rlineto
+} for
+% stroke			% comment out here to eliminate grid lines
+grestore
+
+/iter
+{/s s 5000 add def
+/st s def
+/x 0 def
+/i 100 def
+0 i .00675 mul moveto
+1000 {curve} repeat
+stroke
+/s st def
+} def
+
+/curve
+{/sp -.00001 s mul i mul def
+/ip i 14 div sp add neg def
+/s s sp .1 mul add def
+/i i ip .1 mul add def
+/x x .288 add def
+x i .00675 mul lineto
+} def
+
+ 
+45 20 translate
+
+newpath
+0 0 moveto
+0 170 arrowto
+0 0 moveto
+300 0 arrowto
+fill
+
+TI (I) -5 165 placeBR
+(t) 300 2 placeTC
+TR (In every case:) 250 154 placeBL
+TI (R) 255 142 placeBL
+SYM(\(0\) = 0) show
+TI (I) 258 130 placeBL
+SYM(\(0\) = 100) show
+sym
+-2 -9 moveto
+(0) show
+280 -9 moveto
+(100) show
+TR
+120 -12 moveto
+(time \(days\)) show
+
+
+/y 28 def
+/num 5000 def
+sym (24000) -4 155 placeBR
+
+gsave
+0 0 moveto
+90 rotate
+35 12 moveto
+TR
+(Infected Population) show
+grestore
+TI (S) 128 167 placeBL
+SYM (\(0\) = 45000) show
+TI (S) 132 143 placeBL
+SYM (\(0\) = 40000) show
+TI (S) 139 119 placeBL
+SYM (\(0\) = 35000) show
+TI (S) 156 95 placeBL
+SYM (\(0\) = 30000) show
+TI (S) 168.5 75.5 placeBL
+SYM (\(0\) = 25000) show
+TI (S) 195 60 placeBL
+SYM (\(0\) = 20000) show
+TI (S) 202 45 placeBL
+SYM (\(0\) = 15000) show
+TI (S) 232 30 placeBL
+SYM (\(0\) = 10000) show
+TI (S) 252 15 placeBL
+SYM (\(0\) = 5000) show
+
+72 153 moveto 
+54 153 arrowto
+72 153 moveto
+126 171 lineto
+fill
+76.5 126 moveto
+58.5 126 arrowto
+76.5 126 moveto
+130 147 lineto
+fill
+83.25 99 moveto
+65.25 99 arrowto
+83.25 99 moveto
+137 123 lineto
+fill
+99 72 moveto
+72 72 arrowto
+99 72 moveto 
+154 99 lineto
+fill
+112.5 49.5 moveto
+85.5 49.5 arrowto
+112.5 49.5 moveto
+166.5 79.5 lineto
+fill
+130.5 31.5 moveto
+105 31.5 arrowto
+130.5 31.5 moveto
+193 64 lineto
+fill
+190 49 moveto
+144 16 arrowto
+190 49 moveto
+200 49 lineto
+fill
+220 34 moveto
+188 3 arrowto
+220 34 moveto
+230 34 lineto
+fill
+240 19 moveto
+234 0 arrowto
+240 19 moveto
+250 19 lineto
+fill
+
+
+.9 recip mul setlinewidth
+/s 0 def
+ 9 {iter} repeat
+
+showpage
+

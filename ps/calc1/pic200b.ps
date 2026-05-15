@@ -1,0 +1,213 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 0 0 612.0 792
+
+/printscale 1 def
+
+%100 300 translate		% print translation
+
+25 -10 translate
+
+ printscale printscale scale	    % scale for printing
+
+% -------------------- font codes --------------------------
+
+/typesize {10 printscale div} def
+/smalltype {8 printscale div} def
+
+/makeTR {/Times-Roman findfont typesize scalefont} def
+/makeTB {/Times-Bold findfont typesize scalefont} def
+/makeTI {/Times-Italic findfont typesize scalefont} def
+/makeSYM {/Symbol findfont typesize scalefont} def
+
+/maketr {/Times-Roman findfont smalltype scalefont} def
+/maketi {/Times-Italic findfont smalltype scalefont} def
+/makesym {/Symbol findfont smalltype scalefont} def
+
+/TR {makeTR setfont} def
+/TB {makeTB setfont} def
+/TI {makeTI setfont} def
+/SYM {makeSYM setfont} def
+
+/tr {maketr setfont} def
+/ti {maketi setfont} def
+/sym {makesym setfont} def
+
+% ---------------string placing procedures-------------------
+
+% stack: fontcode string x y 
+
+/placeBL {moveto show} def
+/placeBR {moveto dup stringwidth pop neg 0 rmoveto show} def
+/placeBC {moveto dup stringwidth pop 2 div neg 0 rmoveto show} def
+/placeTL {moveto 0 typesize neg rmoveto show} def
+/placeTR {moveto dup stringwidth pop neg typesize neg rmoveto show} def
+/placeTC {moveto dup stringwidth pop 2 div neg typesize neg rmoveto show} def
+
+
+/xmark
+{0 -2 moveto
+0 0 lineto
+stroke} def
+
+/xhash
+{xmark
+25 0 translate} def
+
+/ymark1
+{-2 0 moveto
+0 0 lineto
+stroke} def
+
+/yhash1
+{ymark1
+0 28 translate} def
+
+/ymark2
+{-1 0 moveto
+0 0 lineto
+stroke} def
+
+/yhash2
+{ymark2
+0 28 translate} def
+
+
+/pcurve
+{x y moveto
+/nx x 1 add def
+/a nx 3.6 mul def
+/ny a sin 25 mul def
+nx ny lineto
+stroke
+/x nx def
+/y ny def
+} def
+
+/arrowdict 14 dict def
+arrowdict begin
+ /mtrx matrix def
+end
+
+/arrow
+ {arrowdict begin
+   /headlength exch def
+   /halfheadthickness exch 2 div def
+   /halfthickness exch 2 div def
+   /tipy exch def /tipx exch def
+   /taily exch def /tailx exch def
+   
+   /dx tipx tailx sub def
+   /dy tipy taily sub def
+   /arrowlength dx dx mul dy dy mul add sqrt def
+   /angle dy dx atan def
+   /base arrowlength headlength sub def
+   
+   /savematrix mtrx currentmatrix def
+   
+   tailx taily translate
+   angle rotate
+   0 halfthickness neg moveto
+   base halfthickness neg lineto
+   base halfheadthickness neg lineto
+   arrowlength 0 lineto
+   base halfheadthickness lineto
+   base halfthickness lineto
+   0 halfthickness lineto
+   closepath
+   
+   savematrix setmatrix
+   end
+ }  def
+
+
+
+.25 setlinewidth
+52 0 moveto
+52 112 lineto
+stroke
+0 45 moveto
+163 45 lineto
+stroke
+52 108 52 112 .25 2 4 arrow fill
+163 45 167 45 .25 2 4 arrow fill
+
+TI
+44 108 moveto
+(y) show
+163 37 moveto
+(x) show
+(y ) 100 100 placeBL
+TR (= sin\() show
+TI (x) show
+TR (\)) show
+gsave
+2 45 translate
+7 {xhash} repeat
+grestore
+gsave
+52 17 translate
+4 {yhash1} repeat
+grestore
+gsave
+52 3 translate
+4 {yhash2} repeat
+grestore
+
+
+.9 setlinewidth
+gsave
+52 45 translate
+/x -52 def
+/y x sin 3.6 mul neg def
+162 {pcurve} repeat
+grestore
+
+
+198 0 translate
+.25 setlinewidth
+52 0 moveto
+52 112 lineto
+stroke
+0 45 moveto
+163 45 lineto
+stroke
+52 108 52 112 .25 2 4 arrow fill
+163 45 167 45 .25 2 4 arrow fill
+
+TI
+44 108 moveto
+(y) show
+163 37 moveto
+(x) show
+(y ) 90 100 placeBL
+TR (= sin\() show
+TI (x) show
+TR (\) + .5) show
+gsave
+2 45 translate
+7 {xhash} repeat
+grestore
+gsave
+52 17 translate
+4 {yhash1} repeat
+grestore
+gsave
+52 3 translate
+4 {yhash2} repeat
+grestore
+
+
+.9 setlinewidth
+gsave
+52 59 translate
+/x -52 def
+/y x sin 3.6 mul neg def
+162 {pcurve} repeat
+grestore
+
+
+
+
+
+showpage
+

@@ -1,0 +1,196 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 0 0 612.0 792
+
+%100 300 translate 		% print translation
+
+/c 5 -.2 exp def
+
+/curve1
+{/a a delta add def
+/x a 288 mul 240 div def 
+/b b .015 b 1.2 exp mul delta mul add def
+/y b log 15 mul def
+x y lineto
+} def
+
+/curve2
+{/a a 1 add def
+/x a 288 mul 240 div def 
+/b  -5 c .003 a mul sub log mul def
+/y b 15 mul def
+x y lineto} def
+
+/hscale
+{/Times-Roman findfont
+12 scalefont setfont
+/num num 60 add def
+/z x 10 add def
+x -15 moveto
+num (    ) cvs show
+z -2 moveto
+z 0 lineto stroke
+/x x 72 add def
+} def
+
+/vscale1
+{/Times-Roman findfont
+12 scalefont setfont
+/num num 2 add def
+/z y 5 add def
+-30 y moveto
+(10) show
+/Times-Roman findfont
+10 scalefont setfont
+-15 y 5 add moveto
+num (    ) cvs show
+-2 z moveto
+0 z lineto stroke
+/y y 30 add def
+} def
+
+/vscale2
+{/z y 5 add def
+-2 z moveto
+0 z lineto stroke
+/y y 30 add def
+} def
+
+/arrowdict 14 dict def
+arrowdict begin
+ /mtrx matrix def
+end
+
+/arrow
+ {arrowdict begin
+   /headlength exch def
+   /halfheadthickness exch 2 div def
+   /halfthickness exch 2 div def
+   /tipy exch def /tipx exch def
+   /taily exch def /tailx exch def
+   
+   /dx tipx tailx sub def
+   /dy tipy taily sub def
+   /arrowlength dx dx mul dy dy mul add sqrt def
+   /angle dy dx atan def
+   /base arrowlength headlength sub def
+   
+   /savematrix mtrx currentmatrix def
+   
+   tailx taily translate
+   angle rotate
+   0 halfthickness neg moveto
+   base halfthickness neg lineto
+   base halfheadthickness neg lineto
+   arrowlength 0 lineto
+   base halfheadthickness lineto
+   base halfthickness lineto
+   0 halfthickness lineto
+   closepath
+   
+   savematrix setmatrix
+   end
+ }  def
+ 
+ /prt-n
+ {(     ) cvs show} def
+ 
+/xlabels
+ {/num num 1 add def
+  x -13 moveto num prt-n
+  /z x 2 add def
+  z -3 moveto
+  z 0 lineto stroke
+  /x x 72 add def
+	} def
+	
+	 
+18 -5 translate 
+.85 .85 scale
+35 20 translate
+gsave
+0 -20 0 180 .01 2 4 arrow fill
+0 0 310 0 .01 2 4 arrow fill
+grestore
+/Times-Italic findfont
+12 scalefont setfont
+314 -4 moveto
+(t) show
+260 165 moveto
+(Q\(t\)) show
+.15 setlinewidth
+/num 60 def
+/x 134 def
+3 {hscale} repeat
+66 -15 moveto
+(60) show
+72 -2 moveto
+72 0 lineto stroke
+/num -3 def
+/y -19 def
+7 {vscale1} repeat
+/y 26 def
+5 {vscale2} repeat
+
+
+
+
+
+.9 setlinewidth
+/a 0 def
+/x 0 def
+/y 5 log 15 mul def
+x y moveto
+240 {curve2} repeat
+stroke
+/a 0 def
+/x 0 def
+/b 5 def
+/y 5 log 15 mul def
+/delta 2 def
+x y moveto
+120 {curve1} repeat
+gsave
+x 5 add y 5 sub moveto
+/Symbol findfont 12 scalefont setfont
+(D   = 2) show
+/Times-Italic findfont 12 scalefont setfont
+x 14 add y 5 sub moveto
+(t) show
+grestore
+stroke
+/a 0 def
+/x 0 def
+/b 5 def
+/y 5 log 15 mul def
+/delta 1 def
+x y moveto
+240 {curve1} repeat
+gsave
+x 5 add y 5 sub moveto
+/Symbol findfont 12 scalefont setfont
+(D   = 1) show
+/Times-Italic findfont 12 scalefont setfont
+x 14 add y 5 sub moveto
+(t) show
+grestore
+stroke
+/a 0 def
+/x 0 def
+/b 5 def
+/y 5 log 15 mul def
+/delta .1 def
+x y moveto
+2400 {curve1} repeat
+gsave
+x 5 add y 5 sub moveto
+/Symbol findfont 12 scalefont setfont
+(D   = .1) show
+/Times-Italic findfont 12 scalefont setfont
+x 14 add y 5 sub moveto
+(t) show
+grestore
+stroke
+
+
+showpage
+

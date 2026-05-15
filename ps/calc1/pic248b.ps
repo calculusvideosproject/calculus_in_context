@@ -1,0 +1,133 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 0 0 612.0 792
+/printscale .75 def
+/recip {1 printscale div} def
+
+printscale printscale scale
+
+%100 300 translate		% print translation
+
+210 15 translate
+% -------------------- font codes --------------------------
+
+/typesize {10 printscale div} def
+/smalltype {8 printscale div} def
+
+/makeTR {/Times-Roman findfont typesize scalefont} def
+/makeTB {/Times-Bold findfont typesize scalefont} def
+/makeTI {/Times-Italic findfont typesize scalefont} def
+/makeSYM {/Symbol findfont typesize scalefont} def
+
+/maketr {/Times-Roman findfont smalltype scalefont} def
+/maketi {/Times-Italic findfont smalltype scalefont} def
+/makesym {/Symbol findfont smalltype scalefont} def
+
+/TR {makeTR setfont} def
+/TB {makeTB setfont} def
+/TI {makeTI setfont} def
+/SYM {makeSYM setfont} def
+
+/tr {maketr setfont} def
+/ti {maketi setfont} def
+/sym {makesym setfont} def
+
+% ---------------string placing procedures-------------------
+
+% stack: fontcode string x y 
+
+/placeBL {moveto show} def
+/placeBR {moveto dup stringwidth pop neg 0 rmoveto show} def
+/placeBC {moveto dup stringwidth pop 2 div neg 0 rmoveto show} def
+/placeTL {moveto 0 typesize neg rmoveto show} def
+/placeTR {moveto dup stringwidth pop neg typesize neg rmoveto show} def
+/placeTC {moveto dup stringwidth pop 2 div neg typesize neg rmoveto show} def
+
+
+/pcurve
+{x y moveto
+/nx x 1 add def
+/ny 1 nx div 2700 mul def
+nx ny lineto
+stroke
+/x nx def
+/y ny def
+} def
+
+/arrowdict 14 dict def
+arrowdict begin
+ /mtrx matrix def
+end
+
+/arrow
+ {arrowdict begin
+   /headlength exch def
+   /halfheadthickness exch 2 div def
+   /halfthickness exch 2 div def
+   /tipy exch def /tipx exch def
+   /taily exch def /tailx exch def
+   
+   /dx tipx tailx sub def
+   /dy tipy taily sub def
+   /arrowlength dx dx mul dy dy mul add sqrt def
+   /angle dy dx atan def
+   /base arrowlength headlength sub def
+   
+   /savematrix mtrx currentmatrix def
+   
+   tailx taily translate
+   angle rotate
+   0 halfthickness neg moveto
+   base halfthickness neg lineto
+   base halfheadthickness neg lineto
+   arrowlength 0 lineto
+   base halfheadthickness lineto
+   base halfthickness lineto
+   0 halfthickness lineto
+   closepath
+   
+   savematrix setmatrix
+   end
+ }  def
+
+0 12 translate
+
+.25 setlinewidth
+100 0 moveto
+100 100 lineto
+stroke
+72 30 moveto
+288 30 lineto
+stroke
+100 96 100 100 .25 2 4 arrow fill
+284 30 288 30 .25 2 4 arrow fill
+
+TI (y) 90 95 placeBL
+(x) 283 19 placeBL
+(y) 200 81 placeBL
+TR ( = 1/) show
+1 0 rmoveto
+TI (x) show
+sym (1) 145 30 placeTC
+(2) 190 30 placeTC
+(3) 235 30 placeTC
+
+newpath
+145 28 moveto
+145 30 lineto
+190 28 moveto
+190 30 lineto
+235 28 moveto
+235 30 lineto
+stroke
+
+
+1.2 setlinewidth
+100 30 translate
+/x 45 def
+/y 60 def
+90 {pcurve} repeat
+45 60 2 0 360 arc fill
+135 20 2 0 360 arc fill
+
+showpage
+

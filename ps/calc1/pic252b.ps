@@ -1,0 +1,135 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 0 0 612.0 792
+/printscale .4 def
+/recip {1 printscale div} def
+
+printscale printscale scale
+
+%100 400 translate		% print translation
+
+% -------------------- font codes --------------------------
+
+/typesize {10 printscale div} def
+/smalltype {8 printscale div} def
+
+/makeTR {/Times-Roman findfont typesize scalefont} def
+/makeTB {/Times-Bold findfont typesize scalefont} def
+/makeTI {/Times-Italic findfont typesize scalefont} def
+/makeSYM {/Symbol findfont typesize scalefont} def
+
+/maketr {/Times-Roman findfont smalltype scalefont} def
+/maketi {/Times-Italic findfont smalltype scalefont} def
+/makesym {/Symbol findfont smalltype scalefont} def
+
+/TR {makeTR setfont} def
+/TB {makeTB setfont} def
+/TI {makeTI setfont} def
+/SYM {makeSYM setfont} def
+
+/tr {maketr setfont} def
+/ti {maketi setfont} def
+/sym {makesym setfont} def
+
+% ---------------string placing procedures-------------------
+
+% stack: fontcode string x y 
+
+/placeBL {moveto show} def
+/placeBR {moveto dup stringwidth pop neg 0 rmoveto show} def
+/placeBC {moveto dup stringwidth pop 2 div neg 0 rmoveto show} def
+/placeTL {moveto 0 typesize neg rmoveto show} def
+/placeTR {moveto dup stringwidth pop neg typesize neg rmoveto show} def
+/placeTC {moveto dup stringwidth pop 2 div neg typesize neg rmoveto show} def
+
+% ----------------- arrow drawing procedures ------------------
+
+/arrow 
+{-4 recip mul 	0 		rmoveto
+ 0  		1 recip mul 	rlineto
+ 4 recip mul 	-1 recip mul 	rlineto
+-4 recip mul 	-1 recip mul 	rlineto
+ 0  		1 recip mul 	rlineto
+ 4 recip mul 	0 		rlineto} def
+
+/rarrowto {					% stack: dx dy
+  2 copy
+  dup mul exch dup mul add  sqrt		% length of arrow
+  3 1 roll exch atan dup 				% angle
+  rotate exch 0 rlineto arrow neg rotate	% make arrow
+} def
+/arrowto {					% stack: x y
+  currentpoint 3 -1 roll sub neg 3 1 roll sub exch rarrowto
+} def
+
+% ------------------ graphics instructions --------------------
+
+.3 setlinewidth
+
+% position the origin
+280 -25 translate
+
+% --------------------------- grid ---------------------------
+
+gsave
+newpath
+.4 setgray
+0 50 500 
+{ 0 moveto
+  0 300 rlineto
+} for
+0 50 300 
+{ 0 exch moveto
+  500 0 rlineto
+} for
+% stroke			% comment out here to eliminate grid lines
+grestore
+
+newpath
+0 45 moveto
+220 0 rarrowto
+100 0 moveto
+0 100 rarrowto
+fill
+
+
+TI (x) 220 46 placeTC
+(y) 96 96 placeBR
+
+TB (b\)) 0 90 placeBL
+
+
+/pcurve
+{x .8 mul y moveto
+/nx x 1 add def
+/a nx 50 div def
+/ny a 3 exp 5 div a sub 50 mul def
+nx .8 mul ny lineto
+stroke
+/x nx def
+/y ny def
+} def
+
+/ncurve
+{x .8 mul y moveto
+/nx x 1 sub def
+/a nx 50 div def
+/ny a 3 exp 5 div a sub 50 mul def
+nx .8 mul ny lineto
+stroke
+/x nx def
+/y ny def
+} def
+
+
+
+1.2 setlinewidth
+120 50 translate
+/x 0 def
+/y 0 def
+100 {pcurve} repeat
+/x 0 def
+/y 0 def
+130 {ncurve} repeat
+
+showpage
+

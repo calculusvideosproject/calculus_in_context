@@ -1,0 +1,134 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 0 0 612.0 792
+
+% 100 300 translate		% print translation
+20 0 translate
+
+/deltax 288 240 div def
+/pcurve
+{b 40000 sub b 10000 add mul 0 gt {exit} if
+/x x deltax add def
+/b b dup dup -.1 mul exch 25000 div 1 sub mul .5 mul add def
+x b .0036 mul lineto
+} def
+
+/ncurve
+{b 40000 sub b 10000 add mul 0 gt {exit} if
+/x x deltax sub def
+/b b dup dup -.1 mul exch 25000 div 1 sub mul -.5 mul add def
+x b .0036 mul lineto
+} def
+
+/iter1
+{/bo bo 4000 add def
+/b bo def
+/x 0 def
+x bo .0036 mul moveto
+240 {pcurve} repeat
+stroke
+/b bo def
+/x 0 def
+x bo .0036 mul moveto
+240 {ncurve} repeat
+stroke} def
+
+/iter2
+{/bo bo 4000 add def
+/b bo def
+/x -150 def
+x bo .0036 mul moveto
+240 {pcurve} repeat
+stroke
+} def
+
+/iter3
+{/bo bo 4000 add def
+/b bo def
+/x 150 def
+x bo .0036 mul moveto
+240 {ncurve} repeat
+stroke
+} def
+
+/arrowdict 14 dict def
+arrowdict begin
+ /mtrx matrix def
+end
+
+/arrow
+ {arrowdict begin
+   /headlength exch def
+   /halfheadthickness exch 2 div def
+   /halfthickness exch 2 div def
+   /tipy exch def /tipx exch def
+   /taily exch def /tailx exch def
+   
+   /dx tipx tailx sub def
+   /dy tipy taily sub def
+   /arrowlength dx dx mul dy dy mul add sqrt def
+   /angle dy dx atan def
+   /base arrowlength headlength sub def
+   
+   /savematrix mtrx currentmatrix def
+   
+   tailx taily translate
+   angle rotate
+   0 halfthickness neg moveto
+   base halfthickness neg lineto
+   base halfheadthickness neg lineto
+   arrowlength 0 lineto
+   base halfheadthickness lineto
+   base halfthickness lineto
+   0 halfthickness lineto
+   closepath
+   
+   savematrix setmatrix
+   end
+ }  def
+ 
+1.1  1.1 scale 
+163 35 translate
+/Times-Italic findfont
+10 scalefont setfont
+163 -3 moveto
+(t) show
+5 145 moveto
+(R) show
+newpath
+0 -30 0 150 .01 2 4 arrow fill
+-150 0 160 0 .01 2 4 arrow fill
+newpath
+-150 -30 moveto
+-150 140 lineto
+150 140 lineto
+150 -30 lineto
+closepath
+clip
+
+newpath
+/Symbol findfont
+8 scalefont setfont
+-40 92 moveto
+(25000) show
+126 -10 moveto
+(60) show
+-136 -10 moveto
+(-60) show
+.25 setlinewidth
+130 -3 moveto
+130 0 lineto
+stroke
+-130 -3 moveto
+-130 0 lineto
+stroke
+
+.8 setlinewidth
+/bo -10000 def
+11 {iter1} repeat	% 11
+/bo -2000 def
+7 {iter2} repeat	% 7
+/bo -6000 def
+9 {iter3} repeat	% 9
+
+showpage
+

@@ -1,0 +1,211 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 0 0 612.0 792
+
+/printscale .8 def
+
+%100 300 translate		% print translation
+
+
+ printscale printscale scale	    % scale for printing
+
+/Times-Roman findfont
+9 printscale div scalefont setfont
+
+/arrowdict 14 dict def
+arrowdict begin
+ /mtrx matrix def
+end
+
+/arrow
+ {arrowdict begin
+   /headlength exch def
+   /halfheadthickness exch 2 div def
+   /halfthickness exch 2 div def
+   /tipy exch def /tipx exch def
+   /taily exch def /tailx exch def
+   
+   /dx tipx tailx sub def
+   /dy tipy taily sub def
+   /arrowlength dx dx mul dy dy mul add sqrt def
+   /angle dy dx atan def
+   /base arrowlength headlength sub def
+   
+   /savematrix mtrx currentmatrix def
+   
+   tailx taily translate
+   angle rotate
+   0 halfthickness neg moveto
+   base halfthickness neg lineto
+   base halfheadthickness neg lineto
+   arrowlength 0 lineto
+   base halfheadthickness lineto
+   base halfthickness lineto
+   0 halfthickness lineto
+   closepath
+   
+   savematrix setmatrix
+   end
+ }  def
+
+.5 setlinewidth
+
+15 85 moveto    %the lake
+20 82 lineto
+25 81 lineto
+30 78 lineto
+34 74 lineto
+40 72 lineto
+42 69 lineto
+48 65 lineto
+55 61 lineto
+66 59 lineto
+70 55 lineto
+75 52 lineto
+80 48 lineto
+85 46 lineto
+90 42 lineto
+95 39 lineto
+100 37 lineto
+106 36 lineto
+113 35 lineto
+stroke
+127 57 moveto
+122 59 lineto
+117 64 lineto
+111 67 lineto
+106 70 lineto
+100 72 lineto
+95 76 lineto
+90 78 lineto
+85 81 lineto
+80 84 lineto
+74 88 lineto
+69 90 lineto
+63 93 lineto
+57 95 lineto
+52 98 lineto
+47 100 lineto
+41 103 lineto
+36 106 lineto
+32 108 lineto
+29 110 lineto
+stroke
+
+gsave
+.2 setlinewidth
+90 42 translate
+0 0 moveto
+90 -53 92 atan add rotate
+31 0 lineto
+stroke
+4 0 0 0 .2 2 4 arrow fill
+29 0 32 0 .2 2 4 arrow fill
+10 15 moveto
+(50) show
+8 5 moveto
+(yds) show
+grestore
+
+gsave
+.2 setlinewidth
+10 80 translate
+0 0 moveto
+-53 92 atan rotate
+110 0 lineto
+4 0 0 0 .2 2 4 arrow fill
+106 0 110 0 .2 2 4 arrow fill
+stroke
+40 -12 moveto
+(950 yds) show
+grestore
+
+15 85 moveto    %upstream
+13 92 lineto
+11 96 lineto
+4 103 lineto
+2 105 lineto
+1 107 lineto
+2 109 lineto
+4 112 lineto
+10 115 lineto
+16 119 lineto
+25 124 lineto
+30 125 lineto
+35 128 lineto
+45 131 lineto
+50 133 lineto
+55 134 lineto
+stroke
+29 110 moveto
+24 108 lineto
+19 105 lineto
+14 103 lineto
+10 104 lineto
+9 107 lineto
+9 110 lineto
+13 113 lineto
+17 115 lineto
+22 118 lineto
+28 121 lineto
+37 122 lineto
+42 126 lineto
+47 127 lineto
+57 130 lineto
+stroke
+
+62 132 moveto
+(the River) show
+
+
+.7 setgray    %the dam
+109 29 moveto
+111 30 lineto
+115 32 lineto
+120 33 lineto
+125 35 lineto
+130 40 lineto
+132 45 lineto
+133 55 lineto
+132 60 lineto
+131 64 lineto
+closepath
+fill
+0 setgray
+gsave
+[2 2] 0 setdash
+109 29 moveto
+131 64 lineto
+stroke
+grestore
+
+125 35 moveto    %downstream
+130 37 lineto
+135 34 lineto
+138 30 lineto
+138 25 lineto
+136 20 lineto
+133 15 lineto
+129 10 lineto
+124 5 lineto
+118 0 lineto
+stroke
+128 40 moveto
+133 42 lineto
+138 39 lineto
+141 35 lineto
+146 30 lineto
+146 25 lineto
+143 20 lineto
+139 15 lineto
+134 10 lineto
+128 5 lineto
+122 0 lineto
+stroke
+
+136 55 moveto
+(the) show
+136 45 moveto
+(dam) show
+
+showpage
+

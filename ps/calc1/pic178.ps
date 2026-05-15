@@ -1,0 +1,110 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 0 0 612.0 792
+
+0 0 translate 			%% print translation
+
+/curve
+{/x x 1 add def
+/y 9 1.015 x exp mul def
+x y lineto } def
+
+
+
+/arrowdict 14 dict def
+arrowdict begin
+ /mtrx matrix def
+end
+
+/arrow
+ {arrowdict begin
+   /headlength exch def
+   /halfheadthickness exch 2 div def
+   /halfthickness exch 2 div def
+   /tipy exch def /tipx exch def
+   /taily exch def /tailx exch def
+   
+   /dx tipx tailx sub def
+   /dy tipy taily sub def
+   /arrowlength dx dx mul dy dy mul add sqrt def
+   /angle dy dx atan def
+   /base arrowlength headlength sub def
+   
+   /savematrix mtrx currentmatrix def
+   
+   tailx taily translate
+   angle rotate
+   0 halfthickness neg moveto
+   base halfthickness neg lineto
+   base halfheadthickness neg lineto
+   arrowlength 0 lineto
+   base halfheadthickness lineto
+   base halfthickness lineto
+   0 halfthickness lineto
+   closepath
+   
+   savematrix setmatrix
+   end
+ }  def
+ 
+15 -40 translate
+newpath
+0 0 moveto
+0 100 lineto
+ 400 200 lineto
+ 400 0 lineto
+ closepath
+ clip
+ newpath
+35 20 translate
+0 0 0 180 .01 2 4 arrow fill
+0 0 300 0 .01 2 4 arrow fill
+/Times-Roman findfont
+10 scalefont setfont
+-24 8 moveto
+(2000) show
+-3 -12 moveto
+(0) show
+/num 0 def
+/x 70 def
+gsave
+-12 0 translate 
+0 0 moveto
+90 rotate
+40 0 translate
+-10 5 moveto
+(number of rabbits) show 
+grestore
+gsave
+-47 -15 translate
+293 65.88 moveto
+(graph if rabbits) show
+293 53.88 moveto
+(increased at 200) show
+293 41.88 moveto
+(per month forever) show
+grestore
+170 100 moveto
+(actual graph) show
+/Times-Italic findfont
+12 scalefont setfont
+304 -4 moveto
+(t) show
+
+
+
+
+
+
+
+1 setlinewidth
+/x 0 def
+/y 9 def
+x y moveto
+170 {curve} repeat
+stroke
+
+0 9 moveto
+240 .1339975 240 mul 9 add lineto
+stroke
+showpage
+

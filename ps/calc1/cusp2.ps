@@ -1,0 +1,227 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 0 0 612.0 792
+
+25 20 translate			% print translation
+
+/Xtrans1 50 def
+/Xtrans2 170 def
+/Xtrans3 290 def
+/Ytrans1  50 def
+/Ytrans2 20 def
+/Ytrans3 30 def
+
+/Hscale 150 def
+/Vscale 150 def
+/Times-Roman findfont
+/fac 9 def
+fac scalefont setfont
+
+-70 -160 translate
+
+/Mdot {
+gsave
+1 Hscale div 1 Vscale div scale
+Vscale mul
+exch
+Hscale mul
+exch
+1.5 0 360 arc
+fill
+grestore} def
+/Mshowa {
+gsave
+1 Hscale div 1 Vscale div scale   %first seven lines convert to absolute scale
+4 2 roll
+Vscale mul
+exch
+Hscale mul
+exch
+4 2 roll
+.65 mul
+exch dup .3 mul fac mul
+exch 1 sub .5 mul
+6 -1 roll
+0 get
+dup stringwidth pop
+exch
+7 1 roll
+mul add
+4 -1 roll
+add
+3 1 roll
+.35 sub fac mul add
+moveto
+show
+grestore
+} def
+
+%  start of first graph
+gsave
+Xtrans1 Ytrans1 translate
+Hscale Vscale scale
+0.004 setlinewidth
+0.24914 0.61799 moveto
+0.27004 0.58406 lineto
+0.29095 0.54908 lineto
+0.31185 0.51291 lineto
+0.33276 0.47538 lineto
+0.35366 0.43624 lineto
+0.37457 0.39519 lineto
+0.39547 0.35178 lineto
+0.41638 0.30535 lineto
+0.43728 0.25483 lineto
+0.45819 0.19824 lineto
+0.46864 0.16641 lineto
+0.47909 0.13076 lineto
+0.48432 0.11071 lineto
+0.48955 0.08825 lineto
+0.49216 0.07562 lineto
+0.49477 0.06148 lineto
+0.49608 0.05352 lineto
+0.49739 0.04461 lineto
+0.49804 0.03959 lineto
+0.49869 0.03398 lineto
+0.49935 0.02728 lineto
+0.5 0.01589 lineto
+0.50065 0.02728 lineto
+0.50131 0.03398 lineto
+0.50261 0.04461 lineto
+0.50523 0.06148 lineto
+0.51045 0.08825 lineto
+0.52091 0.13076 lineto
+0.54181 0.19824 lineto
+0.56272 0.25483 lineto
+0.58362 0.30535 lineto
+0.60453 0.35178 lineto
+0.62543 0.39519 lineto
+0.64634 0.43624 lineto
+0.66724 0.47538 lineto
+0.68815 0.51291 lineto
+0.70905 0.54908 lineto
+0.72996 0.58406 lineto
+0.75086 0.61799 lineto
+stroke
+0.50108 0.03178 Mdot
+0.24914 0.61803 Mdot
+0.75086 0.61803 Mdot
+gsave
+0.004 setlinewidth     %small box
+0.47 0.0761 moveto
+0.54 0.0761 lineto
+0.54 0 lineto
+0.47 0 lineto
+0.47 0.0761 lineto
+stroke
+grestore
+[(\(-.2333, .379\))] 0.24914 0.61803 0 1 Mshowa
+[(\(.2333, .379\))] 0.75086 0.61803 0 1 Mshowa
+[(\(.001, .01\))] 0.50108 0.03178 1.2 0 Mshowa
+
+gsave     %draws lines to next box
+[.005 .005] 0 setdash
+0.001 setlinewidth
+0.47 0.0761 moveto    
+0.2 Xtrans2 Xtrans1 sub Hscale div add 0.61803 Ytrans2 Ytrans1 sub Vscale div add lineto
+stroke
+0.47 0.0 moveto
+0.2 Xtrans2 Xtrans1 sub Hscale div add -.1 Ytrans2 Ytrans1 sub Vscale div add lineto
+stroke
+grestore
+
+
+grestore
+
+gsave
+Xtrans2 Ytrans2 translate
+Hscale Vscale scale
+0.006 setlinewidth
+0.42065 0.61803 moveto
+0.43728 0.53068 lineto
+0.45819 0.40875 lineto
+0.46864 0.34019 lineto
+0.47909 0.26337 lineto
+0.48432 0.22018 lineto
+0.48955 0.17179 lineto
+0.49216 0.14459 lineto
+0.49477 0.1141 lineto
+0.49608 0.09696 lineto
+0.49739 0.07776 lineto
+0.49804 0.06696 lineto
+0.49869 0.05486 lineto
+0.49935 0.04044 lineto
+0.5 0.01589 lineto
+0.50065 0.04044 lineto
+0.50131 0.05486 lineto
+0.50261 0.07776 lineto
+0.50523 0.1141 lineto
+0.51045 0.17179 lineto
+0.52091 0.26337 lineto
+0.54181 0.40875 lineto
+0.56272 0.53068 lineto
+0.57935 0.61803 lineto
+stroke
+0.51075 0.17477 Mdot
+0.42065 0.61803 Mdot
+0.57935 0.61803 Mdot
+0.004 setlinewidth      %small box
+0.5 0.14347 moveto
+0.52151 0.14347 lineto
+0.52151 0.2032 lineto
+0.5 0.2032 lineto
+0.5 0.14347 lineto
+stroke
+
+[(\(-.00738, .0379\))] 0.42065 0.61803 -.9 1.1 Mshowa
+[(\(.00738, .0379\))] 0.57935 0.61803 .9 1.1 Mshowa
+[(\(.001, .01\))] 0.51075 0.17477 1.1 0 Mshowa
+
+
+.002 setlinewidth     %big box
+.8 .61803 moveto
+.8 -.1 lineto
+.2 -.1 lineto
+.2 .61803 lineto
+.8 .61803 lineto
+stroke
+
+gsave     %draws lines to next box
+[.005 .005] 0 setdash
+0.001 setlinewidth
+.5 .2032 moveto    
+0.514 Xtrans3 Xtrans2 sub Hscale div add 0.61803 Ytrans3 Ytrans2 sub Vscale div add lineto
+stroke
+.5 .14347 moveto
+.5 Xtrans3 Xtrans2 sub Hscale div add 0 Ytrans3 Ytrans2 sub Vscale div add lineto
+stroke
+grestore
+
+grestore
+
+Xtrans3 Ytrans3 translate
+Hscale Vscale scale
+0.006 setlinewidth
+0.57742 0 moveto
+0.58362 0.07012 lineto
+0.60453 0.29308 lineto
+0.62543 0.50154 lineto
+0.63763 0.61803 lineto
+stroke
+0.60753 0.32381 Mdot
+0.57742 0 Mdot
+0.63763 0.61803 Mdot
+[(\(.00072, .00803\))] 0.57742 0 0 -1 Mshowa
+[(\(.00128, .01179\))] 0.63763 0.61803 0 1 Mshowa
+[(\(.001, .01\))] 0.60753 0.32381 1 0 Mshowa
+
+
+.002 setlinewidth
+.7 .61803 moveto
+.7 0 lineto
+.514 0 lineto
+.514 .61803 lineto
+.7 .61803 lineto
+stroke
+
+
+showpage
+

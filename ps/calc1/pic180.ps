@@ -1,0 +1,128 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 0 0 612.0 792
+
+% 100 400 translate 			% print translation
+10 0 translate
+
+/deltax 288 240 div def
+/curve1
+{/x x deltax add def
+/b b b .1 mul 1 b 25000 div sub mul .4 mul add def
+x b .0045 mul lineto
+} def
+
+/curve2
+{/x x deltax add def
+/b b b .1 mul .4 mul add def
+x b .0045 mul lineto
+} def
+
+/arrowdict 14 dict def
+arrowdict begin
+ /mtrx matrix def
+end
+
+/arrow
+ {arrowdict begin
+   /headlength exch def
+   /halfheadthickness exch 2 div def
+   /halfthickness exch 2 div def
+   /tipy exch def /tipx exch def
+   /taily exch def /tailx exch def
+   
+   /dx tipx tailx sub def
+   /dy tipy taily sub def
+   /arrowlength dx dx mul dy dy mul add sqrt def
+   /angle dy dx atan def
+   /base arrowlength headlength sub def
+   
+   /savematrix mtrx currentmatrix def
+   
+   tailx taily translate
+   angle rotate
+   0 halfthickness neg moveto
+   base halfthickness neg lineto
+   base halfheadthickness neg lineto
+   arrowlength 0 lineto
+   base halfheadthickness lineto
+   base halfthickness lineto
+   0 halfthickness lineto
+   closepath
+   
+   savematrix setmatrix
+   end
+ }  def
+ 
+ /prt-n
+ {(     ) cvs show} def
+ 
+/xlabels
+ {/num num 1 add def
+  x -13 moveto num prt-n
+  /z x 2 add def
+  z -3 moveto
+  z 3 lineto stroke
+  /x x 72 add def
+	} def 
+ 
+
+ 
+35 20 translate
+0 0 0 180 .01 2 4 arrow fill
+0 0 300 0 .01 2 4 arrow fill
+/Times-Roman findfont
+10 scalefont setfont
+-23 7 moveto
+(2000) show
+-3 -12 moveto
+(0) show
+/num 0 def
+/x 70 def
+gsave
+-12 0 translate 
+0 0 moveto
+90 rotate
+60 0 translate
+0 0 moveto
+(number of rabbits) show 
+grestore
+20 115 moveto
+(25,000) show
+100 65 moveto
+(logistic solution) show
+95 160 moveto
+(exponential solution) show
+/Times-Italic findfont
+12 scalefont setfont
+304 -4 moveto
+(t) show
+
+
+
+
+
+
+
+1 setlinewidth
+/x 0 def
+/b 2000 def
+/y .0045 b mul def
+x y moveto
+240 {curve1} repeat
+stroke
+/x 0 def
+/b 2000 def
+/y .0045 b mul def
+x y moveto
+75 {curve2} repeat
+stroke
+gsave
+.5 setlinewidth
+[1 1] 0 setdash
+0 112.5 moveto
+288 112.5 lineto
+stroke
+grestore
+
+showpage
+

@@ -1,0 +1,93 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 0 0 612.0 792
+/Times-Italic findfont
+10 scalefont setfont
+
+%100 300 translate			% print translation
+
+15 5 translate
+
+/arrowdict 14 dict def
+arrowdict begin
+ /mtrx matrix def
+end
+
+/arrow
+ {arrowdict begin
+   /headlength exch def
+   /halfheadthickness exch 2 div def
+   /halfthickness exch 2 div def
+   /tipy exch def /tipx exch def
+   /taily exch def /tailx exch def
+   
+   /dx tipx tailx sub def
+   /dy tipy taily sub def
+   /arrowlength dx dx mul dy dy mul add sqrt def
+   /angle dy dx atan def
+   /base arrowlength headlength sub def
+   
+   /savematrix mtrx currentmatrix def
+   
+   tailx taily translate
+   angle rotate
+   0 halfthickness neg moveto
+   base halfthickness neg lineto
+   base halfheadthickness neg lineto
+   arrowlength 0 lineto
+   base halfheadthickness lineto
+   base halfthickness lineto
+   0 halfthickness lineto
+   closepath
+   
+   savematrix setmatrix
+   end
+ }  def
+
+.75 .75 scale
+1 .3 scale
+56 56 translate
+.25 setlinewidth
+0 300 54 310 285 arc 
+stroke
+-54 300 moveto
+-54 0 lineto
+0 0 54 180 285 arc
+285 cos 54 mul 300 285 sin 54 mul add lineto
+stroke
+310 cos 54 mul 300 310 sin 54 mul add moveto
+0 0 54 310 360 arc
+54 300 lineto
+stroke
+0 0 54 50 75 arc stroke
+
+70 150 100 150 .5 8 8 arrow fill
+
+112 0 translate
+0 0 moveto
+0 300 lineto
+300 300 lineto
+300 0 lineto
+closepath stroke
+
+308 125 308 0 .25 3 16 arrow fill
+308 175 308 300 .25 3 16 arrow fill
+306 135 moveto
+gsave
+1.33 40 9 div scale
+(h) show
+grestore
+162 318 300 318 .25 8 5 arrow fill
+130 318 0 318 .25 8 5 arrow fill
+135 310 moveto
+gsave
+1.33 40 9 div scale
+(     r) show
+grestore
+/Symbol findfont
+10 scalefont setfont
+135 310 moveto
+1.33 40 9 div scale
+(2p) show
+
+showpage
+

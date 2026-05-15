@@ -1,0 +1,240 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 0 0 612.0 792
+
+20 -8 translate			% print translation
+
+/Xtrans1 50 def
+/Xtrans2 150 def
+/Xtrans3 250 def
+/Ytrans1  10 def
+/Ytrans2 10 def
+/Ytrans3 10 def
+
+/Hscale 150 def
+/Vscale 150 def
+/Times-Roman findfont
+/fac 9 def
+fac scalefont setfont
+
+-50 5 translate
+
+/Mdot {
+gsave
+1 Hscale div 1 Vscale div scale
+Vscale mul
+exch
+Hscale mul
+exch
+1.5 0 360 arc
+fill
+grestore} def
+/Mshowa {
+gsave
+1 Hscale div 1 Vscale div scale   %first seven lines convert to absolute scale
+4 2 roll
+Vscale mul
+exch
+Hscale mul
+exch
+4 2 roll
+.65 mul
+exch dup .3 mul fac mul
+exch 1 sub .5 mul
+6 -1 roll
+0 get
+dup stringwidth pop
+exch
+7 1 roll
+mul add
+4 -1 roll
+add
+3 1 roll
+.35 sub fac mul add
+moveto
+show
+grestore
+} def
+
+%  start of first graph
+gsave
+Xtrans1 Ytrans1 translate
+Hscale Vscale scale
+0.006 setlinewidth
+0.02381 0.01472 moveto
+0.02505 0.02173 lineto
+0.02629 0.02586 lineto
+0.02877 0.0324 lineto
+0.03373 0.04279 lineto
+0.04365 0.05928 lineto
+0.06349 0.08546 lineto
+0.10317 0.12701 lineto
+0.14286 0.16187 lineto
+0.18254 0.19298 lineto
+0.22222 0.22157 lineto
+0.2619 0.2483 lineto
+0.30159 0.27358 lineto
+0.34127 0.29769 lineto
+0.38095 0.3208 lineto
+0.42063 0.34307 lineto
+0.46032 0.36462 lineto
+0.5 0.38551 lineto
+0.53968 0.40584 lineto
+0.57937 0.42564 lineto
+0.61905 0.44499 lineto
+0.65873 0.4639 lineto
+0.69841 0.48243 lineto
+0.7381 0.5006 lineto
+0.77778 0.51843 lineto
+0.81746 0.53595 lineto
+0.85714 0.55319 lineto
+0.89683 0.57015 lineto
+0.93651 0.58685 lineto
+0.97619 0.60332 lineto
+stroke
+0.5 0.38551 Mdot
+0.97619 0.60332 Mdot
+0.02381 0.01472 Mdot
+0.54762 0.40984 Mdot
+0.45238 0.36036 Mdot
+[(\(1, 1\))] .5 .38551 -1 .8 Mshowa
+[(\(0, 0\))] .02381 .01472 1 0 Mshowa
+[(\(2, 1.58740\))] .97619 .60332 -1 .5 Mshowa
+0.004 setlinewidth
+
+
+gsave     %draws lines to next box
+[.005 .005] 0 setdash
+0.0005 setlinewidth
+0.54762 0.40984 moveto
+0.97619 Xtrans2 Xtrans1 sub Hscale div add 0.60332 Ytrans2 Ytrans1 sub Vscale div add lineto
+stroke
+0.45238 0.36036 moveto
+0.02381  Xtrans2 Xtrans1 sub Hscale div add 0.01472 Ytrans2 Ytrans1 sub Vscale div add lineto
+stroke
+grestore
+
+/rangle 
+{0.40984 0.60332 Ytrans2 Ytrans1 sub Vscale div add exch sub Vscale mul
+0.54762 0.97619 Xtrans2 Xtrans1 sub Hscale div add exch sub Hscale mul
+atan} def
+gsave
+0.54762 0.40984 translate
+rangle rotate
+[(10x)] .5 0 0 .8 Mshowa
+grestore
+
+
+grestore
+
+%  start of second graph
+gsave
+Xtrans2 Ytrans2 translate
+Hscale Vscale scale
+0.006 setlinewidth
+0.02381 0.01472 moveto
+0.06349 0.04006 lineto
+0.10317 0.06533 lineto
+0.14286 0.09052 lineto
+0.18254 0.11563 lineto
+0.22222 0.14067 lineto
+0.2619 0.16564 lineto
+0.30159 0.19053 lineto
+0.34127 0.21535 lineto
+0.38095 0.2401 lineto
+0.42063 0.26478 lineto
+0.46032 0.28939 lineto
+0.5 0.31393 lineto
+0.53968 0.3384 lineto
+0.57937 0.36281 lineto
+0.61905 0.38715 lineto
+0.65873 0.41142 lineto
+0.69841 0.43563 lineto
+0.7381 0.45977 lineto
+0.77778 0.48385 lineto
+0.81746 0.50787 lineto
+0.85714 0.53182 lineto
+0.89683 0.55572 lineto
+0.93651 0.57955 lineto
+0.97619 0.60332 lineto
+stroke
+0.5 0.31393 Mdot
+0.97619 0.60331 Mdot
+0.02381 0.01472 Mdot
+0.54762 0.34331 Mdot
+0.45238 0.28447 Mdot
+[(\(1, 1\))] .5 .31393 -1 .8 Mshowa
+[(\(.9, .932170\))] .02381 .01472 1 0 Mshowa
+[(\(1.1, 1.06560\))] .97619 .60331 -1 .5 Mshowa
+
+gsave     %draws lines to next box
+[.005 .005] 0 setdash
+0.0005 setlinewidth
+0.54762 0.34331 moveto
+0.97619 Xtrans3 Xtrans2 sub Hscale div add 0.60312 Ytrans3 Ytrans2 sub Vscale div add lineto
+stroke
+0.45238 0.28447 moveto
+0.02381  Xtrans3 Xtrans2 sub Hscale div add 0.01472 Ytrans3 Ytrans2 sub Vscale div add lineto
+stroke
+grestore
+
+/rangle 
+{0.34331 0.60312 Ytrans3 Ytrans2 sub Vscale div add exch sub Vscale mul
+0.54762 0.97619 Xtrans3 Xtrans2 sub Hscale div add exch sub Hscale mul
+atan} def
+gsave
+0.54762 0.34331 translate
+rangle rotate
+[(10x)] .5 0 0 .8 Mshowa
+grestore
+
+
+grestore
+
+%   start of third graph
+Xtrans3 Ytrans3 translate
+Hscale Vscale scale
+0.006 setlinewidth
+0.02381 0.01472 moveto
+0.06349 0.03932 lineto
+0.10317 0.06391 lineto
+0.14286 0.08849 lineto
+0.18254 0.11306 lineto
+0.22222 0.13763 lineto
+0.2619 0.16219 lineto
+0.30159 0.18675 lineto
+0.34127 0.21129 lineto
+0.38095 0.23583 lineto
+0.42063 0.26037 lineto
+0.46032 0.28489 lineto
+0.5 0.30941 lineto
+0.53968 0.33393 lineto
+0.57937 0.35843 lineto
+0.61905 0.38293 lineto
+0.65873 0.40743 lineto
+0.69841 0.43191 lineto
+0.7381 0.45639 lineto
+0.77778 0.48086 lineto
+0.81746 0.50533 lineto
+0.85714 0.52979 lineto
+0.89683 0.55424 lineto
+0.93651 0.57869 lineto
+0.97619 0.60312 lineto
+stroke
+0.5 0.30941 Mdot
+0.97619 0.60332 Mdot
+0.02381 0.01472 Mdot
+[(\(1, 1\))] .5 .30941 -1 .8 Mshowa
+[(\(.99, .993322\))] .02381 .01472 1 0 Mshowa
+[(\(1.01, 1.00666\))] .97619 .60332 -1 .5 Mshowa
+0.004 setlinewidth
+0.54762 0.3388 moveto
+0.54762 0.27994 lineto
+0.45238 0.27994 lineto
+0.45238 0.3388 lineto
+0.54762 0.3388 lineto
+%stroke
+
+
+
+showpage
+

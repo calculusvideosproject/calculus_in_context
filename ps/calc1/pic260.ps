@@ -1,0 +1,120 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 0 0 612.0 792
+
+%100 300 translate			% print translation
+
+/deltax 288 400 div def
+/deltaa deltax 72 div def
+/curve
+{/x x deltax add def
+/a x 72 div def
+/y y a a mul 180 mul 3.14159 div cos deltaa mul add def
+x y 100 mul lineto
+} def
+
+/arrowdict 14 dict def
+arrowdict begin
+ /mtrx matrix def
+end
+
+/arrow
+ {arrowdict begin
+   /headlength exch def
+   /halfheadthickness exch 2 div def
+   /halfthickness exch 2 div def
+   /tipy exch def /tipx exch def
+   /taily exch def /tailx exch def
+   
+   /dx tipx tailx sub def
+   /dy tipy taily sub def
+   /arrowlength dx dx mul dy dy mul add sqrt def
+   /angle dy dx atan def
+   /base arrowlength headlength sub def
+   
+   /savematrix mtrx currentmatrix def
+   
+   tailx taily translate
+   angle rotate
+   0 halfthickness neg moveto
+   base halfthickness neg lineto
+   base halfheadthickness neg lineto
+   arrowlength 0 lineto
+   base halfheadthickness lineto
+   base halfthickness lineto
+   0 halfthickness lineto
+   closepath
+   
+   savematrix setmatrix
+   end
+ }  def
+ 
+ /prt-n
+ {(     ) cvs show} def
+ 
+/xlabels
+ {/num num 1 add def
+  x 1 sub -16 moveto num prt-n
+  /z x 2 add def
+  z -3 moveto
+  z 0 lineto stroke
+  /x x 72 add def
+	} def 
+ 
+
+/printscale .95 def
+%30 50 translate
+
+60 10 translate
+
+
+printscale printscale scale
+0 -20 0 120 .02 2 4 arrow fill
+-20 0 300 0 .1 2 4 arrow fill
+.1 setlinewidth
+-3 100 moveto
+0 100 lineto
+stroke
+/Times-Roman findfont
+10 printscale div scalefont setfont
+-11 96 moveto
+(1) show
+/num 0 def
+/x 70 def
+4 {xlabels} repeat
+gsave
+-12 0 translate 
+0 0 moveto
+90 rotate
+15 8 translate
+0 0 moveto
+(accumulated  ) dup show stringwidth translate
+0 0 moveto
+/Symbol findfont
+10 printscale div  scalefont setfont
+( D) dup show stringwidth translate
+0 0 moveto
+/Times-Italic findfont
+10 printscale div  scalefont setfont
+(y) show
+grestore
+/Times-Italic findfont
+10 .7 div scalefont setfont
+304 -4 moveto
+(t) show
+
+
+
+
+
+
+
+1.5 setlinewidth
+/x 0 def
+/y 0 def
+/a 0 def
+x y moveto
+400 {curve} repeat
+stroke
+
+showpage
+

@@ -1,0 +1,241 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 0 0 612.0 792
+/printscale .36 def
+/recip {1 printscale div} def
+/screenstretch {printscale 90 50 div mul} def
+/double {screenstretch 2 mul} def
+
+%100 300 translate		% print translation
+
+ printscale printscale scale       %scale for printing
+% screenstretch screenstretch scale %printing scale on screen
+% double double scale               %magnified screen
+
+% -------------------- font codes --------------------------
+
+/typesize {10 printscale div} def
+/smalltype {8 printscale div} def
+
+/makeTR {/Times-Roman findfont typesize scalefont} def
+/makeTB {/Times-Bold findfont typesize scalefont} def
+/makeTI {/Times-Italic findfont typesize scalefont} def
+/makeSYM {/Symbol findfont typesize scalefont} def
+
+/maketr {/Times-Roman findfont smalltype scalefont} def
+/maketi {/Times-Italic findfont smalltype scalefont} def
+/makesym {/Symbol findfont smalltype scalefont} def
+
+/TR {makeTR setfont} def
+/TB {makeTB setfont} def
+/TI {makeTI setfont} def
+/SYM {makeSYM setfont} def
+
+/tr {maketr setfont} def
+/ti {maketi setfont} def
+/sym {makesym setfont} def
+
+% ---------------string placing procedures-------------------
+
+% stack: fontcode string x y 
+
+/placeBL {moveto show} def
+/placeBR {moveto dup stringwidth pop neg 0 rmoveto show} def
+/placeBC {moveto dup stringwidth pop 2 div neg 0 rmoveto show} def
+/placeTL {moveto 0 typesize neg rmoveto show} def
+/placeTR {moveto dup stringwidth pop neg typesize neg rmoveto show} def
+/placeTC {moveto dup stringwidth pop 2 div neg typesize neg rmoveto show} def
+
+% ----------------- arrow drawing procedures ------------------
+
+/arrow 
+{-4 recip mul 	0 		rmoveto
+ 0  		1 recip mul 	rlineto
+ 4 recip mul 	-1 recip mul 	rlineto
+-4 recip mul 	-1 recip mul 	rlineto
+ 0  		1 recip mul 	rlineto
+ 4 recip mul 	0 		rlineto} def
+
+/rarrowto {					% stack: dx dy
+  2 copy
+  dup mul exch dup mul add  sqrt		% length of arrow
+  3 1 roll exch atan dup 				% angle
+  rotate exch 0 rlineto arrow neg rotate	% make arrow
+} def
+/arrowto {					% stack: x y
+  currentpoint 3 -1 roll sub neg 3 1 roll sub exch rarrowto
+} def
+
+% ------------- defining units -----------------
+
+
+
+%100 points = 1 graphical unit = 1 radian
+/pi 3.14 def
+/rad {100 div} def 			% pt --> rad
+/pt  {100 mul} def 			% rad --> pt
+/deg {180 mul pi div} def 	% rad --> deg
+
+
+/dot {currentpoint 2 0 360 arc} def	% make a dot
+
+
+% definition of f(x) = sin(x) in pt
+/f {rad deg 				% x in proper units
+sin pt	 			% ln(x) in proper units
+} def
+
+% definition of g(x) = 1 - cos(x)
+/g {rad deg
+cos 
+neg 
+1 add
+pt
+} def
+
+
+% ------------------- program -------------------------
+
+1 setlinewidth
+
+% position the origin
+200 460 moveto					% print origin
+%700 450 moveto					% screen origin
+currentpoint translate
+
+% ------------ first picture -------------------
+
+/step 2 def
+
+
+% shaded area 
+
+gsave				% save solid lines
+newpath
+0 dup f moveto			% initial point
+
+0 step 400			% gives x value
+{dup f				% gives x, y point
+ lineto				% draws line from previous point
+} for
+400 0 lineto 
+closepath
+.9 setgray
+fill
+grestore				% restore solid lines
+
+
+%graph of y = sin(x) 
+
+gsave
+.9 recip mul setlinewidth
+newpath
+0 dup f moveto			% initial point
+
+0 step 690			% gives x value
+{dup f				% gives x, y point
+ lineto				% draws line from previous point
+} for
+stroke
+grestore
+
+% coordinate axes
+newpath
+-30 0 moveto
+740 0 rarrowto
+0 -120 moveto
+0 260 rarrowto
+fill
+0 -100 moveto
+-6 0 rlineto
+0 100 moveto
+-6 0 rlineto
+stroke
+
+% line from label to region
+newpath
+280 110 moveto
+190 30 lineto
+dot
+290 110 moveto
+365 -20 lineto
+dot
+stroke
+
+% labels
+TI (x) 710 1 placeTC
+(y) -9 135 placeBR
+(X) 400 5 placeBC
+TR (signed area = ) 205 117 placeBL
+SYM (1 - ) show
+TR (cos) show
+6 0 rmoveto TI (X) show
+sym (-1) -9 -108 placeBR
+(1) -9 92 placeBR
+SYM (p) 315 0 placeTR
+(2p) 628 0 placeTL
+TI (y = ) 630 690 f 10 add placeBL
+TR (sin) show
+6 0 rmoveto TI (x) show
+
+
+% -------------------- second picture --------------------
+
+0 -400 moveto
+currentpoint translate
+
+
+%graph of y = 1 - cos(x) 
+
+gsave
+.9 recip mul setlinewidth
+newpath
+0 dup g moveto			% initial point
+
+0 step 690			% gives x value
+{dup g				% gives x, y point
+ lineto				% draws line from previous point
+} for
+stroke
+grestore
+
+% coordinate axes
+newpath
+-30 0 moveto
+740 0 rarrowto
+0 -20 moveto
+0 260 rarrowto
+fill
+400 0 moveto
+400 400 g lineto
+0 100 moveto
+-6 0 rlineto
+0 200 moveto
+-6 0 rlineto
+314 0 moveto
+0 -6 rlineto
+628 0 moveto
+0 -6 rlineto
+stroke
+
+% labels
+TI (x) 710 1 placeTC
+(y) -9 235 placeBR
+(X) 400 0 placeTC
+sym (2) -9 192 placeBR
+(1) -9 92 placeBR
+SYM (p) 314 0 placeTC
+(2p) 628 0 placeTC
+
+TI (y = ) 630 690 g 10 add placeBL
+SYM (1 - ) show
+TR (cos) show
+6 0 rmoveto TI (x) show
+
+SYM (1 - ) 330 75 placeBR
+TR (cos) show
+6 0 rmoveto TI (X) show
+
+showpage
+
+
+

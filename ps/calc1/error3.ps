@@ -1,0 +1,266 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 0 0 612.0 792
+/printscale 1 def
+/recip {1 printscale div} def
+/screenstretch {printscale 90 50 div mul} def
+/double {screenstretch 2 mul} def
+
+%100 300 translate		% print translation
+
+ printscale printscale scale       %scale for printing
+% screenstretch screenstretch scale %printing scale on screen
+% double double scale               %magnified screen
+
+% -------------------- font codes --------------------------
+
+/typesize {10 printscale div} def
+/smalltype {8 printscale div} def
+
+/makeTR {/Times-Roman findfont typesize scalefont} def
+/makeTB {/Times-Bold findfont typesize scalefont} def
+/makeTI {/Times-Italic findfont typesize scalefont} def
+/makeSYM {/Symbol findfont typesize scalefont} def
+
+/maketr {/Times-Roman findfont smalltype scalefont} def
+/maketi {/Times-Italic findfont smalltype scalefont} def
+/makesym {/Symbol findfont smalltype scalefont} def
+
+/TR {makeTR setfont} def
+/TB {makeTB setfont} def
+/TI {makeTI setfont} def
+/SYM {makeSYM setfont} def
+
+/tr {maketr setfont} def
+/ti {maketi setfont} def
+/sym {makesym setfont} def
+
+% ---------------string placing procedures-------------------
+
+% stack: fontcode string x y 
+
+/placeBL {moveto show} def
+/placeBR {moveto dup stringwidth pop neg 0 rmoveto show} def
+/placeBC {moveto dup stringwidth pop 2 div neg 0 rmoveto show} def
+/placeTL {moveto 0 typesize neg rmoveto show} def
+/placeTR {moveto dup stringwidth pop neg typesize neg rmoveto show} def
+/placeTC {moveto dup stringwidth pop 2 div neg typesize neg rmoveto show} def
+
+% ----------------- arrow drawing procedures ------------------
+
+/arrow 
+{-4 recip mul 	0 		rmoveto
+ 0  		1 recip mul 	rlineto
+ 4 recip mul 	-1 recip mul 	rlineto
+-4 recip mul 	-1 recip mul 	rlineto
+ 0  		1 recip mul 	rlineto
+ 4 recip mul 	0 		rlineto} def
+
+/rarrowto {					% stack: dx dy
+  2 copy
+  dup mul exch dup mul add  sqrt		% length of arrow
+  3 1 roll exch atan dup 				% angle
+  rotate exch 0 rlineto arrow neg rotate	% make arrow
+} def
+/arrowto {					% stack: x y
+  currentpoint 3 -1 roll sub neg 3 1 roll sub exch rarrowto
+} def
+
+% ------------------- program -------------------------
+
+.3 setlinewidth
+
+% position the origin
+%80 80 moveto				% screen origin
+%70 0 moveto				% print origin
+%currentpoint translate
+
+80 12 translate
+
+% definition of function y = f(x)
+
+/f				% input x
+{ 100 sub			% form z = x-100
+dup 				% save a copies of z on stack
+dup mul			% make z^2
+-.000045 mul		% make -.000045z^2 = -A
+.89 add 			% make .89 -A 
+mul				% make z[.89 -A]
+60 add			% add 60 
+} def			% f = 60 + z(.89 - .000045z^2)
+
+% the shaded errors on the graph
+
+/initial 40  def
+newpath
+initial dup f moveto	% initial point
+
+/step 10 def
+
+initial step add step 140	% gives x value
+{dup f 				% gives x, y point
+ lineto				% draws line from previous point
+} for
+140 -20 60 
+{dup dup 
+f exch
+20 sub exch lineto
+20 sub dup f lineto
+} for
+gsave 				% save unclipped page
+clip
+
+40 2 140				% vertical line hatching
+{0 moveto
+0 100 rlineto
+} for
+stroke
+
+grestore				% restore unclipped page
+stroke				% put in ``staircase''
+
+% rectangle sides
+newpath
+40 20 140
+{dup 0 moveto
+dup f lineto
+} for
+stroke
+
+% graph of f
+
+gsave
+.9 recip mul setlinewidth
+/initial 10 def
+newpath
+initial dup f moveto			% initial point
+
+/step 10  def
+
+initial step add step 160	% gives x value
+{dup f 				% gives x, y point
+ lineto				% draws line from previous point
+} for
+stroke				% draw the graph
+grestore
+
+% error box
+
+newpath
+190 40 f moveto
+1 1 5
+{20 mul 20 add
+dup f
+190 exch lineto
+4 4 20
+{2 copy add f
+exch 190 add
+exch lineto} for
+} for
+210 140 f lineto
+190 140 f lineto
+190 40 f lineto
+gsave 				% save unclipped page
+clip
+
+190 2 210				% vertical line hatching
+{0 moveto
+0 100 rlineto
+} for
+stroke
+
+grestore				% restore unclipped page
+stroke
+
+190 40 f moveto
+210 40 f lineto
+210 140 f lineto
+stroke
+
+% coord axes
+newpath
+-30 0 moveto
+200 0 rarrowto
+0 -12 moveto
+0 125 rarrowto
+fill
+40 0 moveto 
+0 -2 rlineto
+140 0 moveto
+0 -2 rlineto
+0 40 f moveto
+2 0 rlineto
+0 140 f moveto
+2 0 rlineto
+stroke
+
+% horizontal dashed lines
+gsave					% save solid lines
+newpath
+[1 2] 0 setdash
+4 40 f moveto
+36 0 rlineto
+4 140 f moveto
+116 0 rlineto
+stroke
+grestore					% restore solid lines
+
+
+% dimension marks for error box
+newpath
+190 40 f 3 sub moveto
+0 -10 rlineto
+20 0 rmoveto
+0 10 rlineto
+10 -5 rmoveto 
+-10 0 rarrowto
+-30 0 rmoveto
+10 0 rarrowto
+fill
+
+214 40 f moveto
+12 0 rlineto
+214 140 f moveto
+12 0 rlineto
+stroke
+
+220 50 moveto
+220 40 f arrowto
+220 50 moveto
+220 140 f arrowto
+fill
+
+
+% labels
+TI (a) 40 0 placeTC
+(b) 140 0 placeTC
+(x) 170 0 placeTC
+(y) -4 110 placeBR
+(y = f) 160 108 placeBC
+1 0 rmoveto SYM (\() show
+TI (x) show 
+SYM (\)) show
+SYM (D) 221 40 f 11 sub placeBL
+1 0 rmoveto TI (x) show
+(f) 224 140 f 40 f add 2 div 2 sub placeBL
+1 0 rmoveto SYM (\() show
+TI (b) show 
+SYM (\) - ) show
+TI (f) show
+1 0 rmoveto SYM (\() show
+TI (a) show 
+SYM (\)) show
+
+TI (f) -18 140 f 2 sub placeBL
+1 0 rmoveto SYM (\() show
+TI (b) show 
+SYM (\)) show
+
+TI (f) -18 40 f 2 sub placeBL
+1 0 rmoveto SYM (\() show
+TI (a) show 
+SYM (\)) show
+
+
+showpage
+
+

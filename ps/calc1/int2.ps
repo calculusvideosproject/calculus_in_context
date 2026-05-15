@@ -1,0 +1,241 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 0 0 612.0 792
+/printscale .5 def
+/recip {1 printscale div} def
+/screenstretch {printscale 90 50 div mul} def
+/double {screenstretch 2 mul} def
+
+%100 300 translate		% print translation
+
+ printscale printscale scale       %scale for printing
+% screenstretch screenstretch scale %printing scale on screen
+% double double scale               %magnified screen
+
+% -------------------- font codes --------------------------
+
+/typesize {10 printscale div} def
+/smalltype {8 printscale div} def
+
+/makeTR {/Times-Roman findfont typesize scalefont} def
+/makeTB {/Times-Bold findfont typesize scalefont} def
+/makeTI {/Times-Italic findfont typesize scalefont} def
+/makeSYM {/Symbol findfont typesize scalefont} def
+
+/maketr {/Times-Roman findfont smalltype scalefont} def
+/maketi {/Times-Italic findfont smalltype scalefont} def
+/makesym {/Symbol findfont smalltype scalefont} def
+
+/TR {makeTR setfont} def
+/TB {makeTB setfont} def
+/TI {makeTI setfont} def
+/SYM {makeSYM setfont} def
+
+/tr {maketr setfont} def
+/ti {maketi setfont} def
+/sym {makesym setfont} def
+
+% ---------------string placing procedures-------------------
+
+% stack: fontcode string x y 
+
+/placeBL {moveto show} def
+/placeBR {moveto dup stringwidth pop neg 0 rmoveto show} def
+/placeBC {moveto dup stringwidth pop 2 div neg 0 rmoveto show} def
+/placeTL {moveto 0 typesize neg rmoveto show} def
+/placeTR {moveto dup stringwidth pop neg typesize neg rmoveto show} def
+/placeTC {moveto dup stringwidth pop 2 div neg typesize neg rmoveto show} def
+
+% ----------------- arrow drawing procedures ------------------
+
+/arrow 
+{-4 recip mul 	0 		rmoveto
+ 0  		1 recip mul 	rlineto
+ 4 recip mul 	-1 recip mul 	rlineto
+-4 recip mul 	-1 recip mul 	rlineto
+ 0  		1 recip mul 	rlineto
+ 4 recip mul 	0 		rlineto} def
+
+/rarrowto {					% stack: dx dy
+  2 copy
+  dup mul exch dup mul add  sqrt		% length of arrow
+  3 1 roll exch atan dup 				% angle
+  rotate exch 0 rlineto arrow neg rotate	% make arrow
+} def
+/arrowto {					% stack: x y
+  currentpoint 3 -1 roll sub neg 3 1 roll sub exch rarrowto
+} def
+
+% ------------- defining units -----------------
+
+
+%100 points = 1 graphical unit = 1 radian
+/pi 3.14 def
+/rad {100 div} def 			% pt --> rad
+/pt  {100 mul} def 			% rad --> pt
+/deg {180 mul pi div} def 	% rad --> deg
+
+/dot {currentpoint .2 0 360 arc} def	% make a dot
+
+/Sin {rad deg sin pt} def	% sin of angle given in pt
+/Cos {rad deg cos pt} def	% cos of angle given in pt
+
+% definition of f(x) = cos(x^2) in pt
+/f {rad 				% x in radians
+dup mul				% make x^2 in radians
+deg cos pt	 		% cos(x^2) in proper units
+} def
+
+
+% ------------------- program -------------------------
+
+.3 recip mul setlinewidth
+
+% position the origin
+60 180 moveto					% print origin
+%100 500 moveto					% screen origin
+currentpoint translate
+
+% ------------ first picture -------------------
+
+/step 1 def
+
+
+
+%graph of y = cos(x^2) 
+
+gsave
+.9 recip mul setlinewidth
+newpath
+0 dup f moveto			% initial point
+
+0 step 445			% gives x value
+{dup f				% gives x, y point
+ lineto				% draws line from previous point
+} for
+stroke
+grestore
+
+% dotted vertical lines 
+
+gsave				% save solid lines
+[1 2] 0 setdash
+pi 2 div sqrt pt -2 moveto
+0 -198 rlineto
+3 pi mul 2 div sqrt pt -2 moveto
+0 -256 rlineto
+5 pi mul 2 div sqrt pt -2 moveto
+0 -218 rlineto
+7 pi mul 2 div sqrt pt -2 moveto
+0 -248 rlineto
+9 pi mul 2 div sqrt pt -2 moveto
+0 -220 rlineto
+11 pi mul 2 div sqrt pt -2 moveto
+0 -244 rlineto
+stroke
+grestore				% restore solid lines
+
+% coordinate axes
+newpath
+-30 0 moveto
+500 0 rarrowto
+0 -115 moveto
+0 250 rarrowto
+fill
+
+% ticks on the axes
+newpath
+0 100 moveto
+-5 0 rlineto
+0 -100 moveto
+-5 0 rlineto
+100 100 400
+{0 moveto
+0 -5 rlineto
+} for
+stroke
+
+% labels
+TI (x) 470 0 placeTC
+(y) -4 132 placeBR
+(y = ) 455 70 placeBL
+TR (cos) show
+1 0 rmoveto(\() show
+2 0 rmoveto TI (x) show
+2 7 rmoveto sym (2) show
+3 -7 rmoveto TR (\)) show
+
+sym (1) -8 97 placeBR
+(-1) -8 -103 placeBR
+
+% -------------------- second picture --------------------
+
+0 -300 moveto
+currentpoint translate
+
+/deltax 1 def
+
+gsave
+.9 recip mul setlinewidth
+newpath
+0 0 moveto
+
+0 deltax 445 
+{f rad
+deltax mul 
+deltax
+exch
+rlineto
+} for
+stroke
+grestore
+
+% coordinate axes
+newpath
+-30 0 moveto
+500 0 rarrowto
+0 -20 moveto
+0 160 rarrowto
+fill
+
+newpath
+0 100 moveto
+-5 0 rlineto
+100 100 400
+{0 moveto
+0 -5 rlineto
+} for
+stroke
+
+% labels
+TI (X) 470 0 placeTC
+(y) -4 136 placeBR
+(y = A) 455 68 placeBL
+1 0 rmoveto TR (\() show
+TI (X) show
+2 0 rmoveto TR (\) = ) show
+
+0 -10 rmoveto SYM (\365) show		% begin integral 
+gsave
+-4 -10 rmoveto TR (0) show
+grestore
+-14 20 rmoveto SYM (\363) show
+2 8 rmoveto TI (X) show			% end integral
+
+4 -18 rmoveto TR (cos) show
+2 0 rmoveto(\() show
+2 0 rmoveto TI (x) show
+2 7 rmoveto sym (2) show
+3 -7 rmoveto TR (\)) show
+5 0 rmoveto TI (dx) show
+
+
+sym (1) -8 96 placeBR
+(1) 100 -1 placeTC
+(2) 200 -1 placeTC
+(3) 300 -1 placeTC
+(4) 400 -1 placeTC
+
+
+showpage
+
+

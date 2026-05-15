@@ -1,0 +1,326 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 0 0 612.0 792
+/printscale 1 def
+/recip {1 printscale div} def
+
+%100 300 translate			% print translation
+
+printscale printscale scale
+
+% -------------------- font codes --------------------------
+
+/typesize {10 printscale div} def
+/smalltype {8 printscale div} def
+
+/makeTR {/Times-Roman findfont typesize scalefont} def
+/makeTB {/Times-Bold findfont typesize scalefont} def
+/makeTI {/Times-Italic findfont typesize scalefont} def
+/makeSYM {/Symbol findfont typesize scalefont} def
+
+/maketr {/Times-Roman findfont smalltype scalefont} def
+/maketi {/Times-Italic findfont smalltype scalefont} def
+/makesym {/Symbol findfont smalltype scalefont} def
+
+/TR {makeTR setfont} def
+/TB {makeTB setfont} def
+/TI {makeTI setfont} def
+/SYM {makeSYM setfont} def
+
+/tr {maketr setfont} def
+/ti {maketi setfont} def
+/sym {makesym setfont} def
+
+% ---------------string placing procedures-------------------
+
+% stack: fontcode string x y 
+
+/placeBL {moveto show} def
+/placeBR {moveto dup stringwidth pop neg 0 rmoveto show} def
+/placeBC {moveto dup stringwidth pop 2 div neg 0 rmoveto show} def
+/placeTL {moveto 0 typesize neg rmoveto show} def
+/placeTR {moveto dup stringwidth pop neg typesize neg rmoveto show} def
+/placeTC {moveto dup stringwidth pop 2 div neg typesize neg rmoveto show} def
+
+/placeSL   %stack: fontcode string x y 
+{ dup neg
+4 1 roll 
+exch
+dup neg
+5 1 roll
+exch
+translate
+90 rotate
+%dup stringwidth pop
+%neg 0
+0 0 moveto
+show
+-90 rotate
+translate} def
+
+
+/placeSC   %stack: fontcode string x y 
+{ dup neg
+4 1 roll 
+exch
+dup neg
+5 1 roll
+exch
+translate
+90 rotate
+dup stringwidth pop
+2 div
+neg 0
+moveto
+show
+-90 rotate
+translate} def
+
+
+/placeSR   %stack: fontcode string x y 
+{ dup neg
+4 1 roll 
+exch
+dup neg
+5 1 roll
+exch
+translate
+90 rotate
+dup stringwidth pop
+neg 0
+moveto
+show
+-90 rotate
+translate} def
+
+
+%---- graphing procedures -----
+
+/htick {0 -2 rlineto} def
+/vtick {-2 0 rlineto} def
+
+/hscale {currentpoint 
+pop 60 add 0 moveto 
+htick} def
+
+/vscale {currentpoint 30 add 0 exch moveto
+vtick} def
+
+% ----------------- arrow drawing procedures ------------------
+
+/arrow 
+{-4 recip mul 	0 		rmoveto
+ 0  		1 recip mul 	rlineto
+ 4 recip mul 	-1 recip mul 	rlineto
+-4 recip mul 	-1 recip mul 	rlineto
+ 0  		1 recip mul 	rlineto
+ 4 recip mul 	0 		rlineto} def
+
+/rarrowto {					% stack: dx dy
+  2 copy
+  dup mul exch dup mul add  sqrt		% length of arrow
+  3 1 roll exch atan dup 				% angle
+  rotate exch 0 rlineto arrow neg rotate	% make arrow
+} def
+/arrowto {					% stack: x y
+  currentpoint 3 -1 roll sub neg 3 1 roll sub exch rarrowto
+} def
+
+% --------------------------------------------------------------
+
+%---- program ----
+
+.3 setlinewidth
+TR    % sets Times-Roman 10 point font
+
+% set the origin
+60 0 moveto
+currentpoint translate
+
+% axes
+0 0 moveto
+255 0 arrowto
+0 0 moveto
+0 105 arrowto
+fill
+
+%0 0 moveto 
+%4 {hscale} repeat
+0 0 moveto 
+3 {vscale} repeat
+stroke
+
+TR (hours) 255 -2 placeTL
+(time) 255 4 placeBL
+
+sym (30) -4 28 placeBR
+(60) -4 58 placeBR
+(90) -4 88 placeBR
+TR (power) -4 103 placeBR
+(megawatts) -24 50 placeSC
+
+% power graph
+
+.9 recip mul setlinewidth
+newpath
+0 30 moveto
+ 80 10  90 78 110 75 curveto
+150 69 150 90 180 90 curveto
+230 90 228 32 240 30 curveto
+%320 10 330 78 350 75 curveto
+stroke
+
+% step function graph 
+
+newpath
+ .7 recip mul setlinewidth
+  0 28.5 moveto
+ 60 28.5 lineto
+ 60 47 moveto
+ 95 47 lineto
+ 95 75 moveto
+150 75 lineto
+150 88 moveto
+210 88 lineto
+210 57 moveto
+240 57 lineto
+stroke
+
+% sides of the rectangles
+newpath
+ .4 recip mul setlinewidth
+[1 2] 1 setdash
+ 60  0 moveto
+  0 47 rlineto
+ 95  0 moveto
+  0 75 rlineto
+150  0 moveto
+  0 88 rlineto
+210  0 moveto
+  0 88 rlineto
+240  0 moveto
+  0 57 rlineto
+stroke
+
+% sampling points
+[1 1] 0 setdash
+  9  0 moveto
+  0 28.5 rlineto
+ 78  0 moveto
+  0 47 rlineto
+110  0 moveto
+  0 75 rlineto
+164  0 moveto
+  0 88 rlineto
+226  0 moveto
+  0 57 rlineto
+stroke
+
+% labels of sampling points
+TI (t) 9 1 placeTC
+0 -3 rmoveto sym (1) show 
+TI (t) 78 1 placeTC
+0 -3 rmoveto sym (2) show 
+TI (t) 110 1 placeTC
+0 -3 rmoveto sym (3) show 
+TI (t) 164 1 placeTC
+0 -3 rmoveto sym (4) show 
+TI (t) 226 1 placeTC
+0 -3 rmoveto sym (5) show 
+TR
+
+% heights of steps
+(28.5)  11 12 placeBL
+(47) 77 20 placeBR
+(75) 112 34 placeBL
+(88) 166 41 placeBL
+(57) 225 26 placeBR
+
+% vertical dots to mark subintervals delta t
+newpath
+[1 2] 1 setdash
+  0  0 moveto 
+ 0 -42 rlineto
+ 60  0 moveto
+ 0 -42 rlineto
+ 95  0 moveto
+ 0 -42 rlineto
+150  0 moveto
+ 0 -42 rlineto
+210  0 moveto
+ 0 -42 rlineto
+240  0 moveto
+ 0 -42 rlineto
+stroke
+
+% labels of subintervals
+SYM (D) 23 -24 placeBL 
+1 0 rmoveto
+TI (t) show
+0 -3 rmoveto sym (1) show 
+SYM (D) 70.5 -24 placeBL 
+1 0 rmoveto
+TI (t) show
+0 -3 rmoveto sym (2) show 
+SYM (D) 115.5 -24 placeBL 
+1 0 rmoveto
+TI (t) show
+0 -3 rmoveto sym (3) show 
+SYM (D) 173 -24 placeBL 
+1 0 rmoveto
+TI (t) show
+0 -3 rmoveto sym (4) show 
+SYM (D) 218 -24 placeBL 
+1 0 rmoveto
+TI (t) show
+0 -3 rmoveto sym (5) show 
+TR
+
+% arrows for subintervals
+newpath
+[] 0 setdash
+%first
+21 -22 moveto 
+-20 0 rarrowto 
+39 -22 moveto
+20 0 rarrowto
+%second
+68.5 -22 moveto 
+-7.5 0 rarrowto 
+86.5 -22 moveto
+7.5 0 rarrowto
+%third
+113.5 -22 moveto 
+-17.5 0 rarrowto 
+131.5 -22 moveto
+17.5 0 rarrowto
+%fourth
+171 -22 moveto 
+-20 0 rarrowto 
+189 -22 moveto
+20 0 rarrowto
+%fifth
+216 -22 moveto 
+-5 0 rarrowto 
+234 -22 moveto
+5 0 rarrowto
+fill
+
+% widths of subintervals
+SYM
+(6) 30 -40 placeBC
+(3.5) 77.5 -40 placeBC
+(5.5) 122.5 -40 placeBC
+(6) 180 -40 placeBC
+(3) 225 -40 placeBC
+
+
+
+%(0) 0 -2 placeTC
+%(6) 60 -2 placeTC
+%(9.5) 95 -2 placeTC
+%(15) 150 -2 placeTC
+%(21) 210 -2 placeTC
+%(24) 240 -2 placeTC
+
+showpage
+

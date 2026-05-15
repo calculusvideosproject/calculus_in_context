@@ -1,0 +1,693 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 0 0 612.0 792
+/printscale .9 def
+/recip {1 printscale div} def
+/screenstretch {printscale 90 50 div mul} def
+/double {screenstretch 2 mul} def
+
+ 100 100 translate 		% print translation
+
+ printscale printscale scale       %scale for printing
+% screenstretch screenstretch scale %printing scale on screen
+% double double scale               %magnified screen
+
+% -------------------- font codes --------------------------
+
+/typesize {10 printscale div} def
+/smalltype {8 printscale div} def
+
+/makeTR {/Times-Roman findfont typesize scalefont} def
+/makeTB {/Times-Bold findfont typesize scalefont} def
+/makeTI {/Times-Italic findfont typesize scalefont} def
+/makeSYM {/Symbol findfont typesize scalefont} def
+
+/maketr {/Times-Roman findfont smalltype scalefont} def
+/maketi {/Times-Italic findfont smalltype scalefont} def
+/makesym {/Symbol findfont smalltype scalefont} def
+
+/TR {makeTR setfont} def
+/TB {makeTB setfont} def
+/TI {makeTI setfont} def
+/SYM {makeSYM setfont} def
+
+/tr {maketr setfont} def
+/ti {maketi setfont} def
+/sym {makesym setfont} def
+
+% ---------------string placing procedures-------------------
+
+% stack: fontcode string x y 
+
+/placeBL {moveto show} def
+/placeBR {moveto dup stringwidth pop neg 0 rmoveto show} def
+/placeBC {moveto dup stringwidth pop 2 div neg 0 rmoveto show} def
+/placeTL {moveto 0 typesize neg rmoveto show} def
+/placeTR {moveto dup stringwidth pop neg typesize neg rmoveto show} def
+/placeTC {moveto dup stringwidth pop 2 div neg typesize neg rmoveto show} def
+
+% ----------------- arrow drawing procedures ------------------
+
+/arrow 
+{-4 recip mul 	0 		rmoveto
+ 0  		1 recip mul 	rlineto
+ 4 recip mul 	-1 recip mul 	rlineto
+-4 recip mul 	-1 recip mul 	rlineto
+ 0  		1 recip mul 	rlineto
+ 4 recip mul 	0 		rlineto} def
+
+/rarrowto {					% stack: dx dy
+  2 copy
+  dup mul exch dup mul add  sqrt		% length of arrow
+  3 1 roll exch atan dup 				% angle
+  rotate exch 0 rlineto arrow neg rotate	% make arrow
+} def
+/arrowto {					% stack: x y
+  currentpoint 3 -1 roll sub neg 3 1 roll sub exch rarrowto
+} def
+
+% -------------------------- program -----------------------------
+ 
+/Xtrans1 -85 def
+/Xtrans2 145 def
+/Xtrans3 50 def
+/Ytrans1 45 def
+/Ytrans2 45 def
+/Ytrans3 -90 def
+
+/Sscale 150 def
+/Vscale 150 def
+
+% labels before scale change
+gsave
+ Xtrans1 Ytrans1 translate
+ sym (42000) -3 29 placeBR
+ (44000) -3 60 placeBR
+ (46000) -3 91 placeBR
+ (0) 0 1 placeTC
+ (1) 50 1 placeTC
+ (2) 100 1 placeTC
+ (3) 150 1 placeTC
+ SYM (D) 115 70 placeBL
+ 1 0 rmoveto
+ TI (t) show
+ SYM ( = 1) show
+ TI (S) -4 107 placeBR
+ (t) 170 1 placeTC
+ 0 90 moveto
+ 0 20 rarrowto
+ 150 0 moveto
+ 20 0 rarrowto
+ fill 
+grestore
+gsave
+ Xtrans2 Ytrans2 translate
+ sym (42000) -3 29 placeBR
+ (44000) -3 60 placeBR
+ (46000) -3 91 placeBR
+ (0) 0 1 placeTC
+ (1) 50 1 placeTC
+ (2) 100 1 placeTC
+ (3) 150 1 placeTC
+ SYM (D) 115 62 placeBL
+ 1 0 rmoveto
+ TI (t) show
+ SYM ( = .1) show 
+ TI (S) -4 107 placeBR
+ (t) 170 1 placeTC
+ 0 90 moveto
+ 0 20 rarrowto
+ 150 0 moveto
+ 20 0 rarrowto
+ fill 
+grestore
+gsave
+ Xtrans3 Ytrans3 translate
+ sym (42000) -3 29 placeBR
+ (44000) -3 60 placeBR
+ (46000) -3 91 placeBR
+ (0) 0 1 placeTC
+ (1) 50 1 placeTC
+ (2) 100 1 placeTC
+ (3) 150 1 placeTC
+ SYM (D) 115 54 placeBL
+ 1 0 rmoveto
+ TI (t) show
+ SYM ( = .01) show 
+ TI (S) -4 107 placeBR
+ (t) 170 1 placeTC
+ 0 90 moveto
+ 0 20 rarrowto
+ 150 0 moveto
+ 20 0 rarrowto
+ fill 
+grestore
+
+
+gsave
+ Xtrans1 Ytrans1 translate
+ Sscale Vscale scale
+ 0.002 setlinewidth
+ 0 0 moveto
+ 1 0 lineto
+ stroke
+ 0.16667 -0.008 moveto
+ 0.16667 0 lineto
+ stroke
+ 0.33333 -0.008 moveto
+ 0.33333 0 lineto
+ stroke
+ 0.5 -0.008 moveto
+ 0.5 0 lineto
+ stroke
+ 0.66667 -0.008 moveto
+ 0.66667 0 lineto
+ stroke
+ 0.83333 -0.008 moveto
+ 0.83333 0 lineto
+ stroke
+ 1 -0.008 moveto
+ 1 0 lineto
+ stroke
+ 0 0 moveto   %y-axis
+ 0 .04 lineto
+ stroke
+ -.015 .035 moveto
+ .015 .045 lineto
+ stroke
+ -.015 .0475 moveto
+ .015 .0575 lineto
+ stroke
+ 0 .0525 moveto
+ 0 0.61803 lineto
+ stroke
+ -0.008 0.10301 moveto
+ 0 0.10301 lineto
+ stroke
+ -0.008 0.20601 moveto
+ 0 0.20601 lineto
+ stroke
+ -0.008 0.30902 moveto
+ 0 0.30902 lineto
+ stroke
+ -0.008 0.41202 moveto
+ 0 0.41202 lineto
+ stroke
+ -0.008 0.51503 moveto
+ 0 0.51503 lineto
+ stroke
+ -0.008 0.61803 moveto
+ 0 0.61803 lineto
+ stroke
+
+
+ /Mdot {
+  gsave
+  1 Sscale div 1 Vscale div scale
+  Vscale mul
+  exch
+  Sscale mul
+  exch
+  1 recip mul 0 360 arc
+  fill
+  grestore} 
+ def
+
+ 0 0.55623 Mdot
+ 0.33333 0.45802 Mdot
+ 0.66667 0.3251 Mdot
+ 1 0.14789 Mdot
+grestore
+
+gsave
+ Xtrans2 Ytrans2 translate
+ Sscale Vscale scale
+ 0.002 setlinewidth
+ 0 0 moveto
+ 1 0 lineto
+ stroke
+ 0.16667 -0.008 moveto
+ 0.16667 0 lineto
+ stroke
+ 0.33333 -0.008 moveto
+ 0.33333 0 lineto
+ stroke
+ 0.5 -0.008 moveto
+ 0.5 0 lineto
+ stroke
+ 0.66667 -0.008 moveto
+ 0.66667 0 lineto
+ stroke
+ 0.83333 -0.008 moveto
+ 0.83333 0 lineto
+ stroke
+ 1 -0.008 moveto
+ 1 0 lineto
+ stroke
+ 0 0 moveto   %y-axis
+ 0 .04 lineto
+ stroke
+ -.015 .035 moveto
+ .015 .045 lineto
+ stroke
+ -.015 .0475 moveto
+ .015 .0575 lineto
+ stroke
+ 0 .0525 moveto
+ 0 0.61803 lineto
+ stroke
+ -0.008 0.10301 moveto
+ 0 0.10301 lineto
+ stroke
+ -0.008 0.20601 moveto
+ 0 0.20601 lineto
+ stroke
+ -0.008 0.30902 moveto
+ 0 0.30902 lineto
+ stroke
+ -0.008 0.41202 moveto
+ 0 0.41202 lineto
+ stroke
+ -0.008 0.51503 moveto
+ 0 0.51503 lineto
+ stroke
+ -0.008 0.61803 moveto
+ 0 0.61803 lineto
+ stroke
+
+ /Mdot {
+  gsave
+  1 Sscale div 1 Vscale div scale
+  Vscale mul
+  exch
+  Sscale mul
+  exch
+  .8 recip mul 0 360 arc
+  fill
+  grestore} 
+ def
+
+ 0 0.55623 Mdot
+ 0.03333 0.54641 Mdot
+ 0.06667 0.53624 Mdot
+ 0.1 0.5257 Mdot
+ 0.13333 0.51478 Mdot
+ 0.16667 0.50347 Mdot
+ 0.2 0.49177 Mdot
+ 0.23333 0.47966 Mdot
+ 0.26667 0.46712 Mdot
+ 0.3 0.45415 Mdot
+ 0.33333 0.44073 Mdot
+ 0.36667 0.42685 Mdot
+ 0.4 0.4125 Mdot
+ 0.43333 0.39766 Mdot
+ 0.46667 0.38233 Mdot
+ 0.5 0.36649 Mdot
+ 0.53333 0.35013 Mdot
+ 0.56667 0.33324 Mdot
+ 0.6 0.3158 Mdot
+ 0.63333 0.2978 Mdot
+ 0.66667 0.27922 Mdot
+ 0.7 0.26007 Mdot
+ 0.73333 0.24032 Mdot
+ 0.76667 0.21996 Mdot
+ 0.8 0.19899 Mdot
+ 0.83333 0.17739 Mdot
+ 0.86667 0.15515 Mdot
+ 0.9 0.13225 Mdot
+ 0.93333 0.1087 Mdot
+ 0.96667 0.08448 Mdot
+ 1 0.05958 Mdot
+grestore
+
+
+gsave
+ Xtrans3 Ytrans3 translate
+ Sscale Vscale scale
+ 0.002 setlinewidth
+ 0 0 moveto
+ 1 0 lineto
+ stroke
+ 0.16667 -0.008 moveto
+ 0.16667 0 lineto
+ stroke
+ 0.33333 -0.008 moveto
+ 0.33333 0 lineto
+ stroke
+ 0.5 -0.008 moveto
+ 0.5 0 lineto
+ stroke
+ 0.66667 -0.008 moveto
+ 0.66667 0 lineto
+ stroke
+ 0.83333 -0.008 moveto
+ 0.83333 0 lineto
+ stroke
+ 1 -0.008 moveto
+ 1 0 lineto
+ stroke
+ 0 0 moveto   %y-axis
+ 0 .04 lineto
+ stroke
+ -.015 .035 moveto
+ .015 .045 lineto
+ stroke
+ -.015 .0475 moveto
+ .015 .0575 lineto
+ stroke
+ 0 .0525 moveto
+ 0 0.61803 lineto
+ stroke
+ -0.008 0.10301 moveto
+ 0 0.10301 lineto
+ stroke
+ -0.008 0.20601 moveto
+ 0 0.20601 lineto
+ stroke
+ -0.008 0.30902 moveto
+ 0 0.30902 lineto
+ stroke
+ -0.008 0.41202 moveto
+ 0 0.41202 lineto
+ stroke
+ -0.008 0.51503 moveto
+ 0 0.51503 lineto
+ stroke
+ -0.008 0.61803 moveto
+ 0 0.61803 lineto
+ stroke
+
+ /Mdot {
+  gsave
+  1 Sscale div 1 Vscale div scale
+  Vscale mul
+  exch
+  Sscale mul
+  exch
+  .4 recip mul 0 360 arc
+  fill
+  grestore} 
+ def
+
+0 0.55623 Mdot
+0.00333 0.55525 Mdot
+0.00667 0.55426 Mdot
+0.01 0.55327 Mdot
+0.01333 0.55228 Mdot
+0.01667 0.55128 Mdot
+0.02 0.55028 Mdot
+0.02333 0.54928 Mdot
+0.02667 0.54827 Mdot
+0.03 0.54726 Mdot
+0.03333 0.54625 Mdot
+0.03667 0.54523 Mdot
+0.04 0.54421 Mdot
+0.04333 0.54318 Mdot
+0.04667 0.54215 Mdot
+0.05 0.54112 Mdot
+0.05333 0.54009 Mdot
+0.05667 0.53905 Mdot
+0.06 0.538 Mdot
+0.06333 0.53695 Mdot
+0.06667 0.5359 Mdot
+0.07 0.53485 Mdot
+0.07333 0.53379 Mdot
+0.07667 0.53273 Mdot
+0.08 0.53166 Mdot
+0.08333 0.53059 Mdot
+0.08667 0.52951 Mdot
+0.09 0.52844 Mdot
+0.09333 0.52735 Mdot
+0.09667 0.52627 Mdot
+0.1 0.52518 Mdot
+0.10333 0.52409 Mdot
+0.10667 0.52299 Mdot
+0.11 0.52189 Mdot
+0.11333 0.52078 Mdot
+0.11667 0.51967 Mdot
+0.12 0.51856 Mdot
+0.12333 0.51744 Mdot
+0.12667 0.51632 Mdot
+0.13 0.5152 Mdot
+0.13333 0.51407 Mdot
+0.13667 0.51293 Mdot
+0.14 0.5118 Mdot
+0.14333 0.51066 Mdot
+0.14667 0.50951 Mdot
+0.15 0.50836 Mdot
+0.15333 0.50721 Mdot
+0.15667 0.50605 Mdot
+0.16 0.50489 Mdot
+0.16333 0.50373 Mdot
+0.16667 0.50256 Mdot
+0.17 0.50138 Mdot
+0.17333 0.50021 Mdot
+0.17667 0.49902 Mdot
+0.18 0.49784 Mdot
+0.18333 0.49665 Mdot
+0.18667 0.49545 Mdot
+0.19 0.49425 Mdot
+0.19333 0.49305 Mdot
+0.19667 0.49185 Mdot
+0.2 0.49063 Mdot
+0.20333 0.48942 Mdot
+0.20667 0.4882 Mdot
+0.21 0.48697 Mdot
+0.21333 0.48575 Mdot
+0.21667 0.48451 Mdot
+0.22 0.48328 Mdot
+0.22333 0.48204 Mdot
+0.22667 0.48079 Mdot
+0.23 0.47954 Mdot
+0.23333 0.47829 Mdot
+0.23667 0.47703 Mdot
+0.24 0.47577 Mdot
+0.24333 0.4745 Mdot
+0.24667 0.47323 Mdot
+0.25 0.47195 Mdot
+0.25333 0.47067 Mdot
+0.25667 0.46939 Mdot
+0.26 0.4681 Mdot
+0.26333 0.4668 Mdot
+0.26667 0.4655 Mdot
+0.27 0.4642 Mdot
+0.27333 0.46289 Mdot
+0.27667 0.46158 Mdot
+0.28 0.46027 Mdot
+0.28333 0.45895 Mdot
+0.28667 0.45762 Mdot
+0.29 0.45629 Mdot
+0.29333 0.45496 Mdot
+0.29667 0.45362 Mdot
+0.3 0.45227 Mdot
+0.30333 0.45092 Mdot
+0.30667 0.44957 Mdot
+0.31 0.44821 Mdot
+0.31333 0.44685 Mdot
+0.31667 0.44549 Mdot
+0.32 0.44411 Mdot
+0.32333 0.44274 Mdot
+0.32667 0.44136 Mdot
+0.33 0.43997 Mdot
+0.33333 0.43858 Mdot
+0.33667 0.43719 Mdot
+0.34 0.43579 Mdot
+0.34333 0.43438 Mdot
+0.34667 0.43297 Mdot
+0.35 0.43156 Mdot
+0.35333 0.43014 Mdot
+0.35667 0.42871 Mdot
+0.36 0.42729 Mdot
+0.36333 0.42585 Mdot
+0.36667 0.42441 Mdot
+0.37 0.42297 Mdot
+0.37333 0.42152 Mdot
+0.37667 0.42007 Mdot
+0.38 0.41861 Mdot
+0.38333 0.41715 Mdot
+0.38667 0.41568 Mdot
+0.39 0.41421 Mdot
+0.39333 0.41273 Mdot
+0.39667 0.41125 Mdot
+0.4 0.40976 Mdot
+0.40333 0.40827 Mdot
+0.40667 0.40677 Mdot
+0.41 0.40527 Mdot
+0.41333 0.40376 Mdot
+0.41667 0.40225 Mdot
+0.42 0.40073 Mdot
+0.42333 0.39921 Mdot
+0.42667 0.39768 Mdot
+0.43 0.39615 Mdot
+0.43333 0.39461 Mdot
+0.43667 0.39307 Mdot
+0.44 0.39152 Mdot
+0.44333 0.38997 Mdot
+0.44667 0.38841 Mdot
+0.45 0.38684 Mdot
+0.45333 0.38527 Mdot
+0.45667 0.3837 Mdot
+0.46 0.38212 Mdot
+0.46333 0.38054 Mdot
+0.46667 0.37895 Mdot
+0.47 0.37735 Mdot
+0.47333 0.37575 Mdot
+0.47667 0.37415 Mdot
+0.48 0.37254 Mdot
+0.48333 0.37092 Mdot
+0.48667 0.3693 Mdot
+0.49 0.36767 Mdot
+0.49333 0.36604 Mdot
+0.49667 0.3644 Mdot
+0.5 0.36276 Mdot
+0.50333 0.36111 Mdot
+0.50667 0.35946 Mdot
+0.51 0.3578 Mdot
+0.51333 0.35613 Mdot
+0.51667 0.35446 Mdot
+0.52 0.35279 Mdot
+0.52333 0.35111 Mdot
+0.52667 0.34942 Mdot
+0.53 0.34773 Mdot
+0.53333 0.34603 Mdot
+0.53667 0.34433 Mdot
+0.54 0.34262 Mdot
+0.54333 0.34091 Mdot
+0.54667 0.33919 Mdot
+0.55 0.33746 Mdot
+0.55333 0.33573 Mdot
+0.55667 0.334 Mdot
+0.56 0.33226 Mdot
+0.56333 0.33051 Mdot
+0.56667 0.32876 Mdot
+0.57 0.327 Mdot
+0.57333 0.32523 Mdot
+0.57667 0.32347 Mdot
+0.58 0.32169 Mdot
+0.58333 0.31991 Mdot
+0.58667 0.31812 Mdot
+0.59 0.31633 Mdot
+0.59333 0.31453 Mdot
+0.59667 0.31273 Mdot
+0.6 0.31092 Mdot
+0.60333 0.3091 Mdot
+0.60667 0.30728 Mdot
+0.61 0.30546 Mdot
+0.61333 0.30362 Mdot
+0.61667 0.30178 Mdot
+0.62 0.29994 Mdot
+0.62333 0.29809 Mdot
+0.62667 0.29623 Mdot
+0.63 0.29437 Mdot
+0.63333 0.2925 Mdot
+0.63667 0.29063 Mdot
+0.64 0.28875 Mdot
+0.64333 0.28687 Mdot
+0.64667 0.28497 Mdot
+0.65 0.28308 Mdot
+0.65333 0.28117 Mdot
+0.65667 0.27927 Mdot
+0.66 0.27735 Mdot
+0.66333 0.27543 Mdot
+0.66667 0.2735 Mdot
+0.67 0.27157 Mdot
+0.67333 0.26963 Mdot
+0.67667 0.26769 Mdot
+0.68 0.26573 Mdot
+0.68333 0.26378 Mdot
+0.68667 0.26181 Mdot
+0.69 0.25984 Mdot
+0.69333 0.25787 Mdot
+0.69667 0.25589 Mdot
+0.7 0.2539 Mdot
+0.70333 0.25191 Mdot
+0.70667 0.24991 Mdot
+0.71 0.2479 Mdot
+0.71333 0.24589 Mdot
+0.71667 0.24387 Mdot
+0.72 0.24185 Mdot
+0.72333 0.23982 Mdot
+0.72667 0.23778 Mdot
+0.73 0.23574 Mdot
+0.73333 0.23369 Mdot
+0.73667 0.23163 Mdot
+0.74 0.22957 Mdot
+0.74333 0.2275 Mdot
+0.74667 0.22543 Mdot
+0.75 0.22335 Mdot
+0.75333 0.22126 Mdot
+0.75667 0.21917 Mdot
+0.76 0.21707 Mdot
+0.76333 0.21496 Mdot
+0.76667 0.21285 Mdot
+0.77 0.21073 Mdot
+0.77333 0.20861 Mdot
+0.77667 0.20648 Mdot
+0.78 0.20434 Mdot
+0.78333 0.20219 Mdot
+0.78667 0.20004 Mdot
+0.79 0.19789 Mdot
+0.79333 0.19572 Mdot
+0.79667 0.19355 Mdot
+0.8 0.19138 Mdot
+0.80333 0.1892 Mdot
+0.80667 0.18701 Mdot
+0.81 0.18481 Mdot
+0.81333 0.18261 Mdot
+0.81667 0.1804 Mdot
+0.82 0.17819 Mdot
+0.82333 0.17596 Mdot
+0.82667 0.17374 Mdot
+0.83 0.1715 Mdot
+0.83333 0.16926 Mdot
+0.83667 0.16701 Mdot
+0.84 0.16476 Mdot
+0.84333 0.1625 Mdot
+0.84667 0.16023 Mdot
+0.85 0.15796 Mdot
+0.85333 0.15568 Mdot
+0.85667 0.15339 Mdot
+0.86 0.15109 Mdot
+0.86333 0.14879 Mdot
+0.86667 0.14649 Mdot
+0.87 0.14417 Mdot
+0.87333 0.14185 Mdot
+0.87667 0.13953 Mdot
+0.88 0.13719 Mdot
+0.88333 0.13485 Mdot
+0.88667 0.1325 Mdot
+0.89 0.13015 Mdot
+0.89333 0.12779 Mdot
+0.89667 0.12542 Mdot
+0.9 0.12305 Mdot
+0.90333 0.12067 Mdot
+0.90667 0.11828 Mdot
+0.91 0.11588 Mdot
+0.91333 0.11348 Mdot
+0.91667 0.11107 Mdot
+0.92 0.10866 Mdot
+0.92333 0.10624 Mdot
+0.92667 0.10381 Mdot
+0.93 0.10137 Mdot
+0.93333 0.09893 Mdot
+0.93667 0.09648 Mdot
+0.94 0.09403 Mdot
+0.94333 0.09156 Mdot
+0.94667 0.08909 Mdot
+0.95 0.08662 Mdot
+0.95333 0.08413 Mdot
+0.95667 0.08164 Mdot
+0.96 0.07915 Mdot
+0.96333 0.07664 Mdot
+0.96667 0.07413 Mdot
+0.97 0.07161 Mdot
+0.97333 0.06909 Mdot
+0.97667 0.06656 Mdot
+0.98 0.06402 Mdot
+0.98333 0.06147 Mdot
+0.98667 0.05892 Mdot
+0.99 0.05636 Mdot
+0.99333 0.05379 Mdot
+0.99667 0.05122 Mdot
+1 0.04864 Mdot
+
+showpage

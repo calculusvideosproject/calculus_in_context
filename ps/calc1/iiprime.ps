@@ -1,0 +1,1779 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 0 0 612.0 792
+
+%0 0 translate			% print translation
+
+/Xtrans 60 def
+/Ytrans1 0 def
+/Ytrans2 .8 def
+/Xscale 350 def
+/Yscale 190 def
+
+/Times-Roman findfont
+10 scalefont setfont
+
+-30 -20 translate
+
+1 Xscale mul Xtrans add 20 sub .01472 Ytrans2 add Yscale mul Ytrans1 add 12 sub moveto
+(days) show
+1 Xscale mul Xtrans add 20 sub .17341 Yscale mul Ytrans1 add 12 sub moveto
+(days) show
+gsave
+90 rotate
+47 -50 moveto
+(persons per day) show
+180 -50 moveto
+(infected persons) show
+grestore
+
+ 
+/Times-Italic findfont
+10 scalefont setfont
+Xtrans -1 add .63 Yscale mul moveto
+(I©) show
+Xtrans 0 add .63 Ytrans2 add Yscale mul moveto
+(I) show
+1 Xscale mul Xtrans add .012 Ytrans2 add Yscale mul Ytrans1 add 8 add moveto
+(t) show
+1 Xscale mul Xtrans add .172 Yscale mul Ytrans1 add 8 add moveto
+(t) show
+ 
+/arrowdict 14 dict def
+arrowdict begin
+ /mtrx matrix def
+end
+
+/arrow
+ {arrowdict begin
+   /headlength exch def
+   /halfheadthickness exch 2 div def
+   /halfthickness exch 2 div def
+   /tipy exch def /tipx exch def
+   /taily exch def /tailx exch def
+   
+   /dx tipx tailx sub def
+   /dy tipy taily sub def
+   /arrowlength dx dx mul dy dy mul add sqrt def
+   /angle dy dx atan def
+   /base arrowlength headlength sub def
+   
+   /savematrix mtrx currentmatrix def
+   
+   tailx taily translate
+   angle rotate
+   0 halfthickness neg moveto
+   base halfthickness neg lineto
+   base halfheadthickness neg lineto
+   arrowlength 0 lineto
+   base halfheadthickness lineto
+   base halfthickness lineto
+   0 halfthickness lineto
+   closepath
+   
+   savematrix setmatrix
+   end
+ }  def
+ 
+
+Xtrans Ytrans1 translate
+Xscale Yscale scale
+
+0.001 setlinewidth
+0 0.17341 moveto
+1 0.17341 lineto
+stroke
+0.02262 0 moveto
+0.02262 0.61803 lineto
+stroke
+gsave
+
+newpath
+.02262 .61803 .02262 .64203 .0002 .005 .02 arrow
+fill
+newpath 
+1 .17341 1.016 .17341 .002 .008 .012 arrow
+fill
+
+
+[.01 .01] 0 setdash
+0.17124 0.17197 moveto
+0.17124 .60332 Ytrans2 add lineto
+stroke
+0.10019 0.60332 moveto
+0.10019 .354 Ytrans2 add lineto
+stroke
+0.2446 0.01472 moveto
+0.2446 0.48449 Ytrans2 add lineto
+stroke
+grestore
+
+gsave						%%%
+.5 1 scale
+newpath
+0 setgray
+0.006 setlinewidth
+0.02381 2 mul 0.27648 moveto
+0.025 0.28015 exch 2 mul exch lineto
+0.0262 0.28394 exch 2 mul exch lineto
+0.02739 0.28784 exch 2 mul exch lineto
+0.02858 0.29185 exch 2 mul exch lineto
+0.02978 0.29598 exch 2 mul exch lineto
+0.03097 0.30022 exch 2 mul exch lineto
+0.03216 0.30458 exch 2 mul exch lineto
+0.03336 0.30906 exch 2 mul exch lineto
+0.03455 0.31366 exch 2 mul exch lineto
+0.03574 0.31838 exch 2 mul exch lineto
+0.03694 0.32322 exch 2 mul exch lineto
+0.03813 0.32818 exch 2 mul exch lineto
+0.03932 0.33325 exch 2 mul exch lineto
+0.04052 0.33845 exch 2 mul exch lineto
+0.04171 0.34377 exch 2 mul exch lineto
+0.0429 0.3492 exch 2 mul exch lineto
+0.0441 0.35475 exch 2 mul exch lineto
+0.04529 0.36041 exch 2 mul exch lineto
+0.04649 0.36619 exch 2 mul exch lineto
+0.04768 0.37207 exch 2 mul exch lineto
+0.04887 0.37806 exch 2 mul exch lineto
+0.05007 0.38416 exch 2 mul exch lineto
+0.05126 0.39035 exch 2 mul exch lineto
+0.05245 0.39663 exch 2 mul exch lineto
+0.05365 0.40301 exch 2 mul exch lineto
+0.05484 0.40946 exch 2 mul exch lineto
+0.05603 0.41599 exch 2 mul exch lineto
+0.05723 0.4226 exch 2 mul exch lineto
+0.05842 0.42926 exch 2 mul exch lineto
+0.05961 0.43598 exch 2 mul exch lineto
+0.06081 0.44274 exch 2 mul exch lineto
+0.062 0.44954 exch 2 mul exch lineto
+0.06319 0.45637 exch 2 mul exch lineto
+0.06439 0.46321 exch 2 mul exch lineto
+0.06558 0.47005 exch 2 mul exch lineto
+0.06677 0.47689 exch 2 mul exch lineto
+0.06797 0.4837 exch 2 mul exch lineto
+0.06916 0.49048 exch 2 mul exch lineto
+0.07035 0.49722 exch 2 mul exch lineto
+0.07155 0.50389 exch 2 mul exch lineto
+0.07274 0.51049 exch 2 mul exch lineto
+0.07393 0.51699 exch 2 mul exch lineto
+0.07513 0.52339 exch 2 mul exch lineto
+0.07632 0.52966 exch 2 mul exch lineto
+0.07752 0.53579 exch 2 mul exch lineto
+0.07871 0.54176 exch 2 mul exch lineto
+0.0799 0.54756 exch 2 mul exch lineto
+0.0811 0.55317 exch 2 mul exch lineto
+0.08229 0.55857 exch 2 mul exch lineto
+
+0.08348 0.56374 exch 2 mul exch lineto
+0.08468 0.56867 exch 2 mul exch lineto
+0.08587 0.57334 exch 2 mul exch lineto
+0.08706 0.57773 exch 2 mul exch lineto
+0.08826 0.58182 exch 2 mul exch lineto
+0.08945 0.5856 exch 2 mul exch lineto
+0.09064 0.58906 exch 2 mul exch lineto
+0.09184 0.59217 exch 2 mul exch lineto
+0.09303 0.59493 exch 2 mul exch lineto
+0.09422 0.59732 exch 2 mul exch lineto
+0.09542 0.59933 exch 2 mul exch lineto
+0.09661 0.60094 exch 2 mul exch lineto
+0.0978 0.60215 exch 2 mul exch lineto
+0.099 0.60295 exch 2 mul exch lineto
+0.10019 0.60332 exch 2 mul exch lineto
+0.10138 0.60326 exch 2 mul exch lineto
+0.10258 0.60277 exch 2 mul exch lineto
+0.10377 0.60184 exch 2 mul exch lineto
+0.10496 0.60046 exch 2 mul exch lineto
+0.10616 0.59864 exch 2 mul exch lineto
+0.10735 0.59638 exch 2 mul exch lineto
+0.10855 0.59367 exch 2 mul exch lineto
+0.10974 0.59053 exch 2 mul exch lineto
+0.11093 0.58695 exch 2 mul exch lineto
+0.11213 0.58294 exch 2 mul exch lineto
+0.11332 0.5785 exch 2 mul exch lineto
+0.11451 0.57366 exch 2 mul exch lineto
+0.11571 0.56841 exch 2 mul exch lineto
+0.1169 0.56277 exch 2 mul exch lineto
+0.11809 0.55674 exch 2 mul exch lineto
+0.11929 0.55036 exch 2 mul exch lineto
+0.12048 0.54362 exch 2 mul exch lineto
+0.12167 0.53654 exch 2 mul exch lineto
+0.12287 0.52915 exch 2 mul exch lineto
+0.12406 0.52145 exch 2 mul exch lineto
+0.12525 0.51347 exch 2 mul exch lineto
+0.12645 0.50522 exch 2 mul exch lineto
+0.12764 0.49673 exch 2 mul exch lineto
+0.12883 0.48801 exch 2 mul exch lineto
+0.13003 0.47908 exch 2 mul exch lineto
+0.13122 0.46996 exch 2 mul exch lineto
+0.13241 0.46068 exch 2 mul exch lineto
+0.13361 0.45125 exch 2 mul exch lineto
+0.1348 0.44168 exch 2 mul exch lineto
+0.13599 0.43201 exch 2 mul exch lineto
+0.13719 0.42225 exch 2 mul exch lineto
+0.13838 0.41242 exch 2 mul exch lineto
+0.13958 0.40253 exch 2 mul exch lineto
+0.14077 0.39261 exch 2 mul exch lineto
+0.14196 0.38267 exch 2 mul exch lineto
+
+0.14316 0.37274 exch 2 mul exch lineto
+0.14435 0.36281 exch 2 mul exch lineto
+0.14554 0.35292 exch 2 mul exch lineto
+0.14674 0.34308 exch 2 mul exch lineto
+0.14793 0.33329 exch 2 mul exch lineto
+0.14912 0.32358 exch 2 mul exch lineto
+0.15032 0.31396 exch 2 mul exch lineto
+0.15151 0.30443 exch 2 mul exch lineto
+0.1527 0.29501 exch 2 mul exch lineto
+0.1539 0.28571 exch 2 mul exch lineto
+0.15509 0.27654 exch 2 mul exch lineto
+0.15628 0.26751 exch 2 mul exch lineto
+0.15748 0.25862 exch 2 mul exch lineto
+0.15867 0.24988 exch 2 mul exch lineto
+0.15986 0.2413 exch 2 mul exch lineto
+0.16106 0.23289 exch 2 mul exch lineto
+0.16225 0.22464 exch 2 mul exch lineto
+0.16344 0.21657 exch 2 mul exch lineto
+0.16464 0.20868 exch 2 mul exch lineto
+0.16583 0.20097 exch 2 mul exch lineto
+0.16702 0.19344 exch 2 mul exch lineto
+0.16822 0.1861 exch 2 mul exch lineto
+0.16941 0.17894 exch 2 mul exch lineto
+0.17061 0.17197 exch 2 mul exch lineto
+0.1718 0.16519 exch 2 mul exch lineto
+0.17299 0.1586 exch 2 mul exch lineto
+0.17419 0.15219 exch 2 mul exch lineto
+0.17538 0.14598 exch 2 mul exch lineto
+0.17657 0.13995 exch 2 mul exch lineto
+0.17777 0.13411 exch 2 mul exch lineto
+0.17896 0.12845 exch 2 mul exch lineto
+0.18015 0.12297 exch 2 mul exch lineto
+0.18135 0.11767 exch 2 mul exch lineto
+0.18254 0.11256 exch 2 mul exch lineto
+0.18373 0.10761 exch 2 mul exch lineto
+0.18493 0.10284 exch 2 mul exch lineto
+0.18612 0.09824 exch 2 mul exch lineto
+0.18731 0.09381 exch 2 mul exch lineto
+0.18851 0.08954 exch 2 mul exch lineto
+0.1897 0.08543 exch 2 mul exch lineto
+0.19089 0.08148 exch 2 mul exch lineto
+0.19209 0.07768 exch 2 mul exch lineto
+0.19328 0.07404 exch 2 mul exch lineto
+0.19447 0.07054 exch 2 mul exch lineto
+0.19567 0.06718 exch 2 mul exch lineto
+0.19686 0.06397 exch 2 mul exch lineto
+0.19805 0.06089 exch 2 mul exch lineto
+0.19925 0.05795 exch 2 mul exch lineto
+0.20044 0.05514 exch 2 mul exch lineto
+0.20164 0.05245 exch 2 mul exch lineto
+
+0.20283 0.04989 exch 2 mul exch lineto
+0.20402 0.04745 exch 2 mul exch lineto
+0.20522 0.04512 exch 2 mul exch lineto
+0.20641 0.04291 exch 2 mul exch lineto
+0.2076 0.0408 exch 2 mul exch lineto
+0.2088 0.03881 exch 2 mul exch lineto
+0.20999 0.03691 exch 2 mul exch lineto
+0.21118 0.03512 exch 2 mul exch lineto
+0.21238 0.03342 exch 2 mul exch lineto
+0.21357 0.03182 exch 2 mul exch lineto
+0.21476 0.03031 exch 2 mul exch lineto
+0.21596 0.02889 exch 2 mul exch lineto
+0.21715 0.02755 exch 2 mul exch lineto
+0.21834 0.02629 exch 2 mul exch lineto
+0.21954 0.02512 exch 2 mul exch lineto
+0.22073 0.02402 exch 2 mul exch lineto
+0.22192 0.023 exch 2 mul exch lineto
+0.22312 0.02204 exch 2 mul exch lineto
+0.22431 0.02116 exch 2 mul exch lineto
+0.2255 0.02035 exch 2 mul exch lineto
+0.2267 0.0196 exch 2 mul exch lineto
+0.22789 0.01891 exch 2 mul exch lineto
+0.22908 0.01828 exch 2 mul exch lineto
+0.23028 0.01771 exch 2 mul exch lineto
+0.23147 0.0172 exch 2 mul exch lineto
+0.23266 0.01674 exch 2 mul exch lineto
+0.23386 0.01633 exch 2 mul exch lineto
+0.23505 0.01598 exch 2 mul exch lineto
+0.23625 0.01567 exch 2 mul exch lineto
+0.23744 0.01541 exch 2 mul exch lineto
+0.23863 0.01519 exch 2 mul exch lineto
+0.23983 0.01501 exch 2 mul exch lineto
+0.24102 0.01488 exch 2 mul exch lineto
+0.24221 0.01479 exch 2 mul exch lineto
+0.24341 0.01473 exch 2 mul exch lineto
+0.2446 0.01472 exch 2 mul exch lineto
+0.24579 0.01473 exch 2 mul exch lineto
+0.24699 0.01478 exch 2 mul exch lineto
+0.24818 0.01487 exch 2 mul exch lineto
+0.24937 0.01498 exch 2 mul exch lineto
+0.25057 0.01513 exch 2 mul exch lineto
+0.25176 0.0153 exch 2 mul exch lineto
+0.25295 0.01551 exch 2 mul exch lineto
+0.25415 0.01574 exch 2 mul exch lineto
+0.25534 0.01599 exch 2 mul exch lineto
+0.25653 0.01627 exch 2 mul exch lineto
+0.25773 0.01657 exch 2 mul exch lineto
+0.25892 0.0169 exch 2 mul exch lineto
+0.26011 0.01724 exch 2 mul exch lineto
+0.26131 0.01761 exch 2 mul exch lineto
+
+0.2625 0.018 exch 2 mul exch lineto
+0.26369 0.0184 exch 2 mul exch lineto
+0.26489 0.01883 exch 2 mul exch lineto
+0.26608 0.01927 exch 2 mul exch lineto
+0.26728 0.01972 exch 2 mul exch lineto
+0.26847 0.0202 exch 2 mul exch lineto
+0.26966 0.02068 exch 2 mul exch lineto
+0.27086 0.02119 exch 2 mul exch lineto
+0.27205 0.0217 exch 2 mul exch lineto
+0.27324 0.02223 exch 2 mul exch lineto
+0.27444 0.02277 exch 2 mul exch lineto
+0.27563 0.02332 exch 2 mul exch lineto
+0.27682 0.02389 exch 2 mul exch lineto
+0.27802 0.02446 exch 2 mul exch lineto
+0.27921 0.02504 exch 2 mul exch lineto
+0.2804 0.02564 exch 2 mul exch lineto
+0.2816 0.02624 exch 2 mul exch lineto
+0.28279 0.02685 exch 2 mul exch lineto
+0.28398 0.02747 exch 2 mul exch lineto
+0.28518 0.0281 exch 2 mul exch lineto
+0.28637 0.02873 exch 2 mul exch lineto
+0.28756 0.02937 exch 2 mul exch lineto
+0.28876 0.03002 exch 2 mul exch lineto
+0.28995 0.03068 exch 2 mul exch lineto
+0.29114 0.03133 exch 2 mul exch lineto
+0.29234 0.032 exch 2 mul exch lineto
+0.29353 0.03267 exch 2 mul exch lineto
+0.29472 0.03334 exch 2 mul exch lineto
+0.29592 0.03402 exch 2 mul exch lineto
+0.29711 0.0347 exch 2 mul exch lineto
+0.29831 0.03539 exch 2 mul exch lineto
+0.2995 0.03608 exch 2 mul exch lineto
+0.30069 0.03677 exch 2 mul exch lineto
+0.30189 0.03746 exch 2 mul exch lineto
+0.30308 0.03816 exch 2 mul exch lineto
+0.30427 0.03886 exch 2 mul exch lineto
+0.30547 0.03956 exch 2 mul exch lineto
+0.30666 0.04027 exch 2 mul exch lineto
+0.30785 0.04097 exch 2 mul exch lineto
+0.30905 0.04168 exch 2 mul exch lineto
+0.31024 0.04239 exch 2 mul exch lineto
+0.31143 0.0431 exch 2 mul exch lineto
+0.31263 0.04381 exch 2 mul exch lineto
+0.31382 0.04452 exch 2 mul exch lineto
+0.31501 0.04523 exch 2 mul exch lineto
+0.31621 0.04594 exch 2 mul exch lineto
+0.3174 0.04665 exch 2 mul exch lineto
+0.31859 0.04737 exch 2 mul exch lineto
+0.31979 0.04808 exch 2 mul exch lineto
+0.32098 0.04879 exch 2 mul exch lineto
+
+0.32217 0.0495 exch 2 mul exch lineto
+0.32337 0.05021 exch 2 mul exch lineto
+0.32456 0.05092 exch 2 mul exch lineto
+0.32575 0.05163 exch 2 mul exch lineto
+0.32695 0.05234 exch 2 mul exch lineto
+0.32814 0.05304 exch 2 mul exch lineto
+0.32934 0.05375 exch 2 mul exch lineto
+0.33053 0.05445 exch 2 mul exch lineto
+0.33172 0.05516 exch 2 mul exch lineto
+0.33292 0.05586 exch 2 mul exch lineto
+0.33411 0.05656 exch 2 mul exch lineto
+0.3353 0.05726 exch 2 mul exch lineto
+0.3365 0.05796 exch 2 mul exch lineto
+0.33769 0.05865 exch 2 mul exch lineto
+0.33888 0.05934 exch 2 mul exch lineto
+0.34008 0.06004 exch 2 mul exch lineto
+0.34127 0.06073 exch 2 mul exch lineto
+0.34246 0.06141 exch 2 mul exch lineto
+0.34366 0.0621 exch 2 mul exch lineto
+0.34485 0.06278 exch 2 mul exch lineto
+0.34604 0.06346 exch 2 mul exch lineto
+0.34724 0.06414 exch 2 mul exch lineto
+0.34843 0.06482 exch 2 mul exch lineto
+0.34962 0.06549 exch 2 mul exch lineto
+0.35082 0.06616 exch 2 mul exch lineto
+0.35201 0.06683 exch 2 mul exch lineto
+0.3532 0.0675 exch 2 mul exch lineto
+0.3544 0.06816 exch 2 mul exch lineto
+0.35559 0.06882 exch 2 mul exch lineto
+0.35678 0.06948 exch 2 mul exch lineto
+0.35798 0.07014 exch 2 mul exch lineto
+0.35917 0.07079 exch 2 mul exch lineto
+0.36037 0.07144 exch 2 mul exch lineto
+0.36156 0.07209 exch 2 mul exch lineto
+0.36275 0.07273 exch 2 mul exch lineto
+0.36395 0.07338 exch 2 mul exch lineto
+0.36514 0.07401 exch 2 mul exch lineto
+0.36633 0.07465 exch 2 mul exch lineto
+0.36753 0.07528 exch 2 mul exch lineto
+0.36872 0.07591 exch 2 mul exch lineto
+0.36991 0.07654 exch 2 mul exch lineto
+0.37111 0.07717 exch 2 mul exch lineto
+0.3723 0.07779 exch 2 mul exch lineto
+0.37349 0.07841 exch 2 mul exch lineto
+0.37469 0.07902 exch 2 mul exch lineto
+0.37588 0.07963 exch 2 mul exch lineto
+0.37707 0.08024 exch 2 mul exch lineto
+0.37827 0.08085 exch 2 mul exch lineto
+0.37946 0.08145 exch 2 mul exch lineto
+0.38065 0.08205 exch 2 mul exch lineto
+
+0.38185 0.08265 exch 2 mul exch lineto
+0.38304 0.08324 exch 2 mul exch lineto
+0.38423 0.08383 exch 2 mul exch lineto
+0.38543 0.08442 exch 2 mul exch lineto
+0.38662 0.08501 exch 2 mul exch lineto
+0.38781 0.08559 exch 2 mul exch lineto
+0.38901 0.08617 exch 2 mul exch lineto
+0.3902 0.08674 exch 2 mul exch lineto
+0.3914 0.08731 exch 2 mul exch lineto
+0.39259 0.08788 exch 2 mul exch lineto
+0.39378 0.08845 exch 2 mul exch lineto
+0.39498 0.08901 exch 2 mul exch lineto
+0.39617 0.08957 exch 2 mul exch lineto
+0.39736 0.09013 exch 2 mul exch lineto
+0.39856 0.09068 exch 2 mul exch lineto
+0.39975 0.09123 exch 2 mul exch lineto
+0.40094 0.09178 exch 2 mul exch lineto
+0.40214 0.09232 exch 2 mul exch lineto
+0.40333 0.09286 exch 2 mul exch lineto
+0.40452 0.0934 exch 2 mul exch lineto
+0.40572 0.09394 exch 2 mul exch lineto
+0.40691 0.09447 exch 2 mul exch lineto
+0.4081 0.095 exch 2 mul exch lineto
+0.4093 0.09552 exch 2 mul exch lineto
+0.41049 0.09604 exch 2 mul exch lineto
+0.41168 0.09656 exch 2 mul exch lineto
+0.41288 0.09708 exch 2 mul exch lineto
+0.41407 0.09759 exch 2 mul exch lineto
+0.41526 0.0981 exch 2 mul exch lineto
+0.41646 0.09861 exch 2 mul exch lineto
+0.41765 0.09911 exch 2 mul exch lineto
+0.41884 0.09961 exch 2 mul exch lineto
+0.42004 0.10011 exch 2 mul exch lineto
+0.42123 0.10061 exch 2 mul exch lineto
+0.42243 0.1011 exch 2 mul exch lineto
+0.42362 0.10159 exch 2 mul exch lineto
+0.42481 0.10207 exch 2 mul exch lineto
+0.42601 0.10256 exch 2 mul exch lineto
+0.4272 0.10304 exch 2 mul exch lineto
+0.42839 0.10351 exch 2 mul exch lineto
+0.42959 0.10399 exch 2 mul exch lineto
+0.43078 0.10446 exch 2 mul exch lineto
+0.43197 0.10493 exch 2 mul exch lineto
+0.43317 0.10539 exch 2 mul exch lineto
+0.43436 0.10586 exch 2 mul exch lineto
+0.43555 0.10632 exch 2 mul exch lineto
+0.43675 0.10677 exch 2 mul exch lineto
+0.43794 0.10723 exch 2 mul exch lineto
+0.43913 0.10768 exch 2 mul exch lineto
+0.44033 0.10813 exch 2 mul exch lineto
+
+0.44152 0.10857 exch 2 mul exch lineto
+0.44271 0.10901 exch 2 mul exch lineto
+0.44391 0.10945 exch 2 mul exch lineto
+0.4451 0.10989 exch 2 mul exch lineto
+0.44629 0.11032 exch 2 mul exch lineto
+0.44749 0.11076 exch 2 mul exch lineto
+0.44868 0.11118 exch 2 mul exch lineto
+0.44987 0.11161 exch 2 mul exch lineto
+0.45107 0.11203 exch 2 mul exch lineto
+0.45226 0.11245 exch 2 mul exch lineto
+0.45346 0.11287 exch 2 mul exch lineto
+0.45465 0.11329 exch 2 mul exch lineto
+0.45584 0.1137 exch 2 mul exch lineto
+0.45704 0.11411 exch 2 mul exch lineto
+0.45823 0.11452 exch 2 mul exch lineto
+0.45942 0.11492 exch 2 mul exch lineto
+0.46062 0.11532 exch 2 mul exch lineto
+0.46181 0.11572 exch 2 mul exch lineto
+0.463 0.11612 exch 2 mul exch lineto
+0.4642 0.11651 exch 2 mul exch lineto
+0.46539 0.1169 exch 2 mul exch lineto
+0.46658 0.11729 exch 2 mul exch lineto
+0.46778 0.11768 exch 2 mul exch lineto
+0.46897 0.11806 exch 2 mul exch lineto
+0.47016 0.11845 exch 2 mul exch lineto
+0.47136 0.11882 exch 2 mul exch lineto
+0.47255 0.1192 exch 2 mul exch lineto
+0.47374 0.11957 exch 2 mul exch lineto
+0.47494 0.11995 exch 2 mul exch lineto
+0.47613 0.12032 exch 2 mul exch lineto
+0.47732 0.12068 exch 2 mul exch lineto
+0.47852 0.12105 exch 2 mul exch lineto
+0.47971 0.12141 exch 2 mul exch lineto
+0.4809 0.12177 exch 2 mul exch lineto
+0.4821 0.12212 exch 2 mul exch lineto
+0.48329 0.12248 exch 2 mul exch lineto
+0.48449 0.12283 exch 2 mul exch lineto
+0.48568 0.12318 exch 2 mul exch lineto
+0.48687 0.12353 exch 2 mul exch lineto
+0.48807 0.12387 exch 2 mul exch lineto
+0.48926 0.12422 exch 2 mul exch lineto
+0.49045 0.12456 exch 2 mul exch lineto
+0.49165 0.1249 exch 2 mul exch lineto
+0.49284 0.12523 exch 2 mul exch lineto
+0.49403 0.12557 exch 2 mul exch lineto
+0.49523 0.1259 exch 2 mul exch lineto
+0.49642 0.12623 exch 2 mul exch lineto
+0.49761 0.12656 exch 2 mul exch lineto
+0.49881 0.12688 exch 2 mul exch lineto
+0.5 0.1272 exch 2 mul exch lineto
+
+0.50119 0.12753 exch 2 mul exch lineto
+0.50239 0.12784 exch 2 mul exch lineto
+0.50358 0.12816 exch 2 mul exch lineto
+0.50477 0.12847 exch 2 mul exch lineto
+0.50597 0.12879 exch 2 mul exch lineto
+0.50716 0.1291 exch 2 mul exch lineto
+0.50835 0.12941 exch 2 mul exch lineto
+0.50955 0.12971 exch 2 mul exch lineto
+0.51074 0.13002 exch 2 mul exch lineto
+0.51193 0.13032 exch 2 mul exch lineto
+0.51313 0.13062 exch 2 mul exch lineto
+0.51432 0.13091 exch 2 mul exch lineto
+0.51551 0.13121 exch 2 mul exch lineto
+0.51671 0.1315 exch 2 mul exch lineto
+0.5179 0.1318 exch 2 mul exch lineto
+0.5191 0.13209 exch 2 mul exch lineto
+0.52029 0.13237 exch 2 mul exch lineto
+0.52148 0.13266 exch 2 mul exch lineto
+0.52268 0.13294 exch 2 mul exch lineto
+0.52387 0.13323 exch 2 mul exch lineto
+0.52506 0.13351 exch 2 mul exch lineto
+0.52626 0.13378 exch 2 mul exch lineto
+0.52745 0.13406 exch 2 mul exch lineto
+0.52864 0.13434 exch 2 mul exch lineto
+0.52984 0.13461 exch 2 mul exch lineto
+0.53103 0.13488 exch 2 mul exch lineto
+0.53222 0.13515 exch 2 mul exch lineto
+0.53342 0.13541 exch 2 mul exch lineto
+0.53461 0.13568 exch 2 mul exch lineto
+0.5358 0.13594 exch 2 mul exch lineto
+0.537 0.13621 exch 2 mul exch lineto
+0.53819 0.13646 exch 2 mul exch lineto
+0.53938 0.13672 exch 2 mul exch lineto
+0.54058 0.13698 exch 2 mul exch lineto
+0.54177 0.13723 exch 2 mul exch lineto
+0.54296 0.13749 exch 2 mul exch lineto
+0.54416 0.13774 exch 2 mul exch lineto
+0.54535 0.13799 exch 2 mul exch lineto
+0.54654 0.13823 exch 2 mul exch lineto
+0.54774 0.13848 exch 2 mul exch lineto
+0.54893 0.13873 exch 2 mul exch lineto
+0.55013 0.13897 exch 2 mul exch lineto
+0.55132 0.13921 exch 2 mul exch lineto
+0.55251 0.13945 exch 2 mul exch lineto
+0.55371 0.13969 exch 2 mul exch lineto
+0.5549 0.13992 exch 2 mul exch lineto
+0.55609 0.14016 exch 2 mul exch lineto
+0.55729 0.14039 exch 2 mul exch lineto
+0.55848 0.14062 exch 2 mul exch lineto
+0.55967 0.14085 exch 2 mul exch lineto
+
+0.56087 0.14108 exch 2 mul exch lineto
+0.56206 0.1413 exch 2 mul exch lineto
+0.56325 0.14153 exch 2 mul exch lineto
+0.56445 0.14175 exch 2 mul exch lineto
+0.56564 0.14197 exch 2 mul exch lineto
+0.56683 0.14219 exch 2 mul exch lineto
+0.56803 0.14241 exch 2 mul exch lineto
+0.56922 0.14263 exch 2 mul exch lineto
+0.57041 0.14285 exch 2 mul exch lineto
+0.57161 0.14306 exch 2 mul exch lineto
+0.5728 0.14327 exch 2 mul exch lineto
+0.57399 0.14348 exch 2 mul exch lineto
+0.57519 0.14369 exch 2 mul exch lineto
+0.57638 0.1439 exch 2 mul exch lineto
+0.57757 0.14411 exch 2 mul exch lineto
+0.57877 0.14431 exch 2 mul exch lineto
+0.57996 0.14452 exch 2 mul exch lineto
+0.58116 0.14472 exch 2 mul exch lineto
+0.58235 0.14492 exch 2 mul exch lineto
+0.58354 0.14512 exch 2 mul exch lineto
+0.58474 0.14532 exch 2 mul exch lineto
+0.58593 0.14552 exch 2 mul exch lineto
+0.58712 0.14571 exch 2 mul exch lineto
+0.58832 0.14591 exch 2 mul exch lineto
+0.58951 0.1461 exch 2 mul exch lineto
+0.5907 0.14629 exch 2 mul exch lineto
+0.5919 0.14648 exch 2 mul exch lineto
+0.59309 0.14667 exch 2 mul exch lineto
+0.59428 0.14686 exch 2 mul exch lineto
+0.59548 0.14705 exch 2 mul exch lineto
+0.59667 0.14723 exch 2 mul exch lineto
+0.59786 0.14742 exch 2 mul exch lineto
+0.59906 0.1476 exch 2 mul exch lineto
+0.60025 0.14778 exch 2 mul exch lineto
+0.60144 0.14796 exch 2 mul exch lineto
+0.60264 0.14814 exch 2 mul exch lineto
+0.60383 0.14832 exch 2 mul exch lineto
+0.60502 0.14849 exch 2 mul exch lineto
+0.60622 0.14867 exch 2 mul exch lineto
+0.60741 0.14884 exch 2 mul exch lineto
+0.6086 0.14901 exch 2 mul exch lineto
+0.6098 0.14919 exch 2 mul exch lineto
+0.61099 0.14936 exch 2 mul exch lineto
+0.61219 0.14953 exch 2 mul exch lineto
+0.61338 0.14969 exch 2 mul exch lineto
+0.61457 0.14986 exch 2 mul exch lineto
+0.61577 0.15003 exch 2 mul exch lineto
+0.61696 0.15019 exch 2 mul exch lineto
+0.61815 0.15035 exch 2 mul exch lineto
+0.61935 0.15052 exch 2 mul exch lineto
+
+0.62054 0.15068 exch 2 mul exch lineto
+0.62173 0.15084 exch 2 mul exch lineto
+0.62293 0.151 exch 2 mul exch lineto
+0.62412 0.15115 exch 2 mul exch lineto
+0.62531 0.15131 exch 2 mul exch lineto
+0.62651 0.15147 exch 2 mul exch lineto
+0.6277 0.15162 exch 2 mul exch lineto
+0.62889 0.15177 exch 2 mul exch lineto
+0.63009 0.15193 exch 2 mul exch lineto
+0.63128 0.15208 exch 2 mul exch lineto
+0.63247 0.15223 exch 2 mul exch lineto
+0.63367 0.15238 exch 2 mul exch lineto
+0.63486 0.15252 exch 2 mul exch lineto
+0.63605 0.15267 exch 2 mul exch lineto
+0.63725 0.15282 exch 2 mul exch lineto
+0.63844 0.15296 exch 2 mul exch lineto
+0.63963 0.15311 exch 2 mul exch lineto
+0.64083 0.15325 exch 2 mul exch lineto
+0.64202 0.15339 exch 2 mul exch lineto
+0.64322 0.15353 exch 2 mul exch lineto
+0.64441 0.15367 exch 2 mul exch lineto
+0.6456 0.15381 exch 2 mul exch lineto
+0.6468 0.15395 exch 2 mul exch lineto
+0.64799 0.15409 exch 2 mul exch lineto
+0.64918 0.15422 exch 2 mul exch lineto
+0.65038 0.15436 exch 2 mul exch lineto
+0.65157 0.15449 exch 2 mul exch lineto
+0.65276 0.15463 exch 2 mul exch lineto
+0.65396 0.15476 exch 2 mul exch lineto
+0.65515 0.15489 exch 2 mul exch lineto
+0.65634 0.15502 exch 2 mul exch lineto
+0.65754 0.15515 exch 2 mul exch lineto
+0.65873 0.15528 exch 2 mul exch lineto
+0.65992 0.15541 exch 2 mul exch lineto
+0.66112 0.15553 exch 2 mul exch lineto
+0.66231 0.15566 exch 2 mul exch lineto
+0.6635 0.15578 exch 2 mul exch lineto
+0.6647 0.15591 exch 2 mul exch lineto
+0.66589 0.15603 exch 2 mul exch lineto
+0.66708 0.15615 exch 2 mul exch lineto
+0.66828 0.15628 exch 2 mul exch lineto
+0.66947 0.1564 exch 2 mul exch lineto
+0.67066 0.15652 exch 2 mul exch lineto
+0.67186 0.15664 exch 2 mul exch lineto
+0.67305 0.15675 exch 2 mul exch lineto
+0.67425 0.15687 exch 2 mul exch lineto
+0.67544 0.15699 exch 2 mul exch lineto
+0.67663 0.1571 exch 2 mul exch lineto
+0.67783 0.15722 exch 2 mul exch lineto
+0.67902 0.15733 exch 2 mul exch lineto
+
+0.68021 0.15745 exch 2 mul exch lineto
+0.68141 0.15756 exch 2 mul exch lineto
+0.6826 0.15767 exch 2 mul exch lineto
+0.68379 0.15778 exch 2 mul exch lineto
+0.68499 0.15789 exch 2 mul exch lineto
+0.68618 0.158 exch 2 mul exch lineto
+0.68737 0.15811 exch 2 mul exch lineto
+0.68857 0.15822 exch 2 mul exch lineto
+0.68976 0.15832 exch 2 mul exch lineto
+0.69095 0.15843 exch 2 mul exch lineto
+0.69215 0.15854 exch 2 mul exch lineto
+0.69334 0.15864 exch 2 mul exch lineto
+0.69453 0.15875 exch 2 mul exch lineto
+0.69573 0.15885 exch 2 mul exch lineto
+0.69692 0.15895 exch 2 mul exch lineto
+0.69811 0.15905 exch 2 mul exch lineto
+0.69931 0.15916 exch 2 mul exch lineto
+0.7005 0.15926 exch 2 mul exch lineto
+0.70169 0.15936 exch 2 mul exch lineto
+0.70289 0.15946 exch 2 mul exch lineto
+0.70408 0.15955 exch 2 mul exch lineto
+0.70528 0.15965 exch 2 mul exch lineto
+0.70647 0.15975 exch 2 mul exch lineto
+0.70766 0.15985 exch 2 mul exch lineto
+0.70886 0.15994 exch 2 mul exch lineto
+0.71005 0.16004 exch 2 mul exch lineto
+0.71124 0.16013 exch 2 mul exch lineto
+0.71244 0.16022 exch 2 mul exch lineto
+0.71363 0.16032 exch 2 mul exch lineto
+0.71482 0.16041 exch 2 mul exch lineto
+0.71602 0.1605 exch 2 mul exch lineto
+0.71721 0.16059 exch 2 mul exch lineto
+0.7184 0.16068 exch 2 mul exch lineto
+0.7196 0.16077 exch 2 mul exch lineto
+0.72079 0.16086 exch 2 mul exch lineto
+0.72198 0.16095 exch 2 mul exch lineto
+0.72318 0.16104 exch 2 mul exch lineto
+0.72437 0.16113 exch 2 mul exch lineto
+0.72556 0.16121 exch 2 mul exch lineto
+0.72676 0.1613 exch 2 mul exch lineto
+0.72795 0.16138 exch 2 mul exch lineto
+0.72914 0.16147 exch 2 mul exch lineto
+0.73034 0.16155 exch 2 mul exch lineto
+0.73153 0.16164 exch 2 mul exch lineto
+0.73272 0.16172 exch 2 mul exch lineto
+0.73392 0.1618 exch 2 mul exch lineto
+0.73511 0.16189 exch 2 mul exch lineto
+0.73631 0.16197 exch 2 mul exch lineto
+0.7375 0.16205 exch 2 mul exch lineto
+0.73869 0.16213 exch 2 mul exch lineto
+
+0.73989 0.16221 exch 2 mul exch lineto
+0.74108 0.16229 exch 2 mul exch lineto
+0.74227 0.16237 exch 2 mul exch lineto
+0.74347 0.16244 exch 2 mul exch lineto
+0.74466 0.16252 exch 2 mul exch lineto
+0.74585 0.1626 exch 2 mul exch lineto
+0.74705 0.16267 exch 2 mul exch lineto
+0.74824 0.16275 exch 2 mul exch lineto
+0.74943 0.16283 exch 2 mul exch lineto
+0.75063 0.1629 exch 2 mul exch lineto
+0.75182 0.16297 exch 2 mul exch lineto
+0.75301 0.16305 exch 2 mul exch lineto
+0.75421 0.16312 exch 2 mul exch lineto
+0.7554 0.16319 exch 2 mul exch lineto
+0.75659 0.16327 exch 2 mul exch lineto
+0.75779 0.16334 exch 2 mul exch lineto
+0.75898 0.16341 exch 2 mul exch lineto
+0.76017 0.16348 exch 2 mul exch lineto
+0.76137 0.16355 exch 2 mul exch lineto
+0.76256 0.16362 exch 2 mul exch lineto
+0.76375 0.16369 exch 2 mul exch lineto
+0.76495 0.16376 exch 2 mul exch lineto
+0.76614 0.16383 exch 2 mul exch lineto
+0.76734 0.16389 exch 2 mul exch lineto
+0.76853 0.16396 exch 2 mul exch lineto
+0.76972 0.16403 exch 2 mul exch lineto
+0.77092 0.16409 exch 2 mul exch lineto
+0.77211 0.16416 exch 2 mul exch lineto
+0.7733 0.16423 exch 2 mul exch lineto
+0.7745 0.16429 exch 2 mul exch lineto
+0.77569 0.16435 exch 2 mul exch lineto
+0.77688 0.16442 exch 2 mul exch lineto
+0.77808 0.16448 exch 2 mul exch lineto
+0.77927 0.16455 exch 2 mul exch lineto
+0.78046 0.16461 exch 2 mul exch lineto
+0.78166 0.16467 exch 2 mul exch lineto
+0.78285 0.16473 exch 2 mul exch lineto
+0.78404 0.16479 exch 2 mul exch lineto
+0.78524 0.16485 exch 2 mul exch lineto
+0.78643 0.16491 exch 2 mul exch lineto
+0.78762 0.16497 exch 2 mul exch lineto
+0.78882 0.16503 exch 2 mul exch lineto
+0.79001 0.16509 exch 2 mul exch lineto
+0.7912 0.16515 exch 2 mul exch lineto
+0.7924 0.16521 exch 2 mul exch lineto
+0.79359 0.16527 exch 2 mul exch lineto
+0.79478 0.16533 exch 2 mul exch lineto
+0.79598 0.16538 exch 2 mul exch lineto
+0.79717 0.16544 exch 2 mul exch lineto
+0.79836 0.1655 exch 2 mul exch lineto
+
+0.79956 0.16555 exch 2 mul exch lineto
+0.80075 0.16561 exch 2 mul exch lineto
+0.80195 0.16566 exch 2 mul exch lineto
+0.80314 0.16572 exch 2 mul exch lineto
+0.80433 0.16577 exch 2 mul exch lineto
+0.80553 0.16583 exch 2 mul exch lineto
+0.80672 0.16588 exch 2 mul exch lineto
+0.80791 0.16593 exch 2 mul exch lineto
+0.80911 0.16599 exch 2 mul exch lineto
+0.8103 0.16604 exch 2 mul exch lineto
+0.81149 0.16609 exch 2 mul exch lineto
+0.81269 0.16614 exch 2 mul exch lineto
+0.81388 0.16619 exch 2 mul exch lineto
+0.81507 0.16625 exch 2 mul exch lineto
+0.81627 0.1663 exch 2 mul exch lineto
+0.81746 0.16635 exch 2 mul exch lineto
+0.81865 0.1664 exch 2 mul exch lineto
+0.81985 0.16645 exch 2 mul exch lineto
+0.82104 0.1665 exch 2 mul exch lineto
+0.82223 0.16654 exch 2 mul exch lineto
+0.82343 0.16659 exch 2 mul exch lineto
+0.82462 0.16664 exch 2 mul exch lineto
+0.82581 0.16669 exch 2 mul exch lineto
+0.82701 0.16674 exch 2 mul exch lineto
+0.8282 0.16678 exch 2 mul exch lineto
+0.82939 0.16683 exch 2 mul exch lineto
+0.83059 0.16688 exch 2 mul exch lineto
+0.83178 0.16692 exch 2 mul exch lineto
+0.83298 0.16697 exch 2 mul exch lineto
+0.83417 0.16701 exch 2 mul exch lineto
+0.83536 0.16706 exch 2 mul exch lineto
+0.83656 0.1671 exch 2 mul exch lineto
+0.83775 0.16715 exch 2 mul exch lineto
+0.83894 0.16719 exch 2 mul exch lineto
+0.84014 0.16724 exch 2 mul exch lineto
+0.84133 0.16728 exch 2 mul exch lineto
+0.84252 0.16732 exch 2 mul exch lineto
+0.84372 0.16737 exch 2 mul exch lineto
+0.84491 0.16741 exch 2 mul exch lineto
+0.8461 0.16745 exch 2 mul exch lineto
+0.8473 0.1675 exch 2 mul exch lineto
+0.84849 0.16754 exch 2 mul exch lineto
+0.84968 0.16758 exch 2 mul exch lineto
+0.85088 0.16762 exch 2 mul exch lineto
+0.85207 0.16766 exch 2 mul exch lineto
+0.85326 0.1677 exch 2 mul exch lineto
+0.85446 0.16774 exch 2 mul exch lineto
+0.85565 0.16778 exch 2 mul exch lineto
+0.85684 0.16782 exch 2 mul exch lineto
+0.85804 0.16786 exch 2 mul exch lineto
+
+0.85923 0.1679 exch 2 mul exch lineto
+0.86042 0.16794 exch 2 mul exch lineto
+0.86162 0.16798 exch 2 mul exch lineto
+0.86281 0.16802 exch 2 mul exch lineto
+0.86401 0.16805 exch 2 mul exch lineto
+0.8652 0.16809 exch 2 mul exch lineto
+0.86639 0.16813 exch 2 mul exch lineto
+0.86759 0.16817 exch 2 mul exch lineto
+0.86878 0.1682 exch 2 mul exch lineto
+0.86997 0.16824 exch 2 mul exch lineto
+0.87117 0.16828 exch 2 mul exch lineto
+0.87236 0.16831 exch 2 mul exch lineto
+0.87355 0.16835 exch 2 mul exch lineto
+0.87475 0.16839 exch 2 mul exch lineto
+0.87594 0.16842 exch 2 mul exch lineto
+0.87713 0.16846 exch 2 mul exch lineto
+0.87833 0.16849 exch 2 mul exch lineto
+0.87952 0.16853 exch 2 mul exch lineto
+0.88071 0.16856 exch 2 mul exch lineto
+0.88191 0.1686 exch 2 mul exch lineto
+0.8831 0.16863 exch 2 mul exch lineto
+0.88429 0.16866 exch 2 mul exch lineto
+0.88549 0.1687 exch 2 mul exch lineto
+0.88668 0.16873 exch 2 mul exch lineto
+0.88787 0.16876 exch 2 mul exch lineto
+0.88907 0.1688 exch 2 mul exch lineto
+0.89026 0.16883 exch 2 mul exch lineto
+0.89145 0.16886 exch 2 mul exch lineto
+0.89265 0.16889 exch 2 mul exch lineto
+0.89384 0.16893 exch 2 mul exch lineto
+0.89504 0.16896 exch 2 mul exch lineto
+0.89623 0.16899 exch 2 mul exch lineto
+0.89742 0.16902 exch 2 mul exch lineto
+0.89862 0.16905 exch 2 mul exch lineto
+0.89981 0.16908 exch 2 mul exch lineto
+0.901 0.16911 exch 2 mul exch lineto
+0.9022 0.16914 exch 2 mul exch lineto
+0.90339 0.16917 exch 2 mul exch lineto
+0.90458 0.1692 exch 2 mul exch lineto
+0.90578 0.16923 exch 2 mul exch lineto
+0.90697 0.16926 exch 2 mul exch lineto
+0.90816 0.16929 exch 2 mul exch lineto
+0.90936 0.16932 exch 2 mul exch lineto
+0.91055 0.16935 exch 2 mul exch lineto
+0.91174 0.16938 exch 2 mul exch lineto
+0.91294 0.16941 exch 2 mul exch lineto
+0.91413 0.16944 exch 2 mul exch lineto
+0.91532 0.16946 exch 2 mul exch lineto
+0.91652 0.16949 exch 2 mul exch lineto
+0.91771 0.16952 exch 2 mul exch lineto
+
+0.9189 0.16955 exch 2 mul exch lineto
+0.9201 0.16957 exch 2 mul exch lineto
+0.92129 0.1696 exch 2 mul exch lineto
+0.92248 0.16963 exch 2 mul exch lineto
+0.92368 0.16966 exch 2 mul exch lineto
+0.92487 0.16968 exch 2 mul exch lineto
+0.92607 0.16971 exch 2 mul exch lineto
+0.92726 0.16973 exch 2 mul exch lineto
+0.92845 0.16976 exch 2 mul exch lineto
+0.92965 0.16979 exch 2 mul exch lineto
+0.93084 0.16981 exch 2 mul exch lineto
+0.93203 0.16984 exch 2 mul exch lineto
+0.93323 0.16986 exch 2 mul exch lineto
+0.93442 0.16989 exch 2 mul exch lineto
+0.93561 0.16991 exch 2 mul exch lineto
+0.93681 0.16994 exch 2 mul exch lineto
+0.938 0.16996 exch 2 mul exch lineto
+0.93919 0.16999 exch 2 mul exch lineto
+0.94039 0.17001 exch 2 mul exch lineto
+0.94158 0.17004 exch 2 mul exch lineto
+0.94277 0.17006 exch 2 mul exch lineto
+0.94397 0.17008 exch 2 mul exch lineto
+0.94516 0.17011 exch 2 mul exch lineto
+0.94635 0.17013 exch 2 mul exch lineto
+0.94755 0.17015 exch 2 mul exch lineto
+0.94874 0.17018 exch 2 mul exch lineto
+0.94993 0.1702 exch 2 mul exch lineto
+0.95113 0.17022 exch 2 mul exch lineto
+0.95232 0.17024 exch 2 mul exch lineto
+0.95351 0.17027 exch 2 mul exch lineto
+0.95471 0.17029 exch 2 mul exch lineto
+0.9559 0.17031 exch 2 mul exch lineto
+0.9571 0.17033 exch 2 mul exch lineto
+0.95829 0.17035 exch 2 mul exch lineto
+0.95948 0.17038 exch 2 mul exch lineto
+0.96068 0.1704 exch 2 mul exch lineto
+0.96187 0.17042 exch 2 mul exch lineto
+0.96306 0.17044 exch 2 mul exch lineto
+0.96426 0.17046 exch 2 mul exch lineto
+0.96545 0.17048 exch 2 mul exch lineto
+0.96664 0.1705 exch 2 mul exch lineto
+0.96784 0.17052 exch 2 mul exch lineto
+0.96903 0.17054 exch 2 mul exch lineto
+0.97022 0.17056 exch 2 mul exch lineto
+0.97142 0.17058 exch 2 mul exch lineto
+0.97261 0.1706 exch 2 mul exch lineto
+0.9738 0.17062 exch 2 mul exch lineto
+0.975 0.17064 exch 2 mul exch lineto
+0.97619 0.17066 exch 2 mul exch lineto
+stroke
+
+grestore				%%%
+
+0 Ytrans2 translate
+
+0.001 setlinewidth
+0 0.01472 moveto
+1 0.01472 lineto
+stroke
+0.02381 0 moveto
+0.02381 0.61803 lineto
+stroke
+
+newpath
+.0235  .61803 .0235 .64203 .0004 .005 .02 arrow
+fill
+newpath 
+1 0.01472 1.016 0.01472 .002 .008 .012 arrow
+fill
+
+
+gsave
+.5 1 scale
+
+newpath
+0 setgray
+0.006 setlinewidth
+0.025 2 mul 0.06002 moveto
+0.02619 0.06176 exch 2 mul exch lineto
+0.02738 0.06355 exch 2 mul exch lineto
+0.02857 0.06541 exch 2 mul exch lineto
+0.02975 0.06734 exch 2 mul exch lineto
+0.03094 0.06933 exch 2 mul exch lineto
+0.03213 0.07139 exch 2 mul exch lineto
+0.03332 0.07352 exch 2 mul exch lineto
+0.03451 0.07573 exch 2 mul exch lineto
+0.0357 0.07801 exch 2 mul exch lineto
+0.03689 0.08037 exch 2 mul exch lineto
+0.03808 0.08281 exch 2 mul exch lineto
+0.03927 0.08532 exch 2 mul exch lineto
+0.04046 0.08793 exch 2 mul exch lineto
+0.04164 0.09062 exch 2 mul exch lineto
+0.04283 0.09339 exch 2 mul exch lineto
+0.04402 0.09626 exch 2 mul exch lineto
+0.04521 0.09921 exch 2 mul exch lineto
+0.0464 0.10226 exch 2 mul exch lineto
+0.04759 0.10541 exch 2 mul exch lineto
+0.04878 0.10865 exch 2 mul exch lineto
+0.04997 0.11199 exch 2 mul exch lineto
+0.05116 0.11543 exch 2 mul exch lineto
+0.05235 0.11898 exch 2 mul exch lineto
+0.05353 0.12263 exch 2 mul exch lineto
+0.05472 0.12638 exch 2 mul exch lineto
+0.05591 0.13024 exch 2 mul exch lineto
+0.0571 0.13421 exch 2 mul exch lineto
+0.05829 0.13829 exch 2 mul exch lineto
+0.05948 0.14248 exch 2 mul exch lineto
+0.06067 0.14678 exch 2 mul exch lineto
+0.06186 0.1512 exch 2 mul exch lineto
+0.06305 0.15573 exch 2 mul exch lineto
+0.06424 0.16037 exch 2 mul exch lineto
+0.06542 0.16513 exch 2 mul exch lineto
+0.06661 0.17 exch 2 mul exch lineto
+0.0678 0.17499 exch 2 mul exch lineto
+0.06899 0.1801 exch 2 mul exch lineto
+0.07018 0.18532 exch 2 mul exch lineto
+0.07137 0.19065 exch 2 mul exch lineto
+0.07256 0.19609 exch 2 mul exch lineto
+0.07375 0.20165 exch 2 mul exch lineto
+0.07494 0.20732 exch 2 mul exch lineto
+0.07613 0.2131 exch 2 mul exch lineto
+0.07731 0.21898 exch 2 mul exch lineto
+0.0785 0.22498 exch 2 mul exch lineto
+0.07969 0.23107 exch 2 mul exch lineto
+0.08088 0.23727 exch 2 mul exch lineto
+0.08207 0.24356 exch 2 mul exch lineto
+0.08326 0.24994 exch 2 mul exch lineto
+
+0.08445 0.25642 exch 2 mul exch lineto
+0.08564 0.26299 exch 2 mul exch lineto
+0.08683 0.26963 exch 2 mul exch lineto
+0.08801 0.27636 exch 2 mul exch lineto
+0.0892 0.28316 exch 2 mul exch lineto
+0.09039 0.29003 exch 2 mul exch lineto
+0.09158 0.29696 exch 2 mul exch lineto
+0.09277 0.30395 exch 2 mul exch lineto
+0.09396 0.31099 exch 2 mul exch lineto
+0.09515 0.31808 exch 2 mul exch lineto
+0.09634 0.32521 exch 2 mul exch lineto
+0.09753 0.33237 exch 2 mul exch lineto
+0.09872 0.33956 exch 2 mul exch lineto
+0.0999 0.34677 exch 2 mul exch lineto
+0.10109 0.354 exch 2 mul exch lineto
+0.10228 0.36123 exch 2 mul exch lineto
+0.10347 0.36846 exch 2 mul exch lineto
+0.10466 0.37568 exch 2 mul exch lineto
+0.10585 0.38288 exch 2 mul exch lineto
+0.10704 0.39007 exch 2 mul exch lineto
+0.10823 0.39722 exch 2 mul exch lineto
+0.10942 0.40433 exch 2 mul exch lineto
+0.11061 0.4114 exch 2 mul exch lineto
+0.11179 0.41841 exch 2 mul exch lineto
+0.11298 0.42537 exch 2 mul exch lineto
+0.11417 0.43225 exch 2 mul exch lineto
+0.11536 0.43907 exch 2 mul exch lineto
+0.11655 0.4458 exch 2 mul exch lineto
+0.11774 0.45244 exch 2 mul exch lineto
+0.11893 0.45899 exch 2 mul exch lineto
+0.12012 0.46544 exch 2 mul exch lineto
+0.12131 0.47178 exch 2 mul exch lineto
+0.1225 0.478 exch 2 mul exch lineto
+0.12368 0.48411 exch 2 mul exch lineto
+0.12487 0.49009 exch 2 mul exch lineto
+0.12606 0.49594 exch 2 mul exch lineto
+0.12725 0.50166 exch 2 mul exch lineto
+0.12844 0.50724 exch 2 mul exch lineto
+0.12963 0.51268 exch 2 mul exch lineto
+0.13082 0.51797 exch 2 mul exch lineto
+0.13201 0.52311 exch 2 mul exch lineto
+0.1332 0.5281 exch 2 mul exch lineto
+0.13439 0.53293 exch 2 mul exch lineto
+0.13557 0.5376 exch 2 mul exch lineto
+0.13676 0.54212 exch 2 mul exch lineto
+0.13795 0.54646 exch 2 mul exch lineto
+0.13914 0.55065 exch 2 mul exch lineto
+0.14033 0.55467 exch 2 mul exch lineto
+0.14152 0.55852 exch 2 mul exch lineto
+0.14271 0.56221 exch 2 mul exch lineto
+
+0.1439 0.56573 exch 2 mul exch lineto
+0.14509 0.56908 exch 2 mul exch lineto
+0.14628 0.57227 exch 2 mul exch lineto
+0.14746 0.57528 exch 2 mul exch lineto
+0.14865 0.57814 exch 2 mul exch lineto
+0.14984 0.58083 exch 2 mul exch lineto
+0.15103 0.58335 exch 2 mul exch lineto
+0.15222 0.58572 exch 2 mul exch lineto
+0.15341 0.58792 exch 2 mul exch lineto
+0.1546 0.58996 exch 2 mul exch lineto
+0.15579 0.59185 exch 2 mul exch lineto
+0.15698 0.59359 exch 2 mul exch lineto
+0.15817 0.59517 exch 2 mul exch lineto
+0.15935 0.5966 exch 2 mul exch lineto
+0.16054 0.59789 exch 2 mul exch lineto
+0.16173 0.59903 exch 2 mul exch lineto
+0.16292 0.60003 exch 2 mul exch lineto
+0.16411 0.60089 exch 2 mul exch lineto
+0.1653 0.60162 exch 2 mul exch lineto
+0.16649 0.60221 exch 2 mul exch lineto
+0.16768 0.60268 exch 2 mul exch lineto
+0.16887 0.60301 exch 2 mul exch lineto
+0.17006 0.60323 exch 2 mul exch lineto
+0.17124 0.60332 exch 2 mul exch lineto
+0.17243 0.60329 exch 2 mul exch lineto
+0.17362 0.60316 exch 2 mul exch lineto
+0.17481 0.60291 exch 2 mul exch lineto
+0.176 0.60255 exch 2 mul exch lineto
+0.17719 0.60209 exch 2 mul exch lineto
+0.17838 0.60153 exch 2 mul exch lineto
+0.17957 0.60087 exch 2 mul exch lineto
+0.18076 0.60011 exch 2 mul exch lineto
+0.18195 0.59926 exch 2 mul exch lineto
+0.18313 0.59832 exch 2 mul exch lineto
+0.18432 0.5973 exch 2 mul exch lineto
+0.18551 0.59619 exch 2 mul exch lineto
+0.1867 0.59501 exch 2 mul exch lineto
+0.18789 0.59374 exch 2 mul exch lineto
+0.18908 0.5924 exch 2 mul exch lineto
+0.19027 0.59099 exch 2 mul exch lineto
+0.19146 0.58951 exch 2 mul exch lineto
+0.19265 0.58797 exch 2 mul exch lineto
+0.19384 0.58636 exch 2 mul exch lineto
+0.19502 0.58469 exch 2 mul exch lineto
+0.19621 0.58296 exch 2 mul exch lineto
+0.1974 0.58117 exch 2 mul exch lineto
+0.19859 0.57933 exch 2 mul exch lineto
+0.19978 0.57744 exch 2 mul exch lineto
+0.20097 0.5755 exch 2 mul exch lineto
+0.20216 0.57351 exch 2 mul exch lineto
+
+0.20335 0.57147 exch 2 mul exch lineto
+0.20454 0.5694 exch 2 mul exch lineto
+0.20572 0.56728 exch 2 mul exch lineto
+0.20691 0.56512 exch 2 mul exch lineto
+0.2081 0.56292 exch 2 mul exch lineto
+0.20929 0.56069 exch 2 mul exch lineto
+0.21048 0.55843 exch 2 mul exch lineto
+0.21167 0.55614 exch 2 mul exch lineto
+0.21286 0.55381 exch 2 mul exch lineto
+0.21405 0.55146 exch 2 mul exch lineto
+0.21524 0.54907 exch 2 mul exch lineto
+0.21643 0.54667 exch 2 mul exch lineto
+0.21761 0.54424 exch 2 mul exch lineto
+0.2188 0.54178 exch 2 mul exch lineto
+0.21999 0.53931 exch 2 mul exch lineto
+0.22118 0.53682 exch 2 mul exch lineto
+0.22237 0.5343 exch 2 mul exch lineto
+0.22356 0.53177 exch 2 mul exch lineto
+0.22475 0.52923 exch 2 mul exch lineto
+0.22594 0.52667 exch 2 mul exch lineto
+0.22713 0.52409 exch 2 mul exch lineto
+0.22832 0.52151 exch 2 mul exch lineto
+0.2295 0.51891 exch 2 mul exch lineto
+0.23069 0.5163 exch 2 mul exch lineto
+0.23188 0.51368 exch 2 mul exch lineto
+0.23307 0.51105 exch 2 mul exch lineto
+0.23426 0.50842 exch 2 mul exch lineto
+0.23545 0.50578 exch 2 mul exch lineto
+0.23664 0.50313 exch 2 mul exch lineto
+0.23783 0.50048 exch 2 mul exch lineto
+0.23902 0.49782 exch 2 mul exch lineto
+0.24021 0.49516 exch 2 mul exch lineto
+0.24139 0.4925 exch 2 mul exch lineto
+0.24258 0.48983 exch 2 mul exch lineto
+0.24377 0.48716 exch 2 mul exch lineto
+0.24496 0.48449 exch 2 mul exch lineto
+0.24615 0.48182 exch 2 mul exch lineto
+0.24734 0.47916 exch 2 mul exch lineto
+0.24853 0.47649 exch 2 mul exch lineto
+0.24972 0.47382 exch 2 mul exch lineto
+0.25091 0.47116 exch 2 mul exch lineto
+0.2521 0.4685 exch 2 mul exch lineto
+0.25328 0.46584 exch 2 mul exch lineto
+0.25447 0.46318 exch 2 mul exch lineto
+0.25566 0.46053 exch 2 mul exch lineto
+0.25685 0.45788 exch 2 mul exch lineto
+0.25804 0.45524 exch 2 mul exch lineto
+0.25923 0.4526 exch 2 mul exch lineto
+0.26042 0.44997 exch 2 mul exch lineto
+0.26161 0.44734 exch 2 mul exch lineto
+
+0.2628 0.44472 exch 2 mul exch lineto
+0.26399 0.44211 exch 2 mul exch lineto
+0.26517 0.4395 exch 2 mul exch lineto
+0.26636 0.4369 exch 2 mul exch lineto
+0.26755 0.43431 exch 2 mul exch lineto
+0.26874 0.43173 exch 2 mul exch lineto
+0.26993 0.42915 exch 2 mul exch lineto
+0.27112 0.42658 exch 2 mul exch lineto
+0.27231 0.42402 exch 2 mul exch lineto
+0.2735 0.42147 exch 2 mul exch lineto
+0.27469 0.41893 exch 2 mul exch lineto
+0.27588 0.41639 exch 2 mul exch lineto
+0.27706 0.41387 exch 2 mul exch lineto
+0.27825 0.41135 exch 2 mul exch lineto
+0.27944 0.40885 exch 2 mul exch lineto
+0.28063 0.40635 exch 2 mul exch lineto
+0.28182 0.40387 exch 2 mul exch lineto
+0.28301 0.40139 exch 2 mul exch lineto
+0.2842 0.39893 exch 2 mul exch lineto
+0.28539 0.39647 exch 2 mul exch lineto
+0.28658 0.39403 exch 2 mul exch lineto
+0.28777 0.3916 exch 2 mul exch lineto
+0.28895 0.38918 exch 2 mul exch lineto
+0.29014 0.38676 exch 2 mul exch lineto
+0.29133 0.38436 exch 2 mul exch lineto
+0.29252 0.38197 exch 2 mul exch lineto
+0.29371 0.3796 exch 2 mul exch lineto
+0.2949 0.37723 exch 2 mul exch lineto
+0.29609 0.37487 exch 2 mul exch lineto
+0.29728 0.37253 exch 2 mul exch lineto
+0.29847 0.3702 exch 2 mul exch lineto
+0.29966 0.36788 exch 2 mul exch lineto
+0.30084 0.36557 exch 2 mul exch lineto
+0.30203 0.36327 exch 2 mul exch lineto
+0.30322 0.36098 exch 2 mul exch lineto
+0.30441 0.35871 exch 2 mul exch lineto
+0.3056 0.35644 exch 2 mul exch lineto
+0.30679 0.35419 exch 2 mul exch lineto
+0.30798 0.35195 exch 2 mul exch lineto
+0.30917 0.34973 exch 2 mul exch lineto
+0.31036 0.34751 exch 2 mul exch lineto
+0.31155 0.34531 exch 2 mul exch lineto
+0.31273 0.34312 exch 2 mul exch lineto
+0.31392 0.34094 exch 2 mul exch lineto
+0.31511 0.33877 exch 2 mul exch lineto
+0.3163 0.33661 exch 2 mul exch lineto
+0.31749 0.33447 exch 2 mul exch lineto
+0.31868 0.33234 exch 2 mul exch lineto
+0.31987 0.33022 exch 2 mul exch lineto
+0.32106 0.32811 exch 2 mul exch lineto
+
+0.32225 0.32601 exch 2 mul exch lineto
+0.32343 0.32393 exch 2 mul exch lineto
+0.32462 0.32186 exch 2 mul exch lineto
+0.32581 0.3198 exch 2 mul exch lineto
+0.327 0.31775 exch 2 mul exch lineto
+0.32819 0.31571 exch 2 mul exch lineto
+0.32938 0.31369 exch 2 mul exch lineto
+0.33057 0.31168 exch 2 mul exch lineto
+0.33176 0.30968 exch 2 mul exch lineto
+0.33295 0.30769 exch 2 mul exch lineto
+0.33414 0.30571 exch 2 mul exch lineto
+0.33532 0.30375 exch 2 mul exch lineto
+0.33651 0.30179 exch 2 mul exch lineto
+0.3377 0.29985 exch 2 mul exch lineto
+0.33889 0.29792 exch 2 mul exch lineto
+0.34008 0.296 exch 2 mul exch lineto
+0.34127 0.2941 exch 2 mul exch lineto
+0.34246 0.2922 exch 2 mul exch lineto
+0.34365 0.29032 exch 2 mul exch lineto
+0.34484 0.28845 exch 2 mul exch lineto
+0.34603 0.28659 exch 2 mul exch lineto
+0.34721 0.28474 exch 2 mul exch lineto
+0.3484 0.2829 exch 2 mul exch lineto
+0.34959 0.28107 exch 2 mul exch lineto
+0.35078 0.27926 exch 2 mul exch lineto
+0.35197 0.27745 exch 2 mul exch lineto
+0.35316 0.27566 exch 2 mul exch lineto
+0.35435 0.27388 exch 2 mul exch lineto
+0.35554 0.27211 exch 2 mul exch lineto
+0.35673 0.27035 exch 2 mul exch lineto
+0.35792 0.2686 exch 2 mul exch lineto
+0.3591 0.26687 exch 2 mul exch lineto
+0.36029 0.26514 exch 2 mul exch lineto
+0.36148 0.26343 exch 2 mul exch lineto
+0.36267 0.26172 exch 2 mul exch lineto
+0.36386 0.26003 exch 2 mul exch lineto
+0.36505 0.25835 exch 2 mul exch lineto
+0.36624 0.25667 exch 2 mul exch lineto
+0.36743 0.25501 exch 2 mul exch lineto
+0.36862 0.25336 exch 2 mul exch lineto
+0.36981 0.25172 exch 2 mul exch lineto
+0.37099 0.25009 exch 2 mul exch lineto
+0.37218 0.24848 exch 2 mul exch lineto
+0.37337 0.24687 exch 2 mul exch lineto
+0.37456 0.24527 exch 2 mul exch lineto
+0.37575 0.24368 exch 2 mul exch lineto
+0.37694 0.24211 exch 2 mul exch lineto
+0.37813 0.24054 exch 2 mul exch lineto
+0.37932 0.23898 exch 2 mul exch lineto
+0.38051 0.23744 exch 2 mul exch lineto
+
+0.3817 0.2359 exch 2 mul exch lineto
+0.38288 0.23437 exch 2 mul exch lineto
+0.38407 0.23286 exch 2 mul exch lineto
+0.38526 0.23135 exch 2 mul exch lineto
+0.38645 0.22985 exch 2 mul exch lineto
+0.38764 0.22837 exch 2 mul exch lineto
+0.38883 0.22689 exch 2 mul exch lineto
+0.39002 0.22542 exch 2 mul exch lineto
+0.39121 0.22397 exch 2 mul exch lineto
+0.3924 0.22252 exch 2 mul exch lineto
+0.39359 0.22108 exch 2 mul exch lineto
+0.39477 0.21965 exch 2 mul exch lineto
+0.39596 0.21823 exch 2 mul exch lineto
+0.39715 0.21682 exch 2 mul exch lineto
+0.39834 0.21542 exch 2 mul exch lineto
+0.39953 0.21403 exch 2 mul exch lineto
+0.40072 0.21265 exch 2 mul exch lineto
+0.40191 0.21127 exch 2 mul exch lineto
+0.4031 0.20991 exch 2 mul exch lineto
+0.40429 0.20856 exch 2 mul exch lineto
+0.40548 0.20721 exch 2 mul exch lineto
+0.40666 0.20587 exch 2 mul exch lineto
+0.40785 0.20455 exch 2 mul exch lineto
+0.40904 0.20323 exch 2 mul exch lineto
+0.41023 0.20192 exch 2 mul exch lineto
+0.41142 0.20062 exch 2 mul exch lineto
+0.41261 0.19932 exch 2 mul exch lineto
+0.4138 0.19804 exch 2 mul exch lineto
+0.41499 0.19677 exch 2 mul exch lineto
+0.41618 0.1955 exch 2 mul exch lineto
+0.41737 0.19424 exch 2 mul exch lineto
+0.41855 0.19299 exch 2 mul exch lineto
+0.41974 0.19175 exch 2 mul exch lineto
+0.42093 0.19052 exch 2 mul exch lineto
+0.42212 0.18929 exch 2 mul exch lineto
+0.42331 0.18808 exch 2 mul exch lineto
+0.4245 0.18687 exch 2 mul exch lineto
+0.42569 0.18567 exch 2 mul exch lineto
+0.42688 0.18448 exch 2 mul exch lineto
+0.42807 0.18329 exch 2 mul exch lineto
+0.42926 0.18212 exch 2 mul exch lineto
+0.43044 0.18095 exch 2 mul exch lineto
+0.43163 0.17979 exch 2 mul exch lineto
+0.43282 0.17864 exch 2 mul exch lineto
+0.43401 0.1775 exch 2 mul exch lineto
+0.4352 0.17636 exch 2 mul exch lineto
+0.43639 0.17523 exch 2 mul exch lineto
+0.43758 0.17411 exch 2 mul exch lineto
+0.43877 0.173 exch 2 mul exch lineto
+0.43996 0.17189 exch 2 mul exch lineto
+
+0.44114 0.17079 exch 2 mul exch lineto
+0.44233 0.1697 exch 2 mul exch lineto
+0.44352 0.16862 exch 2 mul exch lineto
+0.44471 0.16755 exch 2 mul exch lineto
+0.4459 0.16648 exch 2 mul exch lineto
+0.44709 0.16542 exch 2 mul exch lineto
+0.44828 0.16436 exch 2 mul exch lineto
+0.44947 0.16332 exch 2 mul exch lineto
+0.45066 0.16228 exch 2 mul exch lineto
+0.45185 0.16124 exch 2 mul exch lineto
+0.45303 0.16022 exch 2 mul exch lineto
+0.45422 0.1592 exch 2 mul exch lineto
+0.45541 0.15819 exch 2 mul exch lineto
+0.4566 0.15719 exch 2 mul exch lineto
+0.45779 0.15619 exch 2 mul exch lineto
+0.45898 0.1552 exch 2 mul exch lineto
+0.46017 0.15421 exch 2 mul exch lineto
+0.46136 0.15324 exch 2 mul exch lineto
+0.46255 0.15227 exch 2 mul exch lineto
+0.46374 0.1513 exch 2 mul exch lineto
+0.46492 0.15035 exch 2 mul exch lineto
+0.46611 0.1494 exch 2 mul exch lineto
+0.4673 0.14845 exch 2 mul exch lineto
+0.46849 0.14752 exch 2 mul exch lineto
+0.46968 0.14659 exch 2 mul exch lineto
+0.47087 0.14566 exch 2 mul exch lineto
+0.47206 0.14474 exch 2 mul exch lineto
+0.47325 0.14383 exch 2 mul exch lineto
+0.47444 0.14293 exch 2 mul exch lineto
+0.47563 0.14203 exch 2 mul exch lineto
+0.47681 0.14113 exch 2 mul exch lineto
+0.478 0.14025 exch 2 mul exch lineto
+0.47919 0.13937 exch 2 mul exch lineto
+0.48038 0.13849 exch 2 mul exch lineto
+0.48157 0.13762 exch 2 mul exch lineto
+0.48276 0.13676 exch 2 mul exch lineto
+0.48395 0.1359 exch 2 mul exch lineto
+0.48514 0.13505 exch 2 mul exch lineto
+0.48633 0.13421 exch 2 mul exch lineto
+0.48752 0.13337 exch 2 mul exch lineto
+0.4887 0.13254 exch 2 mul exch lineto
+0.48989 0.13171 exch 2 mul exch lineto
+0.49108 0.13089 exch 2 mul exch lineto
+0.49227 0.13007 exch 2 mul exch lineto
+0.49346 0.12926 exch 2 mul exch lineto
+0.49465 0.12846 exch 2 mul exch lineto
+0.49584 0.12766 exch 2 mul exch lineto
+0.49703 0.12687 exch 2 mul exch lineto
+0.49822 0.12608 exch 2 mul exch lineto
+0.49941 0.12529 exch 2 mul exch lineto
+
+0.50059 0.12452 exch 2 mul exch lineto
+0.50178 0.12375 exch 2 mul exch lineto
+0.50297 0.12298 exch 2 mul exch lineto
+0.50416 0.12222 exch 2 mul exch lineto
+0.50535 0.12146 exch 2 mul exch lineto
+0.50654 0.12071 exch 2 mul exch lineto
+0.50773 0.11997 exch 2 mul exch lineto
+0.50892 0.11923 exch 2 mul exch lineto
+0.51011 0.11849 exch 2 mul exch lineto
+0.5113 0.11776 exch 2 mul exch lineto
+0.51248 0.11704 exch 2 mul exch lineto
+0.51367 0.11632 exch 2 mul exch lineto
+0.51486 0.1156 exch 2 mul exch lineto
+0.51605 0.11489 exch 2 mul exch lineto
+0.51724 0.11419 exch 2 mul exch lineto
+0.51843 0.11349 exch 2 mul exch lineto
+0.51962 0.11279 exch 2 mul exch lineto
+0.52081 0.1121 exch 2 mul exch lineto
+0.522 0.11142 exch 2 mul exch lineto
+0.52319 0.11074 exch 2 mul exch lineto
+0.52437 0.11006 exch 2 mul exch lineto
+0.52556 0.10939 exch 2 mul exch lineto
+0.52675 0.10873 exch 2 mul exch lineto
+0.52794 0.10806 exch 2 mul exch lineto
+0.52913 0.10741 exch 2 mul exch lineto
+0.53032 0.10675 exch 2 mul exch lineto
+0.53151 0.10611 exch 2 mul exch lineto
+0.5327 0.10546 exch 2 mul exch lineto
+0.53389 0.10482 exch 2 mul exch lineto
+0.53508 0.10419 exch 2 mul exch lineto
+0.53626 0.10356 exch 2 mul exch lineto
+0.53745 0.10293 exch 2 mul exch lineto
+0.53864 0.10231 exch 2 mul exch lineto
+0.53983 0.10169 exch 2 mul exch lineto
+0.54102 0.10108 exch 2 mul exch lineto
+0.54221 0.10047 exch 2 mul exch lineto
+0.5434 0.09987 exch 2 mul exch lineto
+0.54459 0.09927 exch 2 mul exch lineto
+0.54578 0.09867 exch 2 mul exch lineto
+0.54697 0.09808 exch 2 mul exch lineto
+0.54815 0.09749 exch 2 mul exch lineto
+0.54934 0.09691 exch 2 mul exch lineto
+0.55053 0.09633 exch 2 mul exch lineto
+0.55172 0.09576 exch 2 mul exch lineto
+0.55291 0.09519 exch 2 mul exch lineto
+0.5541 0.09462 exch 2 mul exch lineto
+0.55529 0.09406 exch 2 mul exch lineto
+0.55648 0.0935 exch 2 mul exch lineto
+0.55767 0.09294 exch 2 mul exch lineto
+0.55886 0.09239 exch 2 mul exch lineto
+
+0.56004 0.09184 exch 2 mul exch lineto
+0.56123 0.0913 exch 2 mul exch lineto
+0.56242 0.09076 exch 2 mul exch lineto
+0.56361 0.09022 exch 2 mul exch lineto
+0.5648 0.08969 exch 2 mul exch lineto
+0.56599 0.08916 exch 2 mul exch lineto
+0.56718 0.08864 exch 2 mul exch lineto
+0.56837 0.08811 exch 2 mul exch lineto
+0.56956 0.0876 exch 2 mul exch lineto
+0.57074 0.08708 exch 2 mul exch lineto
+0.57193 0.08657 exch 2 mul exch lineto
+0.57312 0.08607 exch 2 mul exch lineto
+0.57431 0.08556 exch 2 mul exch lineto
+0.5755 0.08506 exch 2 mul exch lineto
+0.57669 0.08457 exch 2 mul exch lineto
+0.57788 0.08407 exch 2 mul exch lineto
+0.57907 0.08358 exch 2 mul exch lineto
+0.58026 0.0831 exch 2 mul exch lineto
+0.58145 0.08262 exch 2 mul exch lineto
+0.58263 0.08214 exch 2 mul exch lineto
+0.58382 0.08166 exch 2 mul exch lineto
+0.58501 0.08119 exch 2 mul exch lineto
+0.5862 0.08072 exch 2 mul exch lineto
+0.58739 0.08025 exch 2 mul exch lineto
+0.58858 0.07979 exch 2 mul exch lineto
+0.58977 0.07933 exch 2 mul exch lineto
+0.59096 0.07888 exch 2 mul exch lineto
+0.59215 0.07842 exch 2 mul exch lineto
+0.59334 0.07797 exch 2 mul exch lineto
+0.59452 0.07753 exch 2 mul exch lineto
+0.59571 0.07708 exch 2 mul exch lineto
+0.5969 0.07664 exch 2 mul exch lineto
+0.59809 0.07621 exch 2 mul exch lineto
+0.59928 0.07577 exch 2 mul exch lineto
+0.60047 0.07534 exch 2 mul exch lineto
+0.60166 0.07491 exch 2 mul exch lineto
+0.60285 0.07449 exch 2 mul exch lineto
+0.60404 0.07407 exch 2 mul exch lineto
+0.60523 0.07365 exch 2 mul exch lineto
+0.60641 0.07323 exch 2 mul exch lineto
+0.6076 0.07282 exch 2 mul exch lineto
+0.60879 0.07241 exch 2 mul exch lineto
+0.60998 0.072 exch 2 mul exch lineto
+0.61117 0.0716 exch 2 mul exch lineto
+0.61236 0.07119 exch 2 mul exch lineto
+0.61355 0.0708 exch 2 mul exch lineto
+0.61474 0.0704 exch 2 mul exch lineto
+0.61593 0.07001 exch 2 mul exch lineto
+0.61712 0.06962 exch 2 mul exch lineto
+0.6183 0.06923 exch 2 mul exch lineto
+
+0.61949 0.06884 exch 2 mul exch lineto
+0.62068 0.06846 exch 2 mul exch lineto
+0.62187 0.06808 exch 2 mul exch lineto
+0.62306 0.0677 exch 2 mul exch lineto
+0.62425 0.06733 exch 2 mul exch lineto
+0.62544 0.06696 exch 2 mul exch lineto
+0.62663 0.06659 exch 2 mul exch lineto
+0.62782 0.06622 exch 2 mul exch lineto
+0.62901 0.06586 exch 2 mul exch lineto
+0.63019 0.0655 exch 2 mul exch lineto
+0.63138 0.06514 exch 2 mul exch lineto
+0.63257 0.06478 exch 2 mul exch lineto
+0.63376 0.06443 exch 2 mul exch lineto
+0.63495 0.06408 exch 2 mul exch lineto
+0.63614 0.06373 exch 2 mul exch lineto
+0.63733 0.06338 exch 2 mul exch lineto
+0.63852 0.06304 exch 2 mul exch lineto
+0.63971 0.0627 exch 2 mul exch lineto
+0.6409 0.06236 exch 2 mul exch lineto
+0.64208 0.06202 exch 2 mul exch lineto
+0.64327 0.06169 exch 2 mul exch lineto
+0.64446 0.06135 exch 2 mul exch lineto
+0.64565 0.06103 exch 2 mul exch lineto
+0.64684 0.0607 exch 2 mul exch lineto
+0.64803 0.06037 exch 2 mul exch lineto
+0.64922 0.06005 exch 2 mul exch lineto
+0.65041 0.05973 exch 2 mul exch lineto
+0.6516 0.05941 exch 2 mul exch lineto
+0.65279 0.0591 exch 2 mul exch lineto
+0.65397 0.05878 exch 2 mul exch lineto
+0.65516 0.05847 exch 2 mul exch lineto
+0.65635 0.05816 exch 2 mul exch lineto
+0.65754 0.05785 exch 2 mul exch lineto
+0.65873 0.05755 exch 2 mul exch lineto
+0.65992 0.05725 exch 2 mul exch lineto
+0.66111 0.05695 exch 2 mul exch lineto
+0.6623 0.05665 exch 2 mul exch lineto
+0.66349 0.05635 exch 2 mul exch lineto
+0.66468 0.05606 exch 2 mul exch lineto
+0.66586 0.05576 exch 2 mul exch lineto
+0.66705 0.05547 exch 2 mul exch lineto
+0.66824 0.05519 exch 2 mul exch lineto
+0.66943 0.0549 exch 2 mul exch lineto
+0.67062 0.05462 exch 2 mul exch lineto
+0.67181 0.05433 exch 2 mul exch lineto
+0.673 0.05405 exch 2 mul exch lineto
+0.67419 0.05378 exch 2 mul exch lineto
+0.67538 0.0535 exch 2 mul exch lineto
+0.67657 0.05323 exch 2 mul exch lineto
+0.67775 0.05295 exch 2 mul exch lineto
+
+0.67894 0.05268 exch 2 mul exch lineto
+0.68013 0.05241 exch 2 mul exch lineto
+0.68132 0.05215 exch 2 mul exch lineto
+0.68251 0.05188 exch 2 mul exch lineto
+0.6837 0.05162 exch 2 mul exch lineto
+0.68489 0.05136 exch 2 mul exch lineto
+0.68608 0.0511 exch 2 mul exch lineto
+0.68727 0.05084 exch 2 mul exch lineto
+0.68845 0.05059 exch 2 mul exch lineto
+0.68964 0.05033 exch 2 mul exch lineto
+0.69083 0.05008 exch 2 mul exch lineto
+0.69202 0.04983 exch 2 mul exch lineto
+0.69321 0.04958 exch 2 mul exch lineto
+0.6944 0.04934 exch 2 mul exch lineto
+0.69559 0.04909 exch 2 mul exch lineto
+0.69678 0.04885 exch 2 mul exch lineto
+0.69797 0.04861 exch 2 mul exch lineto
+0.69916 0.04837 exch 2 mul exch lineto
+0.70034 0.04813 exch 2 mul exch lineto
+0.70153 0.04789 exch 2 mul exch lineto
+0.70272 0.04766 exch 2 mul exch lineto
+0.70391 0.04742 exch 2 mul exch lineto
+0.7051 0.04719 exch 2 mul exch lineto
+0.70629 0.04696 exch 2 mul exch lineto
+0.70748 0.04674 exch 2 mul exch lineto
+0.70867 0.04651 exch 2 mul exch lineto
+0.70986 0.04628 exch 2 mul exch lineto
+0.71105 0.04606 exch 2 mul exch lineto
+0.71223 0.04584 exch 2 mul exch lineto
+0.71342 0.04562 exch 2 mul exch lineto
+0.71461 0.0454 exch 2 mul exch lineto
+0.7158 0.04518 exch 2 mul exch lineto
+0.71699 0.04497 exch 2 mul exch lineto
+0.71818 0.04475 exch 2 mul exch lineto
+0.71937 0.04454 exch 2 mul exch lineto
+0.72056 0.04433 exch 2 mul exch lineto
+0.72175 0.04412 exch 2 mul exch lineto
+0.72294 0.04391 exch 2 mul exch lineto
+0.72412 0.04371 exch 2 mul exch lineto
+0.72531 0.0435 exch 2 mul exch lineto
+0.7265 0.0433 exch 2 mul exch lineto
+0.72769 0.0431 exch 2 mul exch lineto
+0.72888 0.04289 exch 2 mul exch lineto
+0.73007 0.04269 exch 2 mul exch lineto
+0.73126 0.0425 exch 2 mul exch lineto
+0.73245 0.0423 exch 2 mul exch lineto
+0.73364 0.04211 exch 2 mul exch lineto
+0.73483 0.04191 exch 2 mul exch lineto
+0.73601 0.04172 exch 2 mul exch lineto
+0.7372 0.04153 exch 2 mul exch lineto
+
+0.73839 0.04134 exch 2 mul exch lineto
+0.73958 0.04115 exch 2 mul exch lineto
+0.74077 0.04096 exch 2 mul exch lineto
+0.74196 0.04078 exch 2 mul exch lineto
+0.74315 0.04059 exch 2 mul exch lineto
+0.74434 0.04041 exch 2 mul exch lineto
+0.74553 0.04023 exch 2 mul exch lineto
+0.74672 0.04005 exch 2 mul exch lineto
+0.7479 0.03987 exch 2 mul exch lineto
+0.74909 0.03969 exch 2 mul exch lineto
+0.75028 0.03951 exch 2 mul exch lineto
+0.75147 0.03934 exch 2 mul exch lineto
+0.75266 0.03916 exch 2 mul exch lineto
+0.75385 0.03899 exch 2 mul exch lineto
+0.75504 0.03882 exch 2 mul exch lineto
+0.75623 0.03865 exch 2 mul exch lineto
+0.75742 0.03848 exch 2 mul exch lineto
+0.75861 0.03831 exch 2 mul exch lineto
+0.75979 0.03814 exch 2 mul exch lineto
+0.76098 0.03798 exch 2 mul exch lineto
+0.76217 0.03781 exch 2 mul exch lineto
+0.76336 0.03765 exch 2 mul exch lineto
+0.76455 0.03749 exch 2 mul exch lineto
+0.76574 0.03733 exch 2 mul exch lineto
+0.76693 0.03717 exch 2 mul exch lineto
+0.76812 0.03701 exch 2 mul exch lineto
+0.76931 0.03685 exch 2 mul exch lineto
+0.7705 0.03669 exch 2 mul exch lineto
+0.77168 0.03654 exch 2 mul exch lineto
+0.77287 0.03638 exch 2 mul exch lineto
+0.77406 0.03623 exch 2 mul exch lineto
+0.77525 0.03608 exch 2 mul exch lineto
+0.77644 0.03593 exch 2 mul exch lineto
+0.77763 0.03578 exch 2 mul exch lineto
+0.77882 0.03563 exch 2 mul exch lineto
+0.78001 0.03548 exch 2 mul exch lineto
+0.7812 0.03533 exch 2 mul exch lineto
+0.78239 0.03519 exch 2 mul exch lineto
+0.78357 0.03504 exch 2 mul exch lineto
+0.78476 0.0349 exch 2 mul exch lineto
+0.78595 0.03475 exch 2 mul exch lineto
+0.78714 0.03461 exch 2 mul exch lineto
+0.78833 0.03447 exch 2 mul exch lineto
+0.78952 0.03433 exch 2 mul exch lineto
+0.79071 0.03419 exch 2 mul exch lineto
+0.7919 0.03405 exch 2 mul exch lineto
+0.79309 0.03392 exch 2 mul exch lineto
+0.79428 0.03378 exch 2 mul exch lineto
+0.79546 0.03365 exch 2 mul exch lineto
+0.79665 0.03351 exch 2 mul exch lineto
+
+0.79784 0.03338 exch 2 mul exch lineto
+0.79903 0.03325 exch 2 mul exch lineto
+0.80022 0.03312 exch 2 mul exch lineto
+0.80141 0.03299 exch 2 mul exch lineto
+0.8026 0.03286 exch 2 mul exch lineto
+0.80379 0.03273 exch 2 mul exch lineto
+0.80498 0.0326 exch 2 mul exch lineto
+0.80616 0.03247 exch 2 mul exch lineto
+0.80735 0.03235 exch 2 mul exch lineto
+0.80854 0.03222 exch 2 mul exch lineto
+0.80973 0.0321 exch 2 mul exch lineto
+0.81092 0.03198 exch 2 mul exch lineto
+0.81211 0.03185 exch 2 mul exch lineto
+0.8133 0.03173 exch 2 mul exch lineto
+0.81449 0.03161 exch 2 mul exch lineto
+0.81568 0.03149 exch 2 mul exch lineto
+0.81687 0.03137 exch 2 mul exch lineto
+0.81805 0.03126 exch 2 mul exch lineto
+0.81924 0.03114 exch 2 mul exch lineto
+0.82043 0.03102 exch 2 mul exch lineto
+0.82162 0.03091 exch 2 mul exch lineto
+0.82281 0.03079 exch 2 mul exch lineto
+0.824 0.03068 exch 2 mul exch lineto
+0.82519 0.03057 exch 2 mul exch lineto
+0.82638 0.03045 exch 2 mul exch lineto
+0.82757 0.03034 exch 2 mul exch lineto
+0.82876 0.03023 exch 2 mul exch lineto
+0.82994 0.03012 exch 2 mul exch lineto
+0.83113 0.03001 exch 2 mul exch lineto
+0.83232 0.0299 exch 2 mul exch lineto
+0.83351 0.0298 exch 2 mul exch lineto
+0.8347 0.02969 exch 2 mul exch lineto
+0.83589 0.02958 exch 2 mul exch lineto
+0.83708 0.02948 exch 2 mul exch lineto
+0.83827 0.02937 exch 2 mul exch lineto
+0.83946 0.02927 exch 2 mul exch lineto
+0.84065 0.02917 exch 2 mul exch lineto
+0.84183 0.02906 exch 2 mul exch lineto
+0.84302 0.02896 exch 2 mul exch lineto
+0.84421 0.02886 exch 2 mul exch lineto
+0.8454 0.02876 exch 2 mul exch lineto
+0.84659 0.02866 exch 2 mul exch lineto
+0.84778 0.02856 exch 2 mul exch lineto
+0.84897 0.02847 exch 2 mul exch lineto
+0.85016 0.02837 exch 2 mul exch lineto
+0.85135 0.02827 exch 2 mul exch lineto
+0.85254 0.02818 exch 2 mul exch lineto
+0.85372 0.02808 exch 2 mul exch lineto
+0.85491 0.02799 exch 2 mul exch lineto
+0.8561 0.02789 exch 2 mul exch lineto
+
+0.85729 0.0278 exch 2 mul exch lineto
+0.85848 0.02771 exch 2 mul exch lineto
+0.85967 0.02761 exch 2 mul exch lineto
+0.86086 0.02752 exch 2 mul exch lineto
+0.86205 0.02743 exch 2 mul exch lineto
+0.86324 0.02734 exch 2 mul exch lineto
+0.86443 0.02725 exch 2 mul exch lineto
+0.86561 0.02716 exch 2 mul exch lineto
+0.8668 0.02707 exch 2 mul exch lineto
+0.86799 0.02699 exch 2 mul exch lineto
+0.86918 0.0269 exch 2 mul exch lineto
+0.87037 0.02681 exch 2 mul exch lineto
+0.87156 0.02673 exch 2 mul exch lineto
+0.87275 0.02664 exch 2 mul exch lineto
+0.87394 0.02656 exch 2 mul exch lineto
+0.87513 0.02648 exch 2 mul exch lineto
+0.87632 0.02639 exch 2 mul exch lineto
+0.8775 0.02631 exch 2 mul exch lineto
+0.87869 0.02623 exch 2 mul exch lineto
+0.87988 0.02615 exch 2 mul exch lineto
+0.88107 0.02606 exch 2 mul exch lineto
+0.88226 0.02598 exch 2 mul exch lineto
+0.88345 0.0259 exch 2 mul exch lineto
+0.88464 0.02582 exch 2 mul exch lineto
+0.88583 0.02575 exch 2 mul exch lineto
+0.88702 0.02567 exch 2 mul exch lineto
+0.88821 0.02559 exch 2 mul exch lineto
+0.88939 0.02551 exch 2 mul exch lineto
+0.89058 0.02544 exch 2 mul exch lineto
+0.89177 0.02536 exch 2 mul exch lineto
+0.89296 0.02529 exch 2 mul exch lineto
+0.89415 0.02521 exch 2 mul exch lineto
+0.89534 0.02514 exch 2 mul exch lineto
+0.89653 0.02506 exch 2 mul exch lineto
+0.89772 0.02499 exch 2 mul exch lineto
+0.89891 0.02492 exch 2 mul exch lineto
+0.9001 0.02484 exch 2 mul exch lineto
+0.90128 0.02477 exch 2 mul exch lineto
+0.90247 0.0247 exch 2 mul exch lineto
+0.90366 0.02463 exch 2 mul exch lineto
+0.90485 0.02456 exch 2 mul exch lineto
+0.90604 0.02449 exch 2 mul exch lineto
+0.90723 0.02442 exch 2 mul exch lineto
+0.90842 0.02435 exch 2 mul exch lineto
+0.90961 0.02428 exch 2 mul exch lineto
+0.9108 0.02422 exch 2 mul exch lineto
+0.91199 0.02415 exch 2 mul exch lineto
+0.91317 0.02408 exch 2 mul exch lineto
+0.91436 0.02402 exch 2 mul exch lineto
+0.91555 0.02395 exch 2 mul exch lineto
+
+0.91674 0.02388 exch 2 mul exch lineto
+0.91793 0.02382 exch 2 mul exch lineto
+0.91912 0.02376 exch 2 mul exch lineto
+0.92031 0.02369 exch 2 mul exch lineto
+0.9215 0.02363 exch 2 mul exch lineto
+0.92269 0.02356 exch 2 mul exch lineto
+0.92387 0.0235 exch 2 mul exch lineto
+0.92506 0.02344 exch 2 mul exch lineto
+0.92625 0.02338 exch 2 mul exch lineto
+0.92744 0.02332 exch 2 mul exch lineto
+0.92863 0.02326 exch 2 mul exch lineto
+0.92982 0.0232 exch 2 mul exch lineto
+0.93101 0.02314 exch 2 mul exch lineto
+0.9322 0.02308 exch 2 mul exch lineto
+0.93339 0.02302 exch 2 mul exch lineto
+0.93458 0.02296 exch 2 mul exch lineto
+0.93576 0.0229 exch 2 mul exch lineto
+0.93695 0.02284 exch 2 mul exch lineto
+0.93814 0.02278 exch 2 mul exch lineto
+0.93933 0.02273 exch 2 mul exch lineto
+0.94052 0.02267 exch 2 mul exch lineto
+0.94171 0.02261 exch 2 mul exch lineto
+0.9429 0.02256 exch 2 mul exch lineto
+0.94409 0.0225 exch 2 mul exch lineto
+0.94528 0.02245 exch 2 mul exch lineto
+0.94647 0.02239 exch 2 mul exch lineto
+0.94765 0.02234 exch 2 mul exch lineto
+0.94884 0.02228 exch 2 mul exch lineto
+0.95003 0.02223 exch 2 mul exch lineto
+0.95122 0.02218 exch 2 mul exch lineto
+0.95241 0.02212 exch 2 mul exch lineto
+0.9536 0.02207 exch 2 mul exch lineto
+0.95479 0.02202 exch 2 mul exch lineto
+0.95598 0.02197 exch 2 mul exch lineto
+0.95717 0.02192 exch 2 mul exch lineto
+0.95836 0.02186 exch 2 mul exch lineto
+0.95954 0.02181 exch 2 mul exch lineto
+0.96073 0.02176 exch 2 mul exch lineto
+0.96192 0.02171 exch 2 mul exch lineto
+0.96311 0.02166 exch 2 mul exch lineto
+0.9643 0.02162 exch 2 mul exch lineto
+0.96549 0.02157 exch 2 mul exch lineto
+0.96668 0.02152 exch 2 mul exch lineto
+0.96787 0.02147 exch 2 mul exch lineto
+0.96906 0.02142 exch 2 mul exch lineto
+0.97025 0.02137 exch 2 mul exch lineto
+0.97143 0.02133 exch 2 mul exch lineto
+0.97262 0.02128 exch 2 mul exch lineto
+0.97381 0.02123 exch 2 mul exch lineto
+0.975 0.02119 exch 2 mul exch lineto
+0.97619 0.02114 exch 2 mul exch lineto
+stroke
+
+grestore
+
+
+showpage
+

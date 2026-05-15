@@ -1,0 +1,250 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 0 0 612.0 792
+/printscale .8 def
+/recip {1 printscale div} def
+/screenstretch {printscale 90 50 div mul} def
+/double {screenstretch 2 mul} def
+
+%100 300 translate		% print translation
+
+ printscale printscale scale       %scale for printing
+% screenstretch screenstretch scale %printing scale on screen
+% double double scale               %magnified screen
+
+% -------------------- font codes --------------------------
+
+/typesize {10 printscale div} def
+/smalltype {8 printscale div} def
+
+/makeTR {/Times-Roman findfont typesize scalefont} def
+/makeTB {/Times-Bold findfont typesize scalefont} def
+/makeTI {/Times-Italic findfont typesize scalefont} def
+/makeSYM {/Symbol findfont typesize scalefont} def
+
+/maketr {/Times-Roman findfont smalltype scalefont} def
+/maketi {/Times-Italic findfont smalltype scalefont} def
+/makesym {/Symbol findfont smalltype scalefont} def
+
+/TR {makeTR setfont} def
+/TB {makeTB setfont} def
+/TI {makeTI setfont} def
+/SYM {makeSYM setfont} def
+
+/tr {maketr setfont} def
+/ti {maketi setfont} def
+/sym {makesym setfont} def
+
+% ---------------string placing procedures-------------------
+
+% stack: fontcode string x y 
+
+/placeBL {moveto show} def
+/placeBR {moveto dup stringwidth pop neg 0 rmoveto show} def
+/placeBC {moveto dup stringwidth pop 2 div neg 0 rmoveto show} def
+/placeTL {moveto 0 typesize neg rmoveto show} def
+/placeTR {moveto dup stringwidth pop neg typesize neg rmoveto show} def
+/placeTC {moveto dup stringwidth pop 2 div neg typesize neg rmoveto show} def
+
+% ----------------- arrow drawing procedures ------------------
+
+/arrow 
+{-4 recip mul 	0 		rmoveto
+ 0  		1 recip mul 	rlineto
+ 4 recip mul 	-1 recip mul 	rlineto
+-4 recip mul 	-1 recip mul 	rlineto
+ 0  		1 recip mul 	rlineto
+ 4 recip mul 	0 		rlineto} def
+
+/rarrowto {					% stack: dx dy
+  2 copy
+  dup mul exch dup mul add  sqrt		% length of arrow
+  3 1 roll exch atan dup 				% angle
+  rotate exch 0 rlineto arrow neg rotate	% make arrow
+} def
+/arrowto {					% stack: x y
+  currentpoint 3 -1 roll sub neg 3 1 roll sub exch rarrowto
+} def
+
+% --------------------------- program -----------------------------
+
+.3 setlinewidth
+
+
+% ------------------ first figure ----------------------
+
+% set the origin
+40 0 moveto
+currentpoint translate
+
+% coordinate axes
+newpath
+-40 0 moveto
+190 0 rarrowto
+-20 -10 moveto
+0 130 rarrowto
+fill
+0 0 moveto
+0 41.5 rlineto
+125 0 moveto
+0 120 rlineto
+stroke
+
+% shading for rectangles
+newpath
+0 0 moveto
+0 41 rlineto
+40 0 rlineto
+0 10 rlineto
+15 0 rlineto
+0 25 rlineto
+10 0 rlineto
+0 28 rlineto
+10 0 rlineto
+0 18 rlineto
+15 0 rlineto
+0 5.5 rlineto
+20 0 rlineto
+0 -4.5 rlineto
+15 0 rlineto
+0 -123 rlineto
+0 0 lineto
+gsave			% save black lines
+.9 setgray
+fill
+grestore			% restore black lines
+
+% the rectangles themselves
+newpath
+0 0 moveto
+0 41 rlineto
+40 0 rlineto
+40 0 moveto
+0 51 rlineto
+15 0 rlineto
+55 0 moveto
+0 76 rlineto
+10 0 rlineto
+65 0 moveto
+0 104 rlineto
+10 0 rlineto
+75 0 moveto
+0 122 rlineto
+15 0 rlineto
+90 0 moveto
+0 127.5 rlineto
+20 0 rlineto
+0 -127.5 rlineto
+110 123 moveto
+15 0 rlineto
+0 -123 rlineto
+0 0 lineto
+stroke
+
+gsave  % start clipped region for graph
+
+newpath
+-10 0 moveto 
+0 150 rlineto
+150 0 rlineto
+0 -150 rlineto
+-150 0 rlineto
+clip
+
+newpath
+.9 recip mul setlinewidth
+20 40 moveto
+80 30 45 160 125 120 curveto
+225 70 150 -50 70 -50 curveto
+0 -50 -60 55 20 40 curveto
+stroke
+
+grestore % end clipped region for graph
+
+% labels on axes and graph
+newpath
+TI (a) 0 0 placeTC
+(b) 125 0 placeTC 
+(x) 150 1 placeTC
+(y) -23 118 placeBR
+(y = f) 136 115 placeTL
+1 0 rmoveto TR (\() show
+TI (x) show
+TR (\)) show
+
+% --------------- second figure --------------------
+
+% set the origin
+235 0 moveto
+currentpoint translate
+
+gsave	% start clipped region for shading
+
+newpath
+20 40 moveto
+80 30 45 160 125 120 curveto
+225 70 150 -50 70 -50 curveto
+0 -50 -60 55 20 40 curveto
+clip
+
+newpath
+0 0 moveto
+0 150 rlineto
+125 0 rlineto
+0 -150 rlineto
+closepath
+.9 setgray
+fill
+
+grestore	% end clipped region for shading
+
+
+gsave  % start clipped region for graph
+
+newpath
+-10 0 moveto 
+0 150 rlineto
+150 0 rlineto
+0 -150 rlineto
+-150 0 rlineto
+clip
+
+newpath
+.9 recip mul setlinewidth
+20 40 moveto
+80 30 45 160 125 120 curveto
+225 70 150 -50 70 -50 curveto
+0 -50 -60 55 20 40 curveto
+stroke
+
+grestore % end clipped region for graph
+
+% coordinate axes
+newpath
+-40 0 moveto
+190 0 rarrowto
+-20 -10 moveto
+0 130 rarrowto
+fill
+0 0 moveto
+0 41.5 rlineto
+125 0 moveto
+0 120 rlineto
+stroke
+
+% labels on axes and graph
+newpath
+TI (a) 0 0 placeTC
+(b) 125 0 placeTC 
+(x) 150 1 placeTC
+(y) -23 118 placeBR
+(y = f) 136 115 placeTL
+1 0 rmoveto TR (\() show
+TI (x) show
+TR (\)) show
+
+
+
+
+showpage
+
+

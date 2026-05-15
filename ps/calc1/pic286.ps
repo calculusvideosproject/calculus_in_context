@@ -1,0 +1,201 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 0 0 612.0 792
+/printscale .73 def
+/recip {1 printscale div} def
+
+%100 300 translate			% print translation
+
+30 0 translate
+
+printscale printscale scale
+
+% -------------------- font codes --------------------------
+
+/typesize {10 printscale div} def
+/smalltype {7 printscale div} def
+
+/makeTR {/Times-Roman findfont typesize scalefont} def
+/makeTB {/Times-Bold findfont typesize scalefont} def
+/makeTI {/Times-Italic findfont typesize scalefont} def
+/makeSYM {/Symbol findfont typesize scalefont} def
+
+/maketr {/Times-Roman findfont smalltype scalefont} def
+/maketi {/Times-Italic findfont smalltype scalefont} def
+/makesym {/Symbol findfont smalltype scalefont} def
+
+/TR {makeTR setfont} def
+/TB {makeTB setfont} def
+/TI {makeTI setfont} def
+/SYM {makeSYM setfont} def
+
+/tr {maketr setfont} def
+/ti {maketi setfont} def
+/sym {makesym setfont} def
+
+% ---------------string placing procedures-------------------
+
+% stack: fontcode string x y 
+
+/placeBL {moveto show} def
+/placeBR {moveto dup stringwidth pop neg 0 rmoveto show} def
+/placeBC {moveto dup stringwidth pop 2 div neg 0 rmoveto show} def
+/placeTL {moveto 0 typesize neg rmoveto show} def
+/placeTR {moveto dup stringwidth pop neg typesize neg rmoveto show} def
+/placeTC {moveto dup stringwidth pop 2 div neg typesize neg rmoveto show} def
+
+% ----------------- arrow drawing procedures ------------------
+
+/arrow 
+{-4 recip mul 	0 		rmoveto
+ 0  		1 recip mul 	rlineto
+ 4 recip mul 	-1 recip mul 	rlineto
+-4 recip mul 	-1 recip mul 	rlineto
+ 0  		1 recip mul 	rlineto
+ 4 recip mul 	0 		rlineto} def
+
+/rarrowto {					% stack: dx dy
+  2 copy
+  dup mul exch dup mul add  sqrt		% length of arrow
+  3 1 roll exch atan dup 				% angle
+  rotate exch 0 rlineto arrow neg rotate	% make arrow
+} def
+/arrowto {					% stack: x y
+  currentpoint 3 -1 roll sub neg 3 1 roll sub exch rarrowto
+} def
+
+% ------------------ graphics instructions --------------------
+
+.3 setlinewidth
+
+% position the origin
+ 50 200 moveto				% screen origin
+0 0  moveto
+currentpoint translate
+
+% --------------------------- grid ---------------------------
+
+gsave
+newpath
+.4 setgray
+0 50 500 
+{ 0 moveto
+  0 300 rlineto
+} for
+0 50 300 
+{ 0 exch moveto
+  500 0 rlineto
+} for
+% stroke			% comment out here to eliminate grid lines
+grestore
+
+
+/pcurve
+{x y moveto
+/nx x 1 add def
+/a nx 72 div def
+/ny a 5 exp a -3 mul add 1 add 18 mul def
+nx ny lineto
+stroke
+/x nx def
+/y ny def
+} def
+
+/prt-n
+ {(     ) cvs show} def
+ 
+/x1labels
+ {/num num 1 add def
+  x -11 moveto 
+  num prt-n
+  /z x 2 add def
+  z -2 moveto
+  z 0 lineto
+  stroke
+  /x x 72 add def
+  
+	} def 
+	
+/x2labels
+ {/num num 1 add def
+  x 2 sub -11 moveto 
+  num prt-n
+  /z x 4 add def
+  z -2 moveto
+  z 0 lineto
+  stroke
+  /x x 72 add def
+  
+	} def 
+
+/arrowdict 14 dict def
+arrowdict begin
+ /mtrx matrix def
+end
+
+/arrow
+ {arrowdict begin
+   /headlength exch def
+   /halfheadthickness exch 2 div def
+   /halfthickness exch 2 div def
+   /tipy exch def /tipx exch def
+   /taily exch def /tailx exch def
+   
+   /dx tipx tailx sub def
+   /dy tipy taily sub def
+   /arrowlength dx dx mul dy dy mul add sqrt def
+   /angle dy dx atan def
+   /base arrowlength headlength sub def
+   
+   /savematrix mtrx currentmatrix def
+   
+   tailx taily translate
+   angle rotate
+   0 halfthickness neg moveto
+   base halfthickness neg lineto
+   base halfheadthickness neg lineto
+   arrowlength 0 lineto
+   base halfheadthickness lineto
+   base halfthickness lineto
+   0 halfthickness lineto
+   closepath
+   
+   savematrix setmatrix
+   end
+ }  def
+
+TI
+198 58 translate
+
+0 -54 0 108 .01 2 recip mul 4 recip mul arrow fill
+-162 0 170 0 .15 2 recip mul 4 recip mul arrow fill
+
+4 104  moveto
+(y) show
+165 -11 moveto
+(x) show
+
+sym
+/num 0 def
+/x 70 def
+2 {x1labels} repeat
+/num -3 def
+/x -148 def
+2 {x2labels} repeat
+TI (y) -110 80 placeBL
+SYM ( = ) show
+TI (x) show
+2 5 rmoveto
+sym (5) show
+0 -5 rmoveto
+SYM ( - 3) show
+TI (x) show
+SYM ( + 1) show
+
+.9 recip mul setlinewidth
+/x -111 def
+/a x 72 div def
+/y a 5 exp a -3 mul add 1 add 18 mul def
+224 {pcurve} repeat
+
+showpage
+
