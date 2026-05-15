@@ -1,0 +1,194 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 0 0 612.0 792
+/printscale  .9 def
+/recip {1 printscale div} def
+/screenstretch {printscale 90 50 div mul} def
+/double {screenstretch 2 mul} def
+
+% 100 300 translate 		% print translation
+
+-10 10 translate
+
+ printscale printscale scale       %scale for printing
+% screenstretch screenstretch scale %printing scale on screen
+% double double scale               %magnified screen
+
+% -------------------- font codes --------------------------
+
+/typesize {10 printscale div} def
+/smalltype {7 printscale div} def
+
+/makeTR {/Times-Roman findfont typesize scalefont} def
+/makeTB {/Times-Bold findfont typesize scalefont} def
+/makeTI {/Times-Italic findfont typesize scalefont} def
+/makeSYM {/Symbol findfont typesize scalefont} def
+
+/maketr {/Times-Roman findfont smalltype scalefont} def
+/maketi {/Times-Italic findfont smalltype scalefont} def
+/makesym {/Symbol findfont smalltype scalefont} def
+
+/TR {makeTR setfont} def
+/TB {makeTB setfont} def
+/TI {makeTI setfont} def
+/SYM {makeSYM setfont} def
+
+/tr {maketr setfont} def
+/ti {maketi setfont} def
+/sym {makesym setfont} def
+
+% ---------------string placing procedures-------------------
+
+% stack: fontcode string x y 
+
+/placeBL {moveto show} def
+/placeBR {moveto dup stringwidth pop neg 0 rmoveto show} def
+/placeBC {moveto dup stringwidth pop 2 div neg 0 rmoveto show} def
+/placeTL {moveto 0 typesize neg rmoveto show} def
+/placeTR {moveto dup stringwidth pop neg typesize neg rmoveto show} def
+/placeTC {moveto dup stringwidth pop 2 div neg typesize neg rmoveto show} def
+
+% ----------------- arrow drawing procedures ------------------
+
+/arrow 
+{-4 recip mul 	0 		rmoveto
+ 0  		1 recip mul 	rlineto
+ 4 recip mul 	-1 recip mul 	rlineto
+-4 recip mul 	-1 recip mul 	rlineto
+ 0  		1 recip mul 	rlineto
+ 4 recip mul 	0 		rlineto} def
+
+/rarrowto {					% stack: dx dy
+  2 copy
+  dup mul exch dup mul add  sqrt		% length of arrow
+  3 1 roll exch atan dup 				% angle
+  rotate exch 0 rlineto arrow neg rotate	% make arrow
+} def
+/arrowto {					% stack: x y
+  currentpoint 3 -1 roll sub neg 3 1 roll sub exch rarrowto
+} def
+
+% --------------------------------------------------------------
+
+.3 setlinewidth
+
+ 
+/ht 60 def
+/width ht 2 mul def
+/spacing width 6.5 div def
+/pi 3.14159 def
+
+/Cos
+{ 180 mul pi div cos
+} def
+
+
+/iter
+{/te 2 k mul 1 add def
+/s s te t mul Cos te 2 exp div add def
+/k k 1 add def
+}def
+
+/series
+{/s 0 def
+/k 0 def
+n {iter} repeat
+/y pi 2 div s 4 mul pi div add def
+} def
+
+/curve
+{/t 0 def
+series
+/starty y def
+0 starty spacing mul moveto
+100 {posap} repeat
+stroke
+/t 0 def
+0 starty spacing mul moveto
+100 {negap} repeat
+stroke
+/coord 2 spacing mul def
+TI (y) coord coord placeBL
+SYM ( = f) show
+0 -3 rmoveto
+sym
+n (   ) cvs show
+0 3 rmoveto
+SYM (\() show
+TI (x) show
+SYM(\)) show
+} def
+
+/posap
+{/t t .031416 add def
+series
+t spacing mul y spacing mul lineto
+} def
+
+/negap
+{/t t .031416 sub def
+series
+t spacing mul y spacing mul lineto
+} def
+
+
+/hashver
+{/k k 1 add def
+/posit k spacing mul def
+k (            ) cvs dup stringwidth pop 7 add neg 
+3 add posit 1 sub moveto
+show
+-2 posit moveto 
+0 posit lineto stroke
+} def
+
+/hashhor
+{/k k 1 add def
+/posit k spacing mul def
+k (     ) cvs dup stringwidth pop 2 div
+posit exch sub -10 moveto
+show
+posit -2 moveto
+posit 0 lineto stroke
+} def
+
+/setup
+{-5 0 moveto
+width 10 add 0 arrowto
+pi spacing mul 0 moveto
+pi spacing mul ht 10 add arrowto 
+fill
+pi spacing mul 0 translate
+sym
+/k -4 def
+7 {hashhor} repeat
+/k 0 def
+3 {hashver} repeat
+TI (y) -4 ht 7 add placeBR
+(x) pi spacing mul 12 add 1 placeTC 
+} def
+
+10 20 translate
+setup
+gsave
+.9 recip mul  setlinewidth
+/n 1 def
+curve
+grestore
+
+pi spacing mul 30 add 0 translate
+setup
+gsave
+.9 recip mul  setlinewidth
+/n 2 def
+curve
+grestore
+
+pi spacing mul 30 add 0 translate
+setup
+gsave
+.9 recip mul  setlinewidth
+/n 10 def
+curve
+grestore
+
+showpage

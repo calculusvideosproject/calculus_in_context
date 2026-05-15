@@ -1,0 +1,221 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 0 0 612.0 792
+/printscale  .95 def
+/recip {1 printscale div} def
+/screenstretch {printscale 90 50 div mul} def
+/double {screenstretch 2 mul} def
+
+% 100 300 translate 		% print translation
+
+23 0 translate
+
+ printscale printscale scale       %scale for printing
+% screenstretch screenstretch scale %printing scale on screen
+% double double scale               %magnified screen
+
+% -------------------- font codes --------------------------
+
+/typesize {10 printscale div} def
+/smalltype {7 printscale div} def
+
+/makeTR {/Times-Roman findfont typesize scalefont} def
+/makeTB {/Times-Bold findfont typesize scalefont} def
+/makeTI {/Times-Italic findfont typesize scalefont} def
+/makeSYM {/Symbol findfont typesize scalefont} def
+
+/maketr {/Times-Roman findfont smalltype scalefont} def
+/maketi {/Times-Italic findfont smalltype scalefont} def
+/makesym {/Symbol findfont smalltype scalefont} def
+
+/TR {makeTR setfont} def
+/TB {makeTB setfont} def
+/TI {makeTI setfont} def
+/SYM {makeSYM setfont} def
+
+/tr {maketr setfont} def
+/ti {maketi setfont} def
+/sym {makesym setfont} def
+
+% ---------------string placing procedures-------------------
+
+% stack: fontcode string x y 
+
+/placeBL {moveto show} def
+/placeBR {moveto dup stringwidth pop neg 0 rmoveto show} def
+/placeBC {moveto dup stringwidth pop 2 div neg 0 rmoveto show} def
+/placeTL {moveto 0 typesize neg rmoveto show} def
+/placeTR {moveto dup stringwidth pop neg typesize neg rmoveto show} def
+/placeTC {moveto dup stringwidth pop 2 div neg typesize neg rmoveto show} def
+
+% ----------------- arrow drawing procedures ------------------
+
+/arrow 
+{-4 recip mul 	0 		rmoveto
+ 0  		1 recip mul 	rlineto
+ 4 recip mul 	-1 recip mul 	rlineto
+-4 recip mul 	-1 recip mul 	rlineto
+ 0  		1 recip mul 	rlineto
+ 4 recip mul 	0 		rlineto} def
+
+/rarrowto {					% stack: dx dy
+  2 copy
+  dup mul exch dup mul add  sqrt		% length of arrow
+  3 1 roll exch atan dup 				% angle
+  rotate exch 0 rlineto arrow neg rotate	% make arrow
+} def
+/arrowto {					% stack: x y
+  currentpoint 3 -1 roll sub neg 3 1 roll sub exch rarrowto
+} def
+
+% --------------------------------------------------------------
+
+.3 setlinewidth
+
+
+/numbersteps 2000 def
+/delta 4 numbersteps div def
+/skip numbersteps 100 idiv def
+/degree 12 def
+/ht 180 def   %determines vertical scale
+/width 8 def   %determines horizontal scale
+
+/fixsum
+{sum k 0 put
+/k k 1 add def
+}def
+
+/displaysum
+{100 300 k 14 mul sub moveto
+k 2 string cvs show (     ) show
+sum k get 20 string cvs show
+0 -14 rmoveto
+/k k 1 add def
+} def
+
+/displayI
+{300 750 k 12 mul sub moveto
+k 2 string cvs show (     ) show
+Iarray k get 20 string cvs show
+0 -14 rmoveto
+/k k 1 add def
+} def
+
+/newsum
+{/ave I nI add 2 div def
+sum k get ave t k exp mul delta mul add  sum k 3 -1 roll put
+/k k 1 add def
+} def
+
+/drawI
+{/k k 1 add def
+/t t .4 width mul add def
+t Iarray k get 10000 mul ht div lineto
+} def
+
+/euler
+{/Sp a S I mul mul neg def
+/Ip a S I mul mul b I mul sub def
+/S S Sp delta mul add def
+/nI I Ip delta mul add def
+/k 0 def
+degree {newsum} repeat
+counter skip mod 0 eq {Iarray counter skip idiv I put}{} ifelse
+/counter counter 1 add def
+/I nI def
+/t t delta add def
+} def
+
+/poly
+{/y .309047  -.998873   7.85182  -3.6233 -3.92478  4.21615 -1.57501 .269203 -.017724 nx mul add nx mul add nx mul add nx mul add nx mul add nx mul add nx mul add nx mul add def
+} def
+
+/curve
+{/x x 4 add def
+/nx x width div 10 div def
+poly
+x y 10000 mul ht div lineto
+} def
+
+/hashver
+{/k k .5 add def
+/posit k 10000 mul ht div def
+k (            ) cvs dup stringwidth pop 7 add neg 
+2 add posit 2 sub moveto
+show
+-2 posit moveto 
+0 posit lineto stroke
+} def
+
+/hashhor
+{/k k 1 add def
+/posit k 10 mul width mul def
+k (     ) cvs dup stringwidth pop 2 div
+posit exch sub -10 moveto
+show
+posit -2 moveto
+posit 0 lineto stroke
+} def
+
+
+/S 4.5400 def
+/I .2100 def
+/a 1 def
+/b 10 14 div def
+/sum degree array def
+/k 0 def
+degree {fixsum} repeat
+/Iarray 101 array def
+/t delta 2 div def
+
+
+20 15 translate
+0 0 moveto
+42 width mul 0 arrowto 
+fill
+0 0 moveto
+0 30000 ht div arrowto 
+fill
+
+sym
+/k 0 def
+5 {hashver} repeat
+/k 0 def
+4 {hashhor} repeat
+
+gsave
+.9 recip mul  setlinewidth
+/counter 0 def 
+ numbersteps {euler} repeat
+0 Iarray 0 get 10000 mul ht div moveto
+/k 0 def
+/t 0 def
+ 99 {drawI} repeat
+stroke
+
+.6 recip mul setlinewidth
+[2 1] 0 setdash
+0 3090.47 ht div moveto
+/x 0 def
+ 80 {curve} repeat
+stroke
+grestore
+
+TI (t) 338 1 placeTC
+(y) -6 162 placeBR
+(y = I) 25 152 placeBL
+TR (\() show
+TI (t) show
+TR (\)) show
+2 1 rmoveto
+80 143 arrowto
+fill
+TI (y = Q) 160 155 placeBL
+TR (\() show
+TI (t) show
+TR (\)) show
+158 157 moveto
+126 142 arrowto
+fill
+
+showpage
+

@@ -1,0 +1,246 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 0 0 612.0 792
+/printscale .9 def
+/recip {1 printscale div} def
+/screenstretch {printscale 90 50 div mul} def
+/double {screenstretch 2 mul} def
+
+% 100 300 translate 		% print translation
+
+ printscale printscale scale       %scale for printing
+% screenstretch screenstretch scale %printing scale on screen
+% double double scale               %magnified screen
+
+% -------------------- font codes --------------------------
+
+/typesize {10 printscale div} def
+/smalltype {8 printscale div} def
+
+/makeTR {/Times-Roman findfont typesize scalefont} def
+/makeTB {/Times-Bold findfont typesize scalefont} def
+/makeTI {/Times-Italic findfont typesize scalefont} def
+/makeSYM {/Symbol findfont typesize scalefont} def
+
+/maketr {/Times-Roman findfont smalltype scalefont} def
+/maketi {/Times-Italic findfont smalltype scalefont} def
+/makesym {/Symbol findfont smalltype scalefont} def
+
+/TR {makeTR setfont} def
+/TB {makeTB setfont} def
+/TI {makeTI setfont} def
+/SYM {makeSYM setfont} def
+
+/tr {maketr setfont} def
+/ti {maketi setfont} def
+/sym {makesym setfont} def
+
+% ---------------string placing procedures-------------------
+
+% stack: fontcode string x y 
+
+/placeBL {moveto show} def
+/placeBR {moveto dup stringwidth pop neg 0 rmoveto show} def
+/placeBC {moveto dup stringwidth pop 2 div neg 0 rmoveto show} def
+/placeTL {moveto 0 typesize neg rmoveto show} def
+/placeTR {moveto dup stringwidth pop neg typesize neg rmoveto show} def
+/placeTC {moveto dup stringwidth pop 2 div neg typesize neg rmoveto show} def
+
+% ----------------- arrow drawing procedures ------------------
+
+/arrow 
+{-4 recip mul 	0 		rmoveto
+ 0  		1 recip mul 	rlineto
+ 4 recip mul 	-1 recip mul 	rlineto
+-4 recip mul 	-1 recip mul 	rlineto
+ 0  		1 recip mul 	rlineto
+ 4 recip mul 	0 		rlineto} def
+
+/rarrowto {					% stack: dx dy
+  2 copy
+  dup mul exch dup mul add  sqrt		% length of arrow
+  3 1 roll exch atan dup 				% angle
+  rotate exch 0 rlineto arrow neg rotate	% make arrow
+} def
+/arrowto {					% stack: x y
+  currentpoint 3 -1 roll sub neg 3 1 roll sub exch rarrowto
+} def
+
+% ------------------- program -------------------------
+
+.3 setlinewidth
+
+% position the origin
+% 80 80 moveto				% screen origin
+ 50 0 moveto
+currentpoint translate
+
+% draw the graph
+
+gsave
+newpath
+3 3 scale
+.3 recip mul setlinewidth
+
+1 4.00000000000000E+0000 .8 mul 3 div moveto
+2 1.79166666666606E+0000 .8 mul 3 div lineto
+3 8.54166666668607E+0000 .8 mul 3 div lineto
+4 1.65666666666802E+0001 .8 mul 3 div lineto
+5 3.62750000000233E+0001 .8 mul 3 div lineto
+6 4.97083333333139E+0001 .8 mul 3 div lineto
+7 6.41500000000233E+0001 .8 mul 3 div lineto
+8 6.70250000000233E+0001 .8 mul 3 div lineto
+9 7.09833333332790E+0001 .8 mul 3 div lineto
+10 4.78083333334071E+0001 .8 mul 3 div lineto
+11 2.75249999999942E+0001 .8 mul 3 div lineto
+12 8.52500000000873E+0000 .8 mul 3 div lineto
+13 1.32416666666832E+0001 .8 mul 3 div lineto
+14 5.68583333333954E+0001 .8 mul 3 div lineto
+15 1.21449999999837E+0002 .8 mul 3 div lineto
+16 1.38275000000140E+0002 .8 mul 3 div lineto
+17 1.03150000000023E+0002 .8 mul 3 div lineto
+18 8.58166666667676E+0001 .8 mul 3 div lineto
+19 6.31916666666511E+0001 .8 mul 3 div lineto
+20 3.67999999999884E+0001 .8 mul 3 div lineto
+21 2.41916666667385E+0001 .8 mul 3 div lineto
+22 1.06750000000029E+0001 .8 mul 3 div lineto
+23 1.50000000000146E+0001 .8 mul 3 div lineto
+24 4.00583333334071E+0001 .8 mul 3 div lineto
+25 6.15000000000582E+0001 .8 mul 3 div lineto
+26 9.84583333333721E+0001 .8 mul 3 div lineto
+27 1.24316666666768E+0002 .8 mul 3 div lineto
+28 9.58666666666977E+0001 .8 mul 3 div lineto
+29 6.65333333333256E+0001 .8 mul 3 div lineto
+30 6.45000000001164E+0001 .8 mul 3 div lineto
+31 5.42083333333139E+0001 .8 mul 3 div lineto
+32 3.90249999999651E+0001 .8 mul 3 div lineto
+33 2.05666666666511E+0001 .8 mul 3 div lineto
+34 6.70833333334303E+0000 .8 mul 3 div lineto
+35 4.30000000000291E+0000 .8 mul 3 div lineto
+36 2.27750000000233E+0001 .8 mul 3 div lineto
+37 5.48083333334071E+0001 .8 mul 3 div lineto
+38 9.38333333333721E+0001 .8 mul 3 div lineto
+39 9.56916666665347E+0001 .8 mul 3 div lineto
+40 7.71666666667443E+0001 .8 mul 3 div lineto
+41 5.91083333333372E+0001 .8 mul 3 div lineto
+42 4.40166666666628E+0001 .8 mul 3 div lineto
+43 4.69499999999534E+0001 .8 mul 3 div lineto
+44 3.04750000000058E+0001 .8 mul 3 div lineto
+45 1.62916666666861E+0001 .8 mul 3 div lineto
+46 7.25833333333139E+0000 .8 mul 3 div lineto
+47 3.72916666666861E+0001 .8 mul 3 div lineto
+48 7.39000000000233E+0001 .8 mul 3 div lineto
+49 1.39108333333628E+0002 .8 mul 3 div lineto
+50 1.11200000000186E+0002 .8 mul 3 div lineto
+51 1.01666666666861E+0002 .8 mul 3 div lineto
+52 6.62916666667443E+0001 .8 mul 3 div lineto
+53 4.46499999999651E+0001 .8 mul 3 div lineto
+54 1.70749999999825E+0001 .8 mul 3 div lineto
+55 1.13166666666657E+0001 .8 mul 3 div lineto
+56 1.22750000000233E+0001 .8 mul 3 div lineto
+57 3.37500000000000E+0000 .8 mul 3 div lineto
+58 5.95833333332121E+0000 .8 mul 3 div lineto
+59 3.22666666667210E+0001 .8 mul 3 div lineto
+60 5.42500000000000E+0001 .8 mul 3 div lineto
+61 5.96500000000815E+0001 .8 mul 3 div lineto
+62 6.37000000000116E+0001 .8 mul 3 div lineto
+63 6.34500000000116E+0001 .8 mul 3 div lineto
+64 5.21583333333838E+0001 .8 mul 3 div lineto
+65 2.53750000000000E+0001 .8 mul 3 div lineto
+66 1.30500000000029E+0001 .8 mul 3 div lineto
+67 6.74999999999272E+0000 .8 mul 3 div lineto
+68 6.26666666666279E+0000 .8 mul 3 div lineto
+69 7.05000000001019E+0000 .8 mul 3 div lineto
+70 3.56249999999418E+0001 .8 mul 3 div lineto
+71 7.29666666666744E+0001 .8 mul 3 div lineto
+72 8.49333333333489E+0001 .8 mul 3 div lineto
+73 7.80083333334187E+0001 .8 mul 3 div lineto
+74 6.39666666667326E+0001 .8 mul 3 div lineto
+75 4.17833333333838E+0001 .8 mul 3 div lineto
+76 2.62416666666686E+0001 .8 mul 3 div lineto
+77 2.67166666666744E+0001 .8 mul 3 div lineto
+78 1.21083333333372E+0001 .8 mul 3 div lineto
+79 9.45833333335759E+0000 .8 mul 3 div lineto
+80 2.74166666667224E+0000 .8 mul 3 div lineto
+81 5.02499999999418E+0000 .8 mul 3 div lineto
+82 2.43833333333314E+0001 .8 mul 3 div lineto
+83 4.19500000000698E+0001 .8 mul 3 div lineto
+84 6.34666666667326E+0001 .8 mul 3 div lineto
+85 5.38583333333954E+0001 .8 mul 3 div lineto
+86 6.20333333333838E+0001 .8 mul 3 div lineto
+87 4.85416666666861E+0001 .8 mul 3 div lineto
+88 4.38833333333023E+0001 .8 mul 3 div lineto
+89 1.85833333333430E+0001 .8 mul 3 div lineto
+90 5.69999999998981E+0000 .8 mul 3 div lineto
+91 3.59166666666351E+0000 .8 mul 3 div lineto
+92 1.44166666666570E+0000 .8 mul 3 div lineto
+93 9.59166666667443E+0000 .8 mul 3 div lineto
+94 4.73666666666977E+0001 .8 mul 3 div lineto
+95 5.70666666667094E+0001 .8 mul 3 div lineto
+96 1.03891666666721E+0002 .8 mul 3 div lineto
+97 8.05750000000698E+0001 .8 mul 3 div lineto
+98 6.36083333333954E+0001 .8 mul 3 div lineto
+99 3.76416666666628E+0001 .8 mul 3 div lineto
+100 2.61333333333314E+0001 .8 mul 3 div lineto
+101 1.42416666666541E+0001 .8 mul 3 div lineto
+102 5.77500000001601E+0000 .8 mul 3 div lineto
+103 1.67166666666744E+0001 .8 mul 3 div lineto
+104 4.43083333333489E+0001 .8 mul 3 div lineto
+105 6.38916666666628E+0001 .8 mul 3 div lineto
+106 6.90416666667443E+0001 .8 mul 3 div lineto
+107 7.77916666666279E+0001 .8 mul 3 div lineto
+108 6.49666666666744E+0001 .8 mul 3 div lineto
+109 3.56666666666861E+0001 .8 mul 3 div lineto
+110 2.12250000000058E+0001 .8 mul 3 div lineto
+111 1.11416666666773E+0001 .8 mul 3 div lineto
+112 5.65833333334740E+0000 .8 mul 3 div lineto
+113 8.71666666665988E+0000 .8 mul 3 div lineto
+114 3.60583333334071E+0001 .8 mul 3 div lineto
+stroke
+grestore
+
+% coord axes
+newpath
+0 0 moveto
+350 0 rarrowto
+0 0 moveto
+0 115 rarrowto
+fill
+
+% ticks
+/htick {0 -2 rlineto} def
+/vtick {-2 0 rlineto} def
+/hscale {currentpoint
+pop 60 add 0 moveto 
+htick} def
+/vscale {currentpoint 
+20 add 0 exch moveto		% 20 points = 25 sunspots
+vtick} def
+
+newpath
+0 0 moveto
+htick
+5 {hscale} repeat
+0 0 moveto
+5 {vscale} repeat
+stroke
+
+% labels
+sym 
+(1820) 0 -1 placeTC
+(1840) 60 -1 placeTC
+(1860) 120 -1 placeTC
+(1880) 180 -1 placeTC
+(1900) 240 -1 placeTC
+(1920) 300 -1 placeTC
+(25) -5 18 placeBR
+(50) -5 38 placeBR
+(75) -5 58 placeBR
+(100) -5 78 placeBR
+(125) -5 98 placeBR
+TR (year) 350 -1 placeTC
+(Daily average number of sunspots) 170 -20 placeTC
+gsave
+90 rotate
+(sunspots) 60 26 placeBC
+grestore
+showpage

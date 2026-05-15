@@ -1,0 +1,226 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 0 0 612.0 792
+/printscale .8 def
+/recip {1 printscale div} def
+/screenstretch {printscale 90 50 div mul} def
+/double {screenstretch 2 mul} def
+
+% 100 300 translate 		% print translation
+
+5 0 translate
+
+ printscale printscale scale       %scale for printing
+% screenstretch screenstretch scale %printing scale on screen
+% double double scale               %magnified screen
+
+% -------------------- font codes --------------------------
+
+/typesize {10 printscale div} def
+/smalltype {7 printscale div} def
+
+/makeTR {/Times-Roman findfont typesize scalefont} def
+/makeTB {/Times-Bold findfont typesize scalefont} def
+/makeTI {/Times-Italic findfont typesize scalefont} def
+/makeSYM {/Symbol findfont typesize scalefont} def
+
+/maketr {/Times-Roman findfont smalltype scalefont} def
+/maketi {/Times-Italic findfont smalltype scalefont} def
+/makesym {/Symbol findfont smalltype scalefont} def
+
+/TR {makeTR setfont} def
+/TB {makeTB setfont} def
+/TI {makeTI setfont} def
+/SYM {makeSYM setfont} def
+
+/tr {maketr setfont} def
+/ti {maketi setfont} def
+/sym {makesym setfont} def
+
+% ---------------string placing procedures-------------------
+
+% stack: fontcode string x y 
+
+/placeBL {moveto show} def
+/placeBR {moveto dup stringwidth pop neg 0 rmoveto show} def
+/placeBC {moveto dup stringwidth pop 2 div neg 0 rmoveto show} def
+/placeTL {moveto 0 typesize neg rmoveto show} def
+/placeTR {moveto dup stringwidth pop neg typesize neg rmoveto show} def
+/placeTC {moveto dup stringwidth pop 2 div neg typesize neg rmoveto show} def
+
+% ----------------- arrow drawing procedures ------------------
+
+/arrow 
+{-4 recip mul 	0 		rmoveto
+ 0  		1 recip mul 	rlineto
+ 4 recip mul 	-1 recip mul 	rlineto
+-4 recip mul 	-1 recip mul 	rlineto
+ 0  		1 recip mul 	rlineto
+ 4 recip mul 	0 		rlineto} def
+
+/rarrowto {					% stack: dx dy
+  2 copy
+  dup mul exch dup mul add  sqrt		% length of arrow
+  3 1 roll exch atan dup 				% angle
+  rotate exch 0 rlineto arrow neg rotate	% make arrow
+} def
+/arrowto {					% stack: x y
+  currentpoint 3 -1 roll sub neg 3 1 roll sub exch rarrowto
+} def
+
+% -------------------------- program ------------------------------------
+
+/inch {72 mul} def
+/point {72 div} def
+
+.3 setlinewidth
+
+1.4 inch 0 inch translate
+
+% x  axes
+-.3 inch 0 inch moveto 
+1.35 inch 0 inch arrowto 
+fill
+
+/fn {1 add .5 mul dup dup mul 3 sub mul -.25 mul 1 add 5 mul 6 sub} def
+/ht {.5 fn} def
+/tn {.5 sub .82 mul ht add} def
+
+% graph the curve
+
+gsave
+.9 recip mul setlinewidth
+-.25 inch dup point fn inch moveto
+.02 inch .02 inch 1.25 inch 
+{dup point fn inch lineto} 
+for
+stroke  
+grestore
+
+gsave
+.5 recip mul setlinewidth
+0 inch dup point tn inch moveto 
+1 inch dup point tn inch lineto 
+1 inch ht inch lineto 
+stroke
+
+% rectangle
+0 inch 0 inch moveto 
+0 inch ht inch lineto 
+1 inch ht inch lineto 
+1 inch 0 inch lineto 
+stroke 
+grestore
+
+gsave
+[1 1] 0 setdash 		% dashed line
+.5 inch 0 inch moveto 
+.5 inch ht inch lineto 
+stroke
+grestore
+
+% labels
+TI (x) 1.35 inch -.15 inch placeBL
+(y) -.8 inch .35 inch placeBL
+SYM ( = ) show
+TI (f) show
+SYM (\() show
+TI (x) show
+SYM (\)) show
+TR (midpoint trapezoid) .8 inch 1.57 inch placeBR
+(midpoint rectangle) -.05 inch 1.1 inch placeBR
+TR (midpoint) .42 inch -.22 inch placeBR
+
+.5 inch -.2 inch moveto
+0 inch .16 inch rarrowto
+fill
+
+% ------------------------- figure on the right --------------------------
+
+2.8 inch 0 inch moveto
+currentpoint translate
+
+% x  axes
+-.3 inch 0 inch moveto 
+1.35 inch 0 inch arrowto
+fill
+
+/fn {1 add .5 mul dup dup mul 3 sub mul -.25 mul 1 add 5 mul 6 sub} def
+/ht {.5 fn} def
+/tn {.5 sub .82 mul ht add} def
+
+% graph the wedge- left part
+0 inch dup point fn inch moveto
+.02 inch .02 inch .5 inch 
+{dup point fn inch lineto} for
+0 inch dup point tn inch lineto 
+0 inch dup point fn inch lineto
+gsave 
+  .92 setgray 
+  fill 
+grestore
+stroke
+
+% graph the wedge - right part
+.5 inch dup point fn inch moveto
+.52 inch .02 inch 1 inch 
+{dup point fn inch lineto} for
+1 inch dup point tn inch lineto 
+.5 inch ht inch lineto
+gsave 
+  .92 setgray 
+  fill grestore
+stroke  
+
+0 dup fn moveto
+0 inch .02 inch 1 inch 
+{dup point fn inch lineto} for
+0 inch dup point fn inch lineto 
+gsave 
+  .6 setgray 
+  fill 
+grestore
+stroke
+
+% graph the curve
+-.25 inch dup point fn inch moveto
+.02 inch .02 inch 1.25 inch 
+{dup point fn inch lineto} for
+stroke  
+
+% trapezoids
+.5 recip mul setlinewidth
+0 inch 0 inch moveto 
+0 inch dup point tn inch lineto 
+1 inch dup point tn inch lineto 
+1 inch 0 inch lineto 
+0 inch dup point fn inch moveto 
+1 inch dup point fn inch lineto 
+stroke 
+
+gsave
+.9 recip mul setlinewidth
+-.25 inch dup point fn inch moveto
+.02 inch .02 inch 1.25 inch 
+{dup point fn inch lineto} 
+for
+stroke  
+grestore
+
+% labels
+TI (x) 1.35 inch -.15 inch placeBL
+(y) -.8 inch .35 inch placeBL
+SYM ( = ) show
+TI (f) show
+SYM (\() show
+TI (x) show
+SYM (\)) show
+TR(midpoint trapezoid) .8 inch 1.57 inch placeBR
+(trapezoid from) 1.3 inch 1.06 inch placeBL
+(trapezoidal) 1.3 inch .89 inch placeBL
+(approximation) 1.3 inch .72 inch placeBL
+
+1.26 inch .93 inch moveto
+-.6 inch 0 inch rarrowto
+fill
+
+showpage

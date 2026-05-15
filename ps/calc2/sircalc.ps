@@ -1,0 +1,317 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 0 0 612.0 792
+/printscale  .9 def
+/recip {1 printscale div} def
+/screenstretch {printscale 90 50 div mul} def
+/double {screenstretch 2 mul} def
+
+% 100 300 translate 		% print translation
+
+20 0 translate
+
+ printscale printscale scale       %scale for printing
+% screenstretch screenstretch scale %printing scale on screen
+% double double scale               %magnified screen
+
+% -------------------- font codes --------------------------
+
+/typesize {10 printscale div} def
+/smalltype {7 printscale div} def
+
+/makeTR {/Times-Roman findfont typesize scalefont} def
+/makeTB {/Times-Bold findfont typesize scalefont} def
+/makeTI {/Times-Italic findfont typesize scalefont} def
+/makeSYM {/Symbol findfont typesize scalefont} def
+
+/maketr {/Times-Roman findfont smalltype scalefont} def
+/maketi {/Times-Italic findfont smalltype scalefont} def
+/makesym {/Symbol findfont smalltype scalefont} def
+
+/TR {makeTR setfont} def
+/TB {makeTB setfont} def
+/TI {makeTI setfont} def
+/SYM {makeSYM setfont} def
+
+/tr {maketr setfont} def
+/ti {maketi setfont} def
+/sym {makesym setfont} def
+
+% ---------------string placing procedures-------------------
+
+% stack: fontcode string x y 
+
+/placeBL {moveto show} def
+/placeBR {moveto dup stringwidth pop neg 0 rmoveto show} def
+/placeBC {moveto dup stringwidth pop 2 div neg 0 rmoveto show} def
+/placeTL {moveto 0 typesize neg rmoveto show} def
+/placeTR {moveto dup stringwidth pop neg typesize neg rmoveto show} def
+/placeTC {moveto dup stringwidth pop 2 div neg typesize neg rmoveto show} def
+
+% ----------------- arrow drawing procedures ------------------
+
+/arrow 
+{-4 recip mul 	0 		rmoveto
+ 0  		1 recip mul 	rlineto
+ 4 recip mul 	-1 recip mul 	rlineto
+-4 recip mul 	-1 recip mul 	rlineto
+ 0  		1 recip mul 	rlineto
+ 4 recip mul 	0 		rlineto} def
+
+/rarrowto {					% stack: dx dy
+  2 copy
+  dup mul exch dup mul add  sqrt		% length of arrow
+  3 1 roll exch atan dup 				% angle
+  rotate exch 0 rlineto arrow neg rotate	% make arrow
+} def
+/arrowto {					% stack: x y
+  currentpoint 3 -1 roll sub neg 3 1 roll sub exch rarrowto
+} def
+
+% --------------------------------------------------------------
+
+.3 setlinewidth
+
+/vscale 72 20000 div def
+/hscale 330 def
+/timelim 27 def
+/delta timelim 500 div def
+/ptinc hscale 500 div def
+/a .00001 def
+/b 1 14 div def
+/Times-Italic findfont
+10 scalefont setfont
+/shift (n = ) stringwidth pop def
+/opstring (runpoly) def
+
+
+/hashver
+{/k k 5000 add def
+/posit k vscale mul def
+k (            ) cvs dup stringwidth pop 7 add neg 
+2 add posit 2 sub moveto
+show
+-2 posit moveto 
+0 posit lineto stroke
+} def
+
+/hashhor
+{/k k 5 add def
+/posit k hscale mul timelim div def
+k (     ) cvs dup stringwidth pop 2 div 
+posit exch sub -10 moveto
+show
+posit -2 moveto
+posit 0 lineto stroke
+} def
+
+/curve
+{/sp a s i mul mul neg def
+/ip a s i mul mul b i mul sub def
+/s s sp delta mul add def
+/i i ip delta mul add def
+/splot s vscale mul def
+/iplot i vscale mul def
+/tplot tplot ptinc add def
+%tplot splot lineto
+tplot iplot lineto
+} def
+
+/muladd
+{mul add} def
+
+/polyeval5
+{
+{i 0 ge i 45000 le and
+  {/t t delta add def
+   runpoly5
+   t hscale mul timelim div i vscale mul lineto}{exit} ifelse
+} loop
+} def
+
+/runpoly5
+{/i 2100 t 803.4 t 143.668 t 14.5614 t .690966 t -.0631894 
+5 {muladd} repeat def
+} def
+
+/polyeval10
+{
+{i 0 ge i 45000 le and
+  {/t t delta add def
+   runpoly10
+   t hscale mul timelim div i vscale mul lineto}{exit} ifelse
+} loop
+} def
+
+/runpoly10
+{/i 2100 t 803.4 t 143.668 t 14.5614 t .609666 t -.0631894 t -.0144605 t -.00129876 t -3.19368e-5 t 8.16352e-6 t 1.36249e-6 
+10 {muladd} repeat def
+} def
+
+/polyeval20
+{
+{i 0 ge i 45000 le and
+  {/t t delta add def
+   runpoly20
+   t hscale mul timelim div i vscale mul lineto}{exit} ifelse
+} loop
+} def
+
+/runpoly20
+{/i 2100. t 803.4 t 143.6682429 t 14.56138874 t 0.6096664753 t 
+  -0.06318937317 t -0.01446045215 t -0.001298755176 t 
+  -0.00003193685517 t 0.000008163515159 t 0.00000136248504 t 
+  9.962263403e-8 t 5.826914269e-11 t -9.307834769e-10 t 
+  -1.209018375e-10 t -6.867587308e-12 t 2.498554631e-13 t 
+  9.68230399e-14 t 1.015005839e-14 t 4.001039225e-16 t 
+  -4.373184595e-17 
+20 {muladd} repeat def
+} def
+
+/polyeval30
+{
+{i 0 ge i 45000 le and
+  {/t t delta add def
+   runpoly30
+   t hscale mul timelim div i vscale mul lineto}{exit} ifelse
+} loop
+} def
+
+/runpoly30
+{/i 2100. t 803.4 t 143.6682429 t 14.56138874 t 0.6096664753 t 
+  -0.06318937317 t -0.01446045215 t -0.001298755176 t 
+  -0.00003193685517 t 0.000008163515159 t 0.00000136248504 t 
+  9.962263403e-8 t 5.826914269e-11 t -9.307834769e-10 t 
+  -1.209018375e-10 t -6.867587308e-12 t 2.498554631e-13 t 
+  9.68230399e-14 t 1.015005839e-14 t 4.001039225e-16 t 
+  -4.373184595e-17 t -9.399620966e-18 t -8.016491111e-19 t 
+  -1.511432659e-20 t 5.578352512e-21 t 8.611590149e-22 t 
+  5.865346252e-23 t -5.229848917e-25 t -6.180033195e-25 t 
+  -7.475035336e-26 t -3.833945691e-27 
+30 {muladd} repeat def
+} def
+
+/polyeval70
+{
+{i 0 ge i 45000 le and
+  {/t t delta add def
+   runpoly70
+   t hscale mul timelim div i vscale mul lineto}{exit} ifelse
+} loop
+} def
+
+/runpoly70
+{/i 2100. t 803.4 t 143.6682429 t 14.56138874 t 0.6096664753 t 
+  -0.06318937317 t -0.01446045215 t -0.001298755176 t 
+  -0.00003193685517 t 0.000008163515159 t 0.00000136248504 t 
+  9.962263403e-8 t 5.826914269e-11 t -9.307834769e-10 t 
+  -1.209018375e-10 t -6.867587308e-12 t 2.498554631e-13 t 
+  9.68230399e-14 t 1.015005839e-14 t 4.001039225e-16 t 
+  -4.373184595e-17 t -9.399620966e-18 t -8.016491111e-19 t 
+  -1.511432659e-20 t 5.578352512e-21 t 8.611590149e-22 t 
+  5.865346252e-23 t -5.229848917e-25 t -6.180033195e-25 t 
+  -7.475035336e-26 t -3.833945691e-27 t 2.074555435e-28 t 
+  6.271998033e-29 t 6.135966018e-30 t 2.021195165e-31 t 
+  -3.153735222e-32 t -5.960692928e-33 t -4.721294471e-34 t 
+  -4.901215621e-36 t 3.798807518e-36 t 5.354611628e-37 t 
+  3.334622568e-38 t -7.279230101e-40 t -4.066780435e-40 t 
+  -4.556600227e-41 t -2.054795477e-42 t 1.62804151e-43 t 
+  4.025414377e-44 t 3.658517239e-45 t 9.364680225e-47 t 
+  -2.226115101e-47 t -3.746489545e-48 t -2.737900623e-49 t 
+  -1.210919948e-52 t 2.553125463e-51 t 3.300396785e-52 t 
+  1.856332437e-53 t -7.050402977e-55 t -2.649827852e-55 t 
+  -2.752062936e-56 t -1.059190077e-57 t 1.21747241e-58 t 
+  2.562024649e-59 t 2.158148946e-60 t 3.764720705e-62 t 
+  -1.539723718e-62 t -2.336595454e-63 t -1.565399954e-64 t 
+  1.75602734e-66 t 1.69477062e-66 t 2.018357703e-67 
+70 {muladd} repeat def
+} def
+
+35 20 translate
+
+sym
+/k 0 def
+5 {hashhor} repeat
+/k 0 def
+8 {hashver} repeat
+
+0 0 moveto
+330 0 arrowto
+0 0 moveto
+0 162 arrowto
+fill
+
+gsave				% begin thick lines
+.9 recip mul setlinewidth
+/s 45400 def
+/i 2100 def
+/splot s vscale mul def
+/iplot i vscale mul def
+/tplot 0 def
+%tplot splot moveto
+tplot iplot moveto
+500 {curve} repeat
+stroke
+
+.6 recip mul setlinewidth
+[2 1] 0 setdash
+/t 0 def
+/i 2100 def
+0 2100 vscale mul moveto
+polyeval5
+stroke
+
+/t 0 def
+/i 2100 def
+0 2100 vscale mul moveto
+%polyeval10
+stroke
+/t 0 def
+/i 2100 def
+0 2100 vscale mul moveto
+polyeval20
+stroke
+
+/t 0 def
+/i 2100 def
+0 2100 vscale mul moveto
+polyeval30
+stroke
+
+/t 0 def
+/i 2100 def
+0 2100 vscale mul moveto
+polyeval70
+stroke
+
+grestore			% end thick lines
+
+ti (n = ) 40 110 placeBL
+tr (20) show
+2 2 rmoveto
+115 100 arrowto
+fill
+ti (n = ) 30 80 placeBL
+tr (5) show
+2 1 rmoveto
+85 74 arrowto
+fill
+ti (n = ) 166 120 placeBL
+tr (70) show
+163 121 moveto
+123 105 arrowto
+fill
+ti (n = ) 160 40 placeBL
+tr (30) show
+157 43 moveto
+125 46 arrowto
+fill
+
+TI (t) 330 1 placeTC
+(I) -4 157 placeBR
+(I = I) 300 57 placeBL
+SYM (\() show
+TI (x) show
+SYM (\)) show
+
+showpage
+

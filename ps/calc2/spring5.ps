@@ -1,0 +1,184 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 0 0 612.0 792
+/printscale 1 def
+/recip {1 printscale div} def
+/screenstretch {printscale 90 50 div mul} def
+/double {screenstretch 2 mul} def
+
+% 100 300 translate 		% print translation
+
+ printscale printscale scale       %scale for printing
+% screenstretch screenstretch scale %printing scale on screen
+% double double scale               %magnified screen
+
+% -------------------- font codes --------------------------
+
+/typesize {10 printscale div} def
+/smalltype {8 printscale div} def
+
+/makeTR {/Times-Roman findfont typesize scalefont} def
+/makeTB {/Times-Bold findfont typesize scalefont} def
+/makeTI {/Times-Italic findfont typesize scalefont} def
+/makeSYM {/Symbol findfont typesize scalefont} def
+
+/maketr {/Times-Roman findfont smalltype scalefont} def
+/maketi {/Times-Italic findfont smalltype scalefont} def
+/makesym {/Symbol findfont smalltype scalefont} def
+
+/TR {makeTR setfont} def
+/TB {makeTB setfont} def
+/TI {makeTI setfont} def
+/SYM {makeSYM setfont} def
+
+/tr {maketr setfont} def
+/ti {maketi setfont} def
+/sym {makesym setfont} def
+
+% ---------------string placing procedures-------------------
+
+% stack: fontcode string x y 
+
+/placeBL {moveto show} def
+/placeBR {moveto dup stringwidth pop neg 0 rmoveto show} def
+/placeBC {moveto dup stringwidth pop 2 div neg 0 rmoveto show} def
+/placeTL {moveto 0 typesize neg rmoveto show} def
+/placeTR {moveto dup stringwidth pop neg typesize neg rmoveto show} def
+/placeTC {moveto dup stringwidth pop 2 div neg typesize neg rmoveto show} def
+
+% ----------------- arrow drawing procedures ------------------
+
+/arrow 
+{-4 recip mul 	0 		rmoveto
+ 0  		1 recip mul 	rlineto
+ 4 recip mul 	-1 recip mul 	rlineto
+-4 recip mul 	-1 recip mul 	rlineto
+ 0  		1 recip mul 	rlineto
+ 4 recip mul 	0 		rlineto} def
+
+/rarrowto {					% stack: dx dy
+  2 copy
+  dup mul exch dup mul add  sqrt		% length of arrow
+  3 1 roll exch atan dup 				% angle
+  rotate exch 0 rlineto arrow neg rotate	% make arrow
+} def
+/arrowto {					% stack: x y
+  currentpoint 3 -1 roll sub neg 3 1 roll sub exch rarrowto
+} def
+
+% ------------- defining units -----------------
+
+
+%20 points = 1 graphical unit 
+/unit {10 div} def 			% pt --> unit
+/pt  {10 mul} def 			% unit --> pt
+
+/dot {currentpoint 1 0 360 arc} def	% make a dot
+
+
+% ------------------- program -------------------------
+
+.3 setlinewidth
+
+% position the origin
+%150 100 moveto				% screen origin
+165 5 moveto
+currentpoint translate
+
+% ------------------ ticks -----------------
+
+% ticks
+/htick {0 -2 rlineto} def
+/hscale {currentpoint
+pop 20 add 0 moveto 
+htick} def
+/vtick {-2 0 rlineto} def
+/vscale {currentpoint
+exch pop 20 add 0 exch moveto 
+vtick} def
+
+
+% --------------------  graphs ------------------------------
+
+% define g and h
+
+/g {unit -2500 mul 500 div} def
+/h {unit dup dup mul -20 mul -2500 add mul 500 div} def
+
+newpath
+3 -40 g moveto
+5 0 rlineto
+
+gsave					% make thick lines
+.9 recip mul setlinewidth
+gsave					% save solid lines
+newpath					% linear force
+[3 2] 0 setdash
+-80 dup g moveto			% initial point
+/step 1 def
+/end 80 def
+% -80 step end				% gives x value
+% {dup g				% gives x, y point
+% lineto				% draws line from previous point
+%} for
+stroke
+grestore				% restore solid lines
+
+newpath					% non-linear force
+-80 dup h moveto			% initial point
+/step 1 def
+/end 80 def
+-80 step end				% gives x value
+{dup h					% gives x, y point
+ lineto					% draws line from previous point
+} for
+stroke
+grestore				% end thick lines
+
+% coord axes
+newpath
+-90 0 moveto
+185 0 rarrowto
+0 -70 moveto
+0 145 rarrowto
+fill
+-100 2 moveto
+9 {hscale} repeat
+2 -80 moveto
+7 {vscale} repeat
+stroke
+
+TR
+% labels
+TI (x) 95 4 placeBC
+TR (cm) 95 0 placeTC
+%TR (acceleration) 6 73 placeBL
+TI (v) 5 73 placeBL
+SYM (\242) show
+TR (cm) -16 78 placeBC
+-6 75 moveto
+-20 0 rlineto stroke
+(sec) -17 75 placeTC
+0 3 rmoveto 
+sym (2) show
+TR (linear: ) 85 -42 placeBL
+SYM (= -25) show
+1 0 rmoveto
+TI (x) show
+TR (non-linear: ) 85 -65 placeBL
+SYM (= -25) show
+1 0 rmoveto
+TI (x ) show
+SYM (- .2) show
+1 0 rmoveto
+TI (x) show
+0 3 rmoveto
+sym (3) show
+(-8) -81 0 placeTC
+(-4) -41 0 placeTC
+(4) 40 0 placeTC
+(8) 80 0 placeTC
+(200) -5 38 placeBR
+(-200) -5 -42 placeBR
+
+showpage
+

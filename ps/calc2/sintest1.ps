@@ -1,0 +1,331 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 0 0 612.0 792
+/printscale 1 def
+/recip {1 printscale div} def
+/screenstretch {printscale 90 50 div mul} def
+/double {screenstretch 2 mul} def
+
+% 100 300 translate 		% print translation
+
+50 0 translate
+
+ printscale printscale scale       %scale for printing
+% screenstretch screenstretch scale %printing scale on screen
+% double double scale               %magnified screen
+
+% -------------------- font codes --------------------------
+
+/typesize {10 printscale div} def
+/smalltype {8 printscale div} def
+
+/makeTR {/Times-Roman findfont typesize scalefont} def
+/makeTB {/Times-Bold findfont typesize scalefont} def
+/makeTI {/Times-Italic findfont typesize scalefont} def
+/makeSYM {/Symbol findfont typesize scalefont} def
+
+/maketr {/Times-Roman findfont smalltype scalefont} def
+/maketi {/Times-Italic findfont smalltype scalefont} def
+/makesym {/Symbol findfont smalltype scalefont} def
+
+/TR {makeTR setfont} def
+/TB {makeTB setfont} def
+/TI {makeTI setfont} def
+/SYM {makeSYM setfont} def
+
+/tr {maketr setfont} def
+/ti {maketi setfont} def
+/sym {makesym setfont} def
+
+% ---------------string placing procedures-------------------
+
+% stack: fontcode string x y 
+
+/placeBL {moveto show} def
+/placeBR {moveto dup stringwidth pop neg 0 rmoveto show} def
+/placeBC {moveto dup stringwidth pop 2 div neg 0 rmoveto show} def
+/placeTL {moveto 0 typesize neg rmoveto show} def
+/placeTR {moveto dup stringwidth pop neg typesize neg rmoveto show} def
+/placeTC {moveto dup stringwidth pop 2 div neg typesize neg rmoveto show} def
+
+% ----------------- arrow drawing procedures ------------------
+
+/arrow 
+{-4 recip mul 	0 		rmoveto
+ 0  		1 recip mul 	rlineto
+ 4 recip mul 	-1 recip mul 	rlineto
+-4 recip mul 	-1 recip mul 	rlineto
+ 0  		1 recip mul 	rlineto
+ 4 recip mul 	0 		rlineto} def
+
+/rarrowto {					% stack: dx dy
+  2 copy
+  dup mul exch dup mul add  sqrt		% length of arrow
+  3 1 roll exch atan dup 				% angle
+  rotate exch 0 rlineto arrow neg rotate	% make arrow
+} def
+/arrowto {					% stack: x y
+  currentpoint 3 -1 roll sub neg 3 1 roll sub exch rarrowto
+} def
+
+% ------------- defining units -----------------
+
+%20 points = 1 graphical unit = 1 radian
+/pi 3.14 def
+/rad {20 div} def 			% pt --> rad
+/pt  {15 mul} def 			% rad --> pt
+/deg {180 mul pi div} def 		% rad --> deg
+
+/dot {currentpoint 1 0 360 arc} def	% make a dot
+
+/Sin {rad deg sin} def			% sin of angle 
+/Cos {rad deg cos} def 			% cos of angle
+/period {pi 2 mul pt} def
+
+
+% ------------------- program -------------------------
+
+.3 setlinewidth
+
+% position the origin
+%100 300 moveto				% screen origin
+0 0 moveto
+currentpoint translate
+
+% ------------------ ticks -----------------
+
+% ticks
+/htick {0 -2 rlineto} def
+/hscale {currentpoint
+pop pi pt add 1 sub 0 moveto 
+dot} def
+
+
+% -------------------- first set of graphs  ---------------------
+
+% define sinetest(k) = Sin(9k)
+% define signal(k) = 1.5*Sin(5k) + 2
+
+/sinetest{5 mul Sin} def
+/signal {5 mul Sin 1.5 mul 2 add} def
+
+% graph signal
+
+gsave
+.9 recip mul setlinewidth
+newpath
+0 0 signal pt moveto				% set initial point
+1 1 150 				% sets k
+{dup 
+signal pt
+lineto
+} for
+stroke
+grestore
+
+% coord axes
+newpath
+0 0 moveto
+155 0 arrowto
+0 0 moveto
+0 56 arrowto
+fill
+
+% amplitude marks
+
+gsave
+newpath					% save solid lines
+[1 1] 0 setdash
+152 .5 pt moveto
+20 0 rlineto
+152 3.5 pt moveto
+20 0 rlineto
+stroke
+grestore				% restore solid lines
+newpath
+162 1.5 pt moveto
+0 -14.5 rarrowto
+162 2.5 pt moveto
+0 14.5 rarrowto
+fill
+
+TR (original) -20 33 placeBR
+(signal) -20 23 placeBR
+TI (t) 155 0 placeTC
+(S) -4 56 placeBR
+TR (frequencies match) 75 65 placeBC
+SYM (2) 157 2 pt 3 sub placeBL
+TI (A) show
+
+% graph of test function
+
+0 -40 moveto
+currentpoint translate
+
+gsave
+.9 recip mul setlinewidth
+newpath
+0 0 moveto				% set initial point
+1 1  150 				% sets k
+{dup
+sinetest pt
+lineto} for
+stroke
+grestore
+
+% coord axes
+newpath
+0 0 moveto
+155 0 rarrowto
+0 -18 moveto
+0 40 rarrowto
+fill
+
+TR (test) -20 5 placeBR
+(probe) -20 -5 placeBR
+TI (t) 155 0 placeTC
+(P) -4 22 placeBR
+
+% graph of product
+
+0 -85 moveto
+currentpoint translate
+
+gsave
+.9 recip mul setlinewidth
+newpath
+0 0 moveto				% set initial point
+.5 .5 150 				% sets k
+{dup dup
+signal
+exch sinetest
+mul pt
+lineto} for
+stroke
+
+% average value
+gsave
+newpath
+[2 1] 0 setdash
+0 .75 pt moveto
+150 0 rlineto
+stroke
+grestore
+grestore
+
+% coord axes
+newpath
+0 0 moveto
+155 0 rarrowto
+0 -25 moveto
+0 75 rarrowto
+fill
+
+TR (their) -20 5 placeBR
+(product) -20 -5 placeBR
+TI (t) 155 0 placeTC
+(S\264P) -4 50 placeBR
+TI (S\264P) 153 9 placeBL
+SYM ( = ) show
+TI (A) show
+SYM (/2) show
+TR (average value) 40 -25 placeTL
+SYM ( = ) show
+TI (A) show
+SYM (/2) show
+
+% ---------------------- second set of graphs ---------------------------
+
+205 125 moveto
+currentpoint translate
+
+
+% redefine sinetest(k) = Sin(5k)
+
+/sinetest{9 mul Sin} def
+
+% graph signal
+
+gsave
+.9 recip mul setlinewidth
+newpath
+0 0 signal pt moveto				% set initial point
+1 1 150 				% sets k
+{dup 
+signal pt
+lineto 
+} for
+stroke
+grestore
+
+% coord axes
+newpath
+0 0 moveto
+155 0 arrowto
+0 0 moveto
+0 56 arrowto
+fill
+
+
+TI (t) 155 0 placeTC
+(S) -4 56 placeBR
+TR (frequencies do not match) 75 65 placeBC
+
+% graph of test function
+
+0 -40 moveto
+currentpoint translate
+
+gsave
+.9 recip mul setlinewidth
+newpath
+0 0 moveto				% set initial point
+.5 .5  150 				% sets k
+{dup
+sinetest pt
+lineto} for
+stroke
+grestore
+
+% coord axes
+newpath
+0 0 moveto
+155 0 rarrowto
+0 -18 moveto
+0 40 rarrowto
+fill
+
+TI (t) 155 0 placeTC
+(P) -4 22 placeBR
+
+% graph of product
+
+0 -85 moveto
+currentpoint translate
+
+gsave
+.9 recip mul setlinewidth
+newpath
+0 0 moveto				% set initial point
+.5 .5  150 				% sets k
+{dup dup
+signal
+exch sinetest
+mul pt
+lineto} for
+stroke
+grestore
+
+% coord axes
+newpath
+0 0 moveto
+155 0 rarrowto
+0 -45 moveto
+0 95 rarrowto
+fill
+
+TI (t) 155 0 placeTC
+(S\264P) -4 50 placeBR
+TR (average value) 40 -53 placeTL
+SYM ( \273 0) show
+
+showpage
