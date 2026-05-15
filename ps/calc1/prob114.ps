@@ -1,0 +1,125 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 0 0 612.0 792
+
+20 0 translate 			% print translation
+
+/Times-Roman findfont
+10 scalefont setfont
+
+/arrowdict 14 dict def
+arrowdict begin
+ /mtrx matrix def
+end
+
+/arrow
+ {arrowdict begin
+   /headlength exch def
+   /halfheadthickness exch 2 div def
+   /halfthickness exch 2 div def
+   /tipy exch def /tipx exch def
+   /taily exch def /tailx exch def
+   
+   /dx tipx tailx sub def
+   /dy tipy taily sub def
+   /arrowlength dx dx mul dy dy mul add sqrt def
+   /angle dy dx atan def
+   /base arrowlength headlength sub def
+   
+   /savematrix mtrx currentmatrix def
+   
+   tailx taily translate
+   angle rotate
+   0 halfthickness neg moveto
+   base halfthickness neg lineto
+   base halfheadthickness neg lineto
+   arrowlength 0 lineto
+   base halfheadthickness lineto
+   base halfthickness lineto
+   0 halfthickness lineto
+   closepath
+   
+   savematrix setmatrix
+   end
+ }  def
+ 
+ /parabola
+ {/x x 1 add def
+ /y x 180 sub x mul -90 div def
+ x y lineto} def
+ 
+ /horline
+ {180 0 lineto
+ stroke
+ 0 18 moveto
+ currentpoint translate} def
+ 
+ /verline
+ {0 90 lineto
+ stroke
+ 18 0 moveto
+ currentpoint translate} def
+  
+ /prt-n
+ {(     ) cvs show} def
+ 
+ /ylabels
+ {/num num 10 add def
+ /y y 18 add def
+ -15 y moveto num prt-n} def 
+ 
+ 
+ 80 17 translate
+ 0 0 moveto
+ .2 setlinewidth
+ gsave
+ 6 {horline} repeat
+ grestore
+ gsave
+ 11 {verline} repeat
+ grestore
+ 
+ 0 90 0 115 .05 2 4 arrow fill
+ 180 0 210 0 .05 2 4 arrow fill
+ 
+ 1 setlinewidth
+ /x 0 def
+ /y 0 def
+ x y moveto
+ 180 {parabola} repeat
+ stroke
+ 180 0 moveto
+ 90 90 lineto
+ 0 0 lineto
+ stroke
+ 
+ /y -5 def
+ /num 0 def
+ 5 {ylabels} repeat
+ 
+ -3 -12 moveto
+ (0) show
+ 87 -12 moveto
+ (5) show
+ 174 -12 moveto
+ (10) show
+ 153 113 moveto
+ (A) show
+ 193 80 moveto
+ (B) show
+ .5 setlinewidth
+ 150 110 120 82 .05 2 4 arrow fill
+ 190 80 132 50 .05 2 4 arrow fill
+ 65 -24 moveto
+ (time  \(seconds\)) show
+ gsave
+ 90 rotate
+ 22 27  moveto
+ (distance  \(feet\)) show
+ grestore
+ /Times-Italic findfont 10 scalefont setfont
+ 207 -11 moveto
+ (t) show
+ 
+
+showpage
+

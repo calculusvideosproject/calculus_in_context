@@ -1,0 +1,171 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 0 0 612.0 792
+/printscale .8 def
+/recip {1 printscale div} def
+/screenstretch {printscale 90 50 div mul} def
+/double {screenstretch 2 mul} def
+
+%100 300 translate		% print translation
+
+ printscale printscale scale	    % scale for printing
+% screenstretch screenstretch scale % printing scale on screen
+% double double scale               % magnified screen
+
+
+% -------------------- font codes --------------------------
+
+/typesize {10 printscale div} def
+
+/makeTR {/Times-Roman findfont typesize scalefont} def
+/makeTB {/Times-Bold findfont typesize scalefont} def
+/makeTI {/Times-Italic findfont typesize scalefont} def
+/makeSYM {/Symbol findfont typesize scalefont} def
+
+/TR {makeTR setfont} def
+/TB {makeTB setfont} def
+/TI {makeTI setfont} def
+/SYM {makeSYM setfont} def
+
+% ---------------string placing procedures-------------------
+
+% stack: fontcode string x y 
+
+/placeBL {moveto show} def
+/placeBR {moveto dup stringwidth pop neg 0 rmoveto show} def
+/placeBC {moveto dup stringwidth pop 2 div neg 0 rmoveto show} def
+/placeTL {moveto 0 typesize neg rmoveto show} def
+/placeTR {moveto dup stringwidth pop neg typesize neg rmoveto show} def
+/placeTC {moveto dup stringwidth pop 2 div neg typesize neg rmoveto show} def
+
+
+% ------------------- program -------------------------
+
+.3 setlinewidth
+
+% ------------- first circle -----------------
+
+% position the origin
+50 0 moveto
+currentpoint translate
+
+% definition of the function
+%/x -1 def
+/f {dup mul neg 10000 add sqrt} def % f(x) = sqrt(1 - x^2)
+
+
+/step 10 def
+/end {100 step sub} def
+
+
+newpath
+-100 step end			% gives x value
+{dup 0 moveto			% point on x-axis
+f dup 0 exch rlineto	% left side of rectangle
+step 0 rlineto			% top of rectangle
+neg 0 exch rlineto		% right side of rectangle
+} for
+-200 0 rlineto			% line back to start
+
+gsave
+.9 setgray
+fill					% shade the rectangles
+grestore
+stroke
+
+gsave
+newpath
+.8 recip mul setlinewidth
+0 0 100 0 180 arc		% draw the circle
+stroke
+grestore
+
+% ----------------- arrow drawing procedures ------------------
+
+/arrow 
+{-4 recip mul 	0 		rmoveto
+ 0  		1 recip mul 	rlineto
+ 4 recip mul 	-1 recip mul 	rlineto
+-4 recip mul 	-1 recip mul 	rlineto
+ 0  		1 recip mul 	rlineto
+ 4 recip mul 	0 		rlineto} def
+
+/rarrowto {					% stack: dx dy
+  2 copy
+  dup mul exch dup mul add  sqrt		% length of arrow
+  3 1 roll exch atan dup 				% angle
+  rotate exch 0 rlineto arrow neg rotate	% make arrow
+} def
+/arrowto {					% stack: x y
+  currentpoint 3 -1 roll sub neg 3 1 roll sub exch rarrowto
+} def
+
+% --------------------------------------------------------------
+
+
+% coordinate axes
+newpath
+-120 0 moveto
+240 0 rarrowto
+0 -15 moveto
+0 130 rarrowto
+fill
+
+TI (x) 120 1 placeTC
+(y) -3 112 placeBR
+TR (-1) -100 0 placeTC
+(1) 100 0 placeTC
+(shaded area = 1.552259) 0 -20 placeTC
+
+
+% ------------- second circle -----------------
+
+% position the origin
+280 0 moveto
+currentpoint translate
+
+
+/step 4 def
+/end {100 step sub} def
+
+newpath
+-100 step end			% gives x value
+{dup 0 moveto			% point on x-axis
+f dup 0 exch rlineto	% left side of rectangle
+step 0 rlineto			% top of rectangle
+neg 0 exch rlineto		% right side of rectangle
+} for
+-200 0 rlineto			% line back to start
+
+gsave
+.9 setgray
+fill					% shade the rectangles
+grestore
+stroke
+
+gsave
+.8 recip mul setlinewidth
+0 0 100 0 180 arc		% draw the circle
+stroke
+grestore
+
+% coordinate axes
+newpath
+-120 0 moveto
+240 0 rarrowto
+0 -15 moveto
+0 130 rarrowto
+fill
+
+TI (x) 120 1 placeTC
+(y) -3 112 placeBR
+TR (-1) -100 0 placeTC
+(1) 100 0 placeTC
+(shaded area = 1.566098) 0 -20 placeTC
+
+
+
+
+
+showpage
+
+

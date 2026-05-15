@@ -1,0 +1,362 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 0 0 612.0 792
+/printscale 1 def
+/recip {1 printscale div} def
+/screenstretch {printscale 90 50 div mul} def
+/double {screenstretch 2 mul} def
+
+%100 300 translate		% print translation
+
+ printscale printscale scale       %scale for printing
+% screenstretch screenstretch scale %printing scale on screen
+% double double scale               %magnified screen
+
+% -------------------- font codes --------------------------
+
+/typesize {10 printscale div} def
+/smalltype {8 printscale div} def
+
+/makeTR {/Times-Roman findfont typesize scalefont} def
+/makeTB {/Times-Bold findfont typesize scalefont} def
+/makeTI {/Times-Italic findfont typesize scalefont} def
+/makeSYM {/Symbol findfont typesize scalefont} def
+
+/maketr {/Times-Roman findfont smalltype scalefont} def
+/maketi {/Times-Italic findfont smalltype scalefont} def
+/makesym {/Symbol findfont smalltype scalefont} def
+
+/TR {makeTR setfont} def
+/TB {makeTB setfont} def
+/TI {makeTI setfont} def
+/SYM {makeSYM setfont} def
+
+/tr {maketr setfont} def
+/ti {maketi setfont} def
+/sym {makesym setfont} def
+
+% ---------------string placing procedures-------------------
+
+% stack: fontcode string x y 
+
+/placeBL {moveto show} def
+/placeBR {moveto dup stringwidth pop neg 0 rmoveto show} def
+/placeBC {moveto dup stringwidth pop 2 div neg 0 rmoveto show} def
+/placeTL {moveto 0 typesize neg rmoveto show} def
+/placeTR {moveto dup stringwidth pop neg typesize neg rmoveto show} def
+/placeTC {moveto dup stringwidth pop 2 div neg typesize neg rmoveto show} def
+
+/placeSL   %stack: fontcode string x y 
+{ dup neg
+4 1 roll 
+exch
+dup neg
+5 1 roll
+exch
+translate
+90 rotate
+%dup stringwidth pop
+%neg 0
+0 0 moveto
+show
+-90 rotate
+translate} def
+
+
+/placeSC   %stack: fontcode string x y 
+{ dup neg
+4 1 roll 
+exch
+dup neg
+5 1 roll
+exch
+translate
+90 rotate
+dup stringwidth pop
+2 div
+neg 0
+moveto
+show
+-90 rotate
+translate} def
+
+
+/placeSR   %stack: fontcode string x y 
+{ dup neg
+4 1 roll 
+exch
+dup neg
+5 1 roll
+exch
+translate
+90 rotate
+dup stringwidth pop
+neg 0
+moveto
+show
+-90 rotate
+translate} def
+
+% ----------------- arrow drawing procedures ------------------
+
+/arrow 
+{-4 recip mul 	0 		rmoveto
+ 0  		1 recip mul 	rlineto
+ 4 recip mul 	-1 recip mul 	rlineto
+-4 recip mul 	-1 recip mul 	rlineto
+ 0  		1 recip mul 	rlineto
+ 4 recip mul 	0 		rlineto} def
+
+/rarrowto {					% stack: dx dy
+  2 copy
+  dup mul exch dup mul add  sqrt		% length of arrow
+  3 1 roll exch atan dup 				% angle
+  rotate exch 0 rlineto arrow neg rotate	% make arrow
+} def
+/arrowto {					% stack: x y
+  currentpoint 3 -1 roll sub neg 3 1 roll sub exch rarrowto
+} def
+
+% --------------------- program ----------------------------
+
+.3 setlinewidth
+
+% origin
+% 75 50 moveto				% screen origin
+ 65 -160 moveto				% print origin
+currentpoint translate
+
+% ----------- defining functions ------------------
+
+/basex 0 def
+/basey 30 def
+/ax 80 def
+/ay -159 def
+/bx -210 def
+/by 264 def
+/cx 240 def
+/cy -60 def
+
+/x 
+{dup dup 
+ax mul
+bx add
+mul
+cx add
+mul
+basex add
+} def
+
+/y 
+{dup dup 
+ay mul
+by add
+mul
+cy add
+mul
+basey add
+} def
+
+/xprime
+{dup
+ax mul 3 mul
+2 bx mul
+add
+mul
+cx add
+} def
+
+/yprime
+{dup
+ay mul 3 mul
+2 by mul
+add
+mul
+cy add
+} def
+
+
+
+% ------------- graph of E(x) ---------------------
+
+gsave
+.9 recip mul setlinewidth
+/deltat .01 def
+
+newpath
+0 0 moveto				% first part 
+
+0 deltat 1
+{dup xprime
+deltat mul
+dup
+3 -1 roll
+y mul
+120 div
+rlineto
+} for
+
+/basex 110 def
+/basey 75 def
+/ax 70 def
+/ay -48 def
+/bx -120 def
+/by 81 def
+/cx 120 def
+/cy -18 def
+
+0 deltat 1				% second part
+{dup xprime
+deltat mul
+dup
+3 -1 roll
+y mul
+120 div
+rlineto
+} for
+
+/basex 180 def
+/basey 90 def
+/ax 66 def
+/ay 114 def
+/bx -156 def
+/by -174 def
+/cx 150 def
+/cy 0 def
+
+0 deltat 1				% third part
+{dup xprime
+deltat mul
+dup
+3 -1 roll
+y mul
+120 div
+rlineto
+} for
+stroke
+grestore
+
+/htick {0 -2 rlineto} def
+/vtick {-2 0 rlineto} def
+
+
+/hscale {currentpoint 
+pop 60 add 0 moveto 
+htick} def
+
+/vscale {currentpoint 30 add 0 exch moveto
+vtick} def
+
+
+% axes
+newpath
+0 0 moveto
+255 0 arrowto
+0 0 moveto
+0 140 arrowto
+fill
+0 0 moveto 
+4 {hscale} repeat
+0 0 moveto 
+4 {vscale} repeat
+160 0 moveto				% vertical line
+0 68 rlineto
+stroke
+
+
+% box for slope
+
+/dot {1.5 0 360 arc} def	% make a dot
+
+newpath
+154 64 moveto
+0 8 rlineto
+12 0 rlineto
+0 -8 rlineto
+closepath
+stroke
+
+160 68.4 dot
+fill
+
+newpath
+144 84 moveto
+-60 0 rlineto
+0 40 rlineto
+60 0 rlineto
+closepath
+
+stroke
+
+newpath
+107 100 moveto
+0 8 rlineto
+12 0 rlineto
+stroke
+
+113 104 dot
+fill
+
+gsave
+.9 recip mul setlinewidth
+84 84 moveto
+143 124 lineto
+stroke
+grestore
+
+.3 setlinewidth
+
+gsave					% save solid lines
+newpath
+[1 2] 0 setdash
+84 84 moveto
+154 64 lineto
+144 124 moveto
+166 72 lineto
+stroke
+grestore					% restore solid lines
+
+
+
+% labels
+
+sym (0) 0 0 placeTC
+(6) 60 0 placeTC
+(12) 120 0 placeTC
+(18) 180 0 placeTC
+(24) 240 0 placeTC
+TR (hours) 255 -2 placeTL
+(time) 255 4 placeBL
+
+sym (360) -4 28 placeBR
+(720) -4 58 placeBR
+(1080) -4 88 placeBR
+(1440) -4 118 placeBR
+TR (energy) -4 138 placeBR
+(megawatt-hours) -40 75 placeSC
+
+(height = ) 165 30 placeBL
+TI (E) show
+TR (\() show
+TI (T) show
+2 0 rmoveto 
+TR (\)) show
+TI (T) 160 -2 placeTC
+
+TR (slope = ) 86 128 placeBL
+TI (p) show
+1 0 rmoveto
+TR (\() show
+TI (T) show
+2 0 rmoveto 
+TR (\)) show
+
+(energy = ) 224 113 placeTL
+TI (E) show
+TR (\() show
+TI (t) show
+TR (\)) show
+
+
+showpage
+
+

@@ -1,0 +1,160 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%Title: profile.ps
+%%BoundingBox: 0 0 612 792
+
+% 100 300 translate			% print translation
+
+/printscale .7 def
+/recip {1 printscale div} def
+
+printscale printscale scale
+
+% -------------------- font codes --------------------------
+
+/typesize {10 printscale div} def
+/smalltype {8 printscale div} def
+
+/makeTR {/Times-Roman findfont typesize scalefont} def
+/makeTB {/Times-Bold findfont typesize scalefont} def
+/makeTI {/Times-Italic findfont typesize scalefont} def
+/makeSYM {/Symbol findfont typesize scalefont} def
+
+/maketr {/Times-Roman findfont smalltype scalefont} def
+/maketi {/Times-Italic findfont smalltype scalefont} def
+/makesym {/Symbol findfont smalltype scalefont} def
+
+/TR {makeTR setfont} def
+/TB {makeTB setfont} def
+/TI {makeTI setfont} def
+/SYM {makeSYM setfont} def
+
+/tr {maketr setfont} def
+/ti {maketi setfont} def
+/sym {makesym setfont} def
+
+% ---------------string placing procedures-------------------
+
+% stack: fontcode string x y 
+
+/placeBL {moveto show} def
+/placeBR {moveto dup stringwidth pop neg 0 rmoveto show} def
+/placeBC {moveto dup stringwidth pop 2 div neg 0 rmoveto show} def
+/placeTL {moveto 0 typesize neg rmoveto show} def
+/placeTR {moveto dup stringwidth pop neg typesize neg rmoveto show} def
+/placeTC {moveto dup stringwidth pop 2 div neg typesize neg rmoveto show} def
+
+% ----------------- arrow drawing procedures ------------------
+
+/arrow 
+{-4 recip mul 	0 		rmoveto
+ 0  		1 recip mul 	rlineto
+ 4 recip mul 	-1 recip mul 	rlineto
+-4 recip mul 	-1 recip mul 	rlineto
+ 0  		1 recip mul 	rlineto
+ 4 recip mul 	0 		rlineto} def
+
+/rarrowto {					% stack: dx dy
+  2 copy
+  dup mul exch dup mul add  sqrt		% length of arrow
+  3 1 roll exch atan dup 				% angle
+  rotate exch 0 rlineto arrow neg rotate	% make arrow
+} def
+/arrowto {					% stack: x y
+  currentpoint 3 -1 roll sub neg 3 1 roll sub exch rarrowto
+} def
+
+% ------------------ graphics instructions --------------------
+
+.3 recip mul setlinewidth
+
+% position the origin
+ 50 200 moveto				% screen origin
+0 0  moveto
+currentpoint translate
+
+
+/scmoveto
+{vscale mul exch hscale mul exch moveto} def
+
+/sclineto
+{vscale mul exch hscale mul exch lineto} def
+
+
+/func
+{/td exch def
+1 b c 2.71828 a td mul exp mul mul 1 add b mul div 4 add
+}def
+
+/curve
+{/d d delta add def
+d func d sclineto
+} def
+
+%%%%%%%%%%% Set the parameter values%%%%%%%
+/b 1 13 div def
+/a .01 def
+/c .1 def
+/delta 10 def
+/numb 200 def
+/fntsize 12 def
+/hscale 7 def
+/vscale -.08 def
+/tmax 20 def
+/dmax  2000 def
+
+
+%%%%%%%%%%%%%%%%%%%%%%%  program
+
+200 180 translate
+
+.3 recip mul setlinewidth
+
+newpath
+0 0 moveto
+%155 0 arrowto 
+%fill
+0 0 moveto
+%0 -170 arrowto 
+%fill
+
+newpath
+.1 recip mul setlinewidth
+28 28 140 
+{0 moveto
+ 0 -160 rlineto
+ } for
+-20 -20 -160
+{0 exch moveto
+ 140 0 rlineto
+} for
+stroke
+
+newpath
+1 recip mul setlinewidth
+/d 0 def
+d func d scmoveto
+numb {curve} repeat
+stroke
+
+TR (temperature) 72 20 placeBC
+gsave
+0 -80 translate
+90 rotate
+(depth) 0 35 placeBC
+grestore 
+sym (4\260) 28 2 placeBC
+(8\260) 56 2 placeBC
+(12\260) 84 2 placeBC
+(16\260) 112 2 placeBC
+(20\260) 140 2 placeBC
+(250) -3 -21 placeBR
+(500) -3 -41 placeBR
+(750) -3 -61 placeBR
+(1000) -3 -81 placeBR
+(1250) -3 -101 placeBR
+(1500) -3 -121 placeBR
+(1750) -3 -141 placeBR
+(2000) -3 -161 placeBR
+
+
+showpage

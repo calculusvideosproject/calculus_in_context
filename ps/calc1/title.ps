@@ -1,0 +1,82 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 0 0 612.0 792
+/printscale .8 def
+/recip {1 printscale div} def
+
+printscale printscale scale
+
+%100 300 translate		% print translation
+
+
+% -------------------- font codes --------------------------
+
+/bigtype {72 printscale div 1.17 mul} def
+/typesize {60 printscale div 1.17 mul} def
+/medtype {24 printscale div} def
+/smalltype {18 printscale div} def
+
+
+/makeHbig {/Helvetica-Bold findfont bigtype scalefont} def
+/makeH {/Helvetica-Bold findfont typesize scalefont} def
+
+/makeTR {/Times-Roman findfont typesize scalefont} def
+/makeTB {/Times-Bold findfont typesize scalefont} def
+/makeTI {/Times-Italic findfont typesize scalefont} def
+/makeSYM {/Symbol findfont typesize scalefont} def
+
+/maketr {/Times-Roman findfont smalltype scalefont} def
+/maketi {/Times-BoldItalic findfont medtype scalefont} def
+/makesym {/Symbol findfont smalltype scalefont} def
+
+/Hbig {makeHbig setfont} def
+/H {makeH setfont} def
+
+/TR {makeTR setfont} def
+/TB {makeTB setfont} def
+/TI {makeTI setfont} def
+/SYM {makeSYM setfont} def
+
+/tr {maketr setfont} def
+/ti {maketi setfont} def
+/sym {makesym setfont} def
+
+% ---------------string placing procedures-------------------
+
+% stack: fontcode string x y 
+
+/placeBL {moveto show} def
+/placeBR {moveto dup stringwidth pop neg 0 rmoveto show} def
+/placeBC {moveto dup stringwidth pop 2 div neg 0 rmoveto show} def
+/placeTL {moveto 0 typesize neg rmoveto show} def
+/placeTR {moveto dup stringwidth pop neg typesize neg rmoveto show} def
+/placeTC {moveto dup stringwidth pop 2 div neg typesize neg rmoveto show} def
+
+
+-35 -600 translate
+
+
+
+gsave
+%.6 .35 .1   setrgbcolor
+%.75 140 255 div 75 255 div   setrgbcolor
+%.94 .78 0   setrgbcolor
+%1 230 255 div 0 setrgbcolor
+
+.103 .9 .7 sethsbcolor
+
+Hbig (Calculus) 306 520 placeBC
+H (in Context) 306 440 placeBC
+grestore
+
+ti (The Five College Calculus Project) 306 360 placeBC
+
+tr (James Callahan) 220 300 placeBL
+   (Kenneth Hoffman) 220 270 placeBL
+   (David Cox)       220 230 placeBL
+   (Donal O'Shea)    220 200 placeBL
+   (Harriet Pollatsek) 220 170 placeBL
+   (Lester Senechal) 220 140 placeBL
+
+
+showpage
+

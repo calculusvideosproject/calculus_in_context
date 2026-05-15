@@ -1,0 +1,334 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 0 0 612.0 792
+/printscale 1 def
+/screenstretch {printscale 90 50 div mul} def
+/double {screenstretch 2 mul} def
+
+%100 300 translate		% print translation
+
+ printscale printscale scale	    % scale for printing
+% screenstretch screenstretch scale % printing scale on screen
+% double double scale               % magnified screen
+
+
+% -------------------- font codes --------------------------
+
+/typesize {10 printscale div} def
+
+/makeTR {/Times-Roman findfont typesize scalefont} def
+/makeTB {/Times-Bold findfont typesize scalefont} def
+/makeTI {/Times-Italic findfont typesize scalefont} def
+/makeSYM {/Symbol findfont typesize scalefont} def
+
+/TR {makeTR setfont} def
+/TB {makeTB setfont} def
+/TI {makeTI setfont} def
+/SYM {makeSYM setfont} def
+
+% ---------------string placing procedures-------------------
+
+% stack: fontcode string x y 
+
+/placeBL {moveto show} def
+/placeBR {moveto dup stringwidth pop neg 0 rmoveto show} def
+/placeBC {moveto dup stringwidth pop 2 div neg 0 rmoveto show} def
+/placeTL {moveto 0 typesize neg rmoveto show} def
+/placeTR {moveto dup stringwidth pop neg typesize neg rmoveto show} def
+/placeTC {moveto dup stringwidth pop 2 div neg typesize neg rmoveto show} def
+
+
+% ------------------- program -------------------------
+
+.3 setlinewidth
+
+/A 		% stack: x y 
+{/typesize 20 def
+TI (A) 3 1 roll placeBC} def
+
+/Dx 
+{/typesize 10 def
+SYM (D) 3 1 roll placeBL 1 0 rmoveto TI (x) show} def
+
+TR
+
+% --------------- first figure - square -------------------
+
+% position the origin of orthogonal coordinate system
+% 50 100 moveto 				% screen origin
+% 28 0 moveto
+%currentpoint translate
+
+40 0 translate
+
+gsave 					% save picture coordinates
+
+[.95 -.05 0 1 0 0] concat	% make frame coordinates
+
+
+/square			% x y --> square w/ corner at (x, y)
+{newpath 			% in original coordinate frame
+translate					% translate coordinates
+[.3 .3 0 1 0 0] concat		% in-plane coordinates
+0 0 moveto
+100 0 rlineto
+0 100 rlineto
+-100 0 rlineto
+closepath
+} def
+
+newpath				% back line
+30 30 moveto
+50 0 rlineto
+stroke
+
+0 0 						% left slice
+gsave					% save frame coords
+square 
+stroke
+grestore					% restore frame coords
+
+
+15 0 					% middle slice
+gsave					% save frame coords
+square 
+gsave
+.9 setgray
+fill
+grestore
+50 45 A
+grestore					% restore frame coords
+
+
+
+50 0 
+gsave					% save frame coords
+square 
+stroke
+grestore					% restore frame coords
+
+newpath					% front lines
+0 0 moveto
+50 0 rlineto
+0 100 moveto
+50 0 rlineto
+30 130 moveto
+50 0 rlineto
+stroke
+
+
+
+% ------ arrow drawing procedures --------
+
+/arrow 
+{-2 0 rmoveto
+ 0  1 rlineto
+ 4 -1 rlineto
+-4 -1 rlineto
+ 0  1 rlineto} def
+
+/rightarrow {arrow} def
+/uparrow {90 rotate arrow -90 rotate} def
+/leftarrow {180 rotate arrow -180 rotate} def
+
+% ----------------------------------------
+
+% thickness marks
+
+gsave					% save frame coords
+100 100 [.3 .3 0 1 0 0] transform
+moveto
+currentpoint translate
+0 3 translate			% coords 3 pts above back left edge
+0 0 moveto
+0 14 rlineto
+50 0 moveto
+0 14 rlineto
+stroke
+15 7 moveto
+-12 0 rlineto
+leftarrow
+35 7 moveto
+12 0 rlineto
+rightarrow
+fill
+19 4 Dx
+
+grestore					% restore frame coords
+
+grestore					% restore picture coords
+
+
+
+% --------------- second figure - circle -------------------
+
+% move the origin of picture coordinate system
+120 0 moveto
+currentpoint translate
+
+gsave 					% save picture coordinates
+
+[.95 -.05 0 1 0 0] concat	% make frame coordinates
+
+
+/circle 			% x y --> circle in plane thru (x, y)
+{newpath 			% in frame coordinates
+translate					% translate coordinates
+[.3 .3 0 1 0 0] concat		% in-plane coordinates
+50 50 70 0 360 arc			% circle radius 70 
+} def
+
+
+0 0 
+gsave					% save frame coords
+circle
+stroke
+grestore					% restore frame coords
+
+
+20 0 
+gsave					% save frame coords
+circle
+gsave
+.9 setgray
+fill
+grestore
+50 45 A
+grestore					% restore frame coords
+
+
+
+30 0 
+gsave					% save frame coords
+circle
+stroke
+grestore					% restore frame coords
+
+newpath					% top and bottom lines
+9 -8 moveto
+30 0 rlineto
+22 138 moveto
+30 0 rlineto
+stroke
+
+% thickness marks
+
+gsave					% save frame coords
+20 138 moveto
+currentpoint translate
+0 3 translate			% coords 3 pts above back left edge
+0 0 moveto
+0 14 rlineto
+30 0 moveto
+0 14 rlineto
+stroke
+7 7 moveto
+-5 0 rlineto
+leftarrow
+23 7 moveto
+5 0 rlineto
+rightarrow
+fill
+9 4 Dx
+
+
+grestore					% restore frame coords
+
+grestore					% restore picture coords
+
+% ------------- third figure - irregular -----------------
+
+% position the origin of orthogonal coordinate system
+100 -15 moveto
+currentpoint translate
+
+gsave 					% save picture coordinates
+
+[.95 -.05 0 1 0 0] concat	% make frame coordinates
+
+
+/irreg			% x y --> irreg w/ bottom at (x, y)
+{newpath 			% in frame coordinates 
+translate					% translate coordinates
+[.3 .3 0 1 0 0] concat		% in-plane coordinates
+45 0 moveto
+90 40 lineto
+55 110 lineto
+20 90 lineto
+28 75 lineto
+0 35 lineto
+closepath
+} def
+
+0 0 
+gsave					% save frame coords
+irreg
+stroke
+grestore					% restore frame coords
+
+/sideline 				% draws line from (x, y)
+{newpath
+[.3 .3 0 1 0 0] transform
+moveto
+60 0 rlineto
+stroke}
+def
+
+90 40 sideline
+
+25 0 
+gsave					% save frame coords
+irreg
+gsave
+.9 setgray
+fill
+grestore
+50 42 A
+grestore					% restore frame coords
+
+
+
+60 0 
+gsave					% save frame coords
+irreg
+stroke
+grestore					% restore frame coords
+
+
+% make sidelines
+
+45 0 sideline
+55 110 sideline
+20 90 sideline
+28 75 sideline
+0 35 sideline
+
+%grestore					% restore frame coords
+
+% thickness marks
+
+gsave					% save frame coords
+55 110 [.3 .3 0 1 0 0] transform
+moveto
+currentpoint translate
+0 3 translate			% coords 3 pts above back left edge
+0 0 moveto
+0 14 rlineto
+60 0 moveto
+0 14 rlineto
+stroke
+20 7 moveto
+-17 0 rlineto
+leftarrow
+40 7 moveto
+17 0 rlineto
+rightarrow
+fill
+24 4 Dx
+
+grestore					% restore frame coords
+
+grestore					% restore picture coords
+
+showpage
+
+

@@ -1,0 +1,126 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 0 0 612.0 792
+
+/Times-Roman findfont
+9 scalefont setfont
+
+/arrowdict 14 dict def
+arrowdict begin
+ /mtrx matrix def
+end
+
+/arrow
+ {arrowdict begin
+   /headlength exch def
+   /halfheadthickness exch 2 div def
+   /halfthickness exch 2 div def
+   /tipy exch def /tipx exch def
+   /taily exch def /tailx exch def
+   
+   /dx tipx tailx sub def
+   /dy tipy taily sub def
+   /arrowlength dx dx mul dy dy mul add sqrt def
+   /angle dy dx atan def
+   /base arrowlength headlength sub def
+   
+   /savematrix mtrx currentmatrix def
+   
+   tailx taily translate
+   angle rotate
+   0 halfthickness neg moveto
+   base halfthickness neg lineto
+   base halfheadthickness neg lineto
+   arrowlength 0 lineto
+   base halfheadthickness lineto
+   base halfthickness lineto
+   0 halfthickness lineto
+   closepath
+   
+   savematrix setmatrix
+   end
+ }  def
+ 
+ /curve
+ {/x x 1 add def
+ /t x 18 div def
+ /d 2.71828 t -.1818 mul exp 968 mul t 176 mul add 968 sub def
+ /y d 90 mul 1000 div def
+ x y lineto} def
+ 
+ /horline
+ {240 0 lineto
+ stroke
+ 0 18 moveto
+ currentpoint translate} def
+ 
+ /verline
+ {0 130 lineto
+ stroke
+ 18 0 moveto
+ currentpoint translate} def
+  
+ /prt-n
+ {(     ) cvs show} def
+ 
+ /xlabels
+ {/num num 1 add def
+  x -9 moveto num prt-n
+  /x x 18 add def
+	} def
+	
+/y1labels
+ {/num num 200 add def
+  -20 y moveto num prt-n
+  /y y 18 add def
+	} def 
+ 
+ /y2labels
+ {/num num 200 add def
+  -25 y moveto num prt-n
+  /y y 18 add def
+	} def 
+ 
+80 25 translate
+ 0 0 moveto
+ .2 setlinewidth
+ gsave
+ 8 {horline} repeat
+ grestore
+ gsave
+ 14 {verline} repeat
+ grestore
+ 
+ 0 130 0 145 .2 2 4 arrow fill
+ 240 0 265 0 .2 2 4 arrow fill
+ 
+ 1 setlinewidth
+ /x 0 def
+ /y 0 def
+ x y moveto
+ 240 {curve} repeat
+ stroke
+  
+ /x -2 def
+ /num -1 def
+ 10 {xlabels} repeat
+ /x 176 def
+ /num 9 def
+ 4 {xlabels} repeat
+ 
+ /y 14 def
+ /num 0 def
+ 4 {y1labels} repeat
+ 3 {y2labels} repeat
+ 
+  /Times-Roman findfont 10 scalefont setfont
+ 
+ 80 -22 moveto
+ (time \(seconds\)) show
+ 
+ -40 0 translate
+ 90 rotate
+ 28 -5 moveto
+ (distance fallen \(feet\)) show
+  
+
+showpage

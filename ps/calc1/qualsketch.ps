@@ -1,0 +1,741 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 0 0 612.0 792
+/printscale  .95 def
+/recip {1 printscale div} def
+/screenstretch {printscale 90 50 div mul} def
+/double {screenstretch 2 mul} def
+
+% 100 600 translate 		% print translation
+
+ printscale printscale scale       %scale for printing
+% screenstretch screenstretch scale %printing scale on screen
+% double double scale               %magnified screen
+
+% -------------------- font codes --------------------------
+
+/typesize {10 printscale div} def
+/smalltype {7 printscale div} def
+
+/makeTR {/Times-Roman findfont typesize scalefont} def
+/makeTB {/Times-Bold findfont typesize scalefont} def
+/makeTI {/Times-Italic findfont typesize scalefont} def
+/makeSYM {/Symbol findfont typesize scalefont} def
+
+/maketr {/Times-Roman findfont smalltype scalefont} def
+/maketi {/Times-Italic findfont smalltype scalefont} def
+/makesym {/Symbol findfont smalltype scalefont} def
+
+/TR {makeTR setfont} def
+/TB {makeTB setfont} def
+/TI {makeTI setfont} def
+/SYM {makeSYM setfont} def
+
+/tr {maketr setfont} def
+/ti {maketi setfont} def
+/sym {makesym setfont} def
+
+% ---------------string placing procedures-------------------
+
+% stack: fontcode string x y 
+
+/placeBL {moveto show} def
+/placeBR {moveto dup stringwidth pop neg 0 rmoveto show} def
+/placeBC {moveto dup stringwidth pop 2 div neg 0 rmoveto show} def
+/placeTL {moveto 0 typesize neg rmoveto show} def
+/placeTR {moveto dup stringwidth pop neg typesize neg rmoveto show} def
+/placeTC {moveto dup stringwidth pop 2 div neg typesize neg rmoveto show} def
+
+% ---------------------------------------------------------------------
+
+/Xtrans1 70 def
+/Ytrans1 430 def
+/Xtrans2 195 def
+/Ytrans2 430 def
+/Xtrans3 320 def
+/Ytrans3 430 def
+/Xtrans4 70 def
+/Ytrans4 285 def
+/Xtrans5 195 def
+/Ytrans5 285 def
+/Xtrans6 320 def
+/Ytrans6 285 def
+/Xtrans7 70 def
+/Ytrans7 140 def
+/Xtrans8 195 def
+/Ytrans8 140 def
+/Xtrans9 320 def
+/Ytrans9 140 def
+/Hscale 1 def
+/Vscale 1 def
+/Times-Italic findfont
+/fac 10 def
+fac scalefont setfont
+
+/Mdot {
+gsave
+1 Hscale div 1 Vscale div scale
+Vscale mul
+exch
+Hscale mul
+exch
+1.5 0 360 arc
+fill
+grestore} def
+% General format for Mshowa is
+%[(text)] xcoord ycoord a b Mshowa
+% where a=1 (-1) means position at right (left) of point
+%and y=1 (-1) means above (below) point.
+%Final show position is 
+%xcoord +.5(a-1)w +.3 a fac,
+%ycoord + (.65 b -.35) fac
+%w = width of text, fac = fontsize
+%Changing b only affects vertical placement--unit change in b gives not quite a fontsize height change
+%changing a only affects horizontal--unit change in a give .5 textwidth plus slightly less than half a fontheight
+% the parameter .3 gives horizontal distance from point
+% change the -.35 to alter vertical closeness
+/Mshowa {
+gsave
+1 Hscale div 1 Vscale div scale   %first seven lines convert to absolute scale
+4 2 roll
+Vscale mul
+exch
+Hscale mul
+exch
+4 2 roll
+.65 mul
+exch dup .3 mul fac mul
+exch 1 sub .5 mul
+6 -1 roll
+0 get
+dup stringwidth pop
+exch
+7 1 roll
+mul add
+4 -1 roll
+add
+3 1 roll
+.35 sub fac mul add
+moveto
+show
+grestore
+} def
+
+/arrowdict 14 dict def
+arrowdict begin
+ /mtrx matrix def
+end
+
+/arrow
+ {arrowdict begin
+   /headlength exch def
+   /halfheadthickness exch 2 div def
+   /halfthickness exch 2 div def
+   /tipy exch def /tipx exch def
+   /taily exch def /tailx exch def
+   
+   /dx tipx tailx sub def
+   /dy tipy taily sub def
+   /arrowlength dx dx mul dy dy mul add sqrt def
+   /angle dy dx atan def
+   /base arrowlength headlength sub def
+   
+   /savematrix mtrx currentmatrix def
+   
+   tailx taily translate
+   angle rotate
+   0 halfthickness neg moveto
+   base halfthickness neg lineto
+   base halfheadthickness neg lineto
+   arrowlength 0 lineto
+   base halfheadthickness lineto
+   base halfthickness lineto
+   0 halfthickness lineto
+   closepath
+   
+   savematrix setmatrix
+   end
+ }  def
+
+-15 -570 translate
+1.1 1.1 scale
+
+gsave
+Xtrans1 Ytrans1 translate
+gsave
+.3 setlinewidth
+-50 0 moveto
+50 0 lineto
+stroke
+0 -60 moveto
+0 60 lineto
+stroke
+0 60 0 64 .1 1.5 3 arrow fill
+50 0 54 0 .1 1.5 3 arrow fill
+TI
+[(y)] 0 60 1.4 0 Mshowa
+[(x)] 50 0 0 1.2 Mshowa
+TB
+[(i.)] -50 60 0 0 Mshowa
+grestore
+.9 setlinewidth
+-50 -50 moveto
+40 60 lineto
+stroke
+grestore
+
+gsave
+Xtrans2 Ytrans2 translate
+gsave
+.3 setlinewidth
+-50 0 moveto
+50 0 lineto
+stroke
+0 -60 moveto
+0 60 lineto
+stroke
+0 60 0 64 .1 1.5 3 arrow fill
+50 0 54 0 .1 1.5 3 arrow fill
+TI
+[(y)] 0 60 1.4 0 Mshowa
+[(x)] 50 0 0 1.2 Mshowa
+TB
+[(ii.)] -50 60 0 0 Mshowa
+grestore
+.9 setlinewidth
+-50 -30 moveto
+50 -30 lineto
+stroke
+grestore
+
+gsave
+Xtrans3 Ytrans3 translate    %exponential
+gsave
+.3 setlinewidth
+-50 0 moveto
+50 0 lineto
+stroke
+0 -60 moveto
+0 60 lineto
+stroke
+0 60 0 64 .1 1.5 3 arrow fill
+50 0 54 0 .1 1.5 3 arrow fill
+TI
+[(y)] 0 60 1.4 0 Mshowa
+[(x)] 50 0 0 1.2 Mshowa
+TB
+[(iii.)] -50 60 0 0 Mshowa
+grestore
+gsave
+newpath
+100 100 scale
+-.5 0 translate
+.009 setlinewidth
+0.02381 0.01868 moveto
+0.06349 0.0196 lineto
+0.10317 0.02073 lineto
+0.14286 0.02212 lineto
+0.18254 0.02384 lineto
+0.22222 0.02595 lineto
+0.2619 0.02856 lineto
+0.30159 0.03176 lineto
+0.34127 0.03571 lineto
+0.38095 0.04058 lineto
+0.42063 0.04657 lineto
+0.46032 0.05394 lineto
+0.5 0.06303 lineto
+0.53968 0.07422 lineto
+0.57937 0.088 lineto
+0.61905 0.10498 lineto
+0.65873 0.12589 lineto
+0.69841 0.15164 lineto
+0.7381 0.18335 lineto
+0.77778 0.22241 lineto
+0.81746 0.27052 lineto
+0.85714 0.32977 lineto
+0.89683 0.40275 lineto
+0.93651 0.49262 lineto
+0.97619 0.60332 lineto
+stroke
+grestore
+grestore
+
+gsave
+Xtrans4 Ytrans4 translate
+gsave
+.3 setlinewidth
+-50 0 moveto
+50 0 lineto
+stroke
+0 -60 moveto
+0 60 lineto
+stroke
+0 60 0 64 .1 1.5 3 arrow fill
+50 0 54 0 .1 1.5 3 arrow fill
+TI
+[(y)] 0 60 1.4 0 Mshowa
+[(x)] 50 0 0 1.2 Mshowa
+TB
+[(iv.)] -50 60 0 0 Mshowa
+grestore
+gsave
+newpath
+120 150 scale
+-.6 -.3 translate
+.006 setlinewidth
+0.18254 0.27632 moveto
+0.22222 0.215 lineto
+0.2619 0.16187 lineto
+0.30159 0.1169 lineto
+0.34127 0.08012 lineto
+0.38095 0.0515 lineto
+0.40079 0.04026 lineto
+0.42063 0.03107 lineto
+0.44048 0.02391 lineto
+0.4504 0.0211 lineto
+0.46032 0.0188 lineto
+0.47024 0.01701 lineto
+0.4752 0.01631 lineto
+0.48016 0.01574 lineto
+0.48512 0.01529 lineto
+0.4876 0.01511 lineto
+0.49008 0.01497 lineto
+0.49256 0.01486 lineto
+0.4938 0.01481 lineto
+0.49504 0.01478 lineto
+0.49628 0.01475 lineto
+0.49752 0.01473 lineto
+0.49876 0.01472 lineto
+0.5 0.01472 lineto
+0.50124 0.01472 lineto
+0.50248 0.01473 lineto
+0.50372 0.01475 lineto
+0.50496 0.01478 lineto
+0.5062 0.01481 lineto
+0.50744 0.01486 lineto
+0.50992 0.01497 lineto
+0.5124 0.01511 lineto
+0.51488 0.01529 lineto
+0.51984 0.01574 lineto
+0.5248 0.01631 lineto
+0.52976 0.01701 lineto
+0.53968 0.0188 lineto
+0.5496 0.0211 lineto
+0.55952 0.02391 lineto
+0.57937 0.03107 lineto
+0.59921 0.04026 lineto
+0.61905 0.0515 lineto
+0.65873 0.08012 lineto
+0.69841 0.1169 lineto
+0.7381 0.16187 lineto
+0.77778 0.215 lineto
+0.81746 0.27632 lineto
+0.85714 0.3458 lineto
+0.89683 0.42347 lineto
+0.93651 0.50931 lineto
+0.97619 0.60332 lineto
+stroke
+grestore
+grestore
+
+gsave
+Xtrans5 Ytrans5 translate
+gsave
+.3 setlinewidth
+-50 0 moveto
+50 0 lineto
+stroke
+0 -60 moveto
+0 60 lineto
+stroke
+0 60 0 64 .1 1.5 3 arrow fill
+50 0 54 0 .1 1.5 3 arrow fill
+TI
+[(y)] 0 60 1.4 0 Mshowa
+[(x)] 50 0 0 1.2 Mshowa
+TB
+[(v.)] -54 60 0 0 Mshowa
+gsave
+[5 6] 0 setdash
+-50 -27.792 moveto
+50 -27.792 lineto
+stroke
+grestore
+grestore
+gsave
+newpath
+100 150 scale
+-.5 -.2 translate
+.007 setlinewidth
+0.02381 0.60332 moveto
+0.06349 0.53532 lineto
+0.10317 0.46813 lineto
+0.14286 0.40212 lineto
+0.18254 0.33786 lineto
+0.22222 0.27636 lineto
+0.2619 0.21924 lineto
+0.30159 0.1689 lineto
+0.34127 0.12807 lineto
+0.36111 0.11173 lineto
+0.38095 0.09805 lineto
+0.40079 0.08677 lineto
+0.42063 0.07754 lineto
+0.44048 0.07 lineto
+0.46032 0.06382 lineto
+0.5 0.05448 lineto
+0.53968 0.04788 lineto
+0.57937 0.04305 lineto
+0.61905 0.0394 lineto
+0.65873 0.03655 lineto
+0.69841 0.03427 lineto
+0.7381 0.03241 lineto
+0.77778 0.03087 lineto
+0.81746 0.02957 lineto
+0.85714 0.02846 lineto
+0.89683 0.0275 lineto
+0.93651 0.02667 lineto
+0.97619 0.02594 lineto
+stroke
+grestore
+grestore
+
+gsave
+Xtrans6 Ytrans6 translate
+gsave
+.3 setlinewidth
+-50 0 moveto
+50 0 lineto
+stroke
+0 -60 moveto
+0 60 lineto
+stroke
+0 60 0 64 .1 1.5 3 arrow fill
+50 0 54 0 .1 1.5 3 arrow fill
+TI
+[(y)] 0 60 1.4 0 Mshowa
+[(x)] 50 0 0 1.2 Mshowa
+TB
+[(vi.)] -50 60 0 0 Mshowa
+grestore
+gsave
+120 190 scale
+-.5 -.30902 translate
+.006 setlinewidth
+newpath
+0.02381 0.01472 moveto     %cubic
+0.06349 0.14478 lineto
+0.10317 0.24731 lineto
+0.14286 0.32481 lineto
+0.1627 0.35496 lineto
+0.18254 0.37979 lineto
+0.20238 0.39961 lineto
+0.22222 0.41474 lineto
+0.23214 0.42065 lineto
+0.24206 0.42549 lineto
+0.25198 0.42932 lineto
+0.25694 0.43087 lineto
+0.2619 0.43218 lineto
+0.26687 0.43325 lineto
+0.27183 0.43409 lineto
+0.27431 0.43443 lineto
+0.27679 0.43471 lineto
+0.27927 0.43493 lineto
+0.28051 0.43503 lineto
+0.28175 0.4351 lineto
+0.28299 0.43517 lineto
+0.28423 0.43522 lineto
+0.28547 0.43526 lineto
+0.28671 0.43529 lineto
+0.28795 0.4353 lineto
+0.28919 0.4353 lineto
+0.29043 0.43529 lineto
+0.29167 0.43526 lineto
+0.29291 0.43522 lineto
+0.29415 0.43517 lineto
+0.29663 0.43503 lineto
+0.29911 0.43483 lineto
+0.30159 0.43459 lineto
+0.30655 0.43396 lineto
+0.31151 0.43314 lineto
+0.32143 0.43095 lineto
+0.33135 0.42806 lineto
+0.34127 0.42449 lineto
+0.38095 0.40439 lineto
+0.42063 0.37677 lineto
+0.46032 0.34414 lineto
+0.5 0.30902 lineto
+0.53968 0.27389 lineto
+0.57937 0.24127 lineto
+0.61905 0.21365 lineto
+0.63889 0.2025 lineto
+0.65873 0.19354 lineto
+0.66865 0.18998 lineto
+0.67857 0.18708 lineto
+0.68353 0.1859 lineto
+0.68849 0.18489 lineto
+0.69345 0.18407 lineto
+0.69593 0.18373 lineto
+0.69841 0.18344 lineto
+0.70089 0.1832 lineto
+0.70337 0.18301 lineto
+0.70585 0.18287 lineto
+0.70709 0.18281 lineto
+0.70833 0.18277 lineto
+0.70957 0.18275 lineto
+0.71081 0.18273 lineto
+0.71205 0.18273 lineto
+0.71329 0.18275 lineto
+0.71453 0.18277 lineto
+0.71577 0.18281 lineto
+0.71701 0.18286 lineto
+0.71825 0.18293 lineto
+0.72073 0.1831 lineto
+0.72321 0.18333 lineto
+0.72817 0.18394 lineto
+0.73313 0.18479 lineto
+0.7381 0.18586 lineto
+0.74802 0.18871 lineto
+0.75794 0.19254 lineto
+0.77778 0.20329 lineto
+0.79762 0.21842 lineto
+0.81746 0.23825 lineto
+0.85714 0.29322 lineto
+0.89683 0.37072 lineto
+0.93651 0.47326 lineto
+0.97619 0.60332 lineto
+stroke
+grestore
+grestore
+
+gsave
+Xtrans7 Ytrans7 translate
+gsave
+.3 setlinewidth
+-50 0 moveto
+50 0 lineto
+stroke
+0 -60 moveto
+0 60 lineto
+stroke
+0 60 0 64 .1 1.5 3 arrow fill
+50 0 54 0 .1 1.5 3 arrow fill
+TI
+[(y)] 0 60 1.4 0 Mshowa
+[(x)] 50 0 0 1.2 Mshowa
+TB
+[(vii.)] -50 60 0 0 Mshowa
+grestore
+gsave
+120 190 scale
+-.5 -.30902 translate
+.006 setlinewidth
+0.02381 0.01472 moveto    %tan(x)
+0.04365 0.06651 lineto
+0.06349 0.10394 lineto
+0.08333 0.13241 lineto
+0.10317 0.1549 lineto
+0.14286 0.18851 lineto
+0.18254 0.21283 lineto
+0.22222 0.23162 lineto
+0.2619 0.24691 lineto
+0.30159 0.25986 lineto
+0.34127 0.27122 lineto
+0.38095 0.28149 lineto
+0.42063 0.29103 lineto
+0.46032 0.30013 lineto
+0.5 0.30902 lineto
+0.53968 0.3179 lineto
+0.57937 0.327 lineto
+0.61905 0.33655 lineto
+0.65873 0.34682 lineto
+0.69841 0.35818 lineto
+0.7381 0.37113 lineto
+0.77778 0.38641 lineto
+0.81746 0.40521 lineto
+0.85714 0.42953 lineto
+0.87698 0.44482 lineto
+0.89683 0.46313 lineto
+0.91667 0.48563 lineto
+0.93651 0.51409 lineto
+0.95635 0.55153 lineto
+0.97619 0.60332 lineto
+stroke
+grestore
+grestore
+
+gsave
+Xtrans8 Ytrans8 translate
+gsave
+.3 setlinewidth
+-50 0 moveto
+50 0 lineto
+stroke
+0 -60 moveto
+0 60 lineto
+stroke
+0 60 0 64 .1 1.5 3 arrow fill
+50 0 54 0 .1 1.5 3 arrow fill
+TI
+[(y)] 0 60 1.4 0 Mshowa
+[(x)] 50 0 0 1.2 Mshowa
+TB
+[(viii.)] -50 60 0 0 Mshowa
+grestore
+gsave
+100 120 scale
+-.5 -.30902 translate
+.008 setlinewidth
+0.02381 0.30902 moveto    %sinecurve
+0.06349 0.38627 lineto
+0.08333 0.41827 lineto
+0.10317 0.44283 lineto
+0.1131 0.45176 lineto
+0.11806 0.45533 lineto
+0.12302 0.45826 lineto
+0.12798 0.46056 lineto
+0.13046 0.46146 lineto
+0.13294 0.4622 lineto
+0.13542 0.46278 lineto
+0.13666 0.46301 lineto
+0.1379 0.46319 lineto
+0.13914 0.46334 lineto
+0.14038 0.46344 lineto
+0.14162 0.4635 lineto
+0.14286 0.46353 lineto
+0.1441 0.4635 lineto
+0.14534 0.46344 lineto
+0.14658 0.46334 lineto
+0.14782 0.46319 lineto
+0.1503 0.46278 lineto
+0.15278 0.4622 lineto
+0.15526 0.46146 lineto
+0.15774 0.46056 lineto
+0.1627 0.45826 lineto
+0.17262 0.45176 lineto
+0.18254 0.44283 lineto
+0.20238 0.41827 lineto
+0.22222 0.38627 lineto
+0.2619 0.30902 lineto
+0.30159 0.23176 lineto
+0.32143 0.19976 lineto
+0.34127 0.17521 lineto
+0.35119 0.16627 lineto
+0.35615 0.16271 lineto
+0.36111 0.15977 lineto
+0.36607 0.15748 lineto
+0.36855 0.15657 lineto
+0.37103 0.15583 lineto
+0.37351 0.15525 lineto
+0.37475 0.15503 lineto
+0.37599 0.15484 lineto
+0.37723 0.15469 lineto
+0.37847 0.15459 lineto
+0.37971 0.15453 lineto
+0.38095 0.15451 lineto
+0.38219 0.15453 lineto
+0.38343 0.15459 lineto
+0.38467 0.15469 lineto
+0.38591 0.15484 lineto
+0.38715 0.15503 lineto
+0.38839 0.15525 lineto
+0.39087 0.15583 lineto
+0.39335 0.15657 lineto
+0.39583 0.15748 lineto
+0.40079 0.15977 lineto
+0.41071 0.16627 lineto
+0.42063 0.17521 lineto
+0.44048 0.19976 lineto
+0.46032 0.23176 lineto
+0.5 0.30902 lineto
+0.53968 0.38627 lineto
+0.55952 0.41827 lineto
+0.56944 0.4316 lineto
+0.57937 0.44283 lineto
+0.58929 0.45176 lineto
+0.59921 0.45826 lineto
+0.60417 0.46056 lineto
+0.60665 0.46146 lineto
+0.60913 0.4622 lineto
+0.61161 0.46278 lineto
+0.61285 0.46301 lineto
+0.61409 0.46319 lineto
+0.61533 0.46334 lineto
+0.61657 0.46344 lineto
+0.61781 0.4635 lineto
+0.61905 0.46353 lineto
+0.62029 0.4635 lineto
+0.62153 0.46344 lineto
+0.62277 0.46334 lineto
+0.62401 0.46319 lineto
+0.62649 0.46278 lineto
+0.62897 0.4622 lineto
+0.63145 0.46146 lineto
+0.63393 0.46056 lineto
+0.63889 0.45826 lineto
+0.64881 0.45176 lineto
+0.65873 0.44283 lineto
+0.67857 0.41827 lineto
+0.69841 0.38627 lineto
+0.7381 0.30902 lineto
+0.77778 0.23176 lineto
+0.79762 0.19976 lineto
+0.80754 0.18644 lineto
+0.81746 0.17521 lineto
+0.82738 0.16627 lineto
+0.8373 0.15977 lineto
+0.84226 0.15748 lineto
+0.84474 0.15657 lineto
+0.84722 0.15583 lineto
+0.8497 0.15525 lineto
+0.85094 0.15503 lineto
+0.85218 0.15484 lineto
+0.85342 0.15469 lineto
+0.85466 0.15459 lineto
+0.8559 0.15453 lineto
+0.85714 0.15451 lineto
+0.85838 0.15453 lineto
+0.85962 0.15459 lineto
+0.86086 0.15469 lineto
+0.8621 0.15484 lineto
+0.86334 0.15503 lineto
+0.86458 0.15525 lineto
+0.86706 0.15583 lineto
+0.86954 0.15657 lineto
+0.87202 0.15748 lineto
+0.87698 0.15977 lineto
+0.8869 0.16627 lineto
+0.89683 0.17521 lineto
+0.91667 0.19976 lineto
+0.93651 0.23176 lineto
+0.97619 0.30902 lineto
+stroke
+grestore
+grestore
+
+gsave
+Xtrans9 Ytrans9 translate
+gsave
+.3 setlinewidth
+-50 0 moveto
+50 0 lineto
+stroke
+0 -60 moveto
+0 60 lineto
+stroke
+0 60 0 64 .1 1.5 3 arrow fill
+50 0 54 0 .1 1.5 3 arrow fill
+TI
+[(y)] 0 60 1.4 0 Mshowa
+[(x)] 50 0 0 1.2 Mshowa
+TB
+[(ix.)] -50 60 0 0 Mshowa
+grestore
+.9 setlinewidth
+-50 30 moveto
+-25 -25 lineto
+20 20 lineto
+40 -40 lineto
+50 -30 lineto
+stroke
+grestore
+
+showpage

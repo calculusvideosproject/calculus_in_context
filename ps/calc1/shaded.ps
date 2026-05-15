@@ -1,0 +1,147 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 0 0 612.0 792
+
+% 100 400 translate 			% print translation
+
+/Hscale 1 def
+/Vscale 1 def
+
+/Times-Roman findfont
+/fac 10 def
+fac scalefont setfont
+
+/Mdot {
+gsave
+1 Hscale div 1 Vscale div scale
+Vscale mul
+exch
+Hscale mul
+exch
+1.5 0 360 arc
+fill
+grestore} def
+% General format for Mshowa is
+%[(text)] xcoord ycoord a b Mshowa
+% where a=1 (-1) means position at right (left) of point
+%and y=1 (-1) means above (below) point.
+%Final show position is 
+%xcoord +.5(a-1)w +.3 a fac,
+%ycoord + (.65 b -.35) fac
+%w = width of text, fac = fontsize
+%Changing b only affects vertical placement--unit change in b gives not quite a fontsize height change
+%changing a only affects horizontal--unit change in a give .5 textwidth plus slightly less than half a fontheight
+% the parameter .3 gives horizontal distance from point
+% change the -.35 to alter vertical closeness
+/Mshowa {
+gsave
+1 Hscale div 1 Vscale div scale   %first seven lines convert to absolute scale
+4 2 roll
+Vscale mul
+exch
+Hscale mul
+exch
+4 2 roll
+.65 mul
+exch dup .3 mul fac mul
+exch 1 sub .5 mul
+6 -1 roll
+0 get
+dup stringwidth pop
+exch
+7 1 roll
+mul add
+4 -1 roll
+add
+3 1 roll
+.35 sub fac mul add
+moveto
+show
+grestore
+} def
+
+/arrowdict 14 dict def
+arrowdict begin
+ /mtrx matrix def
+end
+/arrow
+ {arrowdict begin
+   /headlength exch def
+   /halfheadthickness exch 2 div def
+   /halfthickness exch 2 div def
+   /tipy exch def /tipx exch def
+   /taily exch def /tailx exch def
+   
+   /dx tipx tailx sub def
+   /dy tipy taily sub def
+   /arrowlength dx dx mul dy dy mul add sqrt def
+   /angle dy dx atan def
+   /base arrowlength headlength sub def
+   
+   /savematrix mtrx currentmatrix def
+   
+   tailx taily translate
+   angle rotate
+   0 halfthickness neg moveto
+   base halfthickness neg lineto
+   base halfheadthickness neg lineto
+   arrowlength 0 lineto
+   base halfheadthickness lineto
+   base halfthickness lineto
+   0 halfthickness lineto
+   closepath
+   
+   savematrix setmatrix
+   end
+ }  def
+
+.85 .85 scale
+150 15 translate
+.3 setlinewidth
+
+gsave 
+0 0 moveto
+120 120 lineto
+120 0 lineto
+closepath
+.9 setgray
+fill
+grestore
+
+0 0 moveto
+120 120 lineto
+stroke
+
+0 0 moveto
+0 135 lineto
+stroke
+
+0 0 moveto
+200 0 lineto
+120 120 moveto
+120 0 lineto
+stroke
+
+[(0)] 0 0 0 -1 Mshowa
+[(1)] 40 0 0 -1 Mshowa
+[(2)] 80 0 0 -1 Mshowa
+[(3)] 120 0 0 -1 Mshowa
+[(4)] 160 0 0 -1 Mshowa
+[(1)] 0 40 -1 0 Mshowa
+[(2)] 0 80 -1 0 Mshowa
+[(3)] 0 120 -1 0 Mshowa
+
+40 20 Mdot
+80 40 Mdot
+
+/Times-Italic findfont
+/fac 12 def
+fac scalefont setfont
+
+[(y)] 0 135 -1 1 Mshowa
+[(x)] 200 0 -.2 1.2 Mshowa
+
+200 0 204 0 .1 2 4 arrow fill
+0 135 0 139 .1 2 4 arrow fill
+
+showpage
+

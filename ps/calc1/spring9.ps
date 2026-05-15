@@ -1,0 +1,176 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 0 0 612.0 792
+/printscale 1 def
+/screenstretch {printscale 1.3 mul} def
+/double {screenstretch 2 mul} def
+
+% 0 300 translate		% print translation
+-15 -5 translate
+
+ printscale printscale scale	    % scale for printing
+% screenstretch screenstretch scale % printing scale on screen
+% double double scale               % magnified screen
+
+
+% -------------------- font codes --------------------------
+
+/typesize {11 printscale div} def
+/smalltype {9 printscale div} def
+
+/makeTR {/Times-Roman findfont typesize scalefont} def
+/makeTB {/Times-Bold findfont typesize scalefont} def
+/makeTI {/Times-Italic findfont typesize scalefont} def
+/makeSYM {/Symbol findfont typesize scalefont} def
+
+/maketr {/Times-Roman findfont smalltype scalefont} def
+/maketi {/Times-Italic findfont smalltype scalefont} def
+/makesym {/Symbol findfont smalltype scalefont} def
+
+/TR {makeTR setfont} def
+/TB {makeTB setfont} def
+/TI {makeTI setfont} def
+/SYM {makeSYM setfont} def
+
+/tr {maketr setfont} def
+/ti {maketi setfont} def
+/sym {makesym setfont} def
+
+% ---------------string placing procedures-------------------
+
+% stack: fontcode string x y 
+
+/placeBL {moveto show} def
+/placeBR {moveto dup stringwidth pop neg 0 rmoveto show} def
+/placeBC {moveto dup stringwidth pop 2 div neg 0 rmoveto show} def
+/placeTL {moveto 0 typesize neg rmoveto show} def
+/placeTR {moveto dup stringwidth pop neg typesize neg rmoveto show} def
+/placeTC {moveto dup stringwidth pop 2 div neg typesize neg rmoveto show} def
+
+
+% -------------------------- program ----------------------------
+
+.3 setlinewidth
+
+% position the origin
+% 200 200 moveto				% screen origin
+ 320 85 moveto
+currentpoint translate
+
+% ------ arrow drawing procedures --------
+
+/arrow 
+{-2 0 rmoveto
+ 0  1 rlineto
+ 4 -1 rlineto
+-4 -1 rlineto
+ 0  1 rlineto} def
+
+/rightarrow {arrow} def
+/uparrow {90 rotate arrow -90 rotate} def
+/leftarrow {180 rotate arrow -180 rotate} def
+/downarrow {-90 rotate arrow 90 rotate} def
+
+% ------------------------ make picture ----------------------------
+
+/pi 3.14159 def
+%/Sin {deg sin} def
+%/Cos {deg cos} def
+
+% definition of the function
+%20 points = 1 graphical unit = 1 radian
+/unit 1 def
+/rad {unit div} def 			% pt --> rad
+/pt  {unit mul} def 			% rad --> pt
+/deg {180 mul pi div} def 		% rad --> deg
+
+/dot {currentpoint .2 0 360 arc} def	% make a dot
+
+/Sin {deg sin} def			% sin of angle 
+/Cos {deg cos} def 			% cos of angle
+
+/x {Cos 6 mul 4 add pt} def
+/y {dup Sin 2 mul sub pt} def
+
+%/x {rad} def
+%/y {rad dup Sin add pt} def
+
+% the coil
+newpath
+1.5 x -4 moveto
+1.5 dup y exch x exch lineto
+1.6 .1 39.2
+{dup y exch x exch lineto} for
+39.2 x 45 lineto
+stroke
+
+% the ceiling
+/zig 
+{ 0 -5 rmoveto 5 5 rlineto} def
+  
+newpath
+-40 45 moveto
+50 45 lineto
+-40 50 moveto
+18 {zig} repeat
+stroke
+
+% the weight
+newpath
+-10 -4 moveto
+17 -4 lineto
+17 -20 lineto
+-10 -20 lineto
+closepath
+stroke
+17 -12 moveto
+20 0 rlineto
+rightarrow
+fill
+
+% dotted weight
+gsave
+newpath
+[1 2] 0 setdash
+-10 -24 moveto
+17 -24 lineto
+17 -40 lineto
+-10 -40 lineto
+closepath
+17 -32 moveto
+20 0 rlineto
+stroke
+grestore
+37 -32 moveto
+rightarrow
+stroke
+
+% axis
+newpath
+45 -70 moveto
+0 100 rlineto
+uparrow
+fill
+43 -32 moveto
+4 0 rlineto
+45 -12 moveto
+2 0 rlineto
+stroke
+
+
+% labels
+TI
+(m) 4 -15 placeBC
+(x) 50 -15 placeBL
+TR
+(cm) 49 27 placeBL
+(0) 50 -36 placeBL
+tr
+(rest) 68 -30 placeBL
+(position) 68 -39 placeBL
+sym
+(\355) 61 -36 placeBL
+(\354) 61 -30 placeBL
+(\356) 61 -42 placeBL
+
+showpage
+

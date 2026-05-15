@@ -1,0 +1,85 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 0 0 612.0 792
+/printscale .8 def
+/screenstretch {printscale 90 50 div mul} def
+/double {screenstretch 2 mul} def
+
+%100 300 translate		% print translation
+
+ printscale printscale scale        %scale for printing
+% screenstretch screenstretch scale %printing scale on screen
+% double double scale               %magnified screen
+
+
+
+
+% ----- program ------
+
+.3 setlinewidth
+
+
+% ------------------ first figure ----------------------
+
+% set the origin
+% 100 100 moveto 			% screen origin
+ 70 60 moveto				% print origin
+currentpoint translate
+
+
+gsave  % start clipped region for graph
+
+newpath
+0 0 moveto 
+0 150 rlineto
+125 0 rlineto
+0 -150 rlineto
+-125 0 rlineto
+clip
+
+newpath
+20 40 moveto
+80 30 45 160 125 120 curveto
+225 70 150 -50 70 -50 curveto
+0 -50 -60 55 20 40 curveto
+gsave
+.9 setgray
+fill
+grestore
+stroke
+
+grestore % end clipped region for graph
+
+
+
+% rectangles
+newpath
+0 0 moveto
+0 41 rlineto
+40 0 rlineto
+40 0 moveto
+0 51 rlineto
+15 0 rlineto
+55 0 moveto
+0 76 rlineto
+10 0 rlineto
+65 0 moveto
+0 104 rlineto
+10 0 rlineto
+75 0 moveto
+0 122 rlineto
+15 0 rlineto
+90 0 moveto
+0 127.5 rlineto
+20 0 rlineto
+0 -127.5 rlineto
+110 123 moveto
+15 0 rlineto
+0 -123 rlineto
+0 0 lineto
+stroke
+
+
+
+showpage
+
+

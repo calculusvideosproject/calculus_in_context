@@ -1,0 +1,74 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 0 0 612.0 792
+/printscale .8 def
+/screenstretch {printscale 90 50 div mul} def
+/double {screenstretch 2 mul} def
+
+%100 300 translate		% print translation
+
+ printscale printscale scale        %scale for printing
+% screenstretch screenstretch scale %printing scale on screen
+% double double scale               %magnified screen
+
+
+.3 setlinewidth
+
+% set the origin for top of picture
+% 60 360 moveto			% old origin for right-hand page
+-50 330 translate
+%-65 320 moveto
+%currentpoint translate
+
+-50 rotate
+
+%curved region on top of picture
+newpath
+20 40 moveto
+80 30 45 160 125 120 curveto
+225 70 150 -50 70 -50 curveto
+0 -50 -60 55 20 40 curveto
+stroke
+
+50 rotate
+
+%set origin for bottom of picture
+% 0 -200 moveto		% old position
+0 -190 moveto
+currentpoint translate
+
+-50 rotate
+
+gsave  % start clipped region number 1
+
+newpath
+20 40 moveto
+80 30 45 160 125 120 curveto
+225 70 150 -50 70 -50 curveto
+0 -50 -60 55 20 40 curveto
+clip
+
+newpath
+0 -50 moveto 
+0 200 rlineto
+125 0 rlineto
+0 -150 rlineto
+-125 0 rlineto
+gsave 
+.9 setgray
+fill
+grestore
+125 -50 moveto
+0 50 rlineto
+stroke
+
+grestore % end clipped region number 1
+
+newpath
+20 40 moveto
+80 30 45 160 125 120 curveto
+225 70 150 -50 70 -50 curveto
+0 -50 -60 55 20 40 curveto
+stroke
+
+showpage
+

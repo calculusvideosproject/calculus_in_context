@@ -1,0 +1,75 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 0 0 612.0 792
+/printscale 1 def
+/recip {1 printscale div} def
+/screenstretch {printscale 90 50 div mul} def
+/double {screenstretch 2 mul} def
+
+% 100 300 translate 		% print translation
+
+ printscale printscale scale       %scale for printing
+% screenstretch screenstretch scale %printing scale on screen
+% double double scale               %magnified screen
+
+% -------------------------- macros ---------------------------------
+
+/a 216 50000 div def
+
+/horgrid
+{360 0 lineto
+stroke
+0 2000 a mul moveto
+currentpoint translate} def
+
+/vergrid
+{0 50000 a mul lineto
+stroke
+15 0 moveto
+currentpoint translate} def
+
+/curve
+{/sp -.00001 s mul i mul def
+/rp i 14 div def
+/ip rp sp add neg def
+/ns s sp .1 mul add def
+/ni i ip .1 mul add def
+/nr r rp .1 mul add def
+/nx x .3 add def
+x s a mul moveto
+nx ns a mul lineto
+stroke
+x i a mul moveto
+nx ni a mul lineto
+stroke
+x r a mul moveto
+nx nr a mul lineto
+stroke
+/x nx def
+/s ns def
+/i ni def
+/r nr def
+} def
+
+% -------------------------------- program --------------------------------
+
+20 0 translate
+
+.3 recip mul setlinewidth
+
+% grids 
+0 0 moveto
+26 {horgrid} repeat
+0 -52000 a mul translate
+0 0 moveto
+25 {vergrid} repeat
+
+.9 recip mul setlinewidth
+/s 45400 def
+/i 2100 def
+/r 2500 def
+/x 0 def
+-375 0 translate
+0 0 moveto
+1200 {curve} repeat
+
+showpage

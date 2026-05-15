@@ -1,0 +1,244 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 0 0 612.0 792
+/printscale 1 def
+/recip {1 printscale div} def
+/screenstretch {printscale 90 50 div mul} def
+/double {screenstretch 2 mul} def
+
+%100 300 translate		% print translation
+
+ printscale printscale scale       %scale for printing
+% screenstretch screenstretch scale %printing scale on screen
+% double double scale               %magnified screen
+
+% -------------------- font codes --------------------------
+
+/typesize {10 printscale div} def
+/smalltype {8 printscale div} def
+
+/makeTR {/Times-Roman findfont typesize scalefont} def
+/makeTB {/Times-Bold findfont typesize scalefont} def
+/makeTI {/Times-Italic findfont typesize scalefont} def
+/makeSYM {/Symbol findfont typesize scalefont} def
+
+/maketr {/Times-Roman findfont smalltype scalefont} def
+/maketi {/Times-Italic findfont smalltype scalefont} def
+/makesym {/Symbol findfont smalltype scalefont} def
+
+/TR {makeTR setfont} def
+/TB {makeTB setfont} def
+/TI {makeTI setfont} def
+/SYM {makeSYM setfont} def
+
+/tr {maketr setfont} def
+/ti {maketi setfont} def
+/sym {makesym setfont} def
+
+% ---------------string placing procedures-------------------
+
+% stack: fontcode string x y 
+
+/placeBL {moveto show} def
+/placeBR {moveto dup stringwidth pop neg 0 rmoveto show} def
+/placeBC {moveto dup stringwidth pop 2 div neg 0 rmoveto show} def
+/placeTL {moveto 0 typesize neg rmoveto show} def
+/placeTR {moveto dup stringwidth pop neg typesize neg rmoveto show} def
+/placeTC {moveto dup stringwidth pop 2 div neg typesize neg rmoveto show} def
+
+/placeSL   %stack: fontcode string x y 
+{ dup neg
+4 1 roll 
+exch
+dup neg
+5 1 roll
+exch
+translate
+90 rotate
+%dup stringwidth pop
+%neg 0
+0 0 moveto
+show
+-90 rotate
+translate} def
+
+
+/placeSC   %stack: fontcode string x y 
+{ dup neg
+4 1 roll 
+exch
+dup neg
+5 1 roll
+exch
+translate
+90 rotate
+dup stringwidth pop
+2 div
+neg 0
+moveto
+show
+-90 rotate
+translate} def
+
+
+/placeSR   %stack: fontcode string x y 
+{ dup neg
+4 1 roll 
+exch
+dup neg
+5 1 roll
+exch
+translate
+90 rotate
+dup stringwidth pop
+neg 0
+moveto
+show
+-90 rotate
+translate} def
+
+% ----------------- arrow drawing procedures ------------------
+
+/arrow 
+{-4 recip mul 	0 		rmoveto
+ 0  		1 recip mul 	rlineto
+ 4 recip mul 	-1 recip mul 	rlineto
+-4 recip mul 	-1 recip mul 	rlineto
+ 0  		1 recip mul 	rlineto
+ 4 recip mul 	0 		rlineto} def
+
+/rarrowto {					% stack: dx dy
+  2 copy
+  dup mul exch dup mul add  sqrt		% length of arrow
+  3 1 roll exch atan dup 				% angle
+  rotate exch 0 rlineto arrow neg rotate	% make arrow
+} def
+/arrowto {					% stack: x y
+  currentpoint 3 -1 roll sub neg 3 1 roll sub exch rarrowto
+} def
+
+% --------------------- program ----------------------------
+
+.3 setlinewidth
+
+% origin
+%65 50 moveto				% screen origin
+65 0 moveto				% print origin
+currentpoint translate
+
+
+/htick {0 -2 rlineto} def
+/vtick {-2 0 rlineto} def
+
+/hscale {currentpoint 
+pop 60 add 0 moveto 
+htick} def
+
+/vscale {currentpoint 30 add 0 exch moveto
+vtick} def
+
+% ------------------ power graph ----------------------
+
+% shaded region
+
+gsave						% save black lines
+newpath
+0 0 moveto
+0 100 lineto
+160 100 lineto
+160 0 lineto
+0 0 lineto
+clip
+
+newpath
+0 0 moveto
+0 30 lineto
+ 80 10  90 78 110 75 curveto
+150 69 150 90 180 90 curveto
+160 86 moveto
+160 0 lineto
+0 0 lineto
+.9 setgray
+fill
+grestore						% restore black lines
+
+% make the graph
+gsave
+.9 recip mul setlinewidth
+newpath
+0 30 moveto
+ 80 10  90 78 110 75 curveto
+150 69 150 90 180 90 curveto
+230 90 228 32 240 30 curveto
+%320 10 330 78 350 75 curveto
+stroke
+grestore
+
+% axes
+newpath
+0 0 moveto
+255 0 arrowto
+0 0 moveto
+0 105 arrowto
+fill
+0 0 moveto 
+4 {hscale} repeat
+0 0 moveto 
+3 {vscale} repeat
+160 0 moveto			% vertical line
+160 86 lineto
+stroke
+
+/dot {1.2 0 360 arc} def	% make a dot
+
+newpath
+63 80 moveto
+106 42 lineto
+stroke
+106 42 dot
+fill
+
+% labels
+
+sym (0) 0 0 placeTC
+(6) 60 0 placeTC
+(12) 120 0 placeTC
+(18) 180 0 placeTC
+(24) 240 0 placeTC
+TR (hours) 255 -2 placeTL
+(time) 255 4 placeBL
+
+sym (30) -4 28 placeBR
+(60) -4 58 placeBR
+(90) -4 88 placeBR
+TR (power) -4 103 placeBR
+(megawatts) -24 50 placeSC
+(power = ) 200 92 placeBL
+TI (p) show
+1 0 rmoveto
+TR (\() show
+TI (t) show
+TR (\)) show
+
+(area = ) 36 84 placeBL
+TI (E) show
+TR (\() show
+TI (T) show
+2 0 rmoveto 
+TR (\)) show
+
+
+(height = ) 165 24 placeBL
+TI (p) show
+1 0 rmoveto
+TR (\() show
+TI (T) show
+2 0 rmoveto 
+TR (\)) show
+TI (T) 160 -2 placeTC
+
+
+
+showpage
+
+
+
