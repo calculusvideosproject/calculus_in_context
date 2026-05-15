@@ -1,0 +1,400 @@
+\documentstyle[12pt]{cicfinal}
+%no bezier, leqno
+%Revised by Harriet & Jim 6/26/94
+% sent to Freeman 6/29/94
+
+\newcommand{\mar}[1]{\marginpar[\raggedright\footnotesize\sf #1]{\raggedleft\footnotesize\sf #1}}
+\newcommand{\asideleft}[1]{\medskip\noindent%
+        \rule{321pt}{0pt}\makebox[0pt][r]{%
+        \begin{minipage}[t]{400pt}\footnotesize\sf{#1}%
+        \end{minipage}}\bigskip}
+\newcommand{\asideright}[1]{\medskip\noindent%
+        \rule{40pt}{0pt}\makebox[0pt][l]{%
+        \begin{minipage}[t]{400pt}\footnotesize\sf{#1}%
+        \end{minipage}}\bigskip}
+\newcommand{\aside}[1]{\ifodd \value{page}%
+        {\asideright{#1}}\else{\asideleft{#1}}\fi}
+\newcounter{exercisenumber}[subsection]
+\newcounter{exercisepart}[exercisenumber]
+\newcommand{\num}{\stepcounter{exercisenumber}\par\bigskip%
+        \noindent\arabic{exercisenumber}.\quad}
+\newcommand{\numa}{\stepcounter{exercisenumber}\par\bigskip%
+        \noindent\arabic{exercisenumber}.\quad%
+        \stepcounter{exercisepart}\alph{exercisepart})\enskip}\newcommand{\sub}{\stepcounter{exercisepart}\par\smallskip%
+        \noindent\alph{exercisepart})\enskip\thinspace}
+\newcommand{\ans}[1]{\par\smallskip\noindent[Answer:\enskip%
+        {#1}]}
+        
+%\makeindex
+
+\begin{document}
+
+\setcounter{chapter}{9}
+
+\chapter{Series and Approximations}
+\newpage
+\setcounter{page}{642}
+\setcounter{section}{5}
+
+\section{Approximation Over Intervals}
+
+A powerful result in mathematical analysis is the {\bf Weierstrass Approximation Theorem}\index{Weierstrass Approximation Theorem} which states that given any continuous function $f(x)$ and given any interval $[a, b]$, there exist polynomials which fit $f$ over this interval to any level of accuracy we care to specify. In many cases, we can find such a polynomial simply by taking a Taylor polynomial of high enough degree.  There are several ways in which this is not a completely satisfactory response, however. First, some functions (like the absolute value function) have corners or other places where they aren't differentiable, so we can't even build a Taylor series at such points. Second, we have seen several functions (like $1/(1+x^2)$ ) that have a finite interval of convergence, so Taylor polynomials may not be good fits no matter how high a degree we try.  Third, even for well-behaved functions like $\sin(x)$ or $e^x$, we may have to take a very high degree Taylor polynomial to get the same overall fit that a much lower degree polynomial could achieve.
+
+In this section we will develop the general machinery for finding
+polynomial approximations to functions over given intervals.  In chapter
+12, \S4 we will see how this same approach can be adapted to
+approximating periodic functions by {\bf trigonometric polynomials}.
+
+\subsection{Approximation by polynomials}
+
+{\bf Example}.  Let's return to the problem introduced at the beginning of this chapter: find the second degree polynomial which best fits the function $\sin(x)$ over the interval $[0, \pi]$.  
+\mar{Two possible criteria for best fit}
+Just as we did with the Taylor polynomials, though, before we can start we need to agree on our criterion for the best fit. Here are two obvious candidates for such a criterion:
+ 
+\newpage
+
+\mbox{} 
+\begin{enumerate}
+\item The second degree polynomial $Q(x)$ is the best fit to $\sin(x)$ over the interval $[0, \pi]$ if the {\em maximum} separation between $Q(x)$ and 
+$\sin(x)$ is smaller than the maximum separation between $\sin(x)$ and any other second degree polynomial:
+$$\max_{0\le x\le \pi}|\sin(x)-Q(x)| \hspace{.25in} \mbox{ is the smallest possible.}$$
+\item The second degree polynomial $Q(x)$ is the best fit to $\sin(x)$ over the interval $[0, \pi]$ if the {\em average} separation between $Q(x)$ and $\sin(x)$ is smaller than the average separation between $\sin(x)$ and any other second degree polynomial:
+$${1 \over \pi }\int_0^{\pi} |\sin(x)-Q(x)|\, dx \hspace{.25in} \mbox{ is the smallest possible.}$$
+\end {enumerate}
+
+Unfortunately, even though their clear meanings make these two criteria very attractive, they turn out to be largely 
+\mar{Why we don't use either criterion}
+unusable---if we try to apply either criterion to a specific problem, 
+including our current example, we are led into a maze of tedious and unwieldy calculations.  
+
+Instead, therefore, we use a criterion
+which, while slightly less obvious than either of the two we've already articulated, still clearly measures the same sort of property and has the added virtue of behaving well mathematically.  We accomplish this by modifying criterion 2 slightly.  It turns out that the major difficulty with this criterion is the presence of absolute values.  If, instead of considering the average separation between $Q(x)$ and $\sin(x)$, we consider the average of the {\em square} of the separation between $Q(x)$ and $\sin(x)$, we get a criterion we can work with.  (Compare this with the discussion of the best-fitting line in the exercises for chapter~9, \S 3.)  Since this is a definition we will be using for the rest of this section, we frame it in terms of arbitrary functions $g$ and $h$, and an arbitrary interval $[a, b]$:
+
+\noindent
+\begin{center}
+\framebox[4.8in]
+{\parbox{4.45in}{\vspace{8pt}
+Given two functions $g$ and $h$ defined over an interval $[a, b]$, we define the {\bf mean square separation} between $g$ and $h$ over this interval to be
+    $${1 \over (b-a)}\int_a^b \left(g(x) -h(x)\right)^2 \, dx \, .$$}
+}
+\end{center}\index{mean square separation}
+Note:  In this setting the word {\bf mean}\index{mean} is synonymous with what we have called ``average''. It turns out that there is often more than one way to define the term ``average''---the concepts of median and mode are two other natural ways of capturing ``averageness'', for instance---so we use the more technical term to avoid ambiguity.
+
+We can now rephrase our original 
+\mar{The criterion we will use}
+problem as: find the second degree polynomial $Q(x)$ whose mean squared separation from $\sin(x)$ over the interval $[0, \pi]$ is as small as possible.  In mathematical terms, we want to find coefficients $a_0$, $a_1$, and $a_2$ which such that the integral
+$$\int_0^{\pi} \left( \sin(x) - (a_0 + a_1\,x + a_2\,x^2)\right)^2 \, dx $$
+is minimized. The solution $Q(x)$ is called the quadratic {\bf least squares approximation}\index{least squares approximation} to $\sin(x)$ over $[0,\pi]$.
+
+The key to solving this problem is to observe that $a_0$, $a_1$, and $a_2$ can take on any values we like and that this integral can thus be considered a function of these three variables. For instance, if we couldn't think of anything cleverer to do, we might simply try various combinations of $a_0$, $a_1$, and $a_2$ to see how small we could make the given integral.  Therefore another way to phrase our problem is
+\mar{\vspace{24pt}A mathematical formulation of the problem}
+
+\noindent
+\begin{center}
+\framebox[4.8in]
+{\parbox{4.45in}{\vspace{8pt}
+Find values for $a_0$, $a_1$, and $a_2$ which minimize the function
+$$F(a_0, a_1, a_2) = \int_0^{\pi} \left( \sin(x) - (a_0 + a_1\,x + a_2\,x^2)\right)^2 \, dx \, .$$}
+}
+\end{center}
+
+We know how to find points where functions take on their extreme values---we look for the places where the partial derivatives are 0. But how do we differentiate an expression involving an integral like this?  It turns out that for all continuous functions, or even functions with only a finite number of breaks in them, we can simply interchange integration and differentiation.  Thus, in our example,
+\begin{eqnarray*}
+{\partial \over \partial a_0}F(a_0, a_1, a_2)&=&{\partial \over \partial a_0}\int_0^{\pi} \left( \sin(x) - (a_0 + a_1\,x + a_2\,x^2)\right)^2 \, dx \\ [.15in]
+&=&\int_0^{\pi} {\partial \over \partial a_0}\left( \sin(x) - (a_0 + a_1\,x + a_2\,x^2)\right)^2 \, dx \\ [.15in]
+&=&\int_0^{\pi}2\left( \sin(x) - (a_0 + a_1\,x + a_2\,x^2)\right)(-1) \, dx \, .
+\end{eqnarray*}
+
+Similarly we have
+\begin{eqnarray*}
+{\partial \over \partial a_1}F(a_0, a_1, a_2)&=&\int_0^{\pi}2\left( \sin(x) - (a_0 + a_1\,x + a_2\,x^2)\right)(-x) \, dx \\ [.15in]
+{\partial \over \partial a_2}F(a_0, a_1, a_2)&=&\int_0^{\pi}2\left( \sin(x) - (a_0 + a_1\,x + a_2\,x^2)\right)(-x^2) \, dx \, .
+\end{eqnarray*}
+
+We now want 
+        \mar{Setting the partials equal to zero gives equations for $a_0, a_1, a_2$}
+to find values for $a_0$, $a_1$, and $a_2$ that make these partial derivatives simultaneously equal to 0.  That is, we want
+\begin{eqnarray*}
+\int_0^{\pi}2\left( \sin(x) - (a_0 + a_1\,x + a_2\,x^2)\right)(-1) \, dx &=&0 \\ [.15in]
+\int_0^{\pi}2\left( \sin(x) - (a_0 + a_1\,x + a_2\,x^2)\right)(-x) \, dx &=&0 \\ [.15in]
+\int_0^{\pi}2\left( \sin(x) - (a_0 + a_1\,x + a_2\,x^2)\right)(-x^2) \, dx &=&0 \, ,
+\end{eqnarray*}
+which can be rewritten as
+\begin{eqnarray*}
+\int_0^{\pi}\sin(x) \, dx&=&\int_0^{\pi}\left( a_0 + a_1\,x + a_2\,x^2\right)\, dx  \\ [.15in]
+\int_0^{\pi}x\,\sin(x) \, dx&=&\int_0^{\pi}\left(a_0\,x + a_1\,x^2 + a_2\,x^3\right) \, dx  \\ [.15in]
+\int_0^{\pi}x^2\,\sin(x) \, dx&=&\int_0^{\pi}\left( a_0\,x^2 + a_1\,x^3 + a_2\,x^4\right) \, dx  \, .
+\end{eqnarray*}
+
+All of these integrals 
+        \mar{Evaluating the integrals gives three linear equations}
+can be evaluated relatively easily (see the exercises for a hint on evaluating the integrals on the left--hand side).  When we do so, we are left with 
+
+\smallskip
+\begin{center}
+$\begin{array}{rcrcrcr}
+2 &=&\pi\, a_0 &+ &{\displaystyle{{\pi}^2 \over 2}}\, a_1& +& {\displaystyle{{\pi}^3 \over 3}}\,a_2  \\ [.15in]
+\pi &=&{\displaystyle{{\pi}^2 \over 2}}\, a_0 &+& {\displaystyle{{\pi}^3 \over 3}}\,a_1 &+& {\displaystyle{{\pi}^4 \over 4}}\,a_2\\ [.15in]
+{\pi}^2-4 &=&{\displaystyle{{\pi}^3 \over 3}}\, a_0 &+&{\displaystyle{{\pi}^4 \over 4}}\, a_1 &+ &{\displaystyle{{\pi}^5 \over 5}}\,a_2 
+\end{array}$
+\end{center}
+\smallskip
+
+But this is simply a set of three linear equations in the unknowns $a_0$, $a_1$, and $a_2$, and they can be solved in the usual ways.  We could either replace each expression in $\pi$ by a corresponding decimal approximation, or we could keep everything in terms of $\pi$.  Let's do the latter;  after a bit of tedious arithmetic we find 
+
+\smallskip
+\begin{tabular}{rclcl}
+$a_0 $&=& ${\displaystyle {12 \over \pi}-{120 \over \pi^3}}$&=& $-.050465\ldots$ \\ [.15in]
+$a_1 $&=& ${\displaystyle {-60 \over \pi^2}+{720 \over \pi^4}}$&=& $1.312236\ldots$ \\ [.15in]
+$a_2 $&=& ${\displaystyle {60 \over \pi^3}-{720 \over \pi^5}}$&=& $-.417697\ldots$ \, ,\\ [.15in]
+\end{tabular} \\
+and we have
+$$Q(x) = -.050465 +1.312236\,x-.417698\,x^2 \, ,$$
+which is the equation given in \S1 at the beginning of the chapter.
+
+The analysis 
+\mar{\vspace{50pt}How to find least squares polynomial approximations in general}
+we gave for this particular case can clearly be generalized to apply to any function over any interval.  When we do this we get 
+
+
+\noindent
+\begin{center}
+\framebox[5in]
+{\vspace{8pt}
+\parbox{4.55in}{\vspace{8pt}
+Given a function $g$ over an interval $[a, b]$, then the $n$-th degree polynomial
+$$P(x) = c_0 +c_1\,x+c_2\,x^2 + \cdots +c_n\,x^n$$
+whose mean square distance from $g$ is a minimum has coefficients that are determined by the following $n+1$ equations in the $n+1$ unknowns $c_0$, $c_1$, $c_2$, \ldots , $c_n$:
+\begin{eqnarray*}
+\int_a^b g(x)\,dx &=& c_0\int_a^b dx +c_1\int_a^b x\,dx  + \cdots + c_n\int_a^b x^n\,dx \\ [.15in]
+\int_a^b x\,g(x)\,dx &=& c_0\int_a^b x\,dx +c_1\int_a^b x^2\,dx + \cdots + c_n\int_a^b x^{n+1}\,dx \\ [.15in]
+&\vdots& \\[.15in]
+\int_a^b x^n\,g(x)\,dx &=& c_0\int_a^b x^n\,dx +c_1\int_a^b x^{n+1}\,dx  + \cdots + c_n\int_a^b x^{2n}\,dx 
+\end{eqnarray*}
+ }
+}
+\end{center}\index{least squares polynomial approximation, general rule}
+
+All the integrals on the right-hand side can be evaluated immediately.  The integrals on the left-hand side will typically need to be evaluated numerically, although simple cases can be evaluated in closed form.  Integration by parts is often useful in these cases.  The exercises contain several problems using this technique to find approximating polynomials.  
+
+The real catch, though, is not in obtaining the 
+        \mar{Solving the equations is a job for the computer}
+equations---it is that solving systems of equations by hand is excruciatingly boring and subject to frequent arithmetic mistakes if there are more than two or three unknowns involved.  Fortunately, there are now a number of computer packages available which do all of this for us.  Here are a couple of examples, where the details are left to the exercises.
+
+\medskip
+\noindent
+{\bf Example}.  Let's find polynomial approximation for \mbox{$1/(1+x^2)$} over the interval $[0, 2]$.  We saw earlier that the Taylor series for  this function converges only for $|x|<1$, so it will be no help.  Yet with the above technique we can derive the following approximations of various degrees (see the exercises for details):
+
+\vspace*{3in}
+%\special{psfile=me/ps/calc2/leastsq1.ps}
+
+Here are the corresponding equations of the approximating polynomials:
+
+\medskip
+\begin{tabular}{cl}
+degree & \hspace{1in} polynomial \\ \hline
+& \\ [-5pt] 
+1 & $1.00722 - .453645\,x $ \\ [.15in]
+2& $1.08789 -.695660\,x +.121008\,x^2 $\\ [.15in]
+3 & $1.04245 -.423017\,x-.219797\,x^2+.113602\,x^3$ \\ [.15in]
+4 & $1.00704 -.068906\,x-1.01653\,x^2+.733272\,x^3-.154916\,x^4$\\
+\end{tabular}
+
+\medskip
+\noindent
+{\bf Example}.  We can even use this new technique to find 
+        \mar{The technique even works when differentiability fails}
+polynomial approximations for functions that aren't differentiable at some points.  For instance, let's approximate the function $h(x) = |x|$ over the interval $[-1,1]$.  Since this function is symmetric about the $y$--axis, and we are approximating it over an interval that is symmetric about the $y$--axis, only even powers of $x$ will appear.  (See the exercises for details.)  We get the following approximations of degrees 2, 4, 6, and 8:
+
+\vspace*{3.25in}
+%\special{psfile=me/ps/calc2/leastsq2.ps}
+
+\medskip
+Here are the corresponding polynomials:
+
+\medskip
+\begin{tabular}{cl}
+degree & \hspace{1in} polynomial \\ \hline
+& \\ [-5pt]
+2 & $.1875 +.9375\,x^2 $ \\ [.15in]
+4& $.117188 +1.64062\,x^2 -.820312\,x^4 $\\ [.15in]
+6 & $.085449 +2.30713\,x^2-2.81982\,x^4+1.46631\,x^6$ \\ [.15in]
+8 & $.067291 +2.960821\,x^2-6.415132\,x^4+7.698173\,x^6-3.338498\,x^8$\\
+\end{tabular}
+
+\medskip
+\noindent
+{\bf A Numerical Example}.  If we have some function 
+        \mar{The technique is useful for data functions}
+which exists only as a set of data points---a numerical solution to a differential equation, perhaps, or the output of some laboratory instrument---it can often be quite useful to replace the function by an approximating polynomial.  The polynomial takes up much less storage space and is easier to manipulate.  To see how this works, let's return to the $S$-$I$-$R$ model we've studied before
+\begin{eqnarray*}
+S'&=& -.00001\, S\, I \\
+I'&=& .00001\, S\, I -  I/14 \\
+R'&=& I/14 \, ,
+\end{eqnarray*}
+with initial values $S(0)=45400$ and $I(0)=2100$.
+
+Let's find an 8th degree polynomial $Q(t)=i_0+i_1t+i_2t^2+\cdots +i_8t^8$ approximating $I$ over the time interval $0\le t\le 40$.  We can do this by a minor modification of the Euler's method programs we've been using all along.  Now, in addition to keeping track of the current values for $S$ and $I$ as we go along, we will also need to be calculating Riemann sums for the integrals
+$$\int_0^{40} t^k\,I(t)\,dt \hspace{1.0in} \mbox{ for } k=0,\,1,\,2,\,\ldots\,,8 $$
+as we go through each iteration of Euler's method.  
+
+Since the numbers involved become enormous very quickly, we open ourselves to various sorts of computer 
+\mar{The importance of using the right-sized units}
+roundoff error.  We can avoid some of these difficulties by {\bf rescaling}\index{rescaling} our equations---using units that keep the numbers involved more manageable.  Thus, for instance, suppose we measure $S$, $I$, and $R$ in units of 10,000 people, and suppose we measure time in ``decadays'', where 1 decaday = 10 days.  When we do this, our original differential equations become
+
+\pagebreak
+\begin{eqnarray*}
+S'&=& -S\, I \\
+I'&=& S\, I -  I/1.4 \\
+R'&=& I/1.4 \, ,
+\end{eqnarray*}
+with initial values $S(0)=4.54$ and $I(0)=0.21$.  The integrals we want are now of the form
+$$\int_0^{4} t^k\,I(t)\,dt \hspace{1.0in} \mbox{ for } k=0,\,1,\,2,\,\ldots\,,8 $$
+
+The use of Simpson's rule\index{Simpson's rule} (see chapter 11, \S 3) will also reduce errors.  
+        \mar{Using Simpson's rule helps reduce errors}
+It may be easiest to calculate the values of $I$ first, using perhaps 2000 values, and store them in an array.  Once you have this array of $I$ values, it is relatively quick and easy to use Simpson's rule to calculate the 9 integrals needed.  If you later decide you want to get a higher-degree polynomial approximation, you don't have to re-run the program.
+
+  Once we've evaluated these integrals, we set up and solve the corresponding system of 9 equations in the 9 unknown coefficients $i_k$. We get the following 8-th degree approximation
+\begin{eqnarray*}
+Q(t) &=& .3090 -.9989\,t+7.8518\,t^2-3.6233\,t^3-3.9248\,t^4+4.2162\,t^5 \\ [.15in]
+& & -1.5750\,t^6 +.2692\,t^7-.01772\,t^8 \, .
+\end{eqnarray*}
+
+When we graph $Q$ and $I$ together over the interval $[0, 4]$ (decadays), we get
+
+\vspace*{2.8in}
+%\special{psfile=me/ps/calc2/sireuler.ps}
+\noindent
+---a reasonably good fit.
+
+\medskip
+\noindent
+{\bf A Caution}.  Numerical least-squares fitting of the sort performed in this last example fairly quickly pushes into regions where the cumulative effects of the inaccuracies of the original data, the inaccuracies of the estimates for the integrals, and the immense range in the magnitude of the numbers involved all combine to produce answers that are obviously wrong. Rescaling the equations and using good approximations for the integrals can help put off the point at which this begins to happen.
+
+
+\subsection{Exercises}
+
+
+\num  To find polynomial approximations for $\sin(x)$ over the interval $[0,\pi]$, we needed to be able to evaluate integrals of the form
+$$\int_0^{\pi} x^n\,\sin(x)\,dx \,.$$
+The value of this integral clearly depends on the value of $n$, so denote it by $I_n$\,.
+\sub Evaluate $I_0$ and $I_1$ \,.  (Suggestion: use integration by parts to evaluate $I_1$\,.)
+\ans{$I_0=2$\,, and $I_1=\pi$\,.}
+\sub Use integration by parts twice to prove the general {\bf reduction formula}\index{reduction formula}:
+$$I_{n+2} = \pi^{n+2}-(n+2)(n+1)\,I_n \qquad \mbox{ for all $n \ge 0$\,.}$$
+\sub Evaluate $I_2$, $I_3$, and $I_4$\,.
+\ans{$I_2=\pi^2-4$,\quad $I_3=\pi^3-6\pi$,\quad and $I_4=\pi^4-12\pi^2+48$\,.}
+\sub If you have access to a computer package that will solve a system of equations, find the 4-th degree polynomial that best fits the sine function over the interval $[0,\pi]$.  What is the maximum difference between this polynomial and the sine function over this interval?
+\ans{$.00131 +.98260\,x+ .05447\,x^2-.23379\,x^3+.03721\,x^4$\, with maximum difference occuring at the endpoints.}
+
+\num To find polynomial approximations for $|x|$ over the interval $[-1,1]$, we needed to be able to evaluate integrals of the form
+$$\int_{-1}^{1} x^n\,|x|\,dx \,.$$
+As before, let's denote this integral by $I_n$\,.
+\sub Show that
+$$I_n  = \left\{ \begin{array}{ll}
+                                                {\displaystyle {2 \over n+2}} & \mbox{ if $n$ is even} \\ [.15in]
+                                                0   & \mbox { if $n$ is odd}
+                                                \end{array}
+                                        \right. \, .$$
+
+\sub Derive the quadratic least squares approximation to $|x|$ over $[-1,1]$\,.
+\sub If you have access to a computer package that will solve a system of equations, find the 10-th degree polynomial that best fits $|x|$ over the interval $[-1,1]$.  What is the maximum difference between this polynomial and $|x|$ over this interval?
+
+\num  To find polynomial approximations for $1/(1+x^2)$ over the interval $[0,2]$, we needed to be able to evaluate integrals of the form
+$$\int_0^2 {x^n \over 1+x^2}\,dx \,.$$
+Call this integral $I_n$\,.
+\sub Evaluate $I_0$ and $I_1$ \,.  (Suggestion: use integration by parts to evaluate $I_1$\,.)
+\ans{$I_0=\arctan(1)=\pi/4$\,, and $I_1=(\ln{2})/2=.3465736$\,.}
+\sub Prove the general reduction formula:
+$$I_{n+2} = {2^{n+1} \over n+1} -I_n \qquad \mbox{ for all $n \ge 0$\,.}$$
+\sub Evaluate $I_2$, $I_3$, and $I_4$\,.
+\ans{$I_2=2-{\pi \over 4},\quad I_3=2-{\ln{2} \over 2},\quad I_4={2 \over 3} +{\pi \over 4}\,.$}
+\sub If you have access to a computer package that will solve a system of equations, find the 4-th degree polynomial that best fits the sine function over the interval $[0,\pi]$.  What is the maximum difference between this polynomial and the sine function over this interval?
+
+\num Set up the equations (including evaluating all the integrals) for finding the best fitting 6-th degree polynomial approximation to $\sin(x)$ over the interval $[-\pi, \pi]$\,.
+
+\num In the $S$-$I$-$R$ model, find the best fitting 8-th degree polynomial approximation to $S(t)$ over the interval $0\le t\le 40$\,.
+
+
+\section{Chapter Summary}
+
+\subsection{The Main Ideas}
+
+\begin{itemize}
+
+\item  {\bf Taylor polynomials} approximate functions at a point.  The Taylor polynomial $P(x)$ of degree $n$  is the {\bf best fit} to $f(x)$ at $x=a$; that is, $P$ satisfies:  $\quad P(a)=f(a),\;  P'(a)=f'(a),$ 
+\newline
+\noindent
+ $P''(a)=f''(a) \, , \, \ldots \, , \; P^{(n)}(a)=f^{(n)}(a)\, .$
+
+\item {\bf Taylor's theorem} says that a function and its Taylor
+  polynomial of degree $n$ agree to order $n + 1$ near the point where
+  the polynomial is centered.  Different versions expand on this idea.
+
+\item If $P(x)$ is the Taylor polynomial approximating $f(x)$ at $x=a$, then $P(u)$
+  approximates $f(u)$ for values of $u$ near $a$; $P'(x)$ approximates $f'(x)$; and $\int \! P(x)
+  \, dx$ approximates $\int \! f(x) \, dx$.
+
+\item  A {\bf Taylor series} is an infinite sum whose partial sums are Taylor polynomials.  Some functions {\em equal} their Taylor series;  among these are the sine, cosine and exponential functions.
+
+\item  A {\bf power series} is an ``infinite" polynomial
+$a_0 + a_1x + a_x x^2 + \cdots + a_n x^n + \cdots .$  
+If the solution of a differential equation can be represented by a power series, the coefficients $a_n$ can be determined by {\bf recursion relations} obtained by substituting the power series into the differential equation.
+
+\item  An infinite series {\bf converges} if, no matter how many decimal places are specified, all the partial sums eventually agree to at least this many decimal places.  The number defined by these stabilizing decimals is called the {\bf sum} of the series.  If a series does not converge, we say it {\bf diverges}
+
+\item  If the series $\sum_{m=0}^\infty b_m$ converges, then $\lim_{m \to \infty} b_m=0$.  The important counter-example of the {\bf harmonic series} $\sum_{m=1}^{\infty} 1/m$ shows that $\lim_{m \to \infty} b_m = 0$ is a necessary but not sufficient condition to guarantee convergence.
+
+\item  The {\bf geometric series} $\sum_{m = 0}^{\infty} x^m$ converges for all $x$ with $|x| < 1$ and diverges for all other $x$.
+
+\item An {\bf alternating series} $\sum_{m=0}^{\infty} (-1)^mb_m$
+  converges if $0 < b_{m+1} \leq b_m$ for all $m$ and $\lim_{m \to
+    \infty} b_m = 0$.  For a convergent alternating series, the error in
+  approximating the sum by a partial sum is less than the next term in
+  the series.
+
+\item  A convergent power series converges on an {\bf interval of convergence} of width $2R$; $R$ is called the {\bf radius of convergence}.  The {\bf ratio test} can be used to find the radius of convergence of a power series:  $\sum_{m=0}^{\infty} b_m$ converges if $\lim_{m \to \infty} |b_{m+1}|/|b_m| < 1$.
+
+\item  A polynomial $P(x)=a_0+a_1 x+a_2 x^2 + \cdots + a_n x^n$  is the {\bf best fitting} approximation to a function $f(x)$ on an interval $[a,b]$ if $a_0, a_1, \cdots, a_n$ are chosen so that the {\bf mean squared separation} between $P$ and $f$ 
+$$
+\frac{1}{b-a} \int_a^b (P(x)-f(x))^2 \, dx
+$$
+is as small as possible.  $P$ is also called the {\bf least squares approximation} to $f$ on $[a,b]$.
+
+
+\end{itemize}
+
+
+\subsection{Expectations}
+
+\begin{itemize}
+
+\item  Given a differentiable function $f(x)$ at a point $x=a$, you should be able to write down any of the {\bf Taylor polynomials} or the {\bf Taylor series} for $f$ at $a$.
+
+\item  You should be able to use the program TAYLOR to graph Taylor polynomials.
+
+\item  You should be able to obtain new Taylor polynomials by substitution, differentiation, anti-differentiation and multiplication.
+
+\item  You should be able to use Taylor polynomials to find the value of a function to a specified degree of accuracy, to approximate integrals and to find limits.
+
+\item  You should be able to determine the order of magnitude of the
+  agreement between a function and one of its Taylor polynomials.
+
+\item  You should be able to find the power series solution to a differential equation.
+
+\item  You should be able to test a series for divergence; you should be able to check a series for convergence using either the {\bf alternating series test} or the {\bf ratio test}.
+
+\item  You should be able to find the sum of a {\bf geometric series} and its interval of convergence.
+
+\item  You should be able to estimate the error in an approximation using partial sums of an alternating series.
+
+\item  You should be able to find the {\bf radius of convergence} of a series using the ratio test.
+
+\item  You should be able to set up the equations to find the {\bf least squares} polynomial approximation of a particular degree for a given function on a specified interval.  Working by hand or, if necessary, using a computer package to solve a system of equations, you should be able to find the coefficients of the least squares approximation.
+
+\end{itemize}
+ 
+\end{document}
+
+

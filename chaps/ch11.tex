@@ -1,0 +1,4909 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                      %
+%                               Chapter 11                             %
+%                                                                      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Techniques of Integration}
+
+Chapter 6 introduced the integral.  There it was defined numerically,
+as the limit of approximating Riemann sums.  Evaluating integrals by
+applying this basic definition tends to take a long time if a high
+level of accuracy is desired.  If one is going to evaluate integrals
+at all frequently, it is thus important to find {\bf techniques of
+  integration} for doing this efficiently.  For instance, if we
+evaluate a function at the midpoints of the subintervals, we get much
+faster convergence than if we use either the right or left endpoints
+of the subintervals.
+
+A powerful class of techniques is based on the observation made at the
+end of chapter 6, where we saw that the fundamental theorem of
+calculus gives us a second way to find an integral, using
+antiderivatives. While a Riemann sum will usually give us only an
+approximation to the value of an integral, an antiderivative will give
+us the exact value.  The drawback is that antiderivatives often can't
+be expressed in {\bf closed form}\index{closed form
+  solution}\index{solution!closed form}---that is, as a {\bf
+  formula} in terms of named functions.  Even when antiderivatives can
+be so expressed, the formulas are often difficult to find.
+Nevertheless, such a formula can be so powerful, both computationally
+and analytically, that it is often worth the effort needed to find it.
+In this chapter we will explore several techniques for finding the
+antiderivative of a function given by a formula.
+
+We will conclude the chapter by developing a numerical
+method---Simpson's rule---that gives a good estimate for the value of
+an integral with relatively little computation.
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                      %
+%                               Section 1                              %
+%                                                                      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Antiderivatives}
+
+\subsection{Definition}
+
+Recall that we say $F$ is an {\bf
+  antiderivative}\index{antiderivative!definition of} of $f$
+if $F' = f$.  Here are some examples.
+\begin{center}
+\begin{tabular}{rcccccccccc}
+	{\sc function}: && $x^2$ && $1/y$ && $\sin{u}$ && 
+		$2\sin{t} \, \cos{t}$ && $ 2^z$ \\ [3pt]
+	&&$\updownarrow$ && $\updownarrow$ && $\updownarrow$ && 
+		$\updownarrow$ && $\updownarrow$  \\ [4pt]
+	{\sc antiderivative}:&&$\dfrac{x^3}{3}$&& 
+		$\ln{y}$ && $-\cos{u}$ && $ \sin^2{t}$ && 
+		$\dfrac{2^z}{\ln{2}}$
+\end{tabular}
+\end{center}
+Notice that you go up ($\uparrow$) from the bottom row 
+%
+\mar{Undo a differentiation}
+%
+to the top by carrying out a differentiation\index{differentiation}.
+To go down ($\downarrow$) you must ``undo'' that differentiation.  The
+process of reversing, or undoing, a differentiation has come to be
+called {\bf antidifferentiation}\index{antidifferentiation}.  You
+should differentiate each function on the bottom row to check that it
+is an antiderivative of the function above it.
+
+
+While a function can have only one derivative, 
+%
+\mar{A function has\\ many antiderivatives}	
+%
+it has many antiderivatives\index{antiderivative}.  For example,
+$1-\cos{u}$ and $99 - \cos{u}$ are also antiderivatives of the
+function $\sin{u}$ because
+	$$
+	(1-\cos{u})' = \sin{u} = (99 - \cos{u})'.
+	$$
+In fact, every function $C - \cos{u}$ is an antiderivative of
+$\sin{u}$, for any constant $C$ whatsoever.  This observation is true
+in general.  That is, if $F$ is an antiderivative of a function $f$,
+then so is $F + C$, for any constant $C$.  This follows from the
+addition rule for derivatives\index{derivative!addition rule}:
+	$$
+	(F + C)' = F' + C' = F' + 0 = f.
+	$$
+
+It is tempting to claim 
+%
+\mar{A caution}
+%
+the converse---that {\em every\/} antiderivative of $f$ is equal to $F
++ C$, for some appropriately chosen value of $C$.  In fact, you will
+often see this statement written.  The statement is true, though, only
+for continuous functions.  If the function $f$ has breaks in its
+domain, then there will be more antiderivatives than those of the form
+$F+C$ for a {\em single} constant~$C$---over each piece of the domain
+of $f$, $F$ can be modified by a {\em different} constant and still
+yield an antiderivative for $f$.  Exercises 18, 19, and 20 at the end
+of this section explore this for a couple of cases.  If $f$ is
+continuous, though, $F + C$ will cover all the possibilities, and
+%
+\mar{What the `$+\ C$' term really means} 
+%
+we sometimes say that $F + C$ is {\em the\/} antiderivative of $f$.
+For the sake of keeping a compact notation, we will even write this
+when the domain of $f$ consists of more than one interval.  You should
+understand, though, that in such cases, over each piece $F$ can be
+modified by a different constant
+
+For future reference we collect a list 
+%
+\mar{Antiderivatives\\ of basic functions}	
+%
+of basic functions whose antiderivatives\index{antiderivative} we
+already know.  Remember that each antiderivative in the table can have
+an arbitrary constant added to it.
+	$$
+	\begin{array}{ccc}
+	\mbox{function} & \qquad &	\mbox{antiderivative} \\[2pt]
+	\hline \\ [-9pt]
+	\begin{array}{l}
+		x^p 	\\ [12pt]
+		1/x 	\\ [2pt]
+		\sin{x} \\ [2pt]
+		\cos{x} \\ [2pt]
+		e^x	\\ [6pt]
+		b^x	
+	\end{array} 
+	& & 
+	\begin{array}{l} 
+		\hphantom{-}\dfrac{x^{p+1}}{p+1}, \quad p \neq -1 \\[10pt]
+		\hphantom{-}\ln{x}\\ [2pt]
+			-\cos{x}\\ [2pt]
+		\hphantom{-}\sin{x}\\ [2pt]
+		\hphantom{-}e^x \\[2pt]
+		\hphantom{-}\dfrac{b^x}{\ln{b}}
+	\end{array}
+	\end{array}
+	$$
+
+All of these antiderivatives are easily verified and could have been
+derived with at most a little trial and error fiddling to get the
+right constant.  You should notice one incongruity: the function $1/x$
+is defined for all $x\neq 0$, but its listed antiderivative, $\ln{x}$,
+is only defined for $x>0$.  In exercise 18 (page~\pageref{log}) you
+will see how to find antiderivatives for $1/x$ over its entire domain.
+
+Two of our basic functions---$\ln{x}$ and $\tan{x}$---do not appear in
+the left column of the table.  This happens because there is no simple
+multiple of a basic function whose derivative is equal to either
+$\ln{x}$ or $\tan{x}$.  It turns out that these functions {\em do\/}
+have antiderivatives, though, that can be expressed as more
+complicated combinations of basic functions.  In fact, by
+differentiating $x \ln{x} - x$ you should be able to verify that it is
+an antiderivative of $\ln{x}$.  Likewise, $- \ln(\cos{x})$ is an
+antiderivative of $\tan{x}$.\label{tangent} It would take a long time
+to stumble on these antiderivatives by inspection or by trial and
+error.  It is the purpose of later sections to develop techniques
+which will enable us to discover antiderivatives like these quickly
+and efficiently.  In particular, the antiderivative of $\ln{x}$ is
+derived in chapter~11.3 on page~\pageref{lnder}, while the
+antiderivative of $\tan{x}$ is derived in chapter~11.5 on
+page~\pageref{tander}.
+
+There are a couple of other functions that don't appear in the above
+table whose antiderivatives are needed frequently enough that they
+should become part of your repertoire of elementary functions that you
+recognize immediately:
+
+\newpage
+
+\mbox{}\vspace{-20pt}
+$$
+	\begin{array}{ccc}
+	\mbox{function} & \qquad &	\mbox{antiderivative} \\[2pt]
+	\hline \\ [-9pt]
+	\begin{array}{l}
+		\dfrac{1}{\sqrt{1-x^2}}	\\ [10pt]
+		\dfrac{1}{1+x^2}\label{arcsin deriv}	
+	\end{array} 
+	& & 
+	\begin{array}{l} 
+		\hphantom{-} \arcsin{x} \\ [10pt]
+		\hphantom{-} \arctan{x}  
+	\end{array}
+	\end{array}
+	$$ 
+The antiderivatives are inverse trigonometric functions, which we've
+had no need for until now.  We introduce them immediately below.  They
+are examples of functions that occur more often for their
+antiderivative properties than for themselves.  Note that the
+derivatives of the inverse trigonometric functions have no obvious
+reference to trigonometric relations.  In fact, they often occur in
+settings where there are no triangles or periodic functions in sight.
+Let's see how the derivatives of these inverse functions are derived.
+
+\subsection{Inverse Functions}
+
+We discussed inverse functions in chapter 4.4.  Here's a quick summary
+of the main points made there.  Two functions $f$ and $g$ are {\bf
+  inverses}\index{function!inverse} if
+\begin{align*}
+f(g(a)) &= a,  \\
+\text{and} \quad g(f(b)) &= b,
+\end{align*}
+for every $a$ in the domain\index{domain} of $g$ and every $b$ in the
+domain of~$f$.  It follows that the {\em range} of~$f$ is the same as
+the {\em domain} of~$g$, and vice versa.  We write $g = f^{-1}$ to
+indicate that $g$ is the inverse of~$f$, and $f = g^{-1}$ to indicate
+that $f$ is the inverse of~$g$.
+
+The graphs of $y = f(x)$ and $y = g(x)$ are mirror reflections about
+the line $y=x$.  As the figure below shows, the mirror image of a
+point with coordinates $(a, b)$ is the point with coordinates $(b,
+a)$.
+
+\vspace{130pt}
+
+\special{psfile=../ps/calc2/ch11-1.ps}
+
+\newpage
+
+\noindent
+This connection between the graphs is a direct translation of the
+definitions into graphical language, since
+\begin{align*}
+\text{$(a, b)$ is on the graph of $y=g(x)$} &\Longleftrightarrow
+     g(a) = b \qquad \text{(definition of graph)} \\
+  &\Longleftrightarrow  f(b)=a \qquad \text{(definition of inverse}) \\
+  &\Longleftrightarrow  \text{$(b, a)$ is on the graph of $y=f(x)$}.
+\end{align*}
+
+Because of the connection between the graphs, it follows immediately
+that if the graph of $f$ is locally linear at the point $(b, a)$ with
+slope $m$, then the graph of $g$ will be locally linear at the point
+$(a, b)$ with slope $1/m$.  Algebraically, this is expressed as
+\[
+g'(a)=1/f'(b),
+\]
+where $a=f(b)$ and $b=g(a)$.  We get same result by differentiating
+the expression $f(g(x))=x$, using the chain rule:
+\[
+1=x'=(f(g(x))'=f'(g(x))g'(x),
+\]
+and therefore
+\[
+g'(x)=\dfrac{1}{f'(g(x))}
+\]
+for any value of $x$ for which $g(x)$ is defined.  
+
+\subsubsection{Inverse trigonometric functions}
+
+{\bf The arcsine function}\index{function!arcsine}\quad In the
+discussion in chapter 4 we saw that a function has an inverse only
+when it is {\bf one-to-one}, so if we want an inverse, we often have
+to restrict the domain of a function to a region where it is
+one-to-one. This is certainly the case with the sine function, which
+takes the same value infinitely many times.  The standard choice of
+domain on which the sine function is one-to-one is $[-\pi/2, \pi/2]$.
+Over this interval the sine function increases from $-1$ to $1$.  We
+can then define an inverse function, which we call the {\bf arcsine
+  function}, written $\arcsin{x}$, whose domain is the interval
+$[-1,1]$, and whose range is $[-\pi/2, \pi/2]$. Since the sine
+function is strictly increasing on its domain, the arcsine function
+will be strictly increasing on its domain as well---do you see why
+this has to be?
+
+Another notation for the arcsine function is $\sin^{-1}{x}$; this form
+commonly appears on one of the buttons on a calculator.
+
+\newpage
+
+\mbox{}
+
+\vspace*{140pt}
+
+\special{psfile=../ps/calc2/ch11-2a.ps}
+\special{psfile=../ps/calc2/ch11-2b.ps}
+
+To find the derivative of the arcsine function, let $f(x)=\sin{x}$,
+and let $g(x)=\arcsin{x}$.  Then by the remarks above, we have
+\[
+g'(x) = \dfrac{1}{f'(g(x))} = \dfrac{1}{\cos{(g(x))}} 
+    = \dfrac{1}{\cos(\arcsin{x})}.
+\]
+The function $\cos(\arcsin{x})$ can be expressed in another form,
+which we will obtain two ways, one algebraic, the other geometric.
+Both perspectives are useful.
+
+\noindent
+{\bf The algebraic approach.}\quad Recall that for any input $t$,
+$\sin^2{t} + \cos^2{t}=1$.  This can be solved for $\cos{t}$ as
+$\cos{t}=\pm\sqrt{1-\sin^2{t}}$.  That is, the cosine of anything is
+the square root of 1 minus the square of the sine of that input, with
+a possible minus sign needed out front, depending on the
+context. Since the output of the arcsine function lies in the range
+$[-\pi/2, \pi/2]$, and the cosine function is positive (or 0) for
+numbers in this interval, it follows that $\cos(\arcsin{x})\geq 0$ for
+any value of $x$ in the domain of the arcsine function.  Therefore,
+\[
+\cos(\arcsin{x}) = \sqrt{1-\sin^2(\arcsin{x})}
+  =\sqrt{1-(\sin(\arcsin{x}))^2}=\sqrt{1-x^2},
+\]
+since $\sin(\arcsin{x})=x$ by definition of inverse functions.  It
+follows that
+\[
+(\arcsin{x})'=\dfrac{1}{\cos{(\arcsin{x})}}=\dfrac{1}{\sqrt{1-x^2}},
+\]
+as we indicated above on page~\pageref{arcsin deriv}.
+
+\noindent
+{\bf The geometric approach}\quad Introduce a new variable $\theta =
+\arcsin{x}$, so that $x=\sin{\theta}$.  We can represent these
+relationships in the following picture:
+
+\begin{center}
+\begin{picture}(180,85)(-10,5)\label{picture}
+\bezier{150}(30,10)(29.2,16.89)(26.83,23.42)
+\put(165,47){$x$}
+\put(78,57){$1$}
+\put(80,5){\makebox(0,0)[t]{$\sqrt{1-x^2}$}}
+\put(32,15){$\theta$}
+\thicklines
+\put(0,10){\line(1,0){160}}
+\put(160,10){\line(0,1){80}}
+\put(0,10){\line(2,1){160}}
+%\put(20,10){\line(0,1){2.8}}
+%\put(17.88,18.94){\line(1,-2){1.17}}
+%\put(20,12.8){\line(-1,4){2.12}}
+\end{picture}
+\end{center}
+Notice that we have labelled the side opposite the angle $\theta$ as
+$x$ and the hypotenuse as 1.  This ensures that $\sin\theta=x$.  By
+the Pythagorean theorem, the remaining side must then be
+$\sqrt{1-x^2}$.  From this picture it is then obvious that
+$\cos(\arcsin{x})=\cos\theta=\sqrt{1-x^2}/1=\sqrt{1-x^2},$ as before.
+
+
+\medskip
+\noindent
+{\bf The arctangent function}\index{function!arctangent}\quad To get
+an inverse for the tangent function, we again need to limit its
+domain.  Here the standard choice is to restrict it to the interval
+$(-\pi/2, \pi/2)$ ({\em not} including the endpoints this time, since
+$\tan(-\pi/2)$ and $\tan(\pi/2)$ aren't defined).  Over this domain
+the tangent function increases from $-\infty$ to $+\infty$.  We can
+then define the inverse of the tangent, called the {\bf arctangent
+  function}, written $\arctan{x}$, whose domain is the interval
+$(-\infty, \infty)$, and whose range is $(-\pi/2, \pi/2)$. Again, both
+functions are increasing over their domains.
+
+\vspace*{2.8in}
+\special{psfile=../ps/calc2/ch11-3a.ps}
+\special{psfile=../ps/calc2/ch11-3b.ps}
+
+To find the derivative, we proceed as we did with $\arcsin{x}$,
+letting $f(x)=\tan{x}$, and $g(x)=\arctan{x}$.  This time we get
+\[
+g'(x) = \dfrac{1}{f'(g(x))} = \dfrac{1}{\sec^2{(g(x))}} 
+  =\dfrac{1}{\sec^2(\arctan{x})}.
+\]
+This expression also has a different form; we obtain it from another
+trigonometric identity, as we did before, deriving the desired
+result algebraically and geometrically.
+
+\noindent
+{\bf Algebraic}\quad We start as before with the identity $\sin^2{t} +
+\cos^2{t}=1$.  Dividing through by $\cos^2{t}$, we get the equivalent
+identity $\tan^2{t}+1=\sec^2{t}$.  That is, the square of the secant
+of any input is just 1 plus the square of the tangent applied to the
+same input.  In particular,
+\[
+\sec^2{(\arctan{x})} = \tan^2(\arctan{x}) + 1
+    =(\tan(\arctan{x}))^2 + 1 = x^2+1;
+\]
+since $\tan(\arctan{x}) = x$.  It follows that
+\[
+(\arctan{x})' = \dfrac{1}{\sec^2(\arctan{x})} = \dfrac{1}{1+x^2},
+\]
+as we indicated above on page~\pageref{arcsin deriv}.  
+
+\noindent
+{\bf Geometric}\quad Let $\theta=\arctan{x}$, so $x=\tan\theta$.
+Again we can draw and label a triangle reflecting these relationships:
+\begin{center}
+\begin{picture}(180,85)(-10,0)\label{picture2}
+\bezier{150}(30,10)(29.2,16.89)(26.83,23.42)
+\put(165,47){$x$}
+\put(78,57){\makebox(0,0)[r]{$\sqrt{1+x^2}$}}
+\put(80,5){\makebox(0,0)[t]{$1$}}
+\put(32,15){$\theta$}
+\thicklines
+\put(0,10){\line(1,0){160}}
+\put(160,10){\line(0,1){80}}
+\put(0,10){\line(2,1){160}}
+%\put(20,10){\line(0,1){2.8}}
+%\put(17.88,18.94){\line(1,-2){1.17}}
+%\put(20,12.8){\line(-1,4){2.12}}
+\end{picture}
+\end{center}
+Notice that this time we have labelled the side opposite the angle
+$\theta$ as $x$ and the adjacent side as 1 to ensure that
+$\tan\theta=x$.  Again by the Pythagorean theorem, the hypotenuse must
+be $1+x^2$.  From this picture it is then obvious that
+$\sec(\arctan{x})=\sec\theta=(\sqrt{1+x^2})/1=\sqrt{1+x^2},$ so
+$\sec^2(\arctan{x})=1+x^2$ again.
+
+
+\subsection{Notation}
+
+According to the fundamental theorem of calculus\index{fundamental
+  theorem of calculus} (see chapter~6.4), every accumulation
+function\index{accumulation function!as antiderivative}
+	$$
+	A(x) = \int_a^x f(t) \, dt
+	$$
+is an antiderivative of the function $f$, no matter at what point $t = a$ the accumulation begins---so long as the function is defined over the entire interval from $t=a$ to $t=x$.  (This is an important caution when dealing with functions like $1/x$, for instance, for which the integral from, say, $-1$ to 1 makes no sense.)  In other words, the expression
+	$$
+	\int_a^x f(t) \, dt
+	$$
+represents an antiderivative of $f$.  
+	\mar{Write an antiderivative as an integral}
+The influence of the fundamental theorem is so pervasive that this expression---with the ``limits of integration'' $a$ and $x$ omitted---is used to denote an antiderivative:\index{integral}
+\begin{center}
+\begin{picture}(310,45)
+\put(0,0){\framebox(310,45)
+{{\bf Notation}: The antiderivative of $f$ is ${\dint} f(x) \, dx$.
+}}
+\end{picture}
+\end{center}
+With this new notation\index{notation!antiderivative} the antiderivatives we have listed so far can be written \index{antiderivative} 
+	\mar{\vspace{82pt} The basic antiderivatives again}
+in the following form.\label{table}
+\begin{align*}
+\int x^p \, dx 
+   &= \dfrac{1}{p+1} \, x^{p+1} + C  \qquad\mbox{ ( $p\neq -1$)} \\
+\int \dfrac{1}{x} \, dx &= \ln{x} + C\\
+\int \sin{x} \, dx &= - \cos{x} + C \\
+\int \cos{x} \, dx &= \sin{x} + C \\
+\int e^x \, dx &=  e^x + C \\
+\int b^x \, dx &= \dfrac{1}{\ln{b} \, b^x} + C  \\
+\int  \dfrac{1}{\sqrt{1-x^2}}\, dx &= \arcsin{x} + C \\
+\int  \dfrac{1}{1+x^2} \, dx &= \arctan{x} + C
+\end{align*}
+
+The integration sign $\int$ now has two distinct meanings.  
+%
+\mar{The \emph{definite} integral\\ is a number\ldots}
+%
+Originally, it was used to describe the {\em number\/}
+	$$
+	\int_a^b f(x) \, dx,
+	$$
+which was always calculated as the limit of a sequence of Riemann
+sums.  Because this integral has a definite numerical value, it is
+called the {\bf definite integral}\index{definite
+  integral}\index{integral!definite}.  In its new meaning, the
+integration sign is used to describe the antiderivative
+	$$
+	\int f(x) \, dx,
+	$$
+which is a {\em function}, not a number.  
+%
+\mar{\ldots while the \emph{indefinite} integral is a function}
+%
+To contrast the new use of $\int$ with the old, and to remind us that
+the new expression is a variable quantity, it is called the {\bf
+  indefinite integral}\index{indefinite integral}\index{integral!indefinite}.  The function that appears in either a definite or an
+indefinite integral is called the {\bf integrand}.\index{integrand}
+The terms ``antiderivative'' and ``indefinite integral'' are
+completely synonymous. We will tend to use the former term in general
+discussions, using the latter term when focusing on the process of
+finding the antiderivative.
+
+Because an indefinite integral represents an antiderivative, the
+process of finding an antiderivative is sometimes called {\bf
+  integration}\index{integration}.  Thus the term {\em integration\/},
+as well as the symbol for it, has two distinct meanings.
+	
+	
+\subsection{Using Antiderivatives}
+
+According to the fundamental theorem, we can use an {\em indefinite\/}
+integral to find the value of a {\em definite\/} integral---and this
+largely explains the importance of
+antiderivatives\index{antiderivative!importance of}.  In the
+language of indefinite integrals, the statement of the fundamental
+theorem in the box on page~\pageref{fund th-antider} takes the
+following form.  \index{fundamental theorem of calculus}
+\begin{center}
+\begin{picture}(340,45)
+\put(0,0){\framebox(340,45)
+{${\displaystyle \int_a^b f(x) \, dx = F(b) - F(a)}$, where 
+	$F(x) = {\displaystyle \int f(x) \, dx}$.
+}}
+\end{picture}
+\end{center}
+
+\medskip
+{\bf Example 1}\quad  Find $\dint_1^4 x^2 \, dx$.  We have that
+	$$
+	\int x^2 \, dx = \tfrac{1}{3} x^3 + C;
+	$$
+it follows that
+	$$
+	\int_1^4 x^2 \, dx = \tfrac{1}{3} 4^3 + C - 
+		\left(\tfrac{1}{3}1^3 +C)\right) 
+		= \dfrac{64}{3} + C - \dfrac{1}{3} - C = 21.
+	$$
+
+\medskip
+\noindent
+{\bf Example 2}\quad Find $\dint_0^{\pi/2} \cos{t} \, dt$.  This time
+the indefinite integral we need is
+	$$
+	\int \cos{t} \, dt = \sin{t} + C.
+	$$
+The value of the definite integral is therefore
+	$$
+	\int_0^{\pi/2} \cos{t} \, dt = \sin{\pi/2} + C - 
+		\left( \sin{0} + C \right) = 1 + C - 0 - C = 1.
+	$$
+In each example the two appearances of $C$ cancel each other.  
+%
+\mar{The calculation\\ doesn't depend on $C$,\\ so take $C = 0$}
+%
+Thus $C$ does not appear in the final result.  This implies that it
+does not matter which value of $C$ we choose to do the calculation.
+Usually, we just take $C = 0$.
+
+\medskip
+
+\noindent
+{\bf Notation}\index{notation!indefinite integral}\index{indefinite
+  integral!notation}: Because expressions like $F(b) - F(a)$ occur
+often when we are using indefinite integrals, we use the abbreviation
+	$$
+	F(b) - F(a) = 
+		\left. F(x) \rule{0pt}{14pt}\,
+		\right|_a^b.
+	$$
+Thus,
+	$$
+	\int_1^4 x^2 \, dx = \left. \dfrac{x^3}{3} \, \right|_1^4
+		= \dfrac{64}{3} - \dfrac{1}{3} = 21.
+	$$
+
+\medskip
+
+There are clear advantages to using antiderivatives to evaluate
+definite integrals: we get exact values and we avoid many lengthy
+calculations.  The difficulty is that the method works only if we can
+find a formula for the antiderivative.
+
+There are several reasons why we might not 
+%
+\mar{We may not recognize the \mbox{antiderivative\ldots}}	
+%
+find the formula we need.  For instance, the antiderivative we want
+may be a function we have never seen before.  The function
+$\arctan{x}$ is an example.
+
+Even if we have a broad acquaintance with functions, we may still not
+be able to find the formula for a given antiderivative.
+%
+\mar{\ldots and there may even be no formula for it}	
+%
+The reason is simple: for most functions we can write down, the
+antiderivative is just not among the basic functions of calculus.  For
+example, none of the basic functions, in any form or combination,
+equals
+	$$
+	\int e^{x^2} dx \qquad \mbox{or} \qquad
+		\int \dfrac{\sin{x}}{x} \, dx.
+	$$
+This does not mean that $e^{x^2}$, for example, has no
+antiderivative.  On the contrary, the accumulation function
+	$$
+	\int_0^x e^{t^2} dt 
+	$$
+is an antiderivative of $e^{x^2}$.  It can be evaluated, graphed, and
+analyzed like any other function.  What we lack is a {\em formula\/}
+for this antiderivative in terms of the basic functions of calculus.
+
+
+\subsection{Finding Antiderivatives}
+
+In the rest of this chapter we will be deriving a number of statements
+involving antiderivatives.  It is important to remember what such
+statements mean.
+\begin{center}
+\begin{picture}(320,66)
+\put(0,0){\framebox(320,66)
+{
+\begin{minipage}{280pt}
+The following statements are completely equivalent: 
+\linebreak
+\vspace*{-6pt}
+$$\int f(x)\,dx = F(x)+C \mbox{\qquad and \qquad} F' = f.$$
+\end{minipage}
+}}
+\end{picture}
+\end{center}
+In other words, a statement 
+%
+\mar{We differentiate\\ to verify a statement\\ about antiderivatives} 
+%
+about antiderivatives can be verified by looking at a statement about
+derivatives.  If it is claimed that the antiderivative of $f$ is $F$,
+you check the statement by seeing if it is true that $F'=f$.  This was
+how we verified the elementary antiderivatives we've considered so
+far. Another way of expressing these relationships is
+\[
+\left(\int f(x)\,dx\right)' = f(x)\quad\mbox{and}\quad \int F'(x)\,dx
+  = F(x)+C
+\]
+for any functions $f$ and $F$.
+
+
+This duality between statements about derivatives and statements about
+antiderivatives also holds when applied to more general statements.
+Many of the most useful techniques for finding antiderivatives are
+based on converting the general rules for taking derivatives of sums,
+products, and chains into equivalent antiderivative form.
+%
+\mar{The constant multiple and addition rules}
+%
+We'll start with the simplest combinations, which involve a {\bf
+  function multiplied by a constant} and a {\bf sum of two functions}.
+
+\newpage
+
+\mbox{}\vspace{-20pt}
+\addtolength{\arraycolsep}{-3pt}
+	$$
+\begin{array}{rclcrcl}
+	\multicolumn{3}{c}{\mbox{derivative form}} & &
+		\multicolumn{3}{c}{\mbox{antiderivative form}}
+		\\ [2pt]
+	\hline \\ [-10pt]
+	(k \cdot F)' &=& k \cdot F'& & 
+		\dint k \cdot f \, dx &=& k \cdot \!\!\dint f \, dx \\[.15in]
+	(F + G)' &=& F' + G' & \qquad\qquad & 
+		\dint (f + g) \, dx &=& \dint f \, dx + 
+		\dint g \, dx 
+\end{array} 
+	$$
+\addtolength{\arraycolsep}{3pt}%
+Let's verify these rules.  Set $\int f=F$ and $\int g = G$.  Then the
+first rule is claiming that $\int (k\cdot f) = k\cdot F$---the
+antiderivative of a constant times a function equals the constant
+times the antiderivative of the function.  To verify this, we have to
+show that when we take the derivative of the right-hand side, we get
+the function under the integral on the left-hand side.  But $(k\cdot
+F)'=k\cdot F'$ (by the derivative rule), which is just $k\cdot f $,
+which is what we had to show.
+
+Similarly, to show that $\int (f+g) = F + G$---the antiderivative of
+the sum of two functions is the sum of their separate
+antiderivatives---we differentiate the right-hand side and find
+$(F+G)'=F'+G'$ (by the derivative rule for sums) which is just $f+g$,
+so the rule is true.
+\medskip
+
+\medskip
+\noindent
+{\bf Example 3}\quad This example illustrates the use of both the
+addition and the constant multiple rules.
+\begin{align*}
+\int (7e^x + \cos{x}) \, dx 
+   &= \int 7e^x \, dx + \int \cos{x} \, dx \\
+   &= 7 \int e^x \, dx + \int \cos{x} \, dx \\[6pt]
+   &= 7 e^x + \sin{x} + C.
+\end{align*}
+To verify this answer, you should take the derivative of the
+right-hand side to see that it equals the integrand on the left-hand
+side.
+
+\medskip
+In the following sections we will develop the antidifferentiation
+rules that correspond to the product rule and to the chain rule.  They
+are called {\em integration by parts\/}\index{integration by
+  parts}\index{integration by parts!correspondence to
+  product rule} and {\em integration by
+  substitution}\index{integration by substitution}\index{integration
+  by substitution!correspondence to chain rule},
+respectively.
+
+While antiderivatives can be hard to find,
+%
+\mar{Trial and error}\index{trial and error}
+%
+they are easy to check.  This makes ``trial and error'' a good
+strategy.  In other words, if you don't immediately see what the
+antiderivative should be, but the function doesn't look too bad, try
+guessing.  When you differentiate your guess, what you see may lead
+you to a better guess.
+
+\noindent
+{\bf Example 4}\quad \label{`ex4'}  Find 
+$$F(x) = \dint \cos(3x) \, dx.$$ 
+Since the derivative of $\sin{u}$ is $\cos{u}$, it is reasonable to
+try $\sin(3x)$ as an antiderivative for $\cos(3x)$.  Therefore:
+\begin{align*}
+\mbox{\sc first guess: } F(x) &= \sin(3x), \\
+\mbox{\sc check: } F'(x) &= \cos(3x) \cdot 3 \neq \cos(3x).
+\end{align*}
+We wanted $F' = \cos(3x)$ but we got $F' = 3\cos(3x)$.  The chain rule
+gave us an extra---and unwanted---factor of 3.  We can compensate for
+that factor by multiplying our first guess by 1/3.  Then
+\begin{align*}
+\mbox{\sc second guess: } F(x) &= \tfrac{1}{3}\sin(3x), \\
+\mbox{\sc check: } F'(x) &= \tfrac{1}{3}\cos(3x)\cdot 3  = 
+		\cos(3x).
+\end{align*}
+Thus $\dint \cos(3x) \, dx = \tfrac{1}{3}\sin(3x)$.
+
+\medskip
+
+Because indefinite integrals are difficult to calculate, 
+%
+\mar{Tables of Integrals}\index{integrals!table of}
+%
+reference manuals in mathematics and science often include tables of
+integrals.  There are sometimes many hundreds of individual formulas,
+organized by the type of function being integrated.  A modest
+selection of such formulas can be found at the back of this book.  You
+should take some time to learn how these tables are arranged and get
+some practice using them. You should also check some of the more
+unlikely looking formulas by differentiating them to see that they
+really are the antiderivatives they are claimed to be.
+
+Computers are having a major impact on integration techniques.  We saw
+in the last chapter that any continuous function---even one given by
+the output from some laboratory recording device or as the result of a
+numerical technique like Euler's method---can be approximated by a
+polynomial (usually using lots of computation!), and the
+antiderivative of a polynomial is easy to find.
+
+Moreover, computer software packages 
+%
+\mar{Integration can\\ now be done\\ quickly and efficiently\\ by computer software}
+%
+which can find any existing formula for a definite integral are
+becoming widespread and will probably have a profound impact on the
+importance of integration techniques over the next several years.
+Just as hand-held calculators have rendered obsolete many traditional
+arts---like using logarithms for performing multiplications or knowing
+how to interpolate in trig tables---there is likely to be a decreased
+importance placed on humans' being adept at some of the more esoteric
+integration techniques.  While some will continue to derive pleasure
+from becoming proficient in these skills, for most users it will
+generally be much faster, and more accurate, to use an appropriate
+software package.  Nevertheless, for those going on in mathematics and
+the physical sciences, it will still to be useful to be able to
+perform some of the simpler integrations by hand reasonably rapidly.
+The subsequent sections of this chapter develop the most commonly
+needed techniques for doing this.
+
+
+\subsection{Exercises}
+
+\vspace{-10pt}
+
+\num What is the inverse of the function $y = 1/x$?  Sketch the graph
+of the function and its inverse.
+
+\num What is the inverse of the function $y = 1/x^3$?  Sketch the
+graph of the the function and its inverse.  Do the same for $y = 3x -
+2$.
+
+\numa Let $\theta=\arctan{x}$.  Then $\tan{\theta} = x$.  Refer to the
+picture on page~\pageref{picture2} showing the relationship between $x$
+and $\theta$.  Use this drawing to show that $\arctan(x) +
+\arctan(1/x)$ is constant---that is, its value doesn't depend on $x$.
+What is the value of the constant?  
+
+\sub Use part (a), and the derivative of $\arctan{x}$, to find the
+derivative of $\arctan(1/x)$.  
+
+\sub Use the chain rule to verify your answer to part (b).
+
+\num The logarithm for the base $b$ is defined as the inverse to the
+exponential function with base $b$:
+	$$
+	y = \log_b{x} \qquad \mbox{if} \qquad x = b^y.
+	$$
+Using only the fact that $dx/dy = \ln{b} \cdot b^y$, deduce the formula
+	$$
+	\dfrac{dy}{dx} = \dfrac{1}{\ln{b}} \cdot \dfrac{1}{x}.
+	$$
+Note: this is purely an algebra problem; you don't need to invoke any
+differentiation rules.
+
+\numa Define $\arccos{x}$,\index{function!arccosine} the inverse of
+the cosine function.  Be sure to limit the domain of the cosine
+function to an interval on which it is one-to-one.
+
+\sub Sketch the graph $y = \arccos{x}$.  How did you limit the range
+of $y$?
+
+\sub  Determine $dy/dx$. 
+
+\numa If $\theta = \arcsin{x}$, refer to the picture on
+page~\pageref{picture} reflecting the relation between $\theta$ and
+$x$.  Using this picture, proceed as in problem 3 to to show that the
+sum $\arcsin{x} + \arccos{x}$ is constant.  What is the value of the
+constant?
+
+\sub Use part (a), and the derivative of $\arcsin{x}$, to determine
+the derivative of $\arccos{x}$.  Does this result agree with what you
+got in the last exercise?
+
+\num  Find a formula for $\dint \dfrac{dx}{\sqrt{1 - x^2}}$.
+
+
+\num Verify that the antiderivatives given in the table on
+page~\pageref{table} are correct.
+
+\num Find an antiderivative of each of the following functions.  Don't
+hesitate to use the ``trial and error'' method of Example 4 above.
+\begin{center}
+	\begin{tabular}{llll}
+	$3$ 	& $5t$ 	& $-5t$ 	& $3 - 5t$ \\ [6pt]
+	$7x^4$	& $\dfrac{1}{y^3}$	& 
+		$e^{\displaystyle 2z}$ & 
+		$u + \dfrac{1}{u}$ \\ [12pt]
+	$(1 + w^3)^2$ \rule{15pt}{0pt} & 
+		$\cos(5v)$ \rule{15pt}{0pt} & 
+		$x^9 + 5x^7 - 2x^5$ \rule{15pt}{0pt} & 
+		$\sin{t} \, \cos{t}$ 
+	\end{tabular}
+\end{center}
+
+\num  Find a formula for each of the following indefinite integrals.
+
+\medskip
+
+\noindent
+\begin{minipage}{150pt}
+
+\sub $\dint 3x \, dx$
+
+\sub $\dint 3u \, du$
+
+\sub $\dint e^z \, dz$
+
+\sub $\dint 5t^4 \, dt$
+
+\sub $\dint 7y + \dfrac{1}{y} \, dy$
+
+\sub $\dint 7y - \dfrac{4}{y^2} \, dy$
+\end{minipage}
+\hfill
+\begin{minipage}{150pt}
+		
+\sub $\dint 5\sin{w} - 2\cos{w} \, dw$
+	
+\sub $\dint dx$
+
+\sub $\dint e^{z+2} \, dz$
+
+\sub $\dint \cos(4x) \, dx$
+
+\sub $\dint \dfrac{5}{1+r^2}\,dr$
+
+\sub $\dint \dfrac{1}{\sqrt{1-4s^2}}\, ds$
+\end{minipage}
+\hfill
+\mbox{}
+
+
+\numa Find an antiderivative $F(x)$ of $f(x) = 7$ for which $F(0) =
+12$.
+
+\sub Find an antiderivative $G(x)$ of $f(x) = 7$ for which $G(3) = 1$.
+
+\sub Do $F(x)$ and $G(x)$ differ by a constant?  If so, what is the
+value of that constant?
+
+
+\numa Find an antiderivative $F(t)$ of $f(t) = t + \cos{t}$ for which
+$F(0) = 3$.
+
+\sub Find an antiderivative $G(t)$ of $f(t) = t + \cos{t}$ for which
+$G(\pi/2) = -5$.
+
+\sub Do $F(t)$ and $G(t)$ differ by a constant?  If so, what is the
+value of that constant?
+
+\num Find an antiderivative of the function $a + by$ when $a$ and $b$
+are fixed constants.
+
+\numa Verify that $(1 + x^3)^{10}$ is an antiderivative of $30x^2(1 +
+x^3)^9$.
+
+\sub  Find an antiderivative of $x^2(1 + x^3)^9$.
+
+\sub  Find an antiderivative of $x^2 + x^2(1 + x^3)^9$.
+
+\numa  Verify that $x \ln{x}$ is an antiderivative of $1 + \ln{x}$.
+
+\sub Find an antiderivative of $\ln{x}$.  [Do you see how you can use
+  part (a) to find this antiderivative?]
+
+
+\num Recall that $F(y) = \ln(y)$ is an antiderivative of $1/y$ for
+$y>0$.  According to the text, {\em every\/} antiderivative of $1/y$
+over this domain must be of the form $\ln(y) + C$ for an appropriate
+value of $C$.
+
+\sub Verify that $G(y) = \ln(2y)$ is also an antiderivative of $1/y$.
+
+\sub  Find $C$ so that $\ln(2y) = \ln(y) + C$.
+
+\num Verify that $-\cos^2{t}$ is an antiderivative of $2\sin{t} \,
+\cos{t}$.  Since you already know $\sin^2{t}$ is an antiderivative,
+you should be able to show
+	$$
+	-\cos^2{t} = \sin^2{t} + C 
+	$$
+for an appropriate value of $C$.  What is $C$?
+
+\num Since\label{log} the function $\ln{x}$ is defined only when $x >
+0$, the equation
+	$$
+	\int \dfrac{1}{x} \, dx = \ln{x} + C
+	$$
+applies only when $x > 0$.  However, the integrand $1/x$ is defined
+when $x < 0$ as well.  Therefore, it makes sense to ask what the
+integral (i.e., antiderivative) of $1/x$ is when $x < 0$.
+
+\sub When $x < 0$ then $ -x > 0$ so $\ln(-x)$ is defined.  In these
+circumstances, show that $\ln(-x)$ is an antiderivative of $1/x$.
+
+\sub Now put these two ``pieces'' of antiderivative together by
+defining the function
+\[
+F(x) = \begin{cases}
+\ln(-x)  &\mbox{if $x < 0$}, \\
+\ln(x)   &\mbox{if $x > 0$}
+\end{cases}
+\]
+Sketch together the graphs of the functions $F(x)$ and $1/x$ in such a
+way that it is clear that $F(x)$ is an antiderivative of $1/x$.
+
+\sub Explain why $F(x) = \ln{|x|}$.  For this reason a table of
+integrals often contains the entry
+	$$
+	\int \dfrac{1}{x} \, dx = \ln{|x|} + C.
+	$$
+
+\sub Every function $\ln{|x|} + C$ is an antiderivative of $1/x$, but
+there are even more.  As you will see, this can happen because the
+domain of $1/x$ is broken into two parts.  Let
+\[
+G(x) = \begin{cases}
+\ln(-x) & \mbox{if $x < 0$}, \\
+\ln(x) + 1 & \mbox{if $x > 0$}.
+\end{cases}
+\]
+Sketch together the graphs of the functions $G(x)$ and $1/x$ in such a
+way that it is clear that $G(x)$ is an antiderivative of $1/x$.
+
+\sub  Explain why there is no value of $C$ for which
+	$$
+	\ln{|x|} + C = G(x).
+	$$
+This shows that the functions $\ln{|x|} + C$ do not exhaust the set of
+antiderivatives of $1/x$.
+
+\sub Construct two more antiderivatives of $1/x$ and sketch their
+graphs.  What is the general form of the new antiderivatives you have
+constructed?  (A suggestion: you should be able to use two separate
+constants $C_1$ and $C_2$ to describe the general form.)
+
+\num On page~\pageref{tangent} of the text there is an antiderivative
+for the tangent function:
+	$$
+	\int \tan{x} \, dx = - \ln(\cos{x}).
+	$$
+However, this is not defined when $x$ makes $\cos{x}$ either zero or
+negative.
+
+\sub How many separate intervals does the domain of $\tan{x}$ break
+down into?
+
+\sub For what values of $x$ is $\cos{x}$ equal to zero, and for what
+values is it negative?
+
+\sub Modify the antiderivative $-\ln(\cos{x})$ so that it {\em is\/}
+defined when $\cos{x}$ is negative.  (How is this problem with the
+logarithm function treated in the previous question?)
+
+\sub  In a typical table of integrals you will find the statement
+	$$
+	\int \tan{x} \, dx =  - \ln{|\cos{x}|} + C.
+	$$
+Explain why this does not cover all the possibilities.
+
+\sub Give a more precise expression for $\dint \tan{x}\,dx$, modelled
+on the way you answered part (f) of problem 18.  How many different
+constants will you need?
+
+\sub Find a function $G$ that is an antiderivative for $\tan{x}$ and
+that also satisfies the following conditions:
+\[
+G(0) = 5,  \qquad G(\pi) = -23, \qquad G(17\pi) = 197.
+\]
+
+\num In the table on page~\pageref{table} the antiderivative of $x^p$
+is given as 
+\[
+\dfrac{1}{p+1} x^{p+1} +C.
+\]
+For some values of $p$ this is correct, with only a single constant
+$C$ needed.  For other values of $p$, though, the domain of $x^p$ will
+consist of more than one piece, and $\dfrac{1}{p+1} x^{p+1} $ can be
+modified by a different constant over each piece.  For what values of
+$p$ does this happen?
+
+\num  Find $F'(x)$ for the following functions.  In parts (a), (b), and (d) do the problems two ways: by finding an antiderivative, and by using the fundamental theorem to get the answer without evaluating an antiderivative.  Check that the answers agree.
+
+\sub  $F(x) = \dint_0^x (t^2 + t^3) \, dt$. 
+
+\sub  $F(x) = \dint_1^x \dfrac{1}{u} \, du$.
+
+\sub  $F(x) = 
+	\dint_1^x \dfrac{v}{1+v^3} \, dv$.  
+
+\sub  $F(x) = \dint_0^{x^2} \cos{t} \, dt$.  
+
+\sub  $F(x) = 
+	\dint_1^{x^2} \dfrac{v}{1+v^3} \, dv$. 
+	\quad [Hint: let $u = x^2$ and use the chain rule.]
+\smallskip
+
+\noindent
+Comment: It may seem that parts (c) and (e) are more difficult than
+the others.  However, there is a way to apply the fundamental theorem
+of calculus here to get answers to parts (c) and (e) quickly and with
+little effort.
+
+\num  Consider the two functions
+	$$
+	F(x) = \sqrt{1 + x^2} - 1 \quad \mbox{and} \quad
+		G(x) = \int_0^x \dfrac{t}{\sqrt{1+t^2}} \, dt.
+	$$
+
+\sub  Show that $F$ and $G$ both satisfy the initial value problem
+	$$
+	y' = \dfrac{x}{\sqrt{1+x^2}},  \qquad y(0) = 0.
+	$$
+
+\sub Since an initial value problem typically has a {\em unique\/}
+solution, $F$ and $G$ should be equal.  Assuming this, determine the
+exact value of the following definite integrals.
+	$$
+	\int_0^1 \dfrac{t}{\sqrt{1+t^2}} \, dt, \qquad
+		\int_0^2 \dfrac{t}{\sqrt{1+t^2}} \, dt, \qquad 
+		\int_0^5 \dfrac{t}{\sqrt{1+t^2}} \, dt. 
+	$$
+
+\num The connection between integration and differentiation that is
+provided by the fundamental theorem of calculus makes it possible to
+determine an integral by solving a differential equation.  For
+example, the accumulation function
+	$$
+	A(x) = \int_0^x e^{-t^2} dt 
+	$$
+is the solution to the initial value problem
+	$$
+	y' = e^{-x^2} \, , \qquad y(0) = 0.
+	$$
+Therefore, $A(x)$ can be found by solving the differential equation.
+As you have seen, Euler's method is a useful way to solve differential
+equations.
+
+\sub Use either a program (e.g., PLOT) or a differential equation
+solver on a computer to get a graphical solution $A(x)$ to the initial
+value problem above.
+
+\sub Sketch the graph of $y = A(x)$ over the domain $0 \leq x \leq 4$.
+
+\sub Your graph should increase from left to right.  How can you tell
+this even before you see the computer output?
+
+\sub Your graph should level off as $x$ increases.  Determine $A(5)$,
+$A(10)$, $A(30)$.  (Approximations provided by the computer are
+adequate here.)
+
+\sub Estimate ${\displaystyle \lim_{x \to \infty} A(x)}$.  \hfill [The
+  {\em exact\/} value is $\sqrt{\pi}/2$.]
+
+\sub Determine $\dint_0^1 e^{-t^2} dt$ and $\dint_0^2 e^{-t^2} dt$.
+
+\sub  Determine $\dint_1^2 e^{-t^2} dt$.
+
+\num Find the area under the curve $y = x^3 + x$ for $x$ between 1
+and~4.  (See chapter 6.3.)
+
+\num Find the area under the curve $y = e^{3x}$ for $x$ between 0 and
+$\ln{3}$.
+
+\num The {\bf average value} of the function $f(x)$ on the interval $a
+\leq x \leq b$ is the integral
+\[
+\dfrac{1}{b-a} \int_a^b f(x) \, dx.
+\]
+(See the discussion of average value in chapter~6, pages
+\pageref{average-begin}--\pageref{average-end}.)
+
+\sub Find the average value of each of the functions $y = x$, $x^2$,
+$x^3$, and $x^4$ on the interval $0 \leq x \leq 1$.
+
+\sub Explain, using the graphs of $y = x$ and $y = x^2$, why the
+average value of $x^2$ is less than the average value of $x$ on the
+interval $[0, 1]$.
+
+\numa  What are the maximum, minimum, and average values of the function 
+	$$
+	f(x) = x + 2 e^{-x}
+	$$
+on the interval $[0, 3]$?
+
+\sub Sketch the graph of $y = f(x)$ on the interval $[0, 3]$.  Draw
+the line $y = \mu$, where $\mu$ is the average value you found in part
+(a).
+
+\sub For which $x$ does the graph of $y = f(x)$ lie above the line $y
+= \mu$, and for which $x$ does it lie below the line?  The region
+between the graph and the line has two parts---one is above the line
+(and below the graph) and the other is below the line (and above the
+graph).  Shade these two regions and compare their areas: which is
+larger?  \hfill [The two are equal.]
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                      %
+%                               Section 2                              %
+%                                                                      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{Integration by Substitution}
+
+In the preceding section we converted a couple of general rules for
+differentiation---the rule for the derivative of a constant times a
+function and the rule for the derivative of the sum of two
+functions---into equivalent rules in integral form.  In this section
+we will develop the integral form of the chain rule and see some of
+the ways this can be used to find antiderivatives.
+
+Suppose we have functions $F$ and $G$, with corresponding derivatives
+$f$ and $g$.  Then the chain rule says
+$$ 
+\left(F(G(x))\right)'=F'(G(x))\,G'(x)=f(G(x))\,g(x).
+$$
+If we now take the indefinite integral of these equations, we get
+$$
+F(G(x))+C=\int (F(G(x)))'\,dx=\int f(G(x))\,g(x)\,dx ,
+$$
+where $C$ can be any constant.
+
+Reversing these equalities 
+%
+\mar{The integral form\\ of the chain rule}
+%
+to get a statement about integrals, we obtain:\label{subrule}
+\begin{center}
+\begin{picture}(240,40)
+	\begin{thicklines}
+	\put(0,0){\framebox(240,40)
+		{\bf \boldmath $\displaystyle{\int f(G(x))\,g(x)\,dx=F(G(x)) + C.}$}}
+	\end{thicklines}
+\end{picture}
+\end{center}
+
+This somewhat unpromising expression turns out to be surprisingly
+useful.  Here's how: Suppose we want to find an indefinite integral,
+and see in the integrand a {\em pair} of functions $G$ and $g$, where
+$G'=g$ and where $g(x)$ can be factored out of the integrand.  
+%
+\mar{Reduction methods transform problems into equivalent, simpler, problems} 
+%
+We then find a function $f$ so that the integrand can be written in
+the form $f(G(x))g(x)$.  Now we only have to find an antiderivative
+for $f$.  Once we have such an antiderivative, call it $F$, then the
+solution to our original problem will be $F(G(x))$.  Thus, while our
+original antiderivative problem is not yet solved, it has been reduced
+to a different, simpler antiderivative problem that, when all goes
+well, will be easier to evaluate.  Such {\bf reduction methods} are
+typical of many integration techniques.  We will see other examples in
+the remainder of this chapter.
+
+\medskip
+{\bf Example 1}\quad  Suppose we try to find a formula for the integral
+	$$
+	\int 3x^2 \left(1 + x^3\right)^7 dx.
+	$$
+One way would be to multiply out the expression $\left(1 +
+x^3\right)^7$, making the integrand a polynomial with many separate
+terms of different degrees.  (The highest degree would be 23; do you
+see why?)  We could then carry out the integration ``term-by-term,''
+using the rules for sums and constant multiples of powers of $x$ that
+were given in the previous section.  But this is tedious---even
+excruciating.
+
+Instead, notice that the expression $3x^2$ is the derivative of
+$1+x^3$.  If we let $G(x)=1+x^3$ and $g(x)=3x^2$, we can then write
+the integrand as
+	$$
+	3x^2 \left(1 + x^3\right)^7=(G(x))^7g(x).
+	$$
+Now $(G(x))^7$ is clearly just $f(G(x))$ where $f$ is the function
+which raises its input to the 7th power---$f(x)=x^7$ for any input
+$x$.  But we recognize $f$ as an elementary function whose
+antiderivative we can write down immediately as
+$F(x)=\tfrac{1}{8}x^8$.  Thus the solution to our original problem
+will be
+\[
+\int 3x^2 \left(1 + x^3\right)^7 dx = F(G(x))+C 
+         = \dfrac{1}{8}\left(1 + x^3\right)^8+C.
+\]
+As with any integration problem, we can check our answer by taking the
+derivative of the right-hand side to see if it agrees with the
+integrand on the left.  You should do this whenever you aren't quite
+sure of your technique (or your arithmetic!).
+
+Note that the term $3x^2$ that appeared in the integrand above was essential for the procedure to work.  The integral
+	$$
+	\int \left(1 + x^3 \right)^7 dx
+	$$
+{\em cannot\/} be found by substitution, even though it appears to
+have a simpler form.  (Of course, the integral {\em can\/} be found by
+multiplying out the integrand.)
+
+%\medskip
+\newpage
+
+\noindent
+{\bf Using differential notation}\index{differential
+  notation}\label{differentials}\quad 
+%
+\mar{A compact notation for expressing the integral form of the chain rule} 
+%
+So far the symbol $dx$ (the {\bf differential} of~$x$) under the
+integral sign has simply been an appendage, tagging along to suggest
+the $\Delta x$ portion of the Riemann sums approximating definite
+integrals.  It turns out we can take advantage of this notation to use
+the integral form of the chain rule more compactly.
+
+Instead of naming the functions $G$ and $g$ as above, we introduce a
+new variable $u=G(x)$.  Then
+$$
+\dfrac{du}{dx} = G'(x)=g(x),
+$$
+and it is suggestive to multiply out this ``quotient'' to get
+\[
+du=g(x)\,dx.
+\]  
+While this is reminiscent of the microscope equation we met in
+chapter~3, and 18th century mathematicians took this equation
+seriously as a relation between two ``infinitesimally small''
+quantities $dx$ and $du$, we will view it only as a convenient
+mnemonic device. To see how this simplifies computations, reconsider
+the previous example.  If we let $u=1+x^3$, then $du=3x^2\,dx$, so we
+can write
+	$$
+	3x^2 (1 + x^3)^7 \, dx = 
+		(\underbrace{1 + \rule[-3pt]{0pt}{6pt}x^3}_
+			{\displaystyle u})^7 
+		\underbrace{3x^2 \rule[-3pt]{0pt}{6pt}\, dx}_
+			{\displaystyle du} =
+		u^7 \, du.
+	$$
+It follows that
+\begin{align*}
+\int 3x^2 \left(1 + x^3 \right)^7 dx &= \int u^7 \, du \\
+  &= \tfrac{1}{8} u^8 + C \\
+  &= \tfrac{1}{8} \left(1 + x^3\right)^8 + C,
+\end{align*}
+as before.  We have arrived at the same answer without having to
+introduce the cumbersome language of all the auxiliary functions---we
+simply {\bf substituted} the variable $u$ for a certain expression in
+$x$ (which we called $G(x)$ before), and replaced $G'(x)dx$ by
+$du$. For this reason this technique is called {\bf integration by
+  substitution}.  You should always be clear, though, that integration
+by substitution is just the integral form of the chain rule, a
+relationship that becomes clear whenever you check the answer
+substitution gives you.
+
+
+\medskip
+\noindent
+{\bf Example 2}\quad  Can we use the method of substitution to find
+	$$
+	\int \dfrac{e^{5x}}{6 + e^{5x}} \, dx?
+	$$
+The numerator is almost the derivative of the denominator.  This
+suggests we let $G(x) = 6+e^{5x}$, giving $g(x)=G'(x)= 5e^{5x}$.
+Since we need to be able to factor $g(x)$ out of the integrand, we
+multiply numerator and denominator by 5 to get
+\begin{align*}
+\int \dfrac{e^{5x}}{6 + e^{5x}} \, dx 
+  &= \int \dfrac{1}{5} \cdot \dfrac{1}{6+e^{5x}}5e^{5x}\,dx \\
+  &= \int \dfrac{1}{5} \cdot \dfrac{1}{G(x)}g(x)\,dx \\
+  &= \dfrac{1}{5}\int f(G(x))g(x)\, dx,
+\end{align*}
+where $f$ is just the reciprocal function---$f(x)=1/x$.  But an
+antiderivative for $f$ is just $\ln{x}$, so the desired antiderivative
+is just
+$$
+\dfrac{1}{5}F(G(x))+C= \dfrac{1}{5}\ln(6+e^{5x})+C.
+$$
+As usual, you should check this answer by differentiating to see that
+you really do get the original function.
+
+Now let's see how this works using differential notation.  If we set
+$u = 6 + e^{5x}$, then
+	$$
+	\dfrac{du}{dx} = 5e^{5x} \qquad \mbox{and} \qquad
+		du = 5e^{5x} \, dx.
+	$$
+Again we insert a factor of 5 in the numerator and an identical one in
+the denominator to balance it.  Substitutions for $u$ and $du$ then
+yield the following:
+\begin{align*}
+\int \dfrac{1}{5}\cdot \dfrac{5e^{5x}}{6 + e^{5x}} \, dx 
+  &= \dfrac{1}{5} \int \dfrac{5e^{5x} \, dx}{6 + e^{5x}} \\[3pt]
+  &= \dfrac{1}{5} \int \dfrac{du}{u} \\[4pt]
+  &= \dfrac{1}{5} \ln(u) + C \\[3pt]
+  &= \dfrac{1}{5} \ln(6+e^{5x}) + C, 
+\end{align*}
+\smallskip
+as before.
+
+\newpage
+%\medskip
+	
+The two examples above have the same structure.  
+%
+\mar{The basic structure}	
+%
+In both, a certain function of $x$ is selected and called $u$; part of
+the integrand, namely $u'\,dx$, becomes $du$, the rest becomes one of
+the basic functions of $u$.  Specifically:
+	$$
+	\begin{array}{ccccccc}
+	\mbox{integrand} && u && du 
+		&& \mbox{function of $u$} \\[2pt] \hline
+	3x^2 \left(1 + x^3\right)^7 dx && 1 + x^3 
+		&& 3x^2 \rule{0pt}{18pt}\, dx	&& u^7 \\[4pt]
+	\dfrac{e^{5x}}{6 + e^{5x}} \, dx 
+		&& 6 + e^{5x} && 5e^{5x} \, dx 
+		&& \dfrac{1}{5} \cdot \dfrac{1}{u}
+	\end{array}
+	$$
+
+
+
+Note that you may have to do a bit of algebraic reshaping of the
+integrand\index{integrand} to cast it in the proper form.  For
+example, we had to insert a factor of 5 to the numerator of the second
+example to make the numerator be the derivative of the denominator.
+There is no set routine to be followed to find an antiderivative most
+efficiently, or even any way to know whether a particular method will
+work until you try it.  Success comes with experience and a certain
+amount of intelligent fiddling until something works out.
+\medskip
+
+\noindent
+{\bf Example 3}\quad The method of substitution is useful in simple
+problems, too.  Consider
+	$$
+	\int \cos(3t) \, dt.
+	$$
+If we set $u = 3t$, then $du = 3 \, dt$ and
+\begin{align*}
+\int \cos(3t) \, dt 
+  &= \int \cos(u) \cdot \tfrac{1}{3} \, du \\[2pt]
+  &= \tfrac{1}{3} \int \cos(u) \, du \\[4pt]
+  &= \tfrac{1}{3} \sin(u) + C \\[6pt]
+  &= \tfrac{1}{3} \sin(3t) + C. 
+\end{align*}
+
+\subsection{Substitution in Definite Integrals}
+
+Until now we have been using the technique of substitution to find
+antiderivatives---that is, to evaluate {\em indefinite integrals}.
+Refer back to the integral form of the chain rule given in the box on
+page~\pageref{subrule}, and see what happens when we use this equation
+to evaluate a {\em definite integral}.  Suppose we want to evaluate
+$$
+\int_a^bf(G(x))\,g(x)\,dx.
+$$ 
+We know that $F(G(x))$ is an antiderivative, so by the fundamental
+theorem we have
+$$
+\int_a^bf(G(x))\,g(x)\,dx=\left. F(G(x))\right|_a^b=F(G(b))-F(G(a)).
+$$
+
+Now suppose we make the substitution $u=G(x)$ and $du=g(x)\,dx$.  Then
+as $x$ goes from $a$ to $b$, $u$ will go from $G(a)$ to $G(b)$.
+Moreover, we have
+$$\int_{G(a)}^{G(b)} f(u)\,du=\left. F(u)\right|_{G(a)}^{G(b)} = F(G(b))-F(G(a)),$$
+so the two definite integrals have the same value. In other words,
+\label{defint}
+\begin{center}
+\framebox[380pt]
+{\parbox{350pt}{\vspace{5pt}
+\hfill \textbf{If we make the substitution \boldmath $u=G(x)$, then 
+       \hfill \mbox{} \\[8pt]
+$\dint_a^b f(G(x))\,g(x)\,dx = F(G(b))-F(G(a))=\dint_{G(a)}^{G(b)} f(u)\,du$.
+}\vspace{5pt}
+}}
+\end{center}
+
+This means that to evaluate a definite integral by substitution, we
+can do everything in terms of $u$.  We don't ever need to find an
+antiderivative for the original integrand in terms of $x$ or use the
+original limits of integration.
+
+\medskip
+\noindent
+{\bf Example 4}\quad Consider the definite integral
+$$
+\int_0^{\pi/2} \dfrac{\cos{x}\,dx}{1+\sin{x}}.
+$$
+We can evaluate this integral by making the substitution
+$u=1+\sin{x}$, and $du=\cos{x}\,dx$.  Moreover, as $x$ goes from 0 to
+$\pi/2$, $u$ goes from 1 to 2.  Therefore
+$$
+\int_0^{\pi/2} \dfrac{\cos{x}\,dx}{1+\sin{x}} 
+   = \int_1^2 \dfrac{du}{u}=\left.\ln{u}\right|_1^2=\ln{2}.
+$$
+Check that this is the same answer you would have gotten if you had
+expressed the antiderivative $\ln{u}$ in terms of $x$ and evaluated
+the result at the limits on the original integral.
+
+\medskip
+
+\noindent
+{\bf Example 5}\quad Evaluate
+\[
+\int_0^1 6 x^2(1+x^3)^4\,dx.
+\]
+With the substitution $u=1+x^3$ and $du=3x^2\,dx$, as $x$ goes from 0
+to 1, $u$~goes from 1 to 2. Our integral thus becomes
+\[
+\int_0^1 6 x^2(1+x^3)^4\,dx=\int_0^2 2 u^4\,du
+   =\left. \dfrac{2}{5}u^5 \, \right|_1^2 =\dfrac{64}{5}.
+\]
+
+\subsection{Exercises}
+
+\vspace{-10pt}
+
+\num Evaluate the following using substitution.  Do parts (a) through
+(e) in two ways: {\rm i.}  by writing the integrand in the form
+$f(G(x))g(x)$ (or $y$ or $t$ or whatever the variable is) for
+appropriate functions $f$, $G$, and $g$, with $G'=g$, and then finding
+$F = \int f$; and {\rm ii.} using differential notation.  Do the
+remaining parts in the way you feel most confident.
+
+\noindent
+\begin{minipage}{150pt}
+\sub ${\dint 2y(y^2+1)^{50}\,dy}$
+
+\sub ${\dint \sin(5z)\,dz}$
+
+\sub ${\dint \dfrac{e^{\sqrt x}}{\sqrt x}\,dx}$
+
+\sub ${\dint (5t+7)^{50}\,dt}$
+
+\sub ${\dint 3u^2 \, \root 3 \of {u^3+8}\,du}$
+
+\sub ${\dint \dfrac{1}{2v+1}\,dv}$
+
+\sub ${\dint \tan{x}\,dx}$
+
+\sub ${\dint \tan^2(x)\sec^2(x)\,dx}$
+
+\sub ${\dint \sec(x/2)\tan(x/2)\,dx}$
+\end{minipage}
+\hfill
+\begin{minipage}{150pt}
+\sub ${\dint \sin(w)\,\sqrt{\cos(w)}\,dw}$
+
+\sub ${\dint \dfrac{\sin(\sqrt{s})}{\sqrt{s}}\,ds}$
+
+\sub ${\dint \sqrt{3-x}\,dx}$
+
+\sub ${\dint \dfrac{dr}{r\ln{r}}}$
+
+\sub ${\dint e^x\sin(1+e^x)\,dx}$
+
+\sub ${\dint \dfrac{y}{1+y^2}\,dy}$
+
+\sub ${\dint \dfrac{w}{\sqrt{1-w^2}}\, dw}$
+
+\sub ${\dint \dfrac{1}{1+4y^2}\,dy}$
+
+\sub ${\dint \dfrac{1}{\sqrt{1-9w^2}}\, dw}$
+\end{minipage}
+\hfill
+\mbox{}
+
+\num Use integration by substitution to find the numerical value of
+the following.  In four of these you should get your answer in two
+ways: i) by finding an antiderivative for the given integrand, and ii)
+by using the observation in the box on page~\pageref{defint},
+comparing the results.  You should also check your results for three
+of the problems by finding numerical estimates for the integrals using
+RIEMANN\index{program!RIEMANN}.
+
+\noindent
+\begin{minipage}{150pt}
+\sub ${\dint_0^1 \dfrac{e^s}{e^s+1}\,ds}$
+
+\sub ${\displaystyle \int_0^{\ln{e}}
+\dfrac{e^s}{e^s+1}\,ds}$
+
+\sub ${\displaystyle \int_1^3 \dfrac{1}{2x+1}\,dx}$
+
+\sub ${\displaystyle \int_{-3}^{-1} \dfrac{1}{2x+1}\,dx}$
+\end{minipage}
+\hfill
+\begin{minipage}{150pt}
+\sub ${\displaystyle \int_0^1
+	\dfrac{t}{\sqrt{1 + t^2}}\,dt}$
+
+\sub ${\displaystyle \int_0^1
+	\dfrac{\sin(\pi\sqrt{t})}{\sqrt{t}}\,dt}$
+
+\sub ${\displaystyle \int_0^2
+	\dfrac{1}{1+ (x^2/4)}\,dx}$
+
+\sub ${\displaystyle \int_0^{\tfrac{1}{3}}
+	\dfrac{1}{\sqrt{1-9y^2}}\,dy}$
+\end{minipage}
+\hfill
+\mbox{}
+
+\num  This question concerns the integral 
+$I = \dint \sin{x} \, \cos{x} \, dx$.
+
+\sub  Find $I$ by using the substitution $u = \sin{x}$.
+
+\sub  Find $I$ by using the substitution $u = \cos{x}$.
+
+\sub Compare your answers to (a) and (b).  Are they the same?  If not,
+how do they differ?  Since both answers are antiderivatives of
+$\sin{x} \, \cos{x}$, they should differ only by a constant.  Is that
+true here? If so, what is the constant?
+
+\sub  Now calculate the value of the {\em definite\/} integral
+	$$
+	\int_0^{\pi/2} \sin{x}\,\cos{x} \,dx
+	$$
+twice, using the two {\em indefinite\/} integrals you found in (a) and
+(b).  Do the two values agree, or disagree?  Is your result consistent
+with what you expect?
+
+
+\numa  Find all functions $y = F(x)$ that satisfy the differential equation 
+	$$
+	\dfrac{dy}{dx} = x^2 \left( 1 + x^3 \right)^{13}.
+	$$
+
+\sub From among the functions $F(x)$ you found in part (a), select the
+one that satisfies $F(0) = 4$.
+
+\sub From among the functions $F(x)$ you found in part (a), select the
+one that satisfies $F(-1) = 4$.
+
+
+\num  Find a function $y = G(t)$ that solves the initial value problem
+	$$
+	\dfrac{dy}{dt} = t e^{-t^2}
+		\qquad y(0) = 3.
+	$$
+	
+\numa What is the average value of the function $f(x) =
+x/\sqrt{1+x^2}$ on the interval $[0, 2]$?
+
+\sub Show that the average value of the $f(x)$ on the interval $[-2,
+  2]$ is 0.  Sketch a graph of $y = f(x)$ on this interval, and
+explain how the graph also shows that the average is 0.
+
+\numa Sketch the graph of the function $y = x e^{-x^2}$
+on the interval $[0, 5]$.
+
+\sub Find the area between the graph of $y = x e^{-x^2}$
+and the $x$-axis for $0 \leq x \leq 5$.
+
+\sub Find the area between the graph of $y = x e^{-x^2}$
+and the $x$-axis for $0 \leq x \leq b$.  Express your answer in terms
+of the quantity $b$, and denote it $A(b)$.  Is $A(5)$ the same number
+you found in part(b)?  What are the values of $A(10)$, $A(100)$,
+$A(1000)$?
+
+\sub It is possible to argue that the area between the graph of $y = x
+e^{-x^2}$ and the {\em entire\/} positive $x$-axis is
+1/2.  Can you develop such an argument?
+
+
+\numa  Use a computer graphing utility to establish that
+	$$
+	\sin^2{x} = \dfrac{1 - \cos(2x)}{2}.
+	$$
+Sketch these graphs.
+
+
+\sub Find a formula for $\dint \sin^2{x} \, dx$.  (Suggestion: replace
+$\sin^2{x}$ by the expression involving $\cos(2x)$, above, and
+integrate by substitution.)
+
+\sub What is the average value of $\sin^2{x}$ on the interval $[0,
+  \pi]$?  What is its average value on any interval of the form $[0, k
+  \pi]$, where $k$ is a whole number?
+
+\sub Explain your results in part (c) in terms of the graph of
+$\sin^2{x}$ you drew in part (a).
+
+\sub Here's a differential equations proof of the identity in part
+(a).  Let $f(x)=\sin^2{x}$, and let $g(x)=(1 - \cos(2x))/2$.  Show
+that both of these functions satisfy the initial value problem
+$$y''=2-4y \quad\mbox{with}\quad y(0)=0\quad\mbox{and}\quad y'(0)=0.$$
+Hence conclude the two functions must be the same.  
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                      %
+%                               Section 3                              %
+%                                                                      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Integration by Parts}\index{integration by parts}
+
+As in the previous section, 
+%
+\mar{An integral form\\ of the product rule}
+%
+suppose we have functions $F$ and $G$,
+with corresponding derivatives $f$ and $g$.  If we use the product
+rule\index{product rule} to differentiate $F(x) \cdot G(x)$, we get:
+	$$
+	\left( F \cdot G \right)' = 
+		F \cdot G' + F' \cdot G = F\cdot g + f\cdot G.
+	$$
+We can turn this into a statement about indefinite
+integrals\index{integral!indefinite}\index{indefinite integral}:
+	$$
+	\int \left( F \cdot g + f \cdot G \right) \, dx = 
+		\int \left( F \cdot G \right)' \, dx = 
+		F(x) \cdot G(x) + C.
+	$$
+Unfortunately, in this form the statement is not especially useful; 
+it applies only when the integrand has two terms of the special form $f \cdot 	g' + f' \cdot g$.  However, if we rewrite the statement in the form
+\begin{center}
+\begin{picture}(230,40)
+	\begin{thicklines}
+	\put(0,0){\framebox(230,40)
+		{\bf \boldmath $\dint F \cdot g \, dx = 
+			F \cdot G - \dint f \cdot G \, dx$}}
+	\end{thicklines}
+\end{picture}
+\end{center}
+it becomes very useful.
+
+\medskip
+
+\noindent
+{\bf Example 1}\quad  We will use the formula in the box to find
+	$$
+	\int x \cdot \cos{x} \, dx.
+	$$
+If we label the parts of this integrand as follows:
+	$$
+	F(x) = x \qquad \qquad g(x) = \cos{x},
+	$$
+then we have
+	$$
+	f(x) = 1 \qquad \mbox{and} \qquad G(x) = \sin{x}.
+	$$
+According to the formula,
+\begin{align*}
+\int x \cdot \cos{x} \, dx 
+  &= x \cdot \sin{x} - \int \sin{x} \, dx \\
+  &= x \cdot \sin{x} + \cos{x} + C.
+\end{align*}
+
+The integrand is first broken into two parts---in this case, 
+%
+\mar{Integrate only part\\ of the integrand}
+%
+$x$ and $\cos{x}$.  One part is differentiated while the other part is
+integrated.  (The part we integrated is $g(x) = \cos{x}$, and we got
+$G(x) = \sin{x}$.)  For this reason, the rule described in the box is
+called {\bf integration by parts}\index{integration by parts}.
+
+\newpage
+
+%\medskip
+
+As with integration by substitution, integration by parts exchanges
+one integration task for another: Instead of finding an antiderivative
+for $F \cdot g$, we must find one for $f \cdot G$.  The idea is to
+``trade-in'' one integration problem for a more readily solvable one.
+
+\medskip
+
+\noindent
+{\bf Example 2}\quad  Use integration by parts to find\label{lnder}
+	$$
+	\int \ln(x) \, dx.
+	$$
+At first glance we can't integrate by parts, because there aren't two parts!  But note that we can write
+	$$
+	\ln(x) = \ln(x) \cdot 1,
+	$$
+and then set 
+	$$
+	F(x) = \ln(x), \qquad \qquad g(x) = 1.
+	$$
+This implies 
+	$$
+	f(x) = \dfrac{1}{x} \qquad \mbox{and} \qquad
+		G(x) = x,
+	$$
+and the integration by parts formula now gives us
+\begin{align*}
+\int \ln(x) \, dx 
+  &= x \cdot \ln(x) - \int x \cdot \dfrac{1}{x} \, dx \\[4pt]
+  &= x \cdot \ln(x) - \int 1 \, dx \\[4pt]
+  &= x \cdot \ln(x) - x + C.
+\end{align*}
+
+
+We thus see that integration by parts\index{integration by
+  parts}---like integration by substitution---is an art rather than a
+set routine.
+%
+\mar{The ingredients\\ of a successful\\ integration by parts}	
+%
+If integration by parts is to work, several things must happen.
+First, you need to see that the method might actually apply.  (In
+Example 2 this wasn't obvious.)  Next, you need to identify the parts
+of the integrand that will be differentiated and integrated,
+respectively.  The wrong choices can lead you away from a solution,
+rather than towards one.  (See example 3 below for a cautionary
+tale\index{integration by parts!cautionary tale}.)  Finally,
+you need to be able to carry out the integration of the new integral
+$\int f \cdot G \, dx$.  As you work you may have to reshape the
+integrand algebraically.  Technique comes with practice, and luck is
+useful, too.
+\medskip
+
+\noindent
+{\bf Example 3}\quad  Use integration by parts to find
+	$$
+	\int t \cdot e^t \, dt.
+	$$
+Set
+	$$
+	F(t) = e^t, \qquad \mbox \qquad g(t) = t;
+	$$
+then 
+	$$
+	f(t) = e^t, \qquad \mbox \qquad G(t) = \dfrac{t^2}{2}.
+	$$
+The integration by parts formula then gives
+	$$
+	\int t \cdot e^t \, dt =
+		\dfrac{t^2}{2} e^t - \int \dfrac{t^2}{2} e^t\,dt.
+	$$
+While this is a true statement, we are not better off---the new
+integral is {\em not\/} simpler than the original.  \mar{What went
+  wrong?}  A solution is eluding us here.  You will have a chance to
+do this problem properly in the exercises.
+
+
+\subsection{Exercises}
+
+\vspace{-10pt}
+
+\num Use integration by parts to find a formula for each of the
+following integrals.
+
+\noindent
+\begin{minipage}{150pt}
+\sub ${\displaystyle \int x \sin{x}\,dx}$
+
+\sub ${\displaystyle \int te^{t}\,dt}$
+
+\sub ${\displaystyle \int we^{-w}\,dw}$
+
+\sub ${\displaystyle \int x\ln{x}\,dx}$
+
+\sub ${\displaystyle \int \arcsin{x}\,dx}$
+\end{minipage}
+\hfill
+\begin{minipage}{150pt}
+\sub ${\displaystyle \int \arctan{x}\,dx}$
+
+\sub ${\displaystyle \int x^2e^{-x}\,dx}$ 
+
+\sub $\dint u^2 \cos{u} \, du$    
+
+\sub ${\displaystyle \int x\sec^2{x}\,dx}$
+
+\sub ${\displaystyle \int e^{2x}(x + e^x)\,dx}$
+\end{minipage}
+\hfill
+\mbox{}
+
+\medskip
+
+\noindent
+(Suggestion for part (g): Apply integration by parts twice.  After the
+first application you should have an integral that can itself be
+evaluated using integration by parts.)
+
+
+\num  Use integration by parts to obtain a formula for
+	$$
+	\int (\ln{x})^2\,dx.
+	$$
+Choose $f = \ln{x}$ and also $g' = \ln{x}$.  To continue you need to
+find $g$, the antiderivative of $\ln{x}$, but this has already been
+obtained in the text.
+
+
+\numa  Find $\dint x^2 e^x \, dx$.
+
+\sub  Find $\dint x^3 e^x \, dx$.  (Reduce this to part (a)).
+
+\sub  Find $\dint x^4 e^x \, dx$.  
+
+\sub  What is the general pattern here?  Find a formula for $\dint x^n e^x \, dx$, where $n$ is any positive integer.
+
+\sub  Find $\dint e^x \left(5x^2 - 3x + 7\right) \, dx$.
+
+\numa Draw the graph of $y=\arctan{x}$ over the interval $0\leq x\leq
+1$.  You could have gotten the same graph by thinking of $x$ as a
+function of $y$---write down this relationship and the corresponding
+$y$ interval.
+
+\sub Evaluate
+$$\int_0^1 \arctan{x}\,dx$$
+and show on your graph the area this corresponds to.
+
+\sub Evaluate
+$$\int_0^{\pi/4} \tan{y}\,dy$$
+and show on your graph the area this corresponds to.
+
+\sub If we add the results of part (b) and part (c), what do you get?
+From the geometry of the picture, what should you have gotten?
+
+\num Repeat the analysis of the preceding problem by calculating the
+value of
+\[
+\int_0^2 x^3\,dx+\int_0^8 y^{1/3}\,dy,
+\]
+and seeing if it agrees with what you would predict by looking at the
+graphs.
+
+\newpage
+
+\num Generalize the preceding two problems to the case where $f$ and
+$g$ are any two functions that are inverses of each other whose graphs
+pass through the origin.
+
+
+\numa What is the average value of the function $\ln{x}$ on the
+interval $[1, e]$?
+
+\sub What is the average value of $\ln{x}$ on $[1, b]$?  Express this
+in terms of $b$.  Discuss the following claim: The average value of
+$\ln{x}$ on $[1, b]$ is approximately $\ln(b) - 1$ when $b$ is large.
+
+\numa Sketch the graph of $f(x) = x e^{-x}$ on the interval $[0, 4]$.
+
+\sub What is the area between the graph of $y = f(x)$ and the $x$-axis
+for $0 \leq x \leq 4$?
+
+\sub What is the area between the graph of $y = f(x)$ and the $x$-axis
+for $0 \leq x \leq b$?  Express your answer in terms of $b$, and
+denote it $A(b)$.  What is $A(100)$?
+
+\num  Find three solutions $y = f(t)$ to the differential equation
+	$$
+	\dfrac{dy}{dt} = 5 - 2 \ln{t}.
+	$$
+
+\numa  Find the solution $y = \varphi(t)$ to the initial value problem
+	$$
+	\dfrac{dy}{dt} = t e^{-t^2/2},
+		\qquad y(0) = 2.
+	$$
+
+\sub The function $\varphi(t)$ increases as $t$ increases.  Show this
+first by sketching the graph of $y = \varphi(t)$.  Show it also by
+referring to the differential equation that $\varphi(t)$ satisfies.
+(What is true about the derivative of an increasing function?)
+
+\sub Does the value of $\varphi(t)$ increase without bound as $t \to
+\infty$?  If not, what value does $\varphi(t)$ approach?
+
+\numa {\bf The differential form of Integration by Parts}\quad If $u$
+and $v$ are expressions in $x$, then the product rule can be written
+as
+\[
+\dfrac{d}{dx}(u\cdot v) = \dfrac{du}{dx}\cdot v + u \cdot \dfrac{dv}{dx}.
+\]
+Explain carefully how this leads to the following statement of integration by parts, and why it is equivalent to the form in the text:
+$$\int u\,dv = uv-\int v\,du.$$
+
+\sub Solve a couple of the preceding problems using this notation.
+
+
+\subsubsection{Sine and cosine integrals}\index{integral!sine and cosine}
+
+The purpose of the remaining exercises is to establish integral
+formulas that we will use to analyze Fourier polynomials and the power
+spectrum in chapter~12.  In the first three, $\alpha$ is a constant:
+\begin{align*}
+\int \sin^2{\alpha x}\,dx &= \dfrac{x}{2} 
+	- \dfrac{1}{4\alpha}\sin{2\alpha x} + C,  \\
+\int \cos^2{\alpha x}\,dx &= \dfrac{x}{2} 
+	+ \dfrac{1}{4\alpha}\sin{2\alpha x} + C,  \\
+\int \sin{\alpha x}\cos{\alpha x}\,dx &=  
+	- \dfrac{1}{4\alpha}\cos{2\alpha x} + C.
+\end{align*}
+In the remaining four, $\alpha$ and $\beta$ are {\em different\/} constants:
+\begin{align*}
+\int \sin{\alpha x} \sin{\beta x}\,dx &= \dfrac{1}{\beta^2-\alpha^2}
+	\left(\alpha\cos{\alpha x}\sin{\beta x} - \beta\sin{\alpha x}
+	\cos{\beta x}\right) + C, \\
+\int \cos{\alpha x} \cos{\beta x}\,dx &= \dfrac{1}{\beta^2-\alpha^2}
+	\left(\beta\cos{\alpha x}\sin{\beta x} - \alpha\sin{\alpha x}
+	\cos{\beta x}\right) + C, \\
+\int \sin{\alpha x} \cos{\beta x}\,dx &= \dfrac{1}{\beta^2-\alpha^2}
+	\left(\beta\sin{\alpha x}\sin{\beta x} + \alpha\cos{\alpha x}
+	\cos{\beta x}\right) + C, \\
+\int \cos{\alpha x} \sin{\beta x}\,dx &=  \dfrac{1}{\beta^2-\alpha^2}
+	\left(-\alpha\sin{\alpha x}\sin{\beta x} - \beta\cos{\alpha x}
+	\cos{\beta x}\right) + C.
+\end{align*}
+
+\numa In the later exercises we shall make frequent use of the
+following \label{`trig'} ``trigonometric
+identities''\index{trigonometric identities}:
+\begin{align*}
+    2 \sin{\alpha x} \cos{\alpha x} &= \sin{2\alpha x}, \\
+\cos^2{\alpha x} - \sin^2{\alpha x} &=  \cos{2\alpha x}, \\
+\sin^2{\alpha x} + \cos^2{\alpha x} &= 1.
+\end{align*}
+Using a graphing package on a computer, graph together the functions
+	$$
+    2 \sin{\alpha x} \cos{\alpha x} \qquad \mbox{and} 
+		\qquad \sin{2\alpha x} 
+	$$
+to show that they seem to be identical.  (That is, show that they
+``share phosphor.'')  Then do the same for the pairs of functions in
+the other two identities.
+
+\sub We can give a different argument for the identities above using
+the ideas we have developed in studying initial value problems.  To
+prove the first identity, for instance, let $f(x) = 2 \sin{\alpha x}
+\cos{\alpha x}$, and let $g(x) = \sin{2\alpha x}$.  Show that both
+functions satisfy
+$$
+y'' = -4\alpha^2 y, \quad\mbox{with}\quad 
+    y(0)=0\quad\mbox{and}\quad y'(0)=2\alpha.
+$$
+Hence conclude the two functions must be the same.
+
+\sub Find an initial value problem that is satisfied by both
+$f(x)=\cos^2{\alpha x} - \sin^2{\alpha x}$ and by $g(x) = \cos{2\alpha
+  x}$.
+
+\num {\bf Evaluating } $\displaystyle \int \sin^2{x} \, dx$  
+
+\sub  Using integration by parts, show that 
+	$$
+	\int \sin^2{x} \, dx = 
+		- \sin{x} \cos{x} + \int \cos^2{x} \, dx.
+	$$
+
+\sub Using the identity $\sin^2{\alpha x} + \cos^2{\alpha x} = 1$,
+show that the new integral can be written as
+	$$
+	x - \int \sin^2{x} \, dx.
+	$$
+
+\sub  Combining (a) and (b) algebraically, show that
+	$$
+	2 \int \sin^2{x} \, dx = - \sin{x} \cos{x} + x + C.
+	$$
+
+\sub  Using algebra and a trigonometric identity, conclude that
+	$$
+	\int \sin^2{x} \, dx = 
+		\dfrac{x}{2} - \dfrac{1}{4} \sin{2x} + C.
+	$$
+
+\num  Modify the argument of the preceding exercise to show		%qqq
+	$$
+	\int \sin^2{\alpha x}\,dx  =  
+	  \dfrac{x}{2} - \dfrac{1}{4\alpha}\sin{2\alpha x} + C.
+	$$
+and
+	$$
+	\int \cos^2{\alpha x}\,dx  =  
+	  \dfrac{x}{2} + \dfrac{1}{4\alpha}\sin{2\alpha x} + C.
+	$$
+
+
+\num {\bf Evaluating }$\displaystyle \int \sin^2{\alpha x} \, dx$  
+\smallskip
+
+\noindent
+Determine this integral anew, without using integration by parts, by
+carrying out the following steps.
+
+\sub From the trigonometric identities\index{trigonometric identities}
+on page~\pageref{`trig'}, deduce that
+	$$
+	2 \sin^2 {\alpha x} = 1 - \cos{2 \alpha x}.
+	$$
+
+\sub  Using the formula in (a), conclude that
+	$$
+	\int \sin^2{\alpha x} \, dx = 
+	\dfrac{x}{2} - \dfrac{1}{4\alpha}\sin{2\alpha x} + C.
+	$$
+
+\num {\bf Evaluating }$\displaystyle \int \cos^2{\alpha x} \, dx$  
+\smallskip
+
+\noindent
+Using only algebra and the identity $\sin^2{\alpha x} + \cos^2{\alpha
+  x} = 1$, show that the previous exercise implies
+	$$
+	\int \cos^2{\alpha x} \, dx = 
+	\dfrac{x}{2} + \dfrac{1}{4\alpha}\sin{2\alpha x} + C.
+	$$
+
+\num {\bf Evaluating }$\displaystyle 
+		\int \sin{\alpha x} \cos{\alpha x} \, dx$  
+
+\sub Using the identity $\sin{2\alpha x} = 2 \sin{\alpha x}
+\cos{\alpha x}$, deduce the following formula
+	$$
+	\int \sin{\alpha x} \cos{\alpha x} \, dx = 
+		-\dfrac{1}{4\alpha} \cos{ 2 \alpha x} + C.
+	$$
+
+\sub  Using integration by substitution, obtain the alternative formula
+	$$
+	\int \sin{\alpha x} \cos{\alpha x} \, dx = 
+		\dfrac{1}{2\alpha} \sin^2{\alpha x} + C.
+	$$
+
+\sub Show that your results in (a) and (b) are compatible.  (For
+example, use exercise 15~(a).)
+
+\num 
+{\bf Evaluating }${\displaystyle \int \sin{\alpha x} \sin{\beta x}\, dx}$
+
+
+\sub  Use integration by parts to show that 
+	$$
+	\int \sin{\alpha x} \sin{\beta x}\, dx =
+		-\dfrac{1}{\alpha} \cos{\alpha x} \sin{\beta x}
+		+ \dfrac{\beta}{\alpha} 
+		\int \cos{\alpha x} \cos{\beta x}\, dx.
+	$$
+
+\sub Using integration by parts again, show that the new integral in
+part (a) can be written as
+	$$
+	\int \cos{\alpha x} \cos{\beta x}\, dx =
+		\dfrac{1}{\alpha} \sin{\alpha x} \cos{\beta x}
+		+ \dfrac{\beta}{\alpha} 
+		\int \sin{\alpha x} \sin{\beta x}\, dx.
+	$$
+
+\sub Let $J = \dint \sin{\alpha x} \sin{\beta x}\, dx$; show that
+combining (a) and (b) gives
+	$$
+	J = -\dfrac{1}{\alpha} \cos{\alpha x} \sin{\beta x}
+	+ \dfrac{\beta}{\alpha^2} \sin{\alpha x} \cos{\beta x}
+	+ \dfrac{\beta^2}{\alpha^2} J.
+	$$
+
+\sub  Solve (c) for $J$ to find
+	$$
+	\int \sin{\alpha x} \sin{\beta x}\, dx = 
+	 \dfrac{1}{\beta^2 - \alpha^2}
+		(\alpha \cos{\alpha x} \sin{\beta x} 
+		- \beta \sin{\alpha x} \cos{\beta x}) + C.
+	$$
+
+\num 	Imitate the methods of the preceding exercise to deduce		%qqq
+	$$
+	\int \cos{\alpha x} \cos{\beta x}\, dx =
+	\dfrac{1}{\beta^2 - \alpha^2} 
+		(\beta \cos{\alpha x} \sin{\beta x} 
+		- \alpha \sin{\alpha x} \cos{\beta x}) + C
+	$$
+and
+	$$
+	\int \sin{\alpha x} \cos{\beta x}\, dx =
+	\dfrac{1}{\beta^2 - \alpha^2}
+		(\beta \sin{\alpha x} \sin{\beta x} 
+		+ \alpha \cos{\alpha x} \cos{\beta x}) + C.
+	$$
+
+\num 
+{\bf Evaluating }${\displaystyle \int \cos{\alpha x} \sin{\beta x}\, dx}$
+
+\smallskip
+
+This integral is the same as one in the preceding exercise, if you exchange the factors $\alpha$ and $\beta$.  Do that, and obtain the formula  %qqq
+	$$
+	\int \cos{\alpha x} \sin{\beta x}\, dx =
+	{1}{\alpha^2 - \beta^2} 
+		(\alpha \sin{\alpha x} \sin{\beta x} 
+		+ \beta \cos{\alpha x} \cos{\beta x}) +C.
+	$$
+
+\vspace{-10pt}
+
+\num  Determine the following.
+
+\noindent
+\begin{minipage}{195pt}
+\sub ${\displaystyle \int_0^{2\pi} \sin^2{x}\, dx}$.
+
+\sub ${\displaystyle \int_0^{n\pi} \cos^2{x}\, dx}$, $n$ a positive integer.
+\end{minipage}
+\hfill
+\begin{minipage}{155pt}
+\sub ${\displaystyle \int_0^{2\pi} \sin{x} 
+\sin{\beta x}\, dx}$, $\beta \neq 1$.
+
+\sub ${\displaystyle \int_0^{\pi} \sin{x} 
+\sin{\beta x}\, dx}$, $\beta \neq 1$.
+\end{minipage}
+\hfill
+\mbox{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                      %
+%                               Section 4                              %
+%                                                                      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Separation of Variables and\\ Partial Fractions}
+
+One of the principal uses of integration techniques is to find closed
+form solutions to differential equations.  If you look back at the
+methods we have developed so far in this chapter, they are all
+applicable to differential equations of the form $y'=f(t)$ for some
+function $f$---that is, the rate at which $y$ changes is a function of
+the independent variable only.  In such cases we only need to find an
+antiderivative $F$ for $f$, choose the constant $C$ to satisfy the
+initial value, and we have our solution.  As we saw in the early
+chapters, though, the behavior of $y'$ often depends on the values of
+$y$ rather than on $t$---think of the $S$-$I$-$R$ model or the various
+predator-prey problems.  In this section we will see how our earlier
+techniques can be adapted to apply to problems of this sort as well.
+
+\subsection{The Differential Equation $y' = y$}
+
+As you know, 
+%
+\mar{A new method for solving $y' = y$}	
+%
+the exponential functions $y = C e^t$ are the solutions to the
+differential equation $dy/dt = y$.  Let's put aside this knowledge for
+a moment and rediscover these solutions using a new method.  The
+method involves the connection between inverse functions and their
+derivatives.  With it we will be able to explore a variety of problems
+that had been beyond our reach.
+
+The idea behind the new method is quite simple:  
+%
+\mar{Find the inverse function instead}
+%
+Instead of thinking of $y$ as a function of $t$, convert to thinking
+of $t$ as a function of $y$, thereby looking for the {\bf inverse
+  function}.  We know that the derivative of the inverse function is
+the reciprocal of the derivative of the original function, so we can
+rewrite the given differential equation by using its reciprocal:
+\mar{\vspace{12pt} The new differential equation\ldots}
+	$$
+	\dfrac{dy}{dt} = y \qquad \mbox{becomes} \qquad 
+		\dfrac{dt}{dy} = \dfrac{1}{y}.
+	$$
+Then solve the new differential equation $dt/dy = 1/y$.  While this
+may not look very different, it has the property that the rate of
+change of the {\em dependent variable}---now $t$---is expressed as a
+function of the {\em independent} variable---now $y$.  But this is
+just the form we have been considering in the earlier sections of this
+chapter.  A solution to the new equation is a function $t = g(y)$
+whose derivative is $1/y$.  This is one of the basic antiderivatives
+listed 
+%
+\mar{\vspace{12pt} \ldots and its solution}
+%
+in the table on page~\pageref{table}:
+	$$
+	t = g(y) = \ln{y} + k,
+	$$
+where $k$ is an arbitrary constant.  
+
+The solution to the original differential equation 
+%
+\mar{The inverse \ldots}	
+%
+$dy/dt = y$ is the inverse of $t = \ln{y} + k$.  We find it by solving
+this equation for $y$:
+\begin{align*}
+t - k &= \ln{y} \\
+e^{t - k} &= y \\
+e^t \cdot e^{-k} &= y
+\end{align*}
+Thus $y(t) = Ce^t$, 
+%
+\mar{\vspace{-18pt} \ldots solves the\\ original problem}
+%
+where we have replaced the constant $e^{-k}$ by $C$.
+\bigskip
+
+\subsubsection{Indefinite integrals}
+\index{indefinite integral}
+
+The language of indefinite integrals 
+%
+\mar{The differential equation expressed using differentials}
+%
+and differentials again provides a convenient mnemonic for this new
+method.  First, we use the original differential equation to relate
+the differentials $dy$ and $dt$:
+	$$
+	dy = \dfrac{dy}{dt} \, dt = y \, dt.
+	$$
+This use of differentials is introduced on
+page~\pageref{differentials}.  At this point the equation makes sense
+for either $t$ or $y$ being the independent variable.  Now if we try
+to integrate this equation with respect to $t$, we get
+	$$
+	y = \int dy = \int y(t) \, dt.
+	$$
+We can't find the last integral, because we don't know what $y$ is as
+a function of $t$.  Remember, an indefinite integral is an
+antiderivative, so an expression of the form
+	$$
+	\int f \, dt
+	$$
+represents a function $F(t)$ whose derivative is $f(t)$.  If $f$ is
+{\em not\/} given by a formula in $t$, there is no way to get a
+formula for $F(t)$.
+
+Suppose, though, that we divide both sides of the differential
+equation $dy = y \, dt$ by $y$, and integrate with respect to $y$.
+The equation takes the form
+	$$
+	\dfrac{dy}{y} = dt.	
+	$$
+Now, if we introduce indefinite integrals, we have
+	$$
+	\int \dfrac{dy}{y} = \int dt.
+	$$
+This time the variables $y$ and $t$ 
+%
+\mar{The variables\\ are now \emph{separated}}
+%
+have been separated from each other, and we {\em can\/} find the
+integrals.  In fact,
+	$$
+	\ln{y} = \int \dfrac{dy}{y} = \int dt = t + b,
+	$$
+where $b$ is an arbitrary constant. (We could just as easily have
+added the constant to the left side instead---do you see why we don't
+have to add a constant to both sides?)  To complete the work 
+%
+\mar{\vspace{10pt}The solution\\ once again}
+%
+we solve for~$y$:
+	$$
+	y = e^{t + b} = e^t \cdot e^b = Ce^t,
+	$$
+where $C = e^b$.
+
+
+\subsubsection{Summary}
+
+The first time we went through the method, we replaced 
+	$$
+\dfrac{dy}{dt} = y \qquad \mbox{by} \qquad \dfrac{dt}{dy} = \dfrac{1}{y}.
+	$$
+These differential equations express the same relation between $y$ and
+$t$.  Each is just the reciprocal of the other.  In the first, $y$
+depends on $t$; in the second, though, $t$ depends on $y$.  The second
+time we went through the method, using indefinite integrals, we
+replaced
+	$$
+	dy = y \, dt \qquad \mbox{by} \qquad dt = \dfrac{dy}{y}.
+	$$
+This change was also algebraic, and it had the same effect: the
+dependent variable changed from $y$ to $t$.  More important,
+%
+\mar{To integrate,\\ separate the variables}
+%
+in the new differential equation (using the differentials themselves!)
+the variables are separated.  That allows us to do the integration.
+We get a solution in the form $t = g(y)$.  The solution to the
+original problem is the {\em inverse\/} $y = f(t)$ of $t = g(y)$.
+
+\subsection{Separation of Variables}
+\index{separation of variables}
+
+With the method of {\bf separation of variables}, introduced in the
+previous pages, we can obtain formulas for solutions to a number of
+differential equations that were previously accessible only by Euler's
+method.  Recall that one of the clear advantages of a {\em formula\/}
+is that it allows us to see how the parameters in the problem affect
+the solution.  We'll look at two problems.  First we'll show how the
+method can explain the rather baffling formula for supergrowth that we
+gave in chapter~4.  Then, using the method of {\bf partial fractions},
+to be discussed next, we'll give a formula for logistic growth.
+	
+\subsubsection{Supergrowth}
+
+In chapter 4.2 we modelled the growth of a population $Q$ by the
+initial value problem\index{supergrowth}
+	$$
+	\dfrac{dQ}{dt} = k Q^{1.2}, \qquad Q(0) = A.
+	$$
+To get a formula for the solution, 
+%
+\mar{Separate the variables}
+%
+transform the differential equation in the following way:
+	$$
+	\dfrac{dQ}{dt} = k \, Q^{1.2} \quad \leadsto \quad 
+		dQ = k \, Q^{1.2} \, dt \quad \leadsto \quad
+		\dfrac{dQ}{Q^{1.2}} = k \, dt.
+	$$
+Now integrate:
+	$$
+	\int \dfrac{dQ}{Q^{1.2}} = \int k \, dt.
+	$$
+Because the variables have been separated, the integrals can be found:
+\begin{align*}
+\dint \dfrac{dQ}{Q^{1.2}} 
+   &= \int Q^{-1.2} \, dQ = \dfrac{1}{-.2} Q^{-.2} \\[3pt]
+\dint k \, dt &= kt + C
+\end{align*}
+Therefore, $\tfrac{1}{-.2} Q^{-.2} = kt + C$.  
+%
+\mar{Solve for $Q$}
+%
+Now we must solve this equation for $Q$.  Here is one possible
+approach.  First, we can write
+	$$
+	Q^{-.2} = -.2(kt + C) \ = \ C_1 -.2kt.
+	$$
+To simplify the expression, we have replaced $-.2C$ by a {\em new\/}
+constant $C_1$.  Since
+	$$
+	(Q^{-.2})^{-5} = Q^{-.2 \times -5} = Q^1 = Q,
+	$$ 
+we'll raise both sides of the previous equation to the power $-5$:
+	$$
+	Q(t) = (Q^{-.2})^{-5} = (C_1 -.2kt)^{-5}.
+	$$
+	
+The last step is to incorporate 
+%
+\mar{Bring in the\\ initial condition}
+%
+the initial condition $Q(0) = A$.  According to the new formula for
+$Q(t)$,
+	$$
+	Q(0) = (C_1 -.2k\cdot 0)^{-5} = C_1^{-5} = A.
+	$$
+Solving $A = C_1^{-5}$ for $C_1$, we get 
+	$$
+	C_1 = A^{-1/5} = \dfrac{1}{\sqrt[5]{A}}.
+	$$
+We are now done:
+	$$
+	Q(t) = \left(\dfrac{1}{\sqrt[5]{A}} -.2kt \right)^{-5}.
+	$$
+This is the formula that appears on page~\pageref{supergrowth soln}.  
+%
+\mar{Interpreting\\ the formula}
+%
+It shows how the parameters $k$ and $A$ affect the solution.  
+In particular, we called this {\em supergrowth\/} because the model predicts that the population $Q$ becomes infinite when 
+	$$
+	\dfrac{1}{\sqrt[5]{A}} -.2kt = 0; \quad \mbox{that is, when}
+		\quad t = \dfrac{1}{.2k \sqrt[5]{A}}.
+	$$ 	
+
+\subsection{Partial Fractions}
+\index{partial fractions}
+
+Using separation of variables with a partial fractions decomposition
+(to be described below), we will obtain a formula for the solution to
+the logistic equation (chapter~4.1).  The method of {\bf partial
+  fractions} is a useful tool for solving many integration problems.
+
+\subsubsection{Logistic growth}
+\index{logistic growth}	
+
+Consider this initial value problem associated with the logistic differential equation:
+$$
+\dfrac{dP}{dt} = kP \left( 1 - \dfrac{P}{C} \right), \qquad P(0) = A.
+$$
+We will find a formula for the solution that incorporates the growth
+parameter $k$ and the carrying capacity $C$.
+
+The first step is to transform the equation 
+%
+\mar{Step 1: separate\\ the variables}	
+%
+into one where the variables are separated:
+	$$
+	\dfrac{dP}{dt} = kP \left( 1 - \dfrac{P}{C} \right) \quad \leadsto
+		\quad \dfrac{dP}{P (1 - P/C)} = k \, dt.
+	$$
+Integrating the new equation we get
+	$$
+	\int \dfrac{dP}{P (1 - P/C)} = \int k \, dt.
+	$$
+We are stuck now, 
+%
+\mar{The denominator has an unfamiliar form}
+%
+because the integral on the left doesn't appear in our table of
+integrals (page~\pageref{table}).  If the denominator had {\em only\/}
+$P$ or {\em only\/} $1 - P/C$, we could use the natural logarithm.
+The difficulty is that the denominator is the product of both terms.
+
+There is a way out of the difficulty.  We will use algebra to
+transform the integrand into a form we can work with.  The first step
+is to simplify the denominator a bit:
+\[
+\dfrac{1}{P(1 - P/C)} = \dfrac{1}{P(C/C - P/C)} = \dfrac{1}{P(C - P)/C}
+		= \dfrac{C}{P(C - P)}.
+\]
+(This wasn't essential; it just makes later steps easier to write.)
+The next step will be the crucial one.  To understand why we take it,
+consider the rule for adding two fractions:
+	$$
+	\dfrac{\alpha}{(x + a)} + \dfrac{\beta}{(x + b)} = 
+		\dfrac{\alpha (x + b) + \beta (x + a)}{(x + a) (x + b)}
+	$$
+The denominator is a product---very much like the product $P(C - P)$ 
+%
+\mar{Step 2: write the integrand as a sum\\ of simple fractions}
+%
+in our integrand!  Perhaps we can write {\em that\/} as a sum of two
+simpler fractions:
+	$$
+\dfrac{C}{P(C - P)} = \dfrac{\alpha}{P} + \dfrac{\beta}{C - P}.
+	$$
+What values should $\alpha$ and $\beta$ have?  According to the rule
+for adding fractions,
+	$$
+	\dfrac{\alpha}{P} + \dfrac{\beta}{C - P} = 
+		\dfrac{\alpha (C - P) + \beta P}{P(C - P)},
+	$$
+and this should equal the original integrand:
+	$$
+	\dfrac{\alpha (C - P) + \beta P}{P(C - P)} = \dfrac{C}{P(C - P)}.
+	$$
+
+\noindent
+Since the denominators are equal, 
+%
+\mar{Determining \\ $\alpha$ and $\beta$}
+%
+the numerators must also be equal:
+	$$
+	\alpha (C - P) + \beta P = C.
+	$$
+In fact, they must be equal {\em as polynomials in the variable\/} $P$.  If we rewrite the last equation, collecting terms that involve the same power of $P$, we get 	$$
+	(\beta - \alpha)P + \alpha C = 0 \cdot P + 1 \cdot C.
+	$$
+Since two polynomials are equal precisely when their coefficients are
+equal, it follows that
+	$$
+	\beta - \alpha = 0 \qquad \alpha = 1.
+	$$
+Thus $\alpha = \beta = 1$, 
+%
+\mar{\vspace{16pt} The partial fractions decomposition}
+%
+and we have 
+	$$
+	\dfrac{C}{P(C - P)} = \dfrac{1}{P} + \dfrac{1}{C - P}.
+	$$
+The simpler expressions on the right are called {\bf partial
+  fractions}.\index{partial fractions} Their denominators are the
+different {\em parts\/} of the denominator of the integrand.  The
+equation that expresses the integrand as a sum of partial fractions is
+called a {\bf partial fractions decomposition}.\index{partial
+  fractions decomposition}
+\medskip
+
+We can now return to the integral equation we are trying to solve:
+	$$
+	\int \dfrac{C}{P(C - P)} \, dP  = \int k \, dt.
+	$$
+
+\newpage
+
+\noindent
+The right hand side equals $kt	+ b$, 
+%
+\mar{Step 3: evaluate\\ the integrals}
+%
+where $b$ is the usual constant of integration.  Thanks to the partial
+fractions decomposition, the left hand side can be written
+	$$	
+	\int \dfrac{C}{P(C - P)} \, dP  = \int \dfrac{1}{P} \, dP + 
+		\int \dfrac{1}{C - P} \, dP.
+	$$
+The first integral on the right is straightforward:
+	$$
+	\int \dfrac{1}{P} \, dP = \ln{P}.
+	$$
+The second can be solved by using the substitution $C - P = u$, with
+$dP = -du$:
+	$$
+	\int \dfrac{1}{C - P} \, dP = \int \dfrac{-du}{u} = 
+		- \ln{u} = -\ln(C - P).
+	$$
+Putting everything together we find
+	$$
+	\ln{P} - \ln(C - P) = \ln \left( \dfrac{P}{C - P} \right) = kt + b.
+	$$
+
+As we have seen, 
+%
+\mar{Step 4:\\ solve for $P$}	
+%
+separation of variables usually leaves us with an inverse function to
+find.  This problem is no different.  We must solve the last equation
+for $P$.  The first step is to exponentiate both sides:
+	$$
+	\dfrac{P}{C - P} = e^{kt + b} = e^b \cdot e^{kt} = Be^{kt}.
+	$$
+To simplify the expression a bit, we have replaced $e^b$ by $B = e^b$.
+Multiplying both sides by $C - P$ gives
+	$$
+	P = Be^{kt}(C - P) = CBe^{kt} - PBe^{kt}.
+	$$
+Now bring the last term over to the left, and then factor out $P$:
+	$$
+	P + PBe^{kt} = \left( 1 + Be^{kt} \right) P = CBe^{kt}.
+	$$
+The final step is to divide 
+%
+\mar{The formula for $P(t)$}
+%
+by the coefficient $1 + Be^{kt}$:
+	$$
+	P(t) = \dfrac{CBe^{kt}}{1 + Be^{kt}}.
+	$$
+
+
+Lastly, 
+%
+\mar{Step 5: incorporate\\ the initial condition}
+%
+we must see how the initial condition $P(0) = A$ affects the solution.
+We could substitute $t = 0$, $P = A$ into the last formula, but that
+produces an algebraic mess.  
+%
+\pagebreak
+%
+We want to know how $A$ affects the constant $B$, and we can see that
+directly by making our substitutions into the equation above:
+	$$
+	\dfrac{P}{C - P} = Be^{kt} \quad \leadsto \quad
+		\dfrac{A}{C - A} = Be^0 = B.
+	$$
+Now replace $B$ by $A/(C - A)$ in our formula for $P(t)$.  This yields
+	$$
+	P(t) = \dfrac{CAe^{kt}/(C - A)}{1 + Ae^{kt}/(C - A)} =
+		\dfrac{CAe^{kt}}{C - A + Ae^{kt}}
+	$$
+If we write $-A + Ae^{kt} = A(e^{kt} - 1)$, we get one of the standard
+forms of the solution to 
+%
+\mar{\vspace{28pt} The complete solution}
+%
+the logistic equation: 
+	$$
+	P(t) = \dfrac{CAe^{kt}}{C + A(e^{kt} - 1)}.
+	$$
+
+\noindent
+{\bf Remark}.  The method of partial fractions\index{partial
+  fractions} can be used to evaluate integrals of the form
+	$$
+	\int \dfrac{dx}{(x + a_1) (x + a_2) \cdots (x + a_n)} \qquad 
+	\mbox{or} \qquad \int \dfrac{P(x)}{Q(x)} \, dx,
+	$$
+where $P(x)$ and $Q(x)$ are arbitrary polynomials.  Tables of
+integrals and calculus references describe how the method works in
+these cases.  As one example, though, let's compute the antiderivative
+of the cosecant function, since we will need it in the next section.
+
+\medskip
+\noindent
+{\bf Example---The antiderivative of the
+  cosecant}\quad\label{trick}\index{cosecant!antiderivative of} We
+first use a trigonometric identity to transform the integral slightly:
+\begin{align*}
+\dint \csc{x}\,dx &= \dint \dfrac{1}{\sin{x}}\,dx \\[6pt]
+  &= \dint \dfrac{\sin{x}}{\sin^2{x}}\,dx \\[6pt]
+  &= \dint \dfrac{\sin{x}\,dx}{1-\cos^2{x}}.
+\end{align*}
+If we now make the substitution $u=\cos{x}$, with $du=-\sin{x}\,dx$,
+this becomes
+\begin{align*}
+\dint \csc{x}\,dx &= \dint \dfrac{-du}{1-u^2} \\[3pt]
+ &= \dint \dfrac{-1}{2}\left(\dfrac{1}{1+u} 
+            + \dfrac{1}{1-u}\right)\,du \\[3pt]
+ &= -\dfrac{1}{2}\dint  \dfrac{du}{1+u} 
+            - \dfrac{1}{2}\dint \dfrac{du}{1-u} \\[3pt]
+ &= -\dfrac{1}{2}\ln(1+u) + \dfrac{1}{2} \ln(1-u) +C\\[6pt]
+ &= \dfrac{1}{2}\ln{\dfrac{1-u}{1+u}} +C\\[6pt]
+ &= \dfrac{1}{2}\ln{\dfrac{1-\cos{x}}{1+\cos{x}}}+C.
+\end{align*}
+We can simplify this slightly 
+%
+\mar{The final form\\ of the antiderivative\\ of the cosecant}
+%
+by multiplying both numerator and denominator by $1+\cos{x}$ to get
+\begin{align*}
+\dint \csc{x}\,dx
+  &= \dfrac{1}{2}\ln\dfrac{1-\cos^2{x}}{(1+\cos{x})^2}+C
+   = \ln{\left|\dfrac{\sin{x}}{1+\cos{x}}\right|}+C \\
+  &=-\ln{|\csc{x}+\cot{x}|}+C.\label{cosecant}
+\end{align*}
+Note that in the next to last line we used the general fact about
+logarithms that $n\,\ln{A}=\ln(A^n)$ for any value of $n$ and any
+$A>0$.  Note also that since the domain of the secant function
+consists of infinitely many separate intervals. the ``$+\ C$'' at
+the end of the antiderivative needs to be interpreted as potentially a
+different value of $C$ over each interval.
+
+In the same fashion we can 
+%
+\mar{The antiderivative\\ of the secant}
+%
+obtain the antiderivative for the secant function\index{secant!antiderivative of}:\label{secant}
+$$
+\int \sec{x}\,dx=\ln{|\sec{x} +\tan{x}|}+C.
+$$
+
+
+\subsection{Exercises}
+
+\subsubsection{Separation of variables}
+\index{separation of variables}
+
+\vspace{-10pt}
+
+\num Use the method of separation of variables to find a formula for
+the solution of the differential equation $dy/dt = y + 5$.  Your
+formula should contain an arbitrary constant to reflect the fact that
+many functions solve the differential equation.
+
+\newpage
+
+\num Use the method of separation of variables to find formulas for
+the solutions to the following differential equations.  In each case
+your formula should be expressed in terms of the input variable that
+is indicated (e.g., in part (a) it is $t$).
+
+\noindent
+\begin{minipage}[t]{150pt}
+\sub  $dy/dt = 1/y$.
+
+\sub  $dz/dx = 3/(z - 2)$.
+
+\sub  $dy/dx = x/y$
+\end{minipage}
+\hfill
+\begin{minipage}[t]{150pt}
+\sub  $dy/dx = y/x$
+
+\sub  $du/dv = u/(u - 1)$
+
+\sub  $dv/dt = -\sqrt{v}$
+\end{minipage}
+\hfill
+\mbox{}
+
+\num {\bf A cooling liquid}.  According to Newton's law of
+cooling\index{Newton's law of cooling} (see chapter~4.1), in a room
+where the ambient temperature is $A$, the temperature $Q$ of a hot
+object will change according to the differential equation
+	$$
+	\dfrac{dQ}{dt} = -k(Q - A).
+	$$
+The constant $k$ gives the rate at which the object cools.
+
+\sub Find a formula for the solution to this equation using the method
+of separation of variables.  Your formula should contain an arbitrary
+constant.
+
+\sub Suppose $A$ is 20$^\circ$C and $k$ is .1$^\circ$ per minute per
+$^\circ$C.  If time $t$ is measured in minutes, and $Q(0) =
+90^\circ$C, what will $Q$ be after 20 minutes?
+
+\sub  How long does it take for the temperature to drop to 30$^\circ$C?
+
+\numa Suppose a cold drink at 36$^\circ$F is sitting in the open air
+on a summer day when the temperature is 90$^\circ$F.  If the drink
+warms up at a rate of .2$^\circ$F per minute per $^\circ$F of
+temperature difference, write a differential equation to model what
+will happen to the temperature of the drink over time.
+
+\sub Obtain a formula for the temperature of the drink as a function
+of the number of minutes $t$ that have passed since its temperature
+was 36$^\circ$F.
+
+\sub What will the temperature of the drink be after 5 minutes; after
+10 minutes?
+
+\sub  How long will it take for the drink to reach 55$^\circ$F?
+
+\num {\bf A leaking tank}.\index{leaking tank} In chapter~4.2 we used
+the differential equation
+	$$
+	\dfrac{dV}{dt} = -k \sqrt{V}
+	$$
+to model the volume $V(t)$ of water in a leaking tank after $t$ hours
+(see page~\pageref{leaking tank-begin}).
+
+\sub  Use the method of separation of variables to show that 
+	$$
+	V(t) = \dfrac{k^2}{4} \, (C - t)^2
+	$$
+is a solution to the differential equation, for any value of the
+constant~$C$.
+
+\sub  Explain why the function
+\[
+V(t) = \begin{cases}
+\dfrac{{k^2}}{4} (C - t)^2 &\text{if $0 \leq t \leq C$}, \\[8pt]
+0 &  \text{if $C < t$}.
+\end{cases}
+\]
+is {\em also\/} a solution to the differential equation.  Why is {\em
+  this\/} solution more relevant to the leaking tank problem than the
+solution in part~(a)?
+
+\num {\bf A falling body with air resistance}.\index{falling body} We
+have used the differential equation
+	$$
+	\dfrac{dv}{dt} = -g -bv
+	$$ to model the motion of a body falling under the influence
+        of gravity ($g$) and air resistance ($bv$).  Here $v$ is the
+        velocity of the body at time $t$.  (See pages \pageref{fall
+          w/air-begin}--\pageref{fall w/air-end}.)
+
+\sub  Solve the differential equation by separating variables, and obtain
+	$$
+	v(t) = \dfrac{1}{b} \, \left( Ce^{-bt} - g \right),
+	$$
+where $C$ is an arbitrary constant.
+
+\sub Now impose the initial condition $v(0) = 0$ (so the body starts
+it fall from rest) to determine the value of $C$.  What is the formula
+for $v(t)$ now?
+
+\sub Exercise 21 on page~\pageref{ex:falling body1} gives the solution
+to the initial value problem as
+	$$							
+	v(t) = \dfrac{g}{b} \, \left( 2^{-bt/.69} - 1 \right).	
+	$$
+Reconcile this expression with the one you obtained in part (b) of
+this exercise.
+
+\sub The distance $x(t)$ that the body has fallen by time $t$ is given
+by the integral
+	$$
+	x(t) = \int_0^t v(t) \, dt, \quad \mbox{because} \quad
+		\dfrac{dx}{dt} = v \quad \mbox{and} \quad x(0) = 0.
+	$$
+Use your formula for $v(t)$ from part (b) to find $x(t)$.
+
+\newpage
+
+\numa {\bf Supergrowth}.\index{supergrowth} We have analyzed the
+differential equation
+	$$
+	\dfrac{dQ}{dt} = k Q^p
+	$$
+when $p = 1.2$ (and, of course, when $p = 1$).  Find a formula for the
+solution $Q(t)$ when $p = 2$.  Your formula should contain an
+arbitrary constant $C$.
+  
+\sub Add the initial condition $Q(0) = A$.  This will fix the value of
+the constant~$C$.  What is the formula for $Q(t)$ when the initial
+condition is incorporated?
+
+\sub Your formula in part (b) should demonstrate that $Q$ becomes
+infinite at some finite time $t = \tau$.  When is $\tau$?  Your answer
+should be expressed in terms of the growth constant $k$ and the
+initial population size~$A$.
+
+\sub Suppose the values of $k$ and $A$ are known only imprecisely, and
+they could be in error by as much as 5\%.  That makes the value of
+$\tau$ uncertain.  Which error causes the greater uncertainty: the
+error in $k$ or the error in $A$?  (See the discussion of error
+analysis for the supergrowth model on pages \pageref{supergrowth
+  errors-begin}--\pageref{supergrowth errors-end}.)
+
+\num {\bf General supergrowth}.  Find the solution to the initial
+value problem
+	$$
+	\dfrac{dQ}{dt} = k Q^p, \qquad Q(0) = A
+	$$
+for {\em any\/} value of the power $p$.  For which values of $p$ does
+$Q$ blow up to $\infty$ at a finite time $t = \tau$?  What is $\tau$?
+
+
+
+\subsubsection{Partial fractions}
+\index{partial fractions}
+
+\num Use the method of partial fractions to determine the values of
+$\alpha$, $\beta$, and $\gamma$ in the following equations.
+
+\noindent
+\begin{minipage}{180pt}
+\sub $\dfrac{1}{(x - 1)(x + 2)} = \dfrac{\alpha}{x - 1} +
+	\dfrac{\beta}{x + 2}$
+	
+\sub $\dfrac{x}{(x - 1)(x + 2)} = \dfrac{\alpha}{x - 1} +
+	\dfrac{\beta}{x + 2}$
+
+\sub $\dfrac{1}{x(x^2-1)} = \dfrac{\alpha}{x} + 
+	\dfrac{\beta}{x-1} + \dfrac{\gamma}{x+1}$
+\end{minipage}
+\hfill
+\begin{minipage}{180pt}
+\sub $\dfrac{x}{2x^2 +3x + 1} = \dfrac{\alpha}{2x + 1} + 
+	\dfrac{\beta}{x + 1}$
+
+\sub  $\dfrac{1}{x(x^2 + 1)} = \dfrac{\alpha}{x} +
+	\dfrac{\beta x + \gamma}{x^2 + 1}$
+
+\bigskip
+
+\noindent
+[Note that $x^2 + 1$ can't be factored.]
+\vfill
+\mbox{}
+
+\end{minipage}
+\hfill
+\mbox{}
+
+\pagebreak
+
+\num  Find a formula for each of these indefinite integrals.
+\vspace{-5pt}
+
+\noindent
+\begin{minipage}[t]{150pt}
+\sub  $\dint \dfrac{3 \, dx}{(x - 1)(x + 2)}$
+
+\sub  $\dint \dfrac{5x + 3}{(x - 1)(x + 2)} \, dx$
+
+\sub  $\dint \dfrac{dt}{t(t^2-1)}$
+\end{minipage}
+\hfill
+\begin{minipage}[t]{150pt}
+\sub  $\dint \dfrac{x \, dx}{1 - x^2}$
+
+\sub  $\dint \dfrac{1 - u}{u^2 - 4} \, du$
+
+\sub  $\dint \dfrac{x^2 + 2x + 1}{x(x^2 + 1)} \, dx$
+\end{minipage}
+\hfill
+\mbox{}
+
+\num  Determine
+\vspace{-5pt}
+
+\noindent
+\begin{minipage}[t]{150pt}
+\sub  $\dint_2^3 \dfrac{3 \, dx}{(x - 1)(x + 2)}$
+
+\sub  $\dint_2^4 \dfrac{dt}{t(t^2-1)}$
+\end{minipage}
+\hfill
+\begin{minipage}[t]{150pt}
+\sub  $\dint_0^{\pi/4} \dfrac{x \, dx}{1 - x^2}$
+
+\sub  $\dint_1^{\sqrt{3}} \dfrac{x^2 + 2x + 1}{x(x^2 + 1)} \, dx$
+\end{minipage}
+\hfill
+\mbox{}
+
+\num Mirror the derivation of $\dint \csc{x}\,dx$ to find $\dint
+\sec{x}\,dx.$
+
+\num  Consider the particular logistic growth model defined by
+	$$
+\dfrac{dP}{dt} = .2 P\left( 1 - \dfrac{P}{10} \right) \ \mbox{lbs/hr},
+	 \qquad P(0) = .5 \ \mbox{lbs}
+	$$ (Compare this with the fermentation problems, pages
+         \pageref{ferment-begin}--\pageref{ferment-end}.)
+
+\sub  Obtain the formula for the solution to this initial value problem.
+
+\sub  How large will $P$ be after 3 hours; after 10 hours?
+
+\sub When will $P$ reach one-half the carrying capacity--that is, for
+which $t$ is $P = 5$ lbs?
+
+\num Derive the formula for $\dint \sec{x}\,dx$ given on
+page~pageref{secant}, using methods similar to those used to find an
+antiderivative for the cosecant function.
+
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                      %
+%                               Section 5                              %
+%                                                                      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Trigonometric Integrals}
+
+The preceding sections have covered the main integration techniques
+and concepts likely to be needed by most users of calculus.  These
+techniques, together with the numerical methods discussed in
+chapter~11.6, should be part of the basic tool kit of every
+practitioner of calculus.  For those going on in physics or
+mathematics, there are additional methods, largely involving
+trigonometric functions in various ways, that are sometimes useful.
+The purpose of this section is to develop the most commonly used of
+these techniques.
+
+Recall that there are only a few simple antiderivatives we can write
+down immediately by inspection.  All non-numerical integration
+techniques consist of finding transformations that will reduce some
+new class of integration problems to a class we already know how to
+solve.  Once we have a new class of solvable problems, then we look
+for other classes of problems that can be reduced to this new class,
+and so on. The techniques we will be developing in this section
+involve ways of making such transformations through the use of basic
+trigonometric identities, typically in conjunction with integration by
+parts or by substitution.  Before we proceed with the integration
+techniques, it will be helpful to list the trigonometric identities
+used.
+
+\subsubsection{Review of trigonometric identities}
+
+The most frequently used identity is
+$$
+\sin^2{x} + \cos^2{x} =1,
+$$
+and the equivalent form obtained by dividing through by $\cos^2{x}$:
+$$
+\tan^2{x}+1=\sec^2{x},
+$$
+and by $\sin^2{x}$:
+$$
+1+\cot^2{x}=\csc^2{x}.
+$$ 
+The only other identities you will need have already been encountered:
+$$
+\sin{2x}=2\sin{x}\cos{x}\quad \mbox{and}\quad 
+     \cos{2x}=\cos^2{x}-\sin^2{x},
+$$
+plus the two other forms of the second of these identities,
+$$\cos^2{x}=\dfrac{1}{2}(1+\cos{2x})\quad \mbox{and}\quad
+     \sin^2{x} =\dfrac{1}{2}(1-\cos{2x}).
+$$
+
+\subsection{Inverse Substitution}\index{inverse substitution!integration by}\index{integration by inverse substitution}
+
+The method of substitution outlined in chapter~11.2 worked by taking a
+complicated integrand and breaking it down into simpler components,
+reducing the problem 
+%
+\mar{Success sometimes comes by making things more complicated} 
+%
+of finding an antiderivative for something in the
+form $f(G(x))g(x)$ to the problem of finding an antiderivative for
+$f$.  In some cases, though, we go in the opposite direction: we have
+an integral $\int f(x)\,dx$ we want to find but can't evaluate
+directly.  Instead, we can find a function $G(u)$ with derivative
+$g(u)$ such that we can find an antiderivative for $f(G(u))g(u)$.
+Since we know this integral is $F(G(u))$, we can now figure out what
+the desired function $F$ must be.  As with the earlier substitution
+techniques, this {\bf inverse substitution} is conveniently expressed
+using differential notation.
+
+\medskip
+\noindent
+{\bf Example 1}\quad  Suppose we want to evaluate
+$$\int \sqrt{4-x^2}\,dx.$$
+If we substitute $x=2\sin{u}$, so that $dx=2\cos{u}\,du$, look what happens:
+\begin{align*}
+\int \sqrt{4-x^2}\,dx
+        &= \int \sqrt{4-(2\sin{u})^2}\,2\cos{u}\,du \\
+	&= \int \sqrt{4-4\sin^2{u}}\,2\cos{u}\,du \\
+	&= \int 2\sqrt{1-\sin^2{u}}\,2\cos{u}\,du \\
+	&= \int 2\cos{u}\,2\cos{u}\,du \\
+	&= 4\int \cos^2{u}\,du.
+\end{align*}
+But this is just an antiderivative we have already found in the
+exercises in chapter~11.3, namely
+\begin{align*}
+\int \cos^2{u}\,du &= \dfrac{u}{2} + \dfrac{1}{4} \sin 2u + C \\[3pt]
+	&= \dfrac{u}{2} + \dfrac{1}{4}\cdot 2\sin u \cos u+ C \\[3pt]
+	&=  \dfrac{1}{2}(u +\sin u \cos u)+ C.
+\end{align*}
+To find the desired antiderivative for the original function of $x$,
+we now replace $u$ by its expression in terms of $x$ by inverting the
+relationship: If $x=2\sin{u}$, then $\sin{u}=x/2$, and
+$u=\arcsin(x/2)$.  As we found in chapter~11.1, drawing a picture
+expressing the relationship between $x$ and $u$ makes it easy to
+visualize the other trigonometric functions:
+\begin{center}
+\begin{picture}(180,80)(-10,5)
+\bezier{150}(30,10)(29.2,16.89)(26.83,23.42)
+\put(165,47){$x$}
+\put(78,57){$2$}
+\put(80,5){\makebox(0,0)[t]{$\sqrt{4-x^2}$}}
+\put(32,15){$u$}
+\thicklines
+\put(0,10){\line(1,0){160}}
+\put(160,10){\line(0,1){80}}
+\put(0,10){\line(2,1){160}}
+\end{picture}
+\end{center}
+From the picture we see that
+$$
+\cos{u} = \dfrac{\sqrt{4-x^2}}{2} \qquad \mbox{and} \qquad 
+      \tan{u}=\dfrac{x}{\sqrt{4-x^2}}.
+$$
+
+We can now find an expression for the desired antiderivative in terms
+of~$x$:
+\begin{align*}
+\int \sqrt{4-x^2}\,dx
+   &= 2(u +\sin u \cos u)+ C \\
+   &= 2\left(\arcsin\dfrac{x}{2} 
+               +\dfrac{x}{2}\dfrac{\sqrt{4-x^2}}{2}\right) + C \\
+   &= 2\arcsin\dfrac{x}{2}+\dfrac{x\sqrt{4-x^2}}{2}+ C.
+\end{align*}
+As usual, you should check this result by differentiating the
+right-hand side to see that you do obtain the integrand on the left.
+
+\medskip
+
+Similar substitutions 
+%
+\mar{Some useful substitutions}
+%
+allow us to evaluate other integrals involving
+square roots of quadratic expressions.  Here is a summary of useful
+substitutions. In each case, $a$ is a positive real number.  
+\medskip
+\begin{center}
+\begin{picture}(270,60)
+	\begin{thicklines}
+	\put(0,0){\framebox(270,60)
+		{\begin{minipage}{200pt}
+	{\hspace*{-12pt}
+\begin{tabular}{lccl}
+To transform  &$a^2-x^2$&  let &$x=a\,\sin{u}$; \\ [2pt]
+To transform& $a^2+x^2$& let&$x=a\,\tan{u}$; \\ [2pt]
+To transform& $x^2-a^2$& let &$x=a\,\sec{u}$. \\ 
+\end{tabular}
+}
+\end{minipage}
+}}
+	\end{thicklines}
+\end{picture}
+\end{center}
+
+\medskip
+\noindent
+{\bf Example 2}\quad Integrate
+$$
+\int \dfrac{dx}{\sqrt{x^2+9}}.
+$$
+If we set $x=3\tan{u}$, then $dx=3\,\sec^2{u}\,du$, and the integral becomes
+\begin{align*}
+\dint \dfrac{dx}{\sqrt{x^2+9}}
+   &= \dint \dfrac{3\,\sec^2{u}\,du}{\sqrt{9\,\sec^2{u}}} \\
+   &= \dint \sec{u}\,du \\
+   &= \ln{|\sec{u} + \tan{u}|}+C,
+\end{align*}
+(as we saw in chapter 11.4).  To express this in terms of $x$, we
+again draw a picture showing the relation between $u$ and $x$:
+
+\begin{center}
+\begin{picture}(180,80)(-10,0)
+\bezier{150}(30,10)(29.2,16.89)(26.83,23.42)
+\put(166,46){$x$}
+\put(79,58){\makebox(0,0)[r]{$\sqrt{9 + x^2}$}}
+\put(81,5){\makebox(0,0)[t]{$3$}}
+\put(32,15){$u$}
+\thicklines
+\put(0,10){\line(1,0){160}}
+\put(160,10){\line(0,1){80}}
+\put(0,10){\line(2,1){160}}
+%\put(20,10){\line(0,1){2.8}}
+%\put(17.88,18.94){\line(1,-2){1.17}}
+%\put(20,12.8){\line(-1,4){2.12}}
+\end{picture}
+\end{center}
+From this picture we see that $\sec{u}=\sqrt{9+x^2}/3$.  Therefore
+\begin{align*}
+\dint \dfrac{dx}{\sqrt{x^2+9}} 
+  &= \ln\left|\dfrac{\sqrt{9+x^2}}{3} +\dfrac{x}{3}\right|+C \\[3pt]
+  &= \ln\left|\dfrac{\sqrt{9+x^2} +x}{3}\right|+C 
+     = \ln\left|\sqrt{9+x^2} +x \right|+C',
+\end{align*}
+where $C'=C-\ln{3}$ is a new constant.  As usual, you should
+differentiate to check that this really is the claimed antiderivative
+
+\medskip
+\noindent
+{\bf Example 3}\quad Evaluate
+$$
+\int \dfrac{dx}{\sqrt{9x^2-16}}.
+$$
+We first write $\sqrt{9x^2-16}$ as
+$\sqrt{9}\sqrt{x^2-(16/9)}=3\sqrt{x^2-(16/9)}$.  Using the
+substitution $x=(4/3)\sec{u}$, with $dx=(4/3)\sec{u}\tan{u}\,du$ gives
+
+\newpage
+
+\mbox{}\vspace{-20pt}
+
+\begin{align*}
+\dint \dfrac{dx}{\sqrt{9x^2-16}}
+  &= \dint \dfrac{(4/3)\sec{u}\,\tan{u}\,du}{3\sqrt{(16/9)
+                     \sec^2{u}-(16/9)}} \\[6pt]
+  &= \dint \dfrac{(4/3)\sec{u}\,\tan{u}\,du}{3\cdot (4/3)\tan{u}} 
+                     =\dfrac{1}{3}\dint \sec{u}\,du \\[3pt]
+  &= \dfrac{1}{3}\ln{| \sec{u}+\tan{u}|}+C.
+\end{align*}
+Again we need a picture to relate $x$ and $u$:
+\begin{center}
+\begin{picture}(180,90)(-10,0)
+\bezier{150}(30,10)(29.2,16.89)(26.83,23.42)
+\put(165,46){$\sqrt{9x^2-16}$}
+\put(80,58){\makebox(0,0)[r]{$3x$}}
+\put(82,5){\makebox(0,0)[t]{$4$}}
+\put(32,15){$u$}
+\thicklines
+\put(0,10){\line(1,0){160}}
+\put(160,10){\line(0,1){80}}
+\put(0,10){\line(2,1){160}}
+%\put(20,10){\line(0,1){2.8}}
+%\put(17.88,18.94){\line(1,-2){1.17}}
+%\put(20,12.8){\line(-1,4){2.12}}
+\end{picture}
+\end{center}
+Thus $\tan{u}=\sqrt{9x^2-16}/4$, which gives
+\begin{align*}
+\dint \dfrac{dx}{\sqrt{9x^2-16}} 
+  &= \dfrac{1}{3}\ln{| \sec{u}+\tan{u}|}+C \\
+  &= \dfrac{1}{3}\ln\left|\dfrac{3x}{4} + \dfrac{\sqrt{9x^2-16}}{4}\right|+C \\
+  &= \dfrac{1}{3}\ln{\left|3x +\sqrt{9x^2-16}\right|} +C',
+\end{align*}
+where $C'=C-(\ln{4})/3$.
+
+As usual, you should differentiate this final expression to confirm that it really is the desired antiderivative.
+
+\subsection{Inverse Substitution and Definite Integrals}
+
+We saw on page~\pageref{defint} in chapter~11.2 how to use
+substitution to evaluate a definite integral. When we transformed an
+integral originally expressed in terms of a variable $x$ into one
+expressed in terms of a variable $u$, the two integrals had the same
+numerical value.  The same can be done with the inverse substitution
+technique we have just been considering.  Let's see how this works.
+Suppose we start with a function $f(x)$ to be integrated over an
+interval $[a, b]$.  If we only knew an antiderivative $F$ for $f$, we
+could easily write
+$$
+\int_a^b f(x)\,dx=F(b)-F(a),
+$$
+as usual.  In the examples we've just been considering, we found the
+antiderivative for $f$ by making a substitution $x=G(u)$ for some
+function $G$ and then finding an antiderivative for $f(G(u))g(u)$,
+where $G'=g$.  This antiderivative we know is $F(G(u))$, where $F$ is
+the function we are trying to find.  We were able to obtain $F$ by
+replacing $u$ by its expression in $x$.  To do this we needed to find
+the inverse function $G^{-1}$ for $G$, so that $x=G(u)$ was equivalent
+to $u=G^{-1}(x)$, and $F(x)=F(G(G^{-1}(x)))$.  It is this last step we
+can eliminate in calculating definite integrals.
+
+If we want $x$ to go from $a$ to $b$, what must $u$ do? What interval
+of $u$ values will get transformed to this interval of $x$ values by
+$G$.  The value of $u$ such that $G(u)=a$ is $A=G^{-1}(a)$.  Similarly
+the $u$ value that gets transformed to $b$ is $B=G^{-1}(b)$.  Thus
+under the substitution $x=G(u)$, as $u$ goes from $A$ to $B$, $x$ will
+go from $a$ to $b$.  Now look at the corresponding definite integral:
+\begin{align*}
+\dint_A^B f(G(u))\,g(u)\,du 
+   &= \left.F(G(u))\rule{0pt}{16pt}\,\right|_A^B \\ 
+   &= F(G(B))-F(G(A)) \\	
+   &= F(G(G^{-1}(b)))-F(G(G^{-1}(a))) \\
+   &= F(b)-F(a),
+\end{align*}
+which is just the desired value of the original definite integral.  To
+summarize,
+\begin{center}
+\begin{picture}(350,100)
+	\begin{thicklines}
+	\put(0,0){\framebox(350,100)
+		{\begin{minipage}{310pt}
+	{\bf \boldmath If we make the substitution $x=G(u)$, then
+$$\dint_a^b f(x)\,dx = F(b)-F(a)=\dint_A^B f(G(u))\,g(u)\,du,$$
+where $A=G^{-1}(a)$ and $B=G^{-1}(b)$.
+}
+\end{minipage}
+}}
+	\end{thicklines}
+\end{picture}
+\end{center}
+Let's look back at a couple of the preceding examples to see how this
+works.
+
+\medskip
+\noindent
+{\bf Example 4}\quad Evaluate
+$$
+\int_{-2}^2 \sqrt{4-x^2}\,dx.
+$$
+In Example 1 we found an antiderivative for this function by making
+the substitution $x= 2\sin{u}=G(u)$.  The inverse function is then
+$G^{-1}(x)=\arcsin(x/2)$. To get $x$ to go from $-2$ to 2, $u$ must go
+from $G^{-1}(-2)=\arcsin(-1)=-\pi/2=A$ to
+$G^{-1}(2)=\arcsin{1}=\pi/2=B$.  Then to evaluate the integral from
+$x=-2$ to $x=2$, we only need to evaluate the antiderivative we found
+for the $u$ integral between $u=-\pi/2$ and $u=\pi/2$.
+$$
+\int_{-2}^2 \sqrt{4-x^2}\,dx
+  = \left.2(u+\sin{u}\,\cos{u})\rule{0pt}{16pt}\,\right|_{-\pi/2}^{\pi/2} 
+  = \pi-(-\pi)=2\pi.
+$$ 
+(Note that this is just half the area of a circle of radius 2.  How
+  could we have foreseen this result from the form of the problem?)
+
+\medskip
+\noindent
+{\bf Example 5}\quad Suppose we wanted the integral
+$$
+\int_0^3 \dfrac{dx}{\sqrt{x^2+9}}.
+$$
+In Example 2 we found an antiderivative by letting $x=3\tan{u}$.  Here
+$G^{-1}(x)=\arctan(x/3)$. For $x$ to go from 0 to $3$, $u$ must go
+from 0 to $\arctan{1}=\pi/4$.  Using the $u$-antiderivative we found
+in Example 2, we have
+\begin{align*}
+\dint_0^3 \dfrac{dx}{\sqrt{x^2+9}}
+  &= \left.\ln|\sec{u}+\tan{u}|\rule{0pt}{16pt}\,\right|_0^{\pi/4} \\
+  &= \ln{|\sqrt{2}+1|}-\ln{|1+0|}=\ln(\sqrt{2}+1).
+\end{align*}
+
+
+\subsection{Completing The Square}
+
+Integrands involving terms of the form $Ax^2+Bx+C$ can always be put
+in the form $A( u^2\pm b^2)$ for a suitable variable $u$ and constant
+$b$.  The technique for doing this is the standard method of {\bf
+  completing the square}\index{completing the square}:
+\begin{align*}
+Ax^2+Bx+C
+  &= A\left(x^2 + \dfrac{B}{A}x\right)+C \\
+  &= A\left(x^2 + \dfrac{B}{A}x + \dfrac{B^2}{4A^2}\right)+C 
+         - \dfrac{B^2}{4A} \\
+  &= A\left(x + \dfrac{B}{2A}\right)^{\!2} + \dfrac{4AC-B^2}{4A}.
+\end{align*}
+The substitutions
+$$
+u = x+ \dfrac{B}{2A} \qquad \mbox{and} \qquad 
+  b = \dfrac{\sqrt{|4AC-B^2|}}{2A}
+$$
+then transform the problem to a form where we can use the techniques
+already developed.  The following examples should make this clear.
+
+\medskip
+\noindent
+{\bf Example 6}\quad Consider the integral
+$$
+\int \dfrac{dx}{x^2+4x+5}.
+$$
+This may not immediately remind us of anything we've seen before.  But
+if we rewrite it in the form
+$$
+\int \dfrac{dx}{(x^2+4x+4)+1}=\int \dfrac{dx}{(x+2)^2+1},
+$$ 
+it now begins to resemble something involving an arctangent.  In fact,
+if we make the substitution $u=x+2$, so $du=dx$, we can write
+\begin{align*}
+\dint \dfrac{dx}{x^2+4x+5} 
+        &= \dint \dfrac{du}{u^2+1} \\
+	&= \arctan{u}+C \\
+	&= \arctan(x+2) +C.
+\end{align*}
+
+\medskip
+\noindent
+{\bf Example 7}\quad The technique of completing the square even works
+for expressions we could have factored directly, if we had noticed:
+\begin{align*}
+\dint \dfrac{dx}{x^2+4x+3} 
+   &= \dint \dfrac{dx}{(x+2)^2-1} \\[3pt]
+   &= \dint \dfrac{dx}{(x+2 -1)(x+2+1)} \\[3pt]
+   &= \dint \dfrac{dx}{(x+1)(x+3)} \\[3pt]
+   &= \dfrac{1}{2}\dint \dfrac{dx}{x+1}
+           - \dfrac{1}{2}\dint \dfrac{dx}{x+3} \\[5pt]
+   &= \dfrac{1}{2}\ln\left|\dfrac{x+1}{x+3}\right| +C.
+\end{align*}
+
+
+\medskip
+\noindent
+{\bf Example 8}\quad Evaluate
+$$\int \dfrac{dx}{\sqrt{6x-x^2}}. $$
+Note that $6x-x^2=-(x^2-6x)=-(x-3)^2+9=9-(x-3)^2$.  If we now substitute $x-3 =3u$, with $dx=3du$, we get
+\begin{align*}
+\dint \dfrac{dx}{\sqrt{6x-x^2}}
+        &= \dint \dfrac{dx}{\sqrt{9-(x-3)^2}}\\
+	&= \dint \dfrac{3 \, du}{\sqrt{9-9u^2}}
+              = \dint \dfrac{du}{\sqrt{1-u^2}} \\
+	&= \arcsin{u}+C \\
+	&= \arcsin \dfrac{x-3}{3} +C.
+\end{align*}
+
+\subsection{Trigonometric Polynomials}
+
+A {\bf trigonometric polynomial}\index{polynomial!trigonometric} is
+any sum of constant multiples of products of trigonometric functions.
+The preceding techniques have shown some cases where such
+trigonometric polynomials can arise, even though the original problem
+had no apparent reference to trigonometric functions.  There are many
+different ways of breaking trigonometric polynomials down into special
+cases which can then be integrated.  We will develop one way which has
+the virtue of using few special cases, so that it can be used fairly
+automatically.  It also introduces a powerful tool---that of {\bf
+  reduction formula}---which can be used to generate mathematical
+results interesting in their own right.  One example is the striking
+representation of $\pi$ derived in chapter~12.1.  Other examples are
+developed in the exercises at the end of this section.
+
+Since every trigonometric function is expressible in terms of sines
+and cosines, any trigonometric polynomial can be written as a sum of
+terms of the form $c\,\sin^m{x}\,\cos^n{x}$ where $c$ is a constant
+and $m$ and $n$ are integers---positive, negative, or 0.  For
+instance, $5\,\sec^2{x}\,\tan^5{x}$ can be rewritten as
+$5\,\sin^5{x}\,\cos^{-7}{x}$. To find antiderivatives for
+trigonometric polynomials, it therefore suffices to be able to
+evaluate integrals of the form
+$$
+\int \sin^m{x}\cos^n{x}\,dx.
+$$
+
+We will see how to find antiderivatives for functions of this sort by
+breaking the problem into a series of special cases:
+
+\medskip
+\begin{tabular}{rl}
+Category I&either $m\geq 0$ or $n\geq 0$ (or both) \\
+Case 1&$m=1$ or $n=1$ \\
+Case 2&$m=0$ or $n=0$ \\
+Category II& $m$ and $n$ both negative \\
+\end{tabular}
+
+
+\subsubsection{Category I: Either \boldmath $m\geq 0$ or $n\geq 0$ (or both)}
+
+Assume for the sake of explicitness that $m\geq 0$. We can then use
+the identity $\sin^2{x}=1-\cos^2{x}$ to replace $\sin^m{x}$ entirely
+by cosine terms if $m$ is even, or to replace all but one of the sine
+terms by cosines if $m$ is odd.  A similar replacement can be made if
+$n\geq 0$.
+
+
+\medskip
+\noindent
+{\bf Example 9}\quad
+\begin{align*}
+\sin^4{x}\,\cos^6{x}
+  &= (1-\cos^2{x})^2\cdot\cos^6{x} \\
+  &= (1-2\,\cos^2{x}+\cos^4{x})\cdot\cos^6{x} \\
+  &= \cos^6{x}-2\,\cos^8{x}+\cos^{10}{x}.
+\end{align*}
+(Note that in this example we could just as well have expressed
+$\cos^6{x}$ entirely in terms of $\sin{x}$.)
+
+\medskip
+\noindent
+{\bf Example 10}\quad
+\begin{align*}
+\sin^3{x}\,\cos^{-8}{x}
+  &= \sin{x}\cdot (1-\cos^2{x})\cdot\cos^{-8}{x} \\
+  &= \sin{x}\,\cos^{-8}{x}-\sin{x}\,\cos^{-6}{x}.
+\end{align*}
+
+\medskip
+\noindent
+{\bf Example 11}\quad
+\begin{align*}
+\sin^{-7}{x}\,\cos^{7}{x}
+  &= \sin^{-7}{x}\cdot (1-\sin^2{x})^3\cdot\cos{x} \\
+  &= \sin^{-7}{x}\,\cos{x}-3\,\sin^{-5}{x}\,\cos{x}+3\,\sin^{-3}{x}\,\cos{x} \\
+  & \mbox{}\quad -\sin^{-1}{x}\,\cos{x}.
+\end{align*}
+
+\medskip
+We can thus reduce any problem in Category I to one of two special cases:
+\begin{center}
+\begin{tabular}{rl}
+Case 1&$m=1$ or $n=1$ \\
+Case 2&$m=0$ or $n=0$ \\
+\end{tabular}
+\end{center}
+We will now see how to find antiderivatives for these cases.
+
+\medskip
+\noindent
+{\bf Case 1: \boldmath $m=1$ or $n=1$}\quad Since the two
+possibilities are analogous, we will consider the case with
+$n=1$. Then $m$ can be any real number at all, not necessarily an
+integer.  We make the substitution $u=\sin{x}$, so that
+$du=\cos{x}\,dx$, and
+\[
+\int \sin^m{x}\cos{x}\,dx = \int u^m\,du = 
+\begin{cases}
+\dfrac{1}{m+1} \,u^{m+1} + C & \mbox{if $m\neq -1$}, \\[10pt]
+\ln{|u|} + C & \mbox{if $m=-1$}.
+\end{cases}
+\]
+Replacing $u$ by its expression in $x$ we have the antiderivative:
+
+\begin{center}
+\begin{picture}(340,70)
+	\begin{thicklines}
+	\put(0,0){\framebox(340,70)
+{ $\dint \sin^m{x}\cos{x}\,dx=\begin{cases}
+\dfrac{1}{m+1} \sin^{m+1}{x} + C & \mbox{if $m\neq -1$}, \\[10pt]
+\ln{|\sin{x}|} + C & \mbox{if $m=-1$}.
+\end{cases}
+$}}
+	\end{thicklines}
+\end{picture}
+\end{center}
+
+\noindent
+{\bf Remark:}  The instance $m=-1$ in this 
+%
+\mar{The antiderivative\\ of the cotangent}\index{cotangent!antiderivative of}
+%
+case is worth singling out, as it gives us an antiderivative for
+$\cot{x}$:
+$$
+\int \cot{x}\,dx=\int \dfrac{\cos{x}}{\sin{x}}\,dx =  \ln|\sin{x}|+C.
+$$
+
+Integrals where $m=1$ are handled in a completely analogous fashion.
+You should check that
+\begin{center}
+\begin{picture}(340,70)
+	\begin{thicklines}
+	\put(0,0){\framebox(340,70)
+{ $\dint \cos^n{x}\sin{x}\,dx=\begin{cases}
+\dfrac{-1}{n+1} \cos^{n+1}{x} + C & \mbox{if $n\neq -1$}, \\[10pt]
+-\ln{|\cos{x}|} + C & \mbox{if $n=-1$}.
+\end{cases}
+$}}
+	\end{thicklines}
+\end{picture}
+\end{center}
+
+\noindent
+{\bf Remark:} Notice that  $n=-1$ gives us 
+%
+\mar{The antiderivative\\ of the tangent}\index{tangent!antiderivative of}
+%
+an antiderivative for $\tan{x}$:
+$$ 
+\int \tan{x}\,dx=\int \dfrac{\sin{x}}{\cos{x}}\,dx = -\ln|\cos{x}|+C.
+$$
+\label{tander}
+
+\noindent
+{\bf Case II: \boldmath $m=0$ or $n=0$}\quad Again the two possibilities are
+analogous, so we will look at instances where $n=0$.  There are a
+number of clever ways for dealing with antiderivatives of functions of
+this form, many of them depending on special subcases according to
+whether $m$ is even or odd, positive or negative, etc.  We will
+develop a single method which deals with all cases in the same way.
+
+Think of $\sin^n{x}$ as $\sin^{n-1}{x}\cdot\sin{x}$ and use
+integration by parts with
+$$
+F(x)=\sin^{n-1}{x}\qquad\mbox{ and }\qquad g(x)=\sin{x};
+$$
+then
+$$
+f(x)=(n-1)\sin^{n-2}{x}\,\cos{x}\qquad\mbox{ and }\qquad G(x)=-\cos{x}.
+$$
+Therefore
+$$
+\int \sin^n{x}\,dx
+    =-\sin^{n-1}{x}\,\cos{x}+(n-1)\int \sin^{n-2}{x}\,\cos^2{x}\,dx.
+$$ 
+
+Now since $\cos^2{x}=1-\sin^2{x}$, we can rewrite the integral on the
+right-hand side as
+$$
+\int \sin^{n-2}{x}\,\cos^2{x}\,dx.=\int \sin^{n-2}{x}\,dx-\int \sin^n{x}\,dx
+$$
+---an expression involving the original integral we are trying to
+evaluate!  If we now substitute this expression in our original
+equation and bring all the terms involving $ \sin^n{x}$ over to the
+left-hand side, we have
+$$
+n\int  \sin^n{x}\,dx 
+   = -\sin^{n-1}{x}\,\cos{x}+(n-1)\int \sin^{n-2}{x}\,dx,
+$$
+so that
+\begin{center}
+\begin{picture}(306,50)\label{reduction}
+	\begin{thicklines}
+	\put(0,0){\framebox(306,50)
+{ $\dint \sin^n{x}\,dx=\dfrac{-1}{n}\sin^{n-1}{x}\,\cos{x}
+     + \dfrac{n-1}{n}\dint \sin^{n-2}{x}\,dx.
+$}}
+	\end{thicklines}
+\end{picture}
+\end{center}
+
+We thus have 
+%
+\mar{A reduction formula}
+%
+a {\bf reduction formula}\index{reduction formula!for integrating
+  $\sin^n{x}$} which reduces the problem of finding an antiderivative
+for $\sin^n{x}$ to the problem of finding an antiderivative for
+$\sin^{n-2}{x}$.  This in turn can be reduced to finding an
+antiderivative for $\sin^{n-4}{x}$, and so on, until we get down to
+having to find an antiderivative for $\sin{x}$ (if $n$ is odd), or for
+1 (if $n$ is even).
+
+\medskip
+\noindent
+{\bf Example 12}
+\begin{align*}
+\dint \sin^5{x}\,dx
+  &= \dfrac{-1}{5}\sin^4{x}\cos{x}+\dfrac{4}{5}\dint \sin^3{x}\,dx \\
+  &= \dfrac{-1}{5}\sin^4{x}\cos{x}
+       +\dfrac{4}{5}\left(\dfrac{-1}{3}\sin^2{x}\cos{x}
+       +\dfrac{2}{3}\dint \sin{x}\,dx \,\right) \\
+  &= \dfrac{-1}{5}\sin^4{x}\cos{x}-\dfrac{4}{15}\sin^2{x}\cos{x}
+       -\dfrac{8}{15} \cos{x}+C.
+\end{align*}
+Check this answer by taking the derivative of the right-hand side.  To
+show that this derivative really is equal to the integrand on the
+left, you will need to express all the cosines in terms of sines.
+
+\medskip
+\noindent
+{\bf Example 13}\quad If we let $n=2$, we quickly get the
+antiderivative for $\sin^2{x}$ that we've needed at several points
+already:
+\begin{align*}
+\dint \sin^2{x}\,dx 
+  &= \dfrac{-1}{2}\sin{x}\cos{x}+\dfrac{1}{2}\dint 1\,dx \\
+  &= \dfrac{x}{2}- \dfrac{1}{2}\sin{x}\cos{x}.
+\end{align*}
+
+\medskip
+The reduction formula as stated is 
+%
+\mar{In its current form,\\ the reduction formula works best for $n>0$}
+%
+most convenient for $n>0$, although it is true for any number $n\neq
+0$.  For if $n<0$, though, we want to {\em increase} the exponent,
+replacing a problem of finding an antiderivative for $\sin^n{x}$ by a
+problem where the exponent is less negative.  We can do this by
+rearranging the formula as
+$$
+\int \sin^{n-2}{x}\,dx
+  = \dfrac{n}{n-1}\int \sin^n{x}\,dx+ \dfrac{1}{n-1}\sin^{n-1}{x}\cos{x}.
+$$ 
+Since we are interested in negative exponents, 
+%
+\mar{The reduction formula for negative exponents}
+%
+call $n-2$ by a new name, $-k$.  But if $n-2=-k$, then $n=-k+2$, and
+we can rewrite our formula as
+\begin{center}
+\begin{picture}(360,50)
+	\begin{thicklines}
+	\put(0,0){\framebox(360,50)
+{ $\dint \sin^{-k}{x}\,dx=-\dfrac{1}{k-1}\sin^{-(k-1)}{x}\cos{x}+\dfrac{k-2}{k-1}\int \sin^{-(k-2)}{x}\,dx.
+$}}
+	\end{thicklines}
+\end{picture}
+\end{center}
+
+With this formula we can reduce the problem of finding an
+antiderivative for $\sin^{-k}{x}$ to the problem of finding an
+antiderivative for $\sin^{-k+2}{x}$.  This in turn can be reduced to
+finding an antiderivative for $\sin^{-k+4}{x}$, and so on, until we
+get up to having to find an antiderivative for $\sin^{-1}{x}$ (if $k$
+is odd), or for 1 (if $k$ is even).  All we need, then, is an
+antiderivative for $\sin^{-1}{x}$.  But $\sin^{-1}{x}=\csc{x}$, and in
+chapter~11.4 (page~\pageref{trick}) we found that
+$$
+\int \csc{x}\,dx=\int \sin^{-1}{x}\,dx=-\ln{|\csc{x}+\cot{x}|}+C.
+$$
+
+We can now handle antiderivatives for any negative integer exponent of
+the sine function.
+
+\medskip
+\noindent
+{\bf Example 14} \quad We can check this formula by trying $k=2$, which will give us the antiderivative of $\csc^2{x}$:
+\begin{align*}
+\dint \csc^2{x}
+  &= \dint \sin^{-2}{x}\,dx \\
+  &= -\dfrac{1}{1}\sin^{-1}{x}\,\cos{x}+\dfrac{0}{1}\int \sin^0{x}\,dx \\
+  &= -\sin^{-1}{x}\,\cos{x}+C=-\cot{x}+C,
+\end{align*}
+as it should.
+
+\medskip
+\noindent
+{\bf Example 15} \quad
+\begin{align*}
+\dint \sin^{-3}{x}\,dx 
+  &= -\dfrac{1}{2}\sin^{-2}{x}\,\cos{x}+\dfrac{1}{2}\int \sin^{-1}{x}\,dx \\
+  &= \dfrac{1}{2}\left(-\sin^{-2}{x}\cos{x}-\ln{|\csc{x}+\cot{x}|}\right)+C.
+\end{align*}
+
+In the exercises you are asked to derive the following reduction
+formulas for the cosine function\index{reduction formula!for cosine}:
+\begin{center}
+\begin{picture}(360,90)\label{cosred}
+	\begin{thicklines}
+	\put(0,0){\framebox(360,90)
+		{\begin{minipage}{330pt}
+\mbox{}\vspace{-15pt}
+\begin{gather*}
+\int \cos^m{x}\,dx = \dfrac{1}{m}\cos^{m-1}{x}\,\sin{x} 
+          + \dfrac{m-1}{m}\int \cos^{m-2}{x}\,dx, \\[12pt]
+\int \cos^{-m}{x}\,dx = \dfrac{1}{m-1}\cos^{-m+1}{x}\,\sin{x} 
+          + \dfrac{m-2}{m-1}\int \cos^{-m+2}{x}\,dx.
+\end{gather*}
+\end{minipage}
+}}
+	\end{thicklines}
+\end{picture}
+\end{center}
+
+
+\subsubsection{Category II: Both \boldmath $m<0$ and $n<0$}
+
+If we divide the identity $\cos^2{x}+\sin^2{x}=1$ by
+$\sin^2{x}\,\cos^2{x}$, we get the identity
+$$
+\sin^{-2}{x}+\cos^{-2}{x}=\sin^{-2}{x}\,\cos^{-2}{x}.
+$$ 
+We will now use this identity to express anything of the form
+$\cos^{-r}{x}\,\sin^{-s}{x}$ (where $r>0$ and $s>0$) as a sum of terms
+of the form $\sin^{-h}{x}$, or $\cos^{-i}{x}$, or
+$\sin{x}\,\cos^{-j}{x}$, or $\sin^{-k}{x}\,\cos{x}$.  Since we learned
+how to find antiderivatives for expressions like these in the previous
+cases, we will then be done.
+
+The trick in transforming $cos^{-r}{x}\,\sin^{-s}{x}$ to the desired
+form is to multiply by $(\cos{x}\,\cos^{-1}{x})$ or
+$(\sin{x}\,\sin^{-1}{x})$ as needed so that both the sine and the
+cosine terms appear to {\em even} negative exponents.  Then simply
+keep using the identity above until there's nothing left to use it
+on. The following three examples should make clear how the reduction
+then works.
+
+\medskip
+\noindent
+{\bf Example 16} \quad($r$ and $s$ both even already)
+\begin{align*}
+\sin^{-4}{x}\,\cos^{-6}{x}
+  &= \left( \sin^{-2}{x}\,\cos^{-2}{x}\right)^2\,\cos^{-2}{x} \\
+  &= \left( \sin^{-2}{x}+\cos^{-2}{x}\right)^2\,\cos^{-2}{x} \\
+  &= (\sin^{-4}{x}+2\sin^{-2}{x}\,\cos^{-2}{x}+\cos^{-4}{x})\,\cos^{-2}{x} \\
+  &= (\sin^{-4}{x}+2(\sin^{-2}{x}+\cos^{-2}{x})+\cos^{-4}{x})\,\cos^{-2}{x} \\
+  &= \sin^{-4}{x}\,\cos^{-2}{x}+2\sin^{-2}{x}\,\cos^{-2}{x}+2\cos^{-4}{x} \\
+  & \mbox{}\qquad +\cos^{-6}{x} \\
+  &= \sin^{-2}{x}\,(\sin^{-2}{x}+\cos^{-2}{x})+2(\sin^{-2}{x}+\cos^{-2}{x}) \\
+  & \mbox{}\qquad +2\cos^{-4}{x}+\cos^{-6}{x} \\
+  &= \sin^{-4}{x}+\sin^{-2}{x}\,\cos^{-2}{x}+2\sin^{-2}{x}+2\cos^{-2}{x} \\
+  & \mbox{}\qquad +2\cos^{-4}{x}+\cos^{-6}{x} \\
+  &= \sin^{-4}{x}+( \sin^{-2}{x}+\cos^{-2}{x}) +2\sin^{-2}{x} \\
+  & \mbox{}\qquad + 2\cos^{-2}{x}+ 2\cos^{-4}{x}+ \cos^{-6}{x} \\
+  &= \sin^{-4}{x}+3\sin^{-2}{x}+ 3\cos^{-2}{x}+2\cos^{-4}{x}+ \cos^{-6}{x}.
+\end{align*}
+While this process is tedious, it requires little thought---you simply
+replace $\sin^{-2}{x}\,\cos^{-2}{x}$ with $\sin^{-2}{x}+\cos^{-2}{x}$
+at every opportunity until there is no negative-exponent sine term
+multiplying any negative-exponent cosine term.  We will use this
+result to demonstrate how to deal with cases where either $r$ or $s$
+(or both) is odd.
+
+\medskip
+
+\noindent
+{\bf Example 17} \quad($r$ even and $s$ odd)\label{ex17}
+\begin{align*}
+\sin^{-4}{x}\,\cos^{-5}{x}
+  &= \sin^{-4}{x}\,\cos^{-6}{x}\,\cos{x} \\
+  &= \sin^{-4}{x}\,\cos{x}+3\sin^{-2}{x}\,\cos{x}+ 3\cos^{-1}{x} \\
+  &  \mbox{}\qquad +2\cos^{-3}{x}+ \cos^{-5}{x}
+\end{align*}
+
+\medskip
+\noindent
+{\bf Example 18} \quad(both $r$ and $s$ odd)
+\begin{align*}
+\sin^{-3}{x}\,\cos^{-5}{x}
+  &= \sin{x}\,\sin^{-4}{x}\,\cos^{-6}{x}\,\cos{x} \\
+  &= \sin^{-3}{x}\,\cos{x}+3\sin^{-1}{x}\,\cos{x}+ 3\sin{x}\,\cos^{-1}{x} \\
+  & \mbox{}\qquad +2\sin{x}\,\cos^{-3}{x}+ \sin{x}\,\cos^{-5}{x}
+\end{align*}
+
+
+\subsection{Exercises}
+
+\vspace{-10pt}
+
+\num Find the following antiderivatives ($a$ is a positive constant):
+
+\noindent
+\begin{minipage}[t]{100pt}
+\sub $\dint \dfrac{dx}{\sqrt{1-4x^2}}$
+
+\sub $\dint \dfrac{dx}{\sqrt{1-4x^2}}$
+
+\sub $\dint \dfrac{dx}{\sqrt{4+x^2}}$
+
+\sub $\dint \dfrac{x\,dx}{\sqrt{4+x^2}}$
+\end{minipage}
+\hfill
+\begin{minipage}[t]{100pt}
+\sub $\dint \dfrac{dx}{(a^2-x^2)^{3/2}}$
+
+\sub $\dint \dfrac{dx}{4+x^2}$
+
+\sub $\dint \dfrac{x\,dx}{4+x^2}$
+\end{minipage}
+\hfill
+\begin{minipage}[t]{100pt}
+\sub $\dint \dfrac{dx}{x\sqrt{4+x^2}}$
+
+\sub $\dint \dfrac{x\,dx}{\sqrt{x^2-a^2}}$
+
+\sub $\dint \dfrac{dx}{(a^2+x^2)^2}$
+\end{minipage}
+\hfill
+\mbox{}
+
+\num Evaluate the following integrals:
+
+\noindent
+\begin{minipage}[t]{150pt}
+\sub $\dint_1^{-1} \dfrac{dx}{4-x^2}$
+\vspace*{4pt}
+\sub $\dint_1^2 \sqrt{x^2-1}\,dx$
+\vspace*{4pt}
+\sub $\dint_0^{\pi/3} x\,\sec^2{x}\,dx$
+\end{minipage}
+\hfill
+\begin{minipage}[t]{2.4in}
+\sub $\dint_0^1 \dfrac{dx}{(2-x^2)^{3/2}}$
+\vspace*{4pt}
+\sub $\dint_0^\infty \dfrac{dx}{9+x^2}$
+\vspace*{4pt}
+\sub $\dint_a^{2a} x^3\sqrt{x^2-a^2}\,dx$
+\end{minipage}
+\hfill
+\mbox{}
+
+\num Sketch the ellipse $\dfrac{x^2}{a^2}+ \dfrac{y^2}{b^2} = 1$,
+labelling the coordinates of the points where it crosses the $x$-axis
+and the $y$-axis.  Prove that the area of this ellipse is $\pi ab$.
+
+\num Find the following antiderivatives:
+
+\noindent
+\begin{minipage}[t]{150pt}
+\sub $\dint \dfrac{dx}{\sqrt{x^2-2x-8}}$
+\vspace*{4pt}
+\sub $\dint \dfrac{dx}{x^2+6x+10}$
+\vspace*{4pt}
+\sub $\dint \dfrac{dx}{\sqrt{x^2+6x+8}}$
+\vspace*{4pt}
+\sub $\dint \dfrac{x\,dx}{x^2+4x+5}$
+\end{minipage} 
+\hfill
+\begin{minipage}[t]{150pt}
+\sub $\dint \dfrac{x\,dx}{\sqrt{5+4x-x^2}}$
+\vspace*{4pt}
+\sub $\dint \dfrac{(2x+7)\,dx}{4x^2+4x+5}$
+\vspace*{4pt}
+\sub $\dint \dfrac{(4x-3)\,dx}{\sqrt{-x^2-2x}}$
+\vspace*{4pt}
+\sub $\dint \dfrac{dx}{(a^2-x^2-2x)^2}$
+\end{minipage}
+\hfill
+\mbox{}
+
+\numa If $x= a\,\sec{u}$, where $a$ is a constant, draw a right
+triangle containing an angle $u$ with lengths of sides specified to
+reflect this relation between $x$, $a$, and $u$.
+
+\sub In terms of $x$ and~$a$, what is $\sin{u}$?  What is $\cos{u}$?
+What is $\tan{u}$?
+
+\num Evaluate the following:
+
+\noindent
+\begin{minipage}[t]{150pt}
+\sub $\dint \dfrac{dx}{\sin{x}\,\cos{x}}$
+\vspace*{4pt}
+\sub $\dint \cos^3{x}\,\sin^{-4}{x}\,dx$
+\vspace*{4pt}
+\sub $\dint \csc^4{x}\,\cot^2{x}\,dx$
+\vspace*{4pt}
+\sub $\dint \sin{3x}\,\cot{3x}\,dx$
+\vspace*{4pt}
+\sub $\dint_0^{\pi/2} \sin^n{x}\,\cos^3{x}\,dx$
+\end{minipage} 
+\hfill
+\begin{minipage}[t]{150pt}
+\sub $\dint \tan^5{x}\,dx$
+\vspace*{4pt}
+\sub $\dint \dfrac{\sin^3{5x}\,dx}{\sqrt[3]{\cos{5x}}}$
+\vspace*{4pt}
+\sub $\dint \dfrac{\cos^3(\ln{x})\,dx}{x}$
+\vspace*{4pt}
+\sub $\dint \sec^4{x}\,\ln(\tan{x})\,dx$
+\vspace*{4pt}
+\sub $\dint_0^{a/2} \dfrac{dx}{(a^2-x^2)^{3/2}}$
+\end{minipage}
+\hfill
+\mbox{}
+
+\num Use the analysis of Example 17 (page~\pageref{ex17}) to find an
+antiderivative for $\sin^{-4}{x}\,\cos^{-5}{x}$.
+
+\subsubsection{Reduction formulas}
+\vspace{-10pt}
+
+\num Derive the reduction formulas for the cosine function given on
+page~\pageref{cosred}.
+
+\numa By writing $\tan^n{x}=\tan^{n-2}{x}(\sec^2{x}-1)$, get a
+reduction formula which expresses $\dint \tan^n{x}\,dx$ in terms of
+$\dint \tan^{n-2}{x}\,dx$.  
+
+\sub Use this evaluation formula to find $\dint \tan^6{x}\,dx.$
+
+\sub Show that
+\[
+\int_0^{\pi/4}\tan^n{x}\,dx =
+\begin{cases}
+\dfrac{1}{n-1}- \dfrac{1}{n-3}+\cdots\pm \dfrac{1}{3}\mp 1\pm {\pi/4} 
+     &\text{if $n$ is even}, \\[10pt]
+\dfrac{1}{n-1}- \dfrac{1}{n-3}+\cdots \pm \dfrac{1}{4}\mp \dfrac{1}{2}
+             \pm \dfrac{1}{2}\ln{2} 
+     &\text{if $n$ is odd}.
+\end{cases}
+\]
+
+\sub Give a clear argument why \quad $\displaystyle
+\lim_{n\rightarrow\infty}\int_0^{\pi/4} \tan^n{x}\,dx=0$.
+
+\sub Prove that
+\[
+\lim_{k\rightarrow\infty}\left(1-\dfrac{1}{3}+\dfrac{1}{5}
+      -\cdots\pm \dfrac{1}{2k+1}\right)=\dfrac{\pi}{4},
+\]
+and
+\[
+\lim_{k\rightarrow\infty}\left(1-\dfrac{1}{2}+\dfrac{1}{3}
+       -\cdots\pm \dfrac{1}{k}\right)=\ln{2}.
+\]
+
+\numa By writing $\sec^n{x}$ as $\sec^{n-2}{x}\,\sec^2{x}$ and using
+integration by parts, get a reduction formula which expresses $\dint
+\sec^n{x}\,dx$ in terms of $\dint \sec^{n-2}{x}\,dx$.
+
+\sub Since $\sec{x}=\cos^{-1}{x}$, the formula you got in part (a)
+could also have been obtained from the reduction formula for cosines
+on page~\pageref{cosred}.  Try it and see if the formulas are in fact
+the same.
+
+\numa Find a reduction formula that expresses
+\[
+\dint x^n\,e^x\,dx \ \quad \text{in terms of} \quad \dint x^{n-1}\,e^x\,dx.
+\]
+
+\sub Using the results of part (a), show that
+$$
+\dfrac{1}{n!}\int_0^t x^n\,e^x\,dx 
+   = e^t\left(\dfrac{t^n}{n!} - \dfrac{t^{n-1}}{(n-1)!} 
+       +\dfrac{t^{n-2}}{(n-2)!} - \cdots \pm \dfrac{t^2}{2!} 
+       \mp t\pm 1\right)\mp 1.
+$$
+
+\sub Explain why, for a fixed value of $t$,
+$$\lim_{n\rightarrow\infty} \dfrac{1}{n!}\int_0^t x^n\,e^x\,dx =0.$$
+
+\sub Prove that
+$$
+\lim_{n\rightarrow\infty}\left(1-t+\dfrac{t^2}{2!}
+    -\dfrac{t^3}{3!}+\dfrac{t^4}{4!}
+    -\cdots \pm \dfrac{t^n}{n!}\right)=e^{-t}.
+$$
+
+\numa Find a reduction formula expressing 
+\[
+\dint \dfrac{dx}{(1+x^2)^n} \quad \text{in terms of} \quad
+   \dint \dfrac{dx}{(1+x^2)^{n-1}};
+\]
+you can do this using integration by parts, or you can use a
+trigonometric substitution.\label{1plusx2}
+
+\sub What is the exact value of $\dint_0^1 \dfrac{dx}{(1+x^2)^5}$?
+
+\num Our approach to integrating trigonometric polynomials was to
+express everything in the form $\sin^m{x}\,\cos^n{x}$.  We can just as
+readily express everything in the form $\sec^j{x}\tan^k{x}$ ($j$ and
+$k$ integers---positive, negative, or 0), and develop our technique by
+dealing with various cases of this.  See if you can work out the
+details, trying to parallel the approach developed in the text using
+sines and cosines as our basic functions.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                      %
+%                               Section 6                              %
+%                                                                      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Simpson's Rule}
+
+This chapter has concentrated on formulas for antiderivatives, 
+%
+\mar{A return to\\ numerical methods}	
+%
+because a formula conveys compactly a lot of information.  However,
+you must not lose sight of the fact that most antiderivatives cannot
+be found by such analytic methods.  The integrand may be a data
+function, for instance, and thus have no formula.  And even when the
+integrand is given by a formula, there may be no formula for the
+antiderivative itself.  One possibility in such cases is to {\bf
+  approximate} such a function by a function---such as a
+polynomial---for which we can readily find an antiderivative.  In
+chapter 10 we saw some methods for doing this.  In chapter~12 we
+introduce Fourier series, providing another family of approximating
+functions for which antiderivatives can be readily obtained. Another
+approach is to find a desired definite integral using approximating
+rectangles, as we did in chapter 6.
+	
+In any case, numerical methods are inescapable, but accurate results
+require many calculations.  This takes time---even on a modern
+high-speed computer.  A numerical method is said to be {\bf
+  efficient}\index{efficient computation} if it gets accurate results
+quickly, that is, with relatively few calculations.  In chapter~6 we
+saw that {\em midpoint\/} Riemann sums are much more efficient than
+left or right {\em endpoint\/} Riemann sums.
+%
+\mar{Efficient numerical integration}	
+%
+We will look at these and other methods in detail in this section.
+The most efficient method we will develop is called Simpson's rule.
+
+\newpage
+
+\subsection{The Trapezoid Rule}
+\index{trapezoid rule}
+
+We interpret the integral
+	$$
+	\int_a^b f(x) \, dx
+	$$
+as the area under the graph $y = f(x)$ between $x = a$ and $x = b$.
+We interpret a Riemann sum as the total area of a collection of
+rectangles that approximate the area under the graph.
+%
+\mar{Replace rectangles\\ by trapezoids}
+%
+The tops of the rectangles are level, and they represent the graph of
+step function.  Clearly, we get a better approximation to the graph by
+using slanted lines.  They form the tops of a sequence of {\bf
+  trapezoids}\index{trapezoid} that approximate the area under the
+graph.
+
+\vspace{170pt}
+
+\special{psfile=../ps/calc2/trap1.ps}
+
+Let's figure out the areas of these trapezoids.  
+%
+\mar{Each trapezoid is sandwiched between two rectangles\ldots}	
+%
+They are related in a simple way to the rectangles that we would
+construct at the right and left endpoints to calculate Riemann sums.
+To see the relation, let's take a closer look at a single single
+trapezoid.  
+
+\vspace{130pt}
+
+\special{psfile=../ps/calc2/trap2.ps} 
+
+\newpage
+
+\noindent 
+It is sandwiched between  two rectangles, one taller and one shorter.  
+%
+\mar{\ldots whose average area equals the area of the trapezoid}
+%
+In our picture the height of the taller rectangle is $f(\mbox{right
+  endpoint})$.  We will call it the {\em right rectangle\/}. The
+height of the shorter rectangle is $f(\mbox{left endpoint})$.  We will
+call it the {\em left rectangle\/}.  For other trapezoids the left
+rectangle may be the taller one.  In any case, the trapezoid is
+exactly half-way between the two rectangles in size, and thus its area
+is the {\em average\/} of the areas of the rectangles:
+	$$
+	\mbox{area trapezoid} = \tfrac{1}{2} \left( 
+		\mbox{area left rectangle} + \mbox{area right rectangle}
+		\right).
+	$$
+If we sum over the areas of all of the trapezoids, 
+%
+\mar{The trapezoidal approximation is the average of left and right Riemann sums} 
+%
+the areas of the right rectangles sum to the right Riemann sum, and
+similarly for the left rectangles.  In follows that\index{approximation!trapezoidal} \index{left Riemann sum} \index{right Riemann sum}
+\[
+\mbox{trapezoidal approximation}
+  = \tfrac{1}{2}( \mbox{left Riemann sum} + 
+			\mbox{right Riemann sum}).
+\]
+
+The pictures make it clear that the trapezoidal approximation should
+be significantly better than either a left or a right Riemann sum.  To
+test this numerically, let's get numerical estimates for the integral
+	$$
+\int_1^3 \dfrac{1}{x}\,dx = \ln{3} = 1.098612288668\ldots .
+	$$
+(The relation between the trapezoid approximation and the left and
+right Riemann sums holds for any choice $\Delta x_k$ of subintervals.
+\mar{Comparing approximations} However, we will use equal subintervals
+to make the calculations simpler.)  Here is how our four main
+estimates compare when we use 100 subintervals.  \label{trap}
+\begin{center}
+\begin{tabular}{ccr}
+	$n = 100$ & approximation & \multicolumn{1}{c}{error} \\ [2pt]
+	\hline \\ [-9pt]
+	right & 1.09197525 & $6.63\times10^{-3}$\\
+	left & 1.10530858 & $-6.69\times10^{-3}$\\
+	midpoint & 1.09859747 & $1.48\times10^{-5}$\\
+	trapezoidal & 1.09864191 & $-2.90\times10^{-5}$
+\end{tabular}
+\end{center}
+The figures in this table are calculated to 8 decimal places, and the
+column marked {\em error\/} is the difference
+	$$
+1.09861229 - \mbox{approximation}, 
+	$$
+so that the error is negative if the approximation is too large.  The
+left Riemann sum is too large, for instance.
+
+Before we comment on the differences between the estimates, let's
+gather more data.  Here are the calculations for 1000 subintervals.
+Note that the midpoint and trapezoidal approximations are more than
+1000 times better than the left or right Riemann sums!
+\begin{center}
+\begin{tabular}{ccr}
+	$n = 1000$ & approximation & \multicolumn{1}{c}{error} \\ [2pt]
+	\hline \\ [-9pt]
+	right & 1.09794591 & $6.663\times10^{-4}$\\
+	left & 1.09927925 & $-6.669\times10^{-4}$\\
+	midpoint & 1.09861214 & $1.4\times10^{-7}$\\
+	trapezoidal & 1.09861258 & $-2.9\times10^{-7}$
+\end{tabular}
+\end{center}
+
+We expected the trapezoidal approximation   
+%
+\mar{A surprise:\\ the midpoint approximation is even better than the trapezoidal}	
+%
+to be better than either the right or left Riemann sum.  The
+surprising observation is that the midpoint Riemann sum is even
+better!  In fact, it appears that the midpoint Riemann sum has only
+{\em half\/} the error of the trapezoidal approximation.
+
+The figures below explain geometrically why the midpoint approximation
+is better than the trapezoidal.  The first step is shown on the left.
+Take a midpoint rectangle (whose height is $f(\mbox{midpoint})$), and
+rotate the top edge around the midpoint until it is tangent to the
+graph of $y = f(x)$.  Call this a {\bf midpoint
+  trapezoid}.\index{midpoint trapezoid} Notice that the trapezoid has
+the same area as the rectangle.
+
+
+\mbox{}
+\vspace{100pt}
+
+\special{psfile=../ps/calc2/trap3.ps}
+
+\vspace{20pt}
+	
+The second step is to compare 
+%
+\mar{Shading depicts\\ the errors}	
+%
+the midpoint trapezoid to the one used in the trapezoidal
+approximation.  This is done on the right.  The error coming from the
+midpoint trapezoid is shaded light gray, while the error from the
+trapezoidal approximation is dark gray.  The midpoint trapezoid is the
+better approximation.  Since the midpoint rectangle has the same area
+as the midpoint trapezoid, we now see why the midpoint Riemann sum is
+more accurate than the trapezoidal approximation.  This picture also
+explains why the errors of the two approximations have different
+signs, which we noticed first in the tables.
+
+\subsection{Simpson's Rule}
+\index{Simpson's rule}
+
+Our goal is a calculation scheme for integrals 
+%
+\mar{Combine good approximations\ldots}
+%
+that gives an error is as small as possible.  The trapezoidal and the
+midpoint approximations are both good---but we can combine them to get
+something even better.  Here is why.  The tables and the figure above
+indicate that the {\em errors\/} in the two approximations have
+opposite signs, and the midpoint error is only about half the size of
+the trapezoidal error (in absolute value).  Thus, if we form the sum
+	$$
+2 \times \mbox{midpoint approximation} 
+   + \mbox{trapezoidal approximation}, 
+	$$
+then most of the error will cancel.  
+%
+\mar{\ldots so that most of the error cancels}
+%
+Now this sum is approximately three times the value of the integral,
+because each term in it approximates the integral itself.  Therefore,
+if we divide by three, then
+	$$
+	\tfrac{2}{3} \times \mbox{midpoint approximation} + 
+	\tfrac{1}{3} \times \mbox{trapezoidal approximation}
+	$$
+should be a superb approximation to the integral.  
+
+	Let's try this approximation on our test integral
+	$$
+	\int_1^3 \dfrac{1}{x}\,dx
+	$$
+with $n = 100$ subintervals.  Using the numbers from the table on
+page~\pageref{trap}, we obtain
+	$$
+	\tfrac{2}{3} \times 1.09859747 + 
+	\tfrac{1}{3} \times 1.09864191 = 1.098612283,
+	$$ 
+which gives the value of the integral accurate to 8 decimal places.
+This method of approximating integrals is called {\bf Simpson's
+  rule}.\index{Simpson's rule}
+
+We can use the program RIEMANN\index{program!RIEMANN} to do the calculation.
+%
+\mar{Using Riemann sums to carry out\\ Simpson's rule}	
+%
+First calculate left and right Riemann sums, and take their average.
+That is the trapezoidal approximation.  Then calculate the midpoint
+Riemann sum.  Since
+	$$
+	\mbox{trapezoid} = \tfrac{1}{2} \times \mbox{left} + 
+		\tfrac{1}{2} \times \mbox{right},
+	$$
+Simpson's rule\index{Simpson's rule} reduces to this combination of
+left, right, and midpoint sums:
+\begin{align*} 
+\lefteqn{\tfrac{2}{3} \times \mbox{midpoint} + 
+	\tfrac{1}{3} \times \mbox{trapezoidal}} \qquad\quad  \\
+  &=  \tfrac{2}{3} \mbox{midpoint} + \tfrac{1}{3}  
+		\left( \tfrac{1}{2} \times \mbox{left} + 
+		\tfrac{1}{2} \times \mbox{right} \right) \\[3pt]
+  &= \tfrac{2}{3} \times \mbox{midpoint} + 
+		\tfrac{1}{6} \times \mbox{left} + 
+		\tfrac{1}{6} \times \mbox{right} \\[3pt]
+  &= \tfrac{1}{6} \left( 4 \times \mbox{midpoint} + 
+		\mbox{left} + \mbox{right} 
+		\vphantom{\tfrac{1}{6}}\right) 
+\end{align*}
+\begin{center}
+\begin{picture}(350,60)
+\put(0,0){\framebox(350,60)
+{
+\begin{minipage}{340pt}			
+\begin{center} 
+{\bf Simpson's rule}: \\ [3pt]
+	$\dint f(x) \, dx \approx \dfrac{1}{6}
+	\left( \vphantom{\tfrac{1}{6}}\mbox{left sum} + 
+	\mbox{right sum} + 4 \times \mbox{midpoint sum} \right)$
+\end{center}
+\end{minipage}
+}}
+\end{picture}
+\end{center}
+
+You can get even more accuracy 
+%
+\mar{The accuracy of Simpson's rule}	
+%
+if you keep track of more digits in the left, right, and midpoint
+Riemann sums.  For example, if you estimate
+	$$
+	\int_1^3 \dfrac{1}{x}\,dx = \ln{3} = 1.098\,612\,288\,668\ldots 
+	$$
+to 14 decimal places, you will get the following.
+	\begin{center}
+	\begin{tabular}{rl}
+	left: 		& 1.105\,308\,583\,647\,79 \\
+	right: 		& 1.091\,975\,250\,314\,45 \\
+	midpoint:	& 1.098\,597\,475\,005\,31
+	\end{tabular}
+	\end{center}
+When combined these give the estimate 1.098\,612\,288\,997\,3, which
+differs from the true value by less than $3.3 \times 10^{-10}$.  In
+other words, the calculation is actually correct to 9 decimal places.
+
+It is possible to get a bound on the error 
+%
+\mar{An error bound for Simpson's rule}\index{error bound}
+%
+produced by using Simpson's rule to estimate the value of
+	$$
+	\int_a^b f(x) \, dx.
+	$$
+(See the discussion of error bounds in chapter~6.3.)  Specifically,
+	$$
+	\left| \, \int_a^b f(x) \, dx - \mbox{Simpson's rule } \right| \leq
+		\dfrac{M (b - a)^5}{2880 \, n^4},
+	$$ 
+where $n$ is the number of subintervals used in the Riemann sums and $M$ is a bound on the size of the fourth derivative of $f$:
+	$$
+	|f^{(4)}(x)| \leq M \qquad \mbox{for all $a \leq x \leq b$.}
+	$$
+
+\newpage
+
+The most important factor in the error bound 
+%
+\mar{The crucial factor $n^{-4}$}
+%
+is the $n^4$ that appears in the denominator.  In our example $n = 100
+= 10^2$, and this leads to the factor $1/n^4 = 10^{-8}$ in the error
+bound.  As we saw, the actual error was less than $10^{-9}$.
+Essentially, $n$ is the number of computations we do, and error bound
+tells how many decimal places of accuracy we can count on.  According
+to the error bound, a ten-fold increase in the number of computations
+produces four more decimal places of accuracy.  {\em That\/} is why
+Simpson's method is efficient.
+
+\subsection{Exercises}
+
+\vspace{-10pt}
+
+Because Simpson's rule is so efficient, we can use it to get
+accurate values of some of the fundamental constants of mathematics.
+For example, since
+	$$
+	4 \cdot \int_0^1 \dfrac{dx}{1 + x^2} =  
+		\left. 4\arctan(x) \ \vphantom{\dfrac{1}{2}} \right|_0^1 = 
+		4\arctan(1) = 4 \cdot \dfrac{\pi}{4} = \pi,
+	$$
+we can estimate the value of $\pi$ by using Simpson's rule to
+approximate this integral.
+
+\num Evaluate the expression above (including the factor of 4) use
+Simpson's rule with $n = 2$, 4, 8, and 16.  How accurate is each of
+these estimates of $\pi$; that is, how many decimal places of each
+estimate agree with the true value of $\pi$?
+
+\numa   Over the interval $0 \leq x \leq 1$ it is true that
+$$
+|f^{(4)}(x)| \leq 96 \qquad \mbox{when} \qquad f(x) = \dfrac{4}{1+x^2}.
+$$
+(You don't need to show this, but how might you do it?)  Use this
+bound to show that $n = 256 = 2^8$ will guarantee that you can find
+the first 10 decimals of $\pi$ by using the method of the previous
+question.
+
+\sub Show that if $n = 128 = 2^7$ then the error bound for Simpson's
+rule does {\em not\/} guarantee that you can find the first 10
+decimals of $\pi$ by the same method.
+
+\sub Run Simpson's rule with $n = 2^7$ to estimate $\pi$.  How many
+decimal places {\em are\/} correct?  Does this surprise you?  In fact
+the error bound is too timid: it says that the error is no larger than
+the bound it gives, but the actual error may be much smaller.  From
+your work in part (a), which power of 2 is sufficient to get 10
+decimal places accuracy?
+
+\numa In chapter 6.3 (page~\pageref{int error}) a left Riemann sum for		
+$$
+\int_0^1 e^{-x^2} \, dx
+$$ 
+with 1000 equal subdivisions gave 3 decimal places accuracy.  How many
+subdivisions $n$ are needed to get that much accuracy using Simpson's
+rule?  Let $n$ be a power of 2.  Start with $n = 1$ and increase $n$
+until three digits stabilize.
+
+\sub If you use Simpson's rule with $n = 1000$ to estimate this
+integral, how many digits stabilize?
+
+\num On page~\pageref{midpoint for x-cube} a midpoint Riemann sum with
+$n = 10000$ shows that
+$$
+\int_1^3 \sqrt{1 + x^3} \, dx = 6.229959\ldots .
+$$
+How many subdivisions $n$ are needed to get this much accuracy using
+Simpson's rule?  Start with $n = 1$ and keep doubling it until seven
+digits stabilize.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                      %
+%                               Section 7                              %
+%                                                                      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Improper Integrals}\index{improper integral}\index{integral!improper}
+
+\subsection{The Lifetime of Light Bulbs}\index{light bulbs!lifetime of}
+
+Ordinary light bulbs are supposed to burn about 700 hours, 
+%
+\mar{The lifetime of a light bulb is unpredictable}	
+%
+but of course some last longer while others burn out more quickly.  It
+is impossible to know, in advance, the lifetime of a particular bulb
+you might buy, but it is possible to describe what happens to a large
+batch of bulbs.
+
+Suppose we take a batch of 1000 light bulbs, start them burning at the
+same time, and note how long it takes each one to burn out.  Let
+	$$
+	L(t) = \mbox{fraction of bulbs that burn out before 
+		$t$ hours}
+	$$
+Then $L(t)$ might have a graph that looks like this:
+
+\begin{picture}(340,160)(15,-10)
+	\put(50,20){\vector(1,0){255}}
+	\put(50,20){\vector(0,1){108}}
+	\put(300,25){$t$}
+	\put(56,122){$L$}
+	\put(90,20){\line(0,1){3}}
+	\put(130,20){\line(0,1){3}}
+	\put(170,20){\line(0,1){3}}
+	\put(210,20){\line(0,1){3}}
+	\put(250,20){\line(0,1){3}}
+	\put(50,8){\makebox[0pt]{0}}
+	\put(90,8){\makebox[0pt]{250}}
+	\put(130,8){\makebox[0pt]{500}}
+	\put(170,8){\makebox[0pt]{750}}
+	\put(210,8){\makebox[0pt]{1000}}
+	\put(250,8){\makebox[0pt]{1250}}
+	\put(290,8){hours}
+	\put(50,37){\line(1,0){3}}
+	\put(50,54){\line(1,0){3}}
+	\put(50,71){\line(1,0){3}}
+	\put(50,88){\line(1,0){3}}
+	\put(50,105){\line(1,0){3}}
+	\put(46,33){\makebox[0pt][r]{.2}}
+	\put(46,51){\makebox[0pt][r]{.4}}
+	\put(46,68){\makebox[0pt][r]{.6}}
+	\put(46,85){\makebox[0pt][r]{.8}}
+	\put(46,102){\makebox[0pt][r]{1.0}}
+	\put(46,122){\makebox[0pt][r]{fraction}}
+	\begin{thicklines}
+	\bezier{90}(50,20)(90,32)(120,62)
+	\bezier{200}(120,62)(160,103)(300,103)
+	\end{thicklines}
+	\multiput(56,105)(4,0){62}{\circle*{1}}
+\end{picture}
+In this example, $L(400) \approx .5$, so about half the bulbs burned out before 400 hours.  Furthermore, all but a few have burned out by 1250 hours.  
+
+Manufacturers are very concerned 
+%
+\mar{The burnout rate}	
+%
+about the way the lifetime of light bulbs varies.  They study the
+output of their factories on a regular basis.  It is more common,
+though, for them to talk about the {\em rate\/} $r$ at which bulbs
+burn out.  The rate varies over time, too.  In fact, in terms of $L$,
+$r$ is just the derivative
+	$$
+	r(t) = L'(t) \quad \mbox{bulbs per hour.}
+	$$
+However, if we {\em start\/} with the rate $r$, then we get $L$ as the integral
+	$$
+	L(t) = \int_0^t r(s) \, ds.
+	$$
+This is yet another consequence of 
+%
+\mar{Lifetime is the integral of burnout rate\ldots}
+%
+the fundamental theorem of calculus\index{fundamental theorem of
+  calculus}.  The integral expression is quite handy.  For example,
+the fraction of bulbs that burn out between $t= a$ hours and $t = b$
+hours is
+	$$
+	L(b) - L(a) = \int_a^b r(s) \, ds.
+	$$
+
+We can even use the integral to say that all the bulbs burn out eventually:
+	$$
+	L(t) = \int_0^t r(s) \, ds = 1 \qquad 
+		\mbox{when $t$ is sufficiently large.}
+	$$
+In practice $r$ is the average burnout rate 
+%
+\mar{\ldots but there is no upper limit to the lifetime}
+%
+for many batches of light bulbs, so we can't identify the precise
+moment when $L$ becomes 1.  All we can really say is
+\[
+	L(\infty) = \int_0^{\infty} r(s) \, ds.
+\]
+This is called an {\bf improper integral}\index{improper integral}\index{integral!improper}, 
+%
+\mar{An integral is {\em improper\/} if the domain of integration is
+  infinite}
+%
+because it cannot be calculated directly: its ``domain of
+integration'' is infinite.  By definition, its value is obtained as a
+limit of ordinary integrals:
+	$$
+	\int_0^{\infty} r(s) \, ds = 
+		\lim_{b \to \infty} \int_0^b r(s) \, ds.
+	$$
+
+The \label{`normal'} {\bf normal density function}\index{function!normal density} of probability theory provides us with another
+example of an improper integral.  In a simple form, the function
+itself is
+$$
+f(x) = \dfrac{1}{\sqrt{2\pi}} \exp\left(-\dfrac{x^2}{2}\right).
+$$
+
+(Recall, $\exp(x) = e^x$.)  If $x$ is any {\em normally distributed
+  quantity\/} whose average value is 0, then the probability that a
+randomly chosen value of $x$ lies between the numbers $a$ and $b$ is
+	$$
+ 	\int_a^b f(x) \, dx.
+	$$
+Since the probability that $x$ lies {\em somewhere\/} 
+%
+\mar{The normal probability distribution involves\\ an improper integral}
+%
+on the $x$-axis is 1, we have
+	$$
+ 	\int_{-\infty}^{\infty} f(x) \, dx = 1.
+	$$
+This is an improper integral\index{improper integral}, and its value
+is defined by the limit
+	$$
+ 	\int_{-\infty}^{\infty} f(x) \, dx = 
+		\lim_{b \to \infty} \int_{-b}^b f(x) \, dx.
+	$$
+In the exercises you will have a chance to evaluate this integral.
+
+
+\subsection{Evaluating Improper Integrals}\index{improper integral!evaluating}\index{integral!improper!evaluating}
+
+An integral with an infinite domain of integration is 
+%
+\mar{An integral is also improper if its integrand becomes infinite}	
+%
+only one kind of improper integral.  A second kind has a finite domain
+of integration, but the integrand\index{integrand} becomes infinite on
+that domain.  For example,
+	$$
+	\int_0^1 \dfrac{dx}{x} \qquad \mbox{and} \qquad
+		\int_0^1 \ln{x} \, dx 
+	$$
+are both improper in this sense.  In both cases, the integrand becomes
+infinite as $x \to 0$.  Because the difficulty lies at the endpoint 0,
+we define
+	$$
+	\int_0^1 \dfrac{dx}{x} = 
+		\lim_{a \to 0} \int_a^1 \dfrac{dx}{x}.
+	$$
+More generally, 
+	$$
+	\int_a^b f(x) \, dx 
+	$$
+is an improper integral if $f(x)$ becomes infinite at some point $c$
+in the interval $[a, b]$.  In that case we define
+	$$
+	\int_a^b f(x) \, dx = \lim_{q \to 0} 
+		\left(\int_a^{c-q} f(x) \, dx + 
+			\int_{c+q}^b f(x) \, dx\right).
+	$$
+In effect, we avoid the bad spot but ``creep up'' on it in the limit.
+
+Indefinite integrals\index{indefinite integral}---that is, 
+%
+\mar{Antiderivatives help find improper integrals}	
+%
+antiderivatives\index{antiderivative}---can be a great help in
+evaluating improper integrals.  Here are some examples.
+\bigskip
+
+\noindent
+{\bf Example 1}.  We can evaluate 
+	$$
+	\int_0^{\infty} e^{-x} \, dx 
+	$$
+by noting first that $\dint e^{-x} \, dx = - e^{-x}$.  Therefore
+	$$
+	\int_0^b e^{-x} \, dx = \left. - e^{-x} \right|_0^b =
+		-e^{-b} - \left(-e^{-0}\right) = 1 - e^{-b} 
+	$$
+and
+	$$
+	\int_0^{\infty} e^{-x} \, dx = 
+		\lim_{b \to \infty} \int_0^b e^{-x} \, dx = 
+		\lim_{b \to \infty} \left(1-e^{-b}\right) = 1.
+	$$
+
+\medskip
+
+\noindent
+{\bf Example 2}.  To evaluate $\dint_0^1 \ln{x} \, dx$, we use the
+indefinite integral
+	$$
+	\int \ln{x} \, dx = x\, \ln{x} - x.
+	$$
+Thus
+	$$
+	\int_a^1 \ln{x} \, dx = 
+		\left. x\,\ln{x} - x
+			\rule{0pt}{14pt}\,\right|_a^1 = 
+		-1 - \left( a\ln{a} - a \right) = 
+		a-1 - a\ln{a}.
+	$$
+By direct calculation (using a graphing package, for instance) we can find 
+	$$
+	\lim_{a \to 0} \ a\ln{a} = 0;
+	$$
+therefore
+\[
+\int_0^1 \ln{x} \, dx 
+  = \lim_{a \to 0} \int_a^1 \ln{x} \, dx
+  = \lim_{a \to 0} \ a-1 - a\ln{a}
+  = -1.
+\]
+
+You should not assume that an improper integral\index{improper
+  integral!finite value of} always has a finite value, though.
+Consider the next example.
+
+\bigskip
+
+\noindent
+{\bf Example 3}. $\displaystyle \left. \dint_0^1 \dfrac{dx}{x} 
+= \lim_{a \to 0} \int_a^1 \dfrac{dx}{x}
+= \lim_{a \to 0} \ln(x) \,\right|_a^1
+= \lim_{a \to 0} \left( \ln(1)-\ln(a) \right)
+= \infty.
+$
+
+
+\bigskip
+
+\noindent
+This is forced because ${\displaystyle \lim_{a \to 0} \ \ln(a) =
+  -\infty}$, which you can see from the graph of the logarithm
+function.
+
+\subsection{Exercises}
+
+\vspace{-10pt} 
+
+\num Find the value of each of the following improper
+integrals.  (The value may be $\infty$.)
+
+\noindent
+\begin{minipage}{150pt}
+\sub $\dint_{-\infty}^0 e^x \, dx$
+
+\sub $\dint_1^{\infty} \dfrac{du}{u}$
+
+
+\sub $\dint_0^1 \dfrac{dy}{y^2}$
+
+\sub $\dint_0^{\pi/2} \tan{x} \, dx$
+\end{minipage}
+\hfill
+\begin{minipage}{150pt}
+	
+\sub $\dint_0^{\infty} x e^{-x} \, dx$
+	
+\sub $\dint_1^{\infty} \dfrac{du}{u^2}$
+	
+\sub $\dint_0^{\infty} \dfrac{x}{1 + x^2} \, dx$
+	 
+\sub $\dint_1^3 \dfrac{x}{x^2 - 1}\, dx$
+\end{minipage}
+\hfill
+\mbox{}
+
+\num Use the reduction formula for $\dint \dfrac{dx}{(1+x^2)^n}$ you
+found on page~\pageref{1plusx2} to find the exact value of
+$\dint_0^{\infty} \dfrac{dx}{(1+x^2)^{10}}$
+
+\subsubsection{The normal density function}
+
+The next two questions concern the improper integral
+	$$
+	\dfrac{1}{\sqrt{2\pi}} \int_{-\infty}^{\infty}
+		e^{-x^2/2} \, dx 
+	$$
+of the normal density function\index{function, normal density} defined on page~\pageref{`normal'}.  The goal is to determine the value of this integral.
+
+\num First, use RIEMANN\index{program!RIEMANN} to estimate
+the value of
+	$$
+	\dfrac{1}{\sqrt{2\pi}} \int_{-b}^{b}
+		e^{-x^2/2} \, dx 
+	$$
+when $b$ has the different values 1, 10, 100, and 1000.  On the basis
+of these results, estimate
+	$$
+	\lim_{b \to \infty} \dfrac{1}{\sqrt{2\pi}} \int_{-b}^{b}
+		e^{-x^2/2} \, dx.
+	$$
+This gives one estimate of the value of the improper integral.
+
+\numa To construct a second estimate, begin by sketching the graph of
+the normal density function
+	$$
+	f(x) = \dfrac{1}{\sqrt{2\pi}} e^{-x^2/2} 
+	$$
+on an interval centered at the origin.  Use the graph to argue that 
+	$$
+	\dfrac{1}{\sqrt{2\pi}} \int_{-b}^{b}
+		e^{-x^2/2} \, dx =
+	2 \left( \dfrac{1}{\sqrt{2\pi}} \int_{0}^{b}
+		e^{-x^2/2} \, dx \right) =
+	\sqrt{2/\pi} \int_{0}^{b}
+		e^{-x^2/2} \, dx 
+	$$
+and therefore
+	$$
+	\dfrac{1}{\sqrt{2\pi}} \int_{-\infty}^{\infty}
+		e^{-x^2/2} \, dx =
+	\sqrt{2/\pi} \int_{0}^{\infty}
+		e^{-x^2/2} \, dx.
+	$$
+
+\sub  Now consider the accumulation function
+$$
+F(t) = \sqrt{2/\pi} \int_{0}^{t} e^{-x^2/2} \, dx.
+$$
+We want to find $F(\infty) = {\displaystyle \lim_{t \to \infty}
+  F(t)}$.  According to the fundamental theorem of calculus, $y =
+F(t)$ satisfies the initial value problem
+	$$
+	\dfrac{dy}{dt} = \sqrt{2/\pi} \cdot
+		e^{-t^2/2}, \qquad
+		y(0) = 0.
+	$$
+Use a differential equation solver (e.g., PLOT\index{program!PLOT})
+to graph the solution $y = F(t)$ to this problem.  From the graph
+determine
+	$$
+	F(\infty) = \lim_{t \to \infty} F(t).
+	$$
+
+\sub Does your results in part (b) and question 2 agree?  Do they
+agree with the value the text claims for the improper integral.
+(Remember, the value is the probability that a randomly chosen number
+will lie {\em somewhere\/} on the number line between $-\infty$ and
+$+\infty$.)
+
+
+\subsubsection{The gamma function}\index{function, gamma}
+
+The {\bf factorial function}\index{function!factorial} is defined for
+a positive integer $n$ by the formula
+	$$
+	n! = n \cdot (n-1) \cdot (n-2) \cdot \cdots \cdot 
+		3 \cdot 2 \cdot 1.
+	$$ 
+For example, $1! = 1$, $2! = 2$, $3! = 6$, $4! = 24$, and $10! =
+3628800$.  The factorial function is used often in diverse
+mathematical contexts, but its use is sometimes limited by the fact
+that it is defined only for positive integers.  How might the function
+be defined on an expanded domain, so that we could deal with
+expressions like $tfrac{1}{2}!$, for example?  The {\em gamma
+  function\/} answers this question.
+\bigskip
+
+The {\bf gamma function}\index{gamma function} $\Gamma(x)$ is defined
+by the improper integral
+$$
+\Gamma(x) = \int_0^{\infty} e^{-t} t^{x - 1} \, dt.
+$$ Notice that $t$ is the active variable in this integral.  While the
+integration is being performed, $x$ is treated as a constant; for the
+integral to converge, we need $x > 0$.
+
+\num  Show that $\Gamma(1) = 1$.
+
+\num  Using integration by parts, show that 
+$\Gamma(x + 1) = x \cdot \Gamma(x)$.  You may use the fact that
+	$$
+	\dfrac{t^p}{e^t} \to 0 \ \mbox{as} \ t \to +\infty.
+	$$
+\smallskip
+
+\noindent
+The property $\Gamma(x + 1) = x \cdot \Gamma(x)$ makes the gamma
+function like the factorial function, because
+	$$
+	(n+1)! = (n+1) \cdot 
+		\underbrace{n \cdot (n-1) \cdot (n-2) \cdot 
+			\cdots \cdot 3 \cdot 2 \cdot 1}_
+		{\displaystyle = n!}
+		= (n+1) \cdot n!.
+	$$
+Notice there is a slight difference, though.  We explore this now.
+
+\num Using the property $\Gamma(x + 1) = x \cdot \Gamma(x)$, calculate
+$\Gamma(2)$, $\Gamma(3)$, $\Gamma(4)$, $\Gamma(5)$, and $\Gamma(6)$.
+On the basis of this evidence, fill in the blank:
+	$$
+	\mbox{For a positive integer $n$,} \qquad
+		\Gamma(n) = \rule[-2pt]{30pt}{.3pt}\, ! 
+	$$
+Using this relation, give a computable meaning to the
+expression~$\tfrac{1}{2}!$.
+
+
+\num Estimate the value of $\Gamma(1/2)$.  (Exercises 2 and 3 above
+offer two ways to estimate the value of an improper integral.)
+
+\num In fact, $\Gamma(1/2) = \sqrt{\pi}$ exactly.  You can show this
+by employing several of the techniques developed in this chapter.
+Start with
+	$$
+	\Gamma(1/2) = 
+		\int_0^{\infty} e^{-t} t^{-\frac{1}{2}} \, dt.
+	$$
+
+\sub Make the substitution $u = (2t)^{\tfrac{1}{2}}$ and show that the
+integral becomes
+	$$
+	\Gamma(1/2) = 
+		\sqrt{2} \int_0^{\infty} e^{-u^2/2} du.
+	$$
+
+\sub  From exercise 4 you know 
+	$$
+	\sqrt{2/\pi} \int_{0}^{\infty}
+		e^{-u^2/2} \, du = 1.
+	$$
+(Check this.)  Now, using some algebra, show $\Gamma(1/2) = \sqrt{\pi}$.
+
+\sub Compare your estimate for $\Gamma(1/2)$ from exercise 7 with the
+exact value $\sqrt{\pi}$.
+
+\numa Determine the exact values of $\Gamma(3/2)$ and $\Gamma(5/2)$.
+
+\sub In exercise 6 you gave a meaning to the expression
+$\tfrac{1}{2}!$; can you now give it an exact value?
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                      %
+%                               Section 8                              %
+%                                                                      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Chapter Summary}
+
+\subsection{The Main Ideas}
+
+
+\begin{itemize}
+
+\item A function $F$ is an {\bf antiderivative} of $f$ if $F'=f$.
+  {\em Every\/} antiderivative of $f$ is equal to $F+C$ for some
+  appropriately chosen constant $C$.  We write $\int \! f(x) \, dx =
+  F(x) +C$.
+
+\item Differentiation rules for combinations of functions yield
+  corresponding anti-differentiation rules.  Among these are the {\bf
+    constant multiple} and {\bf addition} rules.  The chain rule for
+  differentiation corresponds to {\bf integration by substitution}.
+  The product rule for differentiation corresponds to {\bf integration
+    by parts}.
+
+
+\item The derivative of a function and of its inverse are reciprocals.
+  When $y=f(t)$ and $t=g(y)$ are inverses:
+$$
+\dfrac{dt}{dy} = \frac{1}{dy/dt}.
+$$
+
+\item In some cases, the method of {\bf separation of variables} can
+  be used to find a {\em formula\/} for the solution of a differential
+  equation.
+
+\item A numerical method for estimating an integral is {\bf efficient}
+  if it gets accurate results with relatively few calculations.  The
+  {\bf trapezoidal approximation} is the average of a left and a right
+  {\em endpoint} Riemann sum and is more efficient than either.  {\em
+    Midpoint} Riemann sums are even more efficient than trapezoidal
+  approximations.
+
+\item The most efficient method developed in this chapter is {\bf
+  Simpson's rule}.  Simpson's rule approximates an integral by
+$$
+\int_a^b f(x) \, dx \approx \frac{1}{6}\left( \mbox{left sum} + \mbox{right sum} + 4 \times \mbox{midpoint sum} \right).
+$$
+
+\item An {\bf improper integral} is one that cannot be calculated
+  directly.  The problem may be that its ``domain of integration'' is
+  infinite or that the integrand becomes infinite on that domain.  Its
+  value is obtained as a limit of ordinary integrals.
+
+\end{itemize}
+
+
+\subsection{Expectations}
+
+\begin{itemize}
+
+\item  You should be able to find antiderivatives of basic functions.
+
+\item You should be able to find antiderivatives of combinations of
+  functions using the {\bf constant multiple} and {\bf addition}
+  rules, as well as the {\bf method of substitution} and {\bf
+    integration by parts}.
+
+\item You should be able to rewrite an integrand given as a quotient
+  using the method of {\bf partial fractions}.
+
+\item You should be able to express the derivative of an invertible
+  function in terms of the derivative of its inverse.  In particular,
+  you should be able to differentiate the {\bf arctangent}, {\bf
+    arcsine} and {\bf arccosine} functions.
+
+\item You should be able to solve a differential equation using the
+  method of {\bf separation of variables}.
+
+\item You should be able to adapt the program RIEMANN to approximate
+  integrals using the {\bf trapezoid rule} and {\bf Simpson's rule}.
+
+\item You should be able to find the value of an {\bf improper
+  integral} as the limit of ordinary integrals.
+
+\end{itemize}
+

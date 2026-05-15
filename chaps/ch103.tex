@@ -1,0 +1,274 @@
+%includes Harriet's changes 5/28/94
+\documentstyle[12pt]{cicfinal}
+%Revised by Harriet & Jim 6/26/94
+% sent to Freeman 6/29/94
+
+\newcommand{\mar}[1]{\marginpar[\raggedright\footnotesize\sf #1]{\raggedleft\footnotesize\sf #1}}
+\newcommand{\asideleft}[1]{\medskip\noindent%
+        \rule{321pt}{0pt}\makebox[0pt][r]{%
+        \begin{minipage}[t]{400pt}\footnotesize\sf{#1}%
+        \end{minipage}}\bigskip}
+\newcommand{\asideright}[1]{\medskip\noindent%
+        \rule{40pt}{0pt}\makebox[0pt][l]{%
+        \begin{minipage}[t]{400pt}\footnotesize\sf{#1}%
+        \end{minipage}}\bigskip}
+\newcommand{\aside}[1]{\ifodd \value{page}%
+        {\asideright{#1}}\else{\asideleft{#1}}\fi}
+\newcounter{exercisenumber}[subsection]
+\newcounter{exercisepart}[exercisenumber]
+\newcommand{\num}{\stepcounter{exercisenumber}\par\bigskip%
+        \noindent\arabic{exercisenumber}.\quad}
+\newcommand{\numa}{\stepcounter{exercisenumber}\par\bigskip%
+        \noindent\arabic{exercisenumber}.\quad%
+        \stepcounter{exercisepart}\alph{exercisepart})\enskip}\newcommand{\sub}{\stepcounter{exercisepart}\par\smallskip%
+        \noindent\alph{exercisepart})\enskip\thinspace}
+\newcommand{\ans}[1]{\par\smallskip\noindent[Answer:\enskip%
+        {#1}]}
+        
+\makeindex
+
+\begin{document}
+
+\setcounter{chapter}{9}
+
+\chapter{Series and Approximations}
+\newpage
+
+\setcounter{page}{597}
+
+\setcounter{section}{2}
+
+\section{Taylor Series}
+
+In the previous section we have been talking about approximations to functions by their Taylor polynomials.  Thus, for instance, we were able to write statements like
+$$\sin(x) \approx x - {x^3 \over 3!} + {x^5 \over 5!} 
+                - {x^7 \over 7!} \, ,$$
+where the approximation was a good one for values of $x$ not too far from 0.  On the other hand, when we looked at Taylor polynomials of higher and higher degree, the approximations were good for larger and larger values of $x$. We are thus tempted to write
+$$
+\sin(x) = x - {x^3 \over 3!} + {x^5 \over 5!} 
+                - {x^7 \over 7!} + {x^9 \over 9!} - \cdots \, ,
+$$
+%\newpage
+%\noindent
+indicating that the sine function is equal to this ``infinite degree" polynomial.  This infinite sum is called the {\bf Taylor series}\index{Taylor series, definition} centered at $x=0$ for $\sin(x)$.  But what would we even mean by such an infinite sum?  
+\mar {You have seen infinite sums before}
+We will explore this question in detail in \S5, but you should already have some intuition about what it means, for it can be interpreted in exactly the same way we interpret a more familiar statement like
+\begin{eqnarray*}
+        {1 \over 3} &=& .33333 \ldots \\
+        &=& {3 \over 10} + {3 \over 100} + {3 \over 1000}
+                + {3 \over 10000} + {3 \over 100000} + \ldots \, .
+        \end{eqnarray*}
+Every decimal number is a sum of fractions whose denominators are powers of 10; 1/3 is a number whose decimal expansion happens to need an infinite number of terms to be completely precise.  Of course, when a practical matter arises (for example, typing a number like 1/3 or $\pi$ into a computer) just the beginning of the sum is used---the ``tail'' is dropped.  We might write 1/3 as 0.33, or as 0.33333, or however many terms we need to get the accuracy we want.  Put another way, we are saying that 1/3 is the {\em limit} of the finite sums of the right hand side of the equation. 
+
+     Our new formulas for Taylor series are meant to be used exactly the same way: 
+     \mar{Infinite degree polynomials are to be viewed like infinite decimals}
+when a computation is involved, take only the beginning of the sum, and drop the tail.  Just where you cut off the tail depends on the input value $x$ and on the level of accuracy needed.  Look at what happens when we we approximate the value of $\cos(\pi/3)$ by evaluating Taylor polynomials of increasingly higher degree:
+\small 
+        \begin{eqnarray*}
+        1 \quad &=& 1.0000000 \\ [.1in]
+        1 - {1 \over 2!} \left( {\pi \over 3} \right)^2 
+                &\approx & 0.4516887 \\
+        1 - {1 \over 2!} \left( {\pi \over 3} \right)^2 
+                + {1 \over 4!} \left( {\pi \over 3} \right)^4
+                &\approx & 0.5017962 \\
+        1 - {1 \over 2!} \left( {\pi \over 3} \right)^2 
+                + {1 \over 4!} \left( {\pi \over 3} \right)^4
+                - {1 \over 6!} \left( {\pi \over 3} \right)^6
+                &\approx & 0.4999646 \\
+        1 - {1 \over 2!} \left( {\pi \over 3} \right)^2 
+                + {1 \over 4!} \left( {\pi \over 3} \right)^4
+                - {1 \over 6!} \left( {\pi \over 3} \right)^6
+                + {1 \over 8!} \left( {\pi \over 3} \right)^8
+                &\approx & 0.5000004 \\
+        1 - {1 \over 2!} \left( {\pi \over 3} \right)^2 
+                + {1 \over 4!} \left( {\pi \over 3} \right)^4
+                - {1 \over 6!} \left( {\pi \over 3} \right)^6
+                + {1 \over 8!} \left( {\pi \over 3} \right)^8
+                - {1 \over 10!} \left( {\pi \over 3} \right)^{10}
+                &\approx & 0.5000000 
+        \end{eqnarray*}
+\normalsize
+
+%\pagebreak
+
+These sums were evaluated using $\pi \approx 3.141593$.  As you can see, at the level of precision we are using, a sum that is six terms long gives the correct value.  However, five, four, or even three terms may have been adequate for the needs at hand.  The crucial fact is that these are all honest calculations using {\em only\/} the four operations of elementary arithmetic. 
+
+Note that if we had wanted to get the same 6 place accuracy for $\cos(x)$ for a larger value of $x$, we might need to go further out in the series.  For instance $\cos(7\pi/3)$ is also equal to .5, but the tenth degree Taylor polynomial centered at $x=0$ gives
+\small
+$$1 - {1 \over 2!} \left( {7\pi \over 3} \right)^2 
+                + {1 \over 4!} \left( {7\pi \over 3} \right)^4
+                - {1 \over 6!} \left( {7\pi \over 3} \right)^6
+                + {1 \over 8!} \left( {7\pi \over 3} \right)^8
+                - {1 \over 10!} \left( {7\pi \over 3} \right)^{10}
+                = -37.7302  \, , $$
+\normalsize
+which is not even close to .5 .  In fact, to get $\cos(7\pi/3)$ to 6 decimals, we need to use the Taylor polynomial centered at $x=0$ of degree 30, while to get $\cos(19\pi/3)$ (also equal to .5) to 6 decimals  we need the Taylor polynomial centered at $x=0$ of degree 66!  
+
+The key fact, though, is that, for any value of $x$, if we go out in the series far enough (where what constitutes ``far enough" will depend on $x$), we can approximate $\cos(x)$ to any number of decimal places desired. For any $x$, the value of $\cos(x)$ is the limit of the finite sums of the Taylor series, just as 1/3 is the limit of the finite sums of its infinite series representation.
+
+In general, given a function $f(x)$, its Taylor series\index{Taylor series, definition of} centered at $x=0$ will be
+ $$f(0)+f'(0)x+\frac{f^{(2)}(0)}{2!}x^2+\frac{f^{(3)}(0)}{3!}x^3+\frac{f^{(4)}(0)}{4!}x^4+\cdots = \sum_{k=0}^{\infty} \frac{f^{(k)}(0)}{k!}x^k\, .$$
+We have the following Taylor series\index{Taylor series} centered at $x=0$ for some common functions:
+$$
+        \begin{array}{ccl}
+        f(x) &\hspace{.5in} & \hspace{.5in}\mbox{Taylor series for $f(x)$} \\ [2pt] \hline
+        & & \\ [-6pt] 
+        \sin(x) & &{\displaystyle x - {x^3 \over 3!} + {x^5 \over 5!} 
+                - {x^7 \over 7!} + \cdots }\\ [.15in]
+        \cos(x) & &{\displaystyle 1 - {x^2 \over 2!} + {x^4 \over 4!} 
+                - {x^6 \over 6!} + \cdots }\\ [.15in]
+        e^x & &{\displaystyle 1 + x + {x^2 \over 2!} + {x^3 \over 3!} 
+                + {x^4 \over 4!} + \cdots  } \\ [.15in]
+        \ln{(1-x)}& &{\displaystyle  -(x+{x^2 \over 2} + {x^3 \over 3} 
+                + {x^4 \over 4} + \cdots)}\\ [.15in]
+        {\displaystyle {1 \over {1-x}} }& &{\displaystyle 1+x+x^2+x^3+\cdots } \\ [.15in]
+        {\displaystyle {1 \over {1+x^2}} }& &{\displaystyle 1-x^2+x^4-x^6+\cdots} \\ [.15in]
+        (1+x)^c & &{\displaystyle 1 +cx+{c(c-1) \over 2!}x^2+{c(c-1)(c-2) \over 3!}x^3 + \cdots}
+        \end{array}
+$$\index{Taylor series, table of}
+
+While it is true that $\cos(x)$ and $e^x$ equal their Taylor series, just as $\sin(x)$ did, we have to be more careful with the last four functions.  To see why this is, let's graph $1/(1+x^2)$ and its Taylor polynomials $P_n(x) = 1-x^2+ x^4-x^6+\cdots \pm x^n$ for $n=2$, 4, 6, 8, 10, 12, 14, 16, 200, and 202.  Since all the graphs are symmetric about the $y$-axis (why is this?), we only draw the graphs for positive $x$:
+
+\vspace*{2.3in}
+\special{psfile=/me/ps/calc2/Darct.ps}\index{Taylor polynomial, graphs for $1/(1+x^2)$}
+
+It appears that the 
+\mar{\vspace{-26pt}A Taylor series may not converge for all values of $x$}
+graphs of the Taylor polynomials $P_n(x)$ approach the graph of $1/(1+x^2)$ very nicely {\em so long as $x < 1$}.  If $x\geq1$, though, it looks like there is no convergence, no matter how far out in the Taylor series we go.  We can thus write
+$${\displaystyle {1 \over {1+x^2}} }= {\displaystyle 1-x^2+x^4-x^6+\cdots} \qquad \mbox{ for } |x|<1 \, ,$$
+where the restriction on $x$ is essential if we want to use the $=$ sign. We say that the interval $-1<x<1$ is the {\bf interval of convergence}\index{interval of convergence} for the Taylor series centered at $x=0$ for $1/(1+x^2)$.  Some Taylor series, like those for $\sin(x)$ and $e^x$, converge for all values of $x$---their interval of convergence is $(-\infty, \infty)$.  Other Taylor series, like those for $1/(1+x^2)$ and $\ln(1-x)$, have finite intervals of convergence.  
+
+\aside{Brook Taylor (1685--1731)\index{Taylor, Brook (1685--1731)} was an English mathematician who developed the series that bears his name in his book {\em Methodus incrementorum} (1715).  He did not worry about questions of convergence, but used the series freely to attack many kinds of problems, including differential equations.}
+
+\noindent
+{\bf Remark}  On the one hand it is perhaps not too surprising that a function should equal its Taylor series---after all, with more and more coefficients to fiddle with, we can control more and more of the behavior of the associated polynomials.  On the other hand, we are saying that a function like $\sin(x)$ or $e^x$ has its behavior for all values of $x$ completely determined by the value of the function and all its derivatives at a single point, so perhaps it is surprising after all!
+
+\subsection{Exercises}
+
+\numa Suppose you wanted to use the Taylor series centered at $x=0$ to calculate $\sin(100)$.  How large does $n$ have to be before the term $(100)^n/{n!}$ is less than 1?  
+\sub If we wanted to calculate $\sin(100)$ directly using this Taylor series, we would have to go very far out before we began to approach a limit at all closely.  Can you use your knowledge of the way the circular functions behave to calculate $\sin(100)$ much more rapidly (but still using the Taylor series centered at $x=0$)?  Do it.
+\sub Show that we can calculate the sine of any number by using  a Taylor series centered at $x=0$ {\em either} for $\sin(x)$ {\em or} for $\cos(x)$ to a suitable value 0f $x$ between 0 and $\pi/4$.
+
+\numa Suppose we wanted to calculate $\ln{5}$ to 7 decimal places. An obvious place to start is with the Taylor series centered at $x=0$ for $\ln(1-x)$:
+$${\displaystyle  -\left(x+{x^2 \over 2} + {x^3 \over 3} 
+                + {x^4 \over 4} + \cdots\right)}\, ,$$
+with $x=-4$.  What happens when you do this, and why?  Try a few more values for $x$ and see if you can make a conjecture about the interval of convergence for this Taylor series.
+\ans{The Taylor series converges for $-1\leq x < 1$.}
+\sub Explain how you could use the fact that $\ln(1/A)=-\ln{A}$ for any real number $A>0$ to evaluate $\ln{x}$ for $x>2$.  Use this to compute $\ln{5}$ to 7 decimals.  How far out in the Taylor series did you have to go?
+\sub If you wanted to calculate $\ln 1.5$, you could use the Taylor series for $\ln(1-x)$ with either $x=-1/2$, which would lead directly to $\ln 1.5$, or you could use the series with $x=1/3$, which would produce $\ln(2/3) = -\ln 1.5$\, .  Which method is faster, and why?
+
+\num We can improve the speed of our calculations of the logarithm function slightly by the following series of observations:
+\sub Find the Taylor series centered at $u=0$ for $\ln(1+u)$.
+\ans{$u-u^2/2+u^3/3-u^4/4+u^5/5+\cdots$}
+\sub Find the Taylor series centered at $u=0$ for
+$$\ln\left( {1-u \over 1+u} \right) \,.$$
+(Remember that $\ln(A/B) = \ln{A} - \ln{B}$.)
+\sub Show that {\em any} $x>0$ can be written in the form $(1-u)/(1+u)$ for some suitable $-1<u<1$.
+\sub Use the preceding to evaluate $\ln{5}$ to 7 decimal places. How far out in the Taylor series did you have to go?
+
+\numa Evaluate $\arctan(.5)$ to 7 decimal places.
+\sub Try to use the Taylor series centered at $x=0$ to evaluate $\arctan(2)$ directly---what happens?  Remembering what the arctangent function means geometrically, can you figure out a way around this difficulty?
+
+\numa {\bf Calculating $\pi$}\index{\pi, calculation of}  \hspace{.25in} The Taylor series expansion for the arctangent
+ function:
+ $$\arctan{x} = x-{1 \over 3}x^3 + {1 \over 5} x^5 - \cdots \pm {1 \over {2n+1}}x^{2n+1} +\cdots$$
+  lies behind many of the methods for getting lots of decimals of $\pi$ rapidly.  For instance, since $\tan({\pi \over 4}) = 1$, we have ${\pi\over 4} = \arctan{1}$.  Use this to get a series expansion for $\pi$.  How far out in the series do you have to go to evaluate $\pi$ to 3 decimal places?
+
+%  \ans{Out past the term of degree 4911.}
+
+\sub The reason the preceding approximations converged so slowly was that we were substituting $x=1$ into the series, so we didn't get any help from the $x^n$ terms in making the successive corrections get small rapidly.  We would like to be able to do something with values of $x$  between 0 and 1.  We can do this by using the addition formula for the tangent function:
+$$\tan(\alpha + \beta ) = {{\tan\alpha +\tan\beta} \over 1-{\tan\alpha}\tan\beta} \, .$$
+Use this to show that
+$${\pi \over 4}=\arctan\left({1 \over 2}\right)+\arctan\left({1 \over 5}\right)+\arctan\left({1 \over 8}\right) \, .$$
+Now use the Taylor series for each of these three expressions to calculate $\pi$ to 12 decimal places.  How far out in the series do you have to go?  Which series did you have to go the farthest out in before the 12th decimal stabilized? Why?
+
+\num {\bf Raising $e$ to imaginary powers}\index{$e$, raised to imaginary powers}  One of the major mathematical developments of the last century was the extension of the ideas of calculus to {\bf complex numbers}\index{complex numbers}---i.e., numbers of the form $r+s\,i$, where $r$ and $s$ are real numbers, and $i$ is a new symbol, defined by the property that $i\cdot i=-1$\,.  Thus $i^3=i^2\,i=-i$, $i^4=i^2\,i^2=(-1)(-1)=1$, and so on. If we want to extend our standard functions to these new numbers, we proceed as we did in the previous section and look for the crucial {\em properties} of these functions to see what they suggest.  One of the key properties of $e^x$ as we've now seen is that it possesses a Taylor series:
+$$e^x={\displaystyle 1 + x + {x^2 \over 2!} + {x^3 \over 3!} 
+                + {x^4 \over 4!} + \cdots  } \,.$$
+But this property only involves operations of ordinary arithmetic, and so makes perfectly good sense even if $x$ is a complex number
+\sub Show that if $s$ is any real number, we must define $e^{i\,s}$ to be $\cos(s)+i\,\sin(s)$ if we want to preserve this property.
+\sub Show that $e^{\pi\,i}=-1$.
+\sub  Show that if $r+s\,i$ is any complex number, we must have
+$$e^{r+s\,i}=e^r(\cos(s)+i\,\sin(s))$$
+if we want complex exponentials to preserve all the right properties.
+\sub Find a complex number $r+s\,i$ such that $e^{r+s\,i}= -5$.
+
+\num {\bf Hyperbolic trigonometric functions}\index{hyperbolic functions}\index{cosh}\index{sinh}  The hyperbolic trigonometric functions
+are defined by the formulas
+
+\begin{eqnarray*}
+\cosh(x) & = & { e^x + e^{-x} \over 2} \\
+\sinh(x) & = & {e^x - e^{-x} \over 2}
+\end{eqnarray*}
+
+\noindent
+(The names of these functions are usually pronounced ``cosh" and ``cinch.")  In this problem you will explore some of the reasons for the adjectives {\em hyperbolic} and {\em trigonometric}.
+
+\sub  Modify the Taylor series centered at $x=0$ for $e^x$ to find a Taylor series for $\cosh(x)$.  Compare your results to the Taylor series centered at $x=0$ for $\cos(x)$.
+
+\sub  Now find the Taylor series centered at $x=0$ for $\sinh(x)$.  Compare your results to the Taylor series centered at $x=0$ for $\sin(x)$.
+
+\sub  Parts (a) and (b) of this problem should begin to explain the {\em trigonometric} part of the story.  What about the {\em hyperbolic} part?  Recall that the familiar trigonometric functions are called {\em circular functions} because for any $t$ the point $(\cos t, \sin t)$ is on the unit circle with equation $x^2 + y^2 =1$ (cf. chapter 7, \S2).  Show that the point $(\cosh t, \sinh t)$ lies on the hyperbola with equation $x^2 - y^2 = 1$.
+
+\num  Consider the Taylor series centered at $x=0$ for $(1+x)^c$.
+\sub What does the series give if you let $c=2$?  Is this reasonable?
+\sub What do you get if you set $c=3$?
+\sub Show that if you set $c=n$, where $n$ is a positive integer, the Taylor series will terminate. This yields a general formula---the {\bf binomial theorem}\index{binomial theorem}---discovered by the 12th century Persian poet and mathematician, Omar Khayyam\index{Khayyam, Omar (c. 1050--1130)}, and generalized by Newton to the form you have just obtained.  Write out the first three and the last three terms of this formula.
+\sub Use an appropriate substitution for $x$ and a suitable value for $c$ to derive the Taylor series for $1/(1-u)$. Does this agree with what we previously obtained?
+\sub Suppose we want to calculate $\sqrt{17} \,$. We might try letting $x=16$ and $c=1/2$ and using the Taylor series for $(1+x)^c$.  What happens when you try this?
+\sub We can still use the series to help us, though, if we are a little clever and write
+$$\sqrt{17} =\sqrt{16+1} = \sqrt{16(1+{1 \over 16})} =\sqrt{16}\cdot\sqrt{1+{1 \over 16}}=4\cdot\sqrt{1+{1 \over 16}} \, .$$
+Now apply the series using $x=1/16$ to evaluate $\sqrt{17}$ to 7 decimal place accuracy.  How many terms does it take?
+\sub Use the same kind of trick to evaluate $\sqrt[3]{30} \,$.
+
+\vspace{14pt}
+\noindent
+{\bf Evaluating Taylor series rapidly}\index{polynomials, rapid evaluation of}  Suppose we wanted to plot the Taylor polynomial of degree 11 associated with $\sin(x)$.  For each value of $x$, then, we would have to evaluate
+$$P_{11}(x) =  x - {x^3 \over 3!} + {x^5 \over 5!} 
+                - {x^7 \over 7!} + {x^9 \over 9!} - {x^{11} \over 11!} \, .$$
+Since the length of time it takes the computer to evaluate an expression like this is roughly proportional to the number of multiplications and divisions involved (additions and subtractions, by comparison, take a negligible amount of time), let's see how many of these operations are needed to evaluate $P_{11}(x)$.  To calculate $x^{11}$ requires 10 multiplications, while 11! requires 9 (if we are clever and don't bother to multiply by 1 at the end!), so the evaluation of the term $x^{11}/11!$ will require a total of 20 operations (counting the final division).  Similarly, evaluating $x^9/9!$ requires 16 operations, $x^7/7!$ requires 12, on down to $x^3/3!$, which requires 4.  Thus the total number of multiplications and divisions needed is
+$$ 4 + 8 + 12 + 16 + 20 = 60 \, .$$
+This is not too bad, although if we were doing this for many different values of $x$, which would be the case if we wanted to graph $P_{11}(x)$, this would begin to add up.  Suppose, though, that we wanted to graph something like $P_{51}(x)$ or $P_{101}(x)$.  By the same analysis, evaluating $P_{51}(x)$ for a single value of $x$ would require
+$$4 + 8 + 12 + 16 + 20 + 24 + \cdots + 96 + 100 = 1300 \, $$
+multiplications and divisions, while evaluation of $P_{101}(x)$ would require 5100 operations.  Thus it would take roughly 20 times as long to evaluate $P_{51}(x)$ as it takes to evaluate $P_{11}(x)$, while $P_{101}(x)$ would take about 85 times as long.  
+
+\num Show that, in general, the number of multiplications and divisions needed to evaluate $P_n(x)$ is roughly $n^2/2$.
+
+\vspace{14pt}
+We can be clever, though.  Note that $P_{11}(x)$ can be written as
+$$x\left( 1-{x^2 \over 2\cdot 3}\left( 1-{x^2 \over 4\cdot 5}\left(
+ 1-{x^2 \over 6\cdot 7}\left( 1-{x^2 \over 8\cdot 9}\left( 1-{x^2 \over 10\cdot 11}\right) \right) \right) \right) \right) \, .$$
+ 
+\num How many multiplications and divisions are required to evaluate this expression?
+\ans{$3+4+4+4+4+1=20$.}
+
+\num Thus this way of evaluating $P_{11}(x)$ is roughly three times as fast, a modest saving.  How much faster is it if we use this method to evaluate $P_{51}(x)$?
+\ans{The old way takes roughly 13 times as long.}
+
+\num Find a general formula for the number of multiplications and divisions needed to evaluate $P_n(x)$ using this way of grouping.
+
+\medskip
+
+Finally, we can extend these ideas to reduce the number of operations even further, so that evaluating a polynomial of degree $n$ requires only $n$ multiplications, as follows.  Suppose we start with a polynomial
+$$p(x) = a_0 +a_1\,x+a_2\,x^2+a_3\,x^3 + \cdots +a_{n-1}\,x^{n-1}+a_n\,x^n \, .$$
+We can rewrite this as
+$$a_0+x\left(a_1+x\left(a_2+\ldots +x\left(a_{n-2}+x\left(a_{n-1}+a_n\,x\right)\right)\ldots\right)\right).$$
+You should check that with this representation it requires only $n$ multiplications to evaluate $p(x)$ for a given $x$.
+
+\numa Write two computer programs to evaluate the 300th degree Taylor polynomial centered at $x=0$ for $e^x$,  with one of the programs being the obvious, standard way, and the second program being this method given above. Evaluate $e^1=e$ using each program, and compare the length of time required.
+\sub Use these two programs to graph the 300th degree Taylor polynomial for $e^x$ over the interval $[0, 2]$, and compare times.
+
+\end{document}
+
+
+\section{Power Series and Differential Equations}
+
+So far, we have begun with functions we already know, in the sense of being able to calculate the value of the function and all its derivatives at at least one point.  This in turn allowed us to write down the corresponding Taylor series.  Often, though, we don't even have this much information about a function.  In such cases it is frequently useful to assume that there is some infinite polynomial---called a {\bf power series}\index{power series}---which represents the function, and then see if we can determine the coefficients of the polynomial. 
+
+This technique is especially useful in dealing with differential equations.  To see why this is the case, think of the alternatives.  If we
+\linebreak 
+
+
+
+\end{document}
+

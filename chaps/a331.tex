@@ -1,0 +1,61 @@
+%file a331.tex
+%picture file
+
+
+%\begin{center}
+%\begin{picture}(310,150)(30,0)
+%	\put(0,20){\vector(1,0){190}}
+%	\put(50,0){\vector(0,1){150}}
+	\put(190,13){\makebox(0,0){\small $x$}}
+	\put(45,148){\makebox(0,0)[r]{\small $y$}}
+	\begin{thicklines}
+	\bezier{250}(10,60)(80,30)(180,140)
+	\end{thicklines}
+	\put(8,63){\makebox(0,0)[br]{\small $y = f(x)$}}
+
+	\put(114.5,79){\framebox(11,9){}}
+	\put(120,83.5){\circle*{3}}
+	\put(120,20){\line(0,1){3}}
+	\put(50,83.5){\line(1,0){3}}
+	\put(120,13){\makebox(0,0){\small $a$}}
+	\put(47,83.5){\makebox(0,0)[r]{\small $f(a)$}}
+
+	\bezier{30}(114.5,79)(157.25,64.5)(200,50)
+	\bezier{30}(114.5,88)(157.25,109)(200,130)
+
+	\put(200,50)
+	{
+	\begin{picture}(110,80)
+	\put(0,0){\framebox(110,80){}}
+	\begin{thicklines}
+	\put(0,10){\line(3,2){105}}
+	\end{thicklines}
+	\put(20,23.3){\circle*{3}}
+	\put(50,43.3){\circle*{3}}
+	\put(80,63.3){\circle*{3}}
+	\put(20,0){\line(0,1){3}}
+	\put(50,0){\line(0,1){3}}
+	\put(80,0){\line(0,1){3}}
+	\put(110,23.5){\line(-1,0){3}}
+	\put(110,43.5){\line(-1,0){3}}
+	\put(110,63.5){\line(-1,0){3}}
+	\put(20,-7){\makebox(0,0){\footnotesize $a - h$}}
+	\put(50,-7){\makebox(0,0){\footnotesize $a$}}
+	\put(82,-7){\makebox(0,0){\footnotesize $a + h$}}
+	\put(113,23.3){\makebox(0,0)[l]{\footnotesize 
+		$f(a - h)$}}
+	\put(113,43.3){\makebox(0,0)[l]{\footnotesize $f(a)$}}
+	\put(113,63.3){\makebox(0,0)[l]{\footnotesize 
+		$f(a + h)$}}
+	\put(20,23.5){\line(1,0){60}}
+	\put(80,23.5){\line(0,1){40}}
+	\put(50,17){\makebox(0,0){\footnotesize $\Delta x$}}
+	\put(83,43.5){\makebox(0,0)[l]
+		{\footnotesize $\Delta y$}}
+	\put(8,-25){\makebox(0,0)[l]{\small $\Delta y = 
+		f(a + h) - f(a - h)$}}
+	\put(8,-38){\makebox(0,0)[l]{\small $\Delta x = 2h$}}
+	\end{picture}
+	}
+%\end{picture}
+

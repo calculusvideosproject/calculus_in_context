@@ -1,0 +1,24 @@
+To make the index:
+
+1) Run  latex cic  with \makeindex in the preamble of cic.tex; 
+   this should produce cic.idx
+
+2) Comment out \makeindex in the preamble (so cic.idx will not get remade)
+
+3) To eliminate extra whitespace in \indexentry, 
+   run on the command line: 	 white cic.idx
+
+4) To make cic.ind, run on the command line:	makeindex cic
+
+5) Rerun   latex cic	with \printindex NOT commented out;
+   this should produce the Index
+
+6) At any/every stage, run: 
+
+   white cic.idx && latex cic && dvips cic && ps2pdf cic.ps
+                 ^^ 
+                 ^^
+            DON'T FORGET!! 
+
+NOTE: to recreate the book with only minor adjustments that do not
+affect the index, keep \makeindex and \printindex commented out.

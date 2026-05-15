@@ -1,0 +1,81 @@
+%file a335.tex
+%picture file
+
+%\setlength{\unitlength}{3pt}
+%\begin{picture}(120,78)(6,-5)
+%	\put(0,0){\vector(1,0){77}}
+%	\put(0,0){\vector(0,1){48}}
+	\multiput(0,0)(10,0){8}{\line(0,-1){1}}
+	\multiput(0,0)(0,10){5}{\line(-1,0){1}}
+	\put(0,-2){\makebox(0,0)[t]{\small 0}}
+	\put(10,-2){\makebox(0,0)[t]{\small 10}}
+	\put(20,-2){\makebox(0,0)[t]{\small 20}}
+	\put(30,-2){\makebox(0,0)[t]{\small 30}}
+	\put(40,-2){\makebox(0,0)[t]{\small 40}}
+	\put(50,-2){\makebox(0,0)[t]{\small 50}}
+	\put(60,-2){\makebox(0,0)[t]{\small 60}}
+	\put(70,-2){\makebox(0,0)[t]{\small 70}}
+	\put(74,-1.8){\makebox(0,0)[tl]{\small miles per hour}}
+	\put(77,1.3){\makebox(0,0)[b]{\small $s$}}
+	\put(-2,0){\makebox(0,0)[r]{\small 0}}
+	\put(-2,10){\makebox(0,0)[r]{\small 10}}
+	\put(-2,20){\makebox(0,0)[r]{\small 20}}
+	\put(-2,30){\makebox(0,0)[r]{\small 30}}
+	\put(-2,40){\makebox(0,0)[r]{\small 40}}
+	\put(-2,47){\makebox(0,0)[r]{\small hours}}
+	\put(1,47){\makebox(0,0)[l]{\small $T$}}
+
+	\begin{thicklines}
+	\bezier{120}(8.9,45)(12.3,27.7)(20,20)
+	\bezier{200}(20,20)(31.6,8.4)(75,5.3)
+	\end{thicklines}
+	\put(11,45){\makebox(0,0)[l]{\small 
+		$T = \dfrac{400}{s}$}}
+
+	\put(45,4){\framebox(10,8){}}
+	\put(50,8){\circle*{1}}
+	\bezier{50}(55,4)(87.5,9.5)(120,15)
+	\bezier{50}(45,12)(52.5,37.5)(60,63)
+
+	\put(59,15)
+		{
+		\begin{picture}(60,50)
+		\put(0,0){\framebox(60,48){}}
+		\put(30,51){\makebox(0,0)[b]
+			{\small $\Delta T \approx -.16 \Delta s$}}
+		\put(30,-1){\makebox(0,0)[t]{\small 50}}
+		\put(60,-1){\makebox(0,0)[t]{\small $s$}}
+		\put(-1,24){\makebox(0,0)[r]{\small 8}}
+		\put(-1,48){\makebox(0,0)[r]{\small $T$}}
+
+		\put(30,3){\vector(0,1){42}}
+		\put(1,24){\vector(1,0){58}}
+		\multiput(5,23.5)(5,0){11}{\line(0,1){1}}
+		\multiput(29.5,9)(0,5){7}{\line(1,0){1}}
+%		\put(9,22.5){\makebox(0,0)[t]{\footnotesize $-4$}}
+		\put(14,22.5){\makebox(0,0)[t]{\footnotesize$-3$}}
+%		\put(19,22.5){\makebox(0,0)[t]{\footnotesize$-2$}}
+%		\put(40,25.5){\makebox(0,0)[b]{\footnotesize 2}}
+		\put(45,25.5){\makebox(0,0)[b]{\footnotesize 3}}
+%		\put(50,25.5){\makebox(0,0)[b]{\footnotesize 4}}
+		\put(59,26){\makebox(0,0)[br]{\scriptsize mph}}
+		\put(59.5,23){\makebox(0,0)[tr]{\footnotesize 
+			$\Delta s$}}
+%		\put(28.5,9){\makebox(0,0)[r]{\footnotesize $-3$}}
+		\put(28.5,14){\makebox(0,0)[r]{\footnotesize$-2$}}
+%		\put(28.5,19){\makebox(0,0)[r]{\footnotesize$-1$}}
+%		\put(28.5,29){\makebox(0,0)[r]{\footnotesize $1$}}
+		\put(28.5,34){\makebox(0,0)[r]{\footnotesize $2$}}
+%		\put(28.5,39){\makebox(0,0)[r]{\footnotesize $3$}}
+		\put(28,44.5){\makebox(0,0)[tr]{\scriptsize hrs}}
+		\put(31,45){\makebox(0,0)[tl]{\footnotesize 
+			$\Delta T$}}
+
+		\begin{thicklines}
+		\put(0,29){\line(6,-1){60}}
+		\end{thicklines}
+		\put(30,24){\circle*{1.5}}
+		\end{picture}
+		}
+%\end{picture}
+%\setlength{\unitlength}{1pt}

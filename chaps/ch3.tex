@@ -1,0 +1,4171 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                      %
+%                       Chapter 3  -  Section 1                        % 
+%                                                                      % 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{The Derivative}
+
+
+In developing the $S$-$I$-$R$ model in chapter 1 we took the idea of
+the rate of change of a population as intuitively clear.  The rate at
+which one quantity changes with respect to another is a central
+concept of calculus and leads to a broad range of insights.  The chief
+purpose of this chapter is to develop a fuller understanding---both
+analytic and geometric---of the connection between a function and its
+rate of change.  To do this we will introduce the concept of the {\bf
+  derivative}\index{derivative} of a function.
+
+
+\section{Rates of Change}
+\index{rate of change}
+
+\subsection{The Changing Time of Sunrise}
+\index{sunrise}
+
+The sun rises at different times, 
+%
+\mar{The time of sunrise\\ is a function}
+%
+depending on the date and location.  At $40^\circ$ N latitude (New
+York, Beijing, and Madrid are about at this latitude) in the year
+1990, for instance, the sun rose at
+\begin{center}
+\begin{tabular}{ll} 	
+	7:16 &	on January 23, \\	
+	5:58 &	on March 24,   \\	
+	4:52 &	on July 25.  
+\end{tabular}
+\end{center}
+Clearly the time of sunrise is a function of the date.  If we
+represent the time of sunrise by $T$ (in hours and minutes) and the
+date by $d$ (the day of the year), we can express this functional
+relation in the form $T = T(d)$.  For example, from the table above we
+find $T(23) =$ 7:16.  It is not obvious from the table, but it is also
+true that the the rate at which the time of sunrise is changing is
+different at different times of the year---$T'$ varies as $d$ varies.
+We can see how the rate varies by looking at some further data for
+sunrise at the same latitude, taken from {\em The Nautical Almanac for
+  the Year 1990\/}:\label{'table'}
+\medskip
+
+\mbox{}
+\hspace*{-.4in}
+\begin{tabular}{cccccccc} 
+	{\bf date} & {\bf time} & \quad & {\bf date} & 
+		{\bf time} & \quad & {\bf date} & {\bf time} \\
+			[4pt]  
+	\begin{tabular}{r} January 20 \\ 23 \\ 26
+	\end{tabular}
+	& 
+	\begin{tabular}{c} 7:18 \\ 7:16 \\ 7:14 
+	\end{tabular}
+	& &
+	\begin{tabular}{r} March 21 \\ 24 \\ 27 
+	\end{tabular}
+	&
+	\begin{tabular}{c} 6:02 \\ 5:58 \\ 5:53
+	\end{tabular}
+	& &
+	\begin{tabular}{r} July 22 \\ 25 \\ 28
+	\end{tabular}
+	&
+	\begin{tabular}{c} 4:49 \\ 4:52 \\ 4:54 
+	\end{tabular}
+\end{tabular}
+\smallskip
+
+Let's use this table to estimate the rate\index{rate} at which the
+time of sunrise is changing on January 23.
+%
+\mar{Calculate the rate using earlier and\\ later dates}
+%
+We'll use the times three days earlier and three days later, and
+compare them.  On January 26 the sun rose 4 minutes earlier than on
+January 20.  This is a change of $-4$ minutes in 6 days, so the rate
+of change is
+\[
+-4 \ \dfrac{\mbox{minutes}}{6 \ \mbox{days}} \approx 
+		-.67 \ \mbox{minutes per day}.
+\]
+We say this is the {\bf rate} at which sunrise is changing on January
+23, and we write
+\[
+T'(23) \approx -.67 \ \frac{\mbox{minutes}}{\mbox{day}}.
+\]
+The rate is negative because the time of sunrise is decreasing---the
+sun is rising earlier each day.
+
+Similarly, we find that around March 24 the time of sunrise is
+changing approximately $-9/6 = -1.5$ minutes per day, and around July
+25 the rate is $5/6 \approx +.8$ minutes per day.  The last value is
+positive, since the time of sunrise is increasing---the sun is rising
+later each day in July.  Since March 24 is the 83rd day of the year
+and July 25 is the 206th, using our notation for rate of change we can
+write
+\[
+T'(83) \approx -1.5
+		\ \frac{\mbox{minutes}}{\mbox{day}}; \qquad 
+T'(206) \approx  .8 
+		\ \frac{\mbox{minutes}}{\mbox{day}}.
+\]
+
+\vspace{-6pt}
+
+\aside{Notice that, in each case, we have calculated the rate on a
+  given day by using times {\em shortly before\/} and {\em shortly
+    after\/} that day.  We will continue this pattern wherever
+  possible.  In particular, you should follow it when you do the
+  exercises about a falling object, at the end of the section.}
+
+
+Once we have the rates, we can estimate the time of sunrise for dates
+not given in the table.  For instance, January 28 is five days after
+January 23, so the total change in the time of sunrise from January 23
+to January 28 should be approximately
+\[
+\Delta T \approx -.67 \ 
+		\frac{\mbox{minutes}}{\mbox{day}} \times 5 
+		\ \mbox{days} = -3.35 \ \mbox{minutes}.  
+\]
+In whole numbers, then, the sun rose 3 minutes earlier on January 28
+than on January 23.  Since sunrise was at 7:16 on the 23rd, it was at
+7:13 on the 28th.
+
+By letting the change in the number of days be negative, we can use
+this same reasoning to tell us the time of sunrise on days shortly
+{\em before\/} the given dates.  For example, March 18 is $-6$ days
+away from March 24, so the change in the time of sunrise should be
+\[
+\Delta T \approx -1.5 \ 
+		\frac{\mbox{minutes}}{\mbox{day}} \times 
+		-6 \ \mbox{days} = +9 \ \mbox{minutes}.
+\]
+Therefore, we can estimate that sunrise occurred at 5:58 + 0:09 = 6:07
+on March~18.
+
+\subsection{Changing Rates}
+\index{changing rates}
+
+Suppose instead of using the tabulated values for March we tried to
+use our January data to {\em predict\/} the time of sunrise in March.
+Now March~24 is 60 days after January~23, so the change in the time of
+sunrise should be approximately
+\[
+\Delta T \approx -.67 \ 
+		\frac{\mbox{minutes}}{\mbox{day}} \times 
+		60 \ \mbox{days} = -40.2 \ \mbox{minutes},
+\]
+and we would conclude that sunrise on March 24 should be at about 7:16
+$-$ 0:40 = 6:37, which is more than half an hour later than the actual
+time!  This is a problem we met often in estimating future values in
+the $S$-$I$-$R$ model.  
+%
+\mar{Predictions over\\ long time spans\\ are less reliable} 
+%When we use the formula above to estimate $\Delta T$, we
+implicitly assume that the time of sunrise changes at the fixed rate
+of $-.67$~minutes per day over the entire 60-day time-span.  But this
+turns out not to be true: the rate actually varies, and the variation
+is too great for us to get a useful estimate.  Only with a much
+smaller time-span does the rate not vary too much.
+
+Here is the same lesson in another context.  Suppose you are
+travelling in a car along a busy road at rush hour and notice that you
+are going 50 miles per hour.  You would be fairly confident that in
+the next 30 seconds (1/120 of an hour) you will travel about
+\[
+\Delta \, \mbox{position} \approx
+		50 \ \frac{\mbox{miles}}{\mbox{hour}} \times 
+		\dfrac{1}{120} \ \mbox{hour} = 
+		\dfrac{5}{12} \ \mbox{mile} 
+		= 2200 \ \mbox{feet}.
+\]
+The actual value ought to be within 50 feet of this, making the
+estimate accurate to within about 2\% or 3\%.  On the other hand, if
+you wanted to estimate how far you would go in the next 30 minutes,
+your speed would probably fluctuate too much for the calculation
+\[
+\Delta \, \mbox{position} \approx 
+		50 \ \frac{\mbox{miles}}{\mbox{hour}} \times 
+		\dfrac{1}{2} \ \mbox{hours} = 
+		25 \ \mbox{miles}
+\]
+to have the same level of reliability.  
+
+\subsection{Other Rates, Other Units}
+\index{rate}\index{units}
+
+In the $S$-$I$-$R$ model the rates we analyzed were {\bf population
+  growth rates}.\index{population growth rates}\index{growth
+  rate!population} They told us how the three populations changed over
+time, in units of persons per day.  If we were studying the growth of
+a colony of mold, measuring its size by its weight (in grams), we
+could describe {\em its\/} population growth rate in units of grams
+per hour.  In discussing the motion of an automobile, the rate we
+consider is the {\bf velocity}\index{velocity} (in miles per hour),
+which tells us how the distance from some starting point changes over
+time.  We also pay attention to the rate at which {\em velocity\/}
+changes over time.  This is called {\bf
+  acceleration}\index{acceleration}, and can be measured in miles per
+hour per hour.
+
+While many rates do involve changes with respect to time, other rates
+do not.  Two examples are the survival rate\index{survival rate} for a
+disease (survivors per thousand infected persons) and the dose
+rate\index{dose rate} for a medicine (milligrams per pound of body
+weight).  \mar{Examples of rates} Other common rates are the annual
+birth rate \index{annual birth rate} and the annual death rate, which
+might have values like 19.3 live births per 1,000 population and 12.4
+deaths per 1,000 population.  Any quantity expressed as a percentage,
+such as an interest rate or an unemployment rate, is a rate of a
+similar sort.  An unemployment rate of 5\%, for instance, means 5
+unemployed workers per 100 workers.  There are many other examples of
+rates in the economic world that make use of a variety of
+units---exchange rates (e.g., francs per dollar), marginal return
+(e.g., dollars of profit per dollar of change in price).
+
+Sometimes we even want to know the rate of change of one rate with
+respect to another rate.
+%
+\mar{The rate of change\\ of a rate}
+%
+For example, automobile fuel economy (in miles per gallon---the first
+rate) changes with speed (in miles per hour---the second rate), and we
+can measure the rate of change of fuel economy with speed.  Take a car
+that goes 22 miles per gallon of fuel at 50 miles per hour, but only
+19 miles per gallon at 60 miles per hour.  Then its fuel economy is
+changing approximately at the rate
+\begin{align*}
+\dfrac{\Delta \, \mbox{fuel economy}}
+		{\Delta \, \mbox{speed}}
+		&= \dfrac{19 - 22 \ \mbox{miles per gallon}}
+			{60 - 50 \ \mbox{miles per hour}} \\[5pt]
+		&= -.3 \ \mbox{miles per gallon {\em per\/} 
+			mile per hour}.
+\end{align*}
+
+
+\subsection{Exercises}
+
+{\bf A falling object}.\index{falling object} These questions deal
+with an object that is held motionless 10,000 feet above the surface
+of the ocean and then dropped.  Start a clock ticking the moment it is
+dropped, and let $D$ be the number of feet it has fallen after the
+clock has run $t$ seconds.  The following table shows some of the
+values of $t$ and $D$.
+\begin{center}
+\begin{tabular}{cc}
+time & distance \\
+(seconds) & (feet) \\[2pt] \hline
+	\begin{tabular}{c}
+		\rule{0pt}{14pt} 0 \rule{0pt}{14pt} \\ 
+		1 \\ 2 \\ 3 \\ 4 \\ 5 \\ 6 \\ 7 
+	\end{tabular}
+	&
+	\begin{tabular}{r}
+		\rule{0pt}{14pt}  0.00  \\
+		15.07 \\
+		56.90 \\
+		121.03 \\
+		203.76 \\
+		302.00 \\
+		413.16 \\
+		535.10
+	\end{tabular}
+\end{tabular}
+\end{center}
+
+\num What units do you use to measure velocity---that is, the rate of
+change of distance with respect to time---in this problem?
+
+\numa Make a careful graph that shows these eight data points.  Put
+      {\em time\/} on the horizontal axis.  Label the axes and
+      indicate the units you are using on each.
+
+\sub The slope of any line drawn on this time--distance graph has the
+units of a {\em velocity}.  Explain why.
+
+\enlargethispage*{20pt}
+\num Make three estimates of the velocity of the falling object at the
+2~second mark using the distances fallen between these times:
+
+	i) from 1 second to 2 seconds;
+
+	ii) from 2 seconds to 3 seconds;
+
+	iii) from 1 second to 3 seconds.
+
+\numa Each of the estimates in the previous question corresponds to
+the slope of a particular line you can draw in your graph.  Draw those
+lines and label each with the corresponding velocity.
+
+\sub Which of the three estimates in the previous question do you
+think is best?  Explain your choice.
+
+\num Using your best method, estimate the velocity of the falling
+object after 4 seconds have passed.
+
+\num Is the object speeding up or slowing down as it falls?  How can
+you tell?
+
+\num Approximate the velocity of the falling object after 7 seconds
+have passed.  Use your answer to estimate the number of feet the
+object has fallen after 8 seconds have passed.  Do you think your
+estimate is too high or too low?  Why?
+
+\num For those of you attending a school at which you pay tuition,
+find out what the tuition has been for each of the last four years at
+your school.
+
+\sub At what rate has the tuition changed in each of the last three
+years?  What are the units? In which year was the rate the greatest?
+
+\sub A more informative rate is often the {\bf inflation
+  rate}\index{inflation!rate of} which doesn't look at the dollar
+change per year, but at the percentage change per year---the dollar
+change in tuition in a year's time expressed as a percentage of the
+tuition at the beginning of the year.  What is the tuition inflation
+rate at your school for each of the last three years?  How do these
+rates compare with the rates you found in part (a)?
+
+\sub If you were interested in seeing how the inflation rate was
+changing over time, you would be looking at the rate of change of the
+inflation rate.  What would the units of this rate be?  What is the
+rate of change of the inflation rate at your school for the last two
+years?
+
+\sub Using all this information, what would be your estimate for next
+year's tuition?
+
+\num Your library should have several reference books giving annual
+statistics of various sorts.  A good one is the {\em Statistical
+  Yearbook\/} put out by the United Nations with detailed data from
+all over the world on manufacturing, transportation, energy,
+agriculture, tourism, and culture.  Another is {\em Historical
+  Statistics of the United States, Colonial Times--1970}.  Select an
+interesting quantity and compare its growth rate at different times or
+for different countries.  Calculate this growth rate over a stretch of
+four or five years and report whether there are any apparent patterns.
+Calculate the rate of change of this growth rate and interpret its
+values.
+
+\num Oceanographers are very interested in the {\bf temperature
+  profile}\index{temperature profile} of the part of the ocean they
+are studying.  That is, how does the temperature $T$ (in degrees
+Celsius) vary with the depth $d$ (measured in meters).  A typical
+temperature profile might look something like the following:
+
+\vspace*{160pt}
+
+\special{psfile=../ps/calc1/profile.ps}
+
+\noindent
+(Note that since water is densest at $4^{\circ}$ C, water at that
+temperature settles to the bottom.)
+
+\sub What are the units for the rate of change of temperature with
+depth?
+
+\sub In this graph will the rate be positive or negative? Justify your
+answer.
+
+\sub At what rate is the temperature changing at a depth of 0 meters?
+500 meters? 1000 meters?
+
+\sub Sketch a possible temperature profile for this location if the
+surface is iced over.
+
+\sub This graph is not oriented the way our graphs have been up til
+now.  Why do you suppose oceanographers (and geologists and
+atmospheric scientists) often draw graphs with axes positioned like
+this?
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                         %
+%                                Section 2                                %
+%                                                                         %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Microscopes and Local Linearity}
+\index{microscope}
+\index{local linearity}
+
+\subsection{The Graph of Data}
+\index{graph!data}
+
+\special{psfile=../ps/calc1/sunrise1.ps}
+
+\noindent
+\begin{minipage}{2in}
+This section is about seeing rates geometrically.  We know from
+chapter~1 that we can visualize the rate of change of a {\em linear\/}
+function as the slope of its graph.  Can we say the same thing about
+the sunrise function?  The graph of this function appears at the
+right; it plots the time of sunrise (over the \linebreak
+\end{minipage}
+
+\vspace{-10pt}
+\noindent
+course of a year at $40^\circ$ N latitude), as a function of the date.
+The graph is curved, so the sunrise function is not linear.  There is
+no immediately obvious connection between rate and slope.  In fact, it
+isn't even clear what we might mean by the {\em slope\/} of this
+graph!  We can make it clear by using a {\bf microscope}.
+
+Imagine we have a microscope 
+%
+\mar{Zoom in on the graph with a microscope}
+%
+that allows us to ``zoom in''\index{zooming} on the graph near each of
+the the three dates we considered in section~1.  If we put each magnified
+image in a window, then we get the following:
+
+\vspace*{3in}
+\special{psfile=../ps/calc1/sunrise2a.ps}
+
+
+\noindent
+Notice how different the graph looks under the microscope.  First of
+all, it now shows up clearly as a collection of separate points---one
+for each day of the year.  \mar{The graph looks straight under a
+  microscope} Second, the points in a particular window lie on a line
+that is essentially straight.  The straight lines in the three windows
+have very different slopes, but that is only to be expected.
+
+What is the connection between these slopes and the rates of change we
+calculated in the last section?  To decide, we should calculate the
+slope in each window.  This involves choosing a pair of points $(d_1,
+T_1)$ and $(d_2, T_2)$ on the graph and calculating the ratio
+\[
+\dfrac{\Delta T}{\Delta d} = 
+		\dfrac{T_2 - T_1}{d_2 - d_1}.
+\]
+In window {\bf a} we'll take the two points that lie three days on
+either side of the central date, January 23.  These points have
+coordinates $(20, \mbox{7:18})$ and $(26, \mbox{7:14})$ (table,
+page~\pageref{'table'}).  The slope is thus
+\[
+\dfrac{\Delta T}{\Delta d} =
+	\frac{\mbox{7:14} - \mbox{7:18}}{26 - 20} = 
+	\frac{-4 \; \mbox{minutes}}{6 \; \mbox{days}} = 
+	-.67 \; \frac{\mbox{minutes}}{\mbox{day}}.
+\]
+If we use the same approach in the other two windows we find that the line in window {\bf b} has slope \index{slope}\index{rate of change}
+$-1.5$ min/day, 
+%
+\mar{Slope and\\ rate calculations\\ are the same}
+%
+while the line in window {\bf c} has slope +.8 min/day.  These are
+exactly the same calculations we did in section~1 to determine the
+rate of change of the time of sunrise around January 23, March 24, and
+July 25, and they produce the same values we obtained there:
+\[
+T'(23) \approx -.67 \ \frac{\mbox{min}}{\mbox{day}}, 
+		\qquad T'(83) \approx -1.5 \ 
+		\frac{\mbox{min}}{\mbox{day}},  \qquad
+ T'(206) \approx .8 \ \frac{\mbox{min}}{\mbox{day}}.
+\]
+This is a crucial observation which we use repeatedly in other
+contexts; let's pause and state it in general terms:
+\begin{center}
+\begin{picture}(360,60)
+\begin{thicklines}
+\put(0,0) {\framebox(360,60)
+{\shortstack { 
+The \textbf{rate of change of a function} at a point is equal to \\
+the \textbf{slope of its graph} at that point, if the graph \\
+looks straight when we view it under a microscope. 
+}}}
+\end{thicklines}
+\end{picture}
+\end{center}
+
+\subsection{The Graph of a Formula}
+\index{graph!formula}
+\index{formula}\index{formula!graph}
+
+Rates and slopes are really the same thing---that's what we learn by
+using a microscope to view the graph of the sunrise function.  But the
+sunrise graph consists of a finite number of disconnected points---a
+very common situation when we deal with data.  In such cases it
+doesn't make sense to magnify the graph too much.  For instance, we
+would get no useful information from a window that was narrower than
+the space between the data points.  \mar{High-power magnification is
+  possible with a formula} There is no such limitation if we use a
+microscope to look at the graph of a function given by a formula,
+though.  We can zoom in as close as we wish and still see a continuous
+curve or line.  By using a high-power microscope, we can learn even
+more about rates and slopes.
+
+Consider this rather complicated-looking function:
+\[
+f(x) = \dfrac{{2 + x^3\cos{x} + 1.5^x}}{2 + x^2}.
+\]
+Let's find $f'(27)$, the rate of change of $f$ when $x = 27$.  We need
+to zoom\index{zooming} in on the graph of $f$ at the point $(27,
+f(27)) = (27, 69.859043)$.  We do this in stages, producing a
+succession of windows that run clockwise from the upper left.  Notice
+how the graph gets straighter with each magnification.
+
+\vspace*{4.25in}
+
+\special{psfile=../ps/calc1/mag1.ps}
+\special{psfile=../ps/calc1/mag2.ps}
+\special{psfile=../ps/calc1/mag3.ps}
+\special{psfile=../ps/calc1/mag4.ps}
+\special{psfile=../ps/calc1/mag5.ps}
+\special{psfile=../ps/calc1/mag6.ps}
+
+\noindent
+We will need a way to describe the part of the graph that we see in a
+window.  Let's call it the {\bf field of view}.\index{field of view}
+%
+\mar{The field of view\\ of a window}
+%
+The field of view of each window is only one-tenth as wide as the
+previous one, and the field of view of the last window is only
+one-millionth of the first!  The last window shows what we would see
+if we looked at the original graph with a million-power microscope.
+
+\aside{The microscope used to study functions is real, but it is
+  different from the one a biologist uses to study micro-organisms.
+  Our microscope is a computer graphing program that can ``zoom in''
+  on any point on a graph.  The computer screen is the window you look
+  through, and you determine the field of view when you set the size
+  of the interval over which the graph is plotted.}
+
+Here is our point of departure: \emph{the rate $f'(27)$ is the slope
+  of the graph of $f(x)$ at $x = 27$ when we magnify the graph enough
+  to make it look straight}.  But how much is enough?  Which window
+should we use?  The following table gives the slope $\Delta y/\Delta
+x$ of the line that appears in each of the last four windows in the
+sequence.  For $\Delta x$ we take the difference between the
+$x$-coordinates of the points at the ends of the line, and for $\Delta
+y$ we take the difference between the $y$-coordinates.  In particular,
+the width of the field of view in each case is $\Delta x$.
+\[
+\begin{array}{ccc}\label{`zoom'}
+	\Delta x & \Delta y & \Delta y/\Delta x
+		\\[1pt] \hline
+	\rule{0pt}{1pt} &  &  \\[-8pt]
+	\begin{array}{l} .04 \\ .004 \\ .0004 \\ .00004 
+	\end{array}
+	&
+	\begin{array}{c}
+		-1.081\,508\,24 \times 10^{-2} \\
+		-1.089\,338\,27 \times 10^{-3} \\
+		-1.089\,416\,49 \times 10^{-4} \\
+		-1.089\,417\,28 \times 10^{-5}
+	\end{array}
+	&
+	\begin{array}{c} 
+		-.270\,377\,066  \\
+		-.272\,334\,556  \\
+		-.272\,354\,131  \\
+		-.272\,354\,327    
+	\end{array}
+\end{array}
+\]
+
+As you can see, it {\em does\/} matter how much we magnify.  The
+slopes $\Delta y/\Delta x$ in the table are not quite the same, so we
+don't yet have a definite value for $f'(27)$.  The table gives us an
+idea how we {\em can\/} get a definite value, though.  Notice that the
+slopes get more and more alike, the more we magnify.  In fact, under
+successive magnifications the first five digits of $\Delta y/\Delta x$
+have {\bf stabilized}.\index{stabilize} We saw in chapter 2 how to
+think about a sequence of numbers whose digits stabilize one by one.
+We should treat the values of $\Delta y/\Delta x$ as \mar{The slope is
+  a limit} {\bf successive approximations}\index{successive
+  approximation} to the slope of the graph.  The exact value of the
+slope is then the {\bf limit}\index{limit} of these approximations as
+the width of the field of view shrinks to zero:
+\[
+f'(27) = \mbox{the slope of the graph} = 
+		\lim_{\Delta x \to 0}\dfrac{\Delta y}{\Delta x}.
+\]
+In the limit process we take $\Delta x \to 0$ because $\Delta x$ is
+the width of the field of view.  Since five digits of $\Delta y/\Delta
+x$ have stabilized, we can write
+\[
+f'(27) = -.27235\ldots .
+\]
+
+
+To find $f'(x)$ at some other point $x$, proceed the same way.
+Magnify the graph at that point repeatedly, until the value of the
+slope stabilizes.  The method is very powerful.  In the exercises you
+will have an opportunity to use it with other functions.
+\medskip
+
+By using a microscope of arbitrarily high power, we have obtained
+further insights about rates and slopes.  In fact, with these insights
+we can now state definitively what we mean by the slope of a curved
+graph and the rate of change of a function.
+%\smallskip
+
+\begin{center}
+\begin{picture}(360,120)
+\begin{thicklines}
+\put(0,0) {\framebox(360,120)}
+\put(0,60){\makebox(360,60){
+\begin{minipage}{330pt}
+{\bf Definition}.  The {\bf slope}\index{slope} of a graph at a point
+is the {\em limit\/} of the slopes seen in a microscope at that point,
+as the field of view shrinks to zero.
+\end{minipage}
+}}
+\put(100,60){\line(1,0){160}}
+\put(0,0){\makebox(360,60){
+\begin{minipage}{330pt}
+{\bf Definition}.  The {\bf rate of change}\index{rate of change} of a
+function at a point is the slope of its graph at that point.  Thus the
+rate of change is also a limit.
+\end{minipage}
+}}
+\end{thicklines}
+\end{picture}
+\end{center}
+
+To calculate the value of the slope of the graph of $f(x)$ when $x =
+a$, we have to carry out a limit process.  We can break down the
+process into these four steps: \\[5pt] 
+1.\enskip Magnify the graph at the point $(a, f(a))$ until it appears 
+straight.\\[3pt] 
+2.\enskip Calculate the slope of the magnified segment.\\[3pt] 
+3.\enskip Repeat steps 1 and 2 with successively higher 
+magnifications.\\[3pt]
+4.\enskip Take the limit of the succession of slopes produced in 
+step~3.
+
+
+\subsection{Local Linearity}
+\index{local linearity}
+
+The crucial property of a microscope\index{microscope}
+%
+\mar{A microscope gives\\ a local view}
+%
+is that it allows us to look at a graph {\bf locally}, that is, in a
+small neighborhood of a particular point.  The two functions we have
+been studying in this section have curved graphs---like most
+functions.  But {\em locally}, their graphs are straight---or nearly
+so.  This is a remarkable property, and we give it a name.  We say
+these functions are {\bf locally linear}\index{function!locally linear}.  In
+other words, a locally linear function looks like a linear function,
+locally.
+
+The graph of a linear function has a definite slope at every point,
+and so does a {\em locally\/} linear function.  For a linear function,
+the slope is easy to calculate, and it has the same value at every
+point.  For a locally linear function, the slope is harder to
+calculate; it involves a limit process.  The slope also varies from
+point to point.
+
+How common is local linearity?  
+%
+\mar{All the standard functions are\\ locally linear at\\ almost all points}
+%
+All the standard functions you already deal with are locally linear
+almost everywhere.  To see why we use the qualifying phrase ``almost
+everywhere,'' look at what happens when we view the graph of $y = f(x)
+= x^{2/3}$\label{cusp-begin} with a microscope.  At any point other
+than the origin, the graph is locally linear.  For instance, if we
+view this graph over the interval from 0 to 2 and then zoom in on the
+point $(1, 1)$ by two successive powers of 10, here's what we see:
+
+\vspace*{1.6in}
+
+\special{psfile=../ps/calc1/cusp1.ps}
+
+\enlargethispage*{20pt}
+\noindent
+As the field of view shrinks, the graph looks more and more like a
+straight line.  Using the highest magnification given, we estimate the
+slope of the graph---and hence the rate of change of the function---to
+be
+\[
+f'(1) \approx \dfrac{\Delta y}{\Delta x} = 
+		\frac{1.006656 - .993322}{1.01 - .99} =
+		\frac{.013334}{.02} = .6667.  
+\]
+Similarly, if we zoom in on the point $(.001, .01)$ we get:
+
+\vspace*{23pt}
+\special{psfile=../ps/calc1/cusp2.ps}
+
+\newpage
+
+\noindent
+In the last window the graph looks like a line of slope
+\[
+f'(.001) \approx \frac{.0118 - .0082}{.00128181 - 
+		.00074254} = \frac{.0036}{.00053937} = 6.674. 
+\]
+At the origin, though, something quite different happens:
+
+\vspace*{3in}
+
+\special{psfile=../ps/calc1/cusp3.ps}
+
+\noindent
+The graph simply looks more and more sharply pointed the closer we
+zoom in to the origin---it never looks like a straight line.  However,
+the origin turns out to be the only point where the graph does not
+eventually look like a straight line.\label{cusp-end}
+
+In spite of these examples, it is important to realize that local
+linearity is a very special property.  There are some functions that
+fail to be locally linear anywhere!  Such functions are called {\bf
+  fractals}.\index{fractal} \mar{Fractals are locally {\em
+    non\/}-linear objects} No matter how much you magnify the graph of
+a fractal at any point, it continues to look non-linear---bent and
+``pointy'' in various ways.  In recent years fractals have been used
+in problems where the more common (locally linear) functions are
+inadequate.  For instance, they describe irregular shapes like
+coastlines and clouds, and they model the way molecules are knocked
+about in a fluid (this is called {\em Brownian
+  motion}\/).\index{Brownian motion} However, calculus does not deal
+with such functions.  On the contrary:
+\begin{center}
+\begin{picture}(255,40)
+\begin{thicklines}
+\put(0,0){\framebox (255,40)
+{\shortstack {
+{\bf Calculus studies functions that are} \\[2pt]
+{\bf locally linear almost everywhere.}
+}}}
+\end{thicklines}
+\end{picture}
+\end{center}
+
+
+\subsection{Exercises}
+
+\subsubsection{Using a microscope}
+\index{microscope}
+
+\vspace{-10pt}
+
+\num Use a computer microscope to do the following.  (A suggestion:
+first look at each graph over a fairly large interval.)
+
+\sub With a window of size $\Delta x = .002$, estimate the rate
+$f'(1)$ where $f(x) = x^4 - 8x$.
+
+\sub With a window of size $\Delta x = .0002$, estimate the rate
+$g'(0)$ where $g(x) = 10^x$.
+
+\sub With a window of size $\Delta t = .05$, estimate the slope of the
+graph of $y = t + 2^{-t}$ at $t = 7$.
+
+\sub With a window of size $\Delta z = .0004$, estimate the slope of
+the graph of $w = \sin{z}$ at $z = 0$.
+
+
+\num Use a computer microscope to determine the following values,
+correct to one decimal place.  Obtain estimates using a {\em sequence\/}
+of windows, and shrink the field of view until the first two decimal
+places stabilize.  Show {\em all\/} the estimates you constructed in
+each sequence.
+
+\sub  $f'(1)$ where $f(x) = x^4 - 8x$.
+
+\sub  $h'(0)$ where $h(s) = 3^s$.
+
+\sub  The slope of the graph of $w = \sin{z}$ at $z = \pi/4$.
+
+\sub  The slope of the graph of $y = t + 2^{-t}$ at $t = 7$.
+
+\sub  The slope of the graph of $y = x^{2/3}$ at $x = -5$.
+
+
+\num For each of the following functions, magnify its graph at the
+indicated point until the graph appears straight.  Determine the
+equation of that straight line.  Then verify that your equation is
+correct by plotting it as a second function in the same window you are
+viewing the given function.  (The two graphs should ``share
+phosphor''!)
+
+\sub  $f(x) = \sin{x}$ at $x = 0$;
+
+\sub  $\varphi(t) = t + 2^{-t}$ at $t = 7$; 
+
+\sub  $H(x) = x^{2/3}$ at $x = -5$. 
+
+
+\num Consider the function that we investigated in the text:
+	$$
+	f(x) = \dfrac{2 + x^3\cos{x} + 1.5^x}{2 + x^2}.
+	$$
+
+\sub  Determine $f(0)$.
+
+\sub Make a sketch of the graph of $f$ on the interval $-1 \leq x \leq
+1$.  Use the same scale on the horizontal and vertical axes so your
+graph shows slopes accurately.
+
+\sub Sketch what happens when you magnify the previous graph so the
+field of view is only $-.001 \leq x \leq .001$.
+
+\sub  Estimate the slope of the line you drew in the part (c).
+
+\sub Estimate $f'(0)$.  How many decimal places of accuracy does your
+estimate have?
+
+\sub  What is the equation of the line in part (c)? 
+
+
+\num A function that occurs in several different contexts in physical
+problems is
+	$$
+	g(x) = \frac{\sin{x}}{x}.
+	$$
+Use a graphing program to answer the following questions.
+
+\sub Estimate the rate of change of $g$ at the following points to two
+decimal place accuracy:
+	$$
+	g'(1), \qquad g'(2.79), \qquad g'(\pi), \qquad
+		g'(3.1).
+	$$
+
+\sub Find three values of $x$ where $g'(x) = 0$.
+
+\sub In the interval from 0 to 2$\pi$, where is $g$ decreasing the
+most rapidly?  At what rate is it decreasing there?
+
+\sub Find a value of $x$ for which $g'(x)$ = -- 0.25.
+
+\sub Although $g(0)$ is not defined, the function $g(x)$ seems to
+behave nicely in a neighborhood of 0.  What seems to be true about
+$g(x)$ and $g'(x)$ when $x$ is near 0?
+
+\sub According to your graphs, what value does $g(x)$ approach as $x
+\to 0$?  What value does $g'(x)$ approach as $x \to 0$?
+
+
+
+\subsubsection{Rates from graphs; graphs from rates}
+\index{rate}\index{graph}
+
+\vspace{-10pt}
+
+\num \stepcounter{exercisepart}\alph{exercisepart})\enskip Sketch the
+graph of a function $f$ that has $f(1) =1$ and $f'(1)~=~2$.
+
+\sub Sketch the graph of a function $f$ that has $f(1) =1$, $f'(1) =
+2$, and $f(1.1) = -5$.
+
+
+\num A and B start off at the same time, run to a point 50 feet away,
+and return, all in 10 seconds.  A graph of distance from the starting
+point as a function of time for each runner appears below.  It tells
+where each runner is during this time interval.
+
+\sub Who is in the lead during the race?
+
+\sub At what time(s) is A farthest ahead of B?  At what time(s) is B
+farthest ahead of A?
+
+\sub Estimate how fast A and B are going after one second.
+
+\sub Estimate the velocities of A and B during each of the ten
+seconds.  Be sure to assign {\em negative\/} velocities to times when
+the distance to the starting point is {\em shrinking}.  Use these
+estimates to sketch graphs of the velocities of A and B versus time.
+(Although the velocity of B changes rapidly around $t = 5$, assume
+that the graph of B's distance {\em is\/} locally linear at $t = 5$.)
+
+\sub Use your graphs in (d) to answer the following questions.  When
+is A going faster than B?  When is B going faster than A?  Around what
+time is A running at $-5$ feet/second (i.e., running 5 feet/second
+{\em toward} the starting point)?
+
+\vspace*{2.1in}
+
+\special{psfile=../ps/calc1/prob114.ps}
+
+\num For each of the following functions draw a graph that reflects
+the given information.  Restate the given information in the language
+and notation of rate of change, paying particular attention to the
+units in which any rate of change is expressed.
+
+\sub A woman's height $h$ (in inches) depends on her age $t$ (in
+years).  Babies grow very rapidly for the first two years, then more
+slowly until the adolescent growth spurt; much later, many women
+actually become shorter because of loss of cartilage and bone mass in
+the spinal column.
+
+\sub The number $R$ of rabbits in a meadow varies with time $t$ (in
+years).  In the early years food is abundant and the rabbit population
+grows rapidly.  However, as the population of rabbits approaches the
+``carrying capacity"\index{carrying capacity} of the meadow
+environment, the growth rate slows, and the population never exceeds
+the carrying capacity.  Each year, during the harsh conditions of
+winter, the population dies back slightly, although it never gets
+quite as low as its value the previous year.
+
+\sub In a fixed population of couples who use a contraceptive, the
+average number $N$ of children per couple depends on the effectiveness
+$E$ (in percent) of the contraceptive.  If the couples are using a
+contraceptive of low effectiveness, a small increase in effectiveness
+has a small effect on the value of $N$.  As we look at contraceptives
+of greater and greater effectiveness, small additional increases in
+effectiveness have larger and larger effects on $N$.
+
+\num If we graph the distance travelled by a parachutist in
+freefall\index{freefall} as a function of the length of time spent
+falling, we would get a picture something like the following:
+
+\vspace{2.5in}
+
+\special{psfile=../ps/calc1/prob115.ps}
+
+\sub Use this graph to make estimates of the parachutist's velocity at
+the end of each second.
+
+\sub Describe what happens to the velocity as time passes.
+
+\sub How far do you think the parachutist would have fallen by the end
+of 15 seconds?
+
+
+\num True or false.  If you think a statement is true, give your
+reason; if you think a statement is false, give a
+counterexample---i.e., an example that shows why it must be false.
+
+\sub If $g'(t)$ is positive for all $t$, we can conclude that $g(214)$
+is positive.
+
+\sub If $g'(t)$ is positive for all $t$, we can conclude that $g(214)
+>g(17)\/$.
+
+\sub Bill and Samantha are driving separate cars in the same direction
+along the same road.  At the start Samantha is 1 mile in front of
+Bill.  If their speeds are the same at every moment thereafter, at the
+end of 20 minutes Samantha will be 1 mile in front of Bill.
+
+\sub Bill and Samantha are driving separate cars in the same direction
+along the same road.  They start from the same point at 10 am and
+arrive at the same destination at 2 pm the same afternoon.  At some
+time during the four hours their speeds must have been exactly the
+same.
+
+
+\subsubsection{When local linearity fails}
+\index{local linearity}
+
+\vspace{-10pt}
+
+\num The absolute value function $f(x) = |x|$ is {\em not\/} locally
+linear at $x=0$.  Explore this fact by zooming in on the graph at $(0,
+0)$.  Describe what you see in successively smaller windows.  Is there
+any change?
+
+
+\num Find three points where the function $f(x) = |\cos{x}|$ fails to
+be locally linear.  Sketch the graph of $f$ to demonstrate what is
+happening.
+
+
+\num Zoom in on the graph of $y = x^{4/5}$ at $(0, 0)$.  In order to
+get an accurate picture, be sure that you use the same scales on the
+horizontal and vertical axes.  Sketch what you see happening in
+successive windows.  Is the function $x^{4/5}$ locally linear at $x =
+0$?
+
+
+\num Is the function $x^{4/5}$ locally linear at $x = 1$?  Explain
+your answer.
+
+
+\num  This question concerns the function $K(x) = x^{10/9}$.
+
+\sub Sketch the graph of $K$ on the interval $-1 \leq x \leq 1$.
+Compare $K$ to the absolute value function $|x|$.  Are they similar or
+dissimilar?  In what ways?  Would you say $K$ is locally linear at the
+origin, or not?
+
+\sub Magnify the graph of $K$ at the origin repeatedly, until the
+field of view is no bigger than $\Delta x \leq 10^{-10}$.  As you
+magnify, be sure the scales on the horizontal and vertical axes remain
+the same, so you get a true picture of the slopes.  Sketch what you
+see in the final window.
+
+\sub After using the microscope do you change your opinion about the
+local linearity of $K$ at the origin?  Explain your response.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                      %
+%                               Section 3                              %
+%                                                                      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{The Derivative}
+\index{derivative}
+
+\subsection{Definition}
+
+One of our main goals in this chapter is to make precise the notion of
+the rate of change of a function.  In fact, we have already done that
+in the last section.  We defined the rate of change of a function at a
+point to be the slope of its graph at that point; we defined the
+slope, in turn, by a four-step limit process.  Thus, the precise
+definition of a rate of change involves a limit, and it involves
+geometric visualization---we think of a rate as a slope.  We introduce
+a new word---{\em derivative\/}---to embrace both of these concepts as
+we now understand them.
+
+\begin{center}
+\begin{thicklines}
+\begin{picture}(360,60)
+\put(0,0){\framebox (360,60){
+\begin{minipage}{330pt}
+{\bf Definition}.  The {\bf derivative} of the function $f(x)$ at $x =
+a$ is its rate of change at $x = a$, which is the same as the slope of
+its graph at $(a, f(a))$.  The derivative of $f$ at $a$ is denoted
+{\bf \boldmath $f'(a)$}.
+\end{minipage}
+}}
+\end{picture}
+\end{thicklines}
+\end{center}
+
+Later in this section we will extend our interpretation of the
+derivative to include the idea of a {\em multiplier}, as well as a
+rate and a slope.  Besides providing us with a single word to describe
+rates, slopes, and multipliers, the term ``derivative'' also reminds
+us that the quantity $f'(a)$ is {\em derived\/} from information about
+the function $f$ in a particular way.  It is worth repeating here the
+four steps by which we derive $f'(a)$: \\[5pt] 
+1.\enskip Magnify the graph at the point $(a, f(a))$ until it appears 
+straight.  \\[3pt]
+2.\enskip Calculate the slope of the magnified segment.  \\[3pt]
+3.\enskip Repeat steps 1 and 2 with successively higher
+magnifications.  \\[3pt] 
+4.\enskip Take the limit of the succession of slopes produced 
+in step~3.  \\[5pt] 
+We can express this limit in analytic form in the following way:
+\[
+f'(a) = \lim_{\Delta x \to 0} \dfrac{\Delta y}{\Delta x}
+		= \lim_{h \to 0} \dfrac{f(a + h) - f(a - h)}{2h}.
+\]
+The {\bf difference quotient}\index{difference quotient} 
+\[
+\dfrac{\Delta y}{\Delta x} = 
+		\dfrac{f(a + h) - f(a - h)}{2h}
+\]
+is the usual way we estimate the slope of the magnified graph of $f$
+at the point $(a, f(a))$.  As the following figure shows, the
+calculation involves two points equally spaced on either side of $(a,
+f(a))$.
+
+\begin{center}
+\begin{picture}(310,150)(0,0)
+	\put(0,20){\vector(1,0){190}}
+	\put(50,0){\vector(0,1){150}}
+	\input{a331.tex}
+\end{picture}
+
+Estimating the value of the derivative $f'(a)$
+\end{center}
+
+\noindent
+\begin{minipage}[b]{3.8in}
+{\bf Choosing points in a window}.\index{window}\label{window} To
+estimate the slope in the window above, we chose two particular
+points, $(a - h, f(a - h))$ and $(a + h, f(a + h))$.  However, {\em
+  any\/} two points in the window would give us a valid estimate.  Our
+choice depends on the situation.  For example, if we are working with
+formulas, we want simple expressions. In that case we would probably
+replace $(a - h, f(a - h))$ by $(a, f(a))$.  We do that in the window
+on the left.  The resulting slope is
+\end{minipage}
+\hfill
+\begin{picture}(56,140)(20,-30)
+	\put(0,0){\framebox(110,80){}}
+	\input{a332.tex}
+\end{picture}
+\[
+\dfrac{\Delta y}{\Delta x} = \dfrac{f(a+h)-f(a)}{h}.
+\]
+While the limiting value of $\Delta y/\Delta x$ doesn't depend on the
+choices you make, the {\em estimates\/} you produce with a fixed
+$\Delta x$ can be closer to or farther from the true value.  The
+exercises will explore this.
+\medskip
+
+\noindent
+{\bf Data versus formulas}.\index{data}\index{formula} The derivative
+is a limit.  To find that limit we have to be able to zoom in
+arbitrarily close, to make $\Delta x$ arbitrarily small.  For
+functions given by data, that is usually impossible; we can't use any
+$\Delta x$ smaller than the spacing between the data points.  \mar{A
+  data function might not have a derivative} Thus, a data function of
+this sort does not have a derivative, strictly speaking.  However, by
+zooming in as much as the data allow, we get the most precise
+description possible for the rate of change of the function.  In these
+circumstances it makes a difference which points we choose in a window
+to calculate $\Delta y/\Delta x$.  In the exercises you will have a
+chance to see how the precision of your estimate depends on which
+points you choose to calculate the slope.
+
+For a function given by a formula, it is possible to find the value of
+the derivative exactly.  In fact, the derivative of a function given
+by a formula is itself given by a formula.
+%
+\mar{There are rules for finding derivatives}
+%
+Later in this chapter we will describe some general rules which will
+allow us to produce the formula for the derivative without going
+through the successive approximation process each time.  In chapter 5
+we will discuss these rules more fully.
+\medskip
+
+\noindent
+{\bf Practical considerations}.  The derivative is a limit, and there
+are always practical considerations to raise when we discuss limits.
+As we saw in chapter 2, we cannot expect to construct the entire
+decimal expansion of a limit.  In most cases all we can get are a
+specified number of digits.  For example, in section~2 we found that
+\[
+\mbox{if} \ f(x) = 
+		\dfrac{2 + x^3\cos{x} + 1.5^x}{2 + x^2}, \ 
+		\mbox{then} \ f'(27) = -.27235\ldots .
+\]
+
+The same digits without the ``\ldots'' give us {\bf
+  approximations}.\index{approximation} Thus we can write $f'(27)
+\approx -.27235$; we also have $f'(27) \approx -.2723$ and $f'(27)
+\approx -.272$.  Which approximation is the right one to use depends
+on the context.  For example, if $f$ appears in a problem in which all
+the other quantities are known only to one or two decimal places, we
+probably don't need a very precise value for $f'(27)$.  In that case
+we don't have to carry the sequence of slopes $\Delta y/\Delta x$ very
+far.  For instance, if we want to know $f'(27)$ to three decimal
+places, and so justify writing $f'(27) \approx -.272$, we only need to
+continue the zooming process until the slopes $\Delta y/\Delta x$ all
+have values that begin $-.2723\ldots$ .  By the table on
+page~\pageref{`zoom'}, $\Delta x = .0004$ is sufficient.
+
+
+\subsection{Language and Notation}  
+
+$\bullet$ If $f$ has a derivative at $a$, we also say {\bf \boldmath
+  $f$ is differentiable at $a$}.  If $f$ is differentiable at every
+point $a$ in its domain, we say {\bf \boldmath $f$ is
+  differentiable}.\index{differentiable}
+
+\noindent
+$\bullet$ Do {\em locally linear\/} and {\em differentiable\/} mean
+the same thing?  The awkward case is a function whose graph is
+vertical at a point (for example, $y = \sqrt[3]{x}$ at the origin).
+On the one hand, it makes sense to say that the function is locally
+linear at such a point, because the graph looks straight under a
+microscope.  On the other hand, the derivative itself is undefined,
+because the line is vertical.  So the function is locally linear, but
+not differentiable, at that point.
+
+There is another way to view the matter.  We can say, instead, that a
+vertical line {\em does\/} have a slope, and its value is {\em
+  infinity\/} ($\infty$).  From this point of view, if the graph of
+$f$ is vertical at $x = a$, then $f'(a) = \infty$.  In other words,
+$f$ {\em does\/} have a derivative at $x = a$; its value just happens
+to be $\infty$.
+
+Which view is ``right''?  Neither; we can choose either.  Our choice
+is a matter of convention.  \mar{Convention: if the graph of $f$ is
+  vertical at $a$, write $f'(a) = \infty$} (In some countries cars
+travel on the left; in others, on the right.  That's a convention,
+too.)  However, we will follow the second alternative.  One advantage
+is that we will be able to use the derivative to indicate where the
+graph of a function is vertical.  Another is that {\em locally
+  linear\/} and {\em differentiable\/} then mean exactly the same
+thing.
+
+\noindent
+$\bullet$ Suppose $y = f(x)$ and the quantities $x$ and $y$ appear in
+a context in which they have units.  Then the derivative of $f'(x)$
+{\em also\/} has units, because it is the rate of change of $y$ with
+respect to $x$.  The units\index{units} for the derivative must be
+\[
+\mbox{units for $f'$} = 
+		\dfrac{\mbox{units for output $y$}}
+		{\mbox{units for input $x$}}\,. 
+\]
+We have already seen several examples---persons per day, miles per
+hour, milligrams per pound, dollars of profit per dollar change in
+price---and we will see many more.
+
+\noindent
+$\bullet$ There are several notations for the derivative.  You should
+be aware of them because they are all in common use and because they
+reflect different ways of viewing the derivative.  We have been
+writing the derivative of $y = f(x)$ as $f'(x)$.
+%
+\mar{Leibniz's notation}
+%
+Leibniz wrote it as $dy/dx$.  This notation has several advantages.
+It resembles the quotient $\Delta y/\Delta x$ that we use to
+approximate the derivative.  Also, because $dy/dx$ looks like a rate,
+it helps remind us that a derivative is a rate.  Later on, when we
+consider the chain rule to find derivatives, you'll see that it can be
+stated very vividly using Leibniz's
+notation.\index{Leibniz, G.}\index{Leibniz's notation}
+
+\aside{The German philosopher Gottfried Wilhelm Leibniz (1646-1716)
+  developed calculus about the same time Newton did.  While Newton
+  dealt with derivatives in more or less the way we do, Leibniz
+  introduced a related idea which he called a {\em
+    differential}\label{differential}---`infinitesimally small'
+  numbers which he would write as $dx$ and $dy$.}
+
+The other notation still encountered is due to Newton.\index{Newton, I.}
+%
+\mar{Newton's notation}
+%
+It occurs primarily in physics and is used to denote rates with
+respect to time.  If a quantity $y$ is changing over time, then the
+Newton notation expresses the derivative of $y$ as $\dot{y}$ (that's
+the variable $y$ with a dot over it).
+
+\newpage
+
+\subsection{The Microscope Equation}
+\index{microscope equation}
+
+\subsubsection{A Context: Driving Time}
+
+If you make a 400 mile trip at an average speed of 50 miles per hour,
+then the trip takes 8 hours.  Suppose you increase the average speed
+by 2 miles per hour.  How much time does that cut off the trip?
+
+One way to approach this question is to start with the basic formula
+\[
+\mbox{speed} \times \mbox{time} = \mbox{distance}.
+\]
+The distance is known to be 400 miles, 
+%
+\mar{Travel time\\ depends on speed}
+%
+and we really want to understand how {\em time\/} $T$ depends on {\em
+  speed\/} $s$.  We get $T$ as a function of $s$ by rewriting the last
+equation:
+\[
+T \ \mbox{hours} 
+  = \dfrac{400 \ \mbox{miles}}{s \ \mbox{miles per hour}}.
+\]
+To answer the question, just set $s = 52$ miles per hour in this
+equation.  Then $T = 7.6923$ hours, or about 7 hours, 42 minutes.
+Thus, compared to the original 8 hours, the higher speed cuts 18
+minutes off your driving time.
+
+What happens to the driving time if you increase your speed by 4 miles
+per hour, or 5, instead of 2?  What happens if you go slower, say 2 or
+3 miles per hour slower?  We could make a fresh start with each of
+these questions and answer them, one by one, the same way we did the
+first.  But taking the questions one at a time misses the point.  What
+we really want to know is the general pattern:
+\begin{center}
+	If I'm travelling at 50 miles per hour, 
+%
+\mar{\vspace{-18pt} How does travel time respond to\\ changes in speed?}
+%
+how much does any \\
+given increase in speed decrease my travel time?
+\end{center}
+
+We already know how $T$ and $s$ are related: $T = 400/s$ hours.  This
+question, however, is about the connection between a {\em change\/} in
+speed of
+\[
+\Delta s = s - 50 \ \mbox{miles per hour} 
+\]
+and a {\em change\/} in arrival time of
+\[
+\Delta T = T - 8 \ \mbox{hours}.
+\]
+To answer it we should change our point of view slightly.  It is not
+the relation between $s$ and $T$, but between $\Delta s$ and $\Delta
+T$, that we want to understand.
+
+Since we are considering speeds $s$ that are only slightly above or
+below 50 miles per hour, $\Delta s$ will be small.  Consequently, the
+arrival time $T$ will be only slightly different from 8 hours, so
+$\Delta T$ will also be small.  Thus we want to study small changes in
+the function $T = 400/s$ near $(s, T) = (50, 8)$.  The natural tool to
+use is a microscope.
+
+\begin{center}
+\setlength{\unitlength}{1.6pt}
+\begin{picture}(135,96)(0,-2)
+	\put(0,0){\framebox(126,90){}}
+	\input{a333.tex}
+\end{picture}
+\setlength{\unitlength}{1pt}
+\end{center}
+\begin{center}
+How travel time changes with speed around 50 miles per hour
+\end{center}
+
+In the microscope window\index{window} above we see the graph of $T =
+400/s$, magnified at the point $(s, T) = (50, 8)$.  The field of view
+was chosen so that $s$ can take values about 6 mph above or below 50
+mph.
+%
+\mar{The slope of the graph in the microscope window}
+%
+The graph looks straight, and its slope is $T'(50)$.  In the exercises
+you are asked to determine the value of $T'(50)$; you should find
+$T'(50) \approx -.16$.  (Later on, when we have rules for finding the
+derivative of a formula, you will see that $T'(50) = -.16$ {\em
+  exactly}.)  Since the quotient $\Delta T/\Delta s$ is also an
+estimate for the slope of the line in the window, we can write
+\[
+\dfrac{\Delta T}{\Delta s} \approx -.16 
+		\ \mbox{hours {\em per\/} mile per hour}.
+\]
+If we multiply both sides of this approximate equation by $\Delta s$
+miles per hours, we get
+\[
+\Delta T \approx -.16\,\Delta s \ \mbox{hours}.
+\]
+
+This equation answers our question 
+%
+\mar{How travel time changes with speed}
+%
+about the general pattern relating changes in travel time to changes
+in speed.  It says that the changes are {\em proportional}.  For every
+mile per hour increase in speed, travel time decreases by about .16
+hours, or about $9\tfrac{1}{2}$ minutes.  Thus, if the speed is 1 mph
+over 50 mph, travel time is cut by about $9\tfrac{1}{2}$ minutes.  If
+we double the increase in speed, that doubles the savings in time: if
+the speed is 2 mph over 50 mph, travel time is cut by about 19
+minutes.  Compare this with a value of about 18 minutes that we got
+with the exact equation $T = 400/s$.
+
+
+
+Notice that we are using $\Delta s$ and $\Delta T$ 
+%
+\mar{$\Delta s$ and $\Delta T$ now have a special meaning}
+%
+in a slightly more restricted way than we have previously.  Up to now,
+$\Delta s$ measured the horizontal distance between {\em any\/} two
+points on a graph.  Now, however, $\Delta s$ just measures the
+horizontal distance from the fixed point $(s, T) = (50, 8)$ (marked
+with a large dot) that sits at the center of the window.  Likewise,
+$\Delta T$ just measures the vertical distance from this point.  The
+central point therefore plays the role of an origin, and $\Delta s$
+and $\Delta T$ are the {\em coordinates\/} of a point measured from
+that origin.  To underscore the fact that $\Delta s$ and $\Delta T$
+are really coordinates, we have added a $\Delta s$-axis and a $\Delta
+T$-axis in the window below.  Notice that these coordinate axes have
+their own labels and scales.
+
+Every point in the window can therefore 
+%
+\mar{$\Delta s$ and $\Delta T$ are coordinates in the
+  window}\index{microscope coordinates}
+%
+be described in two different coordinate systems.  The two different
+sets of coordinates of the point labelled $P$, for instance, are $(s,
+T) = (53, 7.52)$ and $(\Delta s, \Delta T) = (3, -.48)$.  The first
+pair says ``When your speed is 53 mph, the trip will take 7.52 hrs.''
+The second pair says ``When you increase your speed by 3 mph, you will
+decrease travel time by .48 hrs.''  Each statement can be translated
+into the other, but each statement has its own point of reference.
+
+\begin{center}
+\setlength{\unitlength}{1.6pt}
+\begin{picture}(135,96)(-3,-2)
+	\put(0,0){\framebox(126,90){}}
+	\input{a334.tex}
+\end{picture}
+\setlength{\unitlength}{1pt}
+\end{center}
+\begin{center}
+The microscope equation: \quad $\Delta T \approx 
+	-.16\, \Delta s$ hours
+\end{center}
+We call $\Delta T \approx -.16\, \Delta s$ the {\bf microscope
+  equation}\index{microscope equation} because it tells us how the
+microscope coordinates $\Delta s$ and $\Delta T$ are related.
+
+In fact, we now have two different ways to describe how travel time is
+related to speed.  They can be compared in the following table.
+\begin{center}
+\begin{tabular}{lcccc}
+	& \quad	& {\sc global} & \quad & {\sc local} \\[5pt]
+coordinates: 	&& $s$,\enskip $T$	&& $\Delta s$,\enskip
+							$\Delta T$ \\[5pt]
+equation:		&& $T = 400/s$	&& $\Delta T \approx 
+							-.16\, \Delta s$ \\[3pt]
+properties:	&& 
+	\begin{tabular}{c} 
+		exact \\ [-2pt] non-linear
+	\end{tabular}
+			&&
+	\begin{tabular}{c} 
+		approximate \\ [-2pt] linear
+	\end{tabular}
+\end{tabular}
+\end{center}
+We say the microscope equation is {\em local\/} 
+%
+\mar{Global vs. local descriptions}\index{global}
+%
+because it is intended to deal only with speeds near 50 miles per
+hour.  There is a different microscope equation for speeds near 40
+miles per hour, for instance.  By contrast, the original equation is
+{\em global}, because it works for all speeds.  While the global
+equation is exact it is also non-linear; this can make it more
+difficult to compute.  The microscope equation is approximate but
+linear; it is easy to compute.  It is also easy to put into words:
+\begin{center} 
+At 50 miles per hour, the travel time of a 400 mile journey \\
+decreases $9\tfrac{1}{2}$ minutes for each mile per hour increase in speed.
+\end{center}
+The connection between the global equation and the microscope equation
+is shown in the following illustration.
+
+
+\setlength{\unitlength}{3pt}
+\begin{picture}(120,73)(6,0)
+	\put(0,0){\vector(1,0){77}}
+	\put(0,0){\vector(0,1){48}}
+   \input{a335}
+%	\put(59,15)
+%		{
+%		\begin{picture}(60,50)
+%		\put(0,0){\framebox(60,48){}}
+%		\end{picture}
+%		}
+\end{picture}
+\setlength{\unitlength}{1pt}
+
+\subsubsection{Local Linearity and Multipliers}
+\index{local linearity}
+\index{multiplier}
+
+The reasoning that led us to a microscope equation for travel time can
+be applied to any locally linear function.  If $y = f(x)$ is locally
+linear, then at $x = a$ we can write
+\begin{center}
+\begin{thicklines}
+\begin{picture}(320,40)
+\put(0,0){\framebox (320,40)
+{\bf The microscope equation: \quad \boldmath $\Delta y
+	 \approx f'(a) \cdot \Delta x$}}
+\end{picture}
+\end{thicklines}
+\end{center}
+We know an equation of the form $\Delta y = m\cdot\Delta x$ tells us
+that $y$ is a linear function of $x$, in which $m$ plays the role of
+slope, rate, and multiplier.  The microscope equation therefore tells
+us that {\bf \boldmath $y$ is a linear function of \boldmath $x$ when
+  \boldmath $x$ is near \boldmath $a$}---at least approximately.  In
+this almost-linear relation, the derivative $f'(a)$ plays the role of
+slope, rate, and multiplier.
+
+The microscope equation\index{microscope equation}
+%
+\mar{The microscope equation is the analytic form of local linearity}
+%
+is just the idea of local linearity expressed analytically rather than
+geometrically---that is, by a formula rather than by a picture.  Here
+is a chart that shows how the two descriptions of local linearity fit
+together.
+\begin{center}
+{\bf \boldmath $y = f(x)$ is locally linear at \boldmath $x = a$:} \\ [4pt]
+\begin{tabular}{ccc}
+	{\small\sc geometrically} & \quad & 
+		{\small\sc analytically}
+		\\ [2pt]
+	When magnified at $(a, f(a))$, && When $x$ is near $a$, 
+		\\ [2pt]
+	the graph of $f$ is almost straight, && $y$ is almost 
+		 a linear function of $x$,   \\ [2pt]
+	and the slope of the line is $f'(a)$.   
+		&&
+	and the multiplier is $f'(a)$.
+		\\ 
+	\begin{picture}(90,44)(0,43)
+	\put(0,0){\framebox(90,70){}}
+	\put(45,75){\makebox(0,0)[b]{microscope window}}
+	\put(2,35){\vector(1,0){86}}
+	\put(45,2){\vector(0,1){66}}
+	\put(88,33){\makebox(0,0)[tr]
+		{\footnotesize $\Delta x$}}
+	\put(43,68){\makebox(0,0)[tr]
+		{\footnotesize $\Delta y$}}
+	\begin{thicklines}
+		\put(0,12.5){\line(2,1){90}}
+	\end{thicklines}
+	\end{picture}
+		&&
+	\begin{picture}(110,25)(0,24) 
+		\put(0,0){\framebox(110,22)
+			{$\Delta y \approx f'(a) \cdot \Delta x$}}
+		\put(55,27){\makebox(0,0)[b]
+			{microscope equation}}
+		\end{picture}
+\end{tabular}
+\end{center}
+\vspace{42pt}
+
+Of course, the graph in a microscope window is not {\em quite\/}
+straight.  The analytic counterpart of this statement is that the
+microscope equation is not {\em quite\/} exact---the two sides of the
+equation are only approximately equal.  We write ``$\approx$'' instead
+of ``$=$''.  However, we can make the graph look even straighter by
+increasing the magnification---or, what is the same thing, by
+decreasing the field of view.  Analytically, this increases the
+exactness of the microscope equation.  Like a laboratory microscope,
+our microscope is most accurate at the center of the field of view,
+with increasing aberration toward the periphery!
+
+
+In the microscope equation $\Delta y \approx f'(a) \cdot \Delta x$,
+{\bf the derivative is the multiplier\index{multiplier} that tells how
+  \boldmath $y$ responds to changes in \boldmath $x$}.  In particular,
+a small increase in $x$ produces a change in $y$ that depends on the
+sign and magnitude of $f'(a)$ in the following way:
+\begin {itemize}
+
+\item $f'(a)$ is large and positive $\Rightarrow$ large increase in
+  $y\/$,
+
+\item $f'(a)$ is small and positive $\Rightarrow$ small increase in
+  $y\/$,
+
+\item $f'(a)$ is large and negative $\Rightarrow$ large decrease in
+  $y\/$,
+
+\item $f'(a)$ is small and negative $\Rightarrow$ small decrease in
+  $y\/$.
+\end{itemize}
+
+\vspace*{3in}
+
+\special{psfile=../ps/calc1/micro1.ps}
+
+For example, suppose we are told the value of the derivative is 2.
+Then any small change in $x$ induces a change in $y$ approximately
+twice as large.  If, instead, the derivative is $-1/5$, then a small
+change in $x$ produces a change in $y$ only one fifth as large, and in
+the opposite direction.  That is, if $x$ increases, then $y$
+decreases, and vice-versa.
+\medskip
+
+The microscope equation should look familiar to you.  
+%
+\mar{The microscope equation is the recipe for building solutions to
+  rate equations}
+%
+It has been with us from the beginning of the course.  Our ``recipe''
+$\Delta S = S'\cdot\Delta t$ for predicting future values of $S$ in
+the $S$-$I$-$R$ model is just the microscope equation for the function
+$S(t)$.  (Although we wrote it with an ``$=$'' instead of an
+``$\approx$'' in the first chapter, we noted that $\Delta S$ would
+provide us only an {\em estimate\/} for the new value of $S$.)  The
+success of Euler's method in producing solutions to rate equations
+depends fundamentally on the fact that the functions we are trying to
+find are locally linear.
+
+The derivative is one of the fundamental concepts of the calculus, and
+one of its most important roles is in the microscope equation.
+Besides giving us a tool for building solutions to rate equations, the
+microscope equation helps us do estimation and error analysis, the
+subject of the next section.
+
+We conclude with a summary that compares linear and locally linear
+functions.  Note there are two differences, but only two: 1) the
+equation for local linearity is only an approximation; 2) it holds
+only locally---i.e., near a given point.
+\begin{center}
+\begin{thicklines}
+\begin{picture}(360,90)
+\put(0,0){\framebox (360,90){
+\begin{tabular}{cc}
+	{\bf If \boldmath $y = f(x)$ is linear,} &
+		{\bf If \boldmath $y = f(x)$ is locally linear,}\\
+	{\bf then \boldmath $\Delta y = m \cdot \Delta x$;} &
+		{\bf then \boldmath $\Delta y \approx 
+			f'(a) \cdot \Delta x$;} \\
+	{\bf the constant \boldmath $m$ is} &
+		{\bf the derivative \boldmath $f'(a)$ is} \\
+	{\bf rate, slope, and multiplier} &
+		{\bf rate, slope, and multiplier}\\
+	{\bf for all \boldmath $x$.} &
+		{\bf for \boldmath $x$ near \boldmath $a$.}
+\end{tabular}
+}}
+\end{picture}
+\end{thicklines}
+\end{center}
+
+
+\subsection{Exercises}
+
+\subsubsection{Computing Derivatives}
+\index{derivative}
+
+\vspace{-10pt}
+
+\num Sketch graphs of the following functions and use these graphs to
+determine which function has a derivative that is always positive
+(except at $x = 0$, where neither the function nor its derivative is
+defined).
+	$$
+	y = \dfrac{1}{x} \quad    y = \dfrac{-1}{x} 
+		\quad   y = \dfrac{1}{x^2}     
+		\quad y = \dfrac{-1}{x^2} 
+	$$
+What feature of the graph told you whether the derivative was positive?
+
+\num For each of the functions $f$ below, approximate its derivative
+at the given value $x = a$ in two different ways.  First, use a
+computer microscope (i.e., a graphing program) to view the graph of
+$f$ near $x = a$.  Zoom in until the graph looks straight and find its
+slope.  Second, use a calculator to find the value of the quotient
+\[
+\frac{f(a+ h) - f(a - h)}{2h}
+\]
+for $h = .1$, $.01$, $.001$, \ldots, $.000001$.  Based on these values
+of the quotients, give your best estimate for $f'(a)$, and say how
+many decimal places of accuracy it has.  
+
+%\newcounter{derivexercise}
+
+\setcounter{derivexercise}{\value{exercisenumber}}
+
+\noindent
+\begin{minipage}[t]{2.3in}
+\sub  $f(x) = 1/x$ at $x = 2$.
+
+\sub  $f(x) = \sin(7x)$ at $x = 3$.
+\end{minipage}
+\hfill
+\begin{minipage}[t]{2.3in}
+\sub  $f(x) = x^3$ at $x = 200$.
+
+\sub  $f(x) = 2^x$ at $x = 5$.
+\end{minipage}
+\hfill
+
+\num In a later section we will establish that the derivative of $f(x)
+= x^3$ at $x = 1$ is exactly 3: $f'(1) = 3$.  This question concerns
+the freedom we have to choose points in a window to estimate $f'(1)$
+(see page~\pageref{window}).  Its purpose is to compare two quotients,
+to see which gets closer to the exact value of $f'(1)$ for a fixed
+``field of view'' $\Delta x$.  The two quotients are
+$$
+Q_1 = \dfrac{\Delta y}{\Delta x} = 
+		\dfrac{f(a + h) - f(a - h)}{2h} \quad \mbox{and} 
+\quad Q_2 = \dfrac{\Delta y}{\Delta x} = 
+		\dfrac{f(a + h) - f(a)}{h}.
+$$
+In this problem $a = 1$.
+
+\sub Construct a table that shows the values of $Q_1$ and $Q_2$ for
+each $h = 1/2^k$, where $k = 0, 1, 2, \ldots, 8$.  If you wish, you
+can use this program to compute the values:
+\begin{verbatim}
+  a = 1
+  FOR k = 0 TO 8
+          h = 1 / 2 ^ k
+          q1 = ((a + h) ^ 3 - (a - h) ^ 3) / (2 * h)
+          q2 = ((a + h) ^ 3 - a ^ 3) / h
+          PRINT h, q1, q2
+  NEXT k
+\end{verbatim}
+
+\sub How many digits of $Q_1$ stabilize in this table?  How many
+digits of $Q_2$?
+
+\sub  Which is a better estimator---$Q_1$ or $Q_2$?  To indicate how much better, give the value of $h$ for which the {\em better\/} estimator provides an estimate that is as close as the best estimate provided by the {\em poorer\/} estimator.
+
+\num  Repeat all the steps of the last question for the function $f(x) = \sqrt{x}$ at $x = 9$.  The exact value of $f'(9)$ is 1/6.
+\medskip
+
+\noindent
+{\bf Comment}: Note that, in section~1, we estimated the rate of
+change of the sunrise function using an expression like $Q_1$ rather
+than one like $Q_2$.  The previous exercises should persuade you this
+was deliberate.  We were trying to get the most representative
+estimates, given the fact that we could not reduce the size of $\Delta
+x$ arbitrarily.
+
+\num At this point you will find it convenient to write a more general
+derivative-finding program.  You can modify the program in problem
+3.\ to do this by having a {\tt DEF} command at the beginning of the
+program to specify the function you are currently interested in.  For
+instance, if you insert the command {\tt DEF fnf (x) = \verb+x ^ 3+}
+at the beginning of the program, how could you simplify the lines
+specifying {\tt q1} and {\tt q2}?  If you then wanted to calculate the
+derivative of another function at a different $x$-value, you would
+only need to change the {\tt DEF} specification and, depending on the
+point you were interested in, the {\tt a = 1} line.
+
+\num Use one of the methods of problem \thederivexercise\ to estimate
+the value of the derivative of each of the following functions at
+$x=0$:
+\[
+y = 2^x, \quad y = 3^x, \quad y =10^x, \quad 
+		\mbox{and} \quad y =(1/2)^x.   
+\]
+These are called {\bf exponential}\index{exponential
+  function}\index{function!exponential} functions, because the input
+variable $x$ appears in the exponent.  How many decimal places
+accuracy do your approximations to the derivatives have?
+
+
+\num In this problem we look again at the exponential function
+$f(x)=2^x$ from the previous problem.
+
+\sub  Use the rules for exponents to put the quotient
+$$
+\frac{f(a+ h) - f(a)}{h}
+$$
+in the simplest form you can. 
+
+\sub  We know that
+$$
+f'(0) = \lim_{h \rightarrow 0} \frac{f(h) - f(0)}{h}.
+$$
+Use this fact, along with the algebraic result of part (a), to 
+explain why $f'(a)=f'(0)\cdot2^a$.  
+
+
+\num Apply all the steps of the previous question to the exponential
+function $f(x) = b^x$ with an arbitrary base $b$.  Show that $f'(x) =
+f'(0) \cdot b^x$.
+
+
+\numa For which values of $x$ is the absolute value function $y = |x|$
+differentiable?
+
+\sub At each point where $y = |x|$ is differentiable, find the value
+of the derivative.
+
+
+\subsubsection{The microscope equation}
+\index{microscope equation}
+
+\vspace{-10pt}
+
+\num Write the microscope equation for each of the following functions
+at the indicated point.  (To find the necessary derivative, consult
+problem \thederivexercise.)
+
+\noindent
+\begin{minipage}[t]{2.3in}
+\sub  $f(x) = 1/x$ at $x = 2$.
+
+\sub  $f(x) = \sin(7x)$ at $x = 3$.
+\end{minipage}
+\hfill
+\begin{minipage}[t]{2.3in}
+\sub  $f(x) = x^3$ at $x = 200$.
+
+\sub  $f(x) = 2^x$ at $x = 5$.
+\end{minipage}
+\hfill
+
+
+\num This question uses the microscope equation for $f(x) = 1/x$ at $x
+= 2$ that you constructed in the previous question.
+
+\sub Draw the graph of what you would see in the microscope if the
+field of view is .2 units wide.
+
+\sub If we take $x = 2.05$, what is $\Delta x$ in the microscope
+equation?  What estimate does the microscope equation give for $\Delta
+y$?  What estimate does the microscope equation then give for $f(2.05)
+= 1/2.05$?  Calculate the true value of 1/2.05 and compare the two
+values; how far is the microscope estimate from the true value?
+
+\sub What estimate does the microscope equation give for 1/2.02?  How
+far is this from the true value?
+
+\sub What estimate does the microscope equation give for 1/1.995?  How
+far is this from the true value?
+
+
+\num This question concerns the travel time function $T = 400/s$
+hours, discussed in the text.
+
+\sub How many hours does a 400-mile trip take at an average speed of
+40 miles per hour?
+
+\sub Find the microscope equation for $T$ when $s = 40$ miles per
+hour.
+
+\sub At what rate does the travel time decrease as speed increases
+around 40 mph---in hours {\em per\/} mile per hour?
+
+\sub According to the microscope equation, how much travel time is
+saved by increasing the speed from 40 to 45 mph?
+
+\sub According to the microscope equation based at 50 mph (as done in
+the text), how much time is {\em lost\/} by decreasing the speed from
+50 to 45 mph?
+
+\sub The last two parts both predict the travel time when the speed is
+45 mph.  Do they give the same result?
+
+\numa Suppose $y = f(x)$ is a function for which $f(5) = 12$ and
+$f'(5) = .4$.  Write the microscope equation for $f$ at $x = 5$.
+
+\sub Draw the graph of what you would see in the microscope.  Do you
+need a formula for $f$ itself, in order to do this?
+
+\sub If $x = 5.3$, what is $\Delta x$ in the microscope equation?
+What estimate does the microscope equation give for $\Delta y$?  What
+estimate does the microscope equation then give for $f(5.3)$?
+
+\sub What estimates does the microscope equation give for the
+following: $f(5.23)$, $f(4.9)$, $f(4.82)$, $f(9)$?  Do you consider
+these estimates to be equally reliable?
+
+
+\numa Suppose $z = g(t)$ is a function for which $g(-4) = 7$ and
+$g'(-4) = 3.5$.  Write the microscope equation for $g$ at $t = -4$.
+
+\sub  Draw the graph of what you see in the microscope.
+
+\sub  Estimate $g(-4.2)$ and $g(-3.75)$.
+
+\sub For what value of $t$ near $-4$ would you estimate that $g(t) =
+6$?  For what value of $t$ would you estimate $g(t) = 8.5$?
+
+
+\num If $f(a) = b$, $f'(a) = -3$ and if $k$ is small, which of the
+following is the best estimate for $f(a + k)$?
+	$$
+a + 3k\/, \; b + 3k\/, \; a + 3b\/, \; b - 3k\/, \; 
+	a - 3k\/, \; 3a - b\/, \;  a^2 - 3b\/, \; f'(a + k)
+	$$
+
+\num If $f$ is differentiable at $a$, which of the following, for
+small values of $h$, are reasonable estimates of $f'(a)$?
+\begin{gather*}
+\frac{f(a+h)-f(a-h)}{h} \qquad  \frac{f(a+h)-f(a-h)}{2h}  \\ 
+\frac{f(a+h)-f(h)}{h} \qquad  \frac{f(a+2h)-f(a-h)}{3h} 
+\end{gather*}
+
+\num Suppose a person has travelled $D$ feet in $t$ seconds.  Then
+$D'(t)$ is the person's velocity at time $t$; $D'(t)$ has units of
+feet per second.
+
+\sub Suppose $D(5)$ = 30 feet and $D'(5)$ = 5 feet/second.  Estimate
+the following:
+$$
+D(5.1) \qquad  D(5.8) \qquad  D(4.7)
+$$
+
+\sub If $D(2.8)$ = 22 feet, while $D(3.1)$ = 26 feet, what would you
+estimate $D'(3)$ to be?
+
+\num  Fill in the blanks.
+
+\sub If $f(3) = 2$ and $f'(3) = 4$, a reasonable estimate of $f(3.2)$
+is \rule[-3pt]{.3in}{.3pt}.
+
+\sub If $g(7) = 6$ and $g'(7) = .3$, a reasonable estimate of $g(6.6)$
+is \rule[-3pt]{.3in}{.3pt}.
+
+\sub If $h(1.6) = 1$, $h'(1.6) = -5$, a reasonable estimate of
+$h(\rule[-3pt]{.3in}{.3pt})$ is 0.
+
+\sub If $F(2) = 0$, $F'(2) = .4$, a reasonable estimate of
+$F(\rule[-3pt]{.3in}{.3pt})$ is .15.
+
+\sub If $G(0) = 2$ and $G'(0) =$ \rule[-3pt]{.3in}{.3pt}, a reasonable
+estimate of $G(.4)$ is 1.6.
+
+\sub If $H(3) = -3$ and $H'(3) =$ \rule[-3pt]{.3in}{.3pt}, a
+reasonable estimate of $H(2.9)$ is $-1$.
+
+
+\num In manufacturing processes the profit is usually a function of
+the number of units being produced, among other things.  Suppose we
+are studying some small industrial company that produces $n$ units in
+a week and makes a corresponding weekly profit of $P$.  Assume $P =
+P(n)$.
+
+\sub  If $P(1000)$ = \$500 and $P'(1000)$ = \$2/unit, then 
+	$$
+	P(1002) \approx \rule[-3pt]{.5in}{.3pt} \quad 
+	P(995) \approx \rule[-3pt]{.5in}{.3pt}\quad
+	P(\rule[-3pt]{.5in}{.3pt}) \approx \$512
+	$$
+
+\sub  If $P(2000)$ = \$3000 and $P'(2000)$ = $-$\$5/unit, then 
+	$$
+	P(2010) \approx \rule[-3pt]{.5in}{.3pt} \quad
+	P(1992) \approx \rule[-3pt]{.5in}{.3pt} \quad
+	P(\rule[-3pt]{.5in}{.3pt}) \approx \$3100
+	$$
+
+\sub If $P(1234)$ = \$625 and $P(1238)$ = \$634, then what is an
+estimate for $P'(1236)$?
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                         %
+%                                Section 4                                %
+%                                                                         %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Estimation and Error Analysis}
+
+\subsection{Making Estimates}
+\index{estimate}
+
+\subsubsection{The Expanding House}
+\index{expanding house}
+
+In the book {\em The Secret House -- 24 hours in the strange and
+  unexpected world in which we spend our nights and days\/} (Simon and
+Schuster, 1986), David Bodanis describes many remarkable events that
+occur at the microscopic level in an ordinary house.  At one point he
+explains how sunlight heats up the structure, stretching it
+imperceptibly in every direction through the day until it has become
+several cubic inches larger than it was the night before.
+%
+\mar{How much does\\ a house expand\\ in the heat?}
+%
+Is it plausible that a house can become several cubic inches larger as
+it expands in the heat of the day?  In particular, how much longer,
+wider, and taller would it have to become if it were to grow in volume
+by, let us say, 3~cubic inches?
+
+For simplicity, assume the house is a cube 200 inches on a side.
+(This is about 17 feet, so the house is the size of a small, two-story
+cottage.)  If $s$ is the length of a side of {\em any\/} cube, in
+inches, then its volume is
+\[
+V = s^3 \ \mbox{cubic inches}.
+\]
+Our question is about how $V$ changes with $s$ when $s$ is about 200
+inches.  In particular, we want to know which $\Delta s$ would yield a
+$\Delta V$ of 3 cubic inches.  This is a natural question for the
+microscope equation\index{microscope equation}
+\[
+\Delta V \approx V'(200)\cdot \Delta s.
+\]
+According to exercise 2c in the previous section, we can estimate the
+value of $V'(200)$ to be about 120,000, and the appropriate units for
+$V'$ are cubic inches per inch.  Thus\label{house}
+\begin{align*}
+\Delta V &\approx 120000 \, \Delta s \\
+3 \ \mbox{cubic inches} &\approx 120000 \ 
+		\dfrac{\mbox{cubic inches}}{\mbox{inches}} \times
+		\Delta s \ \mbox{inches},
+\end{align*}
+so $\Delta s \approx 3/120000 = .000025$ inches---many times thinner
+than a human hair!
+
+This value is much too small.  To get a more realistic value, let's
+suppose the house is made of wood and the temperature increases about
+30$^\circ$F from night to day.  Then measurements show that a 200-inch
+length of wood will actually become about $\Delta s = .01$ inches
+longer.  Consequently the volume will actually expand by about
+\[
+\Delta V \approx 120000 
+		\dfrac{\mbox{cubic inches}}{\mbox{inches}} \times
+		.01 \ \mbox{inches} = 1200 \ \mbox{cubic inches}.
+\]
+This increase is 400 times as much as Bodanis claimed; it is about the
+size of a small computer monitor.  So even as he opens our eyes to the
+effects of thermal expansion, Bodanis dramatically understates his
+point.
+
+\subsubsection{Estimates versus Exact Values}
+
+Don't lose sight of the fact that the values we derived for the
+expanding house are {\em estimates}.  In some cases we can get the
+exact values.  Why don't we, whenever we can?
+
+For example, we can calculate exactly how much the volume increases
+when we add $\Delta s = .01$ inches to $s = 200$ inches.  The increase
+is from $V = 200^3$ = 8,000,000 cubic inches to
+\[
+V = (200.01)^3 = 8001200.060001 \ \mbox{cubic inches}.
+\]
+Thus, the {\em exact\/} value of $\Delta V$ is 1200.060001 cubic
+inches.  The estimate is off by only about .06 cubic inches.  This
+isn't very much, and it is even less significant when you think of it
+as a percentage of the volume (namely 1200 cubic inches) being
+calculated.  The percentage is
+\[
+\dfrac{.06 \ \mbox{cubic inches}}
+              {1200 \ \mbox{cubic inches}} = .00005 = .005\%.
+\]
+That is, the difference is only 1/200 of 1\% of the calculated volume.
+
+To get the exact value we had to cube two numbers and take their
+difference.  To get the estimate we only had to do a single
+multiplication.
+%
+\mar{Exact values can be harder to calculate than estimates.}
+%
+Estimates made with the microscope equation are always easy to
+calculate---they involve only linear functions.  Exact values are
+usually harder to calculate.  As you can see in the example, the extra
+effort may not gain us extra information.  That's one reason why we
+don't always calculate exact values when we can.
+
+Here's another reason.  Go back to the question: How large must
+$\Delta s$ be if $\Delta V$ = 3 cubic inches?  To get the exact
+answer, we must solve for $\Delta s$ in the equation
+\begin{align*}
+3 &= \Delta V = (200 + \Delta s)^3 - 200^3 \\
+  &= 200^3 + 3(200)^2\Delta s + 3(200)(\Delta s)^2 + 
+		(\Delta s)^3 - 200^3.
+\end{align*}
+Simplifying, we get
+\[
+3 = 120000\,\Delta s + 600(\Delta s)^2 + (\Delta s)^3.
+\]
+This is a cubic equation for $\Delta s$; it {\em can\/} be solved, but
+the steps are complicated.  Compare this with solving the microscope
+equation:
+\[
+3 = 120000\,\Delta s.
+\]
+Thus, another reason we don't calculate exact values at every
+opportunity is that the calculations can be daunting.  The microscope
+estimates are always straightforward.
+
+Perhaps the most important reason, though, is the insight that
+calculating $V'$ gave us.  Let's translate into English what we have
+really been talking about:
+\begin{quotation}
+\noindent
+In dealing with a cube 200 inches on a side, any small change
+(measured in inches) in the length of the sides produces a change
+(measured in cubic inches) in the volume approximately 120,000 times
+as great.
+\end{quotation}
+This is, of course, simply another instance of the point we have made
+before, that small changes in the input and the output are related in
+an (almost) linear way, even when the underlying function is complex.
+Let's continue this useful perspective by looking at error analysis.
+
+\subsection{Propagation of Error}
+\index{error}
+\index{propagation of error}
+
+\subsubsection{From Measurements to Calculations}
+
+We can view all the estimates we made for the expanding house from
+another perspective---the lack of precision in measurement.  To begin
+with, just think of the house as a cubical box that measures 200
+inches on a side.  Then the volume must be 8,000,000 cubic inches.
+But measurements are never exact, and any
+uncertainty\index{uncertainty} in measuring the length of the side
+will lead to an uncertainty in calculating the volume.  Let's say your
+measurement of length is accurate to within .5 inch.  In other words,
+you believe the true length lies between 199.5 inches and 200.5
+inches, but you are uncertain precisely where it lies within that
+interval.  How uncertain does that make your calculation of the
+volume?
+
+There is a direct approach to this question: 
+%
+\mar{How uncertain is\\ the calculated value\\ of the volume?}
+%
+we can simply say that the volume must lie between $199.5^3$ =
+7,940,149.875 cubic inches and $200.5^3$ = 8,060,150.125 cubic inches.
+In a sense, these values are almost too precise.  They don't reveal a
+general pattern.  We would like to know how an uncertainty---or
+error---in measuring the length of the side of a cube propagates to an
+error in calculating its volume.
+
+Let's take another approach.  If we measure $s$ as 200 inches, and the
+true value differs from this by $\Delta s$ inches, then $\Delta s$ is
+the error in measurement.  That produces an error $\Delta V$ in the
+calculated value of $V$.  The microscope equation for the expanding
+house (page~\pageref{house}) tells us how $\Delta V$ depends on
+$\Delta s$ when $s = 200$:
+\[
+\Delta V \approx 120000\,\Delta s.
+\]
+Since we now interpret $\Delta s$ and $\Delta V$ as errors, the
+microscope equation becomes the {\bf error propagation}\index{error!propagation} equation:
+\[
+\mbox{error in $V$} \ (\mbox{cu.\ in.}) \approx 120000 
+		\ \left(\dfrac{\mbox{cu.\ in.}}{\mbox{inch}}\right) 
+		\times \mbox{error in $s$} \ (\mbox{inches}).
+\]
+
+Thus, for example, 
+%
+\mar{The microscope equation describes how errors propagate}
+%
+an error of 1/2 inch in measuring $s$ propagates to an error of about
+60,000 cubic inches in calculating $V$.  This is about 35 cubic feet,
+the size of a large refrigerator!  Putting it another way:
+	\begin{center}
+	if $s = 200 \pm 0.5$ inches, then $V \approx 8,000,000 
+		\pm 60,000$ cubic inches.
+	\end{center}
+
+If we keep in mind the error propagation equation $\Delta V \approx
+120000\,\Delta s$, we can quickly answer other questions about
+measuring the same cube.  For instance, suppose we wanted to determine
+the volume of the cube to within 5,000 cubic inches.  How accurately
+would we have to measure the side?  Thus we are given $\Delta V =
+5000$, and we conclude $\Delta s \approx 5000/120000 \approx .04$
+inches.  This is just a little more than 1/32 inch.
+
+\subsubsection{Relative Error}
+\index{relative error}
+\index{error!relative}
+
+Suppose we have a second cube whose side is twice as large ($s = 400$
+inches), and once again we measure its length with an error of 1/2
+inch.  Then the error in the calculated value of the volume is
+\[
+\Delta V \approx  V'(400) \cdot \Delta s = 
+		480000 \times .5 = \mbox{240,000 cubic inches.}
+\]
+(In the exercises you will be asked to show $V'(400)$ = 480,000.)  The
+error in our calculation for the bigger cube is four times what it was
+for the smaller cube, even though the length was measured to the same
+accuracy in both cases!  There is no mistake here.  
+%
+\mar{Bigger numbers\\ have bigger errors} 
+%
+In fact, the volume of the second cube is eight times the volume of
+the first, so the numbers we are dealing with in the second case are
+roughly eight times as large.  We should not be surprised if the error
+is larger, too.
+
+In general, we must expect that the size of an error will depend on
+the size of the numbers we are working with.  We expect big numbers to
+have big errors and small numbers to have small errors.  In a sense,
+though, an error of 1 inch in a measurement of 50 inches is no worse
+than an error of 1/10-th of an inch in a measurement of 5 inches: both
+errors are 1/50-th the size of the quantity being measured.
+
+\aside{A watchmaker who measures the tiny objects that go into a watch
+  only as accurately as a carpenter measures lumber would never make a
+  watch that worked; likewise, a carpenter who takes the pains to
+  measure things as accurately as a watchmaker does would take forever
+  to build a house.  The scale of allowable errors is dictated by the
+  scale of the objects they work on.}
+
+The errors $\Delta x$ we have been considering are called {\bf
+  absolute errors};\index{absolute error}\index{error!absolute} their
+values depend on the size of the quantities $x$ we are working with.
+%
+\mar{Absolute and\\ relative error}
+%
+To reduce the effect of differences due to the size of $x$, we can
+look instead at the error as a {\em fraction\/} of the number being
+measured or calculated.  This fraction $\Delta x/x$ is called {\bf
+  relative error}.\index{relative error}\index{error!relative}
+Consider two measurements: one is 50 inches with an error of $\pm$1
+inch; the other is 2 inches with an error of $\pm$.1 inch.  The {\em
+  absolute\/} error in the second measurement is much smaller than in
+the first, but the {\em relative\/} error is 2$\tfrac{1}{2}$ times
+larger.  (The first relative error is .02~inch per inch, the second is
+.05~inch per inch.)  To judge how good or bad a measurement really is,
+we usually take the relative error instead of the absolute error.
+
+Let's compare the propagation of relative and absolute errors.  For
+example, the absolute error in calculating the volume of a cube whose
+side measures $s$ is
+\[
+\Delta V \approx V'(s) \cdot \Delta s.
+\]
+The absolute errors are proportional, but the multiplier $V'(s)$
+depends on the size of $s$.  (We saw above that the multiplier is
+120,000 cubic inches per inch when $s = 200$ inches, but it grows to
+480,000 cubic inches per inch when $s = 400$ inches.)
+
+In section~5, which deals with formulas for derivatives, we will see
+that $V'(s) = 3\,s^2$.  If we substitute $3s^2$ for $V'(s)$ in the
+propagation equation for absolute error, we get
+\[
+\Delta V \approx 3s^2 \cdot \Delta s.
+\]
+To see how relative error propagates, let us divide this equation
+by $V = s^3$:
+\[
+\dfrac{\Delta V}{V} \approx 
+		\dfrac{3s^2 \cdot \Delta s}{s^3} =
+		3 \, \dfrac{\Delta s}{s}
+\]	
+The relative errors are proportional, but the multiplier is always 3;
+it doesn't depend on the size of the cube, as it did for absolute
+errors.
+
+Return to the case where $\Delta s = .5$ inch and $s = 200$ inches.
+Since $\Delta s$ and $s$ have the same units, the relative error
+$\Delta s/s$ is ``dimensionless''---it has no units.  We can, however,
+describe $\Delta s/s$ as a {\em percentage\/}: $\Delta s/s = .5/200 =$
+.25\%, or 1/4 of 1\%.  For this reason,
+%
+\mar{Percentage error\\ is relative error}
+%
+relative error is sometimes called {\bf percentage
+  error}.\index{percentage error}\index{error!percentage} It tells us the error in measuring a
+quantity as a {\em percentage\/} of the value of that quantity.  Since
+the percentage error in volume is
+\[
+\dfrac{\Delta V}{V} = \dfrac{\mbox{60,000 cu.\ in.}}
+		{\mbox{8,000,000 cu.\ in.}} = 
+		.0075 = .75\%
+\]
+we see that the percentage error in volume is 3 times the percentage
+error in length---{\em and this is independent of the length and
+  volumes involved}.  This is what the propagation equation for
+relative error says: A 1\% error in measuring $s$, whether $s$ = .0002
+inches or $s$ = 2000 inches, will produce a 3\% error in the
+calculated value of the volume.
+
+\subsection{Exercises}
+
+\subsubsection{Estimation}
+\index{estimate}
+
+\vspace{-10pt}
+
+\numa Suppose you are going on a 110 mile trip.  Then the time $T$ it
+takes to make the trip is a function of how fast you drive:
+\[
+T(v) = \dfrac{110\ \mbox{miles}}{v \ \mbox{miles per hour}} 
+		= 110\,v^{-1} \ \mbox{hours} \, .
+\]
+If you drive at $v$ = 55 miles per hour, $T$ will be 2 hours.  Use a
+computer microscope to calculate $T'(55)$ and write an English
+sentence interpreting this number.
+
+\sub More generally, if you and a friend are driving separate cars on
+a 110 mile trip, and you are travelling at some velocity $v$, while
+her speed is 1\% greater than yours, then her travel time is less.
+How much less, as a percentage of yours?  Use the formula
+$T'(v)=-110v^{-2}$, which can be obtained using rules given in the
+next section.
+
+\numa Suppose you have 600 square feet of plywood which you are going
+to use to construct a cubical box.  Assuming there is no waste, what
+will its volume be?
+
+\sub Find a general formula which expresses the volume $V$ of the box
+as a function of the area $A$ of plywood available.
+
+\sub Use a microscope to determine $V'(600)$, and express its
+significance in an English sentence.
+
+\sub Use this multiplier to estimate the additional amount of plywood
+you would need to increase the volume of the box by 10 cubic feet.
+
+\sub In the original problem, if you had to allow for wasting 10
+square feet of plywood in the construction process, by how much would
+this decrease the volume of the box?
+
+\sub In the original problem, if you had to allow for wasting 2\% of
+the plywood in the construction process, by what percentage would this
+decrease the volume of the box?
+
+\num Let $R(s) = 1/s$.  You can use the fact that $R'(s) = - 1/s^2$,
+to be established in section~5.  Since $R(100) =$
+\rule[-3pt]{1in}{.3pt} and $R'(100) =$ \rule[-3pt]{1in}{.3pt}, we can
+make the following approximations:
+$$
+1/97 \approx \rule[-3pt]{.5in}{.3pt} \quad
+	1/104 \approx \rule[-3pt]{.5in}{.3pt} \quad 	
+	R(\rule[-3pt]{.5in}{.3pt}) \approx .0106 \, .
+$$
+
+\num Using the fact that the derivative of $f(x) = \sqrt{x}$ is $f'(x)
+= 1/(2\sqrt{x})$, you can estimate the square roots of numbers that
+are close to perfect squares.
+
+\sub For instance $f(4) =$ \rule[-3pt]{.5in}{.3pt} and $f'(4) =$
+\rule[-3pt]{.5in}{.3pt}, so $\sqrt{4.3} \approx$
+\rule[-3pt]{.5in}{.3pt}.
+
+\sub Use the values of $f(4)$ and $f'(4)$ to approximate $\sqrt{5}$
+and $\sqrt{3.6}$.
+
+\sub Use the values of $f(100)$ and $f'(100)$to approximate
+$\sqrt{101}$ and $\sqrt{99.73}$.
+
+
+\subsubsection{Error analysis}
+\index{error}
+
+\vspace{-10pt}
+
+\numa If you measure the side of a square to be 12.3 inches, with an
+uncertainty of $\pm.05$ inch, what is your relative error?
+
+\sub What is the area of the square?  Write an error propagation
+equation that will tell you how uncertain you should be about this
+value.
+
+\sub What is the relative error in your calculation of the area?
+
+\sub If you wanted to calculate the area with an error of less than 1
+square inch, how accurately would you have to measure the length of
+the side?  If you wanted the error to be less than .1 square inch, how
+accurately would you have to measure the side?
+
+\numa Suppose the side of a square measures $x$ meters, with a
+possible error of $\Delta x$ meters.  Write the equation that
+describes how the error in length propagates to an error in the area.
+(The derivative of $f(x) = x^2$ is $f'(x) = 2x$; see section~5.)
+
+\sub Write an equation that describes how the {\em relative\/} error
+in length propagates to a {\em relative\/} error in area.
+
+
+\num You are trying to measure the height of a building by dropping a
+stone off the top and seeing how long it takes to hit the ground,
+knowing that the distance $d$ (in feet) an object falls is related to
+the time of fall, $t$ (in seconds), by the formula $d =16t^2$.  You
+find that the time of fall is 2.5 seconds, and you estimate that you
+are accurate to within a quarter of a second.  What do you calculate
+the height of the building to be, and how much uncertainty do you
+consider your calculation to have?
+
+\num You see a flash of lightning in the distance and note that the
+sound of thunder arrives 5 seconds later.  You know that at
+20$^\circ$C sound travels at 343.4 m/sec.  This gives you an estimate
+of
+\[
+5 \ \mbox{sec} \times 
+		343.4 \ \frac{\mbox{meters}}{\mbox{sec}} 
+		= 1717 \ \mbox{meters} 
+\]
+for the distance between you and the spot where the lightning struck.
+You also know that the velocity $v$ of sound varies as the square root
+of the temperature $T$ measured in degrees Kelvin (the Kelvin
+temperature = Celsius temperature + 273), so
+	$$
+	v(T) = k \sqrt{T}
+	$$
+for some constant $k\/$.
+
+\sub  Use the information given here to determine the value of $k$.  
+
+\sub If your estimate of the temperature is off by 5 degrees, how far
+off is your estimate of the distance to the lightning strike?  How
+significant is this source of error likely to be in comparison with
+the imprecision with which you measured the 5 second time lapse?
+(Suppose your uncertainty about the time is .25 seconds.)  Give a
+clear analysis justifying your answer.
+
+\num We can measure the distance to the moon by bouncing a laser beam
+off a reflector placed on the moon's surface and seeing how long it
+takes the beam to make the round trip.  If the moon is roughly 400,000
+km away, and if light travels at 300,000 km/sec, how accurately do we
+have to be able to measure the length of the time interval to be able
+to determine the distance to the moon to the nearest .1 meter?
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                         %
+%                                Section 5                                %
+%                                                                         %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+\section{A Global View}
+\index{global}
+
+\subsection{Derivative as Function}
+\index{derivative}
+
+Up to now we have looked upon the derivative as a {\em number}.  It
+gives us information about a function at a {\em point\/}---the rate at
+which the function is changing, the slope of its graph, the value of
+the multiplier in the microscope equation.
+%
+\mar{The derivative\\ is a function\\ in its own right}\index{function!derivative}
+%
+But the numerical value of the derivative varies from point to point,
+and these values can also be considered as the values of a new
+function---the derivative function---with its own graph.  Viewed this
+way the derivative is a {\em global\/} object.
+
+The connection between a function and its derivative can be seen very
+clearly if we look at their graphs.\index{graph} To illustrate, we'll
+use the function $I(t)$ that describes how the size of an infected
+population varies over time, from the $S$-$I$-$R$ problem we analyzed
+in chapter 1.  The graph of $I$ appears below, and directly beneath it
+is the graph of $I'$, the derivative of $I$.  The graphs are lined-up
+vertically: the values of $I(a)$ and $I'(a)$ are recorded on the same
+vertical line that passes through the point $t = a$ on the $t$-axis.
+
+\vspace*{3.7in}
+
+\special{psfile=../ps/calc1/iiprime.ps}
+
+\newpage
+
+To understand the connection between the graphs, keep in mind that the
+derivative represents a slope.
+%
+\mar{The height of $I'$\\ is the slope of $I$}
+%
+Thus, at any point $t$, the {\em height\/} of the lower graph ($I'$)
+tells us the {\em slope\/} of the upper graph ($I$).  At the points
+where $I$ is increasing, $I'$ is positive---that is, $I'$ lies {\em
+  above\/} its $t$-axis.  At the point where $I$ is increasing most
+rapidly, $I'$ reaches its highest value.  In other words, where the
+graph of $I$ is steepest, the graph of $I'$ is highest.  At the point
+where $I$ is decreasing most rapidly, $I'$ has its lowest value.
+
+Next, consider what happens when $I$ itself reaches its maximum value.
+Since $I$ is about to switch from increasing to decreasing, the
+derivative must be about to switch from positive to negative.  Thus,
+at the moment when $I$ is largest, $I'$ must be zero.  Note that the
+highest point on the graph of $I$ lines up with the point where $I'$
+crosses the $t$-axis.  Furthermore, if we zoomed in on the graph of
+$I$ at its highest point, we would find a horizontal line---in other
+words, one whose slope is zero.
+
+All functions and their derivatives are related the same way that $I$
+and $I'$ are.  In the following table we list the various features of
+the graph of a function; alongside each is the corresponding feature
+of the graph of the derivative.
+\begin{center}
+\begin{tabular}{cc}
+	function  &	derivative \\[1pt] \hline  
+	\begin{tabular}{l}
+		increasing \rule{0pt}{14pt} \\ 
+		decreasing \\ horizontal \\ 
+		steep (rising or falling) \\ 
+		gradual (rising or falling) \\ straight
+	\end{tabular}
+	&
+	\begin{tabular}{l}
+		positive \rule{0pt}{14pt} \\ 
+		negative \\ zero \\
+		large (positive or negative) \\
+		small (positive or negative) \\ horizontal
+	\end{tabular}
+\end{tabular}
+\end{center}
+By using this table, you should be able to make a rough sketch of the
+graph of the derivative, when you are given the graph of a function.
+You can also read the table from right to left, to see how the graph
+of a function is influenced by the graph of its derivative.
+
+For instance, suppose the graph of the function $L(x)$ is
+
+\vspace*{1.4in}
+\special{psfile=../ps/calc1/funny.ps}
+
+\noindent 
+Then we know that its derivative $L'$ must be 0 at points $a$, $b$,
+$c$, and $d$; 
+%
+\mar{Finding a derivative \\ ``by eye''} 
+%
+that the derivative must be positive between $a$ and $b$ and between
+$c$ and $d$, negative otherwise; that the derivative takes on
+relatively large values at $e$ and $g$ (positive) and at $f$ and $h$
+(negative); that the derivative must approach 0 at the right endpoint
+and be large and negative at the left endpoint.  Putting all this
+together we conclude that the graph of the derivative $L'$ must look
+something like following:
+
+\vspace*{1.5in}
+
+\special{psfile=../ps/calc1/funnyslope.ps}
+
+
+Conversely, suppose all we are told about a certain function $G$ is
+
+that the graph of its derivative $G'$ looks like this:
+
+\vspace*{1.5in}
+\special{psfile=../ps/calc1/funny3.ps}
+
+
+\noindent
+Then we can infer that the function $G$ itself is decreasing between
+$a$ and $b$ and is increasing everywhere else; that the graph of $G$
+is horizontal at $a$, $b$, and $c$; that both ends of the graph of $G$
+slope upward from left to right---the left end more or less straight,
+the right getting steeper and steeper.
+
+
+
+\subsection{Formulas for Derivatives}
+\index{derivative}
+\index{formula}
+
+\subsubsection{Basic Functions}
+\index{basic function}\index{function!basic}
+
+\enlargethispage*{8pt}
+If a function is given by a formula, then its derivative also has a
+formula, defined for the points where the function is locally linear.
+The formula is produced by a definite process, called {\bf
+  differentiation}.\index{differentiation} In this section we look at
+some of the basic aspects, and in the next we will take up the chain
+rule, which is the key to the whole process.  Then in chapter 5 we
+will review differentiation systematically.
+
+\newpage
+
+Most formulas are constructed 
+%
+\mar{Formulas are combinations of\\ basic functions}
+%
+by combining only a few basic functions in various ways.  For
+instance, the formula
+\[
+3\;x^7 - \dfrac{\sin{x}}{8\sqrt{x}},
+\]
+uses the basic functions $x^7$, $\sin{x}$, and $\sqrt{x}$.  In fact,
+since $\sqrt{x} = x^{1/2}$, we can think of $x^7$ and $\sqrt{x}$ as
+two different instances of a single basic ``power of $x$''---which we
+can write as $x^p$.
+
+The following table lists some of the more common basic functions with
+their derivatives.  The number $c$ is an arbitrary constant, and so is
+the power $p$.  The last function in the table is the exponential
+function with base $b$.  Its derivative involves a parameter $k_b$
+that varies with the base $b$.  For instance, exercise~6 in section~3
+established that, when $b = 2$, then $k_2 \approx .69$.  Exercise~7
+established, for any base $b$, that $k_b$ is the value of the
+derivative of $b^x$ when $x = 0$.  We will have more to say about the
+parameter $k_b$ in the next chapter.\label{basic derivs}
+\begin{center}
+\begin{tabular}{ccc}
+	function & \qquad & derivative   \\[2pt] \hline 
+	$c$        &\rule{0pt}{16pt} & 0  \\ 
+	$x^p$ & \rule{0pt}{14pt} & $px^{p-1}$ \\ [1pt]
+	$\sin{x}$  & & $\cos{x}$   \\ [1pt]
+	$\cos{x}$  & & $\makebox[0pt][r]{--}\sin{x}
+		\makebox[0pt][l]{}$  \\ [1pt]
+	$\tan{x}$  & & $\sec^2{x}$   \\ [1pt]
+	$b^x$      & & $k_b \cdot b^x$
+\end{tabular}
+\end{center}
+\aside{Remember that the input to the trigonometric functions is
+  always measured in radians; the above formulas are not correct if
+  $x$ is measured in degrees.  There are similar formulas if you
+  insist on using degrees, but they are more complicated.  This is the
+  principal reasons we work in radians---the formulas are nice!}
+
+\noindent
+For example, 
+\begin{itemize}
+\item the derivative of  $1/x = x^{-1}$  is
+$-x^{-2}=-1/x^{2}$;
+\item  the derivative of $\sqrt{w} = w^{1/2}$ is 
+$\tfrac{1}{2}w^{-1/2} = \dfrac{1}{\displaystyle 2 \sqrt{w}}$; 
+\item the derivative of  $x^{\pi}$ is $\pi x^{\pi - 1}$; and
+\item the derivative of $\pi^x$ is $k_{\pi}\cdot\pi^x \approx 1.14\,\pi^x$.
+\end{itemize}
+Compare the last two functions.  The first, $x^{\pi}\!$, is a
+\index{power function}\index{function!power}{\bf power function}---it is a power of the
+input $x$.  The second, $\pi^x\!$, is an \index{exponential
+  function}\index{function!exponential}{\bf exponential function}---the input $x$ appears in the
+exponent.  When you differentiate a power function, the exponent drops
+by 1; when you differentiate an exponential function, the exponent
+doesn't change.
+
+
+\subsubsection{Basic Rules}
+
+Since basic functions are combined in various ways to make formulas,
+we need to know how to differentiate {\em combinations\/}.  For
+example, suppose we add the basic functions $g(x)$ and $h(x)$, to get
+$f(x) = g(x) + h(x)$.
+%
+\mar{The addition rule}\index{addition rule}
+%
+Then $f$ is differentiable, and $f'(x) = g'(x) + h'(x)$.  Actually,
+this is true for {\em all\/} differentiable functions $g$ and $h$, not
+just basic functions.  It says: ``The rate at which $f$ changes is the
+sum of the separate rates at which $g$ and $h$ change.''  Here are
+some examples that illustrate the point.
+\begin{gather*}
+\mbox{If} \quad f(x) = \tan{x} + x^{-6}, \quad 
+		\mbox{then} \quad f'(x) = 
+		{\displaystyle \sec^2{x} - 6x^{-7}}. \\
+\mbox{If} \quad f(w) =  2^w + \sqrt{w}, \quad 
+		\mbox{then} \quad f'(w) = k_2\,  2^w + 
+		\dfrac{1}{2 \sqrt{w}} \ \mbox{(and $k_2 
+		\approx .69$)}.
+\end{gather*}
+
+\index{differentiation}
+\index{differentiation!addition rule}
+\index{differentiation!constant multiple rule}
+
+Likewise, if we multiply any differentiable function $g$ by a constant
+$c$, then the product $f(x) = cg(x)$ is also differentiable and
+%
+\mar{The constant multiple rule}
+%
+$f'(x) = cg'(x)$.  This says: ``If $f$ is $c$ times as large as $g$,
+then $f$ changes at $c$ times the rate of $g$.''  Thus the derivative
+of $5\sin{x}$ is $5\cos{x}$.  Likewise, the derivative of $(5x)^2$ is
+$50\,x$.  (This took an extra calculation.)  However, the rule does
+{\em not\/} tell us how to find the derivative of
+$\sin(5x)$\label{`sin(5x)'}, because $\sin(5x) \neq 5\sin(x)$.  We
+will need the chain rule to work this one out.
+
+The rules about sums and constant multiples of functions are just the
+first of several basic rules for differentiating combinations of
+functions.  We will describe how to handle products and quotients of
+functions in chapter~5.  For the moment we summarize in the following
+table the rules we have already covered.
+\begin{center}
+\begin{tabular}{ccc}
+	function & \qquad & derivative \\[2pt] \hline
+	$f(x)+g(x)$ & \rule{0pt}{16pt} & $f'(x)+g'(x)$ \\ [2pt]
+	$c \cdot f(x)$ & & $c \cdot f'(x)$
+\end{tabular}
+\end{center}
+
+With just the few facts already laid out we can differentiate a
+variety of functions given by formulas.  In particular, we can
+differentiate any {\bf polynomial}\index{polynomial} function:
+\[
+P(x) = a_nx^n + a_{n-1}x^{n-1} + \cdots + a_2x^2 + a_1x + a_0.
+\]
+Here $a_n$, $a_{n-1}$, \ldots, $a_2$, $a_1$, $a_0$ are various
+constants, and $n$ is a positive integer, called the {\bf
+  degree}\index{degree of a polynomial} of the polynomial.  A
+polynomial is a sum of constant multiples of integer powers of the
+input variable.  A polynomial of degree 1 is just a linear function.
+The derivative is
+\[
+P'(x) = na_nx^{n-1} + (n-1)a_{n-1}x^{n-2} + \cdots + 2a_2x + a_1.
+\]
+
+All the rules presented up to this point are illustrated in the
+following examples; note that the first three involve polynomials.
+\begin{center}
+\begin{tabular}{ccc}\label{deriv table}
+	function & & derivative \\[2pt] \hline
+	$7x + 2$ & \rule{0pt}{16pt} & $7$ \\ [2pt]
+	$5x^4 - 2x^3$ &  & $20x^3 - 6x^2$ \\ [2pt]
+	$5x^4 - 2x^3 + 17$ & & $20x^3 - 6x^2$ \\ [2pt]
+	$3u^{15} + .5u^8 - \pi u^3 + u - \sqrt{2}$ & & 
+		$45u^{14} + 4u^7 - 3 \pi u^2 + 1$ \\ [2pt]
+	$6\cdot10^z + 17/z^5$ & & 
+		$6\!\cdot\!k_{10}\,10^z - 85/z^6$ \\[2pt]
+	$3\sin{t} -2t^3$ & & $3\cos{t} -6t^2$ \\ [2pt]
+	$\pi \cos{x} - \sqrt{3} \tan{x} + \pi^2$ & & 
+		$- \pi \sin{x} - \sqrt{3} \sec^2{x}$ 
+\end{tabular}
+\end{center}
+The first two functions have the same derivative because they differ
+only by a constant, and the derivative of a constant is zero.  The
+constant $k_{10}$ that appears in the fourth example is approximately
+2.30.
+
+
+
+
+\subsection{Exercises}
+
+\subsubsection{Sketching the graph of the derivative}
+\index{graph}
+\index{derivative}
+
+\vspace{-10pt}
+
+\num Sketch the graphs of two different functions that have the same
+derivative.  (For example, can you find two {\em
+  linear\/}\index{linear function} functions that have the same
+derivative?)
+
+\newpage
+
+\num Here are the graphs of four related functions: $s$, its
+derivative $s'$, another function $c(t) = s(2t)$, and {\em its\/}
+derivative $c'(t)$.  The graphs are out of order.  Label them with the
+correct names $s$, $s'$, $c$, and $c'$.
+
+\vspace{130pt}
+
+\special{psfile=../ps/calc1/sinprob.ps}
+
+\numa Suppose a function $y = g(x)$ satisfies $g(0) = 0$ and $0 \leq
+g'(x) \leq 1$ for all values of $x$ in the interval $0 \leq x \leq 3$.
+Explain carefully why the graph of $g$ must lie entirely in the
+triangular region shaded below:
+
+\vspace*{2in}
+
+\special{psfile=../ps/calc1/shaded.ps}
+
+\sub Suppose you learn that $g(1) = .5$ and $g(2) = 1$.  Draw the
+smallest shaded region in which you can guarantee that the graph of
+$g$ must lie.
+
+\num Suppose $h$ is differentiable over the interval $0 \leq x \leq
+3\/$.  Suppose $h(0) = 0$, and that
+\begin{alignat*}{2}
+.5 &\leq h'(x) \leq 1 \quad &\text{for} \quad  0 &\leq x \leq 1 \\ 
+ 0 &\leq h'(x) \leq .5      &\text{for} \quad  1 &\leq x \leq 2 \\
+-1 &\leq h'(x) \leq 0       &\text{for} \quad  2 &\leq x \leq 3
+\end{alignat*}
+Draw the smallest shaded region in the $x, y$-plane in which you can
+guarantee that the graph of $y = h(x)$ must lie.
+
+\newpage
+
+\num For each of the functions graphed below, sketch the graph of its
+derivative.
+
+\special{psfile=../ps/calc1/qualsketch.ps}
+
+\pagebreak
+
+
+\subsubsection{Differentiation}
+\index{differentiation}
+
+\vspace{-10pt}
+\num  Find formulas for the derivatives of the following functions; that is, {\em differentiate\/} them.
+
+\sub  $f(x) = 3x^7 - .3 x^4 + \pi x^3 - 17$
+
+\sub  $g(x) = \sqrt{3}\,\sqrt{x} + \dfrac{7}{x^5}$
+
+\sub  $h(w) = 2w^8 - \sin{w} + \dfrac{1}{3 w^2}$
+
+\sub  $R(u) = 4\cos{u} - 3\tan{u} + \sqrt[3]{u}$
+
+\sub  $V(s) = \sqrt[4]{16} - \sqrt[4]{s}$
+
+\sub  $F(z) = \sqrt{7} \cdot 2^z + (1/2)^z$
+
+\sub  $P(t) =  -\dfrac{a}{2} t^2 + v_0 t + d_0$  \ ($a$, $v_0$, and $d_0$ are constants)
+
+
+\num Use a computer graphing utility for this exercise.  Graph on the
+same screen the following three functions:
+\begin{enumerate}
+
+\item the function $f$ given below, on the indicated interval;
+
+\item the function $g(x) = \left(f(x+.01) - f(x-.01)\right)/.02$ that
+  estimates the slope of the graph of $f$ at $x$;
+
+\item the function $h(x) = f'(x)$, where you use the differentiation
+  rules to find $f'$.
+
+\end{enumerate}
+
+\sub  $f(x) = x^4$ on $-1 \leq x \leq 1$.
+
+\sub  $f(x) = x^{-1}$ on $1 \leq x \leq 8$.
+
+\sub  $f(x) = \sqrt{x}$ on $.25 \leq x \leq 9$.
+
+\sub  $f(x) = \sin{x}$ on $0 \leq x \leq 2\pi$.
+\medskip
+
+\noindent
+The graphs of $g$ and $h$ should coincide---or ``share phosphor''---in
+each case.  Do they?
+
+
+\num In each case below, find a function $f(x)$ whose derivative
+$f'(x)$ is:
+
+\sub  $f'(x) = 12\,x^{11}$.
+
+\sub  $f'(x) = 5x^7$.
+
+\sub  $f'(x) = \cos{x} + \sin{x}$.
+
+\sub  $f'(x) = ax^2 + bx +c$.
+
+\sub  $f'(x) = 0$.
+
+\sub  $f'(x) = \dfrac{5}{\sqrt{x}}$.
+
+
+\num What is the slope of the graph of $y = x - \sqrt{x}$ at $x = 4$?
+At $x = 100$?  At $x = 10000$?
+
+\numa For which values of $x$ is the function $x - x^3$ increasing?
+
+\sub  Where is the graph of $y = x - x^3$ rising most steeply?
+
+\sub  At what points is the graph of $y = x - x^3$ horizontal?
+
+\sub Make a sketch of the graph of $y = x - x^3$ that reflects all
+these results.
+
+
+\numa Sketch the graph of the function $y = 2x + \dfrac{5}{x}$ on the
+interval $.2 \leq x \leq 4$.
+
+\sub Where is the lowest point on that graph?  Give the value of the
+$x$-coordinate {\em exactly}.  [Answer: $x = \sqrt{5/2}$.]
+
+\num What is the slope of the graph of $y = \sin{x} + \cos{x}$ at $x =
+\pi/4$?
+
+
+\numa Write the microscope equation\index{microscope equation} for $y
+= \sin{x}$ at $x = 0$.
+
+\sub Using the microscope equation, estimate the following values:
+$\sin{.3}$, $\sin{.007}$, $\sin(-.02)$.  Check these values with a
+calculator. (Remember to set your calculator to radian mode!)
+
+\numa Write the microscope equation for $y = \tan{x}$ at $x = 0$.
+
+\sub Estimate the following values: $\tan{.007}$, $\tan{.3}$,
+$\tan(-.02)$.  Check these values with a calculator.
+
+
+\numa Write the microscope equation for $y = \sqrt{x}$ at $x = 3600$.
+
+\sub Use the microscope equation to estimate $\sqrt{3628}$ and
+$\sqrt{3592}$.  How far are these estimates from the values given by a
+calculator?
+
+\num If the radius of a spherical balloon is $r$ inches, its volume is
+$\tfrac{4}{3}\pi r^3$ cubic inches.
+
+\sub At what rate does the volume increase, in cubic inches per inch,
+when the radius is 4 inches?
+
+\sub Write the microscope equation for the volume when $r = 4$ inches.
+
+\sub When the radius is 4 inches, approximately how much does it
+increase if the volume is increased by 50 cubic inches?
+
+\sub Suppose someone is inflating the balloon at the rate of 10 cubic
+inches of air per second.  If the radius is 4 inches, at what rate is
+it increasing, in inches per second?
+
+
+\num A ball is held motionless and then dropped from the top of a 200
+foot tall building.\index{falling object} After $t$ seconds have
+passed, the distance from the ground to the ball is $d=f(t) = -16t^2 +
+200$ feet.
+
+\sub Find a formula for the velocity $v=f'(t)$ of the ball after $t$
+seconds.  Check that your formula agrees with the given information
+that the initial velocity of the ball is 0 feet/second.
+
+\sub Draw graphs of both the velocity and the distance as functions of
+time.  What time interval makes physical sense in this situation?
+(For example, does $t<0$ make sense?  Does the distance formula make
+sense after the ball hits the ground?)
+
+\sub At what time does the ball hit the ground?  What is its velocity
+then?
+
+
+\num A second ball is tossed straight up from the top of the same
+building with a velocity of 10 feet per second.  After $t$ seconds
+have passed, the distance from the ground to the ball is $d=f(t) =
+-16t^2 + 10t + 200$ feet.
+
+\sub Find a formula for the velocity of the second ball.  Does the
+formula agree with given information that the initial velocity is
+$+10$ feet per second?  Compare the velocity formulas for the two
+balls; how are they similar, and how are they different?
+
+\sub Draw graphs of both the velocity and the distance as functions of
+time.  What time interval makes physical sense in this situation?
+
+\sub Use your graph to answer the following questions.  During what
+period of time is the ball rising?  During what period of time is it
+falling?  When does it reach the highest point of its flight?
+
+\sub  How high does the ball rise?  
+
+
+\numa What is the velocity formula for a third ball that is thrown
+      {\em downward\/} from the top of the building with a velocity of
+      40 feet per second?  Check that your formula gives the correct
+      initial velocity.
+
+\sub What is the distance formula for the third ball?  Check that it
+satisfies the initial condition (namely, that the ball starts at the
+top of the building).
+
+\sub When does this ball hit the ground?  How fast is it going then?
+
+
+\num A steel ball is rolling along a 20-inch long straight track so
+that its distance from the midpoint of the track (which is 10 inches
+from either end) is $d=3 \sin{t}$ inches after $t$ seconds have
+passed.  (Think of the track as aligned from left to right.  Positive
+distances mean the ball is to the right of the center; negative
+distances mean it is to the left.)
+
+\sub Find a formula for the velocity of the ball after $t$ seconds.
+What is happening when the velocity is positive; when it is negative;
+when it equals zero?  Write a sentence or two describing the motion of
+the ball.
+
+\sub How far from the midpoint of the track does the ball get?  How
+can you tell?
+
+\sub How fast is the ball going when it is at the midpoint of the
+track?  Does it ever go faster than this?  How can you tell?
+
+
+\num A forester who wants to know the height of a tree walks 100 feet
+from its base, sights to the top of the tree, and finds the resulting
+angle to be 57 degrees.
+
+\sub What height does this give for the tree?
+
+\sub If the measurement of the angle is certain only to 5 degrees,
+what can you say about the uncertainty\index{uncertainty} of the
+height found in part (a)?  (Note: you need to express angles in {\em
+  radians\/} to use the formulas from calculus: $\pi$ radians = 180
+degrees.)
+
+
+\numa In the preceding problem, what percentage error in the height of
+the tree is produced by a 1 degree error in measuring the angle?
+
+\sub What would the percentage error have been if the angle had been
+75 degrees instead of 57 degrees?  40 degrees?
+
+\sub If you can measure angles to within 1 degree accuracy and you
+want to measure the height of a tree that's roughly 150 feet tall by
+means of the technique in the preceding problem, how far away from the
+tree should you stand to get your best estimate of the tree's height?
+How accurate would your answer be?
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                         %
+%                                Section 6                                %
+%                                                                         %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{The Chain Rule}
+\index{chain rule}
+
+\subsection{Combining Rates of Change}
+\index{rate of change}
+
+Let's return to the expanding house\index{expanding house} that we
+studied in section~4.  When the temperature $T$ increased, every side $s$
+of the house got longer; when $s$ got longer, the volume $V$ got
+larger.  We already discussed how $V$ responds to changes in $s$, but
+that's only part of the story.  What we'd really like to know is this:
+exactly how does the volume $V$ respond to changes in temperature $T$?
+We can work this out in stages: first we see how $V$ responds to
+changes in $s$, and then how $s$ responds to changes in $T$.
+\smallskip
+
+\noindent
+{\bf Stage 1}.  Our ``house'' is a cube that measures 200
+inches on a side, and the microscope equation\index{microscope equation}
+(section~4) describes how $V$ responds to changes in $s$:
+\mar{\vspace{10pt} How volume responds to changes in length}
+\[
+\Delta V \approx 120000 \ 
+   \dfrac{\mbox{cubic inches of volume}}{\mbox{inch of length}}
+		\cdot \Delta s \ \mbox{inches}.
+\]
+{\bf Stage 2}.  Physical experiments with wood show that a 200 inch
+length of wood increases about .0004 inches in length per degree
+Fahrenheit.  This is a {\em rate}, and we can build a second
+microscope equation with it: \mar{\vspace{3pt} How length responds to
+changes in temperature}
+\[
+\Delta s \approx 
+	.0004\ \dfrac{\mbox{inches of length}}{\mbox{degree F}}
+		\cdot \Delta T \ \mbox{degrees F},
+\]
+where $\Delta T$ measures the change in temperature, in degrees
+Fahrenheit.
+\smallskip
+
+We can combine the two stages because $\Delta s$ appears in both.
+Replace $\Delta s$ in the first equation by the right-hand side of the
+second equation.  The result is
+\[
+\Delta V \approx 120000 \ 
+    \dfrac{\mbox{cubic inches}}{\mbox{inch}} \times 
+		.0004\ \dfrac{\mbox{inches}}{\mbox{degree F}}
+          \cdot \Delta T \ \mbox{degrees F}.
+\]
+We can condense 
+%
+\mar{\vspace{2pt} How volume responds to changes in temperature}
+%
+this to     
+\[
+\Delta V \approx 48 \ 
+		\dfrac{\mbox{cubic inches}}{\mbox{degree F}}
+          \cdot \Delta T \ \mbox{degrees F}.
+\]
+This is a {\em third\/} microscope equation, and it shows directly how
+the volume of the house responds to changes in temperature.  It is the
+answer to our question.
+
+As always, the multiplier\index{multiplier} in a microscope equation
+is a rate.  The multiplier in the third microscope equation, 48 cubic
+inches/degree F, tells us the rate at which {\em volume changes with
+  respect to temperature}.  Thus, if the temperature increases by 10
+degrees between night and day, the house will become about 480 cubic
+inches larger.  Recall that Bodanis (see section~4) said that the house
+might become only a few cubic inches larger---say, $\Delta V = 3$
+cubic inches.  If we solve the microscope equation
+	$$
+	3 \approx 48 \cdot \Delta T 
+	$$
+for $\Delta T$, we see that the temperature would have risen only
+1/16-th of a degree F!
+
+The rate that appears as the multiplier in the third microscope
+equation is the product of the other two:
+%
+\mar{\vspace{18pt} How the rates combine}
+	$$
+	48 \ \dfrac{\mbox{cubic inches}}{\mbox{degree F}} = 
+	120000 \ \dfrac{\mbox{cubic inches}}{\mbox{inch}}
+		\times 
+	.0004 \ \dfrac{\mbox{inches}}{\mbox{degree F}}.
+	$$
+Each of these rates is a derivative:
+\[
+\underbrace
+	{48 \ \rule[-15pt]{0pt}{15pt}
+		\dfrac{\mbox{cubic inches}}{\mbox{degree F}}}_
+		{\displaystyle dV/dT}
+	= 
+\underbrace
+	{120000 \ \rule[-15pt]{0pt}{15pt}
+		%\vphantom{\mbox{cubic inches} \over 
+		%	\mbox{degree F}}
+		\dfrac{\mbox{cubic inches}}{\mbox{inch}}}_
+		{\displaystyle dV/ds}
+	\times 
+\underbrace
+	{.0004 \ \rule[-15pt]{0pt}{15pt}
+		\dfrac{\mbox{inches}}{\mbox{degree F}}}_
+		{\displaystyle ds/dT}.
+\]
+We wrote the derivatives in Leibniz's notation because it's
+particularly helpful in keeping straight what is going on.  For
+instance, $dV/dT$ indicates very clearly the rate at which volume is
+changing with respect to {\em temperature}, and $dV/ds$ the rate at
+which it is changing with respect to {\em length}.  These rates are
+quite different---they even have different units---but the notation
+$V'$ does not distinguish between them.  In Leibniz's notation, the
+relation between the three rates takes this striking form:
+	$$
+	\dfrac{dV}{dT} = \dfrac{dV}{ds} \cdot \dfrac{ds}{dT}.
+	$$
+This relation is called the {\bf chain rule}\index{chain rule} for the
+variables $T$, $s$, and $V$.  (We'll see in a moment what this has to
+do with chains.)
+
+
+The chain rule is a consequence of the way the three microscope
+equations are related to each other.  We can see how it emerges
+directly from the microscope equations if we replace the numbers that
+appear as multipliers in those equations by the three derivatives.  To
+begin, we write
+	$$
+	\Delta V \approx \dfrac{dV}{ds} \cdot \Delta s 
+		\qquad \mbox{and} \qquad
+		\Delta s \approx \dfrac{ds}{dT} \cdot \Delta T.
+	$$
+Then, combining these equations, we get
+	$$
+	\Delta V \approx \dfrac{dV}{ds} \cdot 
+		\dfrac{ds}{dT} \cdot \Delta T.
+	$$
+In fact, this is the microscope equation for $V$ in terms of $T$, which can be written more directly as
+	$$
+	\Delta V \approx \dfrac{dV}{dT} \cdot \Delta T.
+	$$
+In these two expressions we have the same microscope equation, so the multipliers must be equal.  Thus, we recover the chain rule:
+	$$
+	\dfrac{dV}{ds} \cdot \dfrac{ds}{dT} = \dfrac{dV}{dT}.
+	$$
+
+\aside{Recall that Leibniz\index{Leibniz, G.}\index{differential} worked
+  directly with {\em differentials}, like $dV$ and $ds$, so a
+  derivative was a genuine fraction.  For him, the chain rule is true
+  simply because we can cancel the two appearances of ``$ds$'' in the
+  derivatives.  For us, though, a derivative is not really a fraction,
+  so we need an argument like the one in the text to establish the
+  rule.}
+
+
+\subsection{Chains and the Chain Rule}
+\index{chain}
+     
+Let's analyze the relationships between the three variables in the
+expanding house problem in more detail.  There are three functions
+involved: volume is a function of length: $V = V(s)$; length is a
+function of temperature: $s = s(T)$; and finally, volume is a function
+of temperature, too: $V = V(s(T))$.  To visualize these relationships
+better, we introduce the notion of an {\bf input--output
+  diagram}.\index{input--output diagram} The input--output diagram for
+the function $s = s(T)$ is just $T \to s$.  It indicates that $T$ is
+the input of a function whose output is $s$.  Likewise $s \to V$ says
+that volume $V$ is a function of length $s$.  Since the output of $T
+\to s$ is the input of $s \to V$, we can make a {\em chain\/} of these
+two
+%
+	\mar{\vspace{10pt} An input--output chain}
+%
+diagrams:
+	$$
+	T \longrightarrow s \longrightarrow V.
+	$$
+The result describes a function that has input $T$ and output $V$.  It
+is thus an input--output diagram for the third function $V = V(s(T))$.
+
+We could also write the input--output diagram for the third function
+simply as $T \to V$; in other words,
+	$$
+	T \longrightarrow V \qquad \mbox{equals} \qquad 
+		T \longrightarrow s \longrightarrow V.
+	$$
+
+\newpage
+
+\noindent
+We say that $T \to s \to V$ is a {\bf chain}\index{chain}
+%
+\mar{A chain and its links}
+%
+that is made up of the two {\bf links}\index{link} $T \to s$ and $s
+\to V$.  Since each input--output diagram represents a function, we can
+attach a derivative that describes the rate of change of the output
+with respect to the input:
+\begin{center}
+\begin{picture}(300,30)
+	\put(0,0)
+		{\begin{picture}(90,30)
+			\put(30,0){\vector(1,0){30}}
+			\put(20,0){\makebox(0,0){$T$}}
+			\put(70,0){\makebox(0,0){$s$}}
+			\put(45,10){\makebox(0,0)[b]{${\displaystyle 
+				\dfrac{ds}{dT}}$}}
+		\end{picture}}
+
+	\put(105,0)
+		{\begin{picture}(90,30)
+			\put(30,0){\vector(1,0){30}}
+			\put(20,0){\makebox(0,0){$s$}}
+			\put(70,0){\makebox(0,0){$V$}}
+			\put(45,10){\makebox(0,0)[b]{${\displaystyle 
+				\dfrac{dV}{ds}}$}}
+		\end{picture}}
+
+	\put(210,0)
+		{\begin{picture}(90,30)
+			\put(30,0){\vector(1,0){30}}
+			\put(20,0){\makebox(0,0){$T$}}
+			\put(70,0){\makebox(0,0){$V$}}
+			\put(45,10){\makebox(0,0)[b]{${\displaystyle 
+				\dfrac{dV}{dT}}$}}
+		\end{picture}}
+
+\end{picture}
+\end{center}
+
+Here is a single picture that shows all the relationships:
+\begin{center}
+\begin{picture}(100,65)(-50,-25)
+	\put(-50,0){\makebox(0,0){$T$}}
+	\put(0,0){\makebox(0,0){$s$}}
+	\put(50,0){\makebox(0,0){$V$}}
+
+	\put(-40,0){\vector(1,0){30}}
+	\put(-27,-6){\makebox(0,0)[t]{${\displaystyle 
+		\dfrac{ds}{dT}}$}}
+
+	\put(10,0){\vector(1,0){30}}
+	\put(23,-6){\makebox(0,0)[t]{${\displaystyle 
+		\dfrac{dV}{ds}}$}}
+
+	\put(-40,5){\line(4,1){12}}
+	\put(28,8){\vector(4,-1){12}}
+	\begin{thicklines}
+	\bezier{50}(-28,8)(0,15)(28,8)
+	\end{thicklines}
+	\put(0,20){\makebox(0,0)[b]{${\displaystyle 
+		\dfrac{dV}{dT}}$}}
+
+\end{picture}
+\end{center}
+We can thus relate the derivative $dV/dT$ of the whole chain to the
+derivatives $dV/ds$ and $ds/dT$ of the individual links by
+\[
+\dfrac{dV}{dT} = \dfrac{dV}{ds} \cdot \dfrac{ds}{dT}.
+\]
+
+The same argument holds for any chain of functions.  If $u$ is a
+function of $x$, and if $y$ is some function of $u$, then a small
+change in $x$ produces a small change in $u$ and hence in $y$.  The
+total multiplier for the chain is simply the product of the
+multipliers of the individual links:
+\begin{center}
+\begin{picture}(270,50)
+\begin{thicklines}
+\put(0,0) {\framebox(270,50) 
+{\bf The chain rule: \quad \boldmath
+    $\dfrac{dy}{dx} = \dfrac{dy}{du} \cdot \dfrac{du}{dx}$ }
+}
+\end{thicklines}
+\end{picture}
+\end{center}
+Moreover, an obvious generalization extends this result to a chain
+containing more than two links.
+
+\noindent
+{\bf A simple example}.  We can sometimes use the chain rule without
+giving it much thought.  For instance, suppose a bookstore makes an
+average profit of \$3 per book, and its sales are increasing at the
+rate of 40 books per month.  At what rate is its monthly profit
+increasing, in dollars per month?  Does it seem clear to you that the
+rate is \$120 per month?
+
+\newpage
+
+Let's analyze the question in more detail.  There are three variables
+here:
+	\begin{center}
+	\begin{tabular}{rcl}
+{\bf time\/} & $t$ & measured in months; \\ [2pt]
+{\bf sales} & $s$ & measured in books; \\ [2pt]
+{\bf profit\/} & $p$ & measured in dollars. 
+	\end{tabular}
+	\end{center}
+The two known rates are
+	$$
+	\dfrac{dp}{ds} = 3 \ \dfrac{\mbox{dollars}}{\mbox{book}}
+	\qquad \mbox{and} \qquad
+	\dfrac{ds}{dt} = 40 \ \dfrac{\mbox{books}}{\mbox{month}}.
+	$$
+The rate we seek is $dp/dt$, and we find it by the chain rule:
+\begin{align*}
+\dfrac{dp}{dt} &= \dfrac{dp}{ds} \cdot \dfrac{ds}{dt} \\[3pt]
+	&= 3 \ \dfrac{\mbox{dollars}}{\mbox{book}} 
+			\times
+		40 \ \dfrac{\mbox{books}}{\mbox{month}} \\[3pt]
+		&= 120 \ \dfrac{\mbox{dollars}}{\mbox{month}}
+\end{align*}
+
+\noindent
+{\bf Chains, in general}.  The chain rule applies whenever the output
+of one function is the input of another.  For example, suppose $u =
+f(x)$ and $y = g(u)$.  Then $y = g(f(x))$, and we have:
+\begin{center}
+\begin{picture}(200,60)(-40,-20)
+	\put(-50,0){\makebox(0,0){$x$}}
+	\put(0,0){\makebox(0,0){$u$}}
+	\put(50,0){\makebox(0,0){$y$}}
+
+	\put(-40,0){\vector(1,0){30}}
+	\put(-27,-7){\makebox(0,0)[t]{$	\dfrac{du}{dx}$}}
+
+	\put(10,0){\vector(1,0){30}}
+	\put(23,-7){\makebox(0,0)[t]{$\dfrac{dy}{du}$}}
+
+	\put(-40,5){\line(4,1){12}}
+	\put(28,8){\vector(4,-1){12}}
+	\begin{thicklines}
+	\bezier{50}(-28,8)(0,15)(28,8)
+	\end{thicklines}
+	\put(0,20){\makebox(0,0)[b]{$\dfrac{dy}{dx}$}}
+
+	\put(100,0){\makebox(0,0)[l]
+	{$\dfrac{dy}{dx} = \dfrac{dy}{du} \cdot \dfrac{du}{dx}$}}
+
+\end{picture}
+\end{center}
+Let's take
+	$$
+	u = x^2 \qquad \mbox{and} \qquad y = \sin(u);
+	$$
+then $y = \sin(x^2)$, and it is not at all obvious what the derivative
+$dy/dx$ ought to be.  None of the basic rules in section~4 covers this
+function.  However, those rules {\em do\/} cover $u = x^2$ and $y =
+\sin(u)$:
+	$$
+	\dfrac{du}{dx} = 2x \qquad \mbox{and} \qquad 
+		\dfrac{dy}{du} = \cos(u).
+	$$
+We can now get $dy/dx$ by the chain rule:
+	$$
+	\dfrac{dy}{dx} = \dfrac{dy}{du} \cdot \dfrac{du}{dx} =
+		\cos(u) \cdot 2x.
+	$$
+Since we are interested in $y$ as a function of $x$---rather than $u$---we should rewrite $dy/dx$ so that it is expressed entirely in terms of $x$:
+	$$
+	\mbox{If} \quad y = \sin(x^2), \quad \mbox{then} \quad
+		\dfrac{dy}{dx} = 2x \cos(u) = 2x \cos(x^2).
+	$$
+
+	Let's start over, using the function names $f$ and $g$ we introduced at the outset:
+	$$
+	u = f(x) \quad \mbox{and} \quad y = g(u), \quad 
+		\mbox{so} \quad y = g(f(x)).
+	$$
+The third function, $y = g(f(x))$, needs a name of its own; let's call it $h$.  Thus 
+	\mar{\vspace{6pt} Composition\\ of functions}
+	$$
+	 y = h(x) = g(f(x)).
+	$$
+We say that $h$ is {\bf composed} of $g$ and $f$, and $h$ is called the \index{composite}{\bf composite}, or the \index{composition of functions}{\bf composition}, of $g$ and $f$.  
+
+	The problem is to find the derivative $h'$ of the composite function, knowing $g'$ and $f'$.  Let's translate all the derivatives into Leibniz's notation.\index{Leibniz's notation}
+	$$
+	h'(x) = \dfrac{dy}{dx} \qquad g'(u) = \dfrac{dy}{du}
+		\qquad f'(x) = \dfrac{du}{dx}.
+	$$
+We can now invoke the chain rule:
+	$$
+	h'(x) = \dfrac{dy}{dx} = 
+		\dfrac{dy}{du} \cdot \dfrac{du}{dx} = 
+		g'(u) \cdot f'(x).
+	$$
+Although $h'$ is now expressed in terms of $g'$ and $f'$, we are not yet done.  The variable $u$ that appears in $g'(u)$ is out of place---because $h$ is a function of $x$, not $u$.  (We got to the same point in the example; the original form of the derivative of $\sin(x^2)$ was $2x\cos(u)$.)  The remedy is to replace $u$ by $f(x)$; we can do this because $u = f(x)$ is given.\index{chain rule}  
+\begin{center}
+\begin{picture}(360,40)
+\begin{thicklines}
+\put(-10,0) {\framebox(380,40)
+{\bf The chain rule: \boldmath $h'(x) = 
+g'(f(x)) \! \cdot \! f'(x)$ when \boldmath $h(x) = g(f(x))$} 
+}
+\end{thicklines}
+\end{picture}
+\end{center}
+There is a certain danger in a formula as terse and compact as this that it loses all conceptual meaning and becomes simply a formal string of symbols to be manipulated blindly. You should always remember that the expression in the box is just a mathematical statement of the intuitively clear idea that when two functions are chained together, with the output of one serving as the input of the other, then the combined function has a multiplier which is simply the product of the multipliers of the two constituent functions.
+
+
+
+\subsection{Using the Chain Rule}
+
+The chain rule will allow us to differentiate nearly any formula.  The
+key is to recognize when a given formula can be written as a
+chain---and then, how to write it.
+
+\noindent
+{\bf Example 1}.  Here is a problem first mentioned on
+page~\pageref{`sin(5x)'}: What is the derivative of $y = \sin(5x)$?
+If we set
+	$$
+	y = \sin(u) \qquad \mbox{where} \qquad u = 5x,
+	$$
+then we find immediately
+	$$
+	\dfrac{dy}{du} = \cos(u) \qquad \mbox{and} \qquad
+		\dfrac{du}{dx} = 5.
+	$$
+Thus, by the chain rule we see
+	$$
+	\dfrac{dy}{dx} = \dfrac{dy}{du} \cdot \dfrac{du}{dx} = 
+		\cos(u) \cdot 5 = 5\cos(5x).
+	$$
+\smallskip
+
+\noindent
+{\bf Example 2}.  $w = 2^{\cos{z}}$.  Set
+	$$
+	w = 2^u \qquad \mbox{and} \qquad u = \cos{z}.
+	$$
+Then, once again, the basic rules from section~4 are sufficient to differentiate the individual links:
+	$$
+	\dfrac{dw}{du} =  k_2 \, 2^u \qquad \mbox{and} \qquad
+		\dfrac{du}{dz} = - \sin{z}.
+	$$
+The chain rule does the rest:
+	$$
+	\dfrac{dw}{dz} = \dfrac{dw}{du} \cdot \dfrac{du}{dz} = 
+		k_2 \, 2^u \cdot (-\sin{z}) = 
+		- k_2 \sin{z} 2^{\cos{z}}.
+	$$
+\smallskip
+
+\noindent
+{\bf Example 3}.  $p = \sqrt{7t^3 + \sin^2{t}}$.  This presents several challenges.  First let's make a chain:
+	$$
+	p = \sqrt{u} \qquad \mbox{where} \qquad 
+		u = 7t^3 + \sin^2{t}.
+	$$
+The basic rules give us $dp/du = 1/2\sqrt{u}$, but it is more difficult to deal with $u$.  Let's at least introduce separate labels for the two terms in $u$:
+	$$
+	q = 7t^3 \qquad \mbox{and} \qquad r = \sin^2{t}.
+	$$
+Then 
+	$$
+	\dfrac{du}{dt} = \dfrac{dq}{dt} + \dfrac{dr}{dt} \qquad 
+		\mbox{and} \qquad \dfrac{dq}{dt} = 21 t^2.
+	$$
+
+The remaining term $r = \sin^2{t} = (\sin{t})^2$ can itself be
+differentiated by the chain rule.  Set
+	$$
+	r = v^2 \qquad \mbox{where} \qquad v = \sin{t}.
+	$$
+Then 
+	$$
+	\dfrac{dr}{dv} = 2v \qquad \mbox{and}  \qquad
+		 \dfrac{dv}{dt} = \cos(t),
+	$$
+so
+	$$
+	\dfrac{dr}{dt} = \dfrac{dr}{dv} \cdot \dfrac{dv}{dt} = 
+		2v \cos{t} = 2 \sin{t} \cos{t}.
+	$$
+The final step is to assemble all the pieces:
+	$$
+	\dfrac{dp}{dt} = \dfrac{dp}{du} \cdot \dfrac{du}{dt} =
+		\dfrac{1}{2\sqrt{u}} \cdot 
+			\left(21 t^2 + 2 \sin{t} \cos{t}\right) =
+		\dfrac{21 t^2 + 2 \sin{t} \cos{t}} 
+			{2\sqrt{7t^3 + \sin^2{t}}}
+	$$
+
+
+By breaking down a complicated expression into simple pieces, and
+applying the appropriate differentiation rule to each piece, it is
+possible to differentiate a vast array of formulas.  You may meet two
+sorts of difficulties: you may not see how to break down the
+expression into simpler parts; and you may overlook a step.  Practice
+helps overcome the first, and vigilance the second.
+
+Here is an example of the second problem: find the derivative of $y =
+-3 \cos(2x)$.  The derivative is {\em not\/} $3 \sin(2x)$; it is
+$6\sin(2x)$.  Besides remembering to deal with the constant multiplier
+$-3$, and with the fact that there is a minus sign in the derivative
+of $\cos{u}$, you must not overlook the link $u = 2x$ in the chain
+that connects $y$ to $x$.
+
+\subsection{Exercises}
+
+\num Use the chain rule to find $dy/dx$, when $y$ is given as a
+function of $x$ in the following way.
+
+\sub  $y = 5u - 3$, where $u = 4 - 7x$.
+
+\sub  $y = \sin{u}$, where $u = 4 - 7x$.
+
+\sub  $y = \tan{u}$, where $u = x^3$.
+
+\sub  $y = 10^u$, where $u = x^2$.
+
+\sub  $y = u^4$, where $u = x^3 + 5$.
+
+\newcommand{\dog}{\operatorname{dog}}
+\newcommand{\pig}{\operatorname{pig}}
+\newcommand{\wombat}{\operatorname{wombat}}
+
+\num   Find the derivatives of the following functions.
+
+\sub  $F(x) = (9x + 6x^3)^5$.
+
+\sub  $G(w) = \sqrt{4w^2 + 1}$.
+
+\sub  $S(w) = \sqrt{(4w^2 + 1)^3}$.
+
+\sub $R(x) = \dfrac{1}{1 - x}$.  (Hint: think of $\dfrac{1}{1-x}$ as
+$(1-x)^{-1}$.)
+
+\sub  $D(z) = 3 \tan \left(\dfrac{1}{z}\right)$.
+
+\sub  $\dog(w) = \sin ^2 (w^3+1)$.
+
+\sub  $\pig(t) = \cos(2^t)$.
+
+\sub  $\wombat(x) = 5^{1/x}$.
+
+\num If $h(x)= (f(x))^6$ where $f$ is some function satisfying
+$f(93)=2$ and $f'(93)=-4$, what is $h'(93)$?
+
+\num If $H(x)= F(x^2-4x+2)$ where $F$ is some function satisfying
+$F'(2)=3$, what is $H'(4)$?
+
+
+\num If $f(x) = (1 + x^2)^5$, what are the numerical values of $f'(0)$
+and $f'(1)$?
+
+
+\num If $h(t) = \cos(\sin{t})$, what are the numerical values of
+$h'(0)$ and $h'(\pi)$?
+
+
+\num If $f'(x) = g(x)$, which of the following defines a function
+which also must have $g$ as its derivative?
+	$$
+	f(x+17) \qquad f(17x) \qquad 17f(x) \qquad 17+f(x)
+		\qquad f(17) 
+	$$
+
+
+\num Let $f(t) = t^2 + 2t$ and $g(t) = 5t^3 - 3$.  Determine all of
+the following: $f'(t)$, $g'(t)$, $g(f(t))$, $f(g(t))$, $g'(f(t))$,
+$f'(g(t))$, $(f(g(t)))'$, $(g(f(t)))'$.
+
+
+\numa  What is the derivative of $f(x) = 2^{-x^2}$?
+
+\sub Sketch the graphs of $f$ and its derivative on the interval $-2
+\leq x \leq 2$.
+
+\sub For what values(s) of $x$ is $f'(x) = 0$?  What is true about the
+graph of $f$ at the corresponding points?
+
+\sub Where does the graph of $f$ have positive slope, and where does
+it have negative slope?
+
+
+\numa With a graphing utility, find the point $x$ where the function
+$y = 1/(3x^2 - 5x + 7)$ takes its maximum value.  Obtain the numerical
+value of $x$ accurately to two decimal places.
+
+\sub Find the derivative of $y = 1/(3x^2 - 5x + 7)$, and determine
+where it takes the value 0.
+
+\ans{$y' = -(6x - 5)(3x^2 - 5x + 7)^{-2}$, and $y' = 0$ when $x =
+  5/6$.}
+
+\sub Using part (b), find the {\em exact\/} value of $x$ where $y =
+1/(3x^2 - 5x + 7)$ takes its maximum value.
+
+\sub At what point is the graph of $y = 1/(3x^2 - 5x + 7)$ rising most
+steeply?  Describe how you determined the location of this point.
+
+
+\numa Write the microscope equation for the function $y =
+\sin{\sqrt{x}}$ at $x = 1$.
+
+\sub Using the microscope equation, estimate the following values:
+$\sin{\sqrt{1.05}}$, $\sin{\sqrt{.9}}$.
+
+
+\numa Write the microscope equation for $w = \sqrt{1 + x}$ at $x = 0$.
+
+\sub Use the microscope equation to estimate the values of
+$\sqrt{1.1056}$ and $\sqrt{.9788}$.  Compare your estimates with the
+values provided by a calculator.
+
+
+
+\num When the sides of a cube are 5 inches, its surface area is
+changing at the rate of 60 square inches per inch increase in the
+side.  If, at that moment, the sides are increasing at a rate of 3
+inches per hour, at what rate is the area increasing: is it 60, 3, 63,
+20, 180, 5, or 15 square inches per hour?
+
+
+\num Find a function $f(x)$ for which $f'(x) = 3x^2(5 + x^3)^{10}$.
+Find a function $p(x)$ for which $p'(x) = x^2(5 + x^3)^{10}$.  A
+useful way to proceed is to guess.  For instance, you might guess
+$f(x)=(5+x^3)^{11}$.  While this guess isn't correct, it suggest what
+modification you might make to get the answer.
+
+
+\num Find a function $g(t)$ for which $g'(t) = t/\sqrt{1 + t^2}$.
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                        %
+%                              Section 7                                 %
+%                                                                        %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Partial Derivatives} 
+
+	Let's return to the sunrise function once again.\index{sunrise}  The time of sunrise depends not only on the date, but on our latitude.  In fact, if we are far enough north or south, there are days when the sun never rises at all.  We give in the table below the time of sunrise at eight different latitudes on March 15, 1990.
+\begin{center}
+\begin{tabular}{lcccccccc}
+Latitude&$36^\circ$N&$38^\circ$N&$40^\circ$N&$42^\circ$N&
+$44^\circ$N&$46^\circ$N&$48^\circ$N&$50^\circ$N \\ \hline
+Mar 15 & 	6:10 &	6:11 &	6:12 &	6:13 &	6:13 & 
+6:13 &	6:14 &	6:14 
+\end{tabular} 
+\end{center}
+Thus on March 15, the time of sunrise increases as latitude increases.  
+
+Clearly what this shows 
+%
+\mar{The time of sunrise depends on latitude as well as on the date}
+%
+is that the time of sunrise is actually a function of two independent
+inputs: the date and the latitude. If $T$ denotes the time of sunrise,
+then we will write $T = T(d, \lambda)$ to make explicit the dependence
+of $T$ on both the date $d$ and the latitude $\lambda$.  To capture
+this double dependence, we need information like the following
+table:\label{sunrise table}
+\begin{center}
+\begin{tabular}{rcccccccc}
+Latitude&$36^\circ$N&$38^\circ$N&$40^\circ$N&
+{\bf 42$^\circ$N}&
+$44^\circ$N&$46^\circ$N&$48^\circ$N&$50^\circ$N \\ \hline
+Mar 	3 &	6:24 &  6:27 &  6:31 &	{\bf 6:33} &	6:34 &	6:36 &	6:38 &	6:40 \\  
+7 &	6:20 &	6:22 &	6:25 &	{\bf 6:26} &	6:27 &	6:29 &	6:30 &	6:32 \\  
+11 &	6:15 &	6:17 &	6:19 &	{\bf 6:19} &	6:20 &	6:21 &	6:22 &	6:23 \\
+{\bf 15} &	{\bf 6:10} &	{\bf 6:11} &	{\bf 6:12} &	
+{\bf 6:13} &	{\bf 6:13} &	{\bf 6:13} &	{\bf 6:14} &	
+{\bf 6:14} \\
+19 &	6:06 &	6:06 &	6:06 &	{\bf 6:06} &	6:06 &	6:06 &	6:06 &	6:06 \\
+23 &	6:01 &	6:00 &	5:59 &	{\bf 5:59} &	5:58 &	5:58 &	5:58 &	5:57 \\
+27 &	5:56 &	5:54 &	5:53 &	{\bf 5:52} &	5:51 &	5:50 &	5:49 &	5:48 
+\end{tabular}
+\end{center}
+Thus we can say $T(74, 42^\circ\mbox{N})$ = 6:13  (March 15 is the 74-th day of the year).  Note, though, that at this date and place the time of sunrise is changing in two very different senses:
+\begin{description}
+	\item[First:]  At $42^\circ$N, during the eight days between March 11 and March 19, the time of sunrise gets 13 minutes earlier. We thus would say that on March 15 at $42^\circ$N, sunrise is changing at --1.63 minutes/day.
+	\item[Second:]  On the other hand, on March 15 we see that the time of sunrise varies by 1 minute as we go from $40^\circ$N to $44^\circ$N.  We would thus say that at $42^\circ$N the rate of change of sunrise as the latitude varies is approximately 1 minute/$4^\circ$ = +.25 minutes/degree of latitude.
+\end{description}
+Two quite different rates are at work here, one with respect to time, the other with respect to latitude.
+
+\newpage
+
+We need a notation which allows us to talk about the different rates
+at which a function can change,
+%
+\mar{A function of several variables has several rates of change}
+%
+when that function depends on more than one variable.  A rate of
+change is, of course, a derivative.  But since a change in one input
+produces only part of the change that a function of several variables
+can experience, we call the rate of change with respect to any one of
+the inputs a {\bf partial derivative}.\index{partial
+  derivative}\index{derivative!partial} If the value of $z$ depends
+on the variables $x$ and $y$ according to the rule $z = F(x,y)$, then
+we denote the rate at which $z$ is changing with respect to $x$ when
+$x = a$ and $y = b$ by
+	$$
+	F_x(a,b) \qquad \mbox{or by} \qquad
+		\frac{\partial z}{\partial x}(a,b).
+	$$
+We call this rate the 
+	\mar{Partial derivatives}
+{\bf partial derivative of \boldmath $F$ with respect to \boldmath $x$}.  Similarly, we define the partial derivative of $F$ with respect to $y$ to be the rate at which $z$ is changing when $y$ is varied.  It is denoted
+	$$
+	F_y(a,b) \qquad \mbox{or} \qquad
+		\frac{\partial z}{\partial y}(a,b).
+	$$
+There is nothing conceptually new involved here; to calculate either of these partial derivatives you simply hold one variable constant and go through the same limiting process as before for the input variable of interest.  Note that, to call attention to the fact that there is more than one input variable present, we write
+	$$
+\frac{\partial z}{\partial x} \qquad \mbox{rather than} 
+\qquad \frac{dz}{dx},
+	$$
+as we did when $x$ was the only input variable.  
+
+To calculate the partial derivative of $F$ with respect to $x$ at the
+point $(a,b)$, we can use
+	$$
+	F_x(a,b) = \frac{\partial z}{\partial x}(a,b) =
+	\lim_{\Delta x \rightarrow 0} 
+	\frac{F(a + \Delta x,b) - F(a,b)}{\Delta x}.
+	$$
+Similarly,
+	$$
+	F_y(a,b) = \frac{\partial z}{\partial y}(a,b) =
+	\lim_{\Delta y \rightarrow 0} 
+	\frac{F(a,b+\Delta y) - F(a,b)}{\Delta y}.
+	$$
+
+By using this notation for partial derivatives, we can cast some of
+our earlier statements about the sunrise function $T = T(d, \lambda)$
+in the following form:
+\begin{align*}
+T_d(74, 42^\circ\mbox{N}) &\approx -1.63 \ \mbox{minutes per day}; \\
+T_\lambda(74,42^\circ\mbox{N}) &\approx +.25 \ \mbox{minutes per degree}.
+\end{align*}
+
+
+\subsection{Partial Derivatives as Multipliers}
+\index{multiplier}
+
+	For any given date $d$ and latitude $\lambda$ we can write down two microscope equations\index{microscope equation} for the sunrise function $T(d, \lambda)$.  One describes how the time of sunrise responds to changes in the date, the other to changes in the latitude.  Let's consider variations in the time of sunrise in the vicinity of March 15 and $42^\circ$N.
+
+	The partial derivative $T_d(74,42^\circ\mbox{N})$ of $T$ with respect to $d$ is the multiplier in the first of these microscope equations:
+	\mar{\vspace{5pt} The microscope equation for dates}
+	$$
+\Delta T \approx T_d(74,42^\circ\mbox{N}) \cdot \Delta d.
+	$$
+For example, from March 15 to March 17 ($\Delta d$ = 2 days), we would expect the time of sunrise to change by
+	$$
+	\Delta T \approx -1.63 \ \frac{\mbox{min}}{\mbox{day}} 		\times 2 \ \mbox{days} = 
+		- 3.3 \ \mbox{minutes}.
+	$$
+Thus, we would expect the time of sunrise on March 17 at $42^\circ$N to be approximately 
+	$$
+T(76,42^\circ\mbox{N}) \approx \mbox{6:09.7} .
+	$$
+
+
+	The partial derivative $T_{\lambda}(74,42^\circ\mbox{N})$ of $T$ with respect to $\lambda$ is the multiplier in the second microscope equation:
+	\mar{\vspace{5pt} The microscope equation for latitudes}
+	$$
+	\Delta T \approx T_\lambda(74,42^\circ\mbox{N}) \cdot 
+		\Delta \lambda.
+	$$
+If, say, we moved $1^\circ$ north, to $43^\circ$N, we would expect the time of sunrise on March 7 to change by
+	$$
+	\Delta T \approx .25 \ \frac{\mbox{min}}{\mbox{deg}}
+		\times 1 \ \mbox{degree} 
+		= .25 \ \mbox{minute}.
+	$$ 
+The time of sunrise on March 15 at $43^\circ$N would therefore be
+	$$
+	T(74,43^\circ\mbox{N}) \approx \mbox{6:13.25}.
+	$$
+
+	We have seen what happens to the time of sunrise from March 15 to March 17 if we stay at $42^\circ$N, and we have seen what happens to the time on March 15 if we move from $42^\circ$N to $43^\circ$N.  Can we put these two pieces of information together?  That is, can we determine the time of sunrise on March 17 at $43^\circ$N?  This involves changing {\em both\/} the date and the latitude.
+
+\newpage
+
+	To determine the total change we shall just 
+	\mar{The total change}
+combine the two changes $\Delta T$ we have already calculated.  Making the date two days later moves the time of sunrise 3.3 minutes {\em earlier}, and travelling one degree north makes the time of sunrise .25 minutes {\em later}, so the net effect would be to change the time of sunrise by
+	$$
+	\Delta T \approx - 3.3 \ \mbox{min} + .25 \ \mbox{min}  
+	\approx  - 3 \ \mbox{minutes}.
+	$$
+This puts the time of sunrise at $T(76,43^\circ\mbox{N}) \approx$ 6:10.
+
+	We can formulate this idea more generally in the following way: partial derivatives are not only multipliers for gauging the separate effects that changes in each input have on the output, but they also serve as multipliers for gauging the {\em cumulative\/} effect that changes in all inputs have on the output.  In general, if $z=F(x,y)$ is a function of two variables, then near the point $(a,b)$, the combined change in $z$ caused by small changes in $x$ and $y$ can be stated by the {\em full\/} microscope equation:
+\begin{center}
+\begin{picture}(250,50)
+\begin{thicklines}
+\put(0,0) {\framebox(250,50){\shortstack{
+{\bf The full microscope equation:} \\[2pt]
+{\bf \boldmath $\Delta z \approx F_x(a,b) \cdot \Delta x +
+F_y(a,b) \cdot \Delta y$}
+}}}
+\end{thicklines}
+\end{picture}
+\end{center}
+  
+
+As was the case for the functions of one variable, there is an
+important class of functions for which we may write ``='' instead of
+``$\approx$'' in this relation, the linear functions.  The most
+general form of a {\bf linear function of two variables}\index{linear
+  function} is $z=F(x,y)= mx + ny + c$, for constants $m$, $n$, and
+$c$.
+
+In the exercises you will have an opportunity to verify that for a
+linear function $z = F(x,y) = mx + ny + c$ and for all $(a,b)$, we
+know that $F_x(a,b) = m$ and $F_y(a,b) = n$, and the full microscope
+equation $\Delta z = F_x(a,b) \cdot \Delta x + F_y(a,b) \cdot \Delta
+y$ is true for all values of $\Delta x$ and $\Delta y$.
+
+
+\subsection{Formulas for Partial Derivatives}
+\index{formula}
+
+No new rules are needed to find the formulas for the partial
+derivatives of a function of two variables that is given by a formula.
+%
+\mar{To find a partial derivative, treat the other variable as a constant}
+%
+To find the partial derivative with respect to one of the variables,
+just treat the other variable as a constant and follow the rules for
+functions of a single variable.  (The basic rules are described in
+section~5 and the chain rule in section~6.)  We give two examples to
+illustrate the method.
+
+\noindent 
+{\bf Example 1}.  For $z = F(x,y) = 3x^2y + 5y^2 \sqrt{x}$, we have
+\begin{align*}
+F_x(x,y) &=  3y (2x) + 5y^2 \frac{1}{2 \sqrt{x}} 
+          = 6xy + \frac{5y^2}{2 \sqrt{x}} \\
+F_y(x,y) &=  3x^2 + 10y \sqrt{x}
+\end{align*}
+
+
+\noindent 
+{\bf Example 2}. For $w = G(u,v) = 3 u^5 \sin{v}  - \cos{v} + u$, we have
+\begin{align*}
+\dfrac{\partial w}{\partial u} &=   15 u^4 \sin{v} + 1  \\
+\dfrac{\partial w}{\partial v} &= 3u^5 \cos{v} + \sin{v}
+\end{align*}
+
+The formulas for derivatives and the combined multiplier effect of
+partial derivatives allow us to determine the effect of changes in
+length and in width on the area of a rectangle.  The area $A$ of the
+rectangle is a simple function of its dimensions $l$ and $w$, $A =
+F(l,w) = lw\/$.  The partial derivatives of the area are then
+$$
+F_l(l,w) = w \hspace{.25in} \mbox{and} \hspace{.25in} F_w(l,w) = l.
+$$
+\begin{center}
+\begin{picture}(350,185)(-25,0)
+ \put(0,30){\framebox(220,130){area = $l \cdot w$}} % big box
+\put(0,0){\framebox(220,30){area = $l \cdot \Delta w$}} % next big
+\put(250,15){\vector(-1,0){20}} 		% bottom area stuff
+\put(251,13){area = $\Delta l \cdot \Delta w$}
+\put(250,95){\vector(-1,0){20}}			% top area stuff
+\put(251,93){area = $w \cdot \Delta l$}
+\put(220,0){\framebox(20,30){}}		% little box
+\put(220,30){\framebox(20,130){}}	% long box
+	% bottom g brace
+\put(-30,1.5){\makebox(30,27){$\Delta w \left\{ \makebox(0,16){} \right.$}}
+	% top g brace
+\put(-33,31.5){\makebox(30,130){$\;\;\;\;w \left\{ \makebox(0,66){} \right.$}}
+	% left f brace
+\put(2.50,163){$\overbrace{\makebox(215,0){}}^{\textstyle l}$}
+	%  right f brace
+\put(222.5,163){$\overbrace{\makebox(13,0){}}^{\textstyle \Delta l}$}
+\end{picture}
+\end{center}
+Changes $\Delta l$ and $\Delta w$ in the dimensions produce a change
+	\mar{\vspace{3pt} The full microscope equation for rectangular area}
+	$$
+	\Delta A \approx w \cdot \Delta l + l \cdot \Delta w
+	$$
+in the area.  The picture below shows that the {\em exact\/} value of $\Delta A$ includes an additional term---namely $\Delta l \cdot \Delta w$---that is not in the approximation $w \cdot \Delta l + l \cdot \Delta w$.  The difference, $\Delta l \cdot \Delta w$, is {\em very\/} small when the changes $\Delta l$ and $\Delta w$ are small.  In chapter 5 we will have a further look at the nature of this approximation.
+
+
+
+
+\subsection{Exercises}
+
+\vspace{-10pt}
+
+\num Use differentiation formulas to find the partial derivatives of
+the following functions.
+
+\sub  $x^2 y$.
+
+\sub  $\sqrt{x + y}$.
+
+\sub  $x^2y + 5x^3 - \sqrt{x + y}$.
+
+\sub  $10^{xy}$.
+
+\sub  $\dfrac{y}{x}$.
+
+\sub  $\sin{\dfrac{y}{x}}$.
+
+\sub  $ 17 \dfrac{x^2}{y^3} - x^2 \sin{y} + \pi$.
+
+\sub  $\dfrac{uv}{5} + \dfrac{5}{uv}$.
+
+\sub  $ 2 \sqrt{x} \, \sqrt[3]{y} - 7 \cos{x}$.
+
+\sub  $x\tan{y}$.
+
+\num On March 7 in the Northern Hemisphere, the farther south you are
+the earlier the sun rises.  The sun rises at 6:25 on this date at
+$40^\circ$N.  If we had been far enough south, we could have
+experienced a 6:25 sunrise on March 5.  Near what latitude did this
+happen?
+
+
+\num The volume $V$ of a given quantity of gas is a function of the
+temperature $T$ (in degrees Kelvin) and the pressure $P$.  In a
+so-called ideal gas the functional relationship between volume and
+pressure is given by a particularly simple rule called the {\bf ideal
+  gas law}:\index{ideal gas law}
+	$$
+	V(T,P) = R \, \frac{T}{P},
+	$$
+where $R$ is a constant.
+
+
+\sub Find formulas for the partial derivatives $V_T(T,P)$ and
+$V_P(T,P)$
+
+\sub For a particular quantity of an ideal gas called a {\em mole},
+the value of $R$ can be expressed as $8.3 \times 10^3$ newton-meters
+per degree Kelvin.  (The {\em newton} is the unit of force in the
+meter-kilogram-second (or MKS) system of units.\index{MKS units} Check
+that the units in the ideal gas law are consistent if $V$ is measured
+in cubic meters, $T$ in degrees Kelvin, and $P$ in newtons per square
+meter.\index{units}
+
+\sub Suppose a mole of gas at 350 degrees Kelvin is under a pressure
+of 20 newtons per square meter.  If the temperature of the gas
+increases by 10 degrees Kelvin and the volume increases by 1 cubic
+meter, will the pressure increase or decrease?  By about how much?
+
+\num Write the formula for a linear function $F(x, y)$ with the
+following properties:
+\begin{align*}
+	F_x(x, y) &= \hphantom{2}.15 \qquad 
+		\mbox{for all $x$ and $y$} \\
+	F_y(x, y) &= 2.31 \qquad 
+		\mbox{for all $x$ and $y$}  \\ 
+	F(4, 1)   &= 8
+\end{align*}
+
+\num The purpose of this exercise is to verify the claims made in the
+text for the linear function $z=F(x,y) = mx + ny + c\/$, where $m$,
+$n$ and $c$ are constants.
+
+\sub Use the differentiation rules to find the partial derivatives of
+$F$.
+
+\sub Use the {\em definition\/} of the partial derivative $F_x(a,b)$
+to show that $F_x(a,b)= m$ for any input $(a,b)$.  That is, show that
+the value of
+$$
+\frac{F(a+\Delta x, b) - F(a,b)}{\Delta x}
+$$
+exactly equals $m$, no matter what $a$ and $b$ are.
+
+\sub  Compute the exact value of the change
+$$
+\Delta z = F(a+\Delta x,b+\Delta y) - F(a,b)
+$$
+corresponding to changing $a$ by $\Delta x$ and $b$ by $\Delta y$.
+
+\num  Suppose $w=G(u,v) = {\displaystyle \frac{uv}{3+v}}$.
+
+\sub Approximate the value of the partial derivative $G_u(1,2)$ by
+computing $\Delta w/\Delta u$ for $\Delta u = \pm .1$, $\pm .01$,
+\ldots, $\pm .00001$.
+
+\sub Approximate the value of $G_v(1,2)$ by computing $\Delta w/\Delta
+v$ for $\Delta v = \pm .1$, $\pm .01$, \ldots, $\pm .00001$.
+
+\sub Write the full microscope equation for $G(u, v)$ at $(u, v) = (1,
+2)$.
+
+\sub Use the full microscope equation to approximate $G(.8,2.1)$.  How
+close is your approximation to the true value of $G(.8,2.1)$?
+
+
+\numa A rectangular piece of land has been measured to be 51 feet by
+2034 feet.  What is its area?
+
+\sub The narrow dimension has been measured with an accuracy of 4
+inches, but the long dimension is accurate only to 10 feet.  What is
+the error, or uncertainty, in the calculated area?  What is the
+percentage error?
+
+\num  Suppose $z = f(x, y)$ and
+	$$
+	f(3, 12) = 240, \qquad f_x(3, 12) = 7, \qquad 
+		f_y(3, 12) = 4.
+	$$
+
+\sub  Estimate $f(4, 12)$, $f(3, 13)$, $f(4, 13)$, 
+$f(4, 10)$.
+
+\sub When $x = 3$ and $y = 12$, how much does a 1\% increase in $x$
+cause $z$ to change?  How much does a 1\% increase in $y$ cause $z$ to
+change?  Which has the larger effect: a 1\% increase in $x$ or a 1\%
+increase in $y$?
+
+
+\num Let $P(K, L)$ represent the monthly profit, in thousands of
+dollars, of a company that produces a product using capital whose
+monthly cost is $K$ thousand dollars and labor whose monthly cost is
+$L$ thousand dollars.  The current levels of expense for capital and
+labor are $K = 23.5$ and $L = 39.0$.  Suppose now that company
+managers have determined
+	$$
+	\dfrac{\partial P}{\partial K}(23.5, 39.0) = -.12,
+	\qquad
+	\dfrac{\partial P}{\partial L}(23.5, 39.0) = -.20.
+	$$
+
+\sub Estimate what happens to the monthly profit if monthly capital
+expenses increase to \$24,000.
+
+\sub Each typical person added to the work force increases the monthly
+labor expense by \$1,500.  Estimate what happens to the monthly profit
+if one more person is added to the work force.  What, therefore, is
+the rate of change of profit, in thousands of dollars per person?  Is
+the rate positive or negative?
+
+\sub Suppose managers respond to increased demand for the product by
+adding three workers to the labor force.  What does that do to monthly
+profit?  If the managers want to keep the profit level unchanged, they
+could try to alter capital expenses.  What change in $K$ would leave
+profit unchanged after the three workers are added?  (This is called a
+{\bf trade-off}.)\index{trade-off}\label{trade off}
+
+
+\num A forester who wants to know the height of a tree walks 100 feet
+from its base, sights to the top of the tree, and finds the resulting
+angle to be 57 degrees.
+
+\sub  What height does this give for the tree?  
+
+\sub If the 100-foot measurement is certain only to 1 foot and the
+angle measurement is certain only to 5 degrees, what can you say about
+the uncertainty of the height measured in part (a)?  (Note: you need
+to express angles in {\em radians\/} to use calculus: $\pi$ radians =
+180 degrees.)
+
+\sub Which would be more effective: improving the accuracy of the
+angle measurement, or improving the accuracy of the distance
+measurement?  Explain.
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                         %
+%                                Section 8                                %
+%                                                                         %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Chapter Summary} 
+
+\subsection{The Main Ideas}
+
+\begin{itemize}
+
+\item The functions we study with the calculus have graphs that are
+  {\bf locally linear}; that is, they look approximately straight when
+  magnified under a microscope.
+
+\item The {\bf slope of the graph} at any point is the {\bf limit} of
+  the slopes seen under a microscope at that point.
+
+\item The {\bf rate of change} of a function at a point is the slope
+  of its graph at that point, and thus is also a {\bf limit}.  Its
+  dimensional units are (units of output)/(unit of input).
+
+\item The {\bf derivative} of $f(x)$ at $x = a$ is name given to both
+  the rate of change of $f$ at $a$ and the slope of the graph of $f$
+  at $(a, f(a))$.
+
+\item The derivative of $y = f(x)$ at $x = a$ is written {\bf
+  \boldmath $f'(a)$}.  The {\bf Leibniz notation} for the derivative
+  is {\bf \boldmath $dy/dx$}.
+
+\item To calculate the derivative $f'(a)$, make {\bf successive
+  approximations} using $\Delta y/\Delta x$:
+	$$
+	\hspace{-14pt} f'(a) = \lim_{\Delta x \to 0}
+		\frac{\Delta y}{\Delta x}
+		= \lim_{h \to 0}{\frac{f(a+h) - f(a-h)}{2h}} =
+		\lim_{h \to 0}\dfrac{f(a + h) - f(a)}{h}.
+	$$
+
+\item The {\bf microscope equation \boldmath $\Delta y \approx f'(a)
+  \! \cdot \! \Delta x$} describes the relation between $x$ and $y =
+  f(x)$ as seen under a microscope at $(a, f(a))$; {\bf \boldmath
+    $\Delta x$} and {\bf \boldmath $\Delta y$} are the {\bf microscope
+    coordinates}.
+
+\item The microscope equation describes how the output changes in
+  response to small changes in the input.  The response is
+  proportional, and the derivative $f'(a)$ plays the role of {\bf
+    multiplier}, or scaling factor.
+
+\item The microscope equation expresses the {\bf local linearity} of a
+  function in analytic form.  The microscope equation is exact for
+  {\bf linear} functions.
+
+\item The microscope equation describes {\bf error propagation} when
+  one quantity, known only approximately, is used to calculate
+  another.
+
+\item The {\bf derivative function} is the rule that assigns to any
+  $x$ the number $f'(x)$.
+
+\item The derivative of a function gives information about the shape
+  of the graph of the function, and conversely.
+
+\item If a function is given by a formula, its derivative also has a
+  formula.  There are formulas for the derivatives of the {\bf basic
+    functions}, and there are {\bf rules} for the derivatives of
+  combinations of basic functions.
+
+\item The {\bf chain rule} gives the formula for the derivative of a
+  {\bf chain}, or {\bf composite} of functions.
+
+\item Functions that have more than one input variable have {\bf
+  partial derivatives}.  A partial derivative is the rate at which the
+  output changes with respect to one variable when we hold all the
+  others constant.
+
+\item If a multi-input function is given by a formula, its partial
+  derivatives also have formulas that can be found using the same
+  rules that apply to single-input functions.
+
+\item A function $z = F(x, y)$ of two variables also has a {\bf
+  microscope equation}:
+	$$
+	\Delta z \approx F_x(a,b) \cdot \Delta x + F_y(a,b)
+		\cdot \Delta y.
+	$$
+The partial derivatives are the {\bf multipliers} in the microscope equation.  
+\end{itemize}
+
+\subsection{Expectations}
+\begin{itemize}
+
+\item You should be able to approximate $f'(a)$ by zooming in on the
+  graph of $f$ near $a$ and calculating the slope of the graph on an
+  interval on which the graph appears straight.
+
+\item You should be able to approximate $f'(a)$ using a table of
+  values of $f$ near $a$.
+
+\item From the microscope equation $\Delta y \approx f'(a) \cdot
+  \Delta x$, you should be able to estimate any one of $\Delta x$,
+  $\Delta y$ and $f'(a)$ if given the other two.
+
+\item If $y = f(x)$ and there is an error in the measured value of
+  $x$, you should be able to determine the absolute and relative error
+  in $y$.
+
+\item You should be able to sketch the graph of $f'$ if you are given
+  the graph of $f$.
+
+\item You should be able to use the basic differentiation rules to
+  find the derivative of a function given by a formula that involves
+  sums of constant multiples of $x^p$, $\sin{x}$, $\cos{x}$,
+  $\tan{x}$, or $b^x$.
+
+\item You should be able to break down a complicated formula into a
+  chain of simple pieces.
+
+\item You should be able to use the chain rule to find the derivative
+  of a chain of functions.  This could involve several independent
+  steps.
+
+\item For $z=F(x,y)$, you should be able to approximate any one of
+  $\Delta z$, $\Delta x$, $\Delta y$, $F_x(a,b)$ and $F_y(a,b)$, if
+  given the other four.
+
+\item You should be able to find formulas for partial derivatives
+  using the basic rules and the chain rule for finding formulas for
+  derivatives.
+
+\end{itemize}
+
+\cleardoublepage
+
+
+
+
+
+
+
+

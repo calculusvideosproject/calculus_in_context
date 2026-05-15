@@ -1,0 +1,4329 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                       %
+%                        Chapter 6 - Section 1                          %
+%                                                                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{The Integral}
+
+There are many contexts---work, energy, area, volume, distance
+travelled, and profit and loss are just a few---where the quantity in
+which we are interested is a product of known quantities.  For
+example, the electrical energy needed to burn three 100 watt light
+bulbs for $\Delta t$ hours is $300 \cdot \Delta t$ watt-hours.  In
+this example, though, the calculation becomes more complicated if
+lights are turned off and on during the time interval $\Delta t$.  We
+face the same complication in any context in which one of the factors
+in a product varies.  To describe such a product we will introduce the
+{\bf integral}.
+
+As you will see, the integral itself can be viewed as a variable
+quantity.  By analyzing the rate at which that quantity changes, we
+will find that every integral can be expressed as the solution to a
+particular differential equation.  We will thus be able to use all our
+tools for solving differential equations to determine integrals.
+
+\section{Measuring Work}
+\index{work}
+
+\subsection{Human Work}
+
+Let's measure the work done by the staff of an 
+%
+\mar{Processing\\ catalog orders}
+%
+office that processes catalog orders.  Suppose a typical worker in the
+office can process 10 orders an hour.  Then we would expect 6 people
+to process 60 orders an hour; in two hours, they could process 120
+orders.
+\[
+10 \ \dfrac{\mbox{orders per hour}}{\mbox{person}}  
+		\times 
+		6 \ \mbox{persons} \times 2 \ \mbox{hours} =
+		120 \ \mbox{orders}.
+\]
+Notice that a staff of 4 people working 3 hours could process the same 
+number of orders:
+\[
+10 \ \dfrac{\mbox{orders per hour}}{\mbox{person}}  
+		\times 
+		4 \ \mbox{persons} \times 3 \ \mbox{hours} =
+		120 \ \mbox{orders}.
+\]
+It is natural to say that 6 persons working two hours
+do the same amount of work as 4 persons working three hours. This 
+suggests that we 
+%
+\mar{Human work is measured as a product}
+%
+use the product
+	$$
+	\mbox{number of workers} \times \mbox{elapsed time}
+	$$
+to measure {\bf human work}.  In these terms, it takes 12 ``person-hours'' of human work to process 120 orders.  
+
+Another name that has been used in the past for this unit of work is
+the ``man-hour.''  If the task is large, work can even be measured in
+``man-months'' or ``man-years.''  The term we will use most of the
+time is ``staff-hour.''
+
+Measuring the work in terms of person-hours or staff-hours may seem a
+little strange at first -- after all, a typical manager of our catalog
+order office would be most interested in the number of orders
+processed; that is, the {\bf production\/} of the office.  Notice,
+however, that we can re-phrase the rate at which orders are processed
+as 10 orders per staff-hour.
+%
+\mar{Productivity rate}
+%
+This is sometimes called the {\bf productivity rate}.  The productivity rate allows us to translate human work into production:
+\begin{align*}
+\mbox{production} &= \mbox{productivity rate} \times
+		\mbox{human work} \\
+120 \ \mbox{orders} &=
+		10 \ \dfrac{\mbox{orders}}{\mbox{staff-hour}}
+		\times 12 \ \mbox{staff-hours}.
+\end{align*}
+As this equation shows, production varies linearly with work and the
+productivity rate serves as multiplier (see our discussion of the
+multiplier on pages
+\pageref{multiplier-begin}--\pageref{multiplier-end}).
+	
+	If we modify the productivity ratein a suitable way, we can use this equation for other kinds of jobs.  
+	\mar{Mowing lawns}
+For example, we can use it to predict how much mowing a lawn mowing crew will do.  Suppose the productivity rate is .7~acres per staff-hour.  Then we expect that a staff of $S$ working for $H$ hours can mow
+\[
+.7 \ \dfrac{\mbox{acres}}{\mbox{staff-hour}} \times
+	SH \ \mbox{staff-hours} = .7\,SH \ \mbox{acres}
+\]
+of lawn altogether.  
+
+\newpage
+
+Production is measured differently 
+%
+\mar{{\em Staff-hours\/} provides a common measure of work in different jobs}
+%
+in different jobs---as orders processed, or acres mowed, or houses
+painted.  However, in all these jobs human work is measured in the
+{\em same\/} way, as {\em staff-hours}, which gives us a common unit
+that can be translated from one job to another.
+
+	A staff of $S$ working steadily for $H$ hours does $SH$ staff-hours of work.  
+	\mar{Non-constant staffing}
+Suppose, though,  the staffing level $S$ is not constant, as in the graph below.  Can we still find the total amount of work done?
+\label{graph2}
+
+ \begin{picture}(330,150)(-35,-40)
+
+%coordinate frame
+	\put(0,0){\vector(1,0){270}}
+	\put(0,0){\vector(0,1){90}}
+	\multiput(20,0)(20,0){12}{\line(0,1){3}}
+	\multiput(0,15)(0,15){5}{\line(1,0){3}}
+	\put(0,-3){\makebox(0,0)[t]{\small 0}}
+	\put(40,-3){\makebox(0,0)[t]{\small 2}}
+	\put(80,-3){\makebox(0,0)[t]{\small 4}}
+	\put(120,-3){\makebox(0,0)[t]{\small 6}}
+	\put(160,-3){\makebox(0,0)[t]{\small 8}}
+	\put(200,-3){\makebox(0,0)[t]{\small 10}}
+	\put(240,-3){\makebox(0,0)[t]{\small 12}}
+	\put(-3,-2){\makebox[0pt][r]{\small 0}}
+	\put(-3,13){\makebox[0pt][r]{\small 1}}
+	\put(-3,28){\makebox[0pt][r]{\small 2}}
+	\put(-3,43){\makebox[0pt][r]{\small 3}}
+	\put(-3,58){\makebox[0pt][r]{\small 4}}
+	\put(-3,73){\makebox[0pt][r]{\small 5}}
+	\put(270,5){\makebox[0pt]{\small time}}
+	\put(270,-2){\makebox(0,0)[t]{\small hours}}
+	\put(-4,85){\makebox[0pt][r]{\small staff}}
+	\put(5,85){\makebox[0pt][l]{\small $S$}}
+	
+%graph
+	\begin{thicklines}
+		\put(0,30){\line(1,0){30}}
+		\put(30,75){\line(1,0){110}}
+		\put(140,45){\line(1,0){80}}
+	\end{thicklines}
+	\put(15,33){\makebox[0pt]{\small 2}}
+	\put(85,78){\makebox[0pt]{\small 5}}
+	\put(180,48){\makebox[0pt]{\small 3}}
+	\multiput(0,-15)(0,-3){4}{\circle*{1}}
+	\multiput(30,75)(0,-3){34}{\circle*{1}}
+	\multiput(140,75)(0,-3){34}{\circle*{1}}
+	\multiput(220,45)(0,-3){24}{\circle*{1}}
+	\put(15,-21){\makebox[0pt]{\small 1.5}}
+	\put(85,-21){\makebox[0pt]{\small 5.5}}
+	\put(180,-21){\makebox[0pt]{\small 4.0}}
+	\put(15,-31){\makebox[0pt]{\small hours}}
+	\put(85,-31){\makebox[0pt]{\small hours}}
+	\put(180,-31){\makebox[0pt]{\small hours}}
+	\put(-15,-24){\vector(1,0){14}}
+	\put(68,-24){\vector(-1,0){37}}
+	\put(102,-24){\vector(1,0){37}}
+	\put(163,-24){\vector(-1,0){22}}
+	\put(197,-24){\vector(1,0){22}}
+
+\end{picture}
+
+
+\noindent
+The basic formula works only when the staffing level is constant.  But
+staffing {\em is\/} constant over certain time intervals.  Thus, to
+find the total amount of work done, we should simply use the basic
+formula on each of those intervals, 
+%
+\mar{The work done\\ is a {\em sum\/}\\ of products} 
+%
+and then add up the individual contributions.  These calculations are
+done in the following table.  The total work is 42.5 staff-hours.  So
+if the productivity rate is 10 orders per staff-hour, 425 orders can
+be processed.
+\begin{alignat*}{3}
+2& \text{ staff } &\times  1.5& \text{ hours } &=  
+	\hphantom{0}3.0 &\text{ staff-hours} \\
+5&	          &\times  5.5&                &= 27.5 & \\
+3&                &\times  4.0&                &= 12.0 & \\
+ &               &           & \textsc{total } &= 42.5 
+                        &\text{ staff-hours}
+\end{alignat*}
+
+
+\subsubsection{Accumulated work}\index{work!accumulated} 
+
+	The last calculation tells us how much work got done over an entire day.  What can we tell an office manager who wants to know how work is progressing {\em during\/} the day? 
+
+At the beginning of the day, only two people are working, so after the
+first $T$ hours (where $0 \leq T \leq 1.5$)
+\[
+	\mbox{work done up to time $T$} = 
+		2 \ \mbox{staff} \times T \ \mbox{hours} = 
+		2\, T \ \mbox{staff-hours}.
+\]
+Even before we consider what happens after 1.5 hours, this expression
+calls our attention to the fact that {\em accumulated work is a
+  function\/}---let's denote it $W(T)$.  According to the formula, for
+the first 1.5 hours $W(T)$ is a linear function whose multiplier is
+	$$
+	W' = 2 \ \dfrac{\mbox{staff-hours}}{\mbox{hour}}.
+	$$
+This multiplier is the 
+%
+\mar{Work {\em accumulates\/}\\ at a rate equal to\\ the number of staff}
+%
+{\bf rate}\index{rate!of accumulation} at which work is being
+accumulated.  It is also the {\bf slope} of the graph of $W(T)$ over
+the interval $0 \leq T \leq 1.5$.  With this insight, we can determine
+the rest of the graph of $W(T)$.
+
+What must $W(T)$ look like on the next time interval $1.5 \leq T \leq
+7$?  Here 5 members of staff are working, so work is accumulating at
+the rate of 5 staff-hours per hour.  Therefore, on this interval the
+graph of $W$ is a straight line segment whose slope is 5 staff-hours
+per hour.  On the third interval, the graph is another straight line
+segment whose slope is 3 staff-hours per hour.  The complete graph of
+$W(T)$ is shown below.
+
+As the graphs show, the {\em slope\/} of the 
+%
+\mar{$S$ is the derivative \\ of $W$, so \ldots}
+%
+accumulated work function $W(T)$ is the {\em height\/} of the staffing
+function $S(T)$.  \label{staffgraph} In other words, $S$ is the {\em
+  derivative\/} of $W$:
+	$$
+	W'(T) = S(T).
+	$$
+\begin{picture}(340,230)(0,-40)
+
+\put(45,100)
+	{
+	\begin{picture}(330,90)
+
+%coordinate frame
+	\put(0,0){\vector(1,0){270}}
+	\put(0,0){\vector(0,1){90}}
+	\multiput(20,0)(20,0){12}{\line(0,1){3}}
+	\multiput(0,15)(0,15){5}{\line(1,0){3}}
+	\put(-3,-2){\makebox[0pt][r]{\small 0}}
+	\put(-3,13){\makebox[0pt][r]{\small 1}}
+	\put(-3,28){\makebox[0pt][r]{\small 2}}
+	\put(-3,43){\makebox[0pt][r]{\small 3}}
+	\put(-3,58){\makebox[0pt][r]{\small 4}}
+	\put(-3,73){\makebox[0pt][r]{\small 5}}
+	\put(270,5){\makebox[0pt]{\small $T$}}
+	\put(270,-2){\makebox(0,0)[t]{\small hours}}
+	\put(-4,85){\makebox[0pt][r]{\small staff}}
+	\put(5,85){\makebox[0pt][l]{\small $S$}}
+	
+%graph
+	\begin{thicklines}
+		\put(0,30){\line(1,0){30}}
+		\put(30,75){\line(1,0){110}}
+		\put(140,45){\line(1,0){80}}
+	\end{thicklines}
+	\multiput(30,75)(0,-6){33}{\circle*{1}}
+	\multiput(140,75)(0,-6){33}{\circle*{1}}
+	\multiput(220,45)(0,-6){28}{\circle*{1}}
+	\put(15,33){\makebox[0pt]{\small 2}}
+	\put(85,78){\makebox[0pt]{\small 5}}
+	\put(180,48){\makebox[0pt]{\small 3}}
+
+	\end{picture}
+	}
+
+\put(45,-20)
+	{
+	\begin{picture}(330,100)
+
+%coordinate frame
+	\put(0,0){\vector(1,0){270}}
+	\put(0,0){\vector(0,1){100}}
+	\multiput(40,0)(20,0){11}{\line(0,1){3}}
+	\multiput(0,20)(0,20){4}{\line(1,0){3}}
+	\put(0,-3){\makebox(0,0)[t]{\small 0}}
+	\put(40,-3){\makebox(0,0)[t]{\small 2}}
+	\put(80,-3){\makebox(0,0)[t]{\small 4}}
+	\put(120,-3){\makebox(0,0)[t]{\small 6}}
+	\put(160,-3){\makebox(0,0)[t]{\small 8}}
+	\put(200,-3){\makebox(0,0)[t]{\small 10}}
+	\put(240,-3){\makebox(0,0)[t]{\small 12}}
+	\put(-3,-2){\makebox[0pt][r]{\small 0}}
+	\put(-3,18){\makebox[0pt][r]{\small 10}}
+	\put(-3,38){\makebox[0pt][r]{\small 20}}
+	\put(-3,58){\makebox[0pt][r]{\small 30}}
+	\put(-3,78){\makebox[0pt][r]{\small 40}}
+	\put(270,5){\makebox[0pt]{\small $T$}}
+	\put(270,-2){\makebox(0,0)[t]{\small hours}}
+	\put(-4,95){\makebox[0pt][r]{\small staff-hours}}
+	\put(5,95){\makebox[0pt][l]{\small $W$}}
+	
+%graph
+	\begin{thicklines}
+		\put(0,0){\line(5,1){30}}
+		\put(30,6){\line(2,1){110}}
+		\put(140,61){\line(3,1){80}}
+	\end{thicklines}
+	\put(30,6){\circle*{3}}
+	\put(140,61){\circle*{3}}
+	\put(220,87.7){\circle*{3}}
+	\put(58,9){\makebox[0pt][l]{\small $(1.5,3)$}}
+	\put(143,51){\makebox[0pt][l]{\small $(7,30.5)$}}
+	\put(223,80){\makebox[0pt][l]{\small $(11,42.5)$}}
+	\put(55,12){\vector(-4,-1){15}}
+	\put(8,1.6){\line(0,1){3}}
+	\put(8,4.6){\line(1,0){15}}
+	\put(75,28.5){\line(0,1){10}}
+	\put(75,38.5){\line(1,0){20}}
+	\put(170,71){\line(0,1){6.67}}
+	\put(170,77.67){\line(1,0){20}}
+	\put(15,8){\makebox[0pt]{\small 2}}
+	\put(85,41.5){\makebox[0pt]{\small 5}}
+	\put(180,80.67){\makebox[0pt]{\small 3}}
+	
+	\end{picture}
+	}
+
+\end{picture}
+
+\begin{center}
+The accumulated work function $W(T)$
+\end{center}
+
+%\vfill
+
+\noindent
+Notice that the units for $W'$ and for $S$ are %also equivalent: 
+%	$$
+%	\mbox{units for $W'$} = {\mbox{staff-hours} \over 
+%			\mbox{hour}} 
+%		= \mbox{staff} = \mbox{units for $S$}
+%	$$
+compatible:  the units for $W'$ are 
+%$\displaystyle{\mbox{staff-hours} \over  \mbox{hour}}$,
+``staff-hours per hour'',
+which we can think of as ``staff'', the units for $S$.
+
+We can describe the relation between $S$ and $W$ another way.  At the
+moment, we have explained $S$ in terms of $W$.  However, since we
+started with $S$, it is really more appropriate to reverse the roles,
+and explain $W$ in terms of $S$.
+%
+\mar{\ldots $W$ is an antiderivative of $S$}
+%
+Chapter~4.5 gives us the language to do this: $W$ is an {\bf
+  antiderivative} of $S$.  In other words, $y = W(T)$ is a solution to
+the differential equation
+\[
+\dfrac{dy}{dT} = S(T).
+\]
+As we find accumulation functions in other contexts, this relation
+will give us crucial information.
+
+Before leaving this example we note some special features of $S$ and $W$.  
+%
+\mar{The derivative of a piecewise linear function}
+%
+The staffing function $S$ is said to be {\bf piecewise
+  constant},\index{function!piecewise constant} or a {\bf step
+  function}.\index{function!step} The graphs illustrate the general
+fact that the derivative of a piecewise {\em linear\/} function ($W$,
+in this case) is piecewise {\em constant}.
+
+\subsubsection{Summary}
+
+The example of human work illustrates the key ideas we will meet,
+again and again, in different contexts in this chapter. Essentially,
+we have two functions $W(t)$ and $S(t)$ and two different ways of
+expressing the relation between them: On the one hand,
+\begin{center}
+$W(t)$ is an accumulation function for $S(t)$,
+\end{center}
+while on the other hand,
+\begin{center}
+$S(t)$ is the derivative of $W(t)$.
+\end{center}
+Exploring the far-reaching implications of functions connected by such
+a two-fold relationship will occupy the rest of this chapter.
+
+
+
+\newpage
+
+\subsection{Electrical Energy}
+\index{electrical energy}
+
+Just as humans do work, so does electricity.  A power company charges
+customers for the work done by the electricity it supplies, and it
+measures that work in a way that is strictly analogous to the way we
+measure human work.  The work done by electricity is usually referred
+to as {\bf (electrical) energy}.
+
+	For example, suppose we illuminate two light bulbs---one  rated at 100 watts, the other at 60 watts.  It will take the same amount of electrical energy to burn the 100-watt bulb for 3 hours as it will to burn the 60-watt bulb for 5 hours.  Both will use 300 watt-hours of electricity.  
+	\mar{The analogy between electrical energy and human work}
+The power of the light bulb---measured in watts---is analogous to the number of staff working (and, in fact, workers have sometimes been called man{\em power\/}).  The time the bulb burns is analogous to the time the staff work.  Finally, the product
+	$$
+	\mbox{energy} = \mbox{power} \times 
+		\mbox{elapsed time}
+	$$
+for electricity is analogous to the product 
+	$$
+	\mbox{work} = \mbox{number of staff}
+		 \times \mbox{elapsed time}  
+	$$
+for human effort.  
+
+	Electric {\em power\/}\index{electric power} is measured in watts,\index{watts} in kilowatts (= 1{,}000 watts),\index{kilowatts} and in megawatts (= 1{,}000{,}000 watts).\index{megawatts}  Electric {\em energy\/} is measured in watt-hours, in kilowatt-hours (abbreviated `kwh') and in megawatt-hours (abbreviated `mwh').  Since an individual electrical appliance has a power demand of about one kilowatt, kwh are suitable units to use for describing the energy consumption of a house, while mwh are more natural for a whole town.
+
+Suppose the power demand of a town over a 24 hour period is described
+by the following graph:\label{pow1}
+\vspace{124pt}
+
+\special{psfile=../ps/calc1/power1.ps}
+
+\newpage
+
+\noindent 
+Since this graph decribes {\it power}, 
+	\mar{Power is analogous to staffing level}
+its vertical height over any point $t$ on the time axis tells us the total wattage of the light bulbs, dishwashers, computers, etc.\ that are turned on in the town at that instant.  This demand fluctuates between 30 and 90 megawatts, roughly.  The problem is to determine the total amount of {\it energy\/} used in a day---how many megawatt-hours are there in this graph?  Although the equation 
+	$$
+	\mbox{energy} = \mbox{power} \times 
+		\mbox{elapsed time},
+	$$
+gives the basic relation between energy and power, we can't use it directly because the power demand isn't constant.  
+
+The staffing function $S(t)$ we considered earlier wasn't constant,
+either, but we were still able to compute staff-hours because $S(t)$
+was {\em piecewise\/} constant.
+%
+\mar{A piecewise constant approximation}
+%
+This suggests that we should replace the power graph by a piecewise
+constant graph that {\bf approximates}\index{approximation} it.  Here
+is one such approximation:\label{pow2}
+
+\vspace{125pt}
+
+\special{psfile=../ps/calc1/power2.ps}
+
+\vspace{30pt}
+
+\noindent 
+As you can see, the step function has five steps, so our approximation to the total energy consumption of the town will be a sum of five individual products:
+	$$
+	\hbox{energy} \approx 
+		28.5 \times 6 + 47 \times 3.5 + \cdots + 
+		57 \times 3 = 1447 \ \hbox{mwh}.
+	$$
+
+	This value is only an {\em estimate}, though.  How can we get a better estimate?  The answer is clear: start with a step function that approximates the power graph {\em more closely}.  
+	\mar{Better estimates}
+In principle, we can get as good an approximation as we might desire this way.  We are limited only by the precision of the power graph itself.  As our approximation to the power graph improves, so does the accuracy of the calculation that estimates energy consumption.
+
+	In summary, we determine the energy consumption of the town by a sequence of successive approximations.  The steps in the sequence are listed in the box below.
+
+\begin{center}
+\begin{picture}(355,70)
+	\begin{thicklines}
+	\put(0,0){\framebox(355,70){\shortstack[l]
+	{1. {\bf Approximate} the power demand by a step
+		 function. \\
+	2. {\bf Estimate} energy consumption from this 
+		approximation. \\
+	3. {\bf Improve} the energy estimate by choosing 
+		a new step \\
+	\quad \ function that follows power demand more
+		closely.}}}
+	\end{thicklines}
+\end{picture}
+\end{center}
+
+\subsubsection{Accumulated energy consumption}
+
+	Energy is being consumed steadily over the entire day; can we determine how much energy has been used through the first $T$ hours of the day?  
+	\mar{Energy accumulation}
+We'll denote this quantity $E(T)$ and call it the {\bf energy accumulation function}.\index{energy accumulation function}  For example, we already have the estimate $E(24) = 1447$ mwh; can we estimate $E(3)$ or $E(17.6)$?
+
+	Once again, the earlier example of human effort can guide us.  We saw that work accumulates at a rate equal to the number of staff present:
+	$$
+	W'(T) = S(T).
+	$$
+Since $S(T)$ was piecewise constant, this rate equation allowed us to determine $W(T)$ as a piecewise linear function.
+
+	We claim that there is an analogous relation between accumulated energy consumption and power demand---namely
+	$$
+	E'(T) = p(T).
+	$$
+Unlike $S(T)$, the function $p(T)$  is not piecewise constant.  Therefore, the argument we used to show that $W'(T) = S(T)$  will not work here.  We need another argument.
+\medskip
+
+To explain why the differential equation $E'(T) = p(T)$ should be
+true, we will start by analyzing
+%
+\mar{Estimating $E'(T)$}
+%the derivative $E'(T)$.  We have the standard approximation
+\[
+E'(T) \approx \dfrac{\Delta E}{\Delta T} = 
+		\dfrac{E(T + \Delta T) - E(T)}{\Delta T}.
+\]
+Assume we have made $\Delta T$ so small that, to the level of
+precision we require, the approximation $\Delta E/\Delta T$ agrees
+with $E'(T)$.  The numerator $\Delta E$ is, by definition, the total
+energy used up to time $T + \Delta T$, minus the total energy used up
+to time $T$.  This is just the energy used during the time interval
+$\Delta T$ that runs from time $T$ to time $T + \Delta T$:
+	$$
+	\Delta E = \mbox{energy used between times $T$ and 
+			$T + \Delta T$}.
+	$$
+
+	Since the elapsed time $\Delta T$ is small, the power demand should be nearly constant, so we can get a good estimate for energy consumption from the basic equation
+	$$
+	\mbox{energy used} = \mbox{power} \times 
+		\mbox{elapsed time}.
+	$$
+In particular, if we represent the power by $p(T)$, which is the power demand at the beginning of the time period from $T$ to $T + \Delta T$, then we have
+	$$
+	\Delta E \approx p(T) \cdot \Delta T.
+	$$
+Using this value in our approximation for the derivative $E'(T)$, we get 
+	$$
+	E'(T) \approx \dfrac{\Delta E}{\Delta T} \approx
+		\dfrac{p(T) \cdot \Delta T}{\Delta T} = p(T).
+	$$
+That is, $E'(T) \approx p(T)$, and the approximation becomes more and more exact as the time interval $\Delta T$ shrinks to 0.  Thus, 
+	$$
+	E'(T) = \lim_{\Delta T \to 0} \dfrac{\Delta E}{\Delta T}
+		= p(T).
+	$$
+
+Here is another way to arrive at the same conclusion.  
+%
+\mar{A second way\\ to see that $E' = p$}
+%
+Our starting point is the basic formula
+	$$
+	\Delta E \approx p(T) \cdot \Delta T,
+	$$
+which holds over a small time interval $\Delta T$.  This formula tells us how $E$ responds to small changes in $T$.  But that is exactly what the {\bf microscope equation} tells us:
+	$$
+	\Delta E \approx E'(T) \cdot \Delta T.
+	$$
+Since these equations give the same information, their multipliers must be the same:
+	$$
+	p(T) = E'(T).
+	$$
+
+	In words, the differential equation $E' = p$ says that {\em power is the rate at which energy is consumed}.  In purely mathematical terms:
+\begin{center}
+\begin{picture}(300,45)
+	\begin{thicklines}
+	\put(0,0){\framebox(300,45){\shortstack
+	{The energy accumulation function $y = E(t)$ \\
+   	 is a solution to the differential equation 
+		$dy/dt = p(t)$.}}}
+	\end{thicklines}
+\end{picture}
+\end{center}
+In fact, $y = E(t)$ is {\em the\/} solution to the {\bf initial value problem}
+	$$
+	\dfrac{dy}{dt} = p(t) \qquad y(0) = 0.
+	$$
+We can use all the methods described in chapter~4.5 to solve this problem.
+
+The relation we have explored between power and energy can be found in
+an analogous form in many other contexts, as we will see in the next
+two sections.  In section~4 we will turn back to accumulation
+functions and investigate them as solutions to differential equations.
+Then, in chapter 11, we will look at some special methods for solving
+the particular differential equations that arise in accumulation
+problems.
+
+
+\subsection{Exercises}
+
+\subsubsection{Human work}
+
+\vspace{-10pt}
+\num  House-painting is a job that can be done by several people working simultaneously, so we can measure the amount of work done in ``staff-hours.''  Consider a house-painting business run by some students.  Because of class schedules, different numbers of students will be painting at different times of the day.  Let $S(T)$ be the number of staff present at time $T$, measured in hours from 8 am, and suppose that during an 8-hour work day, we have 
+\[
+S(T) = \begin{cases} 
+3, & 0 \le T < 2, \\ 
+2, & 2 \le T < 4.5, \\
+4, & 4.5 \le T \le 8.
+\end{cases}
+\]
+
+\sub  Draw the graph of the step function defined here, and compute the total number of staff hours.  
+
+\sub  Draw the graph that shows how staff-hours {\em accumulate\/} on this job.  This is the graph of the {\bf accumulated work} function $W(T)$.  (Compare the graphs of staff and staff-hours on page~\pageref{staffgraph}.)
+
+\sub  Determine the derivative $W'(T)$.  Is $W'(T) = S(T)$?  
+
+\num  Suppose that there is a house-painting job to be done, and by past experience the students know that four of them could finish it in 6 hours.  But for the first 3.5 hours, only two students can show up, and after that, five will be available.  
+
+\sub  How long will the whole job take?  \hfill [Answer: 6.9 hours.]
+
+\sub  Draw a graph of the staffing function for this problem.  Mark on the graph the time that the job is finished.
+
+\sub  Draw the graph of the accumulated work function $W(T)$.  
+
+\sub  Determine the derivative $W'(T)$.  Is $W'(T) = S(T)$?  
+\bigskip
+
+\noindent
+{\bf Average staffing}.  Suppose a job can be done in three hours when 6 people work the first hour and 9 work during the last two hours.  Then the job takes 24 staff-hours of work, and the {\bf average staffing} is
+\[
+\text{average staffing} = \dfrac{24 \text{ staff-hours}}{3 \text{ hours}} 
+	= 8 \text{ staff}.
+\]
+This means that a {\em constant\/} staffing level of 8 persons can accomplish the job in the same time that the given variable staffing level did.  Note that the average staffing level (8 persons) is {\em not} the average of the two numbers 9 and 6!  
+
+\num  What is the average staffing of the jobs considered in exercises 1 and 2, above?
+
+\numa Draw the graph that shows how work would accumulate in the job described in exercise 1 if the work-force was kept at the {\em average\/} staffing level instead of the varying level described in the exercise.  Compare this graph to the graph you drew in exercise 1 b.  
+
+\sub  What is the derivative $W'(T)$ of the work accumulation function whose graph you drew in part (a)?
+
+\num  What is the average staffing for the job described by the graph on page~\pageref{graph2}?
+
+
+\subsubsection{Electrical energy}
+
+\vspace{-10pt}
+\num  On Monday evening, a 1500 watt space heater is left on from 7 until 11 pm.  How many kilowatt-hours of electricity does it consume?
+
+\numa That same heater also has settings for 500 and 1000 watts.  Suppose that on Tuesday we put it on the 1000 watt setting from 6 to 8 pm, then switch to 1500 watts from 8 till 11 pm, and then on the 500 watt setting through the night until 8 am, Wed\-nesday.  How much energy is consumed (in kwh)?  
+
+\sub  Sketch the graphs of power demand $p(T)$ and accumulated energy consumption $E(T)$ for the space heater from Tuesday evening to Wed\-nesday morning.  Determine whether $E'(T) = p(T)$ in this case.
+
+\sub  The {\bf average power demand} of the space heater is defined by: 
+\[
+\text{average power demand} =
+		\dfrac{\text{energy consumption}}{\text{elapsed time}}.
+\]
+If energy consumption is measured in kilowatt-hours, and time in
+hours, then we can measure average power demand in kilowatts---the
+same as power itself.  (Notice the similarity with average staffing.)
+What is the average power demand from Tuesday evening to Wednesday
+morning?  If the heater could be set at this average power level, how
+would the energy consumption compare to the actual energy consumption
+you determined in part~(a)?
+
+\num  The graphs on pages~\pageref{pow1} and \pageref{pow2} describe the power demand of a town over a 24-hour period.  Give an estimate of the average power demand of the town during that period.  Explain what you did to produce your estimate.  \hfill [Answer: 60.29 megawatts is one estimate.]
+
+\subsubsection{Work as force $\times$ distance}
+
+The effort it takes to move an object is also called work.  Since it
+takes {\em twice\/} as much effort to move the object twice as far, or
+to move another object that is twice as heavy, we can see that the
+work done in moving an object is proportional to both the force
+applied and to the distance moved.  The simplest way to express this
+fact is to define
+\[
+\mbox{work} = \mbox{force} \times \mbox{distance}.
+\]
+For example, to lift a weight of 20 pounds straight up it takes 20
+pounds of force.  If the vertical distance is 3 feet then
+\[
+20 \ \mbox{pounds} \times 3 \ \mbox{feet} =
+		60 \ \mbox{foot-pounds}
+\]
+of work is done.  Thus, once again the quantity we are interested in
+has the form of a product.  The {\em foot-pound\/} is one of the
+standard units for measuring work.
+
+\num Suppose a tractor pulls a loaded wagon over a road whose
+steepness varies.  If the first 150 feet of road are relatively level
+and the tractor has to exert only 200 pounds of force while the next
+400 feet are inclined and the tractor has to exert 550 pounds of
+force, how much work does the tractor do altogether?
+
+\num A motor on a large ship is lifting a 2000 pound anchor that is
+already out of the water at the end of a 30 foot chain.  The chain
+weighs 40 pounds per foot.  As the motor lifts the anchor, the part of
+the chain that is hanging gets shorter and shorter, thereby reducing
+the weight the motor must lift.
+
+\sub What is the combined weight of anchor and hanging chain when the
+anchor has been lifted $x$ feet above its initial position?
+
+\sub Divide the 30-foot distance that the anchor must move into 3
+equal intervals of 10 feet each.  Estimate how much work the motor
+does lifting the anchor and chain over each 10-foot interval by
+multiplying the combined weight at the {\em bottom\/} of the interval
+by the 10-foot height.  What is your estimate for the total work done
+by the motor in raising the anchor and chain 30 feet?
+
+\sub Repeat all the steps of part (b), but this time use 30 equal
+intervals of 1 foot each.  Is your new estimate of the work done
+larger or smaller than your estimate in part (b)?  Which estimate is
+likely to be more accurate?  On what do you base your judgment?
+
+\sub If you ignore the weight of the chain entirely, what is your
+estimate of the work done?  How much {\em extra\/} work do you
+therefore estimate the motor must do to raise the heavy chain along
+with the anchor?
+
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                       %
+%                               Section 2                               %
+%                                                                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{Riemann Sums}
+
+      In the last section we estimated energy consumption in a town by replacing the power function $p(t)$ by a step function.  Let's pause to describe that process in somewhat more general terms that we can adapt to other contexts.  The power graph, the approximating step function, and the energy estimate are shown below. 
+\vspace{122pt}
+
+\special{psfile=../ps/calc1/power3.ps}
+
+\vspace{28pt}
+
+	$$
+	\hbox{energy} \approx 
+		28.5 \times 6 + 47 \times 3.5 + \cdots + 
+		57 \times 3 = 1447 \ \hbox{mwh}.
+	$$
+
+	The height of the first step is 28.5 megawatts.  This is the {\em actual\/} power level at the time $t_1$ indicated on the graph.  That is, $p(t_1) = 28.5$ megawatts.  We found a power level of 28.5 megawatts by 
+	\mar{Sampling the\\ power function}
+{\bf sampling}\index{sampling time} the power function at the time $t_1$.  The height of the first step could have been different if we had sampled the power function at a different time.  In general, if we sample the power function $p(t)$ at the time $t_1$ in the interval $\Delta t_1$, then we would estimate the energy used during that time to be
+	$$
+	\mbox{energy} \approx p(t_1) \cdot \Delta t_1 \ 
+		\mbox{mwh}.
+	$$
+
+	Notice that $t_1$ is not in the middle, or at either end, of the first interval.  It is simply a time when the power demand is representative of what's happening over the entire interval.  Furthermore, $t_1$ is not even unique; there is another sampling time (near $t = 5$ hours) when the power level is again 28.5 megawatts.  
+
+	We can describe what happens in the other time intervals the same way.  If we sample the $k$-th interval at the point $t_k$, then the height of the $k$-th power step will be $p(t_k)$ and our estimate for the energy used during that time will be
+	$$
+	\mbox{energy} \approx p(t_k) \cdot \Delta t_k \ 
+		\mbox{mwh}.
+	$$
+
+We now have a general way 
+%
+\mar{A procedure for approximating power level and energy use}
+%
+to construct an approximation for the power function and an estimate
+for the energy consumed over a 24-hour period.  It involves these
+steps.
+\begin{enumerate}
+\item Choose any number $n$ of subintervals, and let them have
+  arbitrary positive widths $\Delta t_1$, $\Delta t_2$, \ldots ,
+  $\Delta t_n$, subject only to the condition
+	$$
+	\Delta t_1 + \cdots + \Delta t_n = \mbox{24 hours}.
+	$$
+\item	Sample the $k$-th subinterval at any point $t_k$, and let $p(t_k)$ represent the power level over this subinterval.
+\item	Estimate the energy used over the 24 hours by the sum
+	$$
+	\hbox{energy} \approx  p(t_1) \cdot \Delta t_1 
+		+ p(t_2) \cdot \Delta t_2 + \cdots 
+      	+ p(t_n) \cdot \Delta t_n\ \hbox{mwh}.
+	$$
+\end{enumerate}
+The expression on the right is called a {\bf Riemann sum}\index{Riemann sum} for the power function $p(t)$ on the interval $0 \leq t \leq 24$ hours.  
+
+\aside{The work of Bernhard Riemann\index{Riemann, B.} (1826--1866) has had a profound influence on contemporary mathematicians and physicists.  His revolutionary ideas about the geometry of space, for example, are the basis for Einstein's theory of general relativity.}
+
+The enormous range of choices in this process means there are
+innumerable ways to construct a Riemann sum for $p(t)$.  However, we
+are not really interested in {\em arbitrary\/} Riemanns sums.
+%
+\mar{Choices that lead\\ to good estimates}
+%
+On the contrary, we want to build Riemann sums that will give us good
+estimates for energy consumption.  Therefore, we will choose each
+subinterval $\Delta t_k$ so small that the power demand over that
+subinterval differs only very little from the sampled value $p(t_k)$.
+A Riemann sum constructed with {\em these\/} choices will then differ
+only very little from the total energy used during the 24-hour time
+interval.
+
+	Essentially, we use a Riemann sum to resolve a dilemma.  We know the basic formula
+	$$
+	\mbox{energy} = \mbox{power} \times \mbox{time}  
+	$$
+works when power is constant, but in general power {\em isn't\/} constant---that's the dilemma.  
+	\mar{The dilemma}
+We resolve the dilemma by using instead a {\em sum\/} of terms of the form $\mbox{\em power\/} \times \mbox{\em time\/}$.  With this sum we get an estimate for the energy.
+
+	In this section we will explore some other problems that present the same dilemma.  In each case we will start with a basic formula that involves a product of two constant factors, and we will need to adapt the formula to the situation where one of the factors varies.  The solution will be to construct a Riemann sum of such products, producing an estimate for the quantity we were after in the first place.  As we work through each of these problems, you should pause to compare it to the problem of energy consumption.
+
+
+\subsection{Calculating Distance Travelled}
+
+	It is easy to tell how far a car has travelled by reading its odometer.  The problem is more complicated for a ship, particularly a sailing ship in the days before electronic navigation was common.  
+	\mar{Estimating velocity\\ and distance}
+The crew always had instruments that could measure---or at least estimate---the velocity of the ship at any time.  Then, during any time interval in which the ship's velocity is constant, the distance travelled is given by the familiar formula
+	$$
+	\mbox{distance} = \mbox{velocity} \times 
+		\mbox{elapsed time}.
+	$$
+
+	If the velocity is {\em not\/} constant, then this formula does not work.  The remedy is to break up the long time period into several short ones.  Suppose their lengths are $\Delta t_1$, $\Delta t_2$, \ldots, $\Delta t_n$.  By assumption, the velocity is a function of time $t$; let's denote it $v(t)$.  
+	\mar{Sampling the\\ velocity function}
+At some time $t_k$ during each time period $\Delta t_k$ measure the velocity: $v_k = v(t_k)$.  Then the Riemann sum
+	$$
+	v(t_1) \cdot \Delta t_1 + v(t_2) \cdot \Delta t_2 + 
+		 \cdots + v(t_n) \cdot \Delta t_n
+	$$
+is an estimate for the total distance travelled.\index{distance as a Riemann sum}
+
+	For example, suppose the velocity is measured five times during a 15 hour trip---once every three hours---as shown in the table below.  Then the basic formula 	$$
+	\mbox{distance} = \mbox{velocity} \times 
+		\mbox{elapsed time}.
+	$$
+gives us an estimate for the distance travelled during each three-hour period, and the sum of these distances is an estimate of the total distance travelled during the fifteen hours.  These calculations appear in the right-hand column of the table.  (Note that the first measurement is used to calculate the distance travelled between hours 0 and 3, while the last measurement, taken 12 hours after the start, is used to calculate the distance travelled between hours 12 and 15.)\label{ship}  
+\begin{center}
+	\begin{tabular}{cccc}
+	sampling & elapsed & & \\ [-6pt]
+	time	& time & \raisebox{5pt}{velocity} &
+		 \raisebox{5pt}{distance travelled} \\
+	(hours) & (hours) & (miles/hour) & (miles)	\\ [2pt]
+		\hline
+\begin{tabular}{r}
+	\rule{0pt}{14pt} 0 	\\
+	3	\\
+	6	\\
+	9	\\
+	12	\\
+	\mbox{}
+	\end{tabular}
+	&
+		\begin{tabular}{r}
+	\rule{0pt}{14pt} 3 	\\
+	3	\\
+	3	\\
+	3	\\
+	3	\\
+	\mbox{}
+	\end{tabular}
+	&
+\begin{tabular}{l}
+	1.4 \rule{0pt}{14pt}  \\
+	5.25	\\
+	4.3  \\
+	4.6	\\
+	5.0	\\
+	\mbox{}
+	\end{tabular}
+	&
+	\begin{tabular}{lcr}
+	 3 $\times$ 1.4 \rule{0pt}{14pt} &=& 4.20\\
+	 3 $\times$ 5.25 &=& 15.75	\\
+	 3 $\times$ 4.3 &=& 12.90 	\\
+	 3 $\times$ 4.6 &=& 13.80	\\
+	 3 $\times$ 5.0 &=& 15.00	\\ \cline{3-3}
+		&	&	\rule{0pt}{14pt} 61.65 
+	\end{tabular}
+	\end{tabular}
+\end{center}
+Thus we estimate the ship has 
+	\mar{The estimated distance is a Riemann sum for the velocity function}
+travelled 61.65 miles during the fifteen hours.  The number 61.65, obtained by adding the numbers in the right-most column, is a Riemann sum for the velocity function.  
+
+Consider the specific choices that we made to construct this Riemann sum:
+\begin{gather*}
+\Delta t_1 = \Delta t_2 = \Delta t_3 = \Delta t_4 =
+		\Delta t_5 = 3  \\[3pt]
+t_1 = 0, \quad t_2 = 3, \quad t_3 = 6, \quad t_4 = 9,
+		\quad t_5 = 12.
+\end{gather*}
+These choices differ from the choices we made in the energy example in
+two notable ways.  First, all the subintervals here are the same size.
+%
+\mar{Intervals and sampling times are chosen in\\ a systematic way}
+%
+This is because it is natural to take velocity readings at regular
+time intervals.  By contrast, in the energy example the subintervals
+were of different widths.  Those widths were chosen in order to make a
+piecewise constont function that followed the power demand graph
+closely.  Second, all the sampling times lie at the beginning of the
+subintervals in which they appear.  Again, this is natural and
+convenient for velocity measurements.  In the energy example, the
+sampling times were chosen with an eye to the power graph.  Even
+though we can make arbitrary choices in constructing a Riemann sum, we
+will do it systematically whenever possible.  This means choosing
+subintervals of equal size and sampling points at the ``same'' place
+within each interval.
+
+Let's turn back to our estimate for the total distance.  Since the
+velocity of the ship could have fluctuated significantly during each
+of the three-hour periods we used, our estimate is rather rough.
+%
+\mar{Improving the\\ distance estimate} 
+%
+To improve the estimate we could measure the velocity more
+frequently---for example, every 15 minutes.  If we did, the Riemann
+sum would have 60 terms (four distances per hour for 15 hours).  The
+individual terms in the sum would all be much smaller, though, because
+they would be estimates for the distance travelled in 15 minutes
+instead of in 3 hours.  For instance, the first of the 60 terms would
+be
+\[
+1.4 \ \dfrac{\text{miles}}{\text{hour}} \times 
+		.25 \text{ hours} = .35 \text{ miles}.
+\]
+Of course it may not make practical sense to do such a precise calculation.  Other factors, such as water currents or the inaccuracy of the velocity measurements themselves, may keep us from getting a good estimate for the distance.  Essentially, the Riemann sum is only a {\em model\/} for the distance covered by a ship. 
+
+
+\subsection{Calculating Areas}
+
+\smallskip
+\noindent
+\begin{minipage}[b]{1in}
+\special{psfile=../ps/calc1/region1.ps}
+\end{minipage}
+\hfill
+\begin{minipage}[b]{3.5in}
+	The area of a rectangle is just the product of its length and its width.  How can we measure the area of a region that has an irregular boundary, like the one at the left?  We would like to use the basic formula
+	$$
+	\mbox{area} = \mbox{length} \times \mbox{width}.
+	$$
+However, since the region doesn't have straight sides, there is nothing we can call a ``length'' or a ``width'' to work with.  
+
+\quad \  We can begin to deal with this problem by breaking up the region into smaller regions that {\em do\/} have straight sides---with, at most, only one curved side.  This can be done many different ways.  The lower figure shows one possibility.  The sum of the areas of all the little regions will be the area we are looking for.  Although we haven't yet solved the original problem, we have at least {\bf reduced} it to another problem that looks simpler and may be easier to solve.  Let's now work on the reduced problem for the shaded region.  
+\end{minipage}
+
+\newpage
+
+% beginning page 353
+
+\noindent
+\begin{minipage}[b]{3.5in}
+\quad \ Here is the shaded region, turned so that it sits flat on one
+of its straight sides.  We would like to calculate its area using the
+formula
+\begin{center}
+	width $\times$ height,
+\end{center}
+but this formula applies only to rectangles.  We can, however,
+approximate the region by a collection of rectangles, as shown at the
+right.  The formula {\em does\/} apply to the individual rectangles
+and the sum of their areas will approximate the area of the whole
+region.
+\end{minipage}
+\begin{minipage}[b]{1in}
+
+\special{psfile=../ps/calc1/region2a.ps}
+
+\end{minipage}
+
+\smallskip
+\noindent
+\begin{minipage}[b]{3.5in}
+\quad \ To get the area of a rectangle, we must measure its width and
+height.  Their heights vary with the height of the curved top of the
+shaded region.  To describe that height in a systematic way, we have
+placed the shaded region in a coordinate plane so that it sits on the
+$x$-axis.  The other two straight sides lie on the vertical lines $x =
+a$ and $x = b$.  \linebreak
+\end{minipage}
+\begin{minipage}[b]{1in}
+
+\special{psfile=../ps/calc1/region2.ps}
+
+\end{minipage}
+
+\vspace{-14pt}
+\noindent
+The curved side defines the graph of a function $y = f(x)$.
+Therefore, at each point $x$, the vertical height from the axis to the
+curve is $f(x)$.  By introducing a coordinate plane we gain access to
+mathematical tools---such as the language of functions---to describe
+the various areas.
+
+The $k$-th rectangle has been singled out on the left, below.  
+%
+\mar{Calculating the areas of the rectangles}
+%
+We let $\Delta x_k$ denote the width of its base.  By {\bf sampling}
+the function $f$ at a properly chosen point $x_k$ in the base, we get
+the height $f(x_k)$ of the rectangle.  Its area is therefore $f(x_k)
+\cdot \Delta x_k$.  If we do the same thing for all $n$ rectangles
+shown on the right, we can write their total area as
+	$$
+	f(x_1) \cdot \Delta x_1 + f(x_2) \cdot \Delta x_2 + 
+		\cdots + f(x_n) \cdot \Delta x_n.
+	$$
+
+\special{psfile=../ps/calc1/region3.ps}
+
+
+\newpage
+
+Notice that our estimate for the area has the form of a 
+%
+\mar{The area estimate is\\ a Riemann sum}
+%
+Riemann sum for the height function $f(x)$ over the interval $a \leq x
+\leq b$.  To get a better estimate, we should use narrower rectangles,
+and more of them.  In other words, we should construct another Riemann
+sum in which the number of terms, $n$, is larger and the width $\Delta
+x_k$ of every subinterval is smaller.  Putting it yet another way, we
+should {\em sample\/} the height more often.
+
+Consider what happens if we apply this procedure to a region whose
+area we know already.  The semicircle of radius $r = 1$ has an area of
+$\pi r^2/2 = \pi/2 = 1.5707963\ldots$ .
+\label{semicir}
+The semicircle is the graph of the function 
+	$$
+	f(x) = \sqrt{1 - x^2},
+	$$
+which lies over the interval $-1 \leq x \leq 1$.  To get the figure on
+the left, we sampled the height $f(x)$ at 20 evenly spaced points,
+starting with $x = -1$.  In the better approximation on the right, we
+increased the number of sample points to 50.  The values of the shaded
+areas were calculated with the program RIEMANN, which we will develop
+later in this section.  Note that with 50 rectangles the Riemann sum
+is within .005 of $\pi/2$, the exact value of the area.
+\vspace{106pt}
+
+\special{psfile=../ps/calc1/semicir1.ps}
+\vspace{38pt}
+
+
+\subsection{Calculating Lengths}
+
+It is to be expected that products---and ultimately, Riemann
+sums---will be involved in calculating areas.  It is more surprising
+to find that we can use them to calculate {\em lengths}, too.  In
+fact, when we are working in a coordinate plane, using a product to
+describe the length of a straight line is even quite natural.
+
+\newpage
+
+To see how this can happen, 
+%
+\mar{The length of\\ a straight line}
+%
+consider a line segment in the $x, y$-plane that has a known slope
+$m$.  If we also know the horizontal separation between
+\linebreak
+
+\vspace{-10pt}
+\noindent
+\begin{minipage}[b]{3.6in}
+the two ends, we can find the length of the segment.  Suppose the
+horizontal separation is $\Delta x$ and the vertical separation
+$\Delta y$.  Then the length of the segment is
+	$$
+	\sqrt{\Delta x^2 + \Delta y^2}
+	$$
+\end{minipage}
+\begin{minipage}{1in}
+%length1.tex
+\begin{picture}(140,0)(-36,-16)			% x was 55
+	\begin{thicklines}
+		\put(0,0){\line(3,1){120}}
+	\end{thicklines}
+	\put(51,17){\line(0,1){6}}
+	\put(51,23){\line(1,0){18}}
+	\put(58,25){\makebox(0,0)[b]{\small $m$}}
+	\put(60,0){\makebox(0,0)[t]{\small $\Delta x$}}
+	\put(50,-5){\vector(-1,0){49}}
+	\put(70,-5){\vector(1,0){49}}
+	\multiput(0,-7)(0,2){26}{\circle*{1}}
+	\multiput(120,-7)(0,2){26}{\circle*{1}}
+\end{picture}
+\end{minipage}
+
+\smallskip
+\noindent
+by the Pythagorean theorem (see page~\pageref{Pythagorean theorem}).  
+Since $\Delta y = m \cdot \Delta x$, we can rewrite this as
+	$$
+	\sqrt{\Delta x^2 + ( m \cdot \Delta x)^2} = 
+		\Delta x \cdot 
+		\sqrt{\vphantom{\Delta}1  + m^2}.
+	$$
+In other words, if a line has slope $m$ and it is $\Delta x$ units wide, then its length is the product
+	$$
+		\sqrt{1 + m^2} \cdot \Delta x.
+	$$
+
+Suppose the line is {\em curved}, instead of straight.  
+%
+\mar{The length of\\ a curved line}
+%
+Can we describe its length the same way?  We'll assume that the curve
+is the graph $y = g(x)$.  The complication is that the slope $m =
+g'(x)$ now varies with $x$.
+
+\noindent
+\begin{minipage}[b]{3.6in}
+If $g'(x)$ doesn't vary too much over an interval of length $\Delta
+x$, then the curve is nearly straight.  Pick a point $x_*$ in that
+interval and sample the slope $g'(x_*)$ there; we expect the length of
+the curve to be approximately
+	$$
+	\sqrt{1 + (g'(x_*))^2} \cdot \Delta x.
+	$$
+\end{minipage}
+\begin{minipage}{1in}
+%length1.tex; there is no length2.tex
+\begin{picture}(140,0)(-36,-15)
+	\begin{thicklines}
+		\bezier{120}(0,5)(39,33)(81,47)
+		\bezier{50}(81,47)(93,51)(120,57)
+	\end{thicklines}
+		\put(0,20){\line(3,1){120}}
+	\put(30,30){\line(0,1){6}}
+	\put(30,36){\line(1,0){18}}
+	\put(38,40){\makebox(0,0)[b]{\small $g'(x_*)$}}
+	\put(83,43){\makebox(0,0)[t]{\small $x_*$}}
+	\put(81,47){\circle*{3}}
+	\put(60,5){\makebox(0,0)[t]{\small $\Delta x$}}
+	\put(50,0){\vector(-1,0){49}}
+	\put(70,0){\vector(1,0){49}}
+	\multiput(0,-2)(0,2){36}{\circle*{1}}
+	\multiput(120,-2)(0,2){36}{\circle*{1}}
+\end{picture}
+\end{minipage}
+
+
+\smallskip
+\noindent
+As the figure shows, this is the exact length of the straight line segment that lies over the same interval $\Delta x$ and is tangent to the curve at the point $x = x_*$.
+
+	If the slope $g'(x)$ varies appreciably over the interval, we should subdivide the interval into small pieces $\Delta x_1$, $\Delta x_2$, \ldots, $\Delta x_n$, over which the curve is nearly straight.  Then, if we sample the slope at the point $x_k$ in the $k$-th subinterval, the sum
+	$$
+	\sqrt{1 + (g'(x_1))^2} \cdot \Delta x_1 + \cdots +
+		\sqrt{1 + (g'(x_n))^2} \cdot \Delta x_n
+	$$
+will give us an estimate for the total length of the curve.  
+
+\newpage
+
+Once again, we find an expression that has the form of 
+%
+\mar{The length of a curve is estimated by\\ a Riemann sum}
+%
+a Riemann sum.  There is, however, a new ingredient worth noting.  The
+estimate is a Riemann sum not for the {\em original\/} function $g(x)$
+but for {\em another\/} function
+	$$
+	f(x) = \sqrt{1 + (g'(x))^2}
+	$$
+that we constructed using $g$.  The important thing is that the length
+is estimated by a Riemann sum for {\em some\/} function.
+
+\vspace{84pt}
+
+\special{psfile=../ps/calc1/length3.ps}
+
+\vspace{40pt}
+\label{length}
+
+The figure above shows two estimates for the length of the graph of $y
+= \sin{x}$ between 0 and $\pi$.  In each case, we used subintervals of
+equal length and we sampled the slope at the left end of each
+subinterval.  As you can see, the four segments approximate the graph
+of $y = \sin{x}$ only very roughly.  When we increase the number of
+segments to 20, on the right, the approximation to the shape of the
+graph becomes quite good.  Notice that the graph itself is not shown
+on the right; only the 20 segments.
+
+To calculate the two lengths, we constructed Riemann sums for the
+function $f(x) = \sqrt{1 + \cos^2{x}}$.  We used the fact that the
+derivative of $g(x) = \sin{x}$ is $g'(x) = \cos{x}$, and we did the
+calculations using the program RIEMANN.  By using the program with
+still smaller subintervals you can show that
+	$$
+	\mbox{the exact length} = 3.820197789\ldots .  	
+	$$
+Thus, the 20-segment estimate is already accurate to four decimal places.
+
+\aside{We have already constructed estimates for the length of a
+  curve, in chapter 2 (pages
+  \pageref{length-begin}--\pageref{length-end}).  Those estimates were
+  sums, too, but they were not {\em Riemann\/} sums.  The terms had
+  the form $\sqrt{\Delta x^2 + \Delta y^2}$; they were not {\em
+    products\/} of the form $\sqrt{1 + m^2} \cdot \Delta x$.  The sums
+  in chapter 2 may seem more straightforward.  However, we are
+  developing Riemann sums as a powerful general tool for dealing with
+  many different questions.  By expressing lengths as Riemann sums we
+  gain access to that power.}
+
+
+\subsection{Definition}
+
+The Riemann sums that appear in the calculation of power, distance,
+and length are instances of a general mathematical object that can be
+constructed for {\em any\/} function whatsoever.  We pause now to
+describe that construction apart from any particular context.  In what
+follows it will be convenient for us to \mar{Notation: ${[}a, b{]}$}
+write an interval of the form $a \leq x \leq b$ more compactly as $[a,
+  b]$.
+
+\begin{center}
+\begin{thicklines}
+\begin{picture}(360,140)
+\put(0,0){\framebox (360,140){
+\begin{minipage}{330pt}
+{\bf Definition.}  Suppose the function $f(x)$ is defined for $x$ in
+the interval $[a,b]$.  Then a {\bf Riemann sum}\index{Riemann sum} for
+$f(x)$ on $[a,b]$ is an expression of the form
+\[
+f(x_1) \cdot \Delta x_1 + f(x_2) \cdot \Delta x_2 + \cdots +
+		f(x_n)\cdot \Delta x_n.
+\]
+The interval $[a,b]$ has been divided into $n$ subintervals whose
+lengths are $\Delta x_1$, \dots, $\Delta x_n$, respectively, and for
+each $k$ from 1 to~$n$, $x_k$ is some point in the $k$-th subinterval.
+\end{minipage}
+}}
+\end{picture}
+\end{thicklines}
+\end{center}
+
+
+Notice that once the function 
+%
+\mar{Data for a\\ Riemann sum}
+%
+and the interval have been specified, a Riemann sum is determined by
+the following data:
+\begin{itemize}
+
+\item A {\bf decomposition} of the original interval into subintervals
+  (which determines the lengths of the subintervals).
+
+\item A {\bf sampling point} \index{sampling point} chosen from each
+  subinterval (which determines a value of the function on each
+  subinterval).
+
+\end{itemize}
+
+
+A Riemann sum for $f(x)$ is a sum of products of values of $\Delta x$
+and values of $y = f(x)$.
+%
+\mar{Units}
+%
+If $x$ and $y$ have units, then so does the Riemann sum; its units are
+the units for $x$ times the units for $y$.  When a Riemann sum arises
+in a particular context, the notation may look different from what
+appears in the definition just given: the variable might not be $x$,
+and the function might not be $f(x)$.  For example, the energy
+approximation we considered at the beginning of the section is a
+Riemann sum for the power demand function $p(t)$ on $[0, 24]$.  The
+length approximation for the graph $y = \sin{x}$ is a Riemann sum for
+the function $\sqrt{1 + \cos^2{x}} $ on $[0, \pi]$.
+
+It is important to note that, 
+%
+\mar{A Riemann sum\\ is just a number}
+%
+from a mathematical point of view, a Riemann sum is just a number.
+It's the {\it context\/} that provides the meaning: Riemann sums for a
+power demand that varies over time approximate total energy
+consumption; Riemann sums for a velocity that varies over time
+approximate total distance; and Riemann sums for a height that varies
+over distance approximate total area.
+
+To illustrate the generality of a Riemann sum, and to stress that it
+is just a number arrived at through arbitrary choices, let's work
+through an example without a context.  Consider the function
+	$$
+	f(x) = \sqrt{1+x^3} \quad \mbox{on} \quad  [1,3].
+	$$
+We will break up the full interval $[1, 3]$ 
+	\mar{The data}
+into three subintervals $[1, 1.6]$, $[1.6, 2.3]$ and $[2.3, 3]$.  Thus 
+	$$
+	\Delta x_1 = .6 \qquad \Delta x_2 = \Delta x_3 = .7.
+	$$  
+Next we'll pick a point in each subinterval, say $x_1 = 1.3$, $x_2 = 2$ and $x_3 = 2.8$.  Here is the data laid out on the $x$-axis.
+\begin{center}
+\begin{picture}(360,54)(-63,-27)
+\put (-36,0){\vector(1,0){288}}
+\put(18,7){\vector(1,0){45.8}}
+\put(18,7){\vector(-1,0){17}}
+\put(108,7){\vector(1,0){31.4}}
+\put(108,7){\vector(-1,0){42.2}}
+\put(198,7){\vector(1,0){17}}
+\put(198,7){\vector(-1,0){56.6}}
+\put(32.4,13){\makebox(0,0)[b]
+	{\footnotesize $\Delta x_1 = .6$}}
+\put(102.6,13){\makebox(0,0)[b]
+	{\footnotesize $\Delta x_2 = .7$}}
+\put(178.2,13){\makebox(0,0)[b]
+	{\footnotesize $\Delta x_2 = .7$}}
+\put(0,5){\line(0,-1){10}}
+\put(64.8,5){\line(0,-1){10}}
+\put(140.4,5){\line(0,-1){10}}
+\put(216,5){\line(0,-1){10}}
+\put(0,-17){\makebox(0,0)[b]{\footnotesize 1}}
+\put(64.8,-17){\makebox(0,0)[b]{\footnotesize 1.6}}
+\put(140.4,-17){\makebox(0,0)[b]{\footnotesize 2.3}}
+\put(216,-17){\makebox(0,0)[b]{\footnotesize 3}}
+\put(32.4,0){\circle*{3}}
+\put(108,0){\circle*{3}}
+\put(194.4,0){\circle*{3}}
+\put(32.4,-13){\makebox(0,0)[b]{\footnotesize 1.3}}
+\put(108,-13){\makebox(0,0)[b]{\footnotesize 2}}
+\put(194.4,-13){\makebox(0,0)[b]{\footnotesize 2.8}}
+\put(244,-10){\mbox{\footnotesize $x$}}
+\end{picture}
+\end{center}
+With this data we get the following Riemann sum for $\sqrt{1+x^3}$ on $[1,3]$:
+\begin{align*}
+\lefteqn{f(x_1) \cdot \Delta x_1 + f(x_2) \cdot \Delta x_2 +
+	 f(x_3) \cdot \Delta x_3} \qquad\\
+    &= \sqrt{1+1.3^3} \times .6 + \sqrt{1+2^3} \times .7 + 
+          \sqrt{1+2.8^3} \times .7 \\
+    &= 6.5263866
+\end{align*}
+In this case, the choice of the subintervals, as well as the choice of
+the point $x_k$ in each subinterval, was haphazard.  Different data
+would produce a different value for the Riemann sum.
+
+Keep in mind that an individual Riemann sum is not especially
+significant.  Ultimately, we are interested in seeing what happens
+when we recalculate Riemann sums with smaller and smaller
+subintervals.  For that reason, it is helpful to do the calculations
+systematically.
+
+\medskip
+
+\noindent
+{\bf Calculating a Riemann sum algorithmically}.  
+%
+\mar{Systematic data}
+%
+As we have seen with our contextual problems, the data for a Riemann
+sum is not usually chosen in a haphazard fashion.  In fact, when
+dealing with functions given by formulas, such as the function $f(x) =
+\sqrt{1 - x^2}$ whose graph is a semicircle, it pays to be systematic.
+We use subintervals of equal size and pick the ``same'' point from
+each subinterval (e.g., always pick the midpoint or always pick the
+left endpoint).  The benefit of systematic choices is that we can
+write down the computations involved in a Riemann sum in a simple
+algorithmic form that can be carried out on a computer.
+
+Let's illustrate how this strategy applies to the function
+$\sqrt{1+x^3}$ on $[1, 3]$.  Since the whole interval is $3 - 1 = 2$
+units long, if we construct $n$ subintervals of equal length $\Delta
+x$, then $\Delta x = 2/n$.  For every $k = 1, \ldots, n$, we choose
+the sampling point $x_k$ to be the left endpoint of the $k$-th
+subinterval.  Here is a picture of the data:
+\begin{center}
+\begin{picture}(360,60)(-63,-39)
+\put (-36,0){\line(1,0){150}}
+\put(127,0){\makebox(0,0)[b]{\ldots}}
+\put (138,0){\vector(1,0){120}}
+\multiput(0,5)(36,0){7}{\line(0,-1){10}}
+\multiput(0,0)(36,0){4}{\circle*{3}}
+\multiput(144,0)(36,0){2}{\circle*{3}}
+\put(18,7){\vector(1,0){17}}
+\put(18,7){\vector(-1,0){17}}
+\put(54,7){\vector(1,0){17}}
+\put(54,7){\vector(-1,0){17}}
+\put(90,7){\vector(1,0){17}}
+\put(90,7){\vector(-1,0){17}}
+\put(198,7){\vector(1,0){17}}
+\put(198,7){\vector(-1,0){17}}
+\put(18,11){\makebox(0,0)[b]{\footnotesize $\Delta x$}}
+\put(54,11){\makebox(0,0)[b]{\footnotesize $\Delta x$}}
+\put(90,11){\makebox(0,0)[b]{\footnotesize $\Delta x$}}
+\put(198,11){\makebox(0,0)[b]{\footnotesize $\Delta x$}}
+\put(216,-13){\makebox(0,0)[b]{\footnotesize 3}}
+\put(0,-13){\makebox(0,0)[b]{\footnotesize $x_1$}}
+\put(36,-13){\makebox(0,0)[b]{\footnotesize $x_2$}}
+\put(72,-13){\makebox(0,0)[b]{\footnotesize $x_3$}}
+\put(180,-13){\makebox(0,0)[b]{\footnotesize $x_n$}}
+\put(0,-30){\vector(0,1){12}}
+\put(36,-30){\vector(0,1){12}}
+\put(72,-30){\vector(0,1){12}}
+\put(180,-30){\vector(0,1){12}}
+\put(0,-32){\makebox(0,0)[t]{\footnotesize $1$}}
+\put(32,-32){\makebox(0,0)[t]
+	{\footnotesize $1 + \Delta x$}}
+\put(72,-32){\makebox(0,0)[t]
+	{\footnotesize $1 + 2\Delta x$}}
+\put(180,-32){\makebox(0,0)[t]
+	{\footnotesize $1 + (n-1)\Delta x$}}
+\put(250,-10){\makebox(0,0)[b]{\footnotesize $x$}}
+\end{picture}
+\end{center}
+In this systematic approach, the space between one sampling point and
+the next is $\Delta x$, the same as the width of a subinterval.  This
+puts the $k$-th sampling point at $x = 1 + (k-1)\Delta x$.
+
+In the following table, we add up the terms in a Riemann sum $S$ for
+$f(x) = \sqrt{1 + x^3}$ on the interval $[1, 3]$.  We used $n = 4$
+subintervals and always sampled $f$ at the left endpoint.  Each row
+shows the following:
+\begin{enumerate}
+
+\item	the current sampling point;
+
+\item	the value of $f$ at that point;
+
+\item	the current term $\Delta S = f \cdot \Delta x$ in the sum;
+
+\item	the accumulated value of $S$.
+
+\end{enumerate}
+\begin{center}
+	\begin{tabular}{cccc}
+	left & current & current & accumulated \\ [-2pt]
+	endpoint &$\sqrt{1 + x^3}$ & $\Delta S$ & $S$ \\
+	[2pt] \hline 
+	\\[-9pt]
+	\begin{tabular}{l} 
+		1 \\ 1.5 \\ 2 \\ 2.5 
+	\end{tabular}
+	&
+	\begin{tabular}{l}
+		1.4142 \\ 2.0917 \\ 3 \\ 4.0774 
+	\end{tabular}
+	&
+	\begin{tabular}{l}
+		\hphantom{0}.7071 \\ 1.0458 \\ 1.5 \\ 2.0387 
+	\end{tabular}
+	&
+	\begin{tabular}{l}
+		\hphantom{0}.7071 \\ 1.7529 \\ 3.2529 \\ 5.2916 
+	\end{tabular}
+	\end{tabular}
+\end{center}
+The Riemann sum $S$ appears as the final value 5.2916 in the fourth column.   
+
+\smallskip
+
+The program RIEMANN, below, will generate the last two columns in the
+above table.  The statement {\tt x = a} on the sixth
+line determines the position of the first sampling point.  Within the
+FOR--NEXT loop, the statement {\tt x = x + deltax} moves the sampling
+point to its next position.
+
+\begin{center}
+{\bf Program: RIEMANN\\
+\bf Left endpoint Riemann sums}\label{program RIEMANN}
+\end{center}
+\begin{verbatim}
+  DEF fnf (x) = SQR(1 + x ^ 3)
+  a = 1
+  b = 3
+  numberofsteps = 4
+  deltax = (b - a) / numberofsteps
+  x = a
+  accumulation = 0
+  FOR k = 1 TO numberofsteps
+          deltaS = fnf(x) * deltax
+          accumulation = accumulation + deltaS
+          x = x + deltax
+          PRINT deltaS, accumulation
+  NEXT k
+\end{verbatim}
+
+By modifying RIEMANN, you can calculate Riemann sums for other
+sampling points and for other functions.  For example, to sample at
+midpoints, you must start at the midpoint of the first subinterval.
+Since the subinterval is $\Delta x$ units wide, its midpoint is
+$\Delta x/2$ units from the left endpoint, which is $x = a$.  Thus, to
+have the program generate midpoint sums, just change the statement
+that ``initializes'' $x$ (line 6) to \texttt{x = a + deltax / 2}.
+
+
+
+\subsection{Summation Notation}
+\index{summation notation}
+
+	Because Riemann sums arise frequently and because they are unwieldy to write out in full, we now introduce a 
+method---called {\bf summation notation}---that allows us to write them more compactly.  To see how it works, look first at the sum 
+	$$
+	1^2 + 2^2 + 3^2 + \cdots + 50^2.
+	$$ 
+Using summation notation, we can express this as 
+	$$
+	\sum_{k=1}^{50} k^2.
+	$$ 
+For a somewhat more abstract example, consider the sum 
+	$$
+	a_1 + a_2 + a_3 + \cdots + a_n,
+	$$ 
+which we can express as 
+	$$
+	\sum_{k=1}^n a_k.
+	$$ 
+We use the capital letter {\em sigma\/} $\sum$ from the Greek alphabet to denote a sum.  For this reason, summation notation is sometimes referred to as {\bf sigma notation\/}.\index{sigma notation}  
+	\mar{Sigma notation}
+You should regard $\sum$ as an instruction telling you to {\bf sum} the numbers of the indicated form as the index $k$ runs through the integers, starting at the integer displayed below the $\sum$ and ending at the integer displayed above it.  Notice that changing the index $k$ to some other letter has no effect on the sum.  For example, 	
+	$$
+	\sum_{k=1}^{20} k^3 = \sum_{j=1}^{20} j^3,
+	$$
+since both expressions give the sum of the cubes of the first twenty positive integers.  Other aspects of summation notation will be covered in the exercises.
+
+	Summation notation allows us to write the Riemann sum  
+	$$
+	f(x_1) \cdot \Delta x_1 + \cdots + 
+		f(x_n) \cdot \Delta x_n
+	$$
+more efficiently as
+	$$
+	\sum_{k=1}^n f(x_k)\cdot\Delta x_k.
+	$$
+Be sure not to get tied into one particular way of using these symbols.  For example, you should instantly recognize
+	$$
+	\sum_{i=1}^m \Delta t_i \, g(t_i)
+	$$
+as a Riemann sum.  In what follows we will commonly use summation notation when working with Riemann sums.  The important thing to remember is that summation notation is only a ``shorthand'' to express a Riemann sum in a more compact form.
+
+\subsection{Exercises}
+
+\subsubsection{Making approximations}
+
+\vspace{-10pt}
+
+\num Estimate the average velocity of the ship whose motion is
+described on page~\pageref{ship}.  The voyage lasts 15 hours.
+
+\num The aim of this question is to determine how much electrical
+energy was consumed in a house over a 24-hour period, when the power
+demand $p$ was measured at different times to have these values:
+\begin{center}
+\begin{tabular}{cc}
+	time & power \\
+	(24-hour clock) & (watts) \\ \hline 
+	\begin{tabular}{r}
+		\rule{0pt}{14pt} 1:30 \\ 5:00 \\ 8:00 \\ 9:30 \\ 
+		 11:00 \\ 15:00 \\18:30 \\ 20:00 \\ 22:30 \\ 23:00 
+	\end{tabular}
+	&
+	\begin{tabular}{r}
+		\rule{0pt}{14pt} 275 \\ 240 \\ 730 \\ 300 \\ 
+		150 \\ 225 \\ 1880 \\ 950 \\ 700 \\ 350 
+	\end{tabular}
+\end{tabular}
+\end{center}
+Notice that the time interval is from $t = 0$ hours to $t = 24$ hours, but the power demand was not sampled at either of those times.
+
+\sub  Set up an estimate for the energy consumption in the form of a Riemann sum $p(t_1)\Delta t_1 + \cdots + p(t_n)\Delta t_n$ for the power function $p(t)$.  To do this, you must identify explicitly the value of $n$, the sampling times $t_k$, and the time intervals $\Delta t_k$ that you used in constructing your estimate.   [Note: the sampling times come from the table, but there is wide latitude in how you choose the subintervals $\Delta t_k$.]
+
+\sub  What is the estimated energy consumption, using your choice of data?   There is no single ``correct'' answer to this question.  Your estimate depends on the choices you made in setting up the Riemann sum.
+
+\sub  Plot the data given in the table in part (a) on a $(t, p)$-coordinate plane.  Then draw on the same coordinate plane the step function that represents your estimate of the power function $p(t)$.  The width of the $k$-th step should be the time interval $\Delta t_k$ that you specified in part (a); is it?
+
+\sub  Estimate the {\em average\/} power demand in the house during the 24-hour period.
+
+\medskip
+\noindent
+{\bf Waste production}.  A colony of living yeast cells in a vat of fermenting grape juice produces waste products---mainly alcohol and carbon dioxide---as it consumes the sugar in the grape juice.  It is reasonable to expect that another yeast colony, twice as large as this one, would produce twice as much waste over the same time period.  Moreover, since waste accumulates
+over time, if we double the time period we would expect our colony to produce twice as much waste.  
+
+	These observations suggest that waste production is proportional to both the size of the colony and the amount of time that passes.  If $P$ is the size of the colony, in grams, and $\Delta t$ is a short time interval, then we can express waste production $W$ as a function of $P$ and $\Delta t$:
+	$$
+	W = k \cdot P \cdot \Delta t \ \mbox{grams}.
+	$$
+If $\Delta t$ is measured in hours, then the multiplier $k$ has to be measured in units of grams of waste per hour per gram of yeast.
+
+	The preceding formula is useful only over a time interval $\Delta t$ in which the population size $P$ does not vary significantly.  If the time interval is large, and the population size can be expressed as a function $P(t)$ of the time $t$, then we can estimate waste production by breaking up the whole time interval into a succession of smaller intervals $\Delta t_1$, $\Delta t_2$, \ldots , $\Delta t_n$ and forming a Riemann sum
+	$$
+	k\,P(t_1)\,\Delta t_1 + \cdots + 
+		k\,P(t_n)\,\Delta t_n \approx W \ \mbox{grams}.
+	$$
+The time $t_k$ must lie within the time interval $\Delta t_k$, and $P(t_k)$ must be a good approximation to the population size $P(t)$ throughout that time interval.  
+
+\num  Suppose the colony starts with 300 grams of yeast (i.e., at time $t = 0$ hours) and it grows exponentially according to the formula
+	$$
+	P(t) = 300\,e^{0.2\,t} \, .
+	$$
+If the waste production constant $k$ is 0.1 grams per hour per gram of yeast, estimate how much waste is produced in the first four hours.  Use a Riemann sum with four hour-long time intervals and measure the population size of the yeast in the middle of each interval---that is, ``on the half-hour.''
+
+
+\subsubsection{Using RIEMANN}
+
+\vspace{-10pt}
+
+\numa\label{left sums} Calculate left endpoint Riemann sums for the
+function $\sqrt{1 + x^3}$ on the interval $[1, 3]$ using 40, 400,
+4000, and 40000 equally-spaced subintervals.  How many ddecimal points
+in this sequence have stabilized?
+
+\sub  The left endpoint Riemann sums for $\sqrt{1 + x^3}$ on the interval $[1, 3]$ seem to be approaching a limit as the number of subintervals increases without bound.  Give the numerical value of that limit, accurate to four decimal places.
+
+\sub  Calculate left endpoint Riemann sums for the function $\sqrt{1 + x^3}$ on the interval $[3, 7]$.  Construct a sequence of Riemann sums using more and more subintervals, until you can determine the limiting value of these sums, accurate to three decimal places.  What is that limit?
+
+\sub  Calculate left endpoint Riemann sums for the function $\sqrt{1 + x^3}$ on the interval $[1, 7]$ in order to determine the limiting value of the sums to three decimal place accuracy.  What is that value?  How are the limiting values in parts (b), (c), and (d) related?  How are the corresponding {\em intervals\/} related?  
+
+\num  Modify RIEMANN so it will calculate a Riemann sum by sampling the given function at the {\em midpoint\/} of each subinterval, instead of the left endpoint.  Describe exactly how you changed the program to do this.
+
+\numa  Calculate {\em midpoint\/} Riemann sums for the function $\sqrt{1 + x^3}$ on the interval $[1, 3]$ using 40, 400, 4000, and 40000 equally-spaced subintervals.  How many decimal points in this sequence have stabilized?   
+
+\sub  Roughly how many subintervals are needed to make the midpoint Riemann sums for $\sqrt{1 + x^3}$ on the interval $[1, 3]$ stabilize out to the first four digits?  What is the stable value?  Compare this to the limiting value you found earlier for left endpoint Riemann sums.  Is one value larger than the other; could they be the same?  
+
+\sub  Comment on the relative ``efficiency'' of midpoint Riemann sums versus left endpoint Riemann sums (at least for the function $\sqrt{1 + x^3}$ on the interval $[1, 3]$).  To get the same level of accuracy, an {\em efficient\/} calculation will take fewer steps than an {\em inefficient\/} one.
+
+\numa  Modify RIEMANN to calculate {\em right endpoint\/} Riemann sums, and use it to calculate right endpoint Riemann sums for the function $\sqrt{1 + x^3}$ on the interval 
+$[1, 3]$ using 40, 400, 4000, and 40000 equally-spaced subintervals.  How many digits in this sequence have stabilized?   
+
+\sub  Comment on the efficiency of right endpoint Riemann sums as compared to left endpoint and to midpoint Riemann sums---at least as far as the function $\sqrt{1 +x^3}$ is concerned.
+
+\num   Calculate left endpoint Riemann sums for the function
+	$$
+	f(x) = \sqrt{1 - x^2} \quad 
+		\mbox{on the interval $[-1, 1]$}.
+	$$
+Use 20 and 50 equally-spaced subintervals.  Compare your values with the estimates for the area of a semicircle given on page~\pageref{semicir}.
+
+\numa  Calculate left endpoint Riemann sums for the function
+	$$
+	f(x) = \sqrt{1 + \cos^2{x}} \quad 
+		\mbox{on the interval $[0, \pi]$}.
+	$$
+Use 4 and 20 equally-spaced subintervals.  Compare your values with
+the estimates for the length of the graph of $y = \sin{x}$ between 0
+and $\pi$, given on page~\pageref{length}.
+
+\sub What is the limiting value of the Riemann sums, as the number of
+subintervals becomes infinite?  Find the limit to 11 decimal places
+accuracy.
+
+\num  Calculate left endpoint Riemann sums for the function
+	$$
+	f(x) = \cos(x^2) \quad 
+		\mbox{on the interval $[0, 4]$},
+	$$
+using 100, 1000, and 10000 equally-spaced subintervals.  
+
+\ans{With 10000 equally-spaced intervals, the left endpoint Riemann sum has the value .59485189.}
+
+\num  Calculate left endpoint Riemann sums for the function
+\[
+f(x) = \dfrac{\cos{x}}{{1+x^2}} \ 
+		\mbox{on the interval $[2, 3]$},
+\]
+using 10, 100, and 1000 equally-spaced subintervals.  The Riemann sums
+are all negative; why?  (A suggestion: sketch the graph of $f$.  What
+does that tell you about the signs of the terms in a Riemann sum for
+$f$?)
+
+\numa  Calculate midpoint Riemann sums for the function
+\[
+H(z) = z^3 \quad \mbox{on the interval $[-2, 2]$},
+\]
+using 10, 100, and 1000 equally-spaced subintervals.  The Riemann sums
+are all zero; why?  (On some computers and calculators, you may find
+that there will be a nonzero digit in the fourteenth or fifteenth
+decimal place -- this is due to ``round-off error''.)
+
+\sub Repeat part (a) using {\em left endpoint\/} Riemann sums.  Are
+the results still zero?  Can you explain the difference, if any,
+between these two results?
+
+
+\subsubsection{Volume as a Riemann sum}
+
+If you slice a rectangular parallelepiped (e.g., a brick or a shoebox)
+parallel to a face, the area $A$ of a {\bf cross-section} does not
+vary.  The same is true for a cylinder (e.g., a can of spinach or a
+coin).  For {\em any\/} solid that has a constant cross-section (e.g.,
+the object on the right, below), its volume is just the product of its
+cross-sectional area with its thickness.
+
+\vspace{164pt}
+
+\special{psfile=../ps/calc1/solid1.ps}
+
+\vspace{10pt}
+
+\begin{center}
+volume = area of cross-section $\times$ thickness = $A \cdot \Delta x$
+\end{center}
+
+Most solids don't have such a regular shape.  They are more like the
+one shown below.  If you take cross-sectional slices perpendicular to
+some fixed line (which will become our $x$-axis), the slices will not
+generally have a regular shape.  They may be roughly oval, as shown
+below, but they will generally vary in area.  Suppose the area of the
+cross-section $x$ inches along the axis is $A(x)$ square inches.
+Because $A(x)$ varies with $x$, you cannot calculate the volume of
+this solid using the simple formula above.  However, you can {\em
+  estimate\/} the volume as a Riemann sum for $A$.
+
+\vspace{72pt}
+
+\special{psfile=../ps/calc1/solid2.ps}
+
+\vspace{90pt}
+
+The procedure should now be familiar to you.  Subdivide the $x$-axis
+into segments of length $\Delta x_1$, $\Delta x_2$, \ldots, $\Delta
+x_n$ inches, respectively.  The solid piece that lies over the first
+segment has a thickness of $\Delta x_1$ inches.  If you slice this
+piece at a point $x_1$ inches along the $x$-axis, the area of the
+slice is $A(x_1)$ square inches, and the volume of the piece is
+approximately $A(x_1) \cdot \Delta x_1$ cubic inches.  The second
+piece is $\Delta x_2$ inches thick.  If you slice it $x_2$ inches
+along the $x$-axis, the slice has an area of $A(x_2)$ square inches,
+so the second piece has an approximate volume of $A(x_2) \cdot \Delta
+x_2$ cubic inches.  If you continue in this way and add up the $n$
+volumes, you get an estimate for the total volume that has the form of
+a Riemann sum\index{volume as a Riemann sum} for the area function
+$A(x)$:
+	$$
+	\mbox{volume} \approx A(x_1) \, \Delta x_1 + 
+		A(x_2) \, \Delta x_2 + \cdots + 
+		A(x_n) \, \Delta x_n \ \mbox{cubic inches}.
+	$$
+
+One place where this approach can be used is in medical diagnosis.
+The X-ray technique known as a CAT scan provides a sequence of
+precisely-spaced cross-sectional views of a patient.  From these views
+much information about the state of the patient's internal organs can
+be gained without invasive surgery.  In particular, the volume of a
+specific piece of tissue can be estimated, as a Riemann sum, from the
+areas of individual slices and the spacing between them. The next
+exercise gives an example.
+
+
+\num A CAT scan of a human liver shows us X-ray ``slices'' spaced 2
+centimeters apart.  If the areas of the slices are 72, 145, 139, 127,
+111, 89, 63, and 22 square centimeters, estimate the volume of the
+liver.
+
+\num The volume of a sphere whose radius is $r$ is exactly $V = 4 \pi
+r^3 / 3$.
+
+\sub Using the formula, determine the volume of the sphere whose
+radius is 3.  Give the numerical value to four decimal places
+accuracy.
+
+\medskip
+
+\noindent
+One way to get a sphere of radius 3 is to rotate the graph of the semi-circle
+	$$
+	r(x) = \sqrt{9 - x^2} \qquad -3 \leq x \leq 3
+	$$
+around the $x$-axis.  Every cross-section perpendicular to the $x$-axis is a circle.  At the point $x$, the radius of the circle is $r(x)$, and its area is
+	$$
+	A = \pi r^2 = \pi (r(x))^2 = A(x).
+	$$
+You can thus get estimates for the volume of the sphere by constructing Riemann sums for $A(x)$ on the interval 
+$[-3, 3]$.
+
+\sub Calculate a sequence of estimates for the volume of the sphere
+that use more and more slices, until the value of the estimate
+stabilizes out to four decimal places.  Does this value agree with the
+value given by the formula in part (a)?
+
+\numa Rotate the graph of $r(x) = .5\,x$, with $0 \leq x \leq 6$
+around the $x$-axis.  What shape do you get?  Describe it precisely,
+and find its volume using an appropriate geometric formula.
+
+\sub Calculate a sequence of estimates for the volume of the same
+object by constructing Riemann sums for the area function $A(x) = \pi
+(r(x))^2$.  Continue until your estimates stabilize out to four
+decimal places.  What value do you get?
+
+
+\subsubsection{Summation notation}
+
+\vspace{-10pt}
+\num  Determine the numerical value of each of the following:
+
+\sub  ${\displaystyle \sum_{k = 1}^{10} k}$  \hfill 
+b) ${\displaystyle \sum_{k = 1}^5 k^2}$ \hfill 
+c) ${\displaystyle \sum_{j = 0}^4 2j + 1}$ \hfill \mbox{}
+
+\ans{${\displaystyle \sum_{k = 1}^5 k^2} = 55$.}
+
+
+\num Write ``the sum of the first five positive even integers'' in
+summation notation.
+
+
+\newpage
+
+\num  Determine the numerical value of
+
+\sub  ${\displaystyle \sum_{n = 1}^5 
+	\left(\dfrac{1}{n} - \dfrac{1}{n+1}\right)}$ \hfill
+b) ${\displaystyle \sum_{n = 1}^{500} 
+	\left(\dfrac{1}{n} - \dfrac{1}{n+1}\right)}$\hfill \mbox{}
+
+\num  Express the following sums using summation notation.  
+
+\sub  $1^2 + 2^2 + 3^2 + \cdots + n^2$.
+
+\sub  $2^1 + 2^2 + 2^3 + \cdots + 2^m$.
+
+\sub  $f(s_1)\Delta s + f(s_2)\Delta s + \cdots +
+	f(s_{12})\Delta s$.
+
+\sub  $y_1^2\,\Delta y_1 + y_2^2\,\Delta y_2 + \cdots +
+	y_n^2\,\Delta y_n$.
+
+\num Express each of the following as a sum written out term-by-term.
+(There is no need to calculate the numerical value, even when that can
+be done.)
+
+\sub  ${\displaystyle \sum_{l = 3}^{n-1} a_l}$ \hfill
+b)  ${\displaystyle \sum_{j = 0}^4 \dfrac{j+1}{j^2 + 1}}$
+\hfill 
+c) ${\displaystyle \sum_{k = 1}^5 H(x_k)\,\Delta x_k}$. \hfill \mbox{}
+
+\num  Acquire experimental evidence for the claim
+	$$
+	\left(\sum_{k =1}^n \, k \right)^2 =
+		\sum_{k =1}^n \, k^3 
+	$$
+by determining the numerical values of both sides of the equation for $n = 2$, 3, 4, 5, and 6.
+
+\num Let $g(u) = 25 - u^2$ and suppose the interval $[0, 2]$ has been
+divided into 4 equal subintervals $\Delta u$ and $u_j$ is the left
+endpoint of the $j$-th interval.  Determine the numerical value of the
+Riemann sum
+	$$
+	\sum_{j = 1}^4 \, g(u_j) \, \Delta u \, .
+	$$
+
+
+\subsubsection{Length and area}
+
+\vspace{-10pt}
+
+\num Using Riemann sums with equal subintervals, estimate the length
+of the parabola $y = x^2$ over the interval $0 \leq x \leq 1$.  Obtain
+a sequence of estimates that stabilize to four decimal places.  How
+many subintervals did you need?  (Compare your result here with the
+earlier result on page~\pageref{successive lengths}.)
+
+\num Using Riemann sums, obtain a sequence of estimates for the area
+under each of the following curves.  Continue until the first four
+decimal places stabilize in your estimates.
+
+\sub  $y = x^2$ over $[0, 1]$ \hfill 
+b) $y = x^2$ over $[0, 3]$ \hfill
+c) $y = x \sin{x}$ over $[0, \pi]$ 
+
+\num What is the area under the curve $y = \exp(-x^2)$ over the
+interval $[0, 1]$?  Give an estimate that is accurate to four decimal
+places.  Sketch the curve and shade the area.
+
+\numa Estimate, to four decimal place accuracy, the length of the
+graph of the natural logarithm function $y = \ln{x}$ over the interval
+$[1, e]$.
+
+\sub Estimate, to four decimal place accuracy, the length of the graph
+of the exponential function $y = \exp(x)$ over the interval $[0, 1]$.
+
+\numa What is the length of the hyperbola $y = 1/x$ over the interval
+$[1, 4]$?  Obtain an estimate that is accurate to four decimal places.
+
+\sub What is the area under the hyperbola over the same interval?
+Obtain an estimate that is accurate to four decimal places.
+
+\num The graph of $y = \sqrt{4 - x^2}$ is a semicircle whose radius is
+2.  The circumference of the whole circle is $4\pi$, so the length of
+the part of the circle in the first quadrant is exactly $\pi$.
+
+\sub Using left endpoint Riemann sums, estimate the length of the
+graph $y = \sqrt{4 - x^2}$ over the interval $[0, 2]$ in the first
+quadrant.  How many subintervals did you need in order to get an
+estimate that has the value 3.14159\ldots ?
+
+\sub There is a technical problem that makes it impossible to use {\em
+  right\/} endpoint Riemann sums.  What is the problem?
+
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                       %
+%                               Section 3                               %
+%                                                                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{The Integral}
+
+\subsection{Refining Riemann Sums}
+
+\label{ref1}
+	In the last section, we estimated the electrical energy a town consumed by constructing a Riemann sum for the power demand function $p(t)$.  Because we sampled the power function only five times in a 24-hour period, our estimate was fairly rough.  We would get a better estimate by sampling more frequently---that is, by constructing a Riemann sum with more terms and shorter subintervals.  The process of refining Riemann sums in this way leads to the mathematical object called the {\bf integral}.\index{integral}
+
+To see what an integral is---and how it emerges from this process of
+refining Riemann sums---let's return to the function
+\[
+\sqrt{1 + x^3} \quad \mbox{on} \quad [1,3] 
+\]
+we analyzed at the end of the last section.  
+%
+\mar{Refining Riemann sums with equal subintervals}
+%
+What happens when we refine Riemann sums for this function by using
+smaller subintervals?  If we systematically choose $n$ equal
+subintervals and evaluate $\sqrt{1 + x^3}$ at the left endpoint of
+each subinterval, then we can use the program RIEMANN
+(page~\pageref{program RIEMANN}) to produce the values in the
+following table.  For future reference we record the size of the
+subinterval $\Delta x = 2/n$ as well.
+
+\begin{center}
+Left endpoint Riemann sums for $\sqrt{1 + x^3}$ on $[1, 3]$
+\\ [6pt]
+
+\begin{tabular}{ccc} 
+	$n$ & $\Delta x$ & Riemann sum\\ 
+	\hline 
+	\begin{tabular}{r}
+	\rule{0pt}{14pt} 100 \\ 1\,000 \\ 10\,000 \\100\,000 
+	\end{tabular}
+	&
+	\begin{tabular}{l}
+	.02 \rule{0pt}{14pt} \\ .002 \\ .0002 \\ .00002 
+	\end{tabular}
+	&
+	\begin{tabular}{r}
+	\rule{0pt}{14pt} 6.191\,236\,2\\ 
+	6.226\,082\,6 \\ 
+	6.229\,571\,7 \\ 
+	6.229\,920\,6 
+	\end{tabular}
+\end{tabular} 
+\end{center} 
+
+\noindent
+The first four digits have stabilized,\index{stabilize} suggesting that these Riemann sums, at least, approach the limit 6.229\ldots .
+
+	It's too soon to say that {\em all\/} the Riemann sums for $\sqrt{1 + x^3}$ on the interval $[1,3]$ approach this limit, though.  There is such an enormous diversity of choices at our disposal when we construct a Riemann sum.  We haven't seen what happens, for instance, if we choose midpoints instead of left endpoints, or if we choose subintervals that are not all of the same size.  Let's explore the first possibility.  
+\pagebreak
+
+	
+To modify RIEMANN to choose midpoints, 
+%
+\mar{Midpoints versus\\ left endpoints}
+%
+we need only change the line 
+\begin{verbatim}
+       x = a
+\end{verbatim}
+that determines the position of the first sampling point to 
+\begin{verbatim}
+       x = a + deltax / 2.
+\end{verbatim}
+With this modification, RIEMANN produces the following data.
+\smallskip
+
+\begin{center}\label{midpoint for x-cube} 
+Midpoint Riemann sums for $\sqrt{1 + x^3}$ on $[1, 3]$
+\\ [4pt]
+
+\begin{tabular}{ccc}
+	$n$ & $\Delta x$ & Riemann sum\\ 
+	\hline 
+	\begin{tabular}{r}
+	\rule{0pt}{14pt} 10 \\ 100 \\ 1\,000 \\ 10\,000
+	\end{tabular}
+	&
+	\begin{tabular}{l}
+	.2 \rule{0pt}{14pt} \\ .02 \\ .002 \\ .0002 
+	\end{tabular}
+	&
+	\begin{tabular}{r}
+	\rule{0pt}{14pt} 6.227\,476\,5\\ 
+	6.229\,934\,5\\ 
+	6.229\,959\,1\\ 
+	6.229\,959\,4 
+	\end{tabular}
+\end{tabular} 
+\end{center} 
+\smallskip
+
+\noindent
+This time, the first {\em seven\/} digits have stabilized, even though
+we used only 10,000 subintervals---ten times fewer than we needed to
+get four digits to stabilize using left endpoints!  This is further
+evidence that the Riemann sums converge to a limit, and we can even
+specify the limit more precisely as 6.229959\ldots .
+
+\aside{These tables also suggest that midpoints are more ``efficient''
+  than left endpoints in revealing the limiting value of successive
+  Riemann sums.  This is indeed true.  In Chapter 11, we will look
+  into this further.}
+
+We still have another possibility to consider: what happens if we
+choose subintervals of different sizes---as we did in calculating the
+energy consumption of a town?  By allowing variable subintervals, we
+make the problem messier to deal with, but it does not become
+conceptually more difficult.  In fact, we can still get all the
+information we really need in order to understand what happens when we
+refine Riemann sums.
+
+To see what form this information will take, look back at the two
+tables for midpoints and left endpoints, and compare the values of the
+Riemann sums that they report for the same size subinterval.  When the
+subinterval was fairly large, the values differed by a relatively
+large amount.  For example, when $\Delta x = .02$ we got two sums
+(namely 6.2299345 and 6.1912362) that differ by more than .038.  As
+the subinterval got smaller, the difference between the Riemann sums
+got smaller too.  (When $\Delta x = .0002$, the sums differ by less
+than .0004.)  This is the general pattern.  That is to say, for
+subintervals with a given maximum size, the various Riemann sums that
+can be produced will still differ from one another, but those sums
+will all lie within a certain range that gets smaller as the size of
+the largest subinterval gets smaller.
+
+The connection between the range of Riemann sums 
+%
+\mar{Refining Riemann sums with {\em unequal\/} subintervals}
+%
+and the size of the largest subinterval is subtle and technically
+complex; this course will not explore it in detail.  However, we can
+at least see what happens concretely to Riemann sums for the function
+$\sqrt{1 + x^3}$ over the interval $[1, 3]$.  The following table
+shows the smallest and largest possible Riemann sum that can be
+produced when no subinterval is larger than the maximum size $\Delta
+x_k$ given in the first column.\index{range of Riemann sums}
+\begin{center}
+\begin{tabular}{cccc}
+	maximum & \multicolumn{2}{c}{Riemann sums range} &
+		difference \\ [-2pt]
+	size of $\Delta x_k$ & from & to & between extremes 
+		\\ \hline
+	\begin{tabular}{l} .02 \rule{0pt}{14pt} \\ .002 \\
+		.000\,2 \\ .000\,02 \\ .000\,002
+	\end{tabular}
+	&
+	\begin{tabular}{r} 
+	\rule{0pt}{14pt} 6.113\,690 \\ 
+	6.218\,328 \\
+	6.228\,796 \\
+	6.229\,843 \\
+	6.229\,948
+	\end{tabular}
+	&
+	\begin{tabular}{r} 
+	\rule{0pt}{14pt} 6.346\,328  \\ 
+	6.241\,592 \\
+	6.231\,122 \\
+	6.230\,076 \\
+	6.229\,971
+	\end{tabular}
+	&
+	\begin{tabular}{l} 
+	.232\,638 \rule{0pt}{14pt} \\ 
+	.023\,264 \\
+	.002\,326 \\
+	.000\,233  \\
+	.000\,023
+	\end{tabular}
+\end{tabular}
+\end{center}
+
+\begin{picture}(340,138)(5,-35)
+	\put(10,20){\vector(1,0){330}}
+	\put(20,17){\line(0,1){6}}
+	\put(160,17){\line(0,1){6}}
+	\put(172,17){\line(0,1){6}}
+	\put(176,17){\line(0,1){6}}
+	\put(192,17){\line(0,1){6}}
+	\put(320,17){\line(0,1){6}}
+	\put(20,6){\makebox[0pt]{\small 6.218328}}
+	\put(320,6){\makebox[0pt]{\small 6.241592}}
+	\put(174.5,3){\vector(0,1){13}}
+	\put(174.5,-8){\makebox[0pt]{\small 6.2299\ldots}}
+	\multiput(172,26)(0,3){6}{\circle*{1}}
+	\multiput(176,26)(0,3){6}{\circle*{1}}
+	\multiput(160,26)(0,3){12}{\circle*{1}}
+	\multiput(192,26)(0,3){12}{\circle*{1}}
+	\multiput(20,26)(0,3){21}{\circle*{1}}
+	\multiput(320,26)(0,3){21}{\circle*{1}}
+	\put(151.5,41){\vector(1,0){20}}
+	\put(200.5,41){\vector(-1,0){24}}
+	\put(176,59){\vector(1,0){15.5}}
+	\put(176,59){\vector(-1,0){15.5}}
+	\put(170,86){\vector(1,0){149.5}}
+	\put(170,86){\vector(-1,0){149.5}}
+	\put(170,91){\makebox[0pt]
+	    {\small range when largest $\Delta x_k \leq .002$}}
+	\put(176,64){\makebox[0pt]
+	   {\small range when largest $\Delta x_k \leq .0002$}}
+	\put(148,39){\makebox[0pt][r]	{\small range when}}
+	\put(204,39){\makebox[0pt][l]
+		{\small largest $\Delta x_k \leq .00002$}}
+	\put(175,-25){\makebox[0pt]
+		{The range of Riemann sums for $\sqrt{1+x^3}$ 
+		on $[1 , 3]$}}
+\end{picture}
+
+\label{ref2}
+
+This table provides the most compelling evidence that there is a
+single number 6.2299\ldots that {\em all\/} Riemann sums will be
+arbitrarily close to, if they are constructed with sufficiently small
+subintervals $\Delta x_k$.
+%
+\mar{The integral}
+%
+This number is called the {\bf integral\/}\index{integral} of
+$\sqrt{1+x^3}$ on the interval $[1,3]$, and we will express this by
+writing
+\[
+\int_1^3\sqrt{1+x^3}\,dx = 6.2299\ldots\, .
+\]
+Each Riemann sum approximates this integral, and in general the
+approximations get better as the size of the largest subinterval is
+made smaller.  Moreover, as the subintervals get smaller, the location
+of the sampling points matters less and less.
+
+The unusual symbol $\int$ that appears here reflects the historical
+origins of the integral.  We'll have more to say about it after we
+consider the definition.
+
+
+\subsection{Definition}
+
+The purpose of the following definition is to give a name to the number to which the Riemann sums for a function converge, {\em when those sums do indeed converge}.
+\label{def}
+\begin{center}
+\begin{thicklines}
+\begin{picture}(360,110)
+\put(-5,-5){\framebox (370,120){
+\begin{minipage}{330pt}
+{\bf Definition.} Suppose all the Riemann sums for a function $f(x)$ on an interval $[a, b]$ get arbitrarily close to a single number when the lengths $\Delta x_1$, \ldots, $\Delta x_n$ are made small enough.  Then this number is called the {\bf integral}\index{integral} of $f(x)$ on $[a,b]$ and it is denoted
+	$$
+	\int_a^b f(x)\,dx.
+	$$ 
+\end{minipage}
+}}
+\end{picture}
+\end{thicklines}
+\end{center}
+
+The function $f$ is called the {\bf integrand}.\index{integrand} The
+definition begins with a {\em Suppose \ldots} because there are
+functions whose Riemann sums don't converge.  We'll look at an example
+on page~\pageref{nonintegrable}.  However, that example is quite
+special.  All the functions that typically arise in context,
+%
+\mar{A typical function\\ has an integral}
+%
+and nearly all the functions we study in calculus, {\em do\/} have
+integrals.  In particular, every continuous function has an integral,
+and so do many non-continuous functions---such as the step functions
+with which we began this chapter.  (Continuous functions are discussed
+on pages \pageref{continuous-begin}--\pageref{continuous-end}).
+
+Notice that the definition doesn't speak about the choice of sampling
+points.  The condition that the Riemann sums be close to a single
+number involves only the subintervals $\Delta x_1$, $\Delta x_2$,
+\ldots, $\Delta x_n$.  This is important; it says {\em once the
+  subintervals are small enough, it doesn't matter which sampling
+  points\/ $x_k$ we choose---all of the Riemann sums will be close to
+  the value of the integral.}  (Of course, some will still be closer
+to the value of the integral than others.)
+
+
+	The integral allows us to resolve the dilemma we stated at the beginning of the chapter.  Here is the dilemma: 
+	\mar{How an integral expresses a product}
+how can we describe the product of two quantities when one of them varies?  Consider, for example, how we expressed the energy consumption of a town over a 24-hour period.  The basic relation
+	\begin{center}
+	energy = power $\times$ elapsed time
+	\end{center}
+cannot be used directly, because power demand varies.  Indirectly, though, we can use the relation to build a Riemann sum for power demand $p$ over time.  This gives us an {\em approximation\/}:
+	$$
+	\mbox{energy} \approx 
+		\sum_{k = 1}^n p(t_k)\, \Delta t_k 
+		\quad \mbox{megawatt-hours}.
+	$$
+As these sums are refined, two things happen.  First, they converge to the true level of energy consumption.  Second, they converge to the integral---by the definition of the integral.  Thus, energy consumption is described {\em exactly\/} by the integral
+	$$
+	\mbox{energy} = \int_0^{24} p(t)\, dt 
+		\quad \mbox{megawatt-hours}
+	$$
+of the power demand $p$.  In other words, {\em energy is the integral of power over time}.  
+
+On page~\pageref{ship} we asked how far a ship would travel in
+15 hours if we knew its velocity was $v(t)$ miles per hour at time
+$t$.  We saw the distance could be estimated by a Riemann sum for the
+$v$.  Therefore, reasoning just as we did for energy, we conclude that
+the {\em exact\/} distance is given by the integral
+	$$
+	\mbox{distance} = \int_0^{15} v(t)\,dt 
+		\quad \mbox{miles}.
+	$$
+
+
+	The energy integral has the same units as the 
+	\mar{The units for \\an integral}
+Riemann sums that approximate it.  Its units are the product of the megawatts used to measure $p$ and the hours used to measure $dt$ (or $t$).  The units for the distance integral are the product of the miles per hour used to measure velocity and the hours used to measure time.  In general, the units for the integral
+	$$
+	\int_a^b f(x) \, dx
+	$$
+are the product of the units for $f$ and the units for $x$.
+
+	Because the integral is approximated 
+	\mar{Why $\int$ is used \\to denote an integral}
+by its Riemann sums, we can use summation notation (introduced in the previous section) to write
+	$$
+	\int_1^3 \sqrt{1+x^3} \, dx \approx
+		\sum_{k=1}^n \sqrt{1+x_k^3}\: \Delta x_k.
+	$$
+This expression helps reveal where the rather unusual-looking notation for the integral comes from.  In seventeenth century Europe (when calculus was being created), the letter `s' was written two ways: as 
+`s' and as `$\int$'.  The $\int$ that appears in the integral and the $\sum$ that appears in the Riemann sum both serve as abbreviations for the word {\em sum}.  While we think of the Riemann sum as a sum of products of the form $\sqrt{1+x_k^3}\cdot\Delta x_k$, in which the various $\Delta x_k$ are small quantities, some of the early users of calculus thought of the integral as a sum of products of the form $\sqrt{1+x^3}\cdot dx$, in which $dx$ is an ``infinitesimally'' small quantity.
+
+	Now we do not use infinitesimals or regard the integral as a sum directly.  On the contrary, for us the integral is a {\em limit\/} of Riemann sums as the subinterval lengths $\Delta x_k$ all shrink to 0.  In fact, we can express the integral directly as a\index{limit} limit:
+	$$
+	\int_a^b f(x) \, dx = \lim_{\Delta x_k \to 0}
+		\sum_{k = 1}^n f(x_k) \, \Delta x_k.
+	$$
+
+	The process of calculating an integral 
+	\mar{Integration \\``puts together'' products of the form $f(x)\,\Delta x$}
+is called {\bf integration}.\index{integration}  Integration means ``putting together.''  To see why this name is appropriate, notice that we determine energy consumption over a long time interval by putting together a lot of energy computations $p \cdot \Delta t$ over a succession of short periods.
+
+\subsubsection{A function that does not have an integral}
+
+	Riemann sums converge to a single number for many functions---but not all.\label{nonintegrable}  For example, Riemann sums for 
+	$$
+	J(x) = \left\{
+	\begin{array}{ll}
+		0 & \mbox{if $x$ rational} \\
+		1 & \mbox{if $x$ is irrational}
+	\end{array}
+	\right.
+	$$
+do not converge.  Let's see why.  
+
+\aside{A rational number is the quotient $p/q$ of one integer $p$ by
+  another $q$.  An irrational number is one that is {\em not\/} such a
+  quotient; for example, $\sqrt{2}$ is irrational.  The values of $J$
+  are continually jumping between 0 and 1.}
+
+%\pagebreak
+
+	Suppose we construct a Riemann sum for $J$ 
+	\mar{Why Riemann sums for $J(x)$ do not converge}
+on the interval $[0, 1]$ using the subintervals $\Delta x_1$, $\Delta x_2$, \ldots, $\Delta x_n$.  Every subinterval contains both rational and irrational numbers.  Thus, we could choose all the sampling points to be rational numbers $r_1$, $r_2$, \ldots, $r_n$.  In that case, 
+	$$
+	J(r_1) = J(r_2) = \cdots = J(r_n) = 0,
+	$$
+so the Riemann sum has the value
+	$$
+	\sum_{k = 1}^n J(r_k)\,\Delta x_k =
+		\sum_{k = 1}^n \, 0 \cdot \Delta x_k = 0.
+	$$
+But we could also choose all the sampling points to be irrational numbers $s_1$, $s_2$, \ldots, $s_n$.  In that case, 
+	$$
+	J(s_1) = J(s_2) = \cdots = J(s_n) = 1,
+	$$
+and the Riemann sum would have the value
+	$$
+	\sum_{k = 1}^n J(s_k)\,\Delta x_k =
+		\sum_{k = 1}^n \, 1 \cdot \Delta x_k = 
+		\sum_{k = 1}^n \Delta x_k = 1.
+	$$
+(For any subdivision $\Delta x_k$, $\Delta x_1 + \Delta x_2 + \cdots + \Delta x_n = 1$ because the subintervals together form the interval $[0, 1]$.)  If some sampling points are rational and others irrational, the value of the Riemann sum will lie somewhere between 0 and 1.  Thus, the Riemann sums range from 0 to~1, {\em no matter how small the subintervals\/ $\Delta x_k$ are chosen}.  They cannot converge to any single number.
+
+The function $J$ shows us that not every function has an integral.
+The definition of the integral (page~\pageref{def}) takes this into
+account.  It doesn't guarantee that an arbitrary function will have an
+integral.  It simply says that {\em if\/} the Riemann sums converge to
+a single number, then we can give that number a name---the integral.
+
+\aside{Can you imagine what the graph of $y = J(x)$ would look like?
+  It would consist of two horizontal lines with gaps; in the upper
+  line, the gaps would be at all the rational points, in the lower at
+  the irrational points.  This is impossible to draw!  Roughly
+  speaking, any graph you can draw you can integrate.}
+
+
+\subsection{Visualizing the Integral}
+
+The eye plays an important role in our thinking.  We visualize
+concepts whenever we can.  Given a function $y = f(x)$, we visualize
+it as a graph in the $x, y$-coordinate plane.  We visualize the
+derivative of $f$ as the slope of its graph at any point.  We can
+visualize the integral of $f$, too.  We will view it as the area under
+that graph.  Let's see why we can.
+
+We have already made a connection between areas and Riemann sums, in
+the last section.  Our starting point was the basic formula
+	\begin{center}
+	area = height $\times$ width.
+	\end{center}
+Since the height of the graph $y = f(x)$ at any point $x$ is just
+$f(x)$, we were tempted to say that
+\[
+\mbox{area} = f(x) \cdot (b - a).
+\]
+Of course we couldn't do this, because the height $f(x)$ is variable.
+The remedy was to slice up the interval $[a, b]$ into small pieces
+$\Delta x_k$, and assemble a collection of products $f(x_k)\, \Delta
+x_k$:
+\[
+\sum_{k = 1}^n f(x_k)\,\Delta x_k =
+		f(x_1)\, \Delta x_1 +
+		f(x_2)\, \Delta x_2 + \cdots +
+		f(x_n)\, \Delta x_n.
+\]
+This is a Riemann sum.  
+	\mar{Riemann sums converge to the area~\ldots}
+It represents the total area of a row of side-by-side rectangles whose tops approximate the graph of $f$.  As the Riemann sums are refined, the tops of the rectangles approach the shape of the graph, and their areas approach the area under the graph.  But the process of refining Riemann sums leads to the integral, 
+	\mar{\ldots and to the integral}
+so the integral must be the area under the graph.  
+\vspace{120pt}
+
+\special{psfile=../ps/calc1/area2.ps}
+
+\vspace{14pt}
+\begin{picture}(340,40)(0,-22)
+	\put(68,0){\makebox(0,0){\small shaded area = 	
+	  ${\displaystyle \sum_{k = 1}^n f(x_k)\,\Delta x_k}$}}
+	\put(252,0){\makebox(0,0){\small shaded area = 	
+		${\displaystyle \int_a^b f(x)\,dx}$}}
+\end{picture}
+
+	Every integral we have encountered can be visualized as the area under a graph.  For instance, since
+	$$
+	\mbox{energy use} = \int_0^{24} p(t)\,dt,
+	$$
+we can now say that the energy used by a town is just the area under its power 
+demand graph.
+
+\newpage
+
+\mbox{}
+\mar{\vspace{30pt} Energy used is the area under the power graph}
+
+
+\special{psfile=../ps/calc1/area3.ps}	% picture origin is at top
+
+
+
+\vspace{145pt}
+
+
+Although we can always visualize an integral as an area, 
+%
+\mar{The area interpretation is not always helpful!}
+%
+it may not be very enlightening in particular circumstances.  For
+example, in the last section (page~\pageref{length}) we estimated the
+length of the graph $y = \sin{x}$ from $x = 0$ to $x = \pi$.  Our
+estimates came from Riemann sums for the function $f(x) = \sqrt{1 +
+  \cos^2{x}}$ over the interval $[0, \pi]$.  These Riemann sums
+converge to the integral
+	$$
+	\int_0^{\pi} \sqrt{1 + \cos^2{x}} \, dx,
+	$$
+which we can now view as the area under the graph of $\sqrt{1 + \cos^2{x}}$.  
+
+\vspace{115pt}
+
+\special{psfile=../ps/calc1/area5a.ps}
+
+\vspace{10pt}
+
+\begin{picture}(340,24)
+	\put(78,96){\makebox(0,0){\small $y = \sin{x}$}}
+	\put(292,108){\makebox(0,0){\small 
+		$y = \sqrt{1 + \cos^2{x}}$}}
+	\put(78,12){\makebox(0,0)
+		{\small length of graph = 3.82019\ldots}}
+	\put(292,12){\makebox(0,0)
+		{\small shaded area = 3.82019\ldots}}
+\end{picture}
+
+\noindent
+More generally, the length of $y = g(x)$ will always equal the area
+under $y = \sqrt{1 + (g'(x))^2}$.
+
+
+\subsubsection{The integral of a negative function}
+
+Up to this point, we have been dealing with a function $f(x)$ that is
+never negative on the interval $[a, b]$: $f(x) \geq 0$.  Its graph
+therefore lies entirely above the $x$-axis.  What happens if $f(x)$
+{\em does\/} take on negative values?  We'll first consider an
+example.
+
+\vspace{120pt}
+
+\special{psfile=../ps/calc1/area11.ps}
+
+\vspace{20pt}
+
+The graph of $f(x) = x \cos{x}$ is shown above.  On the interval $[2,
+  3]$, it lies entirely below the $x$-axis.  As you can check,
+	$$
+	\int_2^3 x\cos{x} \, dx = -1.969080.
+	$$
+The integral is negative, but areas are positive.  Therefore, it seems we can't interpret {\em this\/} integral as an area.  But there is more to the story.  The shaded region is 1 unit 
+	\mar{The integral is the {\em negative\/} of the area}
+wide and varies in height from 1 to 3 units.  If we say the average height is about 2 units, then the area is about 2~square units.  Except for the negative sign, our rough estimate for the area is almost exactly the value of the integral.  
+
+In fact, the integral of a {\em negative\/} function is always the
+{\em negative\/} of the area between its graph and the $x$-axis.  To
+see why this is always true, we'll look first at the simplest
+possibility---a constant function.  The integral
+\linebreak
+
+\vspace{-9pt}
+\noindent
+\begin{minipage}[b]{1in}
+\special{psfile=../ps/calc1/area6.ps}
+\end{minipage}
+\hfill
+\begin{minipage}[b]{3.1in}
+of a constant function is just the product of that constant value by
+the width of the interval.  For example, suppose $f(x) = -7$ on the
+interval $[1, 3]$.  The region between the graph and the $x$-axis is a
+rectangle whose area is $7 \times 2 = 14$.  However,
+	$$
+	f(x) \cdot \Delta x = -7 \times 2 = -14.
+	$$
+This is the {\em negative\/} of the area of the region.  
+\end{minipage}
+
+Let's turn now to an arbitrary function $f(x)$ 
+%
+\mar{A function that takes only negative values}
+%
+whose values vary but remain negative over the interval $[a, b]$.
+Each term in the Riemann sum on the left is the {\em negative\/} of
+one of the shaded rectangles.  In the process of refinement, the total
+area of the rectangles approaches the shaded area on the right.  At
+the same time, the Riemann sums approach the integral.  Thus, the
+integral must be the negative of the shaded area.
+
+\vspace{125pt}
+
+\special{psfile=../ps/calc1/area7.ps}
+
+
+\begin{picture}(340,40)(0,-22)
+	\put(68,0){\makebox(0,0){\small 	
+	${\displaystyle \sum_{k = 1}^n f(x_k)\,\Delta x_k} 
+		= -(\mbox{shaded area})$}}
+	\put(252,0){\makebox(0,0){\small 	
+		${\displaystyle \int_a^b f(x)\,dx} 
+		= -(\mbox{shaded area})$}}
+\end{picture}
+
+\subsubsection{Functions with both positive and negative values}
+
+
+	The final possibility to consider is that $f(x)$ takes both positive and negative values on the interval $[a, b]$.  In that case its graph lies partly above the $x$-axis and partly below.  By considering these two parts separately we can see that
+
+\vspace{150pt}
+
+\special{psfile=../ps/calc1/area8.ps}
+
+
+\vspace{-20pt}
+	$$
+	\int_a^b f(x) \, dx = (\mbox{area of upper region})
+		- (\mbox{area of lower region}).
+	$$
+
+The graph of $y = \sin{x}$\label{sine symmetry} on the interval $[0,
+  \pi]$ is the mirror image of the graph on the interval $[\pi,
+  2\pi]$.  The first half lies above the $x$-axis, the second half
+below.  Since the upper and lower areas are equal, it follows that
+	$$
+	\int_0^{2\pi} \sin{x} \, dx = 0.
+	$$
+
+\vspace{60pt}
+
+\special{psfile=../ps/calc1/area9.ps}
+
+
+\subsubsection{Signed area}
+\index{signed area}
+\label{signed}
+
+There is a way to simplify the geometric interpretation of an integral
+as an area.  It involves introducing the notion of {\em signed area},
+by analogy with the notion of signed length.
+
+\noindent
+\begin{minipage}[b]{1.3in}
+\begin{picture}(80,115)(24,5)			%(10,-10)
+	\put(40,0){\vector(0,1){125}}
+	\put(35,124){\makebox[0pt][r]{\small $y$}}
+	\put(38,10){\line(1,0){4}}
+	\put(38,60){\line(1,0){4}}
+	\put(38,110){\line(1,0){4}}
+	\put(35,8){\makebox[0pt][r]{\small $-2$}}
+	\put(35,58){\makebox[0pt][r]{\small $0$}}
+	\put(35,108){\makebox[0pt][r]{\small $2$}}
+	\begin{thicklines}
+		\put(48,62){\line(0,1){48}}
+		\put(48,58){\line(0,-1){48}}
+	\end{thicklines}
+	\put(48,60){\circle{4}}
+	\put(54,75){\vector(0,1){20}}
+	\put(54,45){\vector(0,-1){20}}
+	\put(60,82){\makebox[0pt][l]{length $+2$}}
+	\put(60,32){\makebox[0pt][l]{length $-2$}}
+\end{picture}
+\end{minipage}
+\hfill
+\begin{minipage}[b]{3.5in}
+\quad \ Consider the two points 2 and $-2$ on the $y$-axis at the
+left.  Although the line that goes up from 0 to 2 has the same length
+as the line that goes down from 0 to $-2$ we customarily attach a sign
+to those lengths to take into account the {\em direction\/} of the
+line.  Specifically, we assign a positive length to a line that goes
+up and a negative length to a line that goes down.  Thus the line from
+0 to $-2$ has {\bf signed length} $-2$.
+\end{minipage}
+
+To adapt this pattern to areas, just assign to any area that goes up
+from the $x$-axis a positive value
+%
+\mar{A region below the $x$-axis has negative area}
+%
+and to any area that goes down from the $x$-axis a negative value.
+Then the {\bf signed area}\index{signed area} of a region that is
+partly above and partly below the $x$-axis is just the sum of the
+areas of the parts---taking the signs of the different parts into
+account.
+
+\smallskip
+
+\noindent
+\begin{minipage}[b]{3.3in}
+\quad \ Consider, for example, the graph of $y = x$ over the interval
+$[-2, 3]$.  The upper region is a triangle whose area is 4.5.  The
+lower region is another triangle; its area 2, and its {\em signed\/}
+area is $-2$.  Thus, the total signed area is +2.5, and it follows
+that
+	$$
+	\int_{-2}^3 x \, dx = 2.5.
+	$$
+\end{minipage}
+\begin{minipage}[b]{1.5in}
+\special{psfile=../ps/calc1/area10.ps}
+\end{minipage}
+
+\medskip
+\noindent
+You should confirm that Riemann sums for $f(x) = x$ over the interval
+$[-2, 3]$ converge to the value 2.5 (see exercise~13).
+
+Now that we can describe the signed area of a region in the $x,
+y$-plane, we have a simple and uniform way to visualize the integral
+of any function:
+\begin{center}
+\begin{picture}(285,65)
+	\begin{thicklines}
+	\put(0,0){\framebox(285,65){\shortstack
+		{$\displaystyle \int_a^b f(x)\,dx =$ 
+			the {\bf signed area} \\
+		between the graph of $f(x)$ and the $x$-axis.}}}
+	\end{thicklines}
+\end{picture}
+\end{center}
+
+
+\subsection{Error Bounds}
+
+	A Riemann sum determines the value 
+	\mar{The error in\\ a Riemann sum}
+of an integral only approximately.  For example,
+	$$
+	\int_1^3 \sqrt{1 + x^3} \, dx = 6.229959\ldots ,
+	$$ 
+but\label{2ndint} a left endpoint Riemann sum with 100 equal
+subintervals $\Delta x$ gives
+	$$
+	\sum_{k = 1}^{100} \sqrt{1 + x^3} \, \Delta x = 
+		6.191236.
+	$$
+If we use this sum as an estimate for the value of the integral, we make an {\bf error}\index{error} of
+\[
+6.229959 - 6.191236 = .038723.
+\]
+By increasing the number of subintervals, we can reduce the size of
+the error.  For example, with 100,000 subintervals, the error is only
+.000038.  (This information comes from
+pages \pageref{ref1}--\pageref{ref2}.)  The fact that the first four
+digits in the error are now 0 means, roughly speaking, that the first
+four digits in the new estimate are correct.
+
+In this example, we could measure the error in a 
+%
+\mar{Finding the error without knowing\\ the exact value}
+%
+Riemann sum because we knew the value of the integral.  Usually,
+though, we {\em don't\/} know the value of the integral---that's why
+we're calculating Riemann sums!  We will describe here a method to
+decide how inaccurate a Riemann sum is {\em without first knowing the
+  value of the integral}.  For example, suppose we estimate the value
+of
+	$$
+	\int_0^1 e^{-x^2} \, dx
+	$$
+using a left endpoint Riemann sum with 1000 equal subintervals.  The value we get is .747140.  Our method will tell us that this differs from the true value of the integral by {\em no more than\/} .000633.  So the method does not tell us the exact size of the error.  It says only that the error is not larger than .000633.  
+	\mar{Error bounds}
+Such a number is called an {\bf error bound}.\index{error bound}  The actual error---that is, the true difference between the value of the integral and the value of the Riemann sum---may be a lot less than .000633.  (That is indeed the case.  In the exercises you are asked to show that the actual error is about half this number.)  
+
+	We have two ways to indicate that .747140 is an estimate for the value of the integral, with an error bound of .000633.  One is to use a ``plus-minus'' sign ($\pm$):
+	$$
+	\int_0^1 e^{-x^2} \, dx = .747140 \pm .000633.
+	$$
+Since $.747140 - .000633 = .746507$ and $.747140 + .000633 = .747773$, this is the same as
+	$$
+	.746507 \leq \int_0^1 e^{-x^2} \, dx \leq .747773.
+	$$
+The number .746507 is called a {\bf lower bound}\index{bound!lower}
+	\mar{Upper and\\ lower bounds}
+for the integral, and .747773 is called an {\bf upper bound}.\index{bound!upper}  Thus, the true value of the integral is .74\ldots , and the third digit is either a 6 or a 7.  
+
+% true value = .74682413
+
+	
+	Our method will tell us even more.  In this case, it will tell us that the original Riemann sum is {\em already\/} larger than the integral.  In other words, we can drop the upper bound from .747773 to .747140:
+	$$
+	.746507 \leq \int_0^1 e^{-x^2} \, dx \leq .747140.
+	$$
+
+\subsubsection{The method}
+
+	We want to get a bound on the difference between the integral of a function and a Riemann sum for that function.  
+	\mar{Visualize the error\\ as an area}
+By visualizing both the integral and the Riemann sum as areas, we can visualize their difference as an area, too.  We'll assume that all subintervals in the Riemann sum have the same width $\Delta x$.  This will help keep the details simple.  Thus
+	$$
+	\mbox{error} = \left| \int_a^b f(x)\,dx -
+		\sum_{k = 1}^n f(x_k) \, \Delta x \right|.
+	$$
+(The absolute value $|u - v|$ of the difference tells us how far apart $u$ and $v$ are.)
+
+	We'll also assume that the function $f(x)$ is {\em positive\/} and {\em increasing\/} on an interval $[a, b]$.  We say $f(x)$ is {\bf increasing} if its graph rises as $x$ goes from left to right.  
+
+	Let's start with left endpoints for the Riemann sum.  Because $f(x)$ is increasing, the rectangles lie entirely below the graph of the function:
+\vspace{132pt}
+
+\special{psfile=../ps/calc1/error1.ps}
+
+\vspace{30pt}
+
+	The integral is the area under the graph, and the Riemann sum is the area of the rectangles.  Therefore, the error is the area of the shaded region that lies above the rectangles and below the graph.  This region consists of a number of separate pieces that sit on top of the individual rectangles.  
+	\mar{Slide the \\little errors \\into a stack}
+Slide them to the right and stack them on top of one another, as shown in the figure.  They fit together inside a single rectangle of width $\Delta x$ and height $f(b) - f(a)$.  Thus the error (which is the area of the shaded region) is no greater than the area of this rectangle:
+	$$
+	\mbox{error} \leq \Delta x \, 
+		\left( f(b) - f(a) \right).
+	$$
+
+	The number $\Delta x \, (f(b) - f(a))$ is our error bound.  It is clear from the figure that this is not the {\em exact\/} value of the error.  The error is smaller, but it is difficult to say exactly how much smaller.  Notice also that we need very little information to find the error bound---just $\Delta x$ and the function values $f(a)$ and $f(b)$.  We do {\em not\/} need to know the exact value of the integral!  
+
+The error bound is proportional to $\Delta x$.  
+%
+\mar{The error bound is proportional to $\Delta x$}
+%
+If we cut $\Delta x$ in half, that will cut the error bound in half.
+If we make $\Delta x$ a tenth of what it had been, that will make the
+error bound a tenth of what {\em it\/} had been.  In the figure below,
+$\Delta x$ is 1/5-th its value in the previous figure.  The rectangle
+on the right shows how much smaller the error bound has become as a
+result.  It demonstrates how Riemann sums converge as the size of the
+subinterval $\Delta x$ shrinks to zero.
+
+\vspace{140pt}
+
+\special{psfile=../ps/calc1/error2.ps}
+
+
+Let's go back to the original $\Delta x$, 
+%
+\mar{Right endpoints}
+%
+but switch to {\em right\/} endpoints.  Then the tops of the
+rectangles lie above the graph.  The error is the vertically hatched
+region between the graph and the tops of the rectangles.  Once again,
+we can slide the little errors to the right and stack them on top of
+one anther.
+
+\vspace{135pt}
+
+\special{psfile=../ps/calc1/error3.ps}
+
+\noindent
+They fit inside the same rectangle we had before.  Thus, whether the
+Riemann sum is constructed with left endpoints or right endpoints, we
+find the same error bound:
+	$$
+	\mbox{error} \leq \Delta x \, (f(b) - f(a)).
+	$$
+
+	Because $f(x)$ is increasing, the left endpoint Riemann sum is smaller than the integral, while the right endpoint Riemann sum is larger.  On a number line, these three values are arranged as follows:
+\begin{center}
+\begin{picture}(320,69)(0,-8)
+	\put(0,20){\line(1,0){320}}
+	\put(40,17){\line(0,1){30}}
+	\put(260,17){\line(0,1){30}}
+	\put(140,17){\line(0,1){14}}
+	\put(90,26){\vector(-1,0){50}}
+	\put(90,26){\vector(1,0){50}}
+	\put(200,26){\vector(-1,0){60}}
+	\put(200,26){\vector(1,0){60}}
+	\put(100,44){\vector(-1,0){60}}
+	\put(100,44){\vector(1,0){160}}
+	\put(90,31){\makebox(0,0)[b]{\footnotesize 
+		shaded area}}
+	\put(200,31){\makebox(0,0)[b]{\footnotesize 
+		hatched area}}
+	\put(150,51){\makebox(0,0)[b]{\footnotesize 
+		$\Delta x \, (f(b) - f(a))$}}
+	\put(140,17){\makebox(0,0)[t]{\footnotesize 
+		${\displaystyle \int_a^b f(x) \, dx}$}}
+	\put(40,15){\makebox(0,0)[t]{\footnotesize 
+		left endpoint}}
+	\put(260,15){\makebox(0,0)[t]{\footnotesize 
+		right endpoint}}
+	\put(40,5){\makebox(0,0)[t]{\footnotesize 
+		Riemann sum}}
+	\put(260,5){\makebox(0,0)[t]{\footnotesize 
+		Riemann sum}}
+\end{picture}
+\end{center}
+The distance from the left endpoint Riemann sum to the integral is
+represented by the shaded area, and the distance from the right
+endpoint by the hatched area.  Notice that these two areas exactly
+fill the rectangle that gives us the error bound.  Thus the distance
+between the two Riemann sums on the number line is exactly $\Delta x
+\, (f(b) - f(a))$, as shown.
+
+\medskip
+
+Finally, suppose that the Riemann sum has 
+%
+\mar{Arbitrary\\ sampling points}
+{\em arbitrary\/} sampling points $x_k$:
+\[
+\sum_{k = 1}^n f(x_k) \, \Delta x.
+\]
+Since $f$ is increasing on the interval $[a, b]$, its values get
+larger as $x$ goes from left to right.  Therefore, on the $k$-th
+subinterval,
+\[
+f(\mbox{left endpoint}) \leq f(x_k) \leq f(\mbox{right endpoint}).
+\]
+In other words, the rectangle built over the left endpoint is the
+shortest, and the one built over the right endpoint is the tallest.
+The one built over the sampling point $x_k$ lies somewhere in between.
+
+The areas of these three rectangles are arranged in the same order:
+\[
+f(\mbox{left endpoint})\,\Delta x \leq f(x_k)\,\Delta x 
+		\leq f(\mbox{right endpoint})\,\Delta x.
+\]
+If we add up these areas, we get Riemann sums.  The Riemann sums are
+arranged in the same order as their individual terms:
+	$$
+	\left\{ \raisebox{-8pt}
+		{\shortstack{left endpoint \\ Riemann sum}}
+			\right\}
+		\leq \sum_{k = 1}^n f(x_k)\,\Delta x 
+		\leq \left\{ \raisebox{-8pt}
+		{\shortstack{right endpoint \\ Riemann sum}}
+			\right\}.
+	$$
+Thus, the left endpoint and the right endpoint Riemann sums are extremes: {\em every\/} Riemann sum for $f$ that uses a subinterval size of $\Delta x$ lies between these two.
+\begin{center}
+\begin{picture}(320,69)(0,-6)
+	\put(0,20){\line(1,0){320}}
+	\put(40,17){\line(0,1){14}}
+	\put(260,17){\line(0,1){14}}
+	\put(140,17){\line(0,1){6}}
+	\put(100,26){\vector(-1,0){60}}
+	\put(100,26){\vector(1,0){160}}
+	\put(150,44){\makebox(0,0)[b]
+		{${\displaystyle 
+		\overbrace{\rule{217pt}{0pt}}^
+		{\mbox{\footnotesize all Riemann sums using
+			$\Delta x$ lie in here}}}$}}
+	\put(150,33){\makebox(0,0)[b]{\footnotesize 
+		$\Delta x \, (f(b) - f(a))$}}
+	\put(140,17){\makebox(0,0)[t]{\footnotesize 
+		${\displaystyle \int_a^b f(x) \, dx}$}}
+	\put(40,15){\makebox(0,0)[t]{\footnotesize 
+		left endpoint}}
+	\put(260,15){\makebox(0,0)[t]{\footnotesize 
+		right endpoint}}
+	\put(40,5){\makebox(0,0)[t]{\footnotesize 
+		Riemann sum}}
+	\put(260,5){\makebox(0,0)[t]{\footnotesize 
+		Riemann sum}}
+\end{picture}
+\end{center}
+
+\newpage
+
+\noindent
+It follows that $\Delta x \, (f(b) - f(a))$ is an error bound for all
+Riemann sums whose subintervals are $\Delta x$ units wide.
+
+\smallskip
+
+If $f(x)$ is a positive function but is 
+%
+\mar{Error bounds for a decreasing function}
+%
+{\em decreasing\/} on the interval $[a, b]$, we get essentially the
+same result.  Any Riemann sum for $f$ that uses a subinterval of size
+$\Delta x$ differs from the integral by no more than $\Delta x\,(f(a)
+- f(b))$.  When $f$ is decreasing, however, $f(a)$ is larger than
+$f(b)$, so we write the height of the rectangle as $f(a) - f(b)$.  To
+avoid having to pay attention to this distinction, we can use absolute
+values to describe the error bound:
+\[
+\mbox{error} \leq \Delta x \,\left| f(b) - f(a)\right|.
+\]
+Furthermore, when $f$ is decreasing, the left endpoint Riemann sum is
+larger than the integral, while the right endpoint Riemann sum is
+smaller.  The difference between the right and the left endpoint
+Riemann sums is still $\Delta x \, |f(b) - f(a)|$.
+
+\vspace{140pt}
+
+\special{psfile=../ps/calc1/error4.ps}
+
+
+Up to this point, 
+%
+\mar{Monotonic functions}
+%
+we have assumed $f(x)$ was either always increasing, or else always
+decreasing, on the interval $[a, b]$.  Such a function is said to be
+{\bf monotonic}.\index{function!monotonic} If $f(x)$ is {\em not\/}
+monotonic, the process of getting an error bound for Riemann sums is
+only slightly more complicated.
+
+Here is how to get an error bound 
+%
+\mar{Error bounds for non-monotonic functions}
+%
+for the Riemann sums constructed for a non-monotonic function.  First
+break up the interval $[a, b]$ into smaller pieces on which the
+function {\em is\/} monotonic.
+
+\vspace{100pt}
+
+\special{psfile=../ps/calc1/error6.ps}
+
+
+
+\noindent
+In this figure, there are two such intervals: 
+%
+\mar{The monotonic pieces}
+%
+$[a, c]$ and $[c, b]$.  Suppose we construct a Riemann sum for $f$ by
+using rectangles of width $\Delta x_1$ on the first interval, and
+$\Delta x_2$ on the second.  Then the total error for this sum will be
+no larger than the sum of the error bounds on the two intervals:
+\[
+\mbox{total error} \leq 
+	\Delta x_1 \, |f(c) - f(a)| + \Delta x_2 \, |f(b) - f(c)|.
+\]
+By making $\Delta x_1$ and $\Delta x_2$ sufficiently small, we can
+make the error as small as we wish.
+
+This method can be applied to any non-monotonic function that can be
+broken up into monotonic pieces.  For other functions, more than two
+pieces may be needed.
+
+
+\subsubsection{Using the method}
+
+Earlier we said that 
+%
+\mar{An example}
+%
+when we use a left endpoint Riemann sum with 1000 equal subintervals
+to estimate the value of the integral
+\[
+\int_0^1 e^{-x^2} \, dx,
+\]
+the error is no larger than .000633.\label{int error}  Let's see how our method would
+lead to this conclusion.
+
+\vspace{85pt}
+
+\special{psfile=../ps/calc1/exp1.ps}
+
+\vspace{28pt}
+
+On the interval $[0, 1]$, $f(x) = e^{-x^2}$ is a decreasing function.
+Furthermore,
+	$$
+	f(0) = 1 \qquad f(1) = e^{-1} \approx .3679.
+	$$
+If we divide $[0, 1]$ into 1000 equal subintervals $\Delta x$, then $\Delta x = 1/1000 = .001$.  The error bound is therefore
+	$$
+	.001 \times |.3679 - 1| = .001 \times .6321 = .0006321.
+	$$
+Any number {\em larger\/} than this one will also be an error bound.
+By ``rounding up,'' we get .000633.  This is slightly shorter to
+write, and it is the bound we claimed earlier.  An even shorter bound
+is .00064.
+
+Furthermore, since $f(x) = e^{-x^2}$ is decreasing, any Riemann sum
+constructed with {\em left\/} endpoints is larger than the actual
+value of the integral.  Since the left endpoint Riemann sum with 1000
+equal subdivisions has the value .747140, upper and lower bounds for
+the integral are
+	$$
+	.746507 = .747140 - .000633 \leq 
+		\int_0^1 e^{-x^2} \, dx \leq .747140.
+	$$
+
+\subsection{Integration Rules}
+\index{integration rules}
+
+Just as there are rules that tell us how to find the derivative of
+various combinations of functions, there are other rules that tell us
+how to find the integral.  Here are three that are exactly analogous
+to differentiation rules.
+\begin{align*}
+{\displaystyle \int_a^b f(x) + g(x) \, dx} &=
+	{\displaystyle \int_a^b f(x) \, dx} +
+		{\displaystyle \int_a^b g(x) \, dx} \\[3pt]
+{\displaystyle \int_a^b f(x) - g(x) \, dx} &=
+	{\displaystyle \int_a^b f(x) \, dx} -
+		{\displaystyle \int_a^b g(x) \, dx} \\[3pt]
+{\displaystyle \int_a^b c \,f(x) \, dx} &=
+		c \,{\displaystyle \int_a^b f(x) \, dx} 
+\end{align*}
+
+Let's see why the third rule is true.  
+%
+\mar{Compare\\ Riemann sums}
+%
+A Riemann sum for the integral on the left looks like
+	$$
+	\sum_{k = 1}^n c \,f(x_k)\, \Delta x_k = 
+		c \,f(x_1)\,\Delta x_1 + \cdots + 
+		c \,f(x_n)\,\Delta x_n.
+	$$
+Since the factor $c$ appears in every term in the sum, we can move it outside the summation:
+	$$
+	c \left(f(x_1)\,\Delta x_1 + \cdots + 
+		f(x_n)\,\Delta x_n \right) = 
+	c \left(\sum_{k = 1}^n f(x_k)\, \Delta x_k \right).
+	$$
+The new expression is $c$ times a Riemann sum for 
+	$$
+	\int_a^b f(x) \, dx.
+	$$
+Since the Riemann sum expressions are equal, the integral expressions they converge to must be equal, as well.  You can use similar arguments to show why the other two rules are true.
+
+	Here is one example of the way 
+	\mar{Using the rules}
+we can use these rules: 
+	$$
+	\int_1^3 4 \sqrt{1 + x^3} \, dx = 
+		4 \int_1^3 \sqrt{1 + x^3} \, dx = 
+		4 \times 6.229959 = 24.919836.
+	$$
+(The value of the second integral is given on page~\pageref{2ndint}.)  Here is another example:
+	$$
+	\int_2^9 5x^7 - 2 x^3 + 24 x \, dx =
+		5 \int_2^9 x^7 \, dx - 2 \int_2^9 x^3 \, dx +
+		24 \int_2^9 x \, dx.
+	$$
+Of course, we must still determine the value of various integrals of the form
+	$$
+	\int_a^b x^n \, dx.
+	$$
+However, the example shows us that, once we know the value of these special integrals, we can determine the value of the integral of any polynomial.
+
+	Here are two more rules 
+	\mar{Two more rules}
+that have no direct analogue in differentiation.  The first says that if $f(x) \leq g(x)$ for every $x$ in the interval {$[a, b]$}, then 
+	$$
+	\int_a^b f(x) \, dx \leq \int_a^b g(x) \, dx.
+	$$
+In the second, $c$ is a point somewhere in the interval $[a, b]$:
+	$$
+	\int_a^b f(x)\, dx = \int_a^c f(x) \, dx +
+		\int_c^b f(x) \, dx.
+	$$
+If you visualize an integral as an area, it is clear why these rules are true.
+
+\vspace{105pt}
+
+\special{psfile=../ps/calc1/int1.ps}
+
+The second rule can be used to understand the results of exercise 4 on
+page~\pageref{left sums}.  It concerns the three integrals
+	$$
+	\int_1^3 \sqrt{1 + x^3} \, dx =   6.229959, \qquad 
+	 \int_3^7 \sqrt{1 + x^3} \, dx = 45.820012,
+	$$
+and
+	$$
+	\int_1^7 \sqrt{1 + x^3} \, dx =  52.049971. 
+	$$
+Since the third interval $[1, 7]$ is just the first $[1, 3]$ combined
+with the second $[3, 7]$, the third integral is the sum of the first
+and the second.  The numerical values confirm this.
+
+
+\subsection{Exercises}
+
+\vspace{-10pt}
+\num  Determine the values of the following integrals.
+
+\sub ${\displaystyle \int_2^{15} 3 \, dx}$ 
+\hfill c) ${\displaystyle \int_{-5}^{-3} 7 \, dx}$ 
+\hfill e) ${\displaystyle \int_{-4}^{9} -2 \, dz}$
+\hfill \mbox{}
+
+\sub ${\displaystyle \int_{15}^2 3 \, dx}$ 
+\hfill d) ${\displaystyle \int_{-3}^{-5} 7 \, dx}$ 
+\hfill f) ${\displaystyle \int_{9}^{-4}  -2 \, dz}$
+\hfill \mbox{}
+
+\numa  Sketch the graph of 
+	$$
+	g(x) = \left\{ 
+	\begin{array}{rl}
+	7 & \mbox{if} \quad 1 \leq x < 5, \\
+	-3 & \mbox{if} \quad 5 \leq x \leq 10
+	\end{array}
+	\right.
+	$$
+
+\sub Determine ${\displaystyle \int_1^7 g(x) \, dx}$, ${\displaystyle \int_7^{10} g(x) \, dx}$, 
+and ${\displaystyle \int_1^{10} g(x) \, dx}$.
+
+
+\subsubsection{Refining Riemann sums}
+\index{Riemann sum}
+
+\vspace{-10pt}
+
+\numa By refining Riemann sums, find the value of the following
+integral to four decimal places accuracy.  Do the computations twice:
+first, using left endpoints; second, using midpoints.
+	$$
+	\int_0^1 \dfrac{1}{1 + x^3} \, dx.
+	$$
+
+\sub How many subintervals did you need to get four decimal places
+accuracy when you used left endpoints and when you used midpoints?
+Which sampling points gave more efficient computations---left
+endpoints or midpoints?
+
+
+\num By refining appropriate Riemann sums, determine the value of each
+of the following integrals, accurate to four decimal places.  Use
+whatever sampling points you wish, but justify your claim that your
+answer is accurate to four decimal places.
+
+\sub  ${\displaystyle \int_1^4 \sqrt{1 + x^3} \, dx}$
+\hfill b) ${\displaystyle \int_4^7 \sqrt{1 + x^3} \, dx}$
+\hfill c) ${\displaystyle 
+	\int_0^3 \dfrac{\cos{x}}{1+x^2}\, dx}$ \hfill \mbox{}
+
+\ans{${\displaystyle \int_0^3 \dfrac{\cos{x}}{1+x^2}\, dx}
+	 = .6244\ldots$ .} % .62440394...
+
+
+\num Determine the value of the following integrals to four decimal
+places accuracy.
+
+\noindent
+\begin{minipage}{2.5in}
+\sub ${\displaystyle \int_1^2 e^{-x^2}\, dx}$ 
+
+\sub  ${\displaystyle \int_0^4 \cos(x^2) \, dx}$ 
+\end{minipage}
+\begin{minipage}{2.5in}
+\sub  ${\displaystyle \int_0^4 \sin(x^2) \, dx}$ 
+
+\sub  ${\displaystyle \int_0^1 \dfrac{4}{1 + x^2} \, dx}$ 
+\end{minipage}
+
+\numa What is the length of the graph of $y = \sqrt{x}$ from $x = 1$
+to $x = 4$?
+
+\sub What is the length of the graph of $y = x^2$ from $x = 1$ to $x =
+2$?
+
+\sub  Why are the answers in parts (a) and (b) the same?
+
+
+\num Both of the curves $y = 2^x$ and $y = 1 + x^{3/2}$ pass through
+$(0,1)$ and $(1,2)$.  Which is the shorter one?  Can you decide simply
+by looking at the graphs?
+
+
+\num A pyramid is 30 feet tall.  The area of a horizontal
+cross-section $x$ feet from the top of the pyramid measures $2x^2$
+square feet.  What is the area of the base?  What is the volume of the
+pyramid, to the nearest cubic foot?
+
+
+\subsubsection{Error bounds}
+\index{error bound}
+
+\vspace{-10pt}
+
+\num A left endpoint Riemann sum with 1000 equally spaced subintervals
+gives the estimate .135432 for the value of the integral
+	$$
+	\int_1^2 e^{-x^2} \, dx.
+	$$
+
+\sub Is the true value of the integral larger or smaller than this
+estimate?  Explain.
+
+\sub  Find an error bound for this estimate.  
+
+\sub Using the information you have already assembled, find lower and
+upper bounds $A$ and $B$:
+	$$
+	A \leq \int_1^2 e^{-x^2} \, dx \leq B.
+	$$
+
+\sub The lower and upper bounds allow you to determine a certain
+number of digits in the {\em exact\/} value of the integral.  How many
+digits do you know, and what are they?
+
+
+\num A left endpoint Riemann sum with 100 equally spaced subintervals
+gives the estimate .342652 for the value of the integral
+	$$
+	\int_0^{\pi/4} \tan{x} \, dx.
+	$$
+
+\sub Is the true value of the integral larger or smaller than this
+estimate?  Explain.
+
+\sub  Find an error bound for this estimate.  
+
+\sub Using the information you have already assembled, find lower and
+upper bounds $A$ and $B$:
+	$$
+	A \leq \int_0^{\pi/4} \tan{x} \, dx \leq B.
+	$$
+
+\sub The lower and upper bounds allow you to determine a certain
+number of digits in the {\em exact\/} value of the integral.  How many
+digits do you know, and what are they?
+
+
+\numa  In the next section you will see that
+	$$
+	\int_0^{\pi/2} \sin{x} \, dx = 1
+	$$
+{\em exactly}.  Here, estimate the value by a Riemann sum using the left endpoints of 100 equal subintervals.
+
+\sub Find an error bound for this estimate, and use it to construct
+the best possible lower and upper bounds
+	$$
+	A \leq \int_0^{\pi/2} \sin{x} \, dx \leq B.
+	$$
+
+\num In the text (page \pageref{ref1}), a Riemann sum using left
+endpoints on 1000 equal subintervals produces an estimate of 6.226083
+for the value of
+	$$
+	\int_1^3 \sqrt{1 + x^3} \, dx.
+	$$
+
+\sub Is the true value of the integral larger or smaller than this
+estimate?  Explain your answer, and do so without referring to the
+fact that the true value of the integral is known to be 6.229959\ldots
+.
+
+\sub  Find an error bound for this estimate.
+
+\sub Find the upper and lower bounds for the value of the integral
+that are determined by this estimate.
+
+\sub According to these bounds, how many digits of the value of the
+integral are now known for certain?
+
+
+\subsubsection{The average value of a function}
+\label{average-begin}
+
+In the exercises for section~1 we saw that the average staffing level
+for a job is
+\[
+\mbox{average staffing} 
+        = \dfrac{\mbox{total staff-hours}}{\mbox{hours worked}}.
+\]
+If $S(t)$ represents the number of staff working at time $t$, then the
+total staff-hours accumulated between $t = a$ and $t = b$ hours is
+	$$
+	\mbox{total staff-hours} = \int_a^b S(t) \, dt 
+		\quad \mbox{staff-hours}.
+	$$
+Therefore the average staffing is
+	$$
+	\mbox{average staffing} = \dfrac{1}{b-a}
+		\int_a^b S(t) \, dt \quad \mbox{staff}.
+	$$
+Likewise, if a town's power demand was $p(t)$ megawatts at $t$ hours, then its average power demand between $t = a$ and $t = b$ hours is
+	$$
+	\mbox{average power demand} = \dfrac{1}{b-a}
+		\int_a^b p(t) \, dt \quad \mbox{megawatts}.
+	$$
+
+	We can define 
+	\mar{Geometric meaning of the average}
+the {\bf average value}\index{average value} of an arbitrary function $f(x)$ over an interval $a \leq x \leq b$ by following this pattern:
+	$$
+	\mbox{average value of $f$} = \dfrac{1}{b-a}
+		\int_a^b f(x) \, dx.
+	$$
+The average value of $f$ is sometimes denoted $\overline{f}$.  Since
+	$$
+	\overline{f} \cdot (b-a) = \int_a^b f(x) \, dx,
+	$$
+the area under the horizontal line $y = \overline{f}$ between $x = a$ and $x = b$ is the same as the area under the graph $y = f(x)$.  See the graph below.
+
+
+\numa What is the average value of $f(x) = 5$ on the interval $[1,
+  7]$?
+
+\sub What is the average value of $f(x) = \sin{x}$ on the interval
+$[0, 2\pi]$?  On $[0, 100\pi]$?
+
+\sub What is the average value of $f(x) = \sin^2{x}$ on the interval
+$[0, 2\pi]$?  On $[0, 100\pi]$?
+
+\vspace{150pt}
+
+\special{psfile=../ps/calc1/average1.ps}
+
+\newpage
+
+\numa  What is the average value of the function
+\[
+H(x) = \begin{cases}
+\hphantom{0}1 &\text{if $0 \leq x < 4$}, \\
+           12 &\text{if $4 \leq x < 6$}, \\
+\hphantom{0}1 &\text{if $6 \leq x \leq 20$},
+\end{cases}
+\]
+on the interval $[0, 20]$?
+
+\sub Is the average $\overline{H}$ larger or smaller than the average
+of the two numbers 12 and 1 that represent the largest and smallest
+values of the function?
+
+\sub Sketch the graph $y = H(x)$ along with the horizontal line $y =
+\overline{H}$, and show directly that the same area lies under each of
+these two graphs over the interval $[0, 20]$.
+
+
+\numa What are the maximum and minimum values of $f(x) = x^2 e^{-x}$
+on the interval $[0, 20]$?  What is the {\em average\/} of the maximum
+and the minimum?
+
+\sub What is the average $\overline{f}$ of $f(x)$ on the interval $[0,
+  20]$?
+
+\sub  Why aren't these two averages the same?  
+
+\label{average-end}
+
+\subsubsection{The integral as a signed area}
+
+\vspace{-10pt}
+
+\num By refining Riemann sums, confirm that ${\displaystyle
+  \int_{-2}^3 x \, dx = 2.5}$.
+
+\numa Sketch the graphs of $y = \cos{x}$ and $y = 5 + \cos{x}$ over
+the interval $[0, 4\pi]$.
+
+\sub Find ${\displaystyle \int_0^{4\pi} \cos{x} \, dx}$ by visualizing
+the integral as a signed area.
+
+\sub Find ${\displaystyle \int_0^{4\pi} 5 + \cos{x} \, dx}$.  Why does
+${\displaystyle \int_0^{4\pi} 5 \, dx}$ have the same value?
+
+\numa By refining appropriate Riemann sums, determine the value of the
+integral ${\displaystyle \int_0^{\pi} \sin^2{x}\,dx}$ to four decimal
+places accuracy.
+
+\sub Sketch the graph of $y = \sin^2{x}$ on the interval $0 \leq x
+\leq \pi$.  Note that your graph lies inside the rectangle formed by
+the lines $y = 0$, $y = 1$, $x = 0$ and $x = \pi$.  (Sketch this
+rectangle.)
+
+\sub Explain why the area under the graph of $y = \sin^2{x}$ is
+exactly {\em half\/} of the area of the rectangle you sketched in part
+(b).  What is the area of that rectangle?
+
+\sub Using your observations in part (c), explain why ${\displaystyle
+  \int_0^{\pi} \sin^2{x}\,dx}$ is {\em exactly\/} $\pi/2$.
+
+
+\numa On what interval $a < x < b$ does the graph of the
+function $y = 4 - x^2$ lie {\em above\/} the $x$-axis?
+
+\sub Sketch the graph of $y = 4 - x^2$ on the interval $a \leq x \leq
+b$ you determined in part (a).
+
+\sub What is the area of the region that lies above the $x$-axis and
+below the graph of $y = 4 - x^2$?
+
+
+\numa What is the signed area (see page~\pageref{signed} in the text)
+between the graph of $y = x^3 - x$ and the $x$-axis on the interval
+$-1 \leq x \leq 2$?
+
+\sub Sketch the graph of $y = x^3 - x$ on the interval $-1 \leq x \leq
+2$.  On the basis of your sketch, support or refute the following
+claim: the {\em signed\/} area between the graph of $y = x^3 - x$ and
+the $x$-axis on the interval $-1 \leq x \leq 2$ is exactly the same as
+the area between the graph of $y = x^3 - x$ and the $x$-axis on the
+interval $+1 \leq x \leq 2$.
+
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                       %
+%                               Section 4                               %
+%                                                                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hyphenation{calculus}
+\section{The Fundamental Theorem of Calculus}
+\hyphenation{cal-cu-lus}
+
+\subsection{Two Views of Power and Energy}
+\index{energy}
+\index{power!electric}
+
+In section~1 we considered how much energy a town consumed over 24
+hours when it was using $p(t)$ megawatts of power at time $t$.
+Suppose $E(T)$ megawatt-hours of energy were consumed during the first
+$T$ hours.
+%
+\mar{Energy is the\\ integral of power\ldots}
+%
+Then the integral, introduced in section~3, gave us the language to
+describe how $E$ depends on $p$:
+\[
+E(T) = \int_0^T p(t) \, dt.
+\]
+Because $E$ is the integral of $p$, we can visualize $E(T)$ as the
+area under the power graph $y = p(t)$ as the time $t$ sweeps from 0
+hours to $T$ hours:
+
+\vspace{118pt}
+
+\special{psfile=../ps/calc1/power4.ps}
+
+\vspace{22pt}
+
+\noindent
+As $T$ increases, so does $E(T)$.  The exact relation between $E$ and
+$T$ is shown in the graph below.  The height of the graph of $E$ at
+any point $T$ is equal to the area under the graph of $p$ from 0 out
+to the point $T$.
+
+\special{psfile=../ps/calc1/power5.ps}
+
+
+\newpage
+
+The microscope window on the graph of $E$ reminds us that the slope of
+the graph at any point $T$ is
+%
+\mar{\vspace{4pt} \ldots and power is the derivative of energy}
+%
+just~$p(T)$:
+\[
+p(T) = E'(T).
+\]
+We discovered this fact in section~1, where we stated it in the following
+form: {\em power is the rate at which energy is consumed}.
+
+Pause now to study the graphs of power and energy.  You should
+convince yourself that the {\em height\/} of the $E$ graph at any time
+equals the {\em area\/} under the $p$ graph up to that time.  For
+example, when $T = 0$ no area has accumulated, so $E(0) = 0$.
+Furthermore, up to $T = 6$ hours, power demand was almost constant at
+about 30 megawatts.  Therefore, $E(6)$ should be about
+\[
+30 \ \mbox{megawatts} \times 6 \ \mbox{hours} =
+		180 \ \mbox{megawatt-hours}.
+\]
+It is.  You should also convince yourself that the {\em slope\/} of
+the $E$ graph at any point equals the {\em height\/} of the $p$ graph
+at that point.  Thus, for example, the graph of $E$ will be steepest
+where the graph of $p$ is tallest.
+
+Notice that when we write the energy accumulation
+function\index{function!energy accumulation} $E(T)$ as an integral,
+\[
+E(T) = \int_0^T p(t) \, dt,
+\]
+we have introduced a new ingredient.  
+%
+\mar{A new ingredient: variable limits \\of integration}
+%
+The time variable $T$ appears as one of the ``limits of integration.''
+By definition, the integral is a single number.  However, that number
+depends on the interval of integration $[0, T]$.  As soon as we treat
+$T$ as a variable, the integral itself becomes a variable, too.  Here
+the value of the integral varies with $T$.
+
+\medskip
+
+We now have two ways of viewing the relation between power and energy.
+According to the first view, the energy accumulation function $E$ is
+the integral of power demand:
+\[
+E(T) = \int_0^T p(t) \, dt.
+\]
+According to the second view, 
+%
+\mar{This integral is\\ a solution to a differential equation}
+%
+the energy accumulation function is the solution $y = E(t)$ to an
+initial value problem defined by power demand:
+\[
+y' = p(t); \qquad y(0) = 0.
+\]
+If we take the first view, then we find $E$ by refining Riemann
+sums---because that is the way to determine the value of an integral.
+If we take the second view, then we can find $E$ by using any of the
+methods for solving initial value problems that we studied in chapter
+4.  Thus, the energy integral is a solution to a certain differential
+equation.
+
+This is unexpected.  Differential equations involve derivatives.  At
+first glance, they have nothing to do with integrals.  Nevertheless,
+the relation between power and energy shows us that there is a deep
+connection between derivatives and integrals.
+%
+\mar{The fundamental theorem of calculus}
+%
+As we shall see, the connection holds for the integral of {\em any\/}
+function.  The connection is so important---because it links together
+the two basic processes of calculus---that it has been called the {\bf
+  fundamental theorem of calculus}.
+
+The fundamental theorem gives us a powerful new tool to calculate
+integrals.  Our aim in this section is to see why the theorem is true,
+and to begin to explore its use as a tool.  In Calculus II we will
+consider many specific integration techniques that are based on the
+fundamental theorem.
+
+\subsection{Integrals and Differential Equations}
+
+We begin with a statement of the fundamental theorem for a typical function $f(x)$.\index{fundamental theorem of calculus}\index{integral}
+\index{integral!variable limits}
+	
+\begin{center}
+\begin{picture}(330,115)		%(320,135)
+\put(0,0) {\framebox(330,120)
+{
+\begin{minipage}{320pt}			%290pt
+\begin{center} 
+{\bf The Fundamental Theorem of Calculus} \\ [5pt]
+The solution $y = A(x)$ to the initial value problem\index{initial value problem}
+	$$
+	y' = f(x) \qquad y(a) = 0 
+	$$
+is the {\bf accumulation function} $A(X) = {\displaystyle \int_a^X f(x)\,dx}$.
+\end{center}\index{function!accumulation}
+\end{minipage}
+}}
+\end{picture}
+\end{center}
+
+	We have always been able to find the value of the integral
+	$$
+	\int_a^b f(x) \, dx
+	$$
+by refining Riemann sums.  The fundamental theorem gives us a new way.  It says: First, find the solution $y = A(x)$ to the initial value problem $y' = f(x)$, $y(a) = 0$ using any suitable method for solving the differential equation.  Then, once we have $A(x)$, we get the value of the integral by evaluating $A$ at $x = b$.
+
+%	(Compare this with power and energy: $f(x)$ corresponds %to power demand $p(t)$, and $A(X)$ corresponds to the %energy accumulation function $E(T)$.)  
+\pagebreak
+
+	To see how all this works, 
+	\mar{A test case}
+let's find the value of the integral
+	$$
+	\int_0^4 \cos(x^2) \, dx
+	$$
+two ways: by refining Riemann sums and by solving the initial value problem
+	$$
+	y' = \cos(x^2); \quad y(0) = 0
+	$$
+using Euler's method.  
+
+To estimate the value of the integral, we use the program 
+%
+\mar{RIEMANN versus\ldots}
+%
+RIEMANN\index{program!RIEMANN} from page~\pageref{program RIEMANN}.  It
+produces the sequence of left endpoint sums shown in the table below
+on the left.  Since the first three digits have stabilized, the value
+of the integral is $.594\ldots$~.  The integral was deliberately
+chosen to lead to the initial value problem we first considered on
+page~\pageref{accum delta y}.  We solved that problem by Euler's
+method, using the program
+%
+\mar{\ldots TABLE}
+%
+TABLE,\index{program!TABLE} and produced the table of estimates for the value
+of $y(4)$ that appear in the table on the right.  We see $y(4) =
+.594\ldots$~.
+
+\vspace{12 pt}
+
+\footnotesize
+\hspace{-99pt}
+\begin{minipage}[t]{228pt}
+\begin{center}
+Program: RIEMANN\\
+Left endpoint Riemann sums
+\end{center}
+\vspace{-18pt}
+
+\begin{verbatim}
+DEF fnf (x) = COS(x ^ 2)
+a = 0
+b = 4
+numberofsteps = 2 ^ 3
+deltax = (b - a) / numberofsteps
+x = a
+accumulation = 0
+FOR k = 1 TO numberofsteps
+     deltaS = fnf(x) * deltax
+     accumulation = accumulation + deltaS
+     x = x + deltax
+NEXT k
+PRINT accumulation
+\end{verbatim}
+	$$
+\begin{array}{cc}
+	\mbox{number} & \mbox{estimated value} \\
+	\mbox{of steps} & \mbox{of the integral}  	\\ [2pt]
+	\hline \\ [-7pt]
+	\begin{array}{l} 
+		2^3 \\ 2^6 \\ 2^9 \\ 2^{12} \\ 2^{15} \\ 2^{18}
+	\end{array}
+	&
+	\begin{array}{r}
+		1.13304 \\ .65639 \\ .60212 \\ .59542 \\ .59458 \\
+			.59448
+	\end{array}
+\end{array}
+	$$
+\end{minipage}
+\begin{minipage}[t]{232pt}		%200
+\begin{center}
+Program: TABLE\\
+Euler's method
+\end{center}
+\vspace{-18pt}
+
+\begin{verbatim}
+DEF fnf (t) = COS(t ^ 2)
+tinitial = 0
+tfinal = 4
+numberofsteps = 2 ^ 3
+deltat = (tfinal - tinitial) / numberofsteps
+t = tinitial
+accumulation = 0
+FOR k = 1 TO numberofsteps
+     deltay = fnf(t) * deltat
+     accumulation = accumulation + deltay
+     t = t + deltat
+NEXT k
+PRINT accumulation 
+\end{verbatim}
+	$$
+\begin{array}{cc}
+	\mbox{number} & \mbox{estimated value } \\
+	\mbox{of steps} & \mbox{of $y(4)$}  	\\ [2pt]
+	\hline \\ [-7pt]
+	\begin{array}{l} 
+		2^3 \\ 2^6 \\ 2^9 \\ 2^{12} \\ 2^{15} \\ 2^{18}
+	\end{array}
+	&
+	\begin{array}{r}
+		1.13304 \\ .65639 \\ .60212 \\ .59542 \\ .59458 \\
+			.59448
+	\end{array}
+\end{array}
+	$$
+\end{minipage}
+\normalsize
+
+RIEMANN estimates the value of an integral by calculating Riemann
+sums.  TABLE solves a differential equation by constructing estimates
+using Euler's method.  These appear to be quite different tasks, but
+they lead to exactly the same results!  But this is no accident.
+Compare the programs.  (In both, the {\tt PRINT} statement has been
+put outside the loop.
+%
+\mar{The two programs\\ are the same}
+%
+This speeds up the calculations but still gives us the final outcome.)
+Once you make necessary modifications (e.g., change {\tt x} to {\tt
+  t}, {\tt a} to {\tt tinitial}, {\em et cetera\/}), you can see the
+two programs are the same.
+
+The very fact that these two programs do the same thing gives us one
+proof of the fundamental theorem of calculus.\index{fundamental
+  theorem of calculus}
+
+\subsubsection{Graphing accumulation functions}
+\index{function!accumulation}
+
+Let's take a closer look at the solution $y = A(x)$ to the initial
+value problem
+	$$
+	y' = \cos(x^2); \qquad y(0) = 0.
+	$$
+We can write it as the accumulation function
+	$$
+	A(X) = \int_0^X \cos(x^2) \, dx.
+	$$ 
+By switching to the graphing version of TABLE (this is the program
+PLOT\index{program!PLOT}---see page~\pageref{program PLOT}), we can
+graph~$A$.  Here is the result.
+
+\vspace{170pt}
+
+\special{psfile=../ps/calc1/int2.ps}
+
+\newpage
+
+	The relation between $y = \cos(x^2)$ and $y = A(x)$ is the same as the relation between power and energy.  
+	\begin{itemize}
+	\item  The {\em height\/} of the graph $y = A(x)$ at any point $x = X$ is equal to the {\em signed area\/} between the graph $y = \cos(x^2)$ and the $x$-axis over the interval $0 \leq x \leq X$.  
+	\item  On the intervals where $\cos(x^2)$ is positive, $A(x)$ is increasing.  On the intervals where $\cos(x^2)$ is negative, $A(x)$ is decreasing.  
+	\item  When $\cos(x^2) = 0$, $A(x)$ has a maximum or a minimum.  
+	\item  The {\em slope\/} of the graph of $y = A(x)$ at any point $x = X$ is equal to the {\em height\/} of the graph $y = \cos(x^2)$ at that point.
+	\end{itemize}
+In summary, the lower curve is the integral of the upper one, and the upper curve is the derivative of the lower one.  
+\bigskip
+
+\noindent
+\begin{minipage}[t]{1.9in}
+\vspace{185pt}
+
+\special{psfile=../ps/calc1/int5.ps}
+
+\end{minipage}
+\hfill
+\begin{minipage}[t]{3in}
+\quad \ To get a better idea of the simplicity and power of this
+approach to integrals, let's look at another example:
+\[
+A(X) = \int_1^X \ln{x} \, dx.
+\]
+The function $A$ is the solution to the initial value problem
+\[
+y' = \ln{x}, \qquad y(1) = 0;
+\]
+we find it, as usual, by Euler's method.  The graphs $y = \ln{x}$ and
+$y = A(x)$ are shown at the left.  Notice once again that the height
+of the graph of $A(x)$ at any point $x = X$ equals the area under the
+graph of $y = \ln{x}$ from $x = 1$ to $x = X$.  Also, the graph of $A$
+becomes steeper as the height of $\ln{x}$ increases.  In particular,
+the graph of $A$ is horizontal (at $x = 1$) when $\ln{x} = 0$.
+\end{minipage}
+
+\newpage
+
+
+\subsection{Antiderivatives}
+\index{antiderivative}
+
+We have developed a 
+%
+\mar{Find an integral\ldots}
+%
+novel approach to integration in this section.  We start by replacing
+a given integral by an accumulation function:\index{function!accumulation}
+\[
+\int_a^b f(x) \, dx \qquad \leadsto \qquad
+		A(X) = \int_a^X f(x) \, dx.
+\]
+Then we try to find $A(X)$.  If we do, then the original integral is
+just the value of $A$ at $X = b$.
+
+At first glance, this doesn't seem to be a sensible approach.  We
+appear to be making the problem harder: instead of searching for a
+single number, we must now find an entire function.  However, we know
+that $y =A(x)$ solves the initial value problem
+\[
+y' = f(x), \qquad y(a) = 0.
+\]
+This means we can use the complete `bag of tools' 
+%
+\mar{\ldots by solving\\ a differential\\ equation \ldots}
+%
+we have for solving differential equations to find $A$.  The real
+advantage of the new approach is that it reduces integration to the
+fundamental activity of calculus---solving differential equations.
+
+The differential equation $y' = f(x)$ that arises in integration
+problems is special.  The right hand side depends only on the input
+variable $x$.  We studied this differential equation
+%
+\mar{\ldots using antidifferentiation}
+%
+in chapter~4.5, where we developed a special method to solve
+it---{\bf antidifferentiation}.\index{antidifferentiation}
+
+We say that $F(x)$ is an {\bf antiderivative} of $f(x)$ if $f$ is the
+derivative of $F$: $F'(x) = f(x)$.  Here are some examples (from
+page~\pageref{antideriv table}): \addtolength{\arraycolsep}{8pt}
+	$$
+	\begin{array}{cc}
+	\mbox{function} & \mbox{antiderivative} \\[2pt] \hline
+	\rule{0pt}{16pt} 5x^4 - 2x^3\rule{0pt}{16pt} & 
+		x^5 - \tfrac{1}{2} x^4 \\[6pt]
+	5x^4 - 2x^3 + 17x & 
+		x^5 - \tfrac{1}{2} x^4 + \tfrac{17}{2} x^2 \\[6pt]
+	6 \cdot 10^z + 17/z^5 & 
+		 6 \cdot 10^z/\ln{10} -  17/4z^4 \\[6pt]
+	3\sin{t} - 2t^3 & -3\cos{t} - \tfrac{1}{2} t^4 \\[6pt]
+	\pi\cos{x} + \pi^2 & \pi\sin{x} + \pi^2 x 
+	\end{array}
+	$$
+\addtolength{\arraycolsep}{-8pt}%
+Since $y = A(x)$ solves the differential equation $y' = f(x)$, 
+	\mar{$A$ is an antiderivative \\of $f$}
+we have $A'(x) = f(x)$.  Thus, $A(x)$ is an antiderivative of $f(x)$, so we can try to find $A$ by antidifferentiating $f$.
+
+	Here is an example.  Suppose we want to find
+	$$
+	A(X) = \int_2^X 5x^4 - 2x^3 \, dx.
+	$$
+Notice that $f(x) = 5x^4 - 2x^3$ is the first function in the previous table.  Since $A$ must be an antiderivative of $f$, let's try the antiderivative for $f$ that we find in the table:
+	$$
+	F(x) = x^5 - \tfrac{1}{2} x^4.
+	$$
+
+	The problem is that $F$ must also 
+	\mar{Check the condition $A(2) = 0$}
+satisfy the initial condition $F(2) = 0$.  However,
+	$$
+	F(2) = 2^5 - \tfrac{1}{2} \cdot 2^4 = 
+		32 - \tfrac{1}{2} \cdot 16 = 24 \neq 0,
+	$$
+so the initial condition does not hold {\em for this particular choice\/} of antiderivative.  But this problem is easy to fix.  Let
+	$$
+	A(x) = F(x) - 24.
+	$$
+Since $A(x)$ differs from $F(x)$ only by a constant, it has the same derivative---namely, $5x^4 - 2x^3$.  So $A(x)$ is still an antiderivative of $5x^4 - 2x^3$. But it also satisfies the initial condition:
+	$$
+	A(2) = F(2) - 24 = 24 - 24 = 0.
+	$$
+Therefore $A(x)$ solves the problem; it has the right derivative {\em and\/} the right value at $x = 2$.  Thus we have a formula for the accumulation function
+	$$
+	\int_2^X 5x^4 - 2x^3 \, dx = 
+		X^5 - \tfrac{1}{2} X^4 - 24.
+	$$
+
+	The key step in finding the correct accumulation function $A$ was to recognize that a given function $f$ has infinitely many antiderivatives: if $F$ is an antiderivative, then so is $F + C$, for any constant $C$.  The general procedure for finding an accumulation function involves these two steps:
+\begin{center}
+\begin{picture}(270,80)
+\put(0,0) {\framebox(270,80)
+{
+\begin{minipage}{220pt}
+To find $A(X) = {\displaystyle \int_a^X f(x) \, dx}$:\\[5pt]
+1. first find {\em an\/} antiderivative $F(x)$ of $f(x)$,\\[3pt]
+2. then set $A(x) = F(x) - F(a)$. \rule[-6pt]{0pt}{10pt}
+\end{minipage}
+}}
+\end{picture}
+\end{center}
+\pagebreak
+
+\noindent
+{\bf Comment}:  Recall that some functions $f$ 
+	\mar{A caution}
+simply cannot be integrated---the Riemann sums they define may not converge.  Although we have not stated it explicitly, you should keep in mind that the procedure just described applies only to functions that can be integrated.  
+\bigskip
+
+\noindent
+{\bf Example}.  To illustrate the procedure, let's find the accumulation function 
+	$$
+	A(X) = \int_0^X \sin{x} \, dx.
+	$$
+The first step is to find an antiderivative for $f(x) = \sin{x}$.  A natural choice is $F(x) = -\cos{x}$.  To carry out the second step, note that $a = 0$.  Since $F(0) = -\cos{0} = -1$, we set
+	$$
+	A(x) = F(x) - F(0) = -\cos{x} - (-1) = 1 - \cos{x}.
+	$$
+The graphs $y = \sin{x}$ and $y = 1 - \cos{x}$ are shown below.
+\vspace{230pt}
+
+\special{psfile=../ps/calc1/int6.ps}
+
+\noindent
+Now that we have a 
+%
+\mar{Evaluating\\ specific integrals}
+%
+formula for $A(x)$ we can find the exact value of integrals involving
+$\sin{x}$.  For instance,
+	$$
+	\int_0^{\pi} \sin{x} \, dx = A(\pi) = 1 - \cos{\pi} = 
+		1 - (-1) = 2.
+	$$
+Also,
+	$$
+	\int_0^{\pi/2} \sin{x} \, dx = A(\pi/2) = 
+		1 - \cos{\pi/2} = 1 - (0) = 1,
+	$$
+and
+	$$
+	\int_0^{2\pi} \sin{x} \, dx = A(2\pi) = 1 - \cos{2\pi}
+		= 1 - (1) = 0.
+	$$
+
+These values are {\em exact}, and we got them without calculating
+Riemann sums.  However, we have already found the value of the third
+integral.  On page~\pageref{sine symmetry} we argued from the shape of
+the graph $y = \sin{x}$ that the signed area between $x = 0$ and $x =
+2\pi$ must be 0.  That argument is no help in finding the area to $x =
+\pi$ or to $x = \pi/2$, though.  Before the fundamental
+theorem\index{fundamental theorem of calculus} showed us we could
+evaluate integrals by finding antiderivatives, we could only make
+estimates using Riemann sums.  Here, for example, are midpoint Riemann
+sums for
+\[
+\int_0^{\pi/2} \sin{x} \, dx:
+\qquad
+\begin{tabular}{cc}
+	subintervals & Riemann sum \\[1pt] \hline
+	\begin{tabular}{r} \rule{0pt}{14pt}10\\100\\1000\\10000
+	\end{tabular}
+	&
+	\begin{tabular}{l}
+	1.001\,028\,868 \rule{0pt}{14pt} \\
+	1.000\,010\,325 \\
+	1.000\,000\,147 \\
+	1.000\,000\,045
+	\end{tabular}
+\end{tabular}
+\]
+According to the table, the value of the integral is 1.000000\ldots,
+to six decimal places accuracy.
+%
+\mar{The fundamental theorem makes absolute precision possible}
+%
+That is valuable information, and is often as accurate as we need.
+However, the fundamental theorem tells us that the value of the
+integral is 1 {\em exactly\/}!  With the new approach, we can achieve
+absolute precision.
+
+Precision is the result of having a {\em formula\/} for the
+antiderivative.  Notice how we used that formula to express the value
+of the integral.  Starting with an arbitrary antiderivative $F(x)$ of
+$f(x)$, we get
+	$$
+	A(X) = \int_a^X f(x) \, dx = F(X) - F(a).
+	$$
+If we set $X = b$ we find
+	$$
+	\int_a^b f(x) \, dx = F(b) - F(a).
+	$$
+In other words,\label{fund th-antider}
+\begin{center}
+\begin{picture}(270,64)
+\put(0,0) {\framebox(270,64)
+{\shortstack { 
+If $F(x)$ is any antiderivative of $f(x)$,
+	\rule[-6pt]{0pt}{15pt}\\
+then ${\displaystyle \int_a^b f(x) \, dx = F(b) - F(a)}$. 
+}}}
+\end{picture}
+\end{center}
+
+\noindent
+{\bf Example}. \quad Evaluate ${\displaystyle \int_0^{\ln{2}} e^{-u}
+  \, du.}$
+
+\smallskip
+
+\noindent 
+For the antiderivative, we can choose $F(u) = -e^{-u}$.  Then
+\begin{align*}
+\int_0^{\ln{2}} e^{-u} \, du &= F(\ln{2}) - F(0) \\
+	&= -e^{-\ln{2}} - (-e^{0})
+	= -(1/2) - (-1)
+	= 1/2
+\end{align*}
+
+\noindent
+{\bf Example}. \quad Evaluate ${\displaystyle \int_2^3 \ln{t} \, dt.}$
+\smallskip
+
+\noindent 
+For the antiderivative, we can choose $F(t) = t \ln{t} - t$.  Using
+the product rule, we can show that this is indeed an antiderivative:
+\[
+F'(t) =	t \cdot \dfrac{1}{t} + 1 \cdot \ln{t} - 1
+      = 1 + \ln{t} - 1 = \ln{t}
+\]
+Thus,
+\begin{align*}
+\int_2^3 \ln{t} \, dt &= F(3) - F(2) \\
+		&= 3 \cdot \ln{3} - 3 - (2 \cdot \ln{2} - 2) \\
+		&= \ln{3^3} - \ln{2^2} - 1
+		= \ln{27} - \ln{4} - 1
+		= \ln(27/4) - 1
+\end{align*}
+
+While formulas make it possible to get exact values, they do present
+us with problems of their own.  For instance, we need to know that $t
+\ln{t} - t$ is an antiderivative of $\ln{t}$.  This is not obvious.
+In fact, there is no guarantee that the antiderivative of a function
+given by a formula will have a formula!  The antiderivatives of
+$\cos(x^2)$ and $\sin(x)/x$ do not have formulas, for instance.  Many
+techniques have been devised to find the formula for an
+antiderivative.  In chapter 11 of Calculus II we will survey some of
+those that are most frequently used.
+
+
+
+\subsubsection{Parameters}
+\index{parameter}
+
+In chapter~4.2 we considered differential equations that involved
+parameters (see pages \pageref{DEs w/ params-begin}--\pageref{DEs w/
+  params-end}).
+%
+\mar{When integrals depend on parameters \ldots}
+%
+It also happens that integrals can involve parameters.  However,
+parameters complicate numerical work.  If we calculate the value of an
+integral numerically, by making estimates with Riemann sums, we must
+first fix the value of any parameters that appear.  This makes it
+difficult to see how the value of the integral depends on the
+parameters.  We would have to give new values to the parameters and
+then recalculate the Riemann sums.
+
+	The outcome is much simpler 
+	\mar{\ldots the fundamental theorem can help make the relation clearer}
+and more transparent if we are able to use the fundamental theorem to get a {\em formula\/} for the integral.  The parameters just appear in the formula, so it is immediately clear how the integral depends on the parameters.  
+
+	Here is an example that we shall explore further later.  We want to see how the integrals
+	$$
+	\int_a^b \sin(\alpha x) \, dx \qquad \mbox{and}
+		\qquad \int_a^b \cos(\alpha x) \, dx
+	$$ 
+depend on the parameter $\alpha \neq 0$, and also on the parameters
+$a$ and $b$.  To begin, you should check that $F(x) = -\cos(\alpha
+x)/\alpha$ is an antiderivative of $\sin(\alpha x)$.  Therefore,
+\[
+\int_a^b \sin(\alpha x) \, dx =
+	\dfrac{-\cos(\alpha b)}{\alpha} - 
+		\dfrac{-\cos(\alpha a)}{\alpha}
+		= \dfrac{\cos(\alpha a) -\cos(\alpha b)}{\alpha}.
+\]
+In a similar way, you should be able to show that
+\[
+\int_a^b \cos(\alpha x) \, dx = 
+		\dfrac{\sin(\alpha b) - \sin(\alpha a)}{\alpha}.
+\]
+Suppose the interval $[a, b]$ is exactly one-half of a full period:
+$[0, \pi/\alpha]$.  Then
+\begin{align*}
+\int_0^{\pi/\alpha} \sin(\alpha x) \, dx &=
+	\dfrac{\cos(\alpha \cdot 0) -\cos(\alpha \pi/\alpha)}{\alpha}\\
+		&= \dfrac{\cos{0} - \cos{\pi}}{\alpha}
+		= \dfrac{1 - (-1)}{\alpha} 
+		= \dfrac{2}{\alpha}.
+\end{align*}
+
+
+\subsection{Exercises}
+
+\subsubsection{Constructing accumulation functions}
+\index{function!accumulation}
+
+\vspace{-10pt}
+
+\enlargethispage*{20pt}
+\numa  Obtain a formula for the accumulation function 
+	$$
+	A(X) = \int_2^X 5 \, dx
+	$$
+and sketch its graph on the interval $2 \leq X \leq 6$.
+
+\sub  Is $A'(X) = 5$?
+
+
+\num  Let $f(x) = 2 + x$ on the interval $0 \leq x \leq 5$.
+
+\sub  Sketch the graph of $y = f(x)$.
+
+\sub  Obtain a formula for the accumulation function 
+	$$
+	A(X) = \int_0^X f(x) \, dx
+	$$
+and sketch its graph on the interval $0 \leq X \leq 5$.
+
+\sub  Verify that $A'(X) = f(X)$ for every $X$ in $0 \leq X \leq 5$.
+
+\sub By comparing the graphs of $f$ and $A$, verify that, at any point
+$X$, the {\em slope\/} of the graph of $A$ is the same as the {\em
+  height\/} of the graph of $f$.
+
+
+\numa  Consider the accumulation function 
+	$$
+	A(X) = \int_0^X x^3 \, dx \, .
+	$$
+Using the fact that $A'(X) = X^3$, obtain a formula that expresses $A$ in terms of $X$.
+
+\sub  Modify $A$ so that accumulation begins at the value $x = 1$ instead of $x = 0$ as in part (a).  Thus 
+	$$
+	A(X) = \int_1^X x^3 \, dx \, .
+	$$
+It is still true that $A'(X) = X^3$, but now $A(1) = 0$.  Obtain a formula that expresses this modified $A$ in terms of $X$.  How do the formulas For $A$ in parts (a) and (b) differ?
+
+
+\subsubsection{Using the fundamental theorem}
+\index{fundamental theorem of calculus}
+
+\vspace{-10pt}
+\num  Find $A'(X)$ when
+
+\vspace{-10pt}
+
+\noindent
+\begin{minipage}[t]{2.4in}
+\sub $A(X) = {\displaystyle \int_0^X \cos(x) \, dx}$
+
+\sub $A(X) = {\displaystyle \int_0^X \sin(x) \, dx}$
+
+\sub $A(X) = {\displaystyle \int_0^X \cos(x^2) \, dx}$
+
+\sub $A(X) = {\displaystyle \int_0^X \cos(t^2) \, dt}$
+\end{minipage}
+\hfill
+\noindent
+\begin{minipage}[t]{2.4in}
+\sub $A(X) = {\displaystyle \int_0^X \sin(x^2) \, dx}$
+
+\sub $A(X) = {\displaystyle \int_0^X \sin^2{x} \, dx}$
+
+\sub $A(X) = {\displaystyle \int_1^X \ln{t} \, dt}$
+
+\sub $A(X) = {\displaystyle \int_0^X x^2-4x^3 \, dx}$
+\end{minipage}
+\hfill
+\mbox{}
+
+
+\num  Find all critical points of the function
+\[
+A(X) = \int_0^X \cos(x^2) \, dx
+\]
+on the interval $0 \leq X \leq 4$.  Indicate which critical points are
+local maxima and which are local minima.  (Critical points and local
+maxima and minima are discussed on pages
+\pageref{crit-begin}--\pageref{crit-end}.)
+
+\ans{There are five critical points in the interval $[0, 4]$.  The first is a local maximum at $\sqrt{\pi/2}$.}
+
+
+\num Find all critical points of the function
+	$$
+	A(X) = \int_0^X \sin(x^2) \, dx
+	$$
+on the interval $0 \leq X \leq 4$.  Indicate which critical points are local maxima and which are local minima.  
+
+\num Find {\em all\/} critical points of the function
+	$$
+	A(X) = \int_0^X x^2-4x^3 \, dx.
+	$$
+Indicate which critical points are local maxima and which are local minima.  
+
+
+
+\num Express the solution to each of the following initial value
+problems as an accumulation function (that is, as an integral with a
+variable upper limit of integration).
+
+\noindent
+\begin{minipage}[t]{2.4in}
+\sub  $y' = \cos(x^2)$, \quad $y(\sqrt{\pi}) = 0$
+
+\sub  $y' = \sin(x^2)$, \quad $y(0) = 0$
+\end{minipage}
+\hfill
+\noindent
+\begin{minipage}[t]{2.4in}
+\sub  $y' = \sin(x^2)$, \quad $y(0) = 5$
+
+\sub  $y' = e^{-x^2}$, \quad $y(0) = 0$
+\end{minipage}
+\hfill
+\mbox{}
+
+
+\num Sketch the graphs of the following accumulation functions over
+the indicated intervals.
+
+\sub ${\displaystyle\int_0^X \sin(x^2) \, dx}$, \quad $0 \leq X \leq
+4$
+
+\sub ${\displaystyle\int_0^X \dfrac{\sin(x)}{x} \, dx}$, \quad $0 \leq
+X \leq 4$
+
+
+\subsubsection{Formulas for integrals}
+\index{integral}
+
+\vspace{-10pt}
+
+\num  Determine the exact value of each of the following integrals.
+
+\noindent
+\begin{minipage}[t]{2.4in}
+\sub  ${\displaystyle \int_3^7 2 - 3x + 5x^2 \, dx}$
+
+\sub  ${\displaystyle \int_0^{5\pi} \sin{x} \, dx}$
+
+\sub  ${\displaystyle \int_0^{5\pi} \sin(2x) \, dx}$
+
+\sub  ${\displaystyle \int_0^1 e^t \, dt}$
+\end{minipage}
+\hfill
+\noindent
+\begin{minipage}[t]{2.4in}
+\sub  ${\displaystyle \int_1^6 dx/x}$
+
+\sub  ${\displaystyle \int_0^4 7u -12u^5 du}$
+
+\sub  ${\displaystyle \int_0^1 2^t \, dt}$
+
+\sub  ${\displaystyle \int_{-1}^1 s^2 \, ds}$
+\end{minipage}
+\hfill
+\mbox{}
+
+
+\num Express the values of the following integrals in terms of the
+parameters they contain.
+
+\noindent
+\begin{minipage}[t]{2.4in}
+\sub  ${\displaystyle \int_3^7 kx \, dx}$
+
+\sub  ${\displaystyle \int_0^{\pi} \sin(\alpha x) \, dx}$
+
+\sub  ${\displaystyle \int_1^4 px^2 - x^3 \, dx}$
+
+\sub  ${\displaystyle \int_0^1 e^{ct} \, dt}$
+\end{minipage}
+\hfill
+\noindent
+\begin{minipage}[t]{2.4in}
+\sub  ${\displaystyle \int_{\ln{2}}^{\ln{3}} e^{ct} \, dt}$
+
+\sub  ${\displaystyle \int_1^b 5 - x \, dx}$
+
+\sub  ${\displaystyle \int_0^1 a^t \, dt}$
+
+\sub  ${\displaystyle \int_1^2 u^c \, du}$
+\end{minipage}
+\hfill
+\mbox{}
+
+
+
+\num Find a formula for the solution of each of the following initial
+value problems.
+
+\noindent
+\begin{minipage}[t]{2.4in}
+\sub  $y' = x^2 - 4x^3$, \quad $y(0) = 0$
+
+\sub  $y' = x^2 - 4x^3$, \quad $y(3) = 0$
+\end{minipage}
+\hfill
+\noindent
+\begin{minipage}[t]{2.4in}
+\sub  $y' = x^2 - 4x^3$, \quad $y(3) = 10$
+
+\sub  $y' = \cos(3x)$, \quad $y(\pi) = 0$
+\end{minipage}
+\hfill
+\mbox{}
+
+
+\num Find the average value of each of the following functions over
+the indicated interval.
+
+\sub  $x^2 - x^3$ over $[0, 1]$
+
+\sub  $\ln{x}$ over $[1, e]$
+
+\sub  $\sin{x}$ over $[0, \pi]$
+
+
+\numa What is the average value of the function $px - x^2$ on the
+interval $[0, 1]$?  The average depends on the parameter $p$.
+
+\sub For which value of $p$ will that average be zero?
+
+\section{Chapter Summary}
+
+
+\subsection{The Main Ideas}
+
+\begin{itemize}
+
+\item A {\bf Riemann sum}\index{Riemann sum} for the function $f(x)$
+  on the interval $[a,b]$ is a sum of the form
+	$$
+	f(x_1) \cdot \Delta x_1 + f(x_2) \cdot \Delta x_2 + \cdots + 
+		f(x_n) \cdot \Delta x_n,
+	$$
+where the interval $[a,b]$ has been subdivided into $n$ subintervals whose lengths are $\Delta x_1, \Delta x_2, \ldots, \Delta x_n$, and each $x_k$ is a sampling point in the $k$-th subinterval (for each $k$ from $1$ to $n$).
+
+\item Riemann sums can be used to approximate a variety of quantities
+  expressed as {\bf products} where one factor varies with the other.
+
+\item Riemann sums give more accurate {\bf approximations} as the
+  lengths $\Delta x_1, \Delta x_2, \ldots , \Delta x_n$ are made
+  small.
+
+\item If the Riemann sums for a function $f(x)$ on an interval $[a,b]$
+  converge, the limit is called the {\bf integral}\index{integral} of
+  $f(x)$ on $[a,b]$, and it is denoted
+	$$
+	\int_a^b f(x) \, dx.
+	$$
+
+\item The {\bf units} of $\int_a^b f(x) \, dx$ equal the product of
+  the units of $f(x)$ and the units of $x$.
+	
+\item {\bf The Fundamental Theorem of Calculus.}\index{fundamental
+  theorem of calculus}
+\newline
+The solution $y=A(x)$ of the initial value problem
+$$
+y'=f(x) \qquad y(a) = 0
+$$
+is the {\bf accumulation function}\index{function!accumulation} 
+	$$
+	A(X) = \int_a^X f(x)\, dx.
+	$$
+
+\item If $F(x)$ is an {\bf antiderivative}\index{antiderivative} of
+  $f(x)$, then
+	$$
+	\int_a^b f(x) \, dx = F(b) - F(a).
+	$$
+
+\item The integral $\int_a^b f(x) \, dx$ equals the {\bf signed
+  area}\index{signed area} between the graph of $f(x)$ and the
+  $x$-axis.
+
+\item If $f(x)$ is {\bf monotonic}\index{function!monotonic} on
+  $[a,b]$ and if $\int_a^b f(x) \, dx$ is approximated by a Riemann
+  sum with subintervals of width $\Delta x$, then the {\bf
+    error}\index{error} in the approximation is at most $\Delta x
+  \cdot |f(b) - f(a)|$.
+
+\end{itemize}
+
+\subsection{Expectations}
+
+\begin{itemize}
+
+\item You should be able to write down (by hand) a Riemann sum to
+  approximate a quantity expressed as a product (e.g., human effort,
+  electrical energy, work, distance travelled, area).
+	
+\item You should be able to write down an integral giving the {\em
+  exact} value of a quantity approximated by a Riemann sum.
+
+\item You should be able to use {\bf sigma notation}\index{sigma
+  notation} to abbreviate a sum, and you should be able to read sigma
+  notation to calculate a sum.
+
+\item You should be able to use a computer program to compute the
+  value of a Riemann sum.
+
+\item You should be able to find an error bound when approximating an
+  integral by a Riemann sum.
+
+\item You should know and be able to use the {\bf integration
+  rules}.\index{integration rules}
+
+\item You should be able to use the fundamental theorem of calculus to
+  find the value of an integral.
+
+\item You should be able to use an antiderivative to find the value of
+  an integral.
+
+
+
+\end{itemize}
+
+\cleardoublepage

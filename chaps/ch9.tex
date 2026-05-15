@@ -1,0 +1,4356 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                        %
+%                         Chapter 9 - Section 1                          %
+%                                                                        %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Functions of Several Variables}
+
+Functions that depend on several input variables first appeared in the
+$S$-$I$-$R$ model at the beginning of the course.  Usually, the number
+of variables has not been an issue for us.  For instance, when we
+introduced the derivative in chapter 3, we used partial derivatives to
+treat functions of several variables in a parallel fashion.
+%
+\mar{The problem of visualizing a function of several variables}	
+%
+However, when there are questions of visualization and geometric
+understanding, the number of variables {\em does\/} matter.  Every
+variable adds a dimension to the problem---one way or another.  For
+example, if a function has two input variables instead of one, we will
+see that its graph is a surface rather than a curve.
+		
+This chapter deals with the geometry of functions of two or more
+variables.  We start with graphs and level sets.  These are the basic
+tools for visualization.  Then we turn to microscopic views, and see
+what form the microscope equation takes.  Finally, we consider
+optimization problems using both direct visual methods and dynamical
+systems.
+	
+	
+	
+	
+\section{Graphs and Level Sets}
+
+\special{psfile=../ps/911/WEATHER1.PS}
+
+\begin{minipage}[t]{3.5in}
+The graph\index{graph} at the right comes from a model that describes
+how the average daily temperature\index{temperature function} at one
+place varies over the course of a year.  It shows the temperature $A$
+in $^\circ$F, and the time $t$ in months from January.  As we would
+expect, the temperature is a periodic function (which we can write as
+$A(t)$), and its period is 12 months.  Furthermore, \linebreak
+\end{minipage}  
+
+\noindent
+the lowest temperature occurs in February (when $t \approx$ 1 or 13)
+and the highest in July (when $t \approx$ 7 or~19).  This is about
+what we would expect.
+
+However, all these temperature fluctuations disappear 
+%
+\mar{Underground temperatures\\ fluctuate less}	
+%
+a few feet underground.  Below a depth of 6 or 8 feet, the temperature
+of the soil remains about 55$^\circ$F year-round!  Between ground
+level and that depth, the temperature still fluctuates, but the range
+from low to high decreases with the depth.  Here is what happens at
+some specific depths.
+
+ 
+
+\special{psfile=../ps/911/WEATHER2.PS}
+\vspace{166pt}
+\label{timegraph}
+
+\noindent
+Notice how the time at which the temperature peaks gets later and
+later as we go farther and farther underground.  For example, at $d =
+2$ feet the highest temperature occurs in September ($t \approx 9$),
+%
+\mar{The phase shifts\\ with the depth}
+%
+not July.  It literally takes time for the heat to sink in.  In
+chapter 7 we called this a phase shift.\index{phase!shift} The lowest
+temperature shifts in just the same way.  At a depth of 2 feet, it is
+colder in March than in January.
+
+Thus $A$ is really a function of {\em two\/}
+variables,\index{function!of two variables} the depth $d$ as well as
+the time $t$.  To reflect this addition, let's change our notation for
+the function to $A(t, d)$.  In the figure above, $d$ plays the role of
+a parameter: it has a fixed value for each graph.  We can reverse
+these roles and make $t$ the parameter.  This is done in the figure on
+the top of the next page.  It shows us how the temperature
+%
+\mar{Graphing temperature as a function of depth}	
+%
+varies with the depth at fixed times of year. Notice that, in April
+and October, the extreme temperature is not found on the surface.  In
+October, for example, the soil is warmest at a depth of about 9
+inches.
+	
+The lower figure on the page is a single graph that combines all the
+information in these two sets of graphs.  Each point on the bottom of
+the box of the box corresponds to a particular depth and a particular time.
+The height of the surface above that point tells us the temperature at
+that depth and time.\index{graph!reading a}\index{graph!surface}
+For example, suppose you want to find the temperature 4 feet
+\linebreak
+
+\mbox{}
+
+\special{psfile=../ps/911/WEATHER3.PS}
+\vspace{150pt}
+\label{depthgraph}
+	
+\noindent
+below surface at the beginning of July. 
+%
+\mar{Reading a\\ surface graph}
+%
+Working from the bottom front corner of the box, move 4 feet to the
+right and then 6 months toward the back.  This is the point $(d, s) =
+(4, 6)$.  The height of the graph above this point is the temperature
+$A$ that we want.
+    	
+\special{psfile=../ps/911/WEATHER5.PS}
+	
+\newpage
+
+There is a definite connection between this surface and the two
+collections of curves.
+%
+\mar{Grid lines are slices of the surface that show how the function depends on each variable separately}	
+%
+Imagine that the box containing the surface graph is a loaf of bread.
+If you slice the loaf parallel to the left or right side, this slice
+is taken at a fixed depth.  The cut face of the slice will look like
+one of the graphs on page~\pageref{timegraph}.  These show how the
+temperature depends on the time at fixed depths.  If you slice the
+loaf the other way---parallel to the front or back face---then the
+time is fixed.  The cut face will look like one of the graphs on
+page~\pageref{depthgraph}.  They show how the temperature depends on
+the depth at fixed times.  The grid lines\index{grid line} on the
+surface are precisely these ``slice''\index{slice}\index{graph!slice
+  of a} marks.
+
+
+\special{psfile=../ps/911/WEATHER6.PS}
+\hfill
+\begin{minipage}[t]{2.7in}
+\quad \ Here is the same graph seen from a different viewpoint.  Now
+time is measured from the left, while depth is measured from the back.
+The temperature is still the height, though.  One advantage of this
+view is that it shows more clearly how the peak temperature is
+phase-shifted with the depth.
+
+\quad \ We now have two ways to visualize how the average daily
+temperature depends on the time of year and the depth below ground.
+One is the surface graph itself, and the other is a collection of
+curves that are slices of the surface.  The surface gives us an
+\linebreak%
+\end{minipage}
+
+\vspace{-9pt}
+
+\noindent
+overall view, but it is not so easy to read the surface graph to
+determine the temperature at a specific time and depth.
+%
+\mar{Comparing the surface to its slices}
+%
+Check this yourself: what is the temperature 2 feet underground at the
+beginning of April?  The slices are much more helpful here.  You
+should be able to read from either collection of slices that $A
+\approx 44^\circ$F.
+
+\subsection{Examples of Graphs}
+
+\special{psfile=../ps/911/MINMAX1.PS}
+
+The purpose of this section is to get some experience constructing and
+interpreting surface graphs.  To work in a context, look first at the
+functions $y = x^2$ and $y = -x^2$.  They provide us with standard
+examples of a minimum and a maximum when there is just one input
+variable.  Let's consider now the corresponding examples for two input
+variables.  Besides an ordinary maximum and an ordinary minimum, we
+will find a {\em third\/} type---called a minimax---that is completely
+new.  It arises because a function can have a minimum with respect to
+one of its input variables and a maximum with respect to the other.
+	
+\subsubsection{A minimum: $z = x^2 + y^2$}
+\index{minimum}
+
+\special{psfile=../ps/911/MIN2.PS}
+
+\begin{minipage}[t]{3.7in}
+\quad \ At the origin $(x, y) =(0, 0)$, $z = 0$.  At any other point,
+either $x$ or $y$ is non-zero. Its square is positive, so $z > 0$.
+Consequently, $z$ has a minimum at the origin.  The graph of this
+function is a parabolic {\bf bowl} whose lowest point sits on the
+origin.  As always, the grid lines are slices, made by fixing the
+value of $x$ or $y$.  For example, if $y = c$, then the slice is $z =
+x^2 + c^2$.  This is an ordinary parabolic curve.
+\end{minipage}
+		
+		
+\subsubsection{A maximum: $z = -x^2 - y^2$}
+\index{maximum}
+
+\special{psfile=../ps/911/MAX2.PS}
+
+\begin{minipage}[t]{3.7in}
+\quad \ For any $x$ and $y$, the value of $z$ in this example is the
+opposite of its value in the previous one.  Thus, $z$ is everywhere
+negative, except at the origin, where its value is 0.  Thus $z$ has a
+maximum at the origin.  Its graph is an upside-down bowl, or {\bf
+  peak}, whose highest point reaches up and touches the origin.  Grid
+lines are the curves $z = -x^2 - c^2$ and $z = -c^2 - y^2$.  These are
+parabolic curves that open downward.
+\end{minipage}
+
+\subsubsection{A minimax: $z = x^2 - y^2$}
+\index{minimax}
+
+\special{psfile=../ps/911/SADDLE1.PS}
+
+\label{saddle}
+\begin{minipage}[t]{3.7in}
+\quad \ Suppose we fix $y$ at $y = 0$.  This slice has the equation $z
+= x^2$, so it is an ordinary parabola (that opens upward).  Thus, as
+far as the input $x$ is concerned, $z$ has a {\em minimum\/} at the
+origin.  Suppose, instead, that we fix $x$ at $x = 0$. Then we get a
+slice whose equation is $z = -y^2$.  It is also an ordinary parabola,
+but this one opens downward.  As far as $y$ is concerned, $z$ has a
+{\em maximum\/} at the origin.  It is \linebreak
+\end{minipage}
+\vspace{-9pt}
+
+\noindent
+clear from the graph how upward-opening slices in the $x$-direction
+fit together with downward-opening slices in the $y$-direction.
+Because of the shape of the surface, a minimax is commonly called a
+{\bf saddle}, or a {\bf saddle point}.\index{saddle}\index{saddle
+  point}
+
+\newpage
+
+Here are two slices\index{slice}\index{graph!slice of a} of $z = x^2
+- y^2$ shown in more detail.  Points in the box have three
+coordinates: $(x, y, z)$.  If we set $y = 0$ we are selecting the points
+\linebreak
+
+\special{psfile=../ps/911/SADDLE2.PS}
+
+\special{psfile=../ps/911/SADDLE3.PS}
+
+\special{psfile=../ps/911/SADDLE4.PS}
+\vspace{210pt}
+
+\noindent
+\begin{minipage}{3.6in}
+of the form $(x, 0, z)$.  These make up the $x, z$-plane.  On this
+plane the equation $z = x^2 - y^2$ becomes simply $z = x^2$.  The
+graph of {\em this\/} equation is a curve in the $x,
+z$-plane---specifically, the parabola shown.  The situation is similar
+if $y$ is given some\linebreak 
+\end{minipage}
+
+\vspace{-9pt}
+
+\noindent
+other fixed value. For example, $y = -4$ specifies the points $(x, -4,
+z)$.
+%
+\mar{\vspace{-36pt} The points where $y = c$ form a vertical plane parallel to the $x, z$-plane}
+%
+These describe the plane that forms the front face of the box.  The
+equation $z = x^2 - y^2$ becomes $z = x^2 - 16$.  The curve tracing
+out the intersection of the saddle with the front of the box is
+precisely the graph of $z = x^2 - 16$.
+
+If $x = 0$ we get the points $(0, y, z)$ that make up the $y,
+z$-plane.  On this plane the equation simplifies to $z = -y^2$, and
+its graph is the parabolic curve shown.
+%
+\mar{The points where $x = c$ form a vertical plane parallel to the
+  $y, z$-plane}
+%
+Giving $x$ a different fixed value leads to similar results.  A good
+example is $x = -4$.  The points $(-4, y, z)$ lie on the plane that
+forms the left side of the box.  The equation becomes $z = 16 - y^2$
+there, and this is the parabolic curve marking the intersection of the
+saddle with the left side of the box.
+
+\aside{As you can see, it is valuable for you to be able to generate
+  surface graphs yourself.  There are now a number of computer
+  utilities which will do the job.  Some can even rotate the surface
+  while you watch, or give you a stereo view.  However, even without
+  one of these powerful utilities, you should try to generate the
+  slicing curves that make up the grid lines of the surface.}
+
+\subsubsection{A cubic: $z = x^3 - 4x - y^2$}
+\label{cubic}
+
+Slices of this graph are downward-opening parabolas (when $x = c$) and
+are cubic curves that have the same shape (when $y = c$).  Notice that
+each cubic curve has a maximum and a minimum, and each parabola has
+\linebreak
+
+\special{psfile=../ps/911/CUBIC1.PS}
+
+\special{psfile=../ps/911/CUBIC2.PS}
+
+\vspace{110pt}
+
+\noindent
+a maximum.  
+%
+\mar{The surface\\ has a saddle}
+%
+The surface graph itself has a {\em peak\/} where the cubics have
+their maximum, but it has a {\em saddle\/}\index{saddle} where the
+cubics have a minimum.  Do you see why?  The saddle point is a minimax
+for $z = x^3 -4x -y^2$: $z$ has a minimum there {\em as a function of
+  $x$ alone} but a maximum {\em as a function of $y$ alone}.
+
+\vspace{10pt}
+
+\special{psfile=../ps/911/CUBIC3.PS}
+\special{psfile=../ps/911/CUBIC4.PS}
+\special{psfile=../ps/911/CUBIC5.PS}
+\vspace{230pt}
+
+The small figures on the right show the same surface as the large
+%
+\mar{See the graph from different viewpoints}	
+%
+figure; they just show it from different viewpoints.  As a practical
+matter, you should look at these surfaces the way you would look at
+sculpture: ``walk around them'' by generating diverse views.
+	
+\subsubsection{Energy of the pendulum: $E = 1 - \cos{\theta} + \tfrac{1}{2} v^2$}
+
+\special{psfile=../ps/911/PENDEN1.PS}
+\vspace{200pt}
+
+\special{psfile=../ps/911/PENDEN2.PS}
+\hfill
+\begin{minipage}[t]{3.5in}
+\quad \ This function first came up in chapter 7, where it was used to
+demonstrate that a dynamical system describing the motion of a
+frictionless pendulum had periodic
+solutions.\index{pendulum}\index{energy} It was used again in chapter
+8 to clarify the phase portrait of that dynamical system.  The
+function $E$ varies periodically with $\theta$, and you can see this
+in the graph.  The minimum\index{minimum}\index{energy minimum} at the
+origin is repeated at $(\theta, v) = (2\pi, 0)$, and so on.  The graph
+also has a saddle at the point $(\theta, v) = (-\pi, 0)$.  This too
+repeats with period $2\pi$ in the $\theta$ direction.
+
+\quad \ The figure at the left is the same surface with part cut away
+by a slice of the form $v = c$.  These slices are sine curves: $E = 1
+- \cos{\theta} + \tfrac{1}{2} c^2$.  Slices of the form $\theta = c$
+are upward-opening parabolas.  From this viewpoint, the saddle points
+show up clearly.
+\end{minipage}
+
+\aside{One way to describe what happens to a real pendulum---that is,
+  one governed by frictional forces as well as gravity---is to say
+  that its energy ``runs down'' over time.  Now, at any moment the
+  pendulum's energy is a point on this graph. As the energy runs down,
+  that point must work its way down the graph.  Ultimately, it must
+  reach the bottom of the graph---the minimum energy point at the
+  origin $(\theta, v) = (0, 0)$.  This is the stable equilibrium
+  point.  The pendulum hangs straight down ($\theta = 0$) and is
+  motionless ($v = 0$).  The graph gives us an abstract---but still
+  vivid and concrete---way of thinking of the dissipation of
+  energy.\index{energy!dissipation of}}
+	
+
+\subsection{From Graphs to Levels}
+
+\special{psfile=../ps/912/DENSITY2.PS}
+\special{psfile=../ps/912/DENSITY1.PS}
+
+\begin{minipage}[t]{3.5in}
+There is still another way to picture a function of two variables.  To
+see how it works we can start with an ordinary graph.  On the right is
+the graph of
+\[
+z = f(x, y) = x^3 - 4x - y^2,
+\]
+the cubic function we considered on page~\pageref{cubic}.  This graph
+looks different, though.  The difference is that points are shaded
+according to their height.  Points at the bottom are lightest, points
+at the top are darkest.
+
+\quad \ Notice that the flat $x, y$-plane is shaded exactly like the
+graph above it.  For instance, the dark spot centered at the point
+$(x, y) = (-1, 0)$ is directly under the peak on the graph.  The other
+\linebreak
+\end{minipage}
+
+\vspace{-10pt}
+
+\noindent
+dark patch, near the right edge of the plane, is under the highest
+visible part of the surface.  Consequently, the shading on the $x,
+y$-plane gives us the same information as the graph.  In other words,
+{\em the intensity of shading at $(x, y)$ is proportional to the value
+  of the function $f(x, y)$}.
+
+\label{standard min max-begin}
+The figure in the $x, y$-plane is called a {\bf density
+  plot}.\index{plot!density}
+%
+\mar{Density plots}	
+%
+Think of the intensity of shading as the {\em
+  density\/}\label{density} of ink on the page.  Here are density
+plots of the standard minimum,\index{minimum} maximum,\index{maximum}
+and minimax.\index{minimax} Compare these with the \linebreak
+	
+\special{psfile=../ps/912/DENSITY3.PS}
+\vspace{140pt}
+
+\noindent
+\mbox{
+	\small
+	\mbox{} \hspace{25pt}
+	$z = x^2 + y^2$
+	\hspace{70pt}
+	$z = -x^2 - y^2$
+	\hspace{80pt}
+	$z = x^2 - y^2$
+}
+
+\vspace{6pt}
+
+\noindent
+graphs on page~\pageref{saddle}.  The third density plot is the most
+interesting.  From the center of the $x, y$-plane, the shading
+increases to the right and left.  Therefore, $z$ has a minimum in the
+horizontal direction.  However, the shading {\em decreases\/} above
+and below the center.  Therefore, $z$ has a {\em maximum\/} in the
+vertical direction.  Thus, you really can see there is a minimax at
+the origin.
+
+Try your hand at reading the density plot on the left below.  
+%
+\mar{A sample plot}	
+%
+You should see two maxima (directly above and below the origin), a
+minimum (at the origin itself), and two saddles (to the right and the
+left of the origin).  The function defining the plot is
+\[
+f(x, y) = (x^2 + (y-1)^2 - 3)(3 - x^2 - (y+1)^2).
+\]
+
+\special{psfile=../ps/912/DENSITY4.PS}
+\special{psfile=../ps/912/density5.ps}
+\vspace{210pt}
+
+\noindent
+Can you visualize what the graph looks like?  This density plot should
+help you, and you can also construct slices by setting $x = c$ and $y
+= c$.  The slices $x = 0$ and $y = 0$ are especially useful.  With
+them you could determine the exact coordinates of the maxima and the
+saddles.
+
+\aside{These density plots show a ``checkerboard'' pattern because
+  {\em Mathematica\/}\index{Mathematica} (the computer program that
+  produces them) shades each little square according to the value of
+  the function at the center of the square.  This pattern is an
+  artefact; it is not inherent to a density plot.}
+
+In a density plot, the shading varies smoothly with the value of the
+function.  This is accurate, but it may be a bit difficult to read.
+On the right you see a modified density plot.  There is still shading,
+but there are now just a few distinct shades.
+%
+\mar{From densities \\to contours}
+%
+This makes a sharp boundary between one shade and the next.  The
+boundary is called a {\bf contour},\index{contour} or a {\bf
+  level}.\index{level} The figure itself is called a {\bf contour
+  plot}.\index{plot!contour} The two maxima on the vertical line $x =
+0$ stand out more clearly on the contour plot.  Also, the contour
+lines around the two saddles help us see that the function has a
+minimum in the vertical direction and a maximum in the horizontal
+direction.
+ 
+
+\special{psfile=../ps/913/CONTOUR1.PS}  
+
+\noindent
+\begin{minipage}[t]{3.4in}
+\quad \ Once we have contour lines to separate one density level from
+the next, we can even dispense with the shading.  The figure on the
+right is just the contour plot from the opposite page, minus the
+shading.  The contour lines, or level curves, now stand out clearly.
+On each contour, the value of the function is constant.  This is also
+called a {\bf contour plot}.
+
+\quad \ There is some loss of information here, however.  For example,
+we can't tell where the value of the function is large and where it is
+small.  Nevertheless, the nested ovals on the vertical line $x = 0$
+{\em do\/} tell us that there is either a maximum or a minimum at the
+center of each nest.
+\end{minipage}
+
+\vspace{5pt}
+
+For reference purposes, here are the contour plots for the standard
+minimum,\index{minimum} maximum,\index{maximum} and
+saddle.\index{saddle} In the first two cases, the contours are
+concentric ovals.
+%
+\mar{Contours of the standard functions}
+%
+These look the same, so only one is illustrated.  The other two
+pictures show a saddle.  In general, the contours around a saddle are
+a family of hyperbolas.  However, it is possible for one of the
+contour lines to pass exactly through the minimax point.  That contour
+is a pair of crossed lines, as shown in the version on the right.  You
+should compare these contour plots with the density plots of the same
+functions on page~\pageref{density}, and with their graphs on
+page~\pageref{saddle}.
+	
+\special{psfile=../ps/913/CONTOUR2.PS}  
+\special{psfile=../ps/913/CONTOUR3.PS}  
+\special{psfile=../ps/913/CONTOUR4.PS}  
+
+ \vspace{120pt}
+
+{\small
+\begin{picture}(360,50)
+	\put(52,12){\makebox(0,0){two functions but one plot}}
+	\put(52,-2){\makebox(0,0){$z = x^2 + y^2$}}
+	\put(52,-16){\makebox(0,0){$z = -x^2 - y^2$}}
+	\put(283,8){\makebox(0,0){two plots of a single function}}
+	\put(283,-8){\makebox(0,0){$z = x^2 - y^2$}}
+\end{picture}
+}
+
+\newpage
+
+There is a direct connection between the contour plot 
+%
+\mar{Contours are\\ horizontal slices\\ of a graph}
+%
+of a function and its graph.\index{graph!slice of
+  a}\index{graph!horizontal slice} Contours are horizontal slices
+of the graph, just as grid lines are vertical slices.  Below, we use
+the standard functions $z = x^2 - y^2$ and $z = x^2 + y^2$ to
+illustrate the connection.  Notice that every contour down in the $x,
+y$-plane lies exactly below, and has the same shape as, a horizontal
+slice of the graph.  This picture explains why contours are called
+{\em level\/} curves.\index{level curve}
+	
+\special{psfile=../ps/913/CONSURF1.PS}
+\special{psfile=../ps/913/CONSURF2.PS}
+\vspace{190pt}
+\label{standard min max-end}
+
+To get some more experience with contour plots, we return to 
+%
+\mar{Energy of the pendulum, again}	
+%
+the energy\index{pendulum}\index{energy} function of the pendulum:
+\[
+E(\theta, v) = 1 - \cos{\theta} + \tfrac{1}{2} v^2.
+\]
+From the contour plot alone you should be able to see that $E$ has
+either a minimum or a maximum at $(\theta, v) = (0, 0)$, and another
+at $(2\pi, 0)$.  The contours also provide evidence that there is a
+saddle (minimax) near $(\theta, v) = (-\pi, 0)$ and $(\pi, 0)$.  It is
+also apparent that $E$ is a {\em periodic\/} function of $\theta$.
+
+\special{psfile=../ps/913/contour5.ps}
+
+\newpage
+
+What you should find most striking about this plot, however, is the
+way it resembles the phase portrait of the pendulum (chapter 8, pages
+\pageref{pend-begin}--\pageref{pend-end}).
+% qqq
+Every level curve here looks like a trajectory\index{trajectory} of
+the dynamical system.\index{dynamical system}
+%
+\mar{Energy contours\\ are trajectories\\ of the dynamics}	
+%
+This is no accident.  We know from chapter 8 that the energy is a
+first integral for the dynamics.\index{first integral} In other words,
+energy is constant along each trajectory---this is the law of
+conservation of energy.  But each level curve shows where the energy
+function has some fixed value.  Therefore, each trajectory must lie on
+a single energy level.
+
+\special{psfile=../ps/913/contour6.ps}
+
+\noindent
+\begin{minipage}[t]{3.3in}
+\quad \ We can carry the connection between contours and trajectories
+even further.  Closed trajectories correspond to {\em
+  oscillations\/}\index{oscillation} of the pendulum.  But the closed
+trajectories are the closed contours, and these are the ones that
+surround the minimum.  In particular, they are {\em low\/} energy
+levels.  By contrast, at higher energies ($E > 2$, in fact), the
+pendulum will just continue to spin in what ever direction it was
+moving initially.  Thus, each high energy level is occupied by {\em
+  two\/} trajectories---one for clockwise spinning and one for
+counter-clockwise.
+\end{minipage}
+
+
+\subsection{Technical Summary}
+
+The examples we have seen so far were meant to introduce some of the
+common ways of visualizing a function $z = f(x, y)$.  To use them most
+effectively, though, you need to know more precisely how each is
+defined.  We review here the definition of a graph, a density plot, a
+contour plot, and a terraced density plot.
+	
+\special{psfile=../ps/914/SUMGRAPH.PS}
+
+\medskip
+\noindent
+\begin{minipage}[t]{3.3in}
+{\bf Graph}.\index{graph!surface} The graph of $z = f(x, y)$ lies in
+the 3-dimensional space with coordinates $(x, y, z)$.  To construct
+it, take any input $(x, y)$.  Identify this with the point $(x, y, 0)$
+in the $x, y$-plane (which is defined by the condition $z = 0$).  The
+corresponding point on the graph lies at the height $z = f(x, y)$
+above the $x, y$-plane.  This point has coordinates $(x, y, f(x, y))$.
+{\bf The graph is the set of all points of the form $(x, y, f(x,
+  y))$.}  This is a 2-dimensional surface.
+\end{minipage} 
+
+\newpage
+
+\special{psfile=../ps/914/SUMDENSE.PS}
+\special{psfile=../ps/914/SUMCON2.PS}
+\special{psfile=../ps/914/sumcon4.ps}
+\hfill
+\begin{minipage}[t]{3.7in}
+{\bf Density plot}.\index{plot!density} The density plot of $z = f(x,
+y)$ lies in the 2-dimensional $x, y$-plane.  Choose any rectangle
+where the function is defined, and let $m$ and $M$ be the minimum and
+maximum values, respectively, of $f(x, y)$ on the rectangle.  Define
+\[
+\rho(x, y) = \dfrac{f(x, y) - m}{M - m}.
+\]
+Then $\rho$ satisfies $0 \leq \rho(x, y) \leq 1$ on the rectangle; it
+is called a {\bf density function} ($\rho$ is the Greek letter {\em
+  rho\/}).  {\bf In the density plot, the density of ink---or
+  darkness---at $(x, y)$ is $\rho(x, y)$.}
+\smallskip
+
+{\bf Contour plot}.\index{plot!contour}\index{contour} A {\bf contour}
+of $z = f(x, y)$ is the set of points in the $x, y$-plane where $f$
+has some fixed value:
+\[
+f(x, y) = c.
+\]
+That fixed value $c$ is called the {\bf level}\index{level} of the
+contour.  (The two solid ovals in the figure at the left make up a
+single contour.)  A contour is also called a level curve.  {\bf A
+  contour plot of $f$ is a collection of curves $f(x, y) = c_j$ in the
+  $x, y$-plane.}  In the plot it is customary to use constants $c_1,
+c_2, \ldots$ that are equally spaced; that is, the interval between
+one $c_j$ and the next always has the same value $\Delta c$.
+\smallskip
+
+\enlargethispage*{40pt} {\bf Terraced density
+  plot}.\index{plot!density!terraced}\index{terraced density plot}
+This is a contour plot in which the region between two adjacent
+contours is shaded with ink of a single density.  If the contours are
+at levels $c_1$ and $c_2$, then the density that is typically chosen
+is the one for the level half-way between these two---that is, for
+their average $(c_1 + c_2)/2$.  Each region is called a {\bf
+  terrace}.\index{terrace} Often, a terraced density plot is drawn in
+color, using different colors for each terrace.  Television weather
+programs use terraced density plots to describe the temperature
+forecast for a large region.
+\end{minipage}
+
+\aside{We find density plots everywhere.  A photograph is a density
+  plot of the light that fell on the film when it was exposed.  A
+  newspaper `half-tone' illustration is also a density plot of an
+  image.}
+
+\subsubsection{The pros and cons}
+
+Each of these modes of visualization has advantages and disadvantages.
+All are reasonably good at indicating the extremes (the maxima and
+minima) of a function.  A contour plot needs some additional
+information---for example, a label on each contour to indicate its
+level---to distinguish between maxima and minima.  However, if you
+want to know the numerical value of $f(x, y)$ at a particular point
+$(x, y)$, a contour plot with labels offers more precision than a
+density plot.  It's usually better than a graph, too.
+
+Overall, a graph has the biggest visual impact, 
+%
+\mar{Plots are visually economical in comparison to graphs}	
+%
+but there is a cost.  It takes three dimensions to represent the graph
+of a function of two variables, but only two to represent a plot.  The
+cost is that extra dimension.  It means that we cannot draw the graph
+of a function of three variables.  That would take four mutually
+perpendicular axes---an impossibility in our three-dimensional space.
+However, we can produce a contour plot.
+
+\subsection{Contours of a Function of Three Variables}
+
+We pause here for a brief glimpse of a large subject.  By analogy with
+the definition for a function of two variables,
+%
+\mar{Contours and levels}	
+%
+ we say that a {\bf contour}\index{contour} of the function $f(x, y,
+ z)$\index{function!of three variables} is the set of points $(x, y,
+ z)$ that satisfy the equation
+\[
+f(x, y, z) = c,
+\]
+for some fixed number $c$.  We call $c$ the {\bf level}\index{level}
+of the contour.
+
+Let's find the contours of $w = x^2 + y^2 + z^2$.  
+%
+\mar{The standard minimum}	
+%
+This is completely analogous to the function $x^2 + y^2$ with two
+inputs.  (What do the contours of $x^2 + y^2$ look like?)  In
+particular, $w$ has a minimum when $(x, y, z) = (0, 0,
+0)$.\index{minimum} As the following diagram shows, $w = x^2 + y^2 +
+z^2$ is the square of the distance from the origin to $(x, y, z)$.
+(We use the Pythagorean theorem twice: once for $p^2$ and once for
+$q^2$.)  Consequently, all points $(x, y, z)$ where $w$ has a fixed
+value \linebreak
+
+\special{psfile=../ps/915/XYZ1.PS}
+
+\begin{align*}
+\rule{200pt}{0pt}	p^2 &= x^2 + y^2, \\[3pt]
+	q^2 &= p^2 + z^2 \\
+	    &= x^2 + y^2 + z^2 \\
+	    &= w.
+	\end{align*}
+	
+\newpage
+
+\noindent
+lie a fixed distance from the origin.  Specifically, $w = x^2 + y^2 +
+z^2 = c$ is the following set:
+\begin{itemize}
+
+\item $c > 0$: the sphere of radius $\sqrt{c}$ entered at the origin;
+
+\item $c = 0$: the origin itself;
+
+\item $c < 0$: the empty set.
+
+\end{itemize}
+The contour plot of $w = x^2 + y^2 + z^2$ is thus 
+%
+\mar{The contours \\are spheres}
+%
+a nest of concentric spheres, as shown in the illustration
+below.\index{level surface} The value of $w$ is constant on each
+sphere.  (The tops of the spheres have been cut away so you can see
+how the spheres nest; the whole thing resembles an onion.)
+
+\special{psfile=../ps/915/SHELLS1.PS}
+
+\newpage
+
+Below is the contour plot of another standard function 
+%
+\mar{A standard minimax}	
+%
+with three input variables:
+\[
+w = f(x, y, z) = x^2 + y^2 - z^2.
+\]
+A quarter of each surface has been cut away so you can see how the
+surfaces nest together.  Note that $w = 0$ is a cone, and every
+surface with $w < 0$ consists of two disconnected (but congruent)
+pieces---an upper half and a lower half.\index{minimax}
+
+You should compare this function to the standard minimax $x^2 - y^2$
+in two variables.  The three-variable function $w$ has a minimum with
+respect to {\em both\/} of the variables $x$ and $y$, while it has a
+maximum with respect to $z$.  (Do you see why?  The arguments are
+exactly the same as they were for two input variables on
+page~\pageref{saddle}.)
+%
+\mar{The contours \\are hyperbolic shapes}	
+%
+Furthermore, the contours of $x^2 - y^2$ are a family of hyperbolas,
+and the contours of $x^2 + y^2 - z^2$ are surfaces obtained by
+rotating these hyperbolas about a common axis.
+
+\special{psfile=../ps/915/SHELLS2.PS}
+\special{psfile=../ps/915/SHELLS3.PS}
+
+\newpage
+
+It is a general fact---and our two examples 
+%
+\mar{When there are three input variables, the contours are surfaces}	
+%
+provide good evidence for it---that a single contour of a function of
+three variables is a {\em surface}.  Thus a contour is a curve or a
+surface, depending on the number of input variables.  We often use the
+term {\bf level set}\index{level set} (rather than a level {\em
+  curve\/} or a level {\em surface\/})\index{level
+  surface}\index{surface!level} as a generic name for a contour.
+
+\subsection{Exercises}
+
+In many of these exercises it will be essential to have a computer
+program to make graphs, terraced density plots, and contour plots of
+functions of two variables.
+	
+\numa Use a computer to obtain a graph of the function $z = \sin{x}
+\sin{y}$ on the domain $0 \leq x \leq 2 \pi$, $0 \leq y \leq 2 \pi$.
+How many maximum points do you see?  How many minimum points?  How
+many saddles?
+
+\sub Determine, as well as you can from the graph, the location of the
+maximum, minimum, and saddle points.
+
+\num Continuation.  Make the domain $-2 \pi \leq x \leq 2 \pi$, $-2
+\pi \leq y \leq 2 \pi$ and answer the same questions you did in the
+previous exercise.  (Does the graph look like an egg carton?)
+
+\num Obtain a terraced density plot (or a contour plot) of $z =
+\sin{x} \sin{y}$ on the domain $-2 \pi \leq x \leq 2 \pi$, $-2 \pi
+\leq y \leq 2 \pi$.  Locate the maximum, minimum, and saddle points of
+the function.  Do these results agree with those from the previous
+exercise?
+
+\num Obtain the graph of $z = \sin{x} \cos{y}$ on the domain $0 \leq x
+\leq 2 \pi$, $0 \leq y \leq 2 \pi$.  How does this graph differ from
+the one in exercise~1?  In what ways is it similar?
+
+\num\label{quartic} Obtain the graph of $z = 2x + 4 x^2 - x^4 - y^2$
+when $-2 \leq x \leq 2$, $-4 \leq y \leq 4$.  Locate all the minimum,
+maximum, and saddle points in this domain.  [Note: the minimum is on
+  the boundary!]
+
+\num Continuation.  Obtain a terraced density plot (or contour plot)
+for the function in the previous exercise, using the same domain.  Use
+the plot to locate all the minimum, maximum, and saddle points.
+Compare your results with those of the previous exercise.
+
+\numa Obtain the graph of $z = 2x - y$ on the domain $-2 \leq x \leq
+2$, $-2 \leq y \leq 2$.  What is the shape of the graph?
+
+\sub Graph the same function of the domain $2 \leq x \leq 6$, $0 \leq
+y \leq 4$.  What is the shape of the graph?  How does this graph
+compare to the one in part (a)?
+
+\numa Continuation.  Sketch three different slices of the graph of $z
+= 2x - y$ in the $y$-direction.  What do the slices have in common?
+How are they different?
+
+\sub Answer the same questions for slices in the $x$-direction.
+
+\numa Obtain the graph of $z = .3 x + .8 y + 2.3$; choose the domain
+yourself.  Where does the graph intercept the $z$-axis?
+
+\sub Describe the vertical slices of this graph in the $y$-direction
+and in the $x$-direction.
+
+\num Describe the vertical slices of the graph of $z = px + qy + r$ in
+the $y$-direction and in the $x$-direction.
+
+\numa Compare the contours of the function $z = x^2 + 2 y^2$ to those
+of $z = x^2 + y^2$.
+
+\sub What is the shape of the graph of $z = x^2 + 2 y^2$?  Decide this
+first using only the information you have about the contours.  Then
+use a computer to obtain the graph.
+
+\numa Compare the contours of the function $z = x^2 - 2 y^2$ to those
+of $z = x^2 - y^2$.
+
+\sub What is the shape of the graph of $z = x^2 - 2 y^2$?  Decide this
+first using only the information you have about the contours.  Then
+use a computer to obtain the graph.
+
+\numa Obtain a contour plot of the function $z = x^2 + xy + y^2$.
+
+\sub What is the shape of the graph of $z = x^2 + xy + y^2$?  Decide
+this first using only the information you have about the contours.
+Then use a computer to obtain the graph.
+
+\numa Obtain a contour plot of the function $z = x^2 + 3xy + y^2$.
+
+\sub What is the shape of the graph of $z = x^2 + 3xy + y^2$?  Decide
+this first using only the information you have about the contours.
+Then use a computer to obtain the graph.
+
+\numa Obtain a contour plot of the function $z = x^2 + 2xy + y^2$.
+
+\sub What is the shape of the graph of $z = x^2 + 2xy + y^2$?  Decide
+this first using only the information you have about the contours.
+Then use a computer to obtain the graph.
+
+\num Complete this statement: The function $f(x, y; p) = x^2 + p xy +
+4 y^2$, which depends on the parameter $p$, has a minimum at the
+origin when \rule[-1pt]{30pt}{.3pt} and a minimax when
+\rule[-1pt]{30pt}{.3pt}\,.
+
+\numa Obtain the graph and a terraced density plot of the function $z
+= 3x^2 + 17 xy + 12 y^2$.  What is the shape of the graph?
+
+\sub What is the shape of the contours?  Indicate how the contours fit
+on the graph.
+
+\numa Obtain the graph and a terraced density plot of the function $z
+= 3x^2 + 7 xy + 12 y^2$.  What is the shape of the graph?
+
+\sub What is the shape of the contours?  Indicate how the contours fit
+on the graph.
+
+\numa Obtain the graph and a terraced density plot of the function $z
+= 3x^2 + 12 xy + 12 y^2$.  What is the shape of the graph?
+
+\sub What is the shape of the contours?  Indicate how the contours fit
+on the graph.
+
+
+\num Obtain the graph of $z = f(x, y) = xy$ on the domain $-3 \leq x
+\leq 3$, $-3 \leq y \leq 3$.  Does this function have a maximum or a
+minimum or a saddle point?  Where?
+
+\numa Continuation.  Sketch slices of the graph of $z = xy$ in the
+$y$-direction, for each of the values $x = -2$, $-1$, 0, 1, and 2.
+What is the general shape of each of these slices?
+
+\sub Repeat part (a), but make the five slices in the
+$x$-direction---that is, fix $y$ instead of $x$.
+
+\num Continuation.  Show how the slices you obtained in the previous
+exercise fit (or appear) on the graph you obtained in the exercise
+just before that one.
+
+\numa Continuation.  Let $x = u + v$ and $y = u - v$.  Express $z$ in
+terms of $u$ and $v$, using the fact that $z = xy$.  Then obtain the
+graph of $z$ as a function of the new variables $u$ and $v$.
+
+\sub What is the shape of the graph you just obtained?  Compare it to
+the graph of $z = xy$ you obtained earlier.
+
+\num Can you draw a network of straight lines on the saddle surface $z
+= x^2 - y^2$?
+
+\num Obtain a terraced density plot of $z = xy$.  How do the contours
+of this plot fit on the graph of $z = xy$ you obtained in a previous
+exercise?
+
+\num The graphs of $z = x^2 + 5 xy + 10 y^2$ and $z = 3$ intersect in
+a curve.  What is the shape of that curve?
+
+\num The graphs of $z = x^2 + y^3$ and $z = 0$ intersect in a curve.
+What is the shape of that curve?
+
+\num The graphs of $z = 2x - y$ and $z = .3 x + .8 y + 2.3$ intersect
+in a curve.  What is the shape of that curve?
+
+
+\subsubsection{First integrals}
+\vspace{-10pt}
+\index{first integral}
+
+\num A hard spring\index{hard spring}\index{spring!hard} described by
+the dynamical system
+\[
+\dfrac{dx}{dt} = v, \qquad \quad \dfrac{dv}{dt} = - cx - \beta x^3,
+\]
+has a first integral of the form
+\[
+E(x, v) = \tfrac {1}{2}c x^2 + \tfrac {1}{2} \beta x^4 + \tfrac{1}{2}v^2.
+\]
+This is the {\bf energy}\index{energy} of the spring.  (See
+chapter~7.3, especially exercise~13, page~\pageref{spring energy}.)
+
+\sub Let $c = 16$ and $\beta = 1$.  Obtain the graph of $E(x, v)$ on a
+domain that has the origin at its center.  Locate all the minimum,
+maximum, and saddle points in this domain.
+
+\sub What is the state of the spring (that is, its position $x$ and
+its velocity $v$) when it has minimum energy?
+
+\num A soft spring\index{soft spring}\index{spring!soft} described by
+the dynamical system
+\[
+\dfrac{dx}{dt} = v, \qquad \quad \dfrac{dv}{dt} = \dfrac{-25x}{1 + x^2},
+\]
+has an energy integral of the form
+\[
+E(x, v) = \tfrac{25}{2} \ln(1 + x^2) + \tfrac{1}{2}v^2.
+\]
+(See exercise~16, page~\pageref{ln first int}.)  
+
+\sub Obtain the graph of $E(x, v)$.  Experiment with different
+possibilities for the domain until you get a good representation.
+
+\sub Obtain a terraced density plot of $E(x, v)$ over the same domain
+you chose in part (a).  Compare the two representations of $E$.
+
+\sub Does the spring have a state of minimum energy?  If so, where is
+it?
+
+\sub Does the spring have a state of {\em maximum\/} energy?  Explain
+your answer.
+
+\numa {\bf The Lotka--Volterra equations}.\index{Lotka--Volterra
+  equations} According to exercise~33 of chapter~7.3
+(page~\pageref{L-V first int}), the function
+\[
+E(x, y) = .1 \ln{y} + .04 \ln{x} - .005 \, y -.004 \, x
+\]
+is a first integral of the dynamical system
+\begin{align*}
+x' &= .1 x - .005 \, xy,	\\
+y' &= .004 \, xy - .04 \, y.
+\end{align*}
+Obtain the graph of $E$ on the domain $1\leq x \leq 50$, $1 \leq y
+\leq 50$.  (Why not enlarge the domain to $0 \leq x \leq 50$, $0 \leq
+y \leq 50$?)
+
+\sub Find all maximum, minimum, and saddle points on this graph.  What
+is the connection between the maximum of $E$ and the equilibrium point
+of the dynamical system?
+
+\sub Obtain a contour plot of $E$ on the same domain as in part (a).
+Compare the contours of $E$ and the trajectories of the dynamical
+system.  (This reveals a {\em conservation of ``energy''\/} for the
+solutions of the Lotka-Volterra equations.)
+
+\numa Continuation.  Here is another first integral of the same
+dynamical system as in the previous exercise:
+\[
+H(x, y) = \dfrac{x^{0.04} y^{0.1}}{\exp(.005 \, y + .004 \, x)}.
+\]
+Obtain the graph of $H$ and compare it to the graph of $E$ in the
+previous exercise.
+
+\sub Obtain a contour plot of $H$, and compare the contours to the
+trajectories of the dynamical system.
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                        %
+%                                Section 2                               %
+%                                                                        %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Local Linearity}
+\index{local linearity}
+
+Local linearity is the central idea of chapter 3: it says that a graph
+looks straight when viewed under a microscope.\index{microscope} Using
+this observation we were able to give a precise meaning to the {\em
+  rate of change\/} of a function and, as a consequence, to see why
+Euler's method produces solutions to differential equations.  At the
+time we concentrated on functions with a single input variable.  In
+this section we explore local linearity for functions with two or more
+input variables.
+
+\subsection{Microscopic Views}
+
+Consider the cubic $f(x, y) = x^3 - 4x - y^2$ that we used as an
+example in the previous section.  We'll examine both the graph and the
+plot of $f$ under a microscope.\index{graph!magnifying
+  a}\index{graph}\index{graph!surface}
+%
+\mar{Magnifying \\a graph}	
+%
+In the figure below we see successive magnifications of the graph near
+the point where $(x, y) = (1.5, -1)$.  The initial graph, in the left
+rear, is drawn over the square
+\[
+-2.5 \leq x \leq 2.5, \qquad -2.5 \leq y \leq 2.5.
+\]
+With each magnification, the portion of the surface we see bends less
+and less.  {\bf The graph approaches the shape of a flat plane}.
+
+\special{psfile=../ps/921/micro1.ps}
+\special{psfile=../ps/921/micro2.ps}
+\special{psfile=../ps/921/micro3.ps}
+
+\newpage
+	
+Contour plots\index{plot!contour} for $f(x, y) = x^3 - 4x - y^2$
+appear below.  Again, we magnify near the point $(x, y) = (1.5, -1)$.
+Each window below is a small part of the window to its left.  In the
+large scale plot, which is the first one on the left, the contours are
+quite variable in their direction and spacing.  With each
+magnification, that variability decreases.  {\bf The contours become
+  straight, parallel, and equally
+  spaced}.\index{contour}\label{plots1}
+
+\special{psfile=../ps/921/micro4.ps}
+\vspace{158pt}
+
+The process of magnification thus leads us to functions whose graphs
+are flat and whose contours are straight, parallel, and
+equally-spaced.  As we shall now see, these are the linear functions.
+
+\subsection{Linear Functions}
+\index{linear function}
+\index{function!linear}
+
+A linear function 
+%
+\mar{Responses to\\ changes in input}	
+%
+is defined by the way its output responds to {\em changes\/} in the
+input.  Specifically, in chapter 1 we said
+\[
+y = f(x) \quad \mbox{is linear if} \quad \Delta y = m \cdot \Delta x.
+\]
+This is the simplest possibility: changes in output are strictly
+proportional to changes in input.  The multiplier\index{multiplier}
+$m$ is both the {\em rate\/} at which $y$ changes with respect to $x$
+and the {\em slope\/} of the graph of $f$.
+
+Exactly same idea defines a linear function 
+%
+\mar{The definition}	
+%
+of two or more variables: the change in output is strictly
+proportional to the change in any one of the inputs.
+\begin{center}
+\begin{picture}(330,70)		
+\put(0,0) {
+  \framebox(330,70){
+    \begin{minipage}{300pt}			
+      {\bf Definition}. The function $z = f(x_1, x_2, \ldots, x_n)$ is 
+      {\bf linear} \\if there are multipliers $p_1, p_2, \ldots, p_n$ for which
+      \vspace{-20pt}
+      
+	$$
+	\Delta z = p_1 \cdot \Delta x_1, \quad \Delta z = p_2 \cdot \Delta x_2,
+		\quad \ldots, \quad \Delta z = p_n \cdot \Delta x_n.
+	$$
+    \end{minipage}
+  }
+}
+\end{picture}
+\end{center}
+There is one multiplier for each input variable.  The multipliers are
+constants and they are, in general, all different.
+
+The definition describes how $z$ responds 
+%
+\mar{Partial and \\total changes}	
+%
+to each input separately.  We call each $p_j \cdot \Delta x_j$ a {\bf
+  partial change}.\index{change!partial} The multiplier $p_j = \Delta
+z/\Delta x_j$ is the corresponding {\bf partial rate of
+  change}.\index{partial rate of change}\index{rate of change!partial}
+Of course, several input variables may change simultaneously.  In that
+case, the {\bf total change}\index{total change}\index{change!total}
+in $z$ will just be the sum of the individual changes produced by the
+several variables:
+\[
+\Delta z = p_1 \cdot \Delta x_1 + p_2 \cdot \Delta x_2 +
+	 	\cdots + p_n \cdot \Delta x_n.
+\]
+
+Of course, if the total change of a function satisfies 
+%
+\mar{Another way \\to describe a \\linear function}	
+%
+this condition, then each partial change has the form $p_j \cdot
+\Delta x_j$.  (If only $x_j$ changes, then all the other $\Delta x_k$
+must be 0.  So $\Delta z$ becomes simply $p_j \cdot \Delta x_j$.)
+Consequently, the function must be linear.  In other words, we can use
+the formula for the total change as another way to define a linear
+function.
+\label{altdef}% 
+\begin{center}
+\begin{picture}(330,70)		
+\put(0,0) {
+  \framebox(330,70){
+    \begin{minipage}{300pt}			
+      {\bf Alternate definition}. The function $z = f(x_1, x_2, \ldots, x_n)$\\
+      is {\bf linear} if there are multipliers $p_1, p_2, \ldots, p_n$ for 
+      which
+      \vspace{-10pt}
+        $$
+	\Delta z = p_1 \cdot \Delta x_1 + p_2 \cdot \Delta x_2 +
+	 	\cdots + p_n \cdot \Delta x_n.
+	$$
+    \end{minipage}
+  }
+}
+\end{picture}
+\end{center}
+
+\subsubsection{Formulas for linear functions}  
+
+When $z = f(x_1, x_2, \ldots, x_n)$ is a linear function, 
+%
+\mar{From the definition\\ to a formula}	
+%
+we know how $\Delta z$ depends on the changes $\Delta x_j$, but that
+doesn't tell us explicitly how $z$ itself is related to the input
+variables $x_j$.  There are several ways to express this relation as a
+formula,\index{linear function!formula} depending on the nature of
+the information we have about the function.  For the sake of clarity,
+we'll develop these formulas first for a function of two variables: $z
+= f(x, y)$.
+\smallskip
+
+\noindent
+$\bullet$ {\bf The initial-value form}.\index{linear function!initial-value form}\index{initial-value form}
+%
+\mar{Given the partial\\ rates of change and\\ an initial point}
+%
+Suppose we know the value of a linear function at some given
+point---called the {\bf initial point}---and\index{initial point} we
+also know its partial rates of change.  Can we construct a formula for
+the function?  Suppose $z = z_0$ when $(x, y) = (x_0, y_0)$, and
+suppose the partial rates of change are
+\[
+p = \dfrac{\Delta z}{\Delta x} \qquad \mbox{and} \qquad
+		q = \dfrac{\Delta z}{\Delta y}.
+\]
+If we let
+\[
+\Delta x = x - x_0, \qquad \Delta y = y - y_0, \qquad \Delta z = z - z_0,
+\]
+then we can write
+\begin{align*}
+z - z_0 = \Delta z &= p \cdot \Delta x + q \cdot \Delta y \\
+		   &= p \cdot (x - x_0) + q \cdot (y - y_0).
+\end{align*}
+This is the initial-value form of a linear function.  For example, if
+the initial point is $(x, y) = (4, 3)$, $z = 5$, and the partial rates
+of change are $\Delta z/\Delta x = -\tfrac{1}{2}$, $\Delta z/\Delta y
+= +1$, the equation of the linear function can be written
+\[
+z - 5 = -\tfrac{1}{2} (x - 4) + (y - 3).
+\]
+
+\smallskip
+\noindent
+$\bullet$ {\bf The intercept form}.\index{linear function!intercept
+  form}\index{intercept form}
+%
+\mar{Given the partial\\ rates of change and\\ the $z$-intercept}
+%
+This is a special case of the initial-value form, in which the initial
+point is the origin: $(x, y) = (0, 0)$, $z = r$.  The formula becomes
+\[
+z - r = p  x + q y, \qquad \mbox{or} \qquad
+		z = p x + q  y + r.
+\]
+As we shall see, the graph of this function in $x, y, z$-space passes
+through the point $(x, y, z) = (0, 0, r)$ on the $z$-axis.  This point
+is called the \mbox{\bf{\boldmath
+    $z$}-intercept}\index{intercept}\index{$z$-intercept} of the
+graph.  Sometimes we simply call the number $r$ itself the
+$z$-intercept.
+
+Notice that, with a little algebra, we can convert the previous
+example to the form $z = -\tfrac{1}{2}x + y + 4$.  This is the
+intercept form, and the $z$-intercept is $z = 4$.
+\smallskip
+
+If there are $n$ input variables, $x_1$, $x_2$, \ldots , $x_n$, 
+%
+\mar{\vspace{44pt}The form of\\ a linear function\\ of $n$ variables}	
+%
+instead of two, and an initial point has coordiantes $x_1^0$, $x_2^0$,
+\ldots, $x_n^0$, then a linear equation has the following forms:
+\begin{alignat*}{2}
+\textbf{initial-value:}&\quad &  z - z_0 
+      &= p_1 (x_1 - x_1^0) + p_2 (x_2 - x_2^0) 
+		+ \cdots + p_n (x_n - x_n^0), \\
+\textbf{\boldmath $z$-intercept:}& &  z &= p_1  x_1 + p_2  x_2 
+		+ \cdots + p_n  x_n + r.
+\end{alignat*}
+
+\subsubsection{The graph of a linear function}
+\index{graph!linear function}
+\index{linear function!graph}
+
+On the left at the top of the next page is the graph of the linear
+function
+\[
+z = \tfrac{1}{2} x  + y + 4.
+\]
+The graph is a flat plane.  In particular, grid lines\index{grid line}
+parallel to the $x$-axis (which represent vertical slices\index{slice}
+with $y = c$) are all straight lines with the same slope $\Delta
+z/\Delta x = -\tfrac{1}{2}$.  The other grid lines (with $x = c$) are
+all straight lines with the same slope $\Delta z/\Delta y = +1$.
+
+\newpage
+
+\mbox{}
+ \special{psfile=../ps/922/linear1.ps}
+ \special{psfile=../ps/922/linear2.ps}
+\vspace{144pt}
+
+{\small
+	\noindent
+	\hspace{40pt}
+	$z = - \tfrac{1}{2} x  + y + 4$
+	\hspace{135pt}
+	$z = px + qy + r$
+}
+\vspace{10pt}
+
+On the right, above, is the graph of the general linear function
+written in intercept form: $z = px + qy + r$.  The graph is the plane
+that can be identified by three distinguishing features:
+
+$\bullet$ it has slope\index{slope} $p$ in the $x$-direction; 
+	
+$\bullet$ it has slope $q$ in the $y$-direction.
+
+$\bullet$ it intercepts the $z$-axis at $z = r$; 
+\smallskip
+	
+Let's see how we can {\em deduce\/} 	 
+%
+\mar{The definition of\\ a linear function\\ implies that its graph\\ is a
+  flat plane}
+%
+that the graph must be this plane.  First of all, the partial rate
+$\Delta z/\Delta x$\index{rate of change!partial} tells us how $z$
+changes when $y$ is held fixed.  But if we fix $y = c$, we get a
+vertical slice of the graph in the $x$-direction.  The slope if that
+vertical slice is $\Delta z/\Delta x = p$.  Since $p$ is constant, the
+slice is a straight line.  The value of $y = c$ determines which slice
+we are looking at.  Since $\Delta z/\Delta x$ doesn't depend on $y$,
+all the slices in the $x$-direction have the {\em same\/} slope.
+Similarly, all the slices in the $y$-direction are straight lines with
+the same slope $q$.  The only surface that can be covered by a grid of
+straight lines in this way is a flat plane.  Finally, since $z = r$
+when $(x, y) = (0, 0)$, the graph intercepts the $z$-axis at $z = r$.
+
+\subsubsection{Contours of a linear function}
+\index{linear function!contours}
+\index{contour!linear function}
+
+A contour of {\em any\/} function 
+%
+\mar{Each contour is\\ a straight line}	
+%
+$f(x, y)$ is the set of points in the $x, y$-plane where $f(x, y) =
+c$, for some given constant $c$.  If $f = px + qy + r$, then a contour
+has the equation
+\[
+px + qy + r = c \qquad \mbox{or} \qquad 
+		y = - \dfrac{p}{q}x + \dfrac{c - r}{q}.
+\]
+This is an ordinary straight line in the $x, y$-plane.  Its slope is
+$-p/q$ and its $y$-intercept is $(c - r)/q$.  \label{contourslope} (If
+$q = 0$ we can't do these divisions.  However, this causes no problem;
+you should check that the contour is just the vertical line $x = (c -
+r)/p$.)
+
+\special{psfile=../ps/922/linear3.ps}
+
+\noindent
+\begin{minipage}[t]{3.5in}
+\quad \ To construct a contour plot, we must give the constant $c$ a
+sequence of equally-spaced values $c_j$, with $c_{j+1} = c_j + \Delta
+c$.  This generates a sequence of straight lines
+\[
+px + qy + r = c_j, \quad \mbox{or} \quad 
+		y = - \dfrac{p}{q}x + \dfrac{c_j - r}{q}.
+\]
+These lines all have the same slope $-p/q$, so they are parallel.
+(Notice the value of $c$ doesn't affect the slope.)  The $y$-intercept
+of the $j$-th contour is $(c_j - r)/q$.  Therefore, the distance along
+the $y$-axis \linebreak
+\end{minipage}
+
+\vspace{-8pt}
+
+\noindent
+between one intercept and the next is $\Delta c/q$.  The contours are
+thus straight, parallel, and equally-spaced.  (You should check that
+this is still true if $q = 0$.)  Note that the figure at the left,
+above, is drawn with $\Delta c > 0$ but $q < 0$.
+
+\subsubsection{Geometric interpretation of the partial rates}
+
+What happens to the graph or the contour plot if you double one of the
+partial rates of change\index{rate of change!partial}\index{partial
+  slope}\index{slope!partial} of a linear function?
+%
+\mar{Partial rates and partial slopes}	
+%
+The graph on the right, below, shows the effect of doubling the
+partial rate with respect to $x$ of the function $z = - \tfrac{1}{2}x
++ y + 4$.  As you can see, the slope in the $x$-direction \linebreak
+
+\vspace{-5pt}
+	
+\special{psfile=../ps/922/linear4.ps}
+\special{psfile=../ps/922/linear5.ps}
+\vspace{160pt}
+
+{\small
+	\noindent
+	\hspace{55pt}
+	$z = -\tfrac{1}{2} x  + y + 4$
+	\hspace{105pt}
+	$z = -x + y + 4$
+}
+
+\newpage
+
+\noindent
+is doubled (from $-\tfrac{1}{2}$ to $-1$).  Had we increased the
+partial rate by a factor of~10, the slope would have increased by a
+factor of~10 as well.  Notice that the slope in the $y$-direction is
+not affected.  
+%
+\mar{The overall tilt\\ of a graph is altered}
+%
+Nevertheless, the overall `tilt' of the graph {\em has\/} been
+altered.  We shall have more to say about this feature in a moment,
+when we introduce the {\bf gradient}\index{gradient} of a linear
+function to describe the overall tilt.
+\medskip
+
+A change in the partial rates has a more complex effect on the contour
+plot.  Perhaps it is more surprising, too.  To make valid comparisons,
+we have constructed all three plots below with the same spacing
+between levels (namely $\Delta z = 1$).  Notice how the levels meet
+the $x$- and $y$-axes in the plot on the left ($z = -tfrac{1}{2}x + y
++4$).
+%
+\mar{Partial rate and the spacing of contours} 	
+%
+For each unit step we take along the $y$-axis, the $z$-value increases
+by 1.  This is the meaning of $\Delta z/\Delta y = +1$.  By contrast,
+we have to take {\em two\/} unit steps along the $x$-axis to produce
+the same size change in $z$.  Moreover, $z$ {\em decreases\/} by 1
+when $x$ increases by 2.  This is the meaning of $\Delta z/\Delta x =
+-\tfrac{1}{2}$.  In particular, the relatively wide spacing between
+$z$-levels along the $x$-axis reflects the relative smallness of
+$\Delta z/\Delta x$.
+ 
+
+
+\vspace{13pt}
+\special{psfile=../ps/922/linear6.ps}
+\special{psfile=../ps/922/linear7.ps}
+\special{psfile=../ps/922/linear8.ps}
+\vspace{138pt}
+
+{\small
+	\noindent
+	\hspace{-3pt}
+	$z = -\tfrac{1}{2} x  + y + 4
+	\hspace{65pt}
+	z = -x + y + 4$
+	\hspace{65pt}
+	\mbox{$z = -x + 2y + 4$}
+}
+
+\vspace{5pt}
+
+Therefore, when we double the size of $\Delta z/\Delta x$---as we do
+in the middle plot---we should cut in half
+%
+\mar{The larger \\the partial rate, \\the closer \\the contours} 
+%
+the spacing between $z$-levels along the $x$-axis.  As you can see,
+this is exactly what happens.  Notice that the spacing along the
+$y$-axis is not altered.  Consequently, the contours change direction
+and they get packed more closely together.
+
+Suppose we double {\em both\/} partial rates---as we do in the plot on
+the right.  Then the spacing between contours is cut in half along
+both axes.  Because the change is uniform, the contours keep their
+original direction.
+
+\newpage
+
+\subsection{The Gradient of a Linear Function}
+\index{linear function!gradient}
+\index{gradient}
+
+By making use of the concept of a vector,\index{vector} introduced in
+the last chapter, we can construct
+%
+\mar{The vector of\\ partial rates}	
+%
+still another geometric interpretation of the partial
+rates\index{rate of change!partial} of a linear function. This vector
+is called the gradient, and it is defined in the following way.
+\begin{center}
+\begin{picture}(340,75)		
+\put(0,0) {
+  \framebox(340,75){
+    \begin{minipage}{310pt}			
+{\bf Definition}.  The {\bf gradient} of a linear function $z = f(x,
+y)$ is the vector whose components are its partial rates of
+change:
+\linebreak%
+\vspace{-8pt}
+$$
+\mbox{grad $z$} = \nabla z\index{$\nabla$}  
+  = \left(\dfrac{\Delta z}{\Delta x}, \dfrac{\Delta z}{\Delta y}\right).
+$$ 
+    \end{minipage}
+  }
+}
+\end{picture}
+\end{center}
+	
+The gradient is perhaps the most concise and useful tool for
+describing the growth of a
+%
+\mar{The direction of\\ most rapid growth}	
+%
+function of several variables.\index{growth!most rapid} To get an
+idea of the role that it plays, consider this question: {\em In what
+  direction should we move from a given point in the $x, y$-plane so
+  that the value of a linear function increases most rapidly\/}?
+
+\vspace{10pt}
+	
+\special{psfile=../ps/922/linear9.ps}
+\special{psfile=../ps/922/linear10.ps}
+\special{psfile=../ps/922/linear11.ps}
+
+Of course, the answer will depend on the linear function.  
+%
+\mar{\hspace{-20pt} $z = -\tfrac{1}{2} x + y + 4$}		
+%
+Let's use $z = -\tfrac{1}{2} x + y + 4$ and start from the point $(x,
+y) = (2.4, 1.6)$.  We can make $z$ undergo a very large change simply
+by moving very far from this point.  Therefore, to make valid
+comparisons, we will restrict ourselves to motions that carry us
+exactly one unit of distance in various directions.  The vectors in
+the figure at the right show some of the possibilities.  Their tips lie
+on a circle of radius~1.
+	
+Thus, to choose the direction in which $z$ increases most rapidly, we
+must simply find the point on this circle where the value of $z$ is
+largest.  The contour line at this level must be tangent to the
+circle.  The vector perpendicular to this contour line (see the second
+figure) therefore points in the direction of most rapid growth.  Since
+perpendiculars have negative reciprocal slopes, and since all the
+contour lines have slope $+1/2$, it follows that the vector must have
+slope $-2/1$.
+	
+At the left is a magnified view of this vector.  We know 
+\[
+\Delta x < 0, \qquad \dfrac{\Delta y}{\Delta x} = -2, \qquad 
+	\mbox{and} \qquad  (\Delta x)^2 + (\Delta y)^2 = 1.
+\]
+Thus $\Delta y = -2 \cdot \Delta x$, so $(\Delta x)^2 + 4 \, (\Delta
+x)^2 = 1$.  This implies
+\[
+5 \, (\Delta x)^2 = 1, \qquad \mbox{so} \qquad 
+	\Delta x = \dfrac{-1}{\sqrt{5}}, \quad 
+	\Delta y = \dfrac{2}{\sqrt{5}}.
+\]
+	
+Thus, among all the motions $(\Delta x, \Delta y)$ we have considered, we obtain the greatest change in $z$ by choosing
+\[
+(\Delta x, \Delta y) = 
+		\left(\dfrac{-1}{\sqrt{5}}, \dfrac{2}{\sqrt{5}}\right).
+\]
+To determine how large this change is, we can use 
+%
+\mar{The magnitude of\\ most rapid growth}
+%
+the alternate definition of a linear function (see
+page~\pageref{altdef})
+	$$
+	\Delta z = \dfrac{\Delta z}{\Delta x} \cdot \Delta x + 
+			\dfrac{\Delta z}{\Delta y} \cdot \Delta y
+		= -\dfrac{1}{2} \cdot \dfrac{-1}{\sqrt{5}} + 
+			1 \cdot \dfrac{2}{\sqrt{5}}
+		= \dfrac{5}{2 \sqrt{5}} = \dfrac{\sqrt{5}}{2}.
+	$$
+
+\special{psfile=../ps/922/linear12.ps}
+	
+The gradient vector quickly gives us all this information.  First of all, the gradient vector has the value
+\[
+\mbox{grad $z$} = 
+	\left( \dfrac{\Delta z}{\Delta x}, \dfrac{\Delta z}{\Delta y}\right) 
+	= \left( -\tfrac{1}{2}, 1 \right).
+\]
+Since its slope is $1/-\tfrac{1}{2} = -2$, we see that it does indeed
+point in the direction of most rapid growth.
+%	
+\mar{Information from\\ the gradient}	
+%
+Consequently, it is also perpendicular to the contour
+line. Furthermore, its {\em length\/} gives the maximum growth rate.
+We can see this by calculating the length using the Pythagorean
+theorem:\index{Pythagorean theorem}
+	$$
+	\mbox{length} = \sqrt{\left(\dfrac{\Delta z}{\Delta x}\right)^2 +
+	 	\left(\dfrac{\Delta z}{\Delta y} \right)^2} =
+		\sqrt{\dfrac{1}{4} + 1} = 
+		\sqrt{\dfrac{5}{4}} = 
+		\dfrac{\sqrt{5}}{2}.
+	$$
+Our findings with this example point to the following conclusion.
+	
+\begin{center}
+\begin{picture}(360,70)(5.2,0)		
+\put(0,0) {
+  \framebox(360,70){
+    \begin{minipage}{330pt}			
+      {\bf Theorem}.  The gradient of the linear function $z = px + qy + r$ is perpendicular to its contour lines.  It points in the direction in which $z$ increases most rapidly, and its length is equal to the maximum rate of increase.\label{gradtheorem} 
+    \end{minipage}
+  }
+}
+\end{picture}
+\end{center}
+
+Let's see why this is true.   
+%
+\mar{A proof}	
+%
+According to the observation on the previous page, the direction of
+most rapid increase will be perpendicular to the contour lines.  The
+gradient of $z = px + qy + r$ is the vector $\nabla z = (p, q)$.  Its
+slope is $q/p$.  On page~\pageref{contourslope} we saw that the slope
+of the contour lines is $-p/q$.  Since these slopes are negative
+reciprocals, the gradient is indeed perpendicular to the contour
+lines.
+\label{grad}   
+
+To determine the maximum rate of increase, we must see how much $z$
+increases when we move exactly 1 unit of distance in the gradient
+direction.  The gradient vector is $(p, q)$, and its length is
+$\sqrt{p^2 + q^2}$.  Therefore, the vector
+	$$
+	(\Delta x, \Delta y) = 
+	\left(\dfrac{p}{\sqrt{p^2 + q^2}}, \dfrac{q}{\sqrt{p^2 + q^2}}\right)
+	$$
+is 1 unit long and in the same direction as the gradient.  The
+increase in $z$ along this vector is
+	$$
+\Delta z = p \cdot \Delta x + q \cdot \Delta y =
+   p \cdot \dfrac{p}{\sqrt{p^2 + q^2}} + q \cdot \dfrac{q}{\sqrt{p^2 + q^2}}
+   = \dfrac{p^2 + q^2}{\sqrt{p^2 + q^2}} = \sqrt{p^2 + q^2}.
+	$$
+This {\em is\/} the length of the gradient vector, 
+%
+\mar{End of the proof}
+%
+so we have confirmed that the length of the gradient is equal to the
+maximum rate of increase.
+	
+\vspace{13pt}	
+\special{psfile=../ps/922/linear13.ps}
+\special{psfile=../ps/922/linear14.ps}
+\special{psfile=../ps/922/linear15.ps}
+\vspace{138pt}
+
+{\small
+	\noindent
+	\hspace{20pt}
+	$z = -\tfrac{1}{2} x  + y + 4$
+	\hspace{65pt}
+	$z = -x + y + 4$
+	\hspace{65pt}
+	\mbox{$z = -x + 2y + 4$}
+}
+
+\vspace{6pt} 
+
+Shown above are the three linear functions we've already
+examined.\index{plot!contour} In each case the gradient vector is
+perpendicular to the contours,
+%
+\mar{Contour spacing and\\ the length \\of the gradient}
+%
+and it gets longer as the space between the contours {\em decreases}.
+This is to be expected because the space between contours is also an
+indicator of the maximum rate of growth of the function.
+Widely-spaced contours tell us that $z$ changes relatively little as
+$x$ and $y$ change; closely-spaced contours tell us that $z$ changes a
+lot as $x$ and $y$ change.
+\medskip
+	
+The connection between the\index{gradient!geometric interpretation} 
+%
+\mar{The gradient points directly uphill}	
+%
+gradient and the graph is particularly simple. Since the gradient
+(which is a vector in the $x, y$-plane) points in the direction of
+greatest increase, it points in the direction in which the graph is
+tilted up.  If we project the gradient vector onto the graph, as in
+the figure at the top of the next page, it points directly ``uphill''.
+Putting it another way, we can \linebreak
+	
+\newpage
+
+\special{psfile=../ps/922/linear16.ps}
+\hfill
+\noindent
+\begin{minipage}[t]{3.6in}
+say that the gradient shows us the ``overall tilt'' of the graph.
+There are two parts to this information.  First, the direction of the
+gradient tells us which way the graph is tilted.  Second, the length
+tells us how steep the graph is.
+
+\quad \ The figure at the left combines all the visual elements we
+have introduced to analyze a linear function: contours, graph, and
+gradient.  Study it to see how they are related.
+ \end{minipage}
+
+
+
+
+\subsection{The Microscope Equation}
+\index{microscope equation}
+
+\subsubsection{Local linearity}
+\index{local linearity}
+
+Let's return to arbitrary functions of two variables---that is, ones
+that are not necessarily linear.\index{function!of two variables}
+%
+\mar{Local linearity}	
+%
+First we looked at magnifications of their graphs and contour plots
+under a microscope.  We found that the graph becomes a plane, and the
+plot becomes a series of parallel, equally-spaced lines.  Next, we saw
+that it is precisely the linear functions which have planar graphs and
+uniformly parallel contour plots. Hence this function is {\bf locally
+  linear}.
+
+Of course, not {\em every\/} function is locally linear, 
+%
+\mar{Exceptions}	
+%
+and even a function that {\em is\/} locally linear at most points may
+fail to be so at particular points.  We have already seen this with
+functions of a single variable in chapter 3.  For example, $g(x) =
+x^{2/3}$ is locally linear everywhere {\em except\/} the origin.  It
+has a sharp spike\index{spike} there.  The two-variable function $f(x,
+y) = (x^2 + y^2)^{1/3}$ has the same sort of spike at the origin.  The
+two graphs help make it clear that $g$ is just a slice of~$f$\linebreak
+\vspace{-10pt}
+
+ \special{psfile=../ps/922/linear18.ps}
+ \special{psfile=../ps/922/linear17.ps}
+\vspace{165pt}
+
+\noindent
+{\small
+\hspace{35pt}
+$z = g(x) = x^{2/3}$
+\hspace{85pt}
+$z = f(x, y) = (x^2 + y^2)^{1/3}$
+}
+
+\noindent
+(constructed by taking $y = 0$).  (Compare chapter~3.2, pages
+\pageref{cusp-begin}--\pageref{cusp-end}.)  The spike is just one
+example; there are many other ways that a function can fail to be
+locally linear.
+
+Functions that are
+%
+\mar{The relation between calculus and fractals}	
+%
+{\em nowhere\/} locally linear are now being used in science to
+construct what are called {\bf fractal}\index{fractal} models.
+However, calculus does not deal with fractals.  On the contrary, we
+remind you of the stipulation first made in chapter 3:
+\begin{center}
+\begin{picture}(255,40)
+%\begin{thicklines}
+\put(0,0){\framebox (255,40)
+{\shortstack {
+{\bf Calculus studies functions that are} \\[2pt]
+{\bf locally linear almost everywhere.}
+}}}
+%\end{thicklines}
+\end{picture}
+\end{center}
+
+\subsubsection{The microscope equation with two input variables}
+
+If the function $z = f(x, y)$ is locally linear, 
+%
+\mar{The equation of a microscopic view}	
+%
+then its graph looks like a plane when we view it under a microscope.
+The linear equation that describes that plane is the {\bf microscope
+  equation}.\index{microscope equation} Since the plane is part of the
+graph of $f$, $f$ itself must determine the form of the microscope
+equation.  Let's see how that happens.
+
+The idea is to reduce $f$ to a function of one variable and then use
+the microscope equation for one-variable functions (described in
+chapter~3.3 and~3.7).  Suppose the microscope is focused at
+the point $(x, y) = (a, b)$.  If we fix $y$ (at $y = b$), then $z$
+depends on $x$ alone: $z = f(x, b)$.  The microscope equation
+%
+\mar{\vspace{5pt} The microscope equation in the $x$-direction\ldots}	
+%
+for this function at $x = a$ is just
+	$$
+\Delta z \approx \dfrac{\partial f}{\partial x}(a, b) \cdot \Delta x.
+	$$
+The multiplier\index{multiplier}\index{slope!partial}\index{partial
+  slope}\index{partial derivative}\index{derivative!partial}
+$\partial f/\partial x$ is the rate of change of $f$ with respect
+to~$x$.  We need to write it as a partial derivative because $f$ is a
+function of two variables.  Geometrically, the multiplier tells us the
+slope of a vertical slice of the graph in the $x$-direction.
+
+Now reverse the roles of $x$ and $y$, fixing $x = a$.  The microscope
+equation for the function $z = f(a, y)$
+%
+\mar{\vspace{13pt} \ldots and in the $y$-direction}	
+%
+at $y = b$ is
+	$$
+	\Delta z \approx \dfrac{\partial f}{\partial y}(a, b) \cdot \Delta y.
+	$$
+The multiplier $\partial f/\partial y$ in this equation is the slope
+of a vertical slice of the graph in the $y$-direction.  The slopes of
+the two vertical slices are indicated in the microscope window that
+appears in the foreground of the following figure.
+
+
+\newpage
+
+\mbox{}
+
+\vspace{-30pt}
+\special{psfile=../ps/921/micro5.ps}
+\special{psfile=../ps/921/micro6.ps}
+\vspace{268pt}
+
+The separate microscope equations 
+%
+\mar{From partial changes\\ to total change}	
+%
+for the $x$- and $y$-directions give us the partial changes in $z$.
+However, as we saw when we were defining linear functions
+(page~\pageref{altdef}), when we know all the {\em partial\/}
+changes,\index{change!partial} we can immediately write down the {\em
+  total\/} change:\index{change!total}\index{microscope equation}
+\begin{center}
+\begin{picture}(240,70) 
+	\put(0,-2){\framebox (240,67)
+	{\shortstack{
+	{\bf The microscope equation}: \\ [6pt]
+	$\Delta z \approx 
+	\dfrac{\partial f}{\partial x}(a, b) \cdot \Delta x
+	+ \dfrac{\partial f}{\partial y}(a, b) \cdot \Delta y$
+	}}
+}
+\end{picture}
+\end{center}
+
+As always, the origin of the microscope window corresponds to the
+point $(a, b, f(a, b))$ on which the microscope is focused.  The
+microscope coordinates $\Delta x$, $\Delta y$, and $\Delta z$ measure
+distances from this origin.  For the sake of clarity in the figure
+above, we put the origin at one corner of the (three-dimensional)
+window.
+
+Incidentally, the function shown above is $f(x, y) = x^3 - 4x - y^2$, 
+%
+\mar{An example}	
+%
+and the microscope is focused at $(a, b) = (1.5, -1)$.  Since
+	$$
+\dfrac{\partial f}{\partial x} = 3 x^2 - 4 = 2.75, \qquad \qquad
+		\dfrac{\partial f}{\partial y} = -2 y = 2
+	$$
+when $(x, y) = (1.5, -1)$, the microscope equation is
+	$$
+	\Delta z \approx 2.75 \, \Delta x + 2 \, \Delta y.
+	$$
+
+%\subsubsection{Linear approximation}
+\subsection{Linear Approximation}
+\index{linear approximation}
+\index{approximation!linear}
+
+The microscope equation 
+%
+\mar{The microscope equation gives \\a linear approximation}	
+%
+describes a linear function that approximates the original function
+near the point on which the microscope is focused.  It is easy to see
+exactly how good the approximation is by comparing contour plots of
+the two functions.  This is done below.  In the window on the right,
+which shows the highest magnification, the solid contours belong to
+the original function $f = x^3 - 4x - y^2$.  They are curved, but only
+slightly so.  The dotted contours belong to the linear function
+	$$
+	(z + 3.625) = 2.75 (x - 1.5) + 2 (y + 1) \quad \mbox{or} \quad
+		z = 2.75 \, x + 2 \, y - 5.75.
+	$$ 
+
+(This is the microscope equation expressed in terms of the original
+                variables $x$, $y$ and $z$ instead of the microscope
+                coordinates $\Delta x = x - 1.5$, $\Delta y = y -
+                (-1)$ and $\Delta z = z - (-3.625)$.)
+
+%We see here the difference between the {\em defining\/} form of a linear function and the {\em intercept\/} form.)  
+
+The
+%
+\mar{Comparing the contours \ldots}
+%
+difference between the two sets of contours shows us just how good the
+approximation is.  As you can see, the two functions are almost
+indistinguishable near the center of the window, which is the point
+$(x, y) = (1.5, -1)$.  As we look farther from the center, we find the
+contours of $f$ depart more and more from strict linearity.
+
+\special{psfile=../ps/922/micro7.ps}
+%\special{psfile=../ps/921/micro8.ps}
+
+\vspace{158pt}
+
+We can also compare 
+%
+\mar{\ldots and the graph\\ of the function and its linear approximation} 
+%
+the {\em graphs\/} of a function and its linear approximation.  The
+graph of the linear approximation is a plane, of course.  It is, in
+fact, the plane that is tangent to the graph of the function.
+
+In the left figure immediately below we see the tangent plane to
+the graph of $z = f(x, y) = x^3 - 4x -y^2$ at the point where $(x, y)
+= (1.5, -1)$.  On the right is a magnified view at the point of
+tangency.  The graph of $f$ is almost flat.  
+
+
+\mbox{}
+
+\special{psfile=../ps/923/micro9.ps}
+\special{psfile=../ps/923/micro10.ps}
+\vspace{132pt}
+
+\noindent
+The grid\index{grid line} helps us distinguish it from the tangent
+plane, which is solid gray.  Such close agreement between the graph
+and the plane demonstrates how good the linear approximation is near
+the point.  Notice, however, that the plane diverges from the graph as
+we move away from the point of tangency.
+
+At first glance you may not think that the
+plane\index{tangent}\index{tangent plane}
+%
+\mar{Tangent planes}
+%
+in the figures above is tangent to the surface.  The word ``tangent''
+comes from the Latin {\em tangere}, to touch.  We sometimes take this
+to mean ``touch at one point'', like the plane in the figure at the
+left, below.  More properly, though, two objects are {\bf tangent} if
+they have the same direction at a point where they meet.  The plane in
+the figures above {\em does\/} meet this condition---as the
+microscopic view helps make clear.
+ 
+\special{psfile=../ps/923/micro11.ps}
+\special{psfile=../ps/923/micro12.ps}
+\vspace{155pt}
+
+There are many different ways 
+%
+\mar{Elliptic points\ldots}
+%
+that a tangent plane can intersect a surface.  What happens depends on
+the shape of the surface at the point of tangency.  The surface could
+bend the same way in all directions at that point, or it could bend up
+in some directions and down in others.  In the first case, it will
+bend away from its tangent plane, so the two will meet at only one
+point.  This is called an {\bf elliptic point},\index{elliptic point}
+because the intersection turns into an ellipse if we push the plane in
+a bit.  The figure on the right, above, shows what happens.
+
+
+%\newpage
+
+\mbox{} 
+
+
+\special{psfile=../ps/923/micro9.ps}
+\special{psfile=../ps/923/micro13.ps}
+\vspace{135pt}
+
+\enlargethispage*{20pt}
+Suppose, on the other hand, that the surface bends up in some
+directions but down in others.  Then, in some intermediate directions,
+it will not be bending at all.\index{hyperbolic point}
+%
+\mar{\ldots and\\ hyperbolic points}	
+%
+In those directions it will meet its tangent plane---which doesn't
+bend, either.  Typically, there are two pairs of such directions.  The
+surface and the tangent plane then intersect in an~\textsf{X}.  This
+always happens at a minimax (or saddle point) on a graph. and it also
+happens at the first point we considered on the graph of $z = x^3 - 4x
+- y^2$.  This is shown again in the figure on the left above.  It is
+called a {\bf hyperbolic point}, because the intersection turns into a
+hyperbola if we push the plane a bit---as on the right.  The lines
+where the tangent plane itself intersects the surface are called {\bf
+  asymptotic lines},\index{asymptotic line} because they are the
+asymptotes of the hyperbolas.  (To make it easier to see the
+elliptical and hyperbolic intersections we made the surface grid
+finer.)
+
+\aside{The curve of intersection between a surface and a shifted
+  tangent plane is called the {\em Dupin indicatrix}.\index{Dupin
+    indicatrix} The Dupin indicatrix can take many forms besides the
+  ones we have described here.  However, at almost all points on
+  almost all surfaces it turns out to be an ellipse or a hyperbola.
+  More precisely, the indicatrix is {\em approximately\/} an ellipse
+  or a hyperbola---in the same way that the surface itself is only
+  approximately flat.}
+
+Most points on a surface fall into one of two regions; one region
+consists of elliptic points, the other of hyperbolic.
+%
+\mar{Parabolic points}	
+%
+Points on the boundary between these two regions are said to be {\bf
+  parabolic}.\index{parabolic point} On the graph of $z = x^3 - 4x -
+y^2$, if $x < 0$ the point is elliptic; if $x > 0$ it is hyperbolic;
+and if $x = 0$, it is parabolic.  Try to confirm this yourself, just
+by looking at the surface.
+
+\newpage
+
+\aside{The classification of the points into elliptical, parabolic,
+  and hyperbolic types is one of the first steps in studying the
+  curvature of a surface.\index{curvature}\index{differential
+    geometry}\index{geometry!differential} This is part of {\em
+    differential geometry\/}; calculus provides an essential language
+  and tool.  Differential geometry is used to model the physical world
+  at both the cosmic scale (general
+  relativity)\index{relativity!general} and the subatomic (string
+  theory).\index{string theory}}
+
+
+\subsection{The Gradient} 
+\index{gradient}
+
+Local linearity is a powerful principle.\index{local linearity}  
+%
+\mar{Consequences of\\ local linearity}	
+%
+It says that an arbitrary function looks linear when we view it on a
+sufficiently small scale.  In particular, all these statements are
+approximately true in a microscope window:
+	
+$\bullet$ the contours are straight, parallel, and equally spaced;
+
+$\bullet$ the graph is a flat plane (the tangent plane);
+
+$\bullet$ the function has a linear formula (the microscope equation);
+
+$\bullet$ the partial derivatives are the slopes of the graph in the \\
+\mbox{} \qquad directions of the axes.
+
+\noindent
+There is one more aspect of a linear function 
+%
+\mar{Extending the gradient to non-linear functions}
+%
+for us to interpret---the gradient.  Since partial rates become
+partial derivatives, we can make the following definition for an
+arbitrary locally linear function.\index{$\nabla$}
+\begin{center}
+\begin{picture}(320,75)		
+\put(0,-5) {
+  \framebox(320,80){
+    \begin{minipage}{290pt}			
+      {\bf Definition}.  The {\bf gradient} of a function $z = f(x, y)$ is the vector\index{vector} whose components are the partial derivatives:\index{partial derivative}\index{derivative!partial} 
+\linebreak
+\vspace{-20pt}
+      
+	$$
+	\mbox{grad $f$} = \nabla f  = (f_x, f_y) = 
+		\left( \dfrac{\partial f}{\partial x}, 
+		\dfrac{\partial f}{\partial y} \right).
+	$$
+    \end{minipage}
+  }
+}
+\end{picture}
+\end{center}
+
+The partial derivatives are functions, so the gradient varies from
+point to point.
+%
+\mar{The gradient\\ vector field}
+%
+Thus, gradients form a {\bf vector field}\index{vector field} in the
+same sense that a dynamical system\index{dynamical system} does (see
+chapter 8).  We draw the gradient vector $(f_x(x, y), f_y(x, y))$ as
+an arrow whose tail is at the point $(x, y)$.
+\medskip
+
+\noindent
+{\bf Example}.  \quad $f(x, y) = x^3 - 4x - y^2$, \quad
+	\mar{\vspace{50pt}Contours and gradient vectors together} 
+$\mbox{grad $f$} = (3x^2 - 4, -2y)$ 
+
+\special{psfile=../ps/924/grad1.ps}
+\special{psfile=../ps/924/grad2.ps}
+
+\newpage
+
+\noindent
+There is one thing you should notice about the previous figure: 
+%
+\mar{The vectors are rescaled for clarity}
+%
+we drew the gradient vectors much shorter than they actually are.  For
+instance, at the origin grad $f$ = $(-4, 0)$, but the arrow {\em as
+  drawn\/} is closer to $(-.25, 0)$.  The purpose of
+rescaling\index{rescaling} is to keep the vectors out of each other's
+way, so the overall pattern easier to see.
+
+The example shows contours as well as gradients so we can see how the
+two are related.  The result is very striking.  Even though the
+vectors vary in length and direction, and the contours vary in
+direction and spacing, the two are related the same way they were for
+a {\em linear\/} function (page~\pageref{grad}ff).
+%
+\mar{The relation between gradients and contours}	
+%
+First of all, each vector is perpendicular to the level curve that
+passes through its tail.  Second, the vectors get longer where the
+spacing between level curves gets smaller.  The similarity is no
+accident, of course; it is a consequence of local linearity.  We can
+summarize and extend our observations in the following theorem.  It is
+just a modification of the earlier theorem on the gradient of a linear
+function (page~\pageref{gradtheorem}).
+\begin{center}
+\begin{picture}(360,70)(5.2,0)		
+\put(0,0) {
+  \framebox(360,70){
+    \begin{minipage}{330pt}			
+      {\bf Theorem}.\label{gradtheorem2}  The gradient vector field of the function $z = f(x, y)$ is perpendicular to its contour lines.  At each point, the {\em direction\/} of the gradient is the direction in which $z$ increases most rapidly; the {\em length\/} is equal to the maximum rate of increase. 
+    \end{minipage}
+  }
+}
+\end{picture}
+\end{center}
+
+To see why this theorem is true, 
+%
+\mar{A proof}	
+%
+just look in a microscope.  The gradient and the contours become the
+gradient and the contours of the linear approximation at the point
+where the microscope is focused.  But we already know the theorem is
+true for linear functions, so there is nothing more to prove.
+
+There is a direct connection\index{gradient!geometric interpretation} 
+%
+\mar{The gradient\\ points uphill}
+%
+between the gradient field of a function $z = f(x, y)$ and its graph.
+Since the gradient (which is a vector in the \linebreak
+\vspace{-16pt}
+
+\special{psfile=../ps/924/grad3.ps}
+
+\noindent
+\begin{minipage}[t]{3.5in}	
+$x, y$-plane) points in the direction in which $z$ increases most
+  rapidly, it points in the direction in which the graph is tilted up.
+  Thus, if we project the gradient onto the graph, as we do in the
+  figure at the left, it points directly ``uphill''.  Since $f$ is not
+  a linear function, both the steepness and the uphill direction vary
+  from point to point.  The gradient vector field also varies; in this
+  way, it keeps track of the steepness of the graph and the direction
+  of its tilt.
+\end{minipage}
+
+\subsection{The Gradient of a Function of Three Variables}
+
+Let's take a brief glance at the gradient of a function $f(x, y,
+z)$.\index{function!of three variables}\index{gradient} It has three
+components:
+	$$
+\mbox{grad} f = \nabla f = \left( \dfrac{\partial f}{\partial x},
+	\dfrac{\partial f}{\partial y}, \dfrac{\partial f}{\partial z}
+		\right) = (f_x, f_y, f_z),
+	$$
+and it defines a vector field in $x, y, z$-space.  At each point, the
+gradient of $f$ is perpendicular to the level set through that point,
+and it points in the direction in which $f$ increases most rapidly.
+
+{\bf Example}.  In the two boxes below you can compare the gradient
+field of $f(x, y, z) = x^2 + y^2 - z^2$ with its level sets.
+%
+\mar{Visualizing a three-dimensional vector field}
+%
+At first glance,\index{vector field} you may not find a clear pattern
+to the gradient vectors.  After all, the picture is three-dimensional,
+and it is difficult to tell whether an arrow is near the front of the
+box or the back.  However, there is a pattern: at the top and the
+bottom of the\linebreak
+
+\vspace{-9pt} 
+
+\special{psfile=../ps/925/shells4.ps}
+\special{psfile=../ps/924/grad4.ps}
+\vspace{210pt}
+
+{\small
+\hspace{5pt}
+$x^2 + y^2 - z^2 = c$
+\hspace{125pt}
+$\nabla f = (2x, 2y, -2z)$
+}
+
+\vspace{6pt}
+\noindent
+box, arrows point inward; closer to the middle of the box, they flare
+outward.  The lowest values of the function occur along the $z$-axis,
+inside the shallow bowls that sit at the top and the bottom of the
+box.  The highest values occur outside the ``equatorial belt'' formed
+by the outermost level set. This is where the $x, y$-plane meets the
+middle of the box.  Notice also that the level sets are symmetric
+around the $z$-axis.  The gradient field has the same symmetry, though
+this is harder to see.
+
+\subsection{Exercises}
+
+
+In many of these exercises it will be essential to have a computer
+program to make graphs and contour plots of functions of two
+variables.
+	
+\numa Obtain the graph of $z = x^3 - 4x - y^2$ on a domain centered at
+the point $(x, y) = (1.5, -1)$, and magnify the graph until it looks
+like a plane.
+
+\sub Estimate, by eye, the slopes in the $x$-direction and the
+$y$-direction of the plane you found in part (a).  [You should find
+  numbers between +2 and +3 in both cases.]
+
+\num Obtain a contour plot of $z = x^3 - 4x - y^2$ on a domain
+centered at the point $(x, y) = (1.5, -1)$, and magnify the plot until
+the contours look straight, parallel, and equally spaced.  Compare
+your results with the plots on page~\pageref{plots1}.
+
+\num Continuation.  The purpose of this exercise is to estimate the
+rate of change $\Delta z/\Delta x$ at $(x, y) = (1.5, -1)$, using the
+most highly magnified contour plot you constructed in the last
+exercise.
+
+\special{psfile=../ps/925/contour1.ps}
+
+\sub What is the horizontal spacing $\Delta x$ between the two
+contours closest to the point $(1.5, -1)$?  See the illustration at
+the right.
+
+\sub Find the $z$-levels $z_1$ and $z_2$ of those contours, and then
+compute $\Delta z = z_2 - z_1$.
+
+\sub Compare the value of $\Delta z/\Delta x$ you now obtain with the
+slope in the $x$-direction that you estimated in exercise~1.
+
+\num Continuation.  Repeat all the work of the last exercise, this
+time for $\Delta z/\Delta y$.
+
+\subsubsection{Linear functions}
+\vspace{-10pt}
+
+\numa Find the $z$-intercept of the graph of the linear function given
+by the formula
+	$$
+	z - 3 = 2 (x - 4) - 3 (y + 1).
+	$$
+	
+\sub  Write the formula for this linear function in intercept form.
+
+\numa Write, in initial-value form, the formula for the linear
+function $z = L(x, y)$ for which $\Delta z/\Delta x = 3$, $\Delta
+z/\Delta y = -2$, and $L(1, 4) = 0$.
+
+\sub Write the intercept form of the same function.  What is the
+$z$-intercept of the graph of $L$?
+
+\numa Suppose $z$ is a linear function of $x$ and $y$, and $\Delta
+z/\Delta x = -7$, $\Delta z/\Delta y = 12$.  If $(x, y)$ changes from
+$(35, 24)$ to $(33, 33)$, what is the total change in $z$?
+
+\sub Suppose $z = 29$ when $(x, y) = (35, 24)$.  What value does $z$
+have when $(x, y) = (33, 33)$?  What value does $z$ have when $(x, y)
+= (0, 0)$?
+
+\sub  Write the intercept form of the formula for $z$ in terms of $x$ and $y$.
+
+
+\num Suppose $z$ is a linear function of $x$ and $y$ for which we have
+the following information: \addtolength{\arraycolsep}{8pt}
+\renewcommand{\arraystretch}{1.1}
+	$$
+	\begin{array}{r||r|r|r|r|r|r|r|r}
+	x  &  5  &  7  &  0  &     &  4  &  0  &  4  &    \\
+	\hline 
+	y  &  9  &  1  &  4  &  6  &  7  &  0  &     &  -1 \\
+	\hline \hline 
+	z  &  2  &     & 12  & -7  &  2  &     &  20 &  20 
+	\end{array}
+	$$
+\addtolength{\arraycolsep}{-8pt}
+\renewcommand{\arraystretch}{1}
+
+\sub  Fill in the blanks in this table. 
+	
+\sub  Write the formula for $z$ in intercept form.
+
+\numa Sketch the graph of $z = x - 2y + 7$ on the domain $0 \leq x
+\leq 3$, $0 \leq y \leq 3$.
+
+\sub Determine the slope of this graph in the $x$-direction, and
+indicate on your sketch where this slope can be found.
+
+\sub Determine the slope of this graph in the $y$-direction, and
+indicate on your sketch where this slope can be found.
+
+\num Continuation.  Draw the gradient vector of $z = x - 2y + 7$ in
+the $x, y$-plane, and then lift it up so it sits on the graph you drew
+in the previous exercise.  Does the gradient point directly
+``uphill''?
+
+\num  Sketch the graph of the linear function $z = L(x, y)$ for which
+	$$
+\dfrac{\Delta z}{\Delta x} = -1, \qquad \dfrac{\Delta z}{\Delta y} = .6,
+		\qquad L(1, 1) = 8.
+	$$
+Be sure your graph shows clearly the slopes in the $x$-direction and
+the $y$-direction, and the $z$-intercept.
+
+\num Continuation.  Draw the gradient of the function $L$ from the
+previous exercise, and lift it up so it sits on the graph of $L$ you
+drew there.  Does the gradient point directly uphill?
+
+\num What is the equation of the linear function $z = L(x, y)$ whose
+graph (a) has a slope of $-4$ in the $x$-direction, (b) a slope of +5
+in the $y$-direction, and (c) passes through the point $(x, y, z) =
+(2, -9, 0)$?
+
+\num Suppose $z = L(x, y)$ is a linear function whose graph contains
+the three points
+	$$
+	(1, 1, 2), \qquad \quad (0, 5, 4), \qquad \quad (-3, 0, 12).
+	$$
+
+\sub Determine the partial rates of change $\Delta z/\Delta x$ and
+$\Delta z/\Delta y$.
+
+\sub  Where is the $z$-intercept of the graph?
+
+\sub If $(4, 1, c)$ is a point on the graph, what is the value of $c$?
+
+\sub  Is the point $(2, 2, 4)$ on the graph?  Explain your position.
+
+\special{psfile=../ps/925/linear1.ps}
+\special{psfile=../ps/925/linear2.ps}
+\vspace{220pt}
+
+\num The figure on the left above is the contour plot of a function $z
+= L_1(x, y)$.
+
+\sub What are the values of $L_1(1, 0)$, $L_1(2, 0)$, $L_1(3, 0)$,
+$L_1(0, 3)$, $L_1(2, 3)$, and $L_1(0, 0)$?
+
+\sub What are the partial rates $\Delta L_1/\Delta x$ and $\Delta
+L_1/\Delta y$?
+
+\num Continuation.  Find the values of $L_1(3, 2)$, $L_1(7, 0)$,
+$L_1(7, 7)$, $L_1(1.4, 2.9)$, $L_1(-2, 9)$, $L(-10, -100)$.
+
+\sub Find $x$ so that $L_1(x, 0) = 0$.  Find $y$ so that $L_1(0, y) =
+0$.
+
+\num Continuation.  Write the intercept form of the formula for
+$L_1(x, y)$.
+
+\numa Find the partial rates $\Delta L_2/\Delta x$ and $\Delta
+L_2/\Delta y$ of the linear function $L_2$ whose contour plot is shown
+at the right on the previous page.
+
+\sub Obtain the intercept form of the formula for $L_2(x, y)$.
+
+\special{psfile=../ps/925/graph1.ps}
+\special{psfile=../ps/925/graph2.ps}
+\vspace{190pt}
+
+\num The figures above are the graphs of $L_1$ and $L_2$.  Which is
+which?  Explain your choice.  (Note that both graphs are shown from
+the same viewpoint.  The $x$-axis is on the right, and the $y$-axis is
+in the foreground.  The $z$-axis has no scale on it.)
+
+\num  Determine the gradient vectors of $L_1$ and $L_2$. 
+
+\sub Sketch the gradient vector of each function on the $x,y$-plane
+and on its own graph.  Does the gradient point directly uphill in each
+case?
+
+\num Suppose the gradient vector of the linear function $p = L(q, r)$
+is grad $p = \nabla p = (5, -12)$.  If $L(9, 15) = 17$, what is the
+value of $L(11, 11)$?
+
+\numa What is the gradient vector of the function $w = 2 u + 5 v$?
+
+\sub At what point on the circle $u^2 + v^2 = 1$ does $w$ have its
+largest value?  What is that value?
+
+\numa Write the formula of a linear function $z = L(x, y)$ whose
+gradient vector is grad $z = \nabla z = (-3, 4)$
+
+\sub Using your formula for $L$, calculate the total change in $L$
+when $\Delta x = 2$, $\Delta y = 1$.
+
+\numa Continuation; in particular, continue to use your formula for $z
+= L(x, y)$.  What is the value of $L(0, 0)$?
+
+\sub What is the maximum value of $z$ on the circle $x^2 + y^2 = 1$?
+At what point $(x, y)$ does $z$ achieve that value?
+
+\sub Determine the difference between the maximum and minimum values
+of $L$ on the circle $x^2 + y^2 = 1$.
+
+\ans{The difference is 10, independent of the formula you use.}
+
+\numa What value does $z = 7x + 3 y + 31$ have when $x = 5$ and $y =
+2$?
+
+\sub  If $x$ increases by 2, 
+%
+\mar{The concept of \\ a {\em trade-off\/}}
+%
+how must $y$ change so that the value of $z$ doesn't change.  (The
+change in $y$ needed to keep $z$ fixed when $x$ changes is called the
+{\bf trade-off}.\index{trade-off} See also chapter~3,
+page~\pageref{trade off}.)
+
+\sub  What is the trade-off in $y$ when $x$ increases by $\alpha$?
+
+\sub  What is the trade-off in $x$ when $y$ increases by $\beta$?
+
+\numa Suppose $z = L(x, y)$ is a linear function for which $\Delta
+z/\Delta x = 5$ and $\Delta z/\Delta y = -2$.  What is the trade-off
+in $y$ when $x$ increases by 50?
+
+\sub  What is the trade-off in $x$ when $y$ increases by 1?
+
+\num Suppose $z = L(x, y)$ is a linear function and suppose the
+trade-off in $y$ when $x$ increases by 1 is $-4$.
+
+\sub What is the trade-off in $y$ when $x$ is {\em decreased\/} by 3?
+
+\sub What is the trade-off in $x$ when $y$ is increased by 10?  [Note
+  that $x$ and $y$ are reversed here, in comparison to the earlier
+  parts of this question.]
+
+\num  Suppose $z = L(x, y)$ is a linear function for which we know
+	$$
+L(3, 7) = -2, \qquad \quad \dfrac{\Delta z}{\Delta x} = 2.
+	$$
+Suppose also that the trade-off in $y$ when $x$ increases by 10 is $-4$.
+
+\sub  What is the value of $L(7, 7)$?
+
+\sub  If $L(7, \beta) = -2$, what is the value of $\beta$?
+
+\sub  What is the value of $\Delta z/\Delta y$?
+
+\sub  Write the formula for $L(x, y)$ in intercept form.
+
+\numa Suppose the graph of the linear function $z = L(x, y)$ has a
+slope of $-1.5$ in the $x$-direction and $-2.4$ in the $y$-direction.
+What is the trade-off between $x$ and $y$?  That is, how much should
+$y$ change when $x$ is increased by the amount $\alpha$?
+
+\sub Suppose the partial slopes become $+1.5$ and $+2.4$ in the $x$-
+and $y$-directions, respectively.  How does that affect the trade-off?
+Explain.
+
+\numa Sketch in the $x, y$-plane the set of points where $z = 2x + 3y
++ 7$ has the value 34.
+
+\sub If $x = 10$ then what value must $y$ have so that the point $(x,
+y)$ is on the set in part (a)?
+
+\sub If $x$ increases from 10 to 14, how must $y$ change so that the
+point $(x, y)$ stays on the set in part (a)?  In other words, what is
+the trade-off?
+\medskip
+
+\vspace{-10pt}
+
+\aside{The set in the last question is called a {\em trade-off
+    line}.\index{trade-off line} Do you see that it is just a contour
+  line by another name?}
+
+\numa  Write, in intercept form, the formula for the linear function
+	$$
+	w - 4 = 3(x - 2) - 7(y + 1) - 2( z - 5).
+	$$
+
+\sub  What is the gradient vector of the linear function in part (a)?
+
+\num Suppose the gradient of the linear function $w = L(x, y, z)$ is
+$\nabla w = (1, -1, 4)$.  If $L(3, 0, 5) = 10$, what is the value of
+$L(1, 2, 3,)$?
+
+\num Describe the level sets of the function $w = f(x, y, z) = x + y +
+z$.
+
+
+\subsubsection{The microscope equation}
+\vspace{-10pt}
+
+\num Find the microscope equation for the function $f(x, y) = 3 x^2 +
+4 y^2$ at the point $(x, y) = (2, -1)$.
+
+\numa Continuation.  Use the microscope equation to estimate the
+values of $f(1.93, -1.05)$ and $f(2.07, -.99)$
+ 
+\sub Calculate the {\em exact\/} values of the quantities in part (a),
+and compare those values with the estimates.  In particular, indicate
+how many digits of accuracy the estimates have.
+
+\num Find the microscope equation for the function $f(x, y, z) = x^2 y
+\sin{z}$ at the point $(x, y, z) = (1, 1, \pi)$.
+
+\num  Suppose $f(87, 453) = 1254$ and
+	$$
+\dfrac{\partial f}{\partial x}(87, 453) = -3.4, \qquad \quad
+		\dfrac{\partial f}{\partial y}(87, 453) = 4.2.
+	$$
+Estimate the following values: $f(90, 453)$, $f(87, 450)$, $f(90,
+450)$, and $f(100, 500)$.  Explain how you got your estimates.
+
+\numa Continuation.  Find an estimate for $y$ to solve the equation
+$f(87, y) = 1250$.
+
+\sub  Find an estimate for $x$ to solve $f(x, 450) = 1275$.
+
+\num Continuation: a trade-off.  Go back to the starting values $x =
+87$, $y = 453$, and $f(87, 453) = 1254$.  If $x$ increases from 87 to
+88, how should $y$ change to keep the value of the function fixed at
+1254?
+
+\numa Suppose $Q(27.3, 31.9) = 15.7$ and $Q(27.9, 31.9) = 15.2$.
+Estimate the value of $\partial Q/\partial x(27.6, 31.9)$.
+
+\sub  Estimate the value of $Q(27, 31.9)$.
+
+\num Suppose $S(105, 93) = 10$, $S(110, 93) = 10.7$, $S(105, 95) =
+9.3$.  Estimate the value of $S(100, 100)$.  Explain how you made your
+estimate.
+
+
+\num Let $P$ be the point $(x, y, z) =(173, -29, 553)$.  Suppose $f(P)
+= 48$ and
+	$$
+	\dfrac{\partial f}{\partial x}(P) = 7, \qquad \quad
+		\dfrac{\partial f}{\partial y}(P) = -2, \qquad \quad
+		\dfrac{\partial f}{\partial z}(P) = 5.
+	$$
+Estimate the value of $f(175, -30, 550)$, and explain what you did.
+
+\numa What is the equation of the tangent plane to the graph of $z =
+xy$ at the point $(x, y) = (2, -3)$?
+
+\sub  Which has a higher $z$-intercept: the graph or the tangent plane?
+
+\numa  Suppose the function $H(x, y)$ has the microscope equation
+	$$
+	\Delta H \approx 2.53 \, \Delta x - 1.19 \, \Delta y
+	$$
+at the point $(x, y) = (35, 26)$.  Sketch the gradient vector $\nabla\!
+H$ at that point.
+
+\sub Pick the point exactly one unit away from $(35, 26)$ at which you
+estimate $H$ has the largest possible value.
+
+\ans{At $(35.324, 25.848)$, $H$ is about 2.796 units larger than it is
+  at $(35, 26)$.}
+
+\num Write the microscope equation for the function $V(x, y) = x^2 y$
+at the point $(x, y) = (25, 10)$.
+
+\numa  Continuation.  
+%
+\mar{Refer to the discussion of error propagation in chapter~3.4}
+%
+Suppose a cardboard carton has a square base that is 25 inches on a
+side and a height of 10 inches.  If there is an error of $\Delta x$
+inches in measuring the base and an error of $\Delta y$ inches in
+measuring the height, how much error will there be in the calculated
+volume?
+
+\sub  Why is this a continuation of the previous question?
+
+\num Continuation.  Which causes a larger percentage error in the
+calculated volume: a 1\% error in the measurement of the length of the
+base, or a 1\% error in the measurement of the height?
+
+\vspace{-10pt}
+
+\special{psfile=../ps/925/cone.ps}
+\hfill
+\begin{minipage}[t]{3.5in}
+\num A large basin in the shape of a cone is to be used as a water
+reservoir.  If the radius $r$ is 186 meters and the depth $h$ is 31
+meters, how much water can the basin hold, in cubic meters?
+\end{minipage}
+
+\numa Continuation.  If there were a 3\% error in the measurement of
+the radius, how much error would that lead to in the calculation of
+the capacity of the basin?
+
+\sub If there were a 5\% error in the measurement of the depth, how
+much error would there in the calculated capacity of the basin?
+
+\sub If {\em both\/} errors are present in the measurements, what is
+the total error in the calculated capacity of the basin?
+
+\num Continuation.  Suppose the measured radius of the basin ($r =
+186$ meters) is assumed to be accurate to within 2\%.  The depth has
+been measured at 31 meters.  Is it possible to make that measurement
+so accurate that the calculated capacity is known to within 5\%?  How
+accurate does the depth measurement have to be?
+
+\num Continuation.  Suppose the accuracy of the radius measurement can
+only be guaranteed to be 3\%.  Is it still possible to measure the
+depth accurately enough to guarantee that the calculated capacity is
+accurate to within 5\%?  Explain.
+\vspace{-10pt}
+
+\special{psfile=../ps/925/bowl.ps}
+
+\noindent
+\begin{minipage}[t]{3.5in}
+\num Let's give the basin the more realistic shape of a parabolic
+bowl.  If the radius $r$ is still 186 meters and the depth $h$ is
+still 31 meters, what is the capacity of the basin now?  Is it larger
+or smaller than the conical basin of the same dimensions?
+\end{minipage}
+
+\num Continuation.  Determine the error in the calculated capacity of
+the bowl if there were a 3\% error in the measurement of the radius
+and, at the same time, a 5\% error in the measurement of the depth.
+
+\num Continuation.  Is it possible for the calculated capacity to be
+accurate to within 5\% when the measured radius is accurate to within
+2\%?  How accurate does the measurement of the depth have to be to
+achieve this?
+
+\num The energy of a certain pendulum whose position is $x$ and
+velocity is $v$ can be given by the formula
+	$$
+	E(x, v) = 1 - \cos{x} + \tfrac{1}{2} v^2.
+	$$
+Suppose the position of the pendulum is known to be $x = \pi/2$ with a
+possible error of 5\% and its velocity is $v = 2$ with possible error
+of 10\%.  What is the calculated value of the energy, and how
+accurately is that value known?
+
+\numa  A frictionless pendulum conserves energy: 
+%
+\mar{The conservation\\ of energy leads to\\ a trade-off}
+%
+as the pendulum moves, the value of $E$ does not change.  Suppose $x =
+\pi/2$ and $v = 2$, as in the previous exercise.  When $x$ decreases
+by $\pi/180$ (this is 1~degree), does $v$ increase or decrease to
+conserve energy?
+
+\sub Approximately how much does $v$ change when $x$ decreases by
+$\pi/180$?
+
+
+
+\subsubsection{Linear approximations}
+
+\numa Write the linear approximation to $f(x, y) = \sin{x} \cos{y}$ at
+the point $(x, y) = (0, \pi/2)$.
+
+\sub Write the equation of the tangent plane to the graph of $f(x, y)$
+at the point $(x, y) = (0, \pi/2)$.
+
+\sub  Where does the tangent plane in part (b) meet the $x, y$-plane?
+
+\num  Suppose $w(3, 4) = 2$ while 
+	$$
+	\dfrac{\partial w}{\partial x}(3, 4) = -1, \qquad \quad
+		\dfrac{\partial w}{\partial y} (3, 4) = 3.
+	$$  
+Write the equation of the tangent plane of $w $ at the point $(3, 4)$.
+
+\numa Write the equation of the tangent plane to the graph of the
+function $\varphi(x, y) = 3 x^2 + 7 xy - 2 y^2 - 5x + 3 y$ at an
+arbitrary point $(x, y) = (a, b)$.
+
+\sub At what point $(a, b)$ is the tangent plane horizontal?
+
+\sub Magnify the graph of $\varphi$ at the point you found in part (b)
+until it looks flat.  Is it also horizontal?
+\medskip
+
+The next few exercises concern the Lotka--Volterra differential
+equations and their linear approximations at an equilibrium point.
+Specifically, consider the {\em bounded growth\/} system from
+chapter~4.1 (pages \pageref{L-V bounded
+  growth-begin}--\pageref{L-V bounded growth-end}):
+\begin{align*}
+R' &=  .1\,R  - .00001\,R^2 - .005\,RF,   \\
+F' &=  .00004\,RF - .04\,F.
+\end{align*}
+
+\vspace{-13pt}
+
+\num Confirm that the system has an equilibrium point at $(R, F) =
+(1000, 18)$.  Then obtain the phase portrait of the system near that
+point.  What kind of equilibrium is there at $(1000, 18)$?
+
+\num  Obtain the linear approximations of the functions
+\begin{align*}
+g_1(R, F) &= .1\,R  - .00001\,R^2 - .005\,RF,   \\
+g_2(R, F) &= .00004\,RF - .04\,F,
+\end{align*}
+at the point $(r, F) = (1000, 18)$.  Call them $\ell_1(R, F)$ and
+$\ell_2(R, F)$, respectively.
+
+\num  Obtain the phase portrait of the {\bf linear} dynamical system
+\begin{align*}
+R' &= \ell_1(R, F),   \\
+F' &= \ell_2(R, F).
+\end{align*}
+
+%\vspace{-8pt}
+
+\sub Does this system have an equilibrium at $(1000, 18)$?  Compare
+this phase portrait to the phase portrait of the original {\em
+  non\/}-linear system.
+
+
+
+
+\subsubsection{The gradient field}
+\vspace{-10pt}
+
+\numa Make a sketch of the gradient vector field of $f(x, y) = x^2 -
+y^2$ on the domain $-2 \leq x \leq 2$, $-2 \leq y \leq 2$.
+
+\sub Mark on your sketch where the gradient field indicates the
+maximum and the minimum values of $f$ are to be found in the domain.
+
+\num Repeat the previous exercise, using $f(x, y) = 2x + 4 x^2 - x^4 -
+y^2$ and the domain $-2 \leq x \leq 2$, $-4 \leq y \leq 4$.  (See
+exercises~5 and~6 in the previous section, page~\pageref{quartic}.)
+%qqq
+
+\num Continuation.  Add to your sketch in the previous exercise a
+contour plot of the function $f(x, y) = 2x + 4 x^2 - x^4 - y^2$ and
+confirm that each gradient vector is perpend1 of 82icular to the contour that
+passes through its base.  (Note: most vectors have no contour passing
+through their bases, so you have to infer the shape and position of
+such a contour from the contours that {\em are\/} drawn.)
+
+\num Draw a plausible set of contour lines for the function whose
+gradient vector field is plotted on the left below.
+
+\num Draw a plausible gradient vector field for the function whose
+contour plot is shown on the right below.  $H$ marks a local maximum
+and $L$ a local minimum.
+
+\special{psfile=../ps/925/gradient.ps}
+\special{psfile=../ps/925/contour2.ps}
+
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                        %
+%                                Section 3                               %
+%                                                                        %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{Optimization}
+\index{optimization}
+
+{\bf Optimization} is the process of making the best choice from a
+range of possibilities.  (``Optimum''\index{optimum} is the Latin word
+for {\em best}.)
+%
+\mar{The contexts\\ for optimization}     
+%
+We are all familiar with optimization in the economic arena: managers
+of an enterprise typically seek to to maximize profit or minimize cost
+by making conscious choices.  It is perhaps more surprising to learn
+that we sometimes use the same language to describe physical
+processes.  For instance, the atoms in a molecule are arranged so that
+their total energy is minimized.  A light ray travels from one point
+to another along the path that takes the least time.  Of course atoms
+and photons don't make conscious choices.  Nevertheless, the imagery
+of optimization is so vivid and useful that we try to invoke it
+whenever we can.
+
+Usually, there is a restriction---called a {\bf constraint}---on the
+choices that can be made to achieve to best possible
+outcome.\index{constraint}
+%
+\mar{Constrained optimization}  
+%
+For instance, consider a factory that makes tennis rackets.  We can
+expect that the factory managers are instructed to minimize cost {\em
+  while producing a given number of rackets}.  This is their
+constraint.  Production cost is a function of many quantities that the
+managers can control---the number of workers, the wage scale, and the
+cost of the raw materials are just a few.  When the managers choose
+values for these quantities that minimize the cost function, they must
+be sure those values will also satisfy the constraint.
+
+In mathematical terms, optimization 
+%
+\mar{Mathematical optimization} 
+%
+is the process of finding the minimum\index{minimum} or
+maximum\index{maximum} value of a function.  The presence of
+constraints complicates this task, as you shall see.
+
+\subsection{Visual Inspection}
+
+\special{psfile=../ps/931/OPT1.PS}
+\hfill
+\begin{minipage}[t]{3.5in}
+The maximum value of a function is the highest point on its graph; the
+minimum value is the lowest.  Shown at the right is the graph of $z =
+x^3 - 4x - y^2$ on the domain
+
+\vspace{-7pt}
+\begin{center}
+        $-2 \leq x \leq 3 \qquad -2 \leq y \leq 3$.
+\end{center}
+
+\vspace{-7pt}
+
+The maximum occurs where $(x, y) = (3, 0)$, and it has the value $z =
+15$.  The minimum is $z \approx -12.1$, when $(x, y) \approx (1.2,
+3)$.  Confirm this yourself by inspecting the graph and then
+calculating $z$.
+\end{minipage}
+
+\vspace{4pt}
+
+We'll use the term {\bf extreme}\index{extreme}\index{local
+  extreme}\index{extreme!local}
+%
+\mar{Extremes, and local extremes}      
+%
+to refer to either a maximum or a minimum.  In the example we see
+several {\em local\/} extremes.  These are points where the value of
+the function is larger or smaller than it is at any {\em nearby\/}
+point.  There are local minima at both left-hand corners of the graph,
+at $(-2, -2)$ and $(-2, 3)$.  There is another along the front edge,
+near $(1.2, -2)$.  There is a local maximum\index{maximum!local}\index{local maximum} in the interior, near $(-1.2, 0)$.  To
+decide which local minimum\index{minimum!local}\index{local minimum}
+is the {\em true\/} minimum, we must simply look.  It is the same for
+local maxima.
+
+In our example,\index{domain} 
+%
+\mar{The domain is \\a constraint}      
+%
+the domain of definition of the function acts as a {\em constraint}.
+If we change the domain, the positions of the extreme points can
+change.  For example, suppose we change the position of the right-hand
+border in stages: first, $x \leq 3$; second, $x \leq 2.5$; third, $x
+\leq 2$.  (Since the graph itself doesn't change, we use a grid to
+show the part of the graph that satisfies%
+\label{optimum1}% 
+\linebreak
+ 
+\vspace{12pt}
+\special{psfile=../ps/931/OPT2.PS}
+\special{psfile=../ps/931/OPT3.PS}
+\special{psfile=../ps/931/OPT4.PS}
+\vspace{155pt}
+
+\noindent
+the constraint in each case below.)  At the start, the maximum is on
+the boundary.  When we first move the boundary to the left (from $x =
+3$ to $x = 2.5$), 
+%
+\mar{The maximum moves\\---it even jumps} 
+%
+the maximum just moves with it.  However, when we move the boundary
+farther (from $x = 2.5$ to $x = 2$), the maximum jumps from the
+boundary to an interior point\index{interior point} \label{max}(near
+$(-1.2, 0)$).  During these changes the minimum is not affected.  It
+stays at the same place.
+
+The sudden jump in the maximum 
+%
+\mar{Catastrophes}
+%
+is called a {\bf catastrophe}.\index{catastrophe} The figures explain
+what happens.  We impose a constraint $x \leq a$, and then we reduce
+the value of the parameter~$a$.  At first, the maximum is at the
+boundary point $(a, 0)$.  The position of this point changes smoothly
+with $a$, causing a gradual drop in the value of the maximum.
+Eventually, the maximum reaches the same value as the interior local
+maximum.  (This happens when $a = 4/\sqrt{3}$; see the exercises.)  If
+$a$ continues to decrease, the local maximum at $(a, 0)$ then has a
+lower value than the local maximum at the interior point, so the true
+maximum jumps to the interior.
+
+There are many variations on this pattern.  Whenever a function
+depends on a parameter the positions of its extremes do, too.  There
+are many ways for the position of an extreme to jump suddenly {\em
+  while the parameter is changing gradually}.\index{parameter} Any
+such jump is called a catastrophe.
+        
+\aside{Catastrophes make the task of optimization more interesting.
+  If the maximum of a certain function gives the optimal solution to a
+  problem, and that maximum jumps to a new position, then the optimal
+  solution changes radically.  For example, suppose the problem is to
+  determine the minimum-energy configuration of atoms in a molecule.
+  When the minimum jumps catastrophically, there is a new
+  configuration of the same atoms, producing an {\em isomeric\/} form
+  of the molecule.
+        
+  The quest for an optimum does not have to involve mathematical
+  tools.  A good example is John Stuart Mill's\index{Mill, J. S.}
+  philosophy of ``the greatest good for the greatest number''.  In
+  politics a catastrophe is called a revolution.  Even scientific
+  research pursues an optimum in raising the question: ``What is the
+  best way to explain certain phenomena?''  The consensus in the
+  scientific community can change catastrophically, in what is called
+  a {\em paradigm shift\/}\index{paradigm shift} or an intellectual
+  revolution.  The geological theory of plate tectonics\index{plate
+    tectonics} is a familiar example.  Though proposed in the 1920s,
+  it was dismissed until the 1960s, when it was suddenly and
+  overwhelmingly accepted.}
+
+\vspace{20pt}
+
+\special{psfile=../ps/931/OPT5.PS}
+\special{psfile=../ps/931/OPT6.PS}
+\special{psfile=../ps/931/OPT7.PS}
+\hfill
+\begin{minipage}[t]{3.75in}
+\subsubsection{Density plots}
+We can also solve optimization problems by inspecting density
+plots.\index{plot!density}
+\label{density1}
+Suppose $z$ is the yield from a process that is controlled by two
+inputs $x$ and $y$, and
+        $$
+        z = 3xy - 2 y^2.
+        $$
+Initially we take $0 \leq x \leq 4$, $0 \leq y \leq 4$.  The maximum
+yield is at the darkest spot in the upper density plot.  It occurs on
+the right boundary, near $y = 3$.
+
+\quad \ The position of the maximum \index{maximum}is subject to
+change if we have to impose further constraints.\index{constraint} For
+instance, suppose the resource $y$ is more limited than we first
+assumed, requiring us to set $y \leq 2.3$.  With this added constraint
+we see that the maximum shifts to the corner $(x, y) = (4, 2.3)$.
+(The points shown in a lighter gray are the ones that have been
+removed from consideration by the new constraint.)
+\end{minipage}
+
+\newpage
+
+\special{psfile=../ps/931/OPT8.PS}
+\special{psfile=../ps/931/OPT9.PS}
+
+\noindent
+\begin{minipage}[t]{3.6in}
+\quad \ Besides limits on individual resources, we are often faced
+with a limit on {\em total\/} resources.  In our case, let's suppose
+the limit has the form
+\[
+x + y \leq 4.
+\]
+That means all points above the line $x + y = 4$ must be removed from
+consideration.  (They are shown in lighter gray.)  This new constraint
+causes the maximum to shift yet again.  It now appears near the point
+$(x, y) = (3, 1)$.
+\end{minipage}
+
+\vspace{2pt}
+
+As we add constraints that force the maximum to move, the density at
+each new maximum is less than it was at the previous one.  Thus, the
+value of the maximum itself decreases.
+%
+\mar{Constraints\\ reduce optimality}     
+%
+In other words, each added constraint makes the optimal solution
+slightly ``less optimal'' than it had been.  This is only to be
+expected.
+
+Of course the extremes may appear in the interior\index{interior point}\index{domain} 
+%
+\mar{Extremes\\ on the interior\\ of a density plot}        
+%
+of the domain as well as on the boundary---and density plots can show
+this.  Here are the density plots that correspond to the graphs of $z
+= x^3 - 4x - y^2$ that we saw on page~\pageref{optimum1}.  The maximum
+jumps to the interior\index{catastrophe} when the value of $a$ in the
+constraint $x \leq a$\linebreak
+
+\vspace{14pt}
+\special{psfile=../ps/931/OPT10.PS}
+\special{psfile=../ps/931/OPT11.PS}
+\special{psfile=../ps/931/OPT12.PS}
+\special{psfile=../ps/931/OPT13.PS}
+\special{psfile=../ps/931/OPT14.PS}
+\vspace{152pt}
+
+\noindent
+drops below $a = 4/\sqrt{3}$.  In all three plots the minimum appears
+as the bright spot at the top of the rectangle near where $x = 1$.
+(The exact location is $(x, y) = (2/\sqrt{3}, 3)$.)  We can also see a
+local minimum at the bottom of the rectangle near $x = 1$.  From the
+graph we know there are two more at the left corners of the rectangle,
+but they are harder to notice in the density plots.
+
+
+\subsubsection{Contour plots}
+
+A density plot is useful for showing the general location of the highs
+and lows, but we can get a more precise picture by switching to a
+contour plot.\index{plot!contour} Let's look at the contour plots of
+the same problems we just analyzed using density plots.
+
+\special{psfile=../ps/931/OPT15.PS}
+\special{psfile=../ps/931/OPT16.PS}
+\special{psfile=../ps/931/OPT17.PS}
+\hfill
+\begin{minipage}[t]{3.5in}
+\quad \ We'll start with the function $z = 3xy - 2 y^2$ we first
+considered on page~\pageref{density1} and search for its extremes
+subject to the constraints\index{constraint}
+\begin{gather*}
+0 \leq x,        \\
+0 \leq y \leq 2.3, \\
+x + y \leq 4, 
+\end{gather*}
+that we introduced earlier.  From the density plot on
+page~\pageref{density1} it was obvious that the values of $z$
+\linebreak
+\end{minipage}
+ 
+\vspace{-9pt}
+\noindent
+increase steadily from the upper left corner of the large square to
+the upper part of the right side.  In the contour plot, though, we
+need some sort of labels to show us where the low and high values of
+$z$ are to be found.
+
+\enlargethispage*{5pt}
+To locate the extremes within the constrained region, we need to find contours that carry the lowest and the highest values of $z$.  We can do this quite precisely.  
+%
+\mar{An extreme can occur\\ where a contour\\ is tangent to\\ the boundary}
+%
+The contour that just passes through the upper left corner---and meets
+the region at that point alone---carries the lowest value of $z$.  If
+you study the plot you can see that the contour carrying the {\em
+  highest\/} value of $z$ also touches the boundary at just a single
+point.  It is the contour that is tangent\index{tangent} to the line
+$x + y = 4$, and elsewhere lies outside the constrained region.
+
+\special{psfile=../ps/932/opt18.ps}
+\special{psfile=../ps/932/opt19.ps}
+\special{psfile=../ps/932/opt20.ps}
+\hfill
+\begin{minipage}[t]{3.5in}
+\quad \ Suppose the extreme is in the {\em interior\/}\index{interior
+  point} of the constrained region, rather than on the boundary.  For
+example, the function $z = x^3 - 4x - y^2$ has an interior maximum
+when
+\begin{gather*}
+-2 \leq x \leq 2        \\
+-2 \leq y \leq 3.
+\end{gather*}
+Around the maximum there is a nest of concentric ovals.  This pattern
+is characteristic for an interior extreme.  Notice the local maximum
+where a contour is tangent to the boundary line $x = 2$.
+\end{minipage}
+
+\vspace{3pt}
+
+These examples demonstrate\index{plot!contour} 
+%
+\mar{Contour patterns\\ at an extreme}    
+%
+that there are characteristic patterns that contour lines make near an
+extreme point.\index{extreme} One pattern appears along a
+constraint\index{constraint} \label{constraint} curve; another pattern
+appears at interior points of a domain.  We first 
+\linebreak
+ 
+\vspace{12pt}
+\special{psfile=../ps/932/opt21.ps}
+\special{psfile=../ps/932/opt22.ps}
+\vspace{100pt}
+
+\begin{center}
+Patterns of contour lines at an extreme point
+\end{center}
+
+\vspace{-6pt}
+\noindent
+met the pattern that appears at an interior\index{interior point}
+extreme point when we discussed the `standard' minimum ($x^2 + y^2$)
+and maximum ($-x^2 - y^2$) in section~1 (pages \pageref{standard min
+  max-begin}--\pageref{standard min max-end}).  {\bf Caution}: the
+patterns you see here are ``typical'', but they do not {\em
+  guarantee\/} the presence of an extreme point.  The exercises give
+you a chance to explore some of the subtleties.
+
+\subsection{Dimension-reducing Constraints}
+\index{constraint!dimension-reducing}
+
+Constraints appear frequently in optimization problems.  
+%
+\mar{How a constraint can reduce the dimension of a problem}    
+%
+Thus far, however, the constraints we considered have been described
+by {\em inequalities}, like $x + y \leq 4$.  Initially, $x$ and $y$
+give us the coordinates of a point in a two-dimensional plane.  The
+effect of the constraint $x + y \leq 4$ is to restrict the points $(x,
+y)$ to just a part of that plane---but it is still a {\em
+  two-dimensional\/} part.  Sometimes, though, the constraint is given
+by an {\em equality}, like $x + y = 4$.  In that case, the points $(x,
+y)$ are restricted to lie on a line---which is a one-dimensional set
+in the plane.  The second constraint therefore reduces the dimension
+of the problem.
+
+\vspace{18pt}
+\special{psfile=../ps/932/constr1.ps}
+\special{psfile=../ps/932/constr2.ps}
+
+\newpage
+
+        There is a standard form 
+        \mar{A standard form}   
+for any constraint that reduces a two-dimensional optimization problem to a one-dimensional problem.  The form is this:
+        $$
+\mbox{constraint:} \quad g(x, y) = 0.
+        $$ 
+For instance, the constraint $x + y = 4$ can be written this way by setting $g(x, y) = x + y - 4$.   We'll look at another example in a moment.  
+
+First, though, notice that $g(x, y) = 0$ is one of the contour lines
+of the function $g(x, y)$, namely, the contour at level zero.  Since
+the contours of $g$ are curves, we often call $g(x, y) = 0$ a {\bf
+  constraint curve}.\index{constraint curve}
+%
+\mar{A comment\\ on dimension}  
+%
+This curve is {\em one\/}-dimensional, even though it might twist and
+turn in a two-dimensional plane.  We say the curve is one-dimensional
+because it looks like a straight line under a microscope.  Likewise, a
+curved surface is two-dimensional because it looks like a flat plane
+under a microscope.\index{dimension!of a curve or surface}
+
+\medskip
+\noindent
+{\bf Example}.  Find the extreme values of $f(x, y) = x^2 + 8 x y + 3
+y^2 - 5 x$ subject to the constraint $g(x, y) = x^2 + y^2 - 4 = 0$.
+The constraint curve is a circle of radius~2, and the level curves of
+$z = f(x, y)$ form a set of hyperbolas.  We need to find the highest
+and the lowest $z$-levels on the constraint curve.
+
+\vspace{7pt}
+\special{psfile=../ps/932/constr3.ps}
+\vspace{165pt}
+
+The $z$-levels are labelled around the right and the bottom edges of
+the figure.
+%
+\mar{Finding the highest and lowest levels on the constraint curve}
+%
+It is in the third quadrant, near the point $(-1.4, -1.5)$, that the
+constraint curve meets the highest $z$-level. At that point $z$ is
+slightly more than 30.  The constraint curve is evidently tangent to
+the contour there.  The lowest $z$-level that the constraint curve
+meets is about $z = -16$, near the point $(1.6, -1.2)$.  Picture in
+your mind how the contours between $z = -10$ and $z = -20$ fit
+together.  Can you see that the constraint curve is
+tangent\index{tangent} to contour at the minimum?
+
+\newpage
+
+\noindent
+{\bf Example, continued}.  
+%
+\mar{Locate points on the constraint circle with a single variable $t$}
+%
+There is still more to say about the way the constraint $x^2 + y^2 - 4
+= 0$ reduces the dimension of our problem.  First of all, we can
+describe the coordinates of any point on the constraint circle by
+using the circular functions:
+        $$
+        x = 2 \cos{t}, \qquad y = 2 \sin{t}.
+        $$
+We need the factor 2 because the circle has radius 2.  These equations
+mean that $x$ and $y$ are now functions of a {\em single\/} variable,
+$t$.\index{function!of one variable} Next, consider the function
+        $$
+        z = f(x, y) = x^2 + 8 x y + 3 y^2 - 5x
+        $$
+that we seek to optimize {\em subject to the constraint}.  
+%
+\mar{$z$ becomes a\\ function of $t$}
+%
+But the constraint makes $x$ and $y$ functions of $t$.  Thus, {\em
+  when we take the constraint into account}, $z$ itself becomes a
+function of $t$:
+\begin{align*}
+z &= f(2 \cos{t}, 2 \sin{t})  \\
+  &= ( 2 \cos{t} )^2 + 8\, ( 2\cos{t} ) ( 2\sin{t} ) +
+                3 ( 2\sin{t} )^2 - 5 ( 2\cos{t} ).
+\end{align*} 
+The graph of {\em this\/} function is thus just an ordinary curve in
+the $t, z$-plane.  It is shown on the right, below.  A value of $t$
+determines a point on the circle, as shown in the contour plot on the
+left.  (We have taken $t \approx \pi/3$.)  The value of $z$ at that
+point then determines the height of the graph on the right.  As you
+can see, our chosen value of $t$ puts $z$ near a local maximum.
+
+\vspace{8pt}  
+\special{psfile=../ps/932/constr4.ps}
+\special{psfile=../ps/932/constr5.ps}
+
+\newpage
+
+\special{psfile=../ps/933/wrap1.ps}
+\hfill
+\begin{minipage}[t]{3.4in}
+{\bf Example, continued}.  Let's look at the graph of $z = x^2 + 8 x y
++ 3 y^2 - 5x$.  The constraint tells us that we should look {\em
+  only\/} at the points on the graph that lie above the circle $x^2 +
+y^2 - 4 = 0$.  These are the points where the graph intersects the
+cylinder\index{cylinder} that you see at the right.  The intersection
+is a curve that goes up and down around the cylinder.  At some point
+on the curve $z$ has a maximum, and at some other point it has a
+minimum.  (In fact, both the maximum and the minimum are visible in
+this view.)
+\end{minipage} 
+
+
+\vspace{3pt}
+
+Since the intersection curve lies on the cylinder, 
+%
+\mar{Unwrap the cylinder}       
+%
+we can get a better view of the curve if we slit open the cylinder and
+unwrap it.  Follow the sequence clockwise from the upper left.  We can
+use coordinates to describe the curve on the flattened cylinder.  The
+$t$ variable takes us around the cylinder, so it becomes the
+horizontal coordinate.  The $z$ variable measures vertical height.
+The $z$-range in the figure above is larger than we need: it goes from
+$-50$ to $+100$.  In the bottom row on the left we have rescaled the
+$z$-axis so it runs from $-20$ to $+35$.  Compare this graph with the
+one on the opposite page.
+        
+\special{psfile=../ps/933/wrap2.ps}
+\special{psfile=../ps/933/wrap3.ps}
+\special{psfile=../ps/933/wrap5.ps}
+\special{psfile=../ps/933/wrap6.ps}
+\special{psfile=../ps/933/wrap7.ps}
+
+\newpage
+
+\enlargethispage*{20pt}
+The example shows us how a constraint works 
+%
+\mar{A general view of the dimension-reducing effect of a constraint}   
+%
+to reduce the dimension of a problem in general.  Suppose we want to
+maximize the value of the function $z = f(x, y)$, subject to the
+constraint $g(x, y) = 0$.  Then:
+\begin{itemize}
+
+\item
+{\em Without\/} the constraint, we would look for the highest point on
+a {\em two\/}-dimensional surface in three-dimensional space.
+
+\item
+{\em With\/} the constraint, we would restrict our search to the
+vertical ``curtain''\index{curtain} that lies above the constraint
+curve.  The graph intersects this curtain in a curve, so we end up
+looking for the highest point on a {\em one\/}-dimensional curve in a
+two-dimensional plane.  We can think of this plane as the curtain
+after it has been unwrapped and straightened out.
+
+\end{itemize}
+
+\special{psfile=../ps/933/wrap9.ps}
+\special{psfile=../ps/933/wrap10.ps}
+\special{psfile=../ps/933/wrap11.ps}
+\vspace{170pt}
+
+\noindent
+This is just a picture of the relation between the function and the
+constraint.  We may still have to determine {\em analytically\/} the
+form that the function $f(x, y)$ takes when we impose the constraint
+$g(x, y) = 0$.  You can find a number of possibilities in the
+exercises.
+
+
+\subsection{Extremes and Critical Points}
+\index{extreme}
+\index{critical point}
+
+\special{psfile=../ps/933/sample.ps}
+
+\noindent
+\begin{minipage}[t]{3.6in}
+Suppose that a function $f(x, y)$ has a maximum\index{maximum} or a
+minimum\index{minimum} at an {\em interior\/}\index{interior point}
+point $(a, b)$.  Suppose also that the function is {\em locally
+  linear\/} at $(a, b)$, so we have a ``bowl'' rather than a
+``spike''\index{spike} or some other irregularity in the graph.  Then
+we must have
+        $$
+        \mbox{grad} f (a, b) = \left(\dfrac{\partial f}{\partial x}(a, b), 
+                \dfrac{\partial f}{\partial y}(a, b) \right)  = (0, 0).
+        $$
+\end{minipage}
+
+\newpage
+
+\noindent
+Here is why.  The gradient\index{gradient} vector $\mbox{grad} f (a, b)$ 
+%
+\mar{A proof}
+%
+tells us how the graph of $z = f(x, y)$ is tilted at the point $(a,
+b)$.  (We discuss the geometric meaning of the gradient on
+page~\pageref{gradtheorem2}.)  At a maximum or a minimum, though, the
+graph is {\em not\/} tilted; it must be flat.  Therefore, the gradient
+must be the zero vector.
+
+The ideas here carry over to functions 
+%
+\mar{Moving to\\ an arbitrary number\\ of input variables}  
+%
+that have any number of input variables.  First, we give a name to a
+point where the gradient is zero.
+\begin{center}
+\begin{picture}(320,60)(5.2,4)          
+\put(0,0) {
+  \framebox(320,60){
+    \begin{minipage}{290pt}                     
+      {\bf Definition}.  A {\bf critical point}\index{critical point} of a locally linear function is one where the gradient vector is zero.  Equivalently, all the first partial derivatives of the function are zero.\label{critical}
+    \end{minipage}
+  }
+}
+\end{picture}
+\end{center}
+The observation we just made can now be restated as a theorem that
+connects extreme points and critical points.
+\begin{center}
+\begin{picture}(320,60)(5.2,4)          
+\put(0,0) {
+  \framebox(320,60){
+    \begin{minipage}{290pt}                     
+      {\bf Theorem}.  If a locally linear function has a maximum or a minimum at an interior point of its domain, then that point must be a critical point.
+    \end{minipage}
+  }
+}
+\end{picture}
+\end{center}
+
+The direction of the implication in this theorem is important.  
+%
+\mar{A statement and\\ its  converse}
+%
+Here is the theorem, written in a very abbreviated form:
+        $$
+        \emph{statement}: \qquad 
+                \mbox{extreme} \Longrightarrow \mbox{critical}.
+        $$
+When we reverse the direction of the implication, we get a new
+statement, abbreviated the same way:
+\[
+        \emph{converse}: \qquad \quad
+                \mbox{critical} \Longrightarrow \mbox{extreme}.
+\]
+The converse\index{converse} says that a critical point must be an
+extreme point.
+%
+\mar{The converse of {\em this\/} theorem is not true}
+%
+But that is just not true.  For example, an ordinary saddle point (a
+minimax) is a critical point, but it is not a minimum or a maximum.
+
+The theorem and the observation 
+%
+\mar{\vspace{9pt}Searching\\ critical points\\ for extremes}    
+%
+about its converse are both important in the {\em
+  optimization\index{optimization} process\/}---that is, the search
+for extremes.  Together they offer us the following guidance:
+
+\medskip
+$\bullet$ Search for the extremes of a function among its critical points.
+
+\smallskip
+$\bullet$ A critical point may be neither a maximum nor a minimum.
+
+To see how we can find extremes by searching among the critical points
+of a function, we'll do a few examples.  All the examples use the same
+basic idea.  However, as the details get more complicated we bring in
+more powerful techniques.
+\medskip
+
+\noindent
+{\bf Example 1}.  We'll start with the function
+        $$
+        z = f(x, y) =  x^3 - 4 x - y^2
+        $$
+we have frequently used as a test case in this chapter.  
+
+The critical points of $f$ are the points that {\em simultaneously\/}
+satisfy the two equations\index{derivative!partial}
+\begin{align*}
+\dfrac{\partial f}{\partial x} &=  3 x^2 - 4 = 0, \\
+\dfrac{\partial f}{\partial y} &=  - 2 y = 0.
+\end{align*}
+        
+\special{psfile=../ps/934/contour1.ps}
+
+\noindent
+\begin{minipage}[t]{3.5in}
+It is clear that $y = 0$ and $x = \pm \sqrt{4/3} \approx \pm 1.1547$.
+The two critical points are therefore
+        $$
+        \left(+\sqrt{4/3}, 0\right) \qquad \mbox{and} \qquad 
+                \left(-\sqrt{4/3}, 0\right).
+        $$
+If you check the contour plot you can see that $(-\sqrt{4/3}, 0)$ is a
+local maximum\index{maximum!local} and $(+\sqrt{4/3}, 0)$ is a saddle
+point.\index{saddle point}
+\end{minipage}
+
+\medskip
+
+\noindent
+{\bf Example 2}.  Here is a somewhat more complicated function:
+        $$
+g(x, y) =  2 x^2 y - y^2 - 4 x^2 + 3 y.
+        $$
+The critical points are the solutions of the equations
+        $$
+\dfrac{\partial g}{\partial x} =  4 x y - 8 x = 0, \qquad \qquad
+        \dfrac{\partial g}{\partial y} =  2 x^2 - 2 y + 3 = 0.
+        $$
+Algebraic methods will still work, even though both variables appear in both equations.  For example, we can rewrite ${\partial g/\partial y} = 0$ as
+        $$
+        2y = 2 x^2 + 3 \qquad \mbox{or} \qquad 
+                y = x^2 + \tfrac{3}{2}.
+        $$
+We can then substitute this expression for $y$ into ${\partial g/\partial x} = 0$ and get
+        $$
+        4x \left(x^2 + \tfrac{3}{2}\right) - 8x =
+        4x \left( x^2 + \tfrac{3}{2} - 2 \right) =
+        4x \left( x^2 - \tfrac{1}{2} \right) = 0.
+        $$
+This implies $x = 0$ or $x = \pm \sqrt{1/2}$.  For each $x$ we can then find the corresponding $y$ by from the equation $y = x^2 + \tfrac{3}{2}$.  
+
+Let's work through this a second time using a geometric approach.  The
+equations ${\partial g/\partial x} = 0$ and ${\partial g/\partial y} =
+0$ both define curves in the $x, y$-plane.  The curve ${\partial
+  g/\partial y} = 0$ is a parabola: $y = x^2 + \tfrac{3}{2}$.  The
+equation ${\partial g/\partial x} = 0$ factors as
+        $$
+        4 x ( y - 2) = 0 \qquad \mbox{or} \qquad x ( y - 2 ) = 0.
+        $$
+
+\special{psfile=../ps/933/locus1.ps}
+\hfill
+\begin{minipage}[t]{3.5in}
+Now a product equals 0 precisely when one of its factors equals 0, so
+${\partial g/\partial x} = 0$ implies that {\em either\/} $x = 0$ {\em
+  or\/} $y - 2 = 0$.  In other words, the ``curve'' ${\partial
+  g/\partial x} = 0$ consists of two lines:
+\begin{alignat*}{2}
+x &= 0,   &\quad &\mbox{a vertical line}, \\
+y &= 2,   &\quad &\mbox{a horizontal line}.
+\end{alignat*}
+The two curves are shown in the figure at the right.  They intersect
+in three points.  (The place where the horizontal and vertical lines
+cross is {\em not\/} one of the intersection points.)
+\end{minipage}
+
+
+\vspace{3pt}
+
+One of the immediate benefits of the geometric approach is to make it
+clear that the $y$-coordinate of a critical point is either 2 or
+$\tfrac{3}{2}$.  The critical points are therefore
+
+\special{psfile=../ps/934/contour2.ps}
+\hfill
+\begin{minipage}[t]{3.5in}
+        $$
+        \left(-\sqrt{1/2}, 2 \right), \quad
+                \left(\vphantom{\sqrt{1/2}}
+                        0, \tfrac{3}{2} \right), \quad
+                \left(+\sqrt{1/2}, 2 \right).
+        $$
+A glance at the contour plot of $g$ makes it clear that the first and
+third of these are saddle points.  The middle point is a local
+maximum.  There are several ways to determine this.  One is to look at
+the graph of $g$.  Another is to look at a vertical slice of the graph
+through the line $x = 0$.  Then $z = g(0, y) = -y^2 + 3y$.  Here $z$
+has a maximum when $y = \tfrac{3}{2}$.
+\end{minipage}
+
+\bigskip
+        
+\aside{We first identified the local maximum of the function $z = x^3
+  - 4x - y^2$ on page~\pageref{max}.  At the time, though, we could
+  only estimate its position by eye.  Now, however, we can specify its
+  location exactly, because we have analytical tools for finding
+  critical points.  As the next example shows, these tools are useful
+  even when we can't carry out the algebraic manipulations.}
+
+\noindent
+{\bf Example 3}.  Here is a function whose critical points we {\em
+  can't\/} find using just algebraic computations:
+        $$
+        z = h(x, y) = x^2 y^2 - x^4 - y^4 - 2x^2 + 5 xy + y
+        $$
+The equations for the critical points are
+\vspace{-10pt}
+
+\special{psfile=../ps/934/contour3.ps}
+\special{psfile=../ps/934/contour4.ps}
+
+\noindent
+\begin{minipage}[t]{3.8in}
+\begin{align*}
+\dfrac{\partial h}{\partial x} &=  
+                2 x y^2 - 4 x^3 - 4 x + 5 y = 0,  \\[3pt]
+\dfrac{\partial h}{\partial y} &=  
+                2 x^2 y - 4 y^3 + 5 x + 1 = 0.
+\end{align*}
+Even though we can't solve the equations algebraically, we can plot
+the curves they define by using the contour-plotting program of a
+computer.\index{derivative!partial}\index{plot!contour} This is done
+at the right.  The curves intersect in three points.  (If you draw the
+plots on a large scale, you will find that these are still the only
+intersections.)
+
+\quad \ A contour plot of $z = h(x, y)$ itself reveals that the middle
+point is a saddle and the outer two are local maxima.  Let's focus on
+the maximum in the upper right and determine its position more
+precisely.
+
+\quad \ We can always use a microscope.  But if we magnify the contour
+plot, we just get a set of nested ovals.  The maximum would lie
+somewhere inside the smallest---but we wouldn't know quite where.  By
+contrast, the curves ${\partial h/\partial x} = 0$ and ${\partial
+  h/\partial y} = 0$ give us a pair of ``crosshairs'' to focus on.
+Even with relatively little magnification we can see that the maximum
+is at $(1.202\ldots, 1.404\ldots)$.
+\end{minipage}
+
+\special{psfile=../ps/934/contour5.ps}
+\special{psfile=../ps/934/contour6.ps}
+\special{psfile=../ps/934/contour7.ps}
+
+\newpage
+
+\subsection{The Method of Steepest Ascent}
+\index{steepest ascent!method of}
+\index{method of steepest ascent}
+
+Here is yet another way to find the maximum\index{maximum}  
+%
+\mar{Walk uphill to get\\ to a maximum}   
+%
+of a function $z = f(x, y)$.  Imagine that the graph of $f$ is a
+landscape that you're standing on.  You want to get to the highest
+point. To do that you just walk uphill.  But the uphill direction on
+the landscape is given by the gradient vector field of $f$ (see
+page~\pageref{gradtheorem2}).\index{gradient!geometric interpretation}
+% qqq  
+So you move to higher ground by following the gradient field.
+
+In fact, the gradient field defines a 
+%
+\mar{Trajectories of the gradient dynamical system\ldots}       
+%
+{\bf dynamical system}\index{dynamical system} of exactly the sort we
+studied in chapter~8.  The differential equations are\index{derivative!partial}
+\begin{align*}
+\dfrac{dx}{dt} &= \dfrac{\partial f}{\partial x}(x, y), \\[3pt]
+\dfrac{dy}{dt} &= \dfrac{\partial f}{\partial y}(x, y).
+\end{align*}
+Because the gradient points uphill, 
+%
+\mar{\ldots lead to\\ the local maxima}
+%
+the trajectories\index{trajectory} of this dynamical system also go
+uphill.  Trajectories flow to the attractors\index{attractor} of the
+system; these are the local maxima of the function.  Furthermore,
+since the gradient points in the direction $f$ increases {\em most
+  rapidly}, the trajectories follow paths of {\bf steepest ascent} to
+the maxima.  This explains the name of the method.
+\medskip
+
+{\bf Example 1}.  Let's see how the method of steepest ascent will
+find the local maxima of the function
+        $$
+        z = h(x, y) = x^2 y^2 - x^4 - y^4 - 2x^2 + 5 xy + y
+        $$
+
+\special{psfile=../ps/934/ascent1.ps}
+\hfill
+\begin{minipage}[t]{3.8in}
+we considered in the previous example.  The gradient field is
+\begin{align*}
+\dfrac{dx}{dt} &= 2 x y^2 - 4 x^3 - 4 x + 5 y. \\[3pt]
+\dfrac{dy}{dt} &= 2 x^2 y - 4 y^3 + 5 x + 1.
+\end{align*}
+As you can see at the left, some of the trajectories flow to a local
+maximum near $(-1, -1)$, while other flow to the maximum whose
+position we determine on the opposite page.  Each attractor has its
+own basin of attraction\index{basin of attraction} (as described in
+chapter 8).  Therefore, the maximum found by the method of steepest
+ascent depends on the initial point of the trajectory.
+\end{minipage}
+
+
+\newpage
+
+If we replace the gradient vectors by their negatives, 
+%
+\mar{The method of steepest {\em descent}}      
+%
+the new field will point directly {\em downhill\/}---to the local
+minima.  Using the trajectories of the negative gradient field to find
+the minima is thus called the method of steepest descent.  In the
+following example we use this method to investigate an economic
+question.\index{steepest descent!method of}\index{method of steepest
+  descent}
+\medskip
+
+\special{psfile=../ps/934/distrib1.ps}
+
+\noindent 
+{\bf Example 2}.  Manufacturing companies ship their products to
+regional warehouses from large distribution centers.  Suppose a
+company has regional warehouses at $A$, $B$, and $C$, as shown on the
+map at the right.  Where should it put its distribution center $X$ so
+as to minimize the total cost of supplying the three regional
+warehouses?
+\label{distribstart} 
+
+This is a complicated problem that depends on many factors.  For
+example, $X$ probably should be put near major roads.  The managers
+may also want to choose a location where labor costs are lower.
+Certainly, the total distance between the center and the three
+warehouses is important.  Let's simply get a {\em first
+  approximation\/} to a solution by concentrating on the last factor.
+%
+\mar{Minimize the\\ total distance}       
+%
+We will find the position for $X$ that minimizes the total
+straight-line distance (the distance ``as the crow flies'') from $X$
+to the three points $A$, $B$, and $C$.  The map shows these distances
+as three dotted lines.
+
+To describe the various positions we have introduced a coordinate
+system in which
+\[
+A: \ (0, 0), \qquad B: \  (6, 9), \qquad C: \ (10, 2).
+\]
+The coordinates here are arbitrary.  That is, they don't represent
+miles, or kilometers, or any of the usual units of distance---but they
+are {\em proportional\/} to the usual units, so we can measure with
+them.  If we let the unknown position of $X$ be $(x, y)$, then we seek
+to minimize the function
+        $$
+        S(x, y) = \sqrt{x^2 + y^2} + \sqrt{(x-6)^2 + (y-9)^2} 
+                + \sqrt{(x-10)^2 + (y-2)^2}.
+        $$
+
+According to the method of steepest descent, we want to find the
+attractor of this dynamical system:
+\begin{align*}
+\dfrac{dx}{dt} &= - \dfrac{x}{\sqrt{x^2 + y^2\vphantom{(y)^2)}}} - 
+      \dfrac{x - 6}{\sqrt{(x-6)^2 + (y-9)^2}} -
+      \dfrac{x - 10}{\sqrt{(x-10)^2 + (y-2)^2}}, \\
+\dfrac{dy}{dt} &= - \dfrac{y}{\sqrt{x^2 + y^2\vphantom{(y)^2)}}} - 
+      \dfrac{y - 9}{\sqrt{(x-6)^2 + (y-9)^2}} -
+      \dfrac{y - 2}{\sqrt{(x-10)^2 + (y-2)^2}}.
+\end{align*}
+
+\newpage
+
+\special{psfile=../ps/934/descent1.ps}
+\special{psfile=../ps/934/distrib2.ps}
+
+\mbox{}
+
+\vspace{150pt}
+
+As you can see from the vector field of the dynamical system 
+%
+\mar{The attractor is\\ a global minimum} 
+%
+(above left), there is a single attractor, near the point $(6, 4)$.
+This implies the total distance function $S(x, y)$ has a single global
+minimum---which is what our intuition about the problem would lead us
+to expect.
+        
+To find the position of $X$ more exactly, you can do the
+following. First, obtain a solution $(x(t), y(t))$ to the system of
+differential equations with an arbitrary initial condition---for
+example,
+        $$
+        x(0)  = 1, \qquad y(0) = 1.
+        $$
+Then, obtain the coordinates of the 
+%
+\mar{The attractor is the limit point of a solution} 
+%
+attractor by evaluating $(x(t), y(t))$ for larger and larger values of
+$t$, stopping when the values of $x(t)$ and $y(t)$ stabilize.  You
+will find that\index{limit}
+        $$
+        X = \lim_{t \to \infty}(x(t), y(t)) = (6.22120\ldots, 3.96577\ldots).
+        $$  
+
+The important point to note here is that it is not necessary to plot
+the vector field---or any other graphic aid, like a contour plot or
+graph.
+%
+\mar{The method needs only a differential equation solver}      
+%
+You simply need to solve a system of differential equations.  For
+example, the values above were found by modifying the computer program
+SIRVALUE\index{program!SIRVALUE} we
+introduced in chapter~2.  In summary: {\em the method of steepest
+  descent (or ascent) requires no graphical tools, but only a basic
+  differential equation solver}.\label{distribend}
+
+\newpage
+
+\subsection{Lagrange Multipliers}
+\index{Lagrange multiplier}
+\index{multiplier!Lagrange}
+
+In searching for the interior\index{interior point} extremes of a
+function $f(x, y)$, we have seen that it is helpful to solve the
+critical point equations:\index{critical point}
+\[
+\dfrac{\partial f}{\partial x} = 0, \qquad \quad
+                \dfrac{\partial f}{\partial y} = 0.
+\]
+There is a similar set of equations 
+%
+\mar{Equations for a constrained extreme} we can use in the search for
+the {\em constrained\/}\index{constraint}
+extremes\index{extreme}\index{constrained extreme}\index{extreme!constrained} of $f$.  These equations involve a new variable called
+a Lagrange multiplier.
+
+So, suppose the function $f(x, y)$ has an extreme on the constraint
+curve $g(x, y) = 0$\index{constraint curve} at the point $(a, b)$.
+According to the following diagram, the gradient\index{gradient}
+vectors $\nabla f$\index{$\nabla$}\index{gradient} and $\nabla g$ must
+be parallel at $(a, b)$.
+%
+\mar{$\nabla f$ and $\nabla g$ must be parallel at a point where $f$ has an extreme along the constraint curve $g = 0$} 
+%
+(This means they are in the same direction or in opposite directions.)
+Here is why.  We already know (see page~\pageref{constraint}) that the
+level curve of $f$ that passes through the constrained maximum or
+minimum must be tangent to the constraint curve.\index{gradient!geometric interpretation} Now, the gradient vector $\nabla f$ at any
+point is perpendicular to the level curve of $f$ through that
+point---and the same is true for $g$.  At a point where the level
+curves are tangent, the gradients $\nabla f$ and $\nabla g$ are
+perpendicular to the {\em same\/} curve, and must therefore be
+parallel.
+        
+        
+        
+\special{psfile=../ps/934/lagr1.ps}
+\vspace{190pt}
+
+Parallel vectors are multiples of each other.  
+%
+\mar{The multiplier equation}\index{multiplier equation}        
+%
+Specifically, at a point $(a, b)$ where $\nabla f$ and $\nabla g$ are
+parallel, there must be a number $\lambda$\index{$\lambda$} for which
+\[
+\nabla g (a, b) = \lambda \cdot \nabla f (a, b).
+\]
+The multiplier $\lambda$ is called a {\bf Lagrange multiplier}.  In
+the figure above, $\lambda \approx 1/2$.  If $\nabla g$ and $\nabla f$
+were in {\em opposite\/} directions, then $\lambda$ would be negative.
+
+\newpage
+
+\aside{Joseph Louis Lagrange\index{Lagrange, J. L.} (1736--1813) was a
+  French mathematician and a younger contemporary of Leonhard
+  Euler.\index{Euler, L.}  Like Euler he played an important role in
+  making calculus the primary analytical tool for study the physical
+  world.  He is particularly noted for his contributions to celestial
+  mechanics,\index{celestial mechanics} the field where Isaac
+  Newton\index{Newton, I.} first applied the calculus.}
+
+If we write out the multiplier equation using the components of
+$\nabla f$ and $\nabla g$, we get\index{derivative!partial}
+        $$
+\left(\dfrac{\partial g}{\partial x}(a, b), 
+                \dfrac{\partial g}{\partial y}(a, b) \right) =
+                \lambda \left(\dfrac{\partial f}{\partial x}(a, b), 
+                \dfrac{\partial f}{\partial y}(a, b) \right) = 
+                \left(\lambda \, \dfrac{\partial f}{\partial x}(a, b), 
+                \lambda \, \dfrac{\partial f}{\partial y}(a, b) \right).
+        $$
+In a vector equation, the vectors are equal component by component.  Thus,
+\begin{align*}
+\dfrac{\partial g}{\partial x}(a, b) &=
+       \lambda \, \dfrac{\partial f}{\partial x}(a, b) \\[4pt]
+\dfrac{\partial g}{\partial y}(a, b) &=
+       \lambda \, \dfrac{\partial f}{\partial y}(a, b) 
+\end{align*}
+        
+        
+Let's return to the main question, 
+%
+\mar{How can we find a constrained maximum or minimum?} 
+%
+which can be stated this way: How do we determine where the function
+$f(x, y)$ has a maximum or a minimum, subject to the constraint $g(x,
+y) = 0$?  If we let $(a, b)$ denote the point we seek, then we see
+that $a$ and $b$ satisfy three equations:\index{constraint equation}
+\[
+\begin{array}{rl}
+ \mbox{the constraint equation}: & \hspace{24pt} g(a, b) = 0,     \\[7pt]
+ \mbox{the multiplier equations}: &
+                \left\{
+                \begin{array}{l}
+                \dfrac{\partial g}{\partial x}(a, b) = 
+                        \lambda \, 
+                \dfrac{\partial f}{\partial x}(a, b), \\[14pt]
+                \dfrac{\partial g}{\partial y}(a, b) = 
+                        \lambda \, 
+                        \dfrac{\partial f}{\partial y}(a, b).
+                 \end{array}
+                 \right.
+        \end{array}
+\]
+In fact, there are {\em three\/} unknowns in these equations: $a$,
+$b$, and $\lambda$.  When we solve the three equations for the three
+unknowns, we will determine the location of the constrained extreme.
+(We'll also have a piece of information we can throw away: the value
+of $\lambda$.)
+\medskip
+
+\noindent
+{\bf Example}.  Find the maximum of $f(x, y) = x^p y^{1-p}$ subject to
+the constraint $x + y = c$.  There are two parameters in this problem:
+$p$ and $c$.  We assume that $0 < p < 1$ and $0 < c$.  We introduce
+parameters to remind you that analytic methods (such as Lagrange
+multipliers) are especially valuable in solving problems that depend
+on parameters.
+
+We let $g(x, y) = x + y - c$.  Then
+       $$
+\nabla g = (1, 1), \qquad \quad \nabla f = 
+                \left(p x^{p-1} y^{1-p}, (1-p) x^p y^{-p} \right),
+        $$
+so the three equations we must solve are
+\begin{align*}
+x + y - c &= 0, \\
+        1 &= \lambda p x^{p-1} y^{1-p}, \\
+        1 &= \lambda (1-p) x^p y^{-p}.
+\end{align*}
+Since the second and third equations both equal 1, we can set them
+equal to each other:
+        $$
+        \lambda p x^{p-1} y^{1-p} = \lambda (1-p) x^p y^{-p}.
+        $$
+We can cancel the two $\lambda$s and combine the powers of $x$ and $y$ to get
+        $$
+        p x^{-1} y = 1 - p \qquad \mbox{or} \qquad 
+                \dfrac{y}{x} = \dfrac{1 - p}{p}.
+        $$
+According to the first of the three equations, $y = c - x$.  If we substitution this expression in for $y$ into the last equation, we get
+        $$
+        \dfrac{c - x}{x} = \dfrac{1 - p}{p} \qquad \mbox{or} \qquad 
+                p(c - x) = (1 - p) x.
+        $$
+This equation reduces to $pc = x$, which gives us the $x$-coordinate of the maximum.  To get the $y$-coordinate, we use $y = c - x = c - pc = c(1 - p)$.  To sum up, the maximum is at
+        $$
+        (x, y) = (cp, c(1-p)) = c(p, 1-p).
+        $$
+        
+\subsection{Exercises}
+
+When searching for an extreme, be sure to zoom in on the graph or plot
+you are using as you narrow down the location of the point you seek.
+
+\num Inspect the graph of $z = xy$ to find the maximum value of $z$
+subject to the constraints
+        $$
+x \geq 0, \qquad \quad y \geq 0, \qquad \quad 3 x + 8 y \leq 120.
+        $$
+
+\num Inspect the graph of $z = 5 x + 2 y$ to find the minimum value of
+$z$ subject to the constraints
+        $$
+        x \geq 0, \qquad \quad y \geq 0, \qquad \quad xy  \geq 10.
+        $$
+
+\num Inspect a contour plot of $z = 3xy - y^2$ to find the maximum
+value of $z$ subject to the constraints
+        $$
+        x \geq 0, \qquad \quad y \geq 0, \qquad \quad x + y \leq 5.
+        $$
+        
+\num Continuation.  Add the constraint $x \leq a$ to the preceding
+three, where $a$ is a parameter that takes values between 0 and 5.
+Find the maximum value of $z$ subject to all four constraints.
+Describe how the position of the constraint depends on the value of
+the parameter $a$.
+
+\ans{The maximum is found at $(x, y) = (25/8, 15/8)$, as long as $a
+  \geq 25/8$.  When $a < 25/8$, the maximum is at $(x, y) = (a, 5 -
+  a)$.}
+
+\num Find the maximum and minimum values of $z = 12 x - 5 y$ when $(x,
+y)$ is exactly 1~unit from the origin.
+
+\num  Find the maximum and minimum value 
+        \mar{How is the gradient involved here?}
+of $z = px + qy$ when $(x, y)$ is exactly 1~unit from the origin.  
+
+\sub At what point is the maximum achieved; at what point is the
+minimum achieved?
+
+\num  Use a graph to locate the maximum value of the function 
+        $$
+        z = 2 x y - 5 x^2 - 7 y^2 + 2 x + 3 y.
+        $$
+There are no constraints.
+
+\num Use a graph to find the maximum value of $z = 6x + 12 y - x^3 -
+y^3$, subject to the constraints
+        $$
+        x \geq 0, \qquad y \geq 0, \qquad x^2 + y^2 \leq 100.
+        $$
+
+\numa Locate the position of the minimum of $x^4 - 2 x^2 - \alpha x +
+y^2$ as a function of the parameter $\alpha$.
+
+\sub The position of the minimum jumps catastrophically when $\alpha$
+passes through a certain value.  At what value of $\alpha$ does this
+happen, and what jump occurs in the minimum?
+
+\numa  Locate the maximum of $x^3 + y^3 - 3x - 3y$ subject to
+        $$
+        x \leq 3, \qquad \quad y \leq 0, \qquad \quad x + y \leq \beta.
+        $$ 
+The position of the maximum depends on the value of the parameter
+$\beta$, which you can assume lies between 0 and 5.
+
+\sub The position of the maximum jumps catastrophically when $\beta$
+crosses a certain threshold value $\beta_0$.  What is $\beta_0$?
+
+\num Find the maximum value of $x^2 y$ in the first quadrant, subject
+to the constraint $x + 5 y = 10$.
+
+\num Find the maximum and minimum values of $z = 3x + 4 y$ subject to
+the single constraint $x^2 + 4xy + 5y^2 = 10$.
+
+\num  Find all the critical points of the following functions.
+
+\sub  $3 x^2 + 7xy + 2 y^2 + 5x - 6 y + 3$.
+
+\sub $\sin{x} \sin{y}$ \quad on the domain $-4 \leq x \leq 4$, $-4
+\leq y \leq 4$.
+
+\sub $\sin{xy}$ \quad on the domain $-4 \leq x \leq 4$, $-4 \leq y
+\leq 4$.
+
+\sub  $\exp(x^2 + y^2)$.
+
+\sub  $x^3 + y^3 - 3x - 3 y$.
+
+\sub $x^3 - 3x y^2 - x^2 - y^2$.  [There are four critical points;
+  three are saddles.]
+
+\numa  Find the nine critical points of the function
+        $$
+        C(x, y) = (x^2 + xy + y^2 -1)(x^2 - xy + y^2 - 1).
+        $$
+Four are minima, four are saddles, and one is a maximum.
+
+\sub Mark the locations of the critical points on a suitable contour
+plot of $C(x, y)$.
+
+\num Locate and classify the critical points of the energy integral of
+a pendulum:
+        $$
+        E(x, v) = 1 - \cos{x} + \tfrac{1}{2}v^2.
+        $$
+        
+\sub Compare the {\em critical points\/} of $E$ with the {\em
+  equilibrium points\/} of the dynamical system associated with this
+energy integral.
+
+
+\num  Use the method of steepest descent to find the minimum of the function 
+        $$
+        z = p(x, y) =  e^{2 + y - x^2 - y^2} \sin{x}.
+        $$  
+
+\subsubsection{The distribution problem}
+
+The next two exercises are modifications of the distribution problem
+on pages \pageref{distribstart}--\pageref{distribend}.  In the example
+we assumed that deliveries from the center $X$ to each of the regional
+warehouse $A$, $B$, and $C$ happened equally often.  These exercises
+assume that deliveries to some warehouses are more frequent than
+others.
+        
+\num Suppose that one truck makes deliveries to $A$ 5 times each week,
+while a second truck is used to make 3 deliveries to $B$ and 2 to $C$
+each week.  It makes sense to locate $X$ so that the {\em total weekly
+  travel\/} is minimized, rather than just the total distance to the
+three warehouses.  To get the total weekly travel, we should:
+
+$\bullet$ multiply the distance from $X$ to $A$ by 5;
+
+$\bullet$ multiply the distance from $X$ to $B$ by 3;
+
+$\bullet$ multiply the distance from $X$ to $C$ by 2.\\ 
+(Actually, the total {\em round-trip\/} distances are twice these
+values, but the proportions would remain the same, so we can use these
+numbers.)  Thus, the function to minimize is
+        $$
+        T(x, y) = 5\sqrt{x^2 + y^2} + 3\sqrt{(x-6)^2 + (y-9)^2} 
+                + 2\sqrt{(x-10)^2 + (y-2)^2}.
+        $$
+
+\sub  Use the method of steepest descent to find the minimum of $T$.
+
+\sub Compare the location of the distribution center $X$ as determined
+by $T$ to its location determined by the function $S$ of example~2 in
+the text.  Would you {\em expect\/} the location to change?  In what
+direction?  Does the calculated change in position agree with your
+intuition?
+
+\num Suppose that deliveries to $A$ are twice as frequent as
+deliveries to either $B$ or $C$.  (For example, two trucks make the
+round-trip to $A$ each day, but only one truck to $B$ and one to $C$.)
+Where should the distribution center $X$ be located in these
+circumstances?  Explain how you got your answer.
+
+\ans{$X$ should be at $A$.  Does this surprise you?}
+
+\num A company which has four offices around the country holds an
+annual meeting for its top executives.  The location of each office,
+and the number of executives at that office, are given in the
+following table.  (The coordinates $x$ and $y$ of the position are
+given in arbitrary units.)
+\begin{center}
+\addtolength{\tabcolsep}{6pt}
+        \begin{tabular}{ccrr}
+        office  & executives    & \multicolumn{1}{c}{$x$} & 
+                \multicolumn{1}{c}{$y$} \\
+        \hline \\[-10pt]
+        $A$     & 32            & 200   & 300   \\
+        $B$     & 17            & 1920  & 1100  \\
+        $C$     & 20            & 2240  & 450   \\
+        $D$     & 41            & 2875  & 1150
+        \end{tabular}
+\addtolength{\tabcolsep}{-6pt}
+\end{center}
+Where should the meeting be held if the location depends {\em
+  solely\/} on the total travel cost for all the participants?  Assume
+that the travel cost, per mile, is the same for every participant.
+
+\subsubsection{The best-fitting line}
+
+Suppose we've taken measurements of two quantities $x$ and $y$, and
+obtained the results shown in the table and graph below.  We assume
+that $y$ depends on $x$ according to some rule that we don't happen to
+know.  In particular, we'd like to know what $y$ is when $x = 5$.  We
+have no data.  Can we {\em predict\/} what $y$ should be?
+
+\vspace{15pt}
+        
+\special{psfile=../ps/934/data1.ps}
+
+\mbox{}
+\hspace{55pt}
+\addtolength{\tabcolsep}{10pt}
+        \begin{tabular}{ll} 
+        $x$ & $y$\\ [2pt]
+        \hline
+        0 & 1 \rule{0pt}{13pt}\\
+        1 & 3 \\
+        2 & 4 \\
+        3 & 3 \\
+        4 & 5 \\
+        5 & ?
+        \end{tabular}
+\addtolength{\tabcolsep}{-10pt}
+\vspace{20pt}
+
+\special{psfile=../ps/934/data2.ps}
+
+\noindent
+\begin{minipage}[t]{3.5in}
+\quad \ Here is a common approach to the question.  We assume there is
+a simple underlying relation between $y$ and $x$. However, the
+measurements that give us the data contain errors or ``noise'' of some
+sort that obscure the relationship.  The simplest relation is a linear
+function, so we assume that there is a formula $Y = mx + b$ that
+describes the connection between $x$ and $y$.
+\end{minipage}
+\vspace{3pt}
+
+
+Which line should we choose?  In other words, how should we choose $m$
+and $b$?  Since the data points don't lie on a line, there is no
+perfect solution.  For any choices, we must expect a difference $e_j$
+between the the $j$-th data value $y_j$ and the value $Y_j = m \, j +
+b$ predicted by the formula.  These differences are the {\em errors\/}
+we assume are present.
+
+A reasonable way to proceed is to {\bf minimize} the total error.
+Even this involves choices.  In the figure above, $e_0$ and $e_3$ are
+negative, so the ordinary total could be zero, or nearly so, even if
+the individual errors were large.  We need a total that {\em
+  ignores\/} the signs of the errors.  Here is one:
+        $$
+        \mbox{absolute error:} \qquad 
+                |e_0| + |e_1| + |e_2| + |e_3| + |e_4| = AE.
+        $$
+Here is another:
+        $$
+        \mbox{squared error:} \qquad 
+                e_0^2 + e_1^2 + e_2^2 + e_3^2 + e_4^2 = SE.
+        $$ 
+In the following table we compare the data $y_j$ with the calculated values $Y_j$ and the resulting errors $e_j$.
+\addtolength{\arraycolsep}{8pt}
+        $$
+        \begin{array}{cc|cc} 
+        x & y & Y & e = y - Y \\ [2pt]
+        \hline
+        0 & 1 & \rule{0pt}{13pt}b & 1-b    \\
+        1 & 3 & \hphantom{1}m+b & 3-\hphantom{1}m-b \\
+        2 & 4 & 2m+b & 4-2m-b \\
+        3 & 3 & 3m+b & 3-3m-b \\
+        4 & 5 & 4m+b & 5-4m-b
+        \end{array}
+        $$
+\addtolength{\arraycolsep}{-8pt}%
+To get the values of $AE$ and $SE$, 
+%
+\mar{The total errors are functions of $m$ and $b$}
+%
+we take either the absolute values or the squares of the elements of
+the rightmost column, and then add.  In particular, the table makes it
+clear that both total errors are functions of $m$ and~$b$.  The
+absolute error is
+        $$
+        AE(m, b) = |1-b| + |3-m-b| + |4-2m-b| + |3-3m-b| + |5-4m-b|.
+        $$
+        
+\num Inspect a graph and a contour plot to determine the values of $m$
+and $b$ which minimize $AE(m, b)$.
+
+\ans{Remarkable as is may seem, there is an entire line segment of
+  solutions to this problem in the $m, b$-plane.  One end of the line
+  is near $(m, b) = (.67, 2.3)$, the other is near $(m, b) = (1, 1)$.}
+
+\numa Using a best-fitting line from the previous question, find the
+predicted value of $y$ when $x = 5$.
+
+\sub Since there is a range of best-fitting lines, there should be a
+range of predicted values for $y$ when $x = 5$.  What is that range?
+
+\num Write down the function $SE(m, b)$ that describes the squared
+error in the fit of a straight line to the data given above.
+
+\numa Use a graph and a contour plot to locate the minimum of the
+function $SE(m, b)$ from the previous exercise.  Indicate how many
+digits of accuracy your answer has.
+% m = .8, b = 1.6
+
+\sub Use the method of steepest descent to locate the minimum.  How
+many digits of accuracy does {\em this\/} method yield?
+
+\newpage 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                        %
+%                                Section 4                               %
+%                                                                        %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Chapter Summary}
+
+\subsection{The Main Ideas}
+
+\begin{itemize}
+
+\item The {\bf graph} of a function of two variables is a
+  two-dimensional surface in a three-dimensional space.
+
+\item A function of two variables can also be viewed using a {\bf
+  density plot}, a {\bf terraced density plot}, or a {\bf contour
+  plot}.  The latter is a set of {\bf level curves} drawn on a flat
+  plane.
+
+\item A {\bf contour plot} of a function of three variables is a
+  collection of {\bf level surfaces} in three-dimensional space.
+
+\item The graph of a {\bf linear function} is a flat plane, and its
+  contour plot consists of straight, parallel, and equally-spaced
+  lines.
+
+\item The {\bf gradient} of a linear function is a vector whose
+  components are the partial rates of change of the function.
+
+\item Under a {\bf microscope}, the graph of a function of two
+  variables becomes a flat plane.  A contour plot turns into a set of
+  straight, parallel, and equally-spaced lines.
+
+\item The multipliers in the {\bf microscope equation} for a function
+  are its {\bf partial derivatives}:
+        $$
+        \Delta z = \dfrac{\partial f}{\partial x_1}(a, b)\Delta x_1 + \cdots +
+                \dfrac{\partial f}{\partial x_n}(a, b)\Delta x_n.
+        $$
+
+\item The {\bf gradient} of a function is a vector whose components
+  are the partial derivatives of the function.  Its magnitude and
+  direction give the greatest {\bf rate of increase} of the function
+  at each point.
+
+\item {\bf Optimization} is a process that involves finding the {\bf
+  maximum} or {\bf minimum} value of a function.  There may be {\bf
+  constraints} present that limit the scope of the search for an {\bf
+  extreme}.
+
+\item Extremes can be found at {\bf critical points}, where all
+  partial derivatives of a locally linear function are zero.
+
+\item The {\bf method of steepest ascent} introduces the power of
+  dynamical systems into the optimization process.
+
+\end{itemize}
+
+\subsection{Expectations}
+
+\begin{itemize}
+
+\item Using appropriate computer software, you should be able to make
+  a \textbf{graph}, a \textbf{terraced density plot}, and a
+  \textbf{contour plot} of a function of two variables.
+
+\item Using appropriate graphical representations of a function of two
+  variables, you should be able to recognize the \textbf{maxima},
+  \textbf{minima}, and \textbf{saddle points}.
+
+\item You should be able to estimate the \textbf{partial rates of
+  change} of a function of two variables at a point by zooming in on a
+  contour plot.
+
+\item You should be able to recognize the various forms of a
+  \textbf{linear function} of several variables and transform the
+  representation of the function from one form to another.
+
+\item You should be able to describe the geometric meaning of the
+  partial rates of change of a linear function of two variables.
+
+\item You should be able to find the \textbf{gradient} of a function
+  of several variables at a point.
+
+\item You should know how the gradient of a function of two variables
+  is related to its level curves.
+
+
+\item You should be able to write the \textbf{microscope equation} for
+  a function of two variables at a point.
+
+\item You should be able to use the microscope equation for a function
+  of two variables at a point to estimate values of the function at
+  nearly points, to find the \textbf{trade-off} in one variable when
+  the other changes by a fixed amount, and to estimate errors.
+
+\item You should be able to find the \textbf{linear aprroximation} to
+  a function of two variables at a point.
+
+\item You should be able to find the equation of the \textbf{tangent
+  plane} to the graph of a function of two variables at a point.
+
+\item You should be able to sketch the \textbf{gradient vector field}
+  of a function of two variables in a specified domain.
+
+
+\item You should be able to sketch a plausible set of contour lines
+  for a function whose gradient vecctor field is given; you should be
+  able to sketch a plaausible gradient vector field for a ffunction
+  whose contour plot is given.
+
+\item You should be able to find the critical points of a function of
+  two variables, and you should be able to determine whether a
+  critical point is an extreme by inspecting a graph or a contour
+  plot.
+
+\item You should be able to find a local maximum of a function of two
+  variables by the method of \textbf{steepest descent}.
+
+\item You should be able to find an extreme of a function of two
+  variables subject to a constraint either by inspecting a graph or
+  contour plot, or by the method of \textbf{Lagrange multipliers}.
+
+\end{itemize}
+
+\cleardoublepage
+
+

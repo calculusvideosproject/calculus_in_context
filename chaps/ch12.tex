@@ -1,0 +1,3200 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                     %
+%                              Chapter 12                             %
+%                                                                     %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\chapter{Case Studies}
+
+To enable you to further explore the ways the concepts of calculus are
+used as analytical tools in scientific and mathematical
+investigations, this chapter presents four extended case studies.  The
+four can be studied separately, although the first two and the last
+two are loosely linked
+\begin{description}
+
+\item[Stirling's Formula] As an example of the way many of the
+  ideas---Taylor series, numerical integration, reduction formulas,
+  limits---developed in the earlier chapters of this book can be used
+  in a tightly-reasoned argument to produce some powerful mathematical
+  insights, in the first section we derive a famous formula
+  approximating $n!$.  This formula is then applied to the binomial
+  probability distribution.
+
+\item[The Poisson Distribution] Chapter~12.2 continues the probability
+  theme by developing the Poisson distribution and using it to study
+  the frequency of radioactive decay events.
+
+\item[The Power Spectrum] Chapter~12.3 builds on the study of
+  periodicity begun in chapter 7. We develop the Fourier transform, a
+  basic tool in the sciences for detecting the relative strength of
+  periodic components in a noisy data set.
+
+\item[Fourier Series] Chapter~12.4 expands on some of the ideas in
+  chapter 11.  Here we develop tools for approximating functions over
+  intervals using sums of sine and cosine terms.  This is an
+  extensively used method in a wide range of disciplines, from
+  thermodynamics to music synthesis.
+\end{description} 
+	
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                     %
+%                              Section 1                              %
+%                                                                     %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Stirling's Formula}
+\index{Stirling's formula}
+\index{factorial}
+\index{$n"!$}
+
+Given a positive integer $n$, we define $n!$---pronounced {\em $n$
+  factorial}---by the rule $n!=1\cdot 2\cdot 3\cdots (n-1)\cdot n$\,.
+This is a convenient concept which occurs in a number of settings,
+%
+\mar{Factorials\\ in probability}	
+%
+particularly combinatorial and probabilistic ones.  For instance, the
+probability\index{probability} of getting exactly $n$ heads out of
+$2n$ tosses of a coin turns out to be
+	$$
+\dfrac{(2n)!}{2^{2n}(n!)^2}.
+	$$ 
+Unfortunately, evaluating $n!$ for values of $n$ at all large is
+cumbersome at best.  Although though many calculators will compute
+factorials, few of them can handle numbers as large as $1000!$\,.
+Even when we can evaluate $n!$, we are often as interested in the
+asymptotic behavior of a certain expression as much as in its exact
+value for specific $n$.
+%
+\mar{$n!$ is difficult \\to calculate}
+%
+For instance, using methods we develop below, it turns out that the
+above expression for the probability of $n$ heads in $2n$ tosses is
+very close to $1/\sqrt{\pi n}$, with the approximation being more
+accurate the larger $n$ is.  In fact, for $n \geq 8$, the
+approximation is good to two places; for $n \geq 25$, the
+approximation gives three-place accuracy.
+
+In his book {\em Methodus differentialis\/} (1730), the British
+mathematician James Stirling\index{Stirling, J.} published the
+following approximation, now know as {\bf Stirling's formula}, for the
+factorial operator:
+$$
+n!\sim \sqrt{2\pi}\,n^{n+\frac{1}{2}}\,e^{-n}.
+$$
+
+While the right-hand side may look much more complicated than the
+left, think which one you would rather evaluate for, say, $n=100$. To
+see how good this approximation is, here are some comparisons:
+\begin{center}
+\begin{tabular}{ccc}\label{table2}
+&&Stirling's \\
+$n$&$n!$&approximation \\ [2pt]
+\hline\\[-10pt]
+2&2&1.9190   \\
+10 & 3,628,800   & 3,598,695.6\\
+50 & $3.0414\times 10^{64}$   & $3.0363\times 10^{64}$\\
+100 & $9.3326\times 10^{157}$   & $9.3248\times 10^{157}$\\
+1000 & $4.02387\times 10^{2567}$   & $4.02354\times 10^{2567}$\\
+10000& $2.84626\times 10^{35659}$ & $2.84624\times 10^{35659}$ \\
+\end{tabular}
+\end{center}
+
+As an example of the way elementary ideas in calculus can be used to
+derive powerful and subtle results, we will outline a derivation of
+Stirling's approximation for $n!$.  You should write up your own
+summary of this proof, filling in the gaps in the text below.
+We will work in two stages.  In the first stage, we will show that
+$$
+n!\sim c\,n^{n+\frac{1}{2}}\,e^{-n}.
+$$
+for some constant $c$.  In the second stage we will show that this
+constant is actually $\sqrt{2\pi}$.
+
+\subsection{Stage One: Deriving the General Form}
+
+We first observe that
+$$
+\ln (n!) = \ln 1 + \ln 2 + \ldots +\ln n.
+$$
+It turns out to be easier to prove things about this logarithmic
+form.\index{logarithm} In fact, we will deal most easily with
+$$
+A_n=\ln 1 + \ln 2 + \ldots +\ln (n-1) + \dfrac{1}{2}\,\ln n.
+$$
+Thus $\ln(n!) = A_n+\tfrac{1}{2}\ln n \,.$ Even though $\ln 1 = 0$, it
+will be useful to retain the term in the expression for $A_n$.
+
+We will find upper and lower bounds for $A_n$ (and hence for
+$\ln(n!)$\,) by approximating the area under the curve $y=\ln x$ by
+certain inscribed and circumscribed trapezoids.\index{trapezoid} We
+will then use these bounds to predict the asymptotic behavior of $A_n$
+for large values of $n$.
+
+\medskip
+\noindent
+\begin{minipage}{3.2in}
+{\bf The upper bound}:\index{bound!integral} Note that if we inscribe
+a trapezoid under the graph of $y=\ln x$ between $x=k-1$ and $x=k$,
+its area will be $\tfrac{1}{2}(\ln (k-1) +\ln k)$. (How do we know
+that the straight line connecting the points $(k-1, \ln (k-1))$ and
+$(k, \ln k)$ will lie under the graph of $y=\ln x$?) The sum of the
+areas of all such trapezoids from $x=1$ to $x=n$ is clearly less than
+the area under the curve $y=\ln x$ over the interval $[1,n]$.
+\end{minipage} \ \
+\begin{minipage}{2.2in}
+\special{psfile=../ps/calc2/ch121-1.ps}
+\end{minipage}
+
+\vspace{4pt}
+We therefore have the inequality
+$$
+\dfrac{1}{2}(\ln 1 +\ln 2) +\dfrac{1}{2}(\ln 2 +\ln 3)+ \cdots + \dfrac{1}{2}(\ln(n-1)+\ln n)<\int_1^n\ln x\,dx,
+$$
+which is equivalent to $A_n <\dint_1^n\ln x\,dx$.
+
+\medskip
+
+
+\begin{minipage}{2.2in}
+\special{psfile=../ps/calc2/ch121-2.ps}
+\end{minipage}
+\hfill
+\begin{minipage}{3.2in}
+{\bf The lower bound}: On the other hand if we draw the tangent line
+to $y=\ln x$ at \mbox{$x=k$} and form the trapezoid between $x=k-.5$
+and $x=k+.5$, its area will just be $\ln k$ and will be greater than
+the area under the curve over the same interval. (We've used the
+fact---which you should check---that the area of a trapezoid equals
+the distance between the parallel sides times the distance between the
+midpoints of the other two sides.)
+
+\quad \ Adding up all such trapezoids, we get the inequality
+$$
+\int_{\frac{3}{2}}^n\ln x\,dx <A_n.
+$$
+\end{minipage} 
+
+
+\vspace{6pt}
+
+Since we know that $\int \ln x\,dx = x\ln x -x$, we can evaluate these
+upper and lower bounds to conclude
+$$
+n\ln n-n-\dfrac{3}{2}\ln \dfrac{3}{2} + \dfrac{3}{2} <A_n<n\ln n -n +1,
+$$
+which in turn yields
+$$
+\left(n+\dfrac{1}{2}\right)\ln n-n+\dfrac{3}{2}\left(1-\ln \dfrac{3}{2}\right) <\ln n!<\left(n+\dfrac{1}{2}\right)\ln n -n +1.
+$$
+
+Pause for a moment to observe that the difference
+$$
+D_n = \left(n+ \dfrac{1}{2}\right)\ln n -n +1-\ln n!
+$$ 
+between the expressions on the two sides of the rightmost
+inequality is just the accumulated error from approximating the area
+under $y=\ln x$ by the inscribed trapezoids. Since the error over each
+interval is always positive, $D_n$ must therefore get larger as $n$
+increases, We will need this fact shortly.
+
+Returning to our inequalities, they can finally be rewritten as
+$$
+\dfrac{3}{2}\left(1-\ln \dfrac{3}{2}\right) 
+ < \ln n!-\left(n+ \dfrac{1}{2}\right)\ln n +n <1.
+$$
+Evaluating the constants, we thus have that for any value of $n$,
+$$
+.8918<\ln n!-\left(n+\dfrac{1}{2}\right)\ln n +n <1.
+$$
+If we exponentiate, this becomes
+$$
+2.395<\dfrac{n!}{n^{n+\frac{1}{2}}e^{-n}} <2.719,
+$$
+or
+$$
+2.395 \, n^{n+\frac{1}{2}}e^{-n} 
+   < n! < 2.719 \, n^{n+\frac{1}{2}}e^{-n}.
+$$
+
+Notice that these bounds are already quite strong 
+%
+\mar{These estimates\\ are often adequate}	
+%
+and would be adequate for many estimates.  Moreover, they are true for
+any value of $n$.  If we are only interested in large values of $n$,
+we can do a little better.  Let
+$$
+\delta_n=\ln n!-\left(n+\dfrac{1}{2}\right)\ln n +n.
+$$ 
+Then $1-\delta_n=(n+\frac{1}{2})\ln n -n +1-\ln n!$ is just the
+expression we called $D_n$ a moment ago and said had to be increasing
+as $n$ increases.  But if $D_n=1-\delta_n$ is increasing, it must be
+true that $\delta_n$ itself is decreasing as $n$ gets larger.  We thus
+must have $1>\delta_1>\delta_2>\ldots >\delta_n \ldots >.8918$.  There
+must therefore be some constant $d\geq .8918$ such that
+$\lim_{n\rightarrow \infty}\delta_n=d$. Define the constant $c$ by
+$c=e^d$. Then
+$$
+\lim_{n\rightarrow \infty}\dfrac{n!}{n^{n+\frac{1}{2}}e^{-n}} = c,
+$$
+which is what we mean when we write
+$$
+n!\sim c\,n^{n+ \frac{1}{2}}\,e^{-n}.
+$$
+This completes stage 1.  In stage 2 we will see that $c=\sqrt{2\pi}$.
+
+
+
+\subsection{Stage Two: Evaluating $c$}
+
+We will do this using an interesting result of a 17th century English
+mathematician, John Wallis,\index{Wallis, J.}\index{Wallis's formula}
+%
+\mar{\vspace{22pt}Wallis's formula}
+%
+who showed that
+\[
+\lim_{n \rightarrow \infty} \dfrac{2}{1} \times \dfrac{2}{3}
+   \times \dfrac{4}{3}\times \dfrac{4}{5}\times \dfrac{6}{5}
+   \times \dfrac{6}{7}\times \cdots \times \dfrac{2n}{2n-1}
+   \times \dfrac{2n}{2n+1} = \dfrac{\pi}{2}.
+\]
+
+Suppose for the moment that we had proved Wallis's formula. We can
+express it in terms of factorials by noting that we can rewrite the
+product of the first $n$ even numbers---$2\times 4\times 6\times
+\ldots \times (2n)$---by factoring a $2$ out of each term, leaving us
+\[
+2\times 4\times 6\times \ldots \times (2n) = 2^n\,(n!).
+\]
+Similarly, we can take the product of the first $n$ odd
+integers---$1\times 3\times 5\times 7\times \ldots \times
+(2n-1)$---and insert the missing even terms to get
+\begin{align*}
+1\times 3\times 5\times 7\times \ldots \times (2n-1) 
+  &= \dfrac{1\times 2\times 3\times 4\times \ldots \times (2n-1)
+            \times (2n)}
+      {2\times 4\times 6\times \ldots \times (2n)} \\
+  &= \dfrac{(2n)!}{2^n\,(n!)}.
+\end{align*}
+We can thus rewrite Wallis's formula as
+$$
+\lim_{n \rightarrow \infty} \dfrac{\left(2^n\,n!\right)^4}{\left((2n)!\right)^2(2n+1)}= \dfrac{\pi}{2}.
+$$
+
+If we now replace all the factorials by their corresponding expressions using Stirling's approximation, we get
+$$
+\lim_{n \rightarrow \infty} \dfrac{2^{4n}c^4n^{4n+2}e^{-4n}}{c^2(2n)^{4n+1}e^{-4n}(2n+1)}= \dfrac{\pi}{2},
+$$
+which, after a great deal of cancelation, reduces to
+$$\lim_{n \rightarrow \infty} \dfrac{c^2n}{2(2n+1)}= \dfrac{\pi}{2}.
+$$
+
+Now since
+$$\lim_{n \rightarrow \infty} \dfrac{n}{2n+1} = \dfrac{1}{2},
+$$
+this reduces to
+$$
+\dfrac{c^2}{4} = \dfrac{\pi}{2},
+$$
+so
+$$c^2 = 2\pi,
+$$
+and
+$$
+c=\sqrt{2\pi},
+$$
+as desired.
+
+\subsubsection{Deriving Wallis's formula}
+One way to derive Wallis's formula involves the integrals
+	$$
+	I_k = \int_0^{\pi/2}\sin^kx\,dx.
+	$$
+Note that $I_0>I_1>I_2>I_3>\ldots .$  Moreover, you should verify that
+	$$
+	I_0 = \dfrac{\pi}{2} \qquad \mbox{and} \qquad I_1=1.
+	$$ 
+Using the reduction formula derived in chapter~11.5 for
+antiderivatives of $\sin^n{x}$, we have a similar reduction formula
+for the $I_k$:
+\begin{align*}
+I_k &= \int_0^{\pi/2}\sin^kx\,dx  \\
+  &= \left. \dfrac{-1}{k}\sin^{k-1}x\,\cos x \, \right|_0^{\pi/2}
+      + \dfrac{k-1}{k} \int_0^{\pi/2} \sin^{k-2}x\,dx \\
+  &=  \dfrac{k-1}{k} I_{k-2}.
+\end{align*}
+
+This in turn leads to
+\[
+I_k  = \begin{cases}
+\dfrac{2n-1}{2n}\cdot \dfrac{2n-3}{2n-2}\cdots \dfrac{1}{2}\cdot  
+    \dfrac{\pi}{2} & \mbox{if $k=2n$ is even}, \\[.15in]
+\dfrac{2n}{2n+1}\cdot \dfrac{2n-2}{2n-1}\cdots \dfrac{2}{3}\cdot  1
+  & \mbox {if $k=2n+1$ is odd}.
+\end{cases}
+\]
+Further, note that
+	$$
+	I_{2n+2}/I_{2n}= \dfrac{2n+1}{2n+2},
+	$$
+which has the limit 1 for large $n$.  Since
+$I_{2n}>I_{2n+1}>I_{2n+2}$, it follows that $I_{2n+1}/I_{2n}$
+approaches 1 for large $n$.  But this gives us
+\begin{align*}
+1 &= {\displaystyle\lim_{n \rightarrow \infty}I_{2n+1}/I_{2n}} \\[4pt]
+  &= {\displaystyle  \lim_{n \rightarrow \infty}
+    	\left(\dfrac{2n}{2n+1}\cdot \dfrac{2n-2}{2n-1}\cdots 
+		\dfrac{2}{3}\cdot  1\right)
+	\div 
+\left(\dfrac{2n-1}{2n}\cdot \dfrac{2n-3}{2n-2}\cdots \dfrac{1}{2}\cdot 
+	\dfrac{\pi}{2}\right)} \\[4pt]
+   &= {\displaystyle\lim_{n \rightarrow \infty}
+	\dfrac{2n}{2n+1}\cdot \dfrac{2n}{2n-1}\cdot \dfrac{2n-2}{2n-1}\cdots 
+	\dfrac{2n-2}{2n-3} \cdots \dfrac{2}{3}\cdot \dfrac{2}{1}\cdot 
+	\dfrac{2}{\pi}}
+\end{align*}
+If we multiply both sides of this equation by $\pi/2$, we get Wallis's formula.
+
+\subsubsection{Further refinements}
+
+Using even more careful methods of analysis, 
+%
+\mar{Some refinements}
+%
+it is possible to improve on Stirling's approximation and derive
+approximations like
+$$
+n!\sim \sqrt{2\pi}\,n^{n+\frac{1}{2}}\,
+     e^{-n+\frac{1}{12n}-\frac{1}{360n^3}+\frac{1}{1260n^5}-\cdots}.
+$$ 
+If we use this expression to approximate $1000!$, for instance, our
+result is accurate for the first 24 digits.
+
+While this approximation and Stirling's original one are good in the
+sense that they give more and more accurate digits the larger $n$
+gets---so that the {\em ratio} of $n!$ to either approximation goes to
+1 as $n$ gets large---they are bad in the sense that the {\em
+  difference} between $n!$ and either approximation becomes infinite
+as $n$ gets large.
+
+\subsection{The Binomial Distribution}\index{binomial probability distribution}\index{probability distribution!binomial}
+
+One of the most frequently encountered concepts in probability theory
+is the {\bf binomial probability distribution}. Suppose we repeat a
+certain experiment---flipping a penny, rolling a single die, mating a
+pair of fruit flies, feeding cholesterol to a lab rat---over and over.
+Suppose further that there is some outcome we are looking
+for---getting heads, rolling a 2, getting a red-eyed offspring,
+developing liver cancer in the rat---in each experiment.  If $p$ is
+the probability $p$ of obtaining the looked-for outcome in any one
+experiment, denote by $P(n, k, p)$ the probability of the outcome
+happening exactly $k$ times in $n$ experiments.  It turns out that
+$$
+P(k,n, p)=\dfrac{n!}{k!(n-k)!}p^k(1-p)^{n-k}.
+$$
+
+\medskip
+\noindent
+{\bf Example 1}\quad How likely is it to get four 2's if we roll
+twelve dice?  The probability of getting a 2 by throwing one die is
+$\dfrac{1}{6}$.  Therefore the answer to the question is
+$$
+P(12, 4, \tfrac{1}{6})= \dfrac{12!}{4!\, 8!}
+   \left(\dfrac{1}{6}\right)^4\left(\dfrac{5}{6}\right)^8=.0888281
+$$ 
+---we should get exactly four 2's slightly less frequently than once
+out of every 11 times we roll twelve dice.
+
+\medskip
+\noindent
+{\bf Example 2}\quad What is the probability of getting exactly 47
+heads if we flip 100 pennies? Since the probability of getting heads
+on a single toss of a penny is $\frac{1}{2}$,
+$$
+P(100, 47, \tfrac{1}{2}) 
+ = \dfrac{100!}{47!\,53!}\left(\dfrac{1}{2}\right)^{100}=.0665905,
+$$
+---on the average, if we flip 100 pennies, we should get 47 heads
+about once out of every 15 times.
+
+\medskip
+
+The second example demonstrates the fact that calculating binomial
+probabilities can get very messy very quickly.  Several of the
+exercises are designed to show how Stirling's formula can give us
+quick estimates that are easy to calculate and work with.
+
+\subsection{Exercises}
+
+\vspace{-10pt}
+
+\num Go through the derivation in this section and find several
+passages that seem to you to go a bit fast or skip over details.
+Rewrite these sections to make them clearer and more complete.
+
+\num Confirm the values given in the table on page~\pageref{table2}
+for the approximations of $100!$ and $1000!$ that Stirling's formula
+produces.
+
+\num {\bf Rate of growth of $n!$}\quad Factorials get very large very
+rapidly.  The purpose of this exercise is to develop a sense of just
+how rapidly $n!$ grows by comparing it to exponential functions.
+
+Let $N$ be some integer $>1$, and consider the sequence $a_1$, $a_2$,
+$a_3$, \ldots defined by
+$$
+a_n=\dfrac{N^n}{n!}.
+$$
+
+\sub Show that $a_k = \dfrac{N}{k}a_{k-1}$, and conclude that 
+\begin{center}
+\begin{tabular}{c}
+if $k<N$\quad then\quad $a_{k-1}<a_k$; \\
+if $k>N$\quad then\quad $a_{k-1}>a_k$; \\
+if $k=N$\quad then\quad $a_{k-1}=a_k$. \\
+\end{tabular}
+\end{center}
+We thus have a sequence that increases for a while: 
+$$
+a_1<a_2<\cdots a_{N-1}=a_N,
+$$ 
+and then decreases forever after:
+$$
+a_N>a_{N+1}>a_{N+2}>\cdots .
+$$
+
+\sub If $k>2N$ show that $a_k<.5a_{k-1}$.  Hence conclude that
+${\displaystyle \lim_{n\rightarrow\infty}a_n=0}$.
+
+\sub Use Stirling's approximation to show that
+$$
+a_N\approx \dfrac{e^N}{\sqrt{2\pi N}}.
+$$
+Calculate the values of this expression for $N=10$ and $N=100$ to get
+an idea of how large the sequence $\{a_n\}$ can get.  This shows that
+{\em for a while}, the exponential series $\{N^n\}$ can get large much
+more rapidly than the series $\{n!\}$.
+
+\sub Show that $a_n<1$ if $n>eN$.  This gives an upper bound on how
+long it takes the factorials to catch up with the exponentials.
+
+\num If $n\geq 5$, then $n!$ terminates in a certain number of zeroes.
+For instance, $5!=120$ ends in one zero, $23!=25852016738884976640000$
+ends in four zeroes, and so on.  How many zeroes are there at the end
+of $1000!$\,?
+
+\subsubsection{The binomial distribution}
+
+\vspace{-10pt}
+
+\num The formula for the binomial distribution gives us that the
+probability of getting exactly $n$ heads in $2n$ flips of a coin is
+	$$
+	\dfrac{(2n)!}{(n!)^2}\left(\dfrac{1}{2}\right)^{2n}.
+	$$  
+Show using Stirling's formula this can be approximated by
+$$
+\dfrac{1}{\sqrt{\pi n}}.
+$$ 
+Use this approximation to find the probability of getting 50 heads out
+of 100 tosses of a coin.  If you have a computer or calculator which
+can compute factorials, use the original binomial distribution formula
+to calculate the exact probability of getting 50 heads and compare the
+answers.
+
+\num More generally, if we try a certain experiment $n$ times with a
+probability $p$ of success each time, the most likely number of
+successes is $k=np$.  (Assume that $p$ is a fraction and $n$ is such
+that $n\cdot p$ is an integer.)  Use Stirling's approximation to show
+that the probability of getting exactly $np$ successes is
+$$
+P(n, np, p)\approx \dfrac{1}{\sqrt{2\pi np(1-p)}}.
+$$
+Is this consistent with the answer to the previous exercise?
+
+\num {\bf One-dimensional random walk}\quad An important class of
+problems, including {\bf diffusion} and {\bf Brownian motion} involve
+the long-term behavior of particles moving randomly.  We will look at
+the simplest case of such problems.  A particle starts at the origin
+on a line and at each stage moves one unit to the right or one unit to
+the left, being equally likely to do either.  What can we say about
+where the particle will be after $n$ steps?  In this problem we will
+use Stirling's formula to develop some useful insights into this
+question.
+
+\sub Explain why the particle will be $r$ units to the right of the
+origin after $n$ steps if and only if it has moved to the right
+$k=(n+r)/2$ times and to the left $n-k=(n-r)/2$ times. Explain why it
+could never be 3 units or 7 units to the right after 100 steps.
+
+\sub Using the same symbols as in part (a), show that the probability
+of the particle's being exactly $r$ units to the right after $n$ steps
+is
+$$
+\dfrac{n!}{k!(n-k)!}\left(\dfrac{1}{2}\right)^n.
+$$
+
+\sub Use Stirling's formula to show that this probability of being $r$
+units to the right after $n$ steps is approximately
+$$
+\dfrac{\sqrt{2}}{\sqrt{\pi n} (1+(r/n))^{\frac{1}{2}(n+r+1)} \, 
+     (1-(r/n))^{\frac{1}{2}(n-r+1)}}.
+$$
+
+\sub To simplify the denominator of this fraction, recall the Taylor
+series approximation for $\ln(1+x)$:
+$$
+\ln(1+x)=x-\dfrac{x^2}{2} +\cdots .
+$$
+Hence, if $r$ is much smaller than $n$, $\ln(1+r/n)$ can be
+approximated by $r/n-r^2/(2n^2)$, and $\ln(1-r/n)$ can be approximated
+by $-r/n-r^2/(2n^2)$. By ignoring all powers of $r$ greater than the
+second, conclude that
+$$
+(1+(r/n))^{\frac{1}{2}(n+r+1)}\,(1-(r/n))^{\frac{1}{2}(n-r+1)}
+    \approx e^{r^2/(2n)},
+$$
+so that the probability of being $r$ units to the right after $n$ steps is
+$$
+\sqrt{\dfrac{2}{\pi n}} \, e^{-r^2/2n}.
+$$
+
+\sub Explain how we can get the answer to exercise~5 as a special case
+of the result just obtained in part (d).
+
+\sub Using the approximation from part (d), calculate the probability
+that after 100 steps the particle will be {\em no more} than 5 units
+away from the starting point to either the right or the left.
+Remember that after 100 steps it is impossible to be an odd number of
+units away from the starting point.  The exact probability is
+\[
+\sum_{k=48}^{52} \dfrac{100!}{k!(100-k)!}
+  \left(\dfrac{1}{2}\right)^{100} = .382701.
+\]
+
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                     %
+%                              Section 2                              %
+%                                                                     %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{The Poisson Distribution}
+\index{Poisson distribution}\index{probablity distribution!Poissson}
+
+\subsection{A Linear Model for $\alpha$-Ray Emission}
+\index{$\alpha$-ray}
+\index{alpha ray}
+
+When a radioactive element decays, we know from the study of
+differential equations in chapter 4 that the amount $A(t)$ of
+radioactive material present at time $t$ satisfies the differential
+equation
+$$
+A' = -kA,
+$$
+where $k > 0$ is the decay constant.  If $A_0$ is the amount present
+at time $t = 0$, then the solution is
+$$
+A(t) = A_0e^{-kt}.
+$$
+
+The time $T$ it takes for a given amount of radioactive material to
+decay to half the starting quantity is known as the {\bf half
+  life}\index{half life} of the element.  Since, by definition,
+$A(T)=.5\,A(0)=.5\,A_0$, we must have
+$$
+e^{-kT}=\dfrac{1}{2},
+$$
+which leads to
+$$
+kT=\ln{2}
+$$
+and 
+%
+\mar{The relation between the half-life and\\ the decay constant}
+%
+therefore
+$$
+T=\dfrac{\ln{2}}{k}.
+$$
+
+Suppose, for example, that we have a sample of
+polonium,\index{polonium} which is a radioactive isotope of
+radium.\index{radium} The decay constant of polonium is $k = .500865$
+\% per day, and thus its half life is
+$$
+T = \dfrac{{\ln2}}{k} = \dfrac{{\ln2}}{.00500865} 
+   = 138.39\ \hbox{days}.
+$$
+By linear approximation, $A(t)$ is closely approximated by a linear
+function for short intervals of time.  Because polonium has a
+half-life of 138.39 days, a ``short time'' means several hours in this
+case.  Thus, if we spend an afternoon in a laboratory studying the
+decay of polonium, we can assume that $A(t)$ is linear.
+
+When polonium decays, it produces various sorts of
+radiation,\index{radiation} including $\alpha$-rays (``alpha rays'').
+Using a scintillation counter, one can determine the number of rays
+emitted in given directions:
+
+\vspace*{2in}
+%\special{psfile=ch122-1a.ps}
+%\special{psfile=ch122-1b.ps}
+
+\noindent 
+A setup like this will count a fixed percentage of the total number of
+$\alpha$-rays emitted.  Since our model of decay\index{radioactive
+  decay model} is linear, it follows that the number of $\alpha$-rays
+detected should be a linear function of time.  If we start counting at
+time $t = 0$, the number of particles observed will have a
+straight-line graph:\label{linear}
+
+\vspace*{2in}
+%\special{psfile=ch122-2.ps}
+
+\enlargethispage*{10pt}
+In the early 20th century, researchers like Marie Curie\index{Curie,
+  M.} and Ernest Rutherford\index{Rutherford, E.} did numerous studies
+of the $\alpha$-rays emitted by polonium.  For example, in 1911,
+Rutherford, Geiger\index{Geiger} and Bateman\index{Bateman} counted
+the number of $\alpha$-rays detected in a 7.5-second time period.
+They repeated their experiment 2608 times and detected a total of
+10,097 $\alpha$-rays.  This is an average of
+$$
+\dfrac{10097}{2608} = 3.8715\ \hbox{$\alpha$-rays per 7.5-second period},
+$$
+so the number of $\alpha$-rays per second is 
+$$
+\dfrac{3.8715}{7.5} = .5162\ \hbox{$\alpha$-rays per second}.
+$$
+Thus the straight line in the above graph has slope .5162.
+
+\newpage
+
+This model of $\alpha$-ray production has several problems. First, it
+predicts the existence of fractional $\alpha$-rays, which makes no
+sense---the number detected is always a nonnegative integer. To remedy
+this, we can modify our model as follows:
+
+\vspace*{2in}
+%\special{psfile=ch122-3.ps}
+
+
+\noindent Notice that the graph is now a step function\index{function!step}.  It shows that we should see a new $\alpha$-ray every $1/.5162 = 1.937$ seconds. This model also has the following consequence: if we observe the number of $\alpha$-rays produced in a 7.5-second interval, then we will always see 3 or 4 particles:
+\vspace*{2.3in}
+%\special{psfile=ch122-4.ps}
+
+
+\noindent 
+As the picture indicates, whether we get 3 or 4 depends on where the
+interval starts.  Now comes the serious problem: this prediction is
+{\em inconsistent\/} with the experimental data collected by
+Rutherford\index{Rutherford, E.} and the others in 1911.  For example,
+in 57 of the 2608 times they ran the experiment, {\em no\/}
+$\alpha$-rays were observed, while in 139 cases, 7 $\alpha$-rays were
+observed.  Here are the complete data of the experiment:
+\begin{center}
+	\begin{tabular}{cc}\label{data}
+	number of & number of \\
+	$\alpha$-rays observed & occurrences \\
+	$n$ & $N_n$ \\ [2pt] \hline
+		\begin{tabular}{r}
+		\rule{0pt}{14pt} 0 \\
+		1 \\
+		2 \\
+		3 \\
+		4 \\
+		5 \\
+		6 \\
+		7 \\
+		8 \\
+		9 \\
+		10 \\
+		11 \\
+		12 \\
+		13 \\
+		14 
+		\end{tabular}
+		&
+		\begin{tabular}{r}
+		\rule{0pt}{14pt} 57\\
+		203\\
+		383\\
+		525\\
+		532\\
+		408\\
+		273\\
+		139\\
+		 45\\
+		 27\\
+		 10\\
+		  4\\
+		  0\\
+		  1\\
+		  1
+		\end{tabular}
+	\\ [6pt] \hline
+	Total & \rule{0pt}{14pt} 2608 \rule{6pt}{0pt}
+	\end{tabular}
+\end{center}
+
+It follows that the linear model of $\alpha$-ray emission doesn't
+apply to time intervals of length 7.5 seconds.  This is a common
+occurrence---a model may work nicely over a certain range, but outside
+of that range, its answers may be meaningless.  The problem in our
+case comes from the random nature of radioactive decay.  In fact,
+there are two sources of randomness to deal with: the {\em time\/}
+when a polonium atom decays is random, and the {\em direction\/} in
+which it then emits an $\alpha$-ray is also random (this affects us
+since the scintillation counter only detects emissions in certain
+directions).  We need to modify our model to take the randomness into
+account, and this is where probability enters in.
+
+\subsection{Probability Models}
+\index{model!probability}
+
+
+The basic idea of probability theory is that the outcome
+%
+\mar{Randomness has structure} 
+%
+of a certain event can be unpredictable in the individual instance but
+predictable on the average.  Throwing dice and tossing a coin are
+familiar examples.  In this section, we will show how the Poisson
+probability distribution gives an excellent model of the $\alpha$-ray
+experiment described above.
+
+\subsubsection{The definition of probability}
+\index{probability}
+
+We will let $p_n$ denote the probability of observing exactly $n$
+$\alpha$-rays in a 7.5-second time interval.  By this statement, we
+mean the following.  Suppose we run the experiment $N$ times, where
+$N$ is large.  Let $N_n$ be the number of times we observed $n$
+$\alpha$-rays.  Then the ratio $N_n/N$ is the frequency with which
+this outcome occurs.  Now imagine $N$ getting larger and larger. Being
+``predictable on the average'' means that the ratios $N_n/N$ approach
+a fixed number, that is, the limit $\lim_{N\to\infty}N_n/N$ exists.
+We then {\em define\/} this number to be the probability $p_n$.  Thus
+\[ 
+p_n = \lim_{N\to\infty}\dfrac{N_n}{N}.
+\]
+For example, the data presented on page~\pageref{data} were obtained
+from $N = 2608$ repetitions of our experiment.  From the table given
+there, we see that 0 $\alpha$-rays were observed 57 times.  This means
+$N_0 = 57$, and thus the probability of detecting 0 $\alpha$-rays is
+\[ 
+p_0 \approx \dfrac{N_0}{N} = \dfrac{57}{2608} = .0218.
+\]
+Similarly, we can approximate $p_1$, $p_2$, etc.,~using the data in
+the table.  Our goal is to describe these probabilities $p_0$, $p_1$,
+\ldots \,..  Ideally, we would like to have a way of determining the
+numbers $p_0, p_1, p_2, \ldots$ ``before the fact."
+
+\subsubsection{Some properties of probabilities}
+
+In any introductory course on probability, one learns certain basic
+principles for working with probabilities.  We will give examples to
+illustrate some of these principles, and more examples may be found in
+the exercises.
+
+For our purposes, we will be working in the following setting.  There
+is a certain {\bf experiment} being performed.  This might consist of
+flipping
+%
+\mar{The general context}
+%
+a coin and noting which side comes up, or running a survey asking
+people at random their opinions about a certain TV show, or, in our
+case, counting the number of $\alpha$-rays detected in a 7.5-second
+interval.  Moreover, there is a {\bf discrete} set of possible
+outcomes of the experiment.  That is, the possible outcomes can be
+listed in a sequence $O_1$, $O_2$, $O_3$, \ldots\,.  In some cases,
+like throwing a pair of dice, this list might be finite.  In other
+cases, like our $\alpha$-ray experiment, the list might be infinite.
+What is ruled out are experiments like choosing a person at random and
+measuring the person's height---there is a continuum of possible
+outcomes here which cannot be listed in the way we've specified.
+Moreover, there should be a {\bf probability} assigned to each
+outcome, with the outcome $O_n$ having probability $p_n$..  Finally,
+the possible outcomes should be {\bf disjoint}---two different
+outcomes can't both result from a single experiment.  Thus if we are
+examining the attributes of a group of people, ``being male'' and
+``having green eyes'' would not be acceptable outcomes in our sense
+unless we somehow knew in advance that there were no green-eyed males
+in the group.
+
+Knowing the probabilities $p_0,p_1,\ldots$ of the possible outcomes
+allows us to compute other, possibly more complicated probabilities.
+This brings in the concept of an {\bf event}, which is basic to
+probability.  In the case of our $\alpha$-ray experiment, here are
+some examples of events:
+\begin{itemize}
+
+\item Detecting 3 $\alpha$-rays.
+
+\item Detecting 2 or 4 $\alpha$-rays.
+
+\item Detecting an odd number of $\alpha$-rays.
+\end{itemize}
+In general, an {\bf event}\index{event!in probability} is a
+subcollection of the possible outcomes.  
+\mar{\vspace*{18pt} The addition rule\\ for probabilities}
+\begin{quote}  
+{\bf Rule 1\quad The {\bf probability of an event}\index{probability!of an event} is simply the sum of the probabilities of its component outcomes.}\label{rule1}
+\end{quote}
+Thus, for the events just described, we have:
+\begin{itemize}
+
+\item The probability of detecting 3 $\alpha$-rays is $p_3$;
+
+\item The probability of detecting 2 or 4 $\alpha$-rays is $p_2+p_4$;
+
+\item The probability of detecting an odd number of $\alpha$-rays is
+  the infinite sum
+\[
+p_1+p_3+p_5+p_7+\cdots 
+\]
+(since an odd number of $\alpha$-rays means that 1 or 3 or 5 or 7
+etc.\ have been detected).
+\end{itemize}
+
+Another important property of probabilities follows directly from Rule 1:
+\begin{quote}
+{\bf Rule 2\quad The sum of the probabilities of all possible outcomes is~1:
+\[
+ \sum_{k=0}^\infty p_k=1.
+\]
+}
+\end{quote}
+The reason for this is that the list of outcomes was stipulated to be
+the list of {\em all possible} outcomes. Hence the event consisting of
+all these outcomes is bound to occur every time---its probability is
+1.
+
+A third rule we will need relates the probabilities of {\bf
+  independent} events.  Two events are independent if the occurrence
+or non- occurrence of one of the events has no impact on the
+probability of the second event occurring.  For instance, suppose we
+are examining a group of people.  Consider the following events which
+may or may not occur each time we look at a person:
+\begin{enumerate}
+
+\item The person is female;
+
+\item The person has green eyes;
+
+\item The person is over 5'7" tall.
+\end{enumerate}
+We would expect the first and second events to be independent, and
+also the second and third, but not the first and third.
+\mar{\vspace*{18pt} The product rule\\ for probabilities}
+\begin{quote}
+{\bf Rule 3\quad The probability that two or more independent events
+  all occur is the product of their separate
+  probabilities.}\label{rule3}
+\end{quote}
+Thus, for example, suppose that in our hypothetical group of people
+$\frac{1}{2}$ are female, $\frac{1}{8}$ are green-eyed, and
+$\frac{1}{3}$ are taller than 5'7".  We might then expect roughly
+$\frac{1}{24}$ of them to be green-eyed {\em and} over 5'7", but we
+would have no particular reason to expect that $\frac{1}{6}$ of them
+are females taller than 5'7".
+
+A final rule that is often useful is
+\mar{\vspace*{16pt} The probability\\ that something\\ doesn't happen}
+\begin{quote}
+{\bf Rule 4\quad If a certain event has a probability \boldmath $p$ of
+  happening, then the probability that the event doesn't take place is
+  $1-p$.}\label{rule4}
+\end{quote}
+For example, in our group of people, we would expect $\frac{2}{3}$ of
+them to be less than 5'7" tall, $\frac{7}{8}$ of them to have eyes
+colored something other than green, etc.
+
+\subsubsection{The notion of a probability model}
+
+A {\bf model}\index{model} is a mathematical picture of a real-life
+phenomenon.  We have seen that dynamical systems can be used to create
+models of physical situations.  Another type of mathematical model is
+a {\em probability model}.  In general, a {\bf probability
+  model}\index{probability model} for an experiment with a finite
+number of outcomes is {\em a listing of all possible outcomes and an
+  assignment of probabilities to each outcome so that their sum is 1}.
+In order that the probability model be a good picture of reality, we
+ask that the {\em probability assigned to an outcome should be the
+  relative frequency with which that outcome would appear if the
+  experiment were duplicated independently a large number of times}.
+
+As an example, a probability model for one toss of a fair die consists
+of a list of all possible outcomes, namely 1, 2, 3, 4, 5, 6, and an
+assignment of a probability to each, namely $\frac{1}{6}$,
+$\frac{1}{6}$, $\frac{1}{6}$, $\frac{1}{6}$, $\frac{1}{6}$,
+$\frac{1}{6}$, respectively.  We assign the number $\frac{1}{6}$ to
+each outcome because we expect that if the the experiment were
+repeated (that is, if the die were tossed) a large number of times,
+then any particular outcome (3, say) would occur about one sixth of
+the time.  Another probability model for the experiment consisting of
+a toss of a die might be a list of all outcomes, again 1, 2, 3, 4, 5,
+6, together with an assignment of the numbers $\frac{1}{2}$, 0,
+$\frac{1}{6}$, 0, 0, $\frac{1}{3}$ to 1, 2, 3, 4, 5, 6, respectively.
+This is a probability model, because the numbers we have assigned add
+to 1, but it certainly does not model very well the throw of a fair
+die.
+
+We would like to set up a probability model for our experiment with
+$\alpha$-rays.  The outcomes are 0, 1, 2, 3, 4, ... where, for
+example, the number 5 labels the outcome in which we observe 5
+$\alpha$-rays in our 7.5-second interval.  The total number of
+outcomes is equal to the number of $\alpha$-rays that we could
+conceivably see in a 7.5-second interval.  Since it is conceivable
+(but extremely unlikely) that every atom in the sample could decay and
+emit an $\alpha$-ray in the direction of the scintillation counter in
+one 7.5-second interval, we could conceivably see as many
+$\alpha$-rays as there are atoms in the sample. This number is so
+large that we can think of it as infinite.  To have a probability
+model, we need to assign numbers $p_0$, $p_1$, $p_2$, \ldots to the
+outcomes 0, 1, 2, \ldots, respectively, so that $p_0 + p_1 + p_2 +
+\cdots = 1$.  For the model to be reasonable, we would like each $p_n$
+to be approximately equal to the corresponding number $N_n/N$ observed
+by Rutherford, Geiger, and Bateman.
+
+\newpage
+
+\subsection{The Poisson Probability Distribution}
+
+
+\subsubsection{The Poisson model of $\alpha$-ray emission}
+\index{Poisson model}
+
+To describe the probabilities $p_0$, $p_1$, \ldots, $p_n$, \ldots that
+we will observe 0, 1, \ldots, $n$, \ldots $\alpha$-rays in a
+7.5-second interval for our $\alpha$-ray experiment, we use the {\bf
+  Poisson probability distribution}\index{Poisson distribution}
+\[
+p_n = \dfrac{{\lambda^n e^{-\lambda}}}{{n!}},
+\] 
+where $\lambda$ is a number yet to be determined, and $n!$ is the
+familiar \textbf{\boldmath $n$-factorial}
+function,\index{factorial}\index{$n"!$}
+\[
+n! = \begin{cases}
+n \cdot (n-1) \cdot (n-2) \cdot \cdots \cdot 3 \cdot 2 \cdot 1 
+    & \text{if $n > 0$}, \\ 
+1 & \text{if $n = 0$}.
+\end{cases}
+\]
+Thus the first few Poisson probabilities are:
+\[
+p_0 = e^{-\lambda}, \qquad
+p_1 = \lambda e^{-\lambda}, \qquad
+p_2 = \dfrac{\lambda^2e^{-\lambda}}{2}, \qquad
+p_3 = \dfrac{\lambda^3e^{-\lambda}}{6}.
+\]
+
+Note that this assignment does indeed give us a probability model, because
+\begin{align*}
+p_0 + p_1 + p_2  +p_3 + \cdots 
+  &=  \dfrac{\lambda^0}{0!}e^{-\lambda} + \dfrac{\lambda}{1!} e^{-\lambda} 
+      + \dfrac{\lambda ^2}{2!}e^{-\lambda} 
+      + \dfrac{\lambda ^3}{3!}e^{-\lambda} +\cdots \\
+  &= e^{-\lambda}\left( 1 + \dfrac{\lambda}{1!} + \dfrac{\lambda ^2}{2!} 
+       + \dfrac{\lambda ^3}{3!} + \cdots \right) \\
+  &= e^{-\lambda}\cdot e^{\lambda}\\
+  &=  1. 
+\end{align*}
+(The transition from the second line to the third uses the fact that
+the expression in parentheses is just the Taylor series for
+$e^{\lambda}$.)
+
+We will shortly derive the Poisson distribution from basic principles.
+For the moment, though, we will assume that the probabilities $p_0$,
+$p_1$, $\ldots$ for $\alpha$-ray emission are given by the above
+formulas, where we still need to choose an appropriate value for the
+parameter $\lambda$.  The key to determining $\lambda$ is the notion
+of {\bf expectation},\index{expectation} which for us will mean the
+average number of $\alpha$-rays observed in a 7.5-second interval.
+
+Suppose we repeat our experiment $N$ times.  As usual, we let $N_n$
+denote the number of times exactly $n$ $\alpha$-rays were observed.
+Then the total number of $\alpha$-rays observed in the $N$ experiments
+is
+\[
+0\cdot N_0 + 1\cdot N_1 + 2\cdot N_2 + 3\cdot N_3 + \cdots\ .
+\]
+Then the ``average number of $\alpha$-rays observed in a 7.5-second
+interval'' means the limit
+\[
+E = \lim_{N\to\infty} 
+    \dfrac{0\cdot N_0 + 1\cdot N_1 + 2\cdot N_2 + 3\cdot N_3 + \cdots}
+    {N}.
+\]
+This limit is called the {\bf expected value}\index{expected value} or
+{\bf expectation} (which explains why it is denoted $E$).
+
+We claim that for the Poisson distribution, the expected value $E$ is
+exactly the number~$\lambda$.  To see this, notice that the above
+limit can be written in the form
+\[
+E = \lim_{N\to\infty} \left( 0 \cdot \dfrac{N_0}{N} + 1\cdot \dfrac{N_1}{N}
+      +  2\cdot \dfrac{N_2}{N} + 3\cdot \dfrac{N_3}{N} + \cdots\ \right).
+\]
+Since we defined
+\[p_n = \lim_{N\to\infty} \dfrac{N_n}{N}\ ,\]
+it follows 
+%
+\mar{\vspace{12pt}The general formula for the expected value in a probability model}
+%
+that we get the following formula for the expectation:
+\[
+E = 0\cdot p_0 + 1\cdot p_1 + 2\cdot p_2 + 3\cdot p_3 + \cdots =
+        \sum_{n=0}^\infty np_n.
+\]
+(Note that this equality is true for {\em any} probability model, not
+just the one we are considering)
+
+Substituting in the values of $p_n$ given by the Poisson distribution,  we have\index{summation}
+\begin{align*}
+E &= 0\cdot e^{-\lambda} + 1\cdot \lambda e^{-\lambda} + 
+        2\cdot \dfrac{\lambda ^2}{2!} e^{-\lambda} + 
+        3\cdot \dfrac{\lambda ^3}{3!}e^{-\lambda} + \cdots \\
+  &= \sum_{n=0}^\infty n \dfrac{\lambda ^n}{n!}e^{-\lambda}\\
+  &= \lambda e^{-\lambda}\sum_{n=1}^\infty \dfrac{\lambda ^{n-1}}{(n-1)!},
+\end{align*}
+where we pulled the common factor $\lambda e^{-\lambda}$ outside the
+summation, noted that the term in the summation corresponding to $n=0$
+is 0, and observed that
+$$
+\dfrac{n}{n!} = \dfrac{n}{n(n-1)\cdot\cdots\cdot2\cdot 1} 
+   = \dfrac{1}{(n-1)!}.
+$$ Letting $k=n-1$, we have (again recognizing the Taylor series for
+   $e^{\lambda}$)
+\[
+E =  \lambda e^{-\lambda}\sum_{k=0}^\infty \dfrac{\lambda ^k}{k!}
+  = \lambda e^{-\lambda}e^{\lambda}
+  = \lambda.
+\]
+This proves that the expected value is $\lambda$ as claimed.
+
+Now that we know how to interpret $\lambda$, it is easy to determine what it should be for the $\alpha$-ray experiment.  The data given on page~\pageref{data} covered $N = 2608$ repetitions of the experiment, with
+$$
+0\cdot N_0 + 1\cdot N_1 + \cdots = 10097
+$$
+in this case. Thus
+\[
+\dfrac{0\cdot N_0 + 1\cdot N_1 + \cdots}{N} = \dfrac{10097}{2608}
+        = 3.8715
+\]
+is an approximation of the expected value $\lambda$. However, since
+this is the only information about $\lambda$ we have, we will let
+$\lambda = 3.8715$. Using this value of $\lambda$, we can then compare
+the frequencies predicted by the Poisson distribution to the actual
+data from on page~\pageref{data}:
+\begin{center}\begin{small}
+\begin{tabular}{ccccc}
+	number of & number of & probability  & 
+		Poisson & Poisson \\
+	$\alpha$-rays observed & occurrences & 
+		approximation & probability & prediction \\
+	$n$ & $N_n$ & $N_n/N$ & $p_n$ & $2608\,p_n$ \\[2pt]
+		\hline
+	\begin{tabular}{r}
+	\rule{0pt}{14pt} 0 \\
+		1 \\
+		2 \\
+		3 \\
+		4 \\
+		5 \\
+		6 \\
+		7 \\
+		8 \\
+		9 \\
+		10 \\
+		11 \\
+		12 \\
+		13 \\
+		14 
+	\end{tabular}
+	&
+	\begin{tabular}{r}
+	\rule{0pt}{14pt} 57  \\
+		203 \\
+		383 \\
+		525 \\
+		532 \\
+		408 \\
+		273 \\
+		139 \\
+		 45 \\
+		 27 \\
+		 10 \\
+		  4 \\
+		  0 \\
+		  1 \\
+		  1 
+	\end{tabular}
+	&
+	\begin{tabular}{l}
+		.021855 \rule{0pt}{14pt} \\
+		.077837 \\
+		.146855 \\
+		.201303 \\
+		.203398 \\
+		.156441 \\
+		.104677 \\
+		.053297 \\
+		.017254 \\
+		.010352 \\
+		.003834 \\
+		.001533 \\
+		.000000 \\
+		.000383 \\
+		.000383 
+	\end{tabular}
+	&
+	\begin{tabular}{l}
+		.020827 \rule{0pt}{14pt} \\
+		.080632 \\
+		.156083 \\
+		.201426 \\
+		.194955 \\
+		.150953 \\
+		.097402 \\
+		.053870 \\
+		.026070 \\
+		.011214 \\
+		.004341 \\
+		.001528 \\
+		.000492 \\
+		.000146 \\
+		.000040 
+	\end{tabular}
+	&
+	\begin{tabular}{r}
+		\rule{0pt}{14pt} 54.3\\
+		210.3\\
+		407.1\\
+		525.3\\
+		508.4\\
+		393.7\\
+		254.0\\
+		140.5\\
+		 68.0\\
+		 29.2\\
+		 11.3\\
+		  4.0\\
+		  1.3\\
+	  	   .4\\
+		   .1
+	\end{tabular}
+	\\ [6pt] \hline
+	Totals & 2608 & 1 & 1 & \rule{0pt}{14pt} 2608
+\end{tabular}\end{small}
+\end{center}
+The Poisson model agrees nicely\index{prediction} with the data since
+for each $n$, $N_n/N$ and $p_n$ are reasonably close.  Notice that we
+shouldn't expect perfect agreement since $N_n/N$ is only an
+approximation to $p_n$.  We would expect these approximations to get
+better as we take larger values of $N$.
+
+Look at the last column, labelled ``Poisson prediction.''  The numbers
+here are the Poisson probabilities multiplied by $N = 2608$, and they
+represent the ``ideal'' number of occurrences.  This makes it easier
+to compare the model to the data.  For example, the graph below plots
+the number of occurrences, both actual and predicted.  The circles are
+the experimental data, while the line-segment graph connects the
+Poisson predictions.
+
+Although the model seems to fit the data nicely, we should point out
+that there are statistical tests which can be used measure the fit
+more precisely.  These tests are part of the material covered in
+courses in probability and statistics.
+
+\vspace*{3in}
+%\special{psfile=ch122-5.ps}
+
+A final and very important point to make concerns the number of
+$\alpha$-rays observed over a long period of time.  Our particular
+Poisson model with $\lambda=3.8715$ only works for a 7.5-second
+interval.  What happens if we count $\alpha$-rays over a longer time
+period?  For simplicity, assume that we have a time interval of length
+$T$ which is a multiple of 7.5 seconds, so that $T = 7.5\,N$ for some
+large integer $N$.  We can regard this as running our 7.5-second
+experiment $N$ consecutive times. Thus the ratio
+\[
+\dfrac{\hbox{total number of $\alpha$-rays observed}}{N}
+\]
+is an approximation to the expected value $\lambda = 3.8715$.  It
+follows that
+\[
+\hbox{total number of $\alpha$-rays observed} \approx 3.8715\,N
+   = \dfrac{3.8715}{7.5}7.5\,N
+   = .5162\,T.
+\]
+This shows that for large time intervals, we recover the linear model
+of $\alpha$-ray emissions discussed on page~\pageref{linear}.  Thus
+our probabilistic model is consistent with what we did earlier and yet
+allows us to describe what happens when the linear model breaks down.
+
+\subsubsection{Derivation of the Poisson model}
+\index{Poisson model!derivation}
+
+In the previous discussion we simply assumed that the $\alpha$-ray
+probabilities were given by the Poisson distribution, and found that
+the Poisson probabilities agreed with the experimental data. Let's see
+where the Poisson formulas come from.  It turns out that we can derive
+the Poisson probabilities $p_n$ from the following assumptions:
+\begin{itemize}
+
+\item We have an extremely large number $M$ of polonium atoms;
+
+\item Each atom has a small but equal probability of emitting an
+  $\alpha$-ray that is detected by our scintillation counter in a
+  7.5-second period;
+
+\item Observing an $\alpha$-ray from a given atom is independent of
+  observing an $\alpha$-ray from any other atom.
+\end{itemize}
+
+Now suppose that we see an average of $\lambda = 3.8715$ $\alpha$-rays
+in a 7.5-second period.  Because the number of atoms $M$ is large (in
+the Rutherford-Geiger-Bateman experiment $M > 10^{18}$), then the
+probability that a single fixed atom emits an $\alpha$-ray detected by
+our scintillation counter in a given time period is very close to
+$\lambda/M$.  The probability that the single atom does not emit a
+detected $\alpha$-ray in the period is then $1-\lambda/M$ (by Rule 4,
+page~\pageref{rule4}). Thus, the probability $p_0$ that none of the
+$M$ atoms emits an $\alpha$-ray in the 7.5-second period is
+$(1-\lambda/M)^M$ (by Rule 3, page~\pageref{rule3}).
+
+The fact that $M$ is so large allows us to make a simplifying
+approximation.  Recall that for any value of $x$, positive or
+negative,
+$$
+e^x = \lim_{n\rightarrow\infty}\left(1+\dfrac{x}{n}\right)^n.
+$$
+Therefore  
+$$
+p_0 = \left(1-\dfrac{\lambda}{M}\right)^M \approx 
+	e^{-\lambda}.
+$$ 
+You might calculate some sample values for various values of $M$ to
+see how good this approximation is.
+
+To derive the values of $p_k$ for $k>1$, we need a slight improvement
+on the estimate we just made.  Let $k$ be a relatively small (compared
+to the size of $M$) number. Then
+$$
+\left( 1-\dfrac{\lambda}{M}\right)^{M-k}
+  = \left(\left( 1- \dfrac{\lambda}{M}\right)^M\right)^{\frac{M-k}{M}}\ .
+$$
+Now if $M$ is very large compared to $k$---we will be thinking of
+values of $M$ on the order of magnitude of $10^{18}$ and
+$k<100$---then $(M-k)/M$ 
+%
+\mar{$(M-k)/M$ is essentially equal to 1}
+%
+will essentially equal~1, Hence
+$$
+\left( 1-\dfrac{\lambda}{M}\right)^{M-k}
+   \approx \left(e^{-\lambda}\right)^1=e^{-\lambda}.$$
+
+We can now work out $p_1$. Fix your attention first on a particular
+atom.  The probability that {\em that\/} atom does emit an
+$\alpha$-ray detected by the scintillation counter while the other
+$M-1$ atoms do not is (again by Rule 3)
+$$
+\left(\dfrac{\lambda}{M}\right)^1
+   \left( 1-\dfrac{\lambda}{M}\right)^{M-1}
+   \approx \dfrac{\lambda}{M}\,e^{-\lambda},
+$$
+by the preceding approximation.
+
+Since there are altogether $M$ atoms which might have been responsible
+for the single $\alpha$-ray emission, the probability that some {\em
+  unspecified\/} atom emits an $\alpha$-ray while the others do not is
+(Rule 1, page~\pageref{rule1}) the sum of the probability we just
+calculated for each of the $M$ atoms, which is equal to $M$ times that
+probability.  The total probability is $p_1$:
+$$
+p_1 \approx M\,\dfrac{\lambda}{M}\,e^{-\lambda} 
+= \lambda \,e^{-\lambda}.
+$$
+
+To work out $p_2$, note that the probability that each atom of some
+fixed pair of atoms emits an $\alpha$-ray detected by the counter, and
+no other atoms does, is
+$$
+\left( \dfrac{\lambda}{M} \right) \left( \dfrac{\lambda}{M} \right)
+  \left(1- \dfrac{\lambda}{M}\right)^{M-2}
+  \approx \dfrac{\lambda ^2}{M^2}\, e^{-\lambda},
+$$
+using our usual approximation.  Since there are $\frac{1}{2}M(M-1)$
+different pairs of atoms (we can choose the first $M$ different ways
+and the second $(M-1)$ ways, but each pair gets counted twice in this
+scheme, so we have to divide by 2), we obtain
+\[
+p_2 \approx  \dfrac{M(M-1)}{2} \dfrac{\lambda ^2}{M^2}e^{-\lambda}
+  =  \left( 1 - \dfrac{1}{M}\right) \dfrac{\lambda ^2}{2}e^{-\lambda}
+  \approx \dfrac{\lambda ^2}{2}e^{-\lambda}.
+\]
+
+As one can easily imagine, the computations for $p_3$, $p_4$, $\ldots$
+are similar.  The observant reader will note that the exact values we
+got for $p_0$, $p_1$ and $p_2$ are not the values given by the Poisson
+distribution.  We got the Poisson probabilities only by making various
+approximations that were justified by the large value of $M$.  The
+assumptions we have made actually lead to what is called the {\bf
+  binomial distribution} (see chapter~12.1), a distribution which
+tends to the Poisson distribution in the limit $M\rightarrow\infty$.
+In this case, where $M$ is large and $\lambda$ relatively small, the
+binomial distribution is extremely close to the Poisson distribution.
+ 
+\subsubsection{Other applications of the Poisson distribution}
+
+        The Poisson distribution can be used to model many other
+situations that have a random element.  Examples include:
+\begin{itemize}
+\item The number of chromosome interchanges caused by exposure to
+X-rays for a fixed interval of time.
+\item The number of bacteria in a given unit of area on a Petri dish.
+\item The number of misprints on a page in a book.
+\item The number of flying-bomb hits per unit area in London during
+World War II.
+\end{itemize}
+In the exercises we will explore some examples.
+
+
+
+\subsection{Exercises}
+
+\subsubsection{Probability models}
+\index{probability model}
+
+\vspace{-10pt}
+
+\num A fair coin is tossed.  If it comes up $H$ (heads), a fair die is
+rolled.  If the coin comes up $T$, the coin is tossed again.
+Construct a probability model for this experiment, listing the
+possible outcomes and their probabilities.  (Hint: the list of
+outcomes is $H,1$, $H, 2$, $\ldots$, $H,6$, $TT$, $TH$.)
+
+
+\num Two identical fair coins are put in cup, shaken, and spilled out
+onto a table.  Construct a probability model for this experiment.
+
+
+\numa In the disintegration of large numbers of particles of radium
+($Ra$), it is noted that 29\% of the disintegrations result in
+$$
+Ra \longrightarrow P + A
+$$ 
+and the remainder in 
+$$
+Ra \longrightarrow He^+ + B.
+$$
+What is a model for the disintegration of a single particle of $Ra$?
+
+\sub Construct a probability model for the disintegration of two
+particles of~$Ra$.
+
+
+\subsubsection{The Poisson distribution}
+
+\vspace{-10pt}
+
+\num The purpose of this exercise is to present another way to show
+that the expected value $E$ of the Poisson distribution is equal to
+$\lambda$.  As in the text we have
+\[
+E = 0 \cdot p_0 + 1 \cdot p_1 + 2 \cdot p_2 + 3 \cdot p_3
+        + \cdots = \sum_{n=0}^\infty n p_n. 
+\]
+The numbers $np_n$ can be simplified as
+follows:
+\begin{align*}
+0\cdot p_0 &=  0 ,\\[2pt]
+1\cdot p_1 &=  1\cdot\lambda e^{-\lambda}  =
+         \lambda\cdot e^{-\lambda}  =  \lambda p_0, \\[5pt]
+2\cdot p_2 &=  2\cdot \dfrac{\lambda^2e^{-\lambda}}{2}  =
+         \lambda\cdot\lambda e^{-\lambda}  =  
+		\lambda p_1,  \\[10pt]
+3\cdot p_3 &=  3\cdot \dfrac{\lambda^3e^{-\lambda}}{6}  =
+         \lambda \cdot \dfrac{\lambda^2e^{-\lambda}}{2}  =
+         \lambda p_2.
+\end{align*}
+
+\sub  This pattern generalizes: show that
+\[np_n = \lambda p_{n-1}\quad\hbox{for all $n > 0$}\ .\]
+
+\sub  Use part (a) to compute the expectation $E$ (you will need to 
+use the fact that the sum of the
+probabilities is $p_0+p_1+p_2+\cdots = 1$).
+
+
+\num  A model is to be constructed for the number of rain drops that 
+fall per square foot over a short time interval.  Under what conditions 
+would a Poisson distribution be appropriate.  Under what conditions would 
+a linear model be better?
+
+\num In analyzing flying-bomb hits in the south of London during World
+War II, investigators partitioned the are into 576 small sectors, each
+being $\frac{1}{4}$ of a square kilometer.  There were 229 sectors
+with no hits, 211 sectors with exactly 1 hit, 93 sectors with exactly
+2 hits, 35 sectors with 3 hits, 7 sectors with 4 hits, and one sector
+with 5 or more hits.  What might lead you to expect that a Poisson
+distribution might be a good model for the number of hits on each
+sector?  Fit a Poisson distribution to the data by taking $\lambda$ to
+be the average number of hits per sector.  Use this $\lambda$ to
+compute the theoretical frequencies of 0, 1, 2, 3, 4 and 5 hits in 576
+sectors.
+
+\num A meteorite shower sprinkles a large area of the earth's surface
+with small meteorite hits.  The average density is $5\times 10^{-6}$
+hits per square meter.  Set up a model assigning a probability to the
+number of hits per square kilometer.
+
+\num The central processing unit (CPU) of a laptop computer will
+freeze if more than ten instructions are received in a millisecond.
+If the average number of instructions per second received in the
+course of executing a large program is one per millisecond, what is
+the probability that the instructions received by the CPU will cause
+it to freeze (and, hence, the program to crash).
+
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                     %
+%                              Section 3                              %
+%                                                                     %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{The Power Spectrum}
+
+
+This section is an 
+%
+\mar{The problem of\\ signal + noise}	
+%
+application of ideas about periodic functions and integrals to the
+problem of separating a signal from noise.  We face this problem in
+our daily life.  Radio and television signals have noise added to them
+from other radio sources we can't control.  The noise sounds like
+hissing static on a radio and looks like ``snow'' on a television
+screen.  A good receiver is designed to filter out the noise while
+allowing the the transmitted signal to come through undistorted.
+\vspace{150pt}
+
+\special{psfile=../ps/calc2/lynx2.ps}
+
+Scientific data and a radio broadcast have something in common: both
+are combinations of signal and noise.  For instance, consider the
+annual harvest of lynx pelts\index{lynx} by the Hudson's Bay
+Company.\index{Hudson's Bay Company} It is conceivable that the lynx
+population itself (the {\em signal\/}) was periodic, but various
+random fluctuations (the {\em noise\/})\index{signal and noise} caused
+the harvest (which is {\em signal\/} + {\em noise\/}) to take the form
+it did.  \mar{The power spectrum filters noise to detect periodic
+  signals} If this is the case, then we should try to ``filter out''
+the noise and find the underlying periodic signal.  There is a
+mathematical tool to do this; it is called the {\bf power
+  spectrum}.\index{power spectrum} We will discuss the ideas behind
+the power spectrum and show how it can be used to detect the
+underlying in noisy data.
+
+\subsection{Signal + Noise}
+
+To prepare for working with the power spectrum, let's first see what
+happens to a periodic signal that has some noise added to it.  The
+signal we will use is a pure sine wave.  The {\bf
+  information}\index{information} that the signal carries is the
+frequency of that wave.  The noise will also be a function, but one
+whose values vary in a random fashion.  It can be thought of as a
+combination of periodic signals of all frequencies.  For this reason
+it is sometimes called ``white noise,'' because white light is a
+combination of light rays of all colors (i.e., frequencies).  Here is
+the question we will explore: If we increase the strength of the
+noise, when do we lose the information contained in the original
+signal?
+	
+The signal and noise are shown below.  
+%
+\mar{A signal with\\ faint noise}	
+%
+As you can see, the amplitude of the signal is about 4 times as large
+as the amplitude of the noise.  We say\linebreak
+
+\vspace{16pt}
+
+\special{psfile=../ps/calc2/noise2.ps}
+
+\vspace{100pt}
+
+\noindent
+that the {\bf signal-to-noise ratio} is
+4:1.\index{signal-to-noise ratio}
+\label{faint noise}  
+The combined signal + noise is no longer a pure sine wave, of course.
+However, it is still recognizable as a ``noisy'' wave with the same
+frequency as the original signal.  The information from the signal has
+not yet been lost.
+
+Look what happens when 
+%
+\mar{The noise level becomes stronger}	
+%
+we increase the amplitude of the noise.  In the figure below, the
+noise has been increased by a factor of 4, so the signal-to-noise
+ratio is now 1:1.  The combined signal + noise is now very noisy.
+Would you be willing to argue that it is a wave of the same frequency
+as the original signal?  Or would you prefer to say that it has no
+periodic pattern whatsoever?  It appears we are close to losing the
+information from the original signal.
+
+\vspace{30pt}
+
+\special{psfile=../ps/calc2/noise3.ps}
+
+%\vspace{160pt}
+
+\newpage
+
+If we increase the original noise level 
+%
+\mar{The noise level becomes overwhelming}	
+%
+by a factor of 10, we appear to lose the original signal altogether.
+The signal-to-noise ratio is now 1:2.5, and the \linebreak  
+
+\vspace{20pt}
+
+\special{psfile=../ps/calc2/noise4.ps}
+
+
+\vspace{265pt}
+
+\noindent
+signal + noise appears to be as random as the noise itself.  In spite
+of appearances, the signal is still there, and it will be detected in
+the power spectrum!
+
+
+\subsection{Detecting the Frequency of a Signal}\index{frequency!of a signal}
+
+Assume we have a signal that may be distorted by a lot of noise.  
+%
+\mar{Compare the signal\\ to a probe whose frequency can be varied} 	
+%
+We want to decide whether the signal has a periodic component; if it
+does, we want to determine its frequency.  Our detector is based on
+this simple idea: {\em Compare the signal to a test probe of known
+  frequency; vary the frequency of the probe until there is a positive
+  response}.  Of course, we still need to explain how the comparison
+is made, and what constitutes a positive response.
+	
+Although the detector will work on a very noisy signal, like the one
+above, we will understand it better if we first use it to analyze a
+signal whose periodic nature is evident.  
+%
+\mar{The test probe}	
+%
+Let the signal $S(t)$ be a pure sine wave lying above the $t$-axis,
+and suppose that $t$ is the time measured in seconds.  Our {\bf test
+  probe}\index{test probe} is the function
+	$$
+	P(t) = \sin(2\pi \omega t)
+	$$
+whose frequency is $\omega$ cycles per second.  As its graph demonstrates, the values of $P$ are equally likely to be positive or negative.  
+
+Is the same true for the product $P(t)S(t)$?  
+%
+\mar{When the signal matches the\\ test frequency}	
+%
+Suppose first that $S(t)$ has the same frequency as $P(t)$ (below,
+left).  As you can see, the positive values of $P(t)$ are always
+multiplied by the larger values of $S(t)$.  By contrast, the negative
+values of $P(t)$ are always multiplied by the smaller values of
+$S(t)$.  Consequently, the positive values of $P(t)S(t)$ outweigh the
+negative ones.  On average, the value of the product is positive.  In
+fact, the average value\index{average value} of the product is half
+the amplitude of the original signal. \label{frequencies match} Later
+on we will see why this is so.
+\vspace{80pt}
+
+\special{psfile=../ps/calc2/sintest1.ps}  	  
+
+\vspace{195pt}
+
+On the right we see what happens 
+%
+\mar{When the signal {\em doesn't\/} match the\\ test frequency}	
+%
+if $S(t)$ is {\em not\/} related to $P(t)$.  In that case, a large
+value of $S(t)$ is just as likely to multiply a positive value of
+$P(t)$ as a negative one.  Consequently, the product $P(t)S(t)$ will
+have both large positive and large negative values.  On average, the
+value of the product will be about 0.
+
+Let's use the detector on the signals we constructed on
+page~\pageref{faint noise}.  In both we started with a pure sine wave
+and added some white noise.  In the first, the signal-to-noise ratio
+was 4:1.
+\vspace{60pt}
+
+\special{psfile=../ps/calc2/sintest2.ps}
+	
+\vspace{160pt}	
+	
+\noindent
+In the second the noise was stronger; the signal-to-noise ratio was 1:1.
+\vspace{70pt}
+
+\special{psfile=../ps/calc2/sintest3.ps}
+	
+\vspace{190pt}	
+	
+To use the detector yourself, you have to be able to calculate the
+average value of a function.  This is discussed in chapter~6.3.  The
+average value of $y = f(x)$ on the interval
+%
+\mar{\vspace{14pt} The average value\\ of a function}
+%
+$a \leq x \leq b$ is
+\[
+\dfrac{1}{b - a} \int_a^b f(x) \, dx.
+\]
+Our detector is the average value of the product of the signal $S(t)$
+and the test probe $P(t) = \sin(2\pi \omega t)$.\index{frequency
+  detector}\index{average value}
+\begin{center}
+\begin{picture}(340,50)
+\put(0,0) {\framebox(340,50)
+{
+\begin{minipage}{310pt}
+{\bf Frequency detector}: \hfill $D(\omega) = \dfrac{1}{b-a} \dint_a^b S(t) \sin(2\pi\omega t)\,dt$. \hfill \mbox{}
+\end{minipage}
+}}
+\end{picture}
+\end{center}
+
+Clearly, the value of the detector depends 
+%
+\mar{Integrals\\ with parameters\\ define functions}
+%
+on the frequency $\omega$ of the probe $P$.  We have tried to reflect this in the notation: the detector is a function $D$ whose input is the frequency $\omega$.  The output of the function is calculated as an integral in which the input $\omega$ plays the role of a parameter.  
+
+This is the first time we have defined a function as an integral with
+a parameter.  Let's see how the detector works to analyze the signal
+$S(t) = 3\sin(5t)$ over the interval $0 \leq t \leq 10$.  We have
+	$$
+D(\omega) = \dfrac{1}{10} \int_0^{10} 3\sin(5t) \sin(2\pi\omega t)\,dt.
+	$$
+In the exercises at the end of chapter~11.3 we obtained an explicit
+formula for the integral of the product of two sine functions.  Find
+that formula and check that it yields the following:
+	$$
+	D(\omega) = \dfrac{3}{10(4\pi^2\omega^2 - 25)}
+	(5\cos(50)\sin(20\pi\omega)-2\pi\omega\sin(50)\cos(20\pi\omega)).
+	$$	
+Notice, in your own calculations, that $\omega$ emerges as the
+variable on which the whole expression depends.
+
+The graph of $D(\omega)$ is shown on the top of the next page.  You
+should plot it yourself, using a computer graphing utility.
+%
+\mar{$D(\omega)$ peaks when\\ $\omega$ is the frequency\\ of the signal}
+%
+For most frequencies $\omega$, the value of the detector $D$ is close
+to 0.  There is a single strong peak, which you can find at $\omega
+\approx .795$ cycles/sec.  As it happens, the frequency of the signal
+$S = 3\sin(5t)$ is $5/2\pi = .79577\ldots$ cycles/sec!  Moreover, the
+height of the peak is about 1.5, which is exactly half the amplitude
+of the signal.
+
+\newpage
+
+\mbox{}
+\vspace{80pt}
+
+\special{psfile=../ps/calc2/detect1.ps}
+
+\vspace{50pt}
+
+The graph above tests the signal $S(t)$ when the detector is
+integrated over a time interval that is 10 seconds long.  That is, $0
+\leq t \leq 10$ seconds.  If we repeat the test by integrating over a
+much larger interval, the frequency detector gives us a sharper report
+on the frequency of the signal.  In the graph below the function
+$D(\omega)$ was calculated by integrating over the interval
+%
+\mar{\vspace{24pt} The peak in $D(\omega)$\\ is sharper if the signal\\ is
+  tested over a\\ longer time interval} 
+%
+$0 \leq t \leq 100$ seconds.
+\vspace{100pt}
+
+\special{psfile=../ps/calc2/detect2.ps}
+
+%NOTE: this won't run on a 300 dpi laser printer unless the stepsize in
+%the graphing program is .3 or greater
+
+\vspace{65pt}
+
+\noindent
+{\bf Computation}.  Of course, it is rare to find a formula for
+$D(\omega)$ in terms of the frequency $\omega$.  For most signals
+$S(t)$, the best we can do is calculate the value of the integral
+numerically for a sequence of values of the parameter $\omega$.  The
+program DETECTOR,
+%
+\mar{The program DETECTOR}	
+%
+which is listed on the next page, does this.  As it is written, it
+analyzes the function $3\sin(5t)$ on the interval $0 \leq t \leq 10$,
+and it produces the graph $D(\omega)$ at the top of this page.  The
+``outer loop''
+	\begin{quote}
+	{\tt FOR j = 1 TO omegasteps} \quad \ldots \quad {\tt NEXT j}
+	\end{quote}
+plots $D(\omega)$ over the interval $0 \leq \omega \leq 3$, using
+$2^{10}$ equally spaced values of $\omega$.  Each $D(\omega)$ is an
+integral whose value is first calculated as a midpoint Riemann sum
+with $2^7$ steps.  The calculation is carried out by the short ``inner
+loop''
+	\begin{quote}
+	{\tt FOR k = 1 TO numberofsteps} \quad \ldots \quad {\tt NEXT k},
+	\end{quote}
+which you should recognize as an adaptation of the program RIEMANN
+from chapter~6.
+
+
+\begin{center}
+{\bf Program: DETECTOR \\  \index{program!DETECTOR}
+To detect the frequency of a signal}
+\end{center}
+
+\footnotesize
+\hspace{-20pt}
+\begin{minipage}{358pt}
+\noindent
+{\sl Set up GRAPHICS}
+\vspace{-11pt}
+\begin{verbatim}
+startomega = 0
+endomega = 3
+omegasteps = 2 ^ 10
+deltaomega = (endomega - startomega) / omegasteps
+twopi = 8 * ATN(1)
+DEF fnf (t) = 3 * SIN(5 * t)
+a = 0
+b = 10
+numberofsteps = 2 ^ 7
+deltat = (b - a) / numberofsteps
+omega = startomega
+oldomega = omega
+oldaccum = 0
+FOR j = 1 TO omegasteps
+     t = a + deltat / 2
+     accum = 0
+     FOR k = 1 TO numberofsteps
+          deltaS = (fnf(t) * SIN(twopi * omega * t) * deltat) / (b - a)
+          accum = accum + deltaS
+          t = t + deltat
+     NEXT k
+     omega = omega + deltaomega
+\end{verbatim}
+
+\vspace{-10pt}
+\rule{23pt}{0pt} {\sl Plot the line from {\tt (oldomega, oldaccum)} to {\tt (omega, accum)}}
+
+\vspace{-13pt}
+\begin{verbatim}
+     oldomega = omega
+     oldaccum = accum
+NEXT j
+\end{verbatim}
+\end{minipage}
+\normalsize
+\bigskip
+
+If we modify the program DETECTOR so that it analyzes the function
+\[
+S(t) = 3\sin(5t) + \sin(8t),
+\]
+we get the graph at the top of the next page.  The scale on the
+$\omega$-axis has also been modified to make it easier to read
+multiples of $1/2\pi$ cycles per second.  Notice the strongest peak is
+at $\omega = 5/2\pi$ cycles/sec, and $D \approx 1.5$ there.  But there
+is now a second peak at $\omega = 8/2\pi$ cycles/sec, where $D \approx
+.5$.  Indeed, $S$ consists of two periodic components, one with three
+times the amplitude of the other.  The stronger component has
+frequency $5/2\pi$ cycles/sec, the weaker $8/2\pi$ cycles/sec.
+\vspace{95pt}
+
+\special{psfile=../ps/calc2/detect3.ps}
+
+\vspace{25pt}
+
+The following example first appeared in chapter~7.2.  It is clear from
+the graph that it has a basic frequency of 5 Hz.  The detector shows
+that it also has an equally strong component at 10 Hz and a much
+weaker component at 15 Hz.
+%
+\mar{\vspace{40pt} A periodic \\ signal \ldots \\ \vspace{100pt}
+  \ldots and its\\ frequency detector}
+%
+Can you guess a formula for $g(t)$?
+\vspace{75pt}
+
+\special{psfile=../ps/calc2/period3.ps}
+ 
+\vspace{140pt}
+
+\special{psfile=../ps/calc2/detect4.ps}
+
+\vspace{25pt}
+
+\noindent
+The graph of $z = D(\omega)$ was produced by DETECTOR.  The integral was calculated for {\tt a = 0}, {\tt b = 10}, and {\tt numberofsteps = 2 \verb+^+ 9}.    
+
+
+\subsection{The Problem of Phase}\index{phase}
+
+\noindent
+\begin{minipage}[t]{300pt}
+Our detector is built on the premise that, if you take the product of
+two functions of the same frequency, its average value\index{average
+  value} will be different from~0.  This is illustrated by the top
+three graphs on the left.  The signal and the probe are both
+$\sin(t)$.  Their product is a function that ranges between 0 and 1,
+and has average value 1/2.  However, something quite different happens
+if we change the signal from $\sin(t)$ to $\cos(t)$.  This doesn't
+change the period, but it does change the product, as you can see in
+the three lower graphs.  The new product is centered around the
+$t$-axis; its average value is~0.  Thus the detector fails to reveal
+that the signal has the same frequency as the probe.
+		  
+\quad \ A closer look at the two sets of graphs will show what has
+happened.  In the first case, when $P$ is positive, so is $S$.  When
+$P$ is negative, so is $S$.  Thus, the product $S \cdot P$ is never
+negative; on average, its value is positive.  This is what we expect.
+
+\quad \ The second case is only a little more complicated.  When $P$
+is positive, $S$ is positive only half the time; the other half it is
+negative.  Consequently, the product $S \cdot P$ takes both positive
+and negative values.  The same thing happens when $P$ is negative.  On
+average, the value of the product is~0, {\em even though the
+  frequencies of $P$ and $S$ match}.
+	
+\quad \ The problem is that their {\em phases\/} don't match.  The
+signal $S = \cos(t)$ hits its peak $\pi/2$ seconds before the probe $P
+= \sin(t)$.  This kind of a difference is called a {\bf phase shift}.
+In the exercises for chapter~7.2, you showed that if the phase of the
+sine function is shifted to the left by $\pi/2$, the result is the
+cosine function:
+\vspace{-8pt}
+	$$
+	S = \sin(t + \pi/2) = \cos(t).
+	$$
+\end{minipage}
+\hfill
+\begin{minipage}[t]{40pt}
+\special{psfile=../ps/calc2/sintest6.ps}
+
+\vspace{220pt}
+\special{psfile=../ps/calc2/sintest5.ps}
+
+\end{minipage}
+
+
+
+
+
+\medskip
+
+\noindent
+Since $\pi/2$ radians is the same as 90$^\circ$, we sometimes express
+this equation by saying that ``the sine and the cosine are 90$^\circ$
+out of phase.''
+	
+Of course the signal could involve a phase shift 
+%
+\mar{Arbitrary phase shifts}\index{phase!shift}	
+%
+of any amount $\varphi$: $S = \sin(t - \varphi)$.  All these signals
+have the same period as the probe $P = \sin(t)$.  Exercise 20 of
+chapter 7.2 shows what happens if this signal is tested against the
+probe: the average value of the product $S \cdot P$ is
+$\cos(\varphi)/2$.  Clearly, this depends on the size of the phase
+shift $\varphi$.  In particular, if \mar{The average value varies with
+  the phase} $\varphi = 0$ (so $S = \sin(t)$), the average value
+is~1/2.  If $\varphi = -\pi/2$ (so $S = \cos(t)$), the average value
+is~0.  The formula therefore agrees with what we already know for the
+two signals we considered as examples.
+
+There is one more case worth glancing at: $\varphi = \pm \pi$.  This
+is also called a phase shift of 180$^\circ$.  It doesn't matter
+whether you go forward 180$^\circ$ or backward; in either case $S =
+\sin(t \pm \pi) = -\sin(t)$.  This time the average value of the
+product is~$-1/2$.
+
+The problem of phase 
+%
+\mar{The problem\\ of phase \ldots}	
+%
+is now be clear: The probes $P = \sin(2 \pi \omega t)$ have trouble
+detecting the frequency of a signal that is out of phase with them.
+However, any phase-shifted sine function can be expressed as a sum of
+pure sine and cosine functions:
+\[
+\sin(bt - \varphi) = M\sin(bt) + N\cos(bt), 
+\] 
+where $M = \cos(\varphi)$ and $N = -\sin(\varphi)$.  (See the
+exercises.)  Since the sine probes $P$ will detect $M\sin(bt)$,
+%
+\mar{\ldots and its solution}	
+%
+we need only construct a second set of probes to detect $N\cos(bt)$.
+The test probes we add are the cosine functions
+	$$
+	P_c = \cos(2 \pi \omega t).
+	$$ 
+We use the subscript ``$c$'' to distinguish these from the sine
+probes, which henceforth will be denoted~$P_s$.
+
+We must also construct a second detector, 
+%
+\mar{Two new detectors}	
+%
+to handle the new cosine probes.  Let's take this opportunity to make
+a technical adjustment: we redefine a detector to be {\em twice\/} the
+average value of the signal and the probe.  In that way, the height of
+the detector at a peak equals the amplitude of the signal at that
+frequency---rather than half the amplitude. \label{detectors}
+\index{sine detector}\index{cosine detector}
+
+\begin{center}
+\begin{picture}(340,85)
+\put(0,0) {\framebox(340,85)
+{
+\begin{minipage}{310pt}
+\rule{14pt}{0pt}
+	{\bf Sine detector}: 
+	\hfill $D_s(\omega) = 
+	\dfrac{2}{b-a} \dint_a^b S(t) \sin(2\pi\omega t)\,dt$. 
+	\hfill \mbox{}\\[8pt]
+{\bf Cosine detector}: 
+	\hfill $D_c(\omega) = 
+	\dfrac{2}{b-a} \int_a^b S(t) \cos(2\pi\omega t)\,dt$. 	
+	\hfill \mbox{}
+\end{minipage}
+}}
+\end{picture}
+\end{center}
+
+You can modify the program DETECTOR 
+%
+\mar{The graphs of\\ $D_s$ and $D_c$}
+%
+to produce the graphs of $D_s(\omega)$ and $D_c(\omega)$.  You can see
+below how they analyze the signal $S = \cos(7t)$ over the interval $0
+\leq t \leq 10$.  The cosine detector $D_c$ has a shape we've seen
+\linebreak
+
+
+\mbox{}
+
+\vspace{60pt}
+
+\special{psfile=../ps/calc2/detect5.ps}
+	
+\vspace{170pt}
+
+\noindent
+before.\label{cos7t} It has a single peak at $\omega = 7/2\pi$
+cycles/sec, which is the frequency of the signal.  The peak is 1 unit
+high, which is the amplitude of the signal.  The sine detector has an
+unfamiliar shape.  Notice first that $D_s(7/2\pi) = 0$.  This confirms
+our earlier observation that the average value of the product of a
+sine and a cosine at the same frequency is~0.  For values of $\omega$
+slightly larger or smaller than $7/2\pi$, though, the sine detector
+swings relatively far from~0.  This pattern is typical when a detector
+is analyzing a signal that is 90$^\circ$ out of phase with the probes.
+\medskip
+
+\noindent
+{\bf Resonance}.\index{resonance} Try this experiment.  Sit at a piano
+and hold all the pedals down.  Then sing a note.  If you sing loud
+enough, and hold the note long enough, one of the piano strings will
+start vibrating.  If you stop abruptly and listen to the string, you
+will hear it sounding the same note you were singing.
+%
+\mar{The physical analogue of a detector\\ is a resonator}
+%
+The piano has detected the frequency of your signal!  It is the
+physical analogue of our mathematical frequency detectors.  The
+response of the string is called {\bf resonance}.  Had you sung a
+lower note, a larger string would have resonated.
+
+Resonance gives us a vivid language for describing how our detectors
+work.  We can say a test probe ``resonates'' with a signal when their
+product is different from zero on average.  The larger the average
+value, the stronger the resonance.
+
+\newpage
+
+\aside{Resonance occurs all around us.  Sometimes it is a
+  nuisance---for instance, when the windows in our house rattle while
+  a heavy truck drives by, or an air conditioner runs.  Sometimes we
+  exploit it deliberately---for instance, when we use a radio tuner as
+  an electronic resonator to detect and amplify certain
+  electromagnetic waves.}
+
+
+\subsubsection{Detector as transform}\index{transform}
+
+We now have two distinct ways to describe a signal $S$.  The function
+$S(t)$ is one way.  It tells us how strong the signal is at each
+instant $t$.  But we can also think of the signal as a mixture of sine
+and cosine waves of different frequencies.  The detectors
+$D_s(\omega)$ and $D_c(\omega)$ tell us how strong the signal is at
+each frequency $\omega$.  That is the second way.
+	
+There is a direct connection between these two descriptions, of course.  It is provided by the formulas
+	$$
+	D_s(\omega) = \dfrac{2}{b-a}
+			\int_a^b S(t) \sin(2\pi\omega t)\,dt
+		\qquad
+	D_c(\omega) = \dfrac{2}{b-a}
+			\int_a^b S(t) \cos(2\pi\omega t)\,dt.
+	$$
+In effect, these formulas tell us how to {\em transform\/}  
+%
+\mar{Integrals transform\\ $S$ into $D_s$ and $D_c$}
+%
+the first description $S(t)$ into the second $D_s(\omega)$,
+$D_c(\omega)$.  The transformation is so complete that even the input
+variable is changed---from $t$ to $\omega$.  Look back at the formulas
+to see how the new variable $\omega$ is brought in.
+
+Our detectors are essentially the same as the {\bf Fourier sine
+  transform}\index{Fourier transform} and the {\bf Fourier cosine
+  transform}.  There is also an {\bf inverse Fourier
+  transform}\index{Fourier transform!inverse} that works in reverse:
+it produces $S(t)$ from the frequency data $D_s(\omega)$ and
+$D_c(\omega)$.  The Fourier transforms are an important tool in
+mathematics and in science.  For example, a hologram is the Fourier
+transform of an ordinary image.  Fourier transforms and their inverses
+are used in photo restoration, in the enhancement of the digitized
+pictures sent back from cameras in space, and in filtering the signal
+in a stereo set.
+	
+\aside{The French mathematician Jean Baptiste Fourier (1768--1830)
+  introduced what we call Fourier transforms and Fourier series to
+  study the conduction of heat.  Now his methods are used to study all
+  sorts of periodic and non-periodic phenomena.  They are also the
+  foundation for the part of pure mathematics called harmonic
+  analysis.}\index{Fourier, J. B.}
+
+
+\subsection{The Power Spectrum}
+
+The sine and cosine detectors 
+%
+\mar{A detector that ignores phase differences}\index{phase}	
+%
+provide enough information to reconstruct the original signal in
+complete detail---including phase.  Often, though, they provide more
+detail than we want.  
+\pagebreak
+We can use another tool---called the {\bf power
+  spectrum}---to\index{power spectrum} determine only the strength of
+the different frequencies that occur in a signal, without regard to
+their phase. The power spectrum is constructed from the two detectors
+in the following way:
+\begin{center}
+\begin{picture}(330,40)
+\put(0,0) {\framebox(330,40)
+{
+\begin{minipage}{300pt}
+{\bf Power spectrum}: \hfill $P(\omega) = \displaystyle{\sqrt{[D_s(\omega)]^2 + [D_c(\omega)]^2}}$ \hfill \mbox{}
+\end{minipage}
+}}
+\end{picture}
+\end{center}
+  
+To see how the power spectrum works, we'll consider the signal $S(t) =
+A\sin(7t - \varphi)$.  This is a sine wave of frequency $\omega =
+7/2\pi$ and amplitude $A$.  Let's concentrate first on $\omega =
+7/2\pi$.  If there were no phase shift $\varphi$ present, we would
+expect that
+	$$
+	D_s(7/2\pi) = A \qquad D_c(7/2\pi) = 0.
+	$$
+However, because there is a phase shift, the actual values turn out to be
+$$
+D_s(7/2\pi) = A\cos{\varphi} \qquad D_c(7/2\pi) = -A\sin{\varphi}.
+$$
+(These calculations are given as exercises.)  The values of the
+detectors clearly depend on the phase shift.  By contrast,
+\begin{align*}
+P(7/2\pi) &= \displaystyle{\sqrt{[D_s(7/2\pi)]^2 + [D_c(7/2\pi)]^2}}\\
+	  &= \displaystyle{\sqrt{A^2\cos^2{\varphi} + 
+			A^2\sin^2{\varphi}}}\\
+	  &= A.
+\end{align*}
+We have used the fact that $\cos^2{\varphi} + \sin^2{\varphi} = 1$ for
+every $\varphi$.  Thus, the power spectrum does {\em not\/} depend on
+the phase.  It tells us only the amplitude of the signal at the
+frequency $\omega = 7/2\pi$.
+
+If we calculate the power spectrum over all frequencies $\omega$, we
+get the graph shown at the top of the next page.
+%
+\mar{The program POWER}	
+%
+The program POWER generates this graph. It was derived from the
+program DETECTOR.  Compare the two programs, particularly the terms
+{\tt deltaS} and {\tt deltaC}.  In POWER, they have been multiplied
+by~2, to agree with our new definition of $D_s$ and $D_c$ on
+page~\pageref{detectors}.
+	
+\mar{\vspace{25pt} \mbox{Power spectrum of} $3\sin(7t - \pi/3)$}
+\vspace{80pt}
+
+\special{psfile=../ps/calc2/detect6.ps}
+
+\vspace{20pt}
+
+\begin{center}
+{\bf Program: POWER \\  \index{program!POWER}
+The power spectrum of a signal}
+\end{center}
+
+\footnotesize
+\hspace{-20pt}
+\begin{minipage}{358pt}
+\noindent
+{\sl Set up GRAPHICS}
+\vspace{-11pt}
+\begin{verbatim}
+startomega = 0
+endomega = 3
+omegasteps = 2 ^ 9
+deltaomega = (endomega - startomega) / omegasteps
+pi = 4 * ATN(1)
+twopi = 2 * pi
+DEF fnf (t) = 3 * SIN(7 * t - pi / 3)
+a = 0
+b = 10
+numberofsteps = 2 ^ 6
+deltat = (b - a) / numberofsteps
+omega = startomega
+oldomega = omega
+oldpower = 0
+FOR j = 1 TO omegasteps
+     t = a + deltat / 2
+     accumS = 0
+     accumC = 0
+     power = 0
+     FOR k = 1 TO numberofsteps
+          deltaS = 2 * (fnf(t) * SIN(twopi * omega * t) * deltat) / (b - a)
+          accumS = accumS + deltaS
+          deltaC = 2 * (fnf(t) * COS(twopi * omega * t) * deltat) / (b - a)
+          accumC = accumC + deltaC
+          t = t + deltat
+     NEXT k
+     power = SQR(accumS ^ 2 + accumC ^ 2)
+     omega = omega + deltaomega
+\end{verbatim}
+
+\vspace{-10pt}
+\rule{23pt}{0pt} {\sl Plot the line from {\tt (oldomega, oldpower)} to {\tt (omega, power)}}
+
+\vspace{-13pt}
+\begin{verbatim}
+     oldomega = omega
+     oldpower = power
+NEXT j
+\end{verbatim}
+\end{minipage}
+\normalsize
+
+\medskip
+
+To see how the power spectrum 
+%
+\mar{Two signals whose components differ\\ only in phase}
+%
+detects the frequencies in a signal while overlooking the phases of
+the different components, consider these two
+signals:\label{testfunction}
+	\begin{eqnarray*}
+	g(t) &=& 10\sin(7t) + 7\cos(13t) + 5\cos(23t) \\
+	h(t) &=& 10\sin(7t) + 7\cos(13t) - 5\cos(23t)
+	\end{eqnarray*}
+They differ only in the sign of the last term.  This is equivalent to
+a phase shift of 180$^\circ$ in that term.  The graphs are drawn below
+(with constants \linebreak
+
+\mbox{}
+
+\vspace{60pt}
+
+\special{psfile=../ps/calc2/period4.ps}
+
+\vspace{20pt}
+\noindent
+added to separate them vertically).  It is remarkable how
+different the graphs appear to be, considering how nearly alike their
+formulas are.  You can find similarities if you look closely, though.
+For instance, the peaks of one graph tend to match the peaks of the
+other.
+
+\vspace{235pt}
+
+\special{psfile=../ps/calc2/detect7.ps}
+
+The power spectrum, however, has no trouble detecting the similarities
+between the two signals.  As you can see, they indicate that the same
+dominant frequencies occur in $g$ and $h$, and that corresponding
+frequencies occur with the same amplitude.  We learn that the formula
+for $g$ or $h$ can be written as
+	$$
+	10\sin(7t - \varphi_1) + 7\sin(13t - \varphi_2) + 
+		5\sin(23t - \varphi_3).
+	$$
+The only thing we can't learn from the power spectrum are the three
+phase differences $\varphi_1$, $\varphi_2$, $\varphi_3$.
+
+\newpage
+
+The graphs of the power spectra were drawn by POWER, using the
+following values:
+	\begin{verbatim} 
+     endomega = 4
+     omegasteps = 2 ^ 8
+     numberofsteps = 2 ^ 7
+	\end{verbatim}
+These two graphs actually differ very slightly.  You can see the
+difference most clearly near $\omega = 20/2\pi$.
+\medskip
+
+For a final demonstration of the properties of the 
+%
+\mar{Detecting a periodic wave in a noisy signal}	
+%
+power spectrum, we return to the signal + noise problem that we raised
+at the beginning of this section.  Let's see what happens to the power
+spectrum of a pure sine wave when we gradually gradually add noise.
+For simplicity, we take the frequency of the pure signal to be 2
+cycles/sec.  The spectrum has a single strong spike at this frequency.
+\vspace{185pt}
+
+\special{psfile=../ps/calc2/detect8.ps}
+
+\vspace{25pt}
+
+One the following pages you can see what happens as the noise level is
+increased. The power spectrum, which was virtually zero for all
+$\omega > 3$ cycles/sec, is now non-zero for almost all frequencies in
+the range we have graphed.
+%	
+\mar{In the power spectrum, noise and signal are separated}	
+%
+In other words, the noise is a mixture of many frequencies.  Notice
+how the height of the power graph increases with the strength of the
+noise.  This is most noticeable in the higher frequencies.
+Eventually, in the final graph, we lose sight of the signal; the noise
+has swamped it.  The signal to noise ratio is 1:2.5, meaning that the
+noise is 2$\frac{1}{2}$ times as strong as the signal.  Nevertheless,
+the power spectrum still shows a strong spike at $\omega = 2$
+cycles/sec.  This corresponds to the signal.  The power spectrum can
+still see the signal even when we can't!
+
+\vspace{180pt}
+
+\special{psfile=../ps/calc2/detect9.ps}
+
+\vspace{230pt}
+
+\special{psfile=../ps/calc2/detect10.ps}
+
+\newpage
+
+\mbox{}
+\vspace{235pt}
+
+\special{psfile=../ps/calc2/detect11.ps}
+
+\vspace{25pt}
+
+\subsection{Exercises}
+
+\subsubsection{The problem of phase}
+
+\vspace{-10pt}
+
+\num  Use the ``sum of two angles formula,''
+	$$
+	\sin(A + B) = \sin(A) \cos(B) + \cos(A) \sin(B),
+	$$
+to show that the circular function $\sin(bt - \varphi)$ with period
+$2\pi/b$ and phase difference $\varphi$ can be written as a
+combination of pure sine and cosine functions of the same period:
+	$$
+	\sin(bt - \varphi) = M \sin(bt) + N \cos(bt).
+	$$
+show that $M = \cos(\varphi)$ and $N = -\sin(\varphi)$.  [Note that
+  $M^2 + N^2=1$.]
+
+\numa Express $\sin(5t - \pi/3)$ as a sum of a pure sine function and
+a pure cosine function.
+
+\sub Express $\frac{\sqrt{3}}{2}\sin(7t) + \frac{1}{2}\cos(7t)$ in the
+form $A\sin(bt - \varphi)$.  To check your result, graph it together
+with the given function using a computer graphing utility.
+
+\sub Express $f(t) = \sin(t) + 2\cos(t)$ in the form $A\sin(bt -
+\varphi)$.  Notice that the formula in exercise 1 requires that $M^2 +
+N^2 = 1$, but in this example $M^2 + N^2 = 5$.  Therefore, first write
+	$$
+	f(t) = \sqrt{5} \left( \tfrac{1}{\sqrt{5}} \sin(t) + 
+		\tfrac{2}{\sqrt{5}} \cos(t) \right).
+	$$
+The expression in parentheses has the right form.  Does your result
+check on a computer?
+
+\num  Suppose 
+	$$
+	A \sin(bt - \varphi) = M \sin(bt) + N \cos(bt).
+	$$
+How are $A$, $M$, and $N$ related?
+
+\num The functions $\sin(t) + 2 \cos(t)$ and $2\sin(t) + \cos(t)$ have
+the same period but differ in phase.  What is the phase difference?
+Determine this two ways: by graphing, and by writing each expression
+as a single function of the form $A \sin(bt - \varphi)$.
+
+\num  Choose values for $A$, $b$, and $\varphi$ so that the function
+	$$
+	3 \sin(2x) + 4 \cos(2x) + A \sin(bx - \varphi) 
+	$$
+is {\em identically\/} zero---that is, equal to 0 for every value of~$x$.
+
+\num  Choose values of $A$ and $\varphi$ so that the function
+	$$
+	\sin(x) + \sin(x + 1) + \sin(x + 2) + A\sin(x - \varphi)
+	$$
+is identically zero.
+
+
+\subsubsection{The programs DETECTOR and POWER}
+
+
+The purpose of these exercises is to give you experience interpreting
+the power spectrum of a known signal using the program POWER and
+modifications of DETECTOR.  The first exercise asks you to construct
+these modifications.
+	
+\num Modify DETECTOR to produce two new programs, SDETECTOR and
+CDETECTOR, which generate the sine detector and the cosine detector
+functions that appear on page~\pageref{detectors}.
+
+\numa Compare the outputs of $f(t) = \sin(t)$ and $g(t) = \cos(t)$ on
+POWER.  Use the domain $0 \leq \omega \leq 1$.  Does POWER distinguish
+between these functions?  Would you expect it to?
+
+\sub Compare $f(t)$ and $g(t)$ using SDETECTOR.  Does SDETECTOR
+distinguish between these functions?  Would you expect it to?
+
+\sub Compare $f(t)$ and $g(t)$ using CDETECTOR.  Does CDETECTOR
+distinguish between these functions?  Is the output of $g(t)$ on
+CDETECTOR the same as the output of $f(t)$ on SDETECTOR?
+
+\numa Describe the power spectrum of the signal $S = \sin(t) +
+\cos(t)$.  How many peaks are there, and where are they?
+
+\sub How does the spectrum of $S$ compare with the two generated in
+the last question?
+
+\sub Describe the output of SDETECTOR and CDETECTOR for the signal
+$S$.  Compare these outputs to the corresponding outputs for $f$ and
+$g$ in the last exercise.
+
+\numa   Graph the function
+	$$
+	h(t) = 10\sin(7t) + 7 \cos(13(t) - 5 \cos(23t)
+	$$
+over the domain $0 \leq t \leq 14$.  Compare your result with the
+graph on page~\pageref{testfunction}.
+
+\sub Graph the power spectrum of $h(t)$ over the frequency domain $0
+\leq \omega \leq 4$.  Compare your result with the text.  How many
+peaks are there?  Where are they?  How high are they?  Do these
+results agree with the amplitude and frequency information provided by
+the formula for $h(t)$?
+
+\num (Continuation of the previous exercise.)  Use SDETECTOR to
+analyze $h(t)$ over the same frequency domain.  Compare the pattern
+near $\omega = 13/2\pi$ with the patterns generated by the sine and
+cosine detectors that appear on page~\pageref{cos7t}.  Compare the
+patterns near $\omega = 7/2\pi$ and near $\omega = 23/2\pi$ the same
+way.  Would you expect the patterns near $\omega = 13/2\pi$ and
+$\omega = 23/2\pi$ to be similar?  Are they?  Are they similar to the
+pattern near $\omega = 7/2\pi$?  Is this what you would expect?
+
+\num (Continuation.)  Use CDETECTOR to analyze $h(t)$.  Follow the
+guidelines of the previous question.
+
+
+\subsubsection{A Grain of Salt}
+
+The purpose of the power spectrum is to make visible the periodic
+patterns contained with a given function.  However, our {\em method of
+  computing\/} the spectrum can introduce spurious information, too.
+It can tell us there are periods that are not really present in the
+function.  So we must take the calculations with a grain of salt.  The
+purpose of these exercises is to point out the spurious information,
+show why it arises, and how we can get rid of it.
+
+
+\num Use the program POWER to graph the power spectrum of the function
+$\sin{2 \pi x}$ on the interval $0 \leq x \leq 10$.  Let $0 \leq
+\omega \leq 3$.  Set
+\begin{verbatim}
+     numberofsteps = 100
+\end{verbatim}
+but let all the other parameters keep the values they have in the
+program.
+
+\ans{The power spectrum has a single peak of height~1 at $\omega
+  \approx 1$}
+
+
+\num Now increase the domain of integration to $0 \leq x \leq 30$, and
+set 
+\begin{verbatim}
+     numberofsteps = 300
+\end{verbatim}
+to adjust for the increase in the size of the domain.  Use POWER again
+to graph the power spectrum.  Compare this spectrum with the previous
+one.
+
+\num Leave $0 \leq x \leq 30$, but restore {\tt numberofsteps = 100}.
+Use POWER once again to graph the power spectrum.  Compare this
+spectrum with the previous two.
+
+\ans{A new peak, of height 1, appears at $\omega \approx 7/3$.}
+
+\num Let {\tt numberofsteps = 50}, and calculate the power spectrum
+one more time.  What happens?
+\medskip
+
+When we reduce the number of integration steps, new peaks appear in
+the power spectrum.  These new peaks represent {\em spurious\/}
+information: the function $\sin{2\pi x}$ has no components whose
+frequencies are 2/3, 7/3, or 8/3.  Let's see why this happens.  We'll
+concentrate on $\omega = 7/3$.  First, you must decide whether the
+peak in the power spectrum at $\omega = 7/3$ comes from the sine or
+the cosine detector.
+
+\num Use SDETECTOR and CDETECTOR to analyze $\sin(2\pi x)$.  Take $0
+\leq x \leq 30$, $0 \leq \omega \leq 3$, and set {\tt numberofsteps =
+  100}.  One of these detectors has the value 0 when $\omega = 7/3$.
+Which one?
+
+
+\num According to the previous exercise, the peak in the power
+spectrum that is detected at $\omega \approx 7/3$ comes from the
+integral
+	$$
+	\dfrac{2}{30}\int_0^{30} \sin(2\pi x) 
+	\sin\left(2\pi \tfrac{7}{3} x\right)\, dx,
+	$$
+{\em not\/} from the cosine integral.  By using one of the sine and
+cosine integrals from the exercises for chapter~11.3, determine the
+{\em exact\/} value of this integral.  Is this the value you expected
+to get?
+\medskip
+
+The program POWER calculates the spectrum numerically.  In particular,
+we used it to calculate
+	$$
+	\int_0^{30} \sin(2\pi x) 
+	\sin\left(2\pi \tfrac{7}{3} x\right)\, dx,
+	$$
+with 100 steps.  The step size is therefore $\Delta x = .3$.  In the
+following exercises you will duplicate this numerical work ``by
+hand.''
+
+
+\num  Make a sketch of the graph of the function
+	$$
+ h(x) = \sin(2\pi x) \sin\left(2\pi \tfrac{7}{3} x \right)
+	$$
+on an appropriate interval.  What is the period of this function?
+
+\num Determine the value of $h(x)$ at $x = 0$, .3, .6, .9, 1.2, and
+1.5, and use these values to construct a Riemann sum for the integral
+	$$
+		\int_0^{1.5} h(x) \, dx
+	$$
+using left endpoints and a step size of $\Delta x = .3$.  Mark these
+values of $h$ on the sketch you made in the previous exercise.
+
+\ans{The Riemann sum is $-.3(2 \sin^2(2\pi/5) + 2 \sin^2(\pi/5)) = -.75$.}
+
+
+\num  Evaluate the expression 
+$$
+\dfrac{1}{15}\int_0^{30} h(x) \, dx
+$$
+using a left endpoint Riemann sum with a step size of $\Delta x = .3$
+How can you use the previous exercise to answer this question?
+
+\ans{$-1$.  Since $h(x)$ is periodic with period $x = 1.5$, the
+  interval $[0, 30]$ contains 20 periods of $h$.  The integral of $h$
+  over $[0, 30]$ is therefore 20 times its integral over $[0, 1.5]$.}
+
+\num  Compare the values of the detector
+	$$
+	\dfrac{2}{30}\int_0^{30} \sin(2\pi x) 
+	\sin\left(2\pi \tfrac{7}{3} x\right)\, dx,
+	$$
+you have obtained by antidifferentiation and by numerical integration.
+
+\medskip
+
+These exercises demonstrate that the exact and computed values of the
+power spectrum can be quite different, essentially because the steps
+in a Riemann sum can pick out very special values of the integrand.
+	
+One way to deal with the problem is 
+%
+\mar{The {\em true\/} spectrum\\ is the limit of the computed graphs\\ of the spectrum}	
+%
+to increase the number of steps.  How will you know if you have gone
+far enough?  Increase in stages until the graph of the power spectrum
+{\bf stabilizes}---that is, until it no longer changes when you make a
+further increase in the number of steps.
+
+Of course, increasing the number of steps increases computer time.
+This creates new problems.  To deal with them, however, we can switch
+to more efficient numerical integration methods.  Simpson's rule
+(chapter~11.6) is the most efficient method we have covered.  You
+should try rewriting DETECTOR using Simpson's rule to see how it
+improves the performance.
+
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                     %
+%                              Section 4                              %
+%                                                                     %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Fourier Series}
+
+In chapter~10.6 we obtained polynomials which were good approximations
+to a function over an interval, where ``good'' meant minimizing the
+{\em mean squared separation} between the function and the
+approximating polynomials.
+
+While polynomials are the most obvious approximating functions to use
+due to the ease with
+%
+\mar{Difficulties with polynomial approximations}
+%
+which they can be evaluated, we have seen that finding good
+approximating polynomials leads to several serious technical
+complications.  The first is that we have to solve systems of
+equations to determine the unknown coefficients, a procedure that is
+very time-consuming, even for a computer if we are trying to get a
+polynomial of, say, degree 30.  Further, if we are trying to make the
+approximation over even a moderately-sized interval, since we are
+evaluating expressions of the form $x^n$, we get large numbers very
+rapidly as $x$ and $n$ get large.  This in turn leads to roundoff
+problems in the computer routines.
+ 
+Another aspect of these polynomial approximations that makes them
+complicated is that the values of the coefficients change as we change
+the degree of the approximating polynomial.  Thus if we determine the
+least squares fourth-degree approximation and then decide we want the
+fifth-degree approximation instead, all the coefficients have to be
+recalculated.  Knowing what the coefficient of $x^3$ was in the
+fourth-degree approximation is no help at all in knowing what the
+coefficient of $x^3$ will be in the fifth-degree approximation.
+
+There are approximating functions of another kind that avoid such
+difficulties.  Moreover, these functions are natural ones to use
+%
+\mar{Approximating\\ periodic functions}
+%
+when we are trying to approximate {\em periodic} functions. In such
+cases it is reasonable to take the simplest periodic functions---sines
+and cosine---and try to combine them to approximate more complicated
+periodic functions.  This suggests that we want to look at functions
+of the form
+\begin{align*}
+\phi(x) &= a_0 + a_1 \cos{x}+ a_2\cos{2x} + \cdots+ a_n\cos{nx} \\
+ &  \mbox{}\quad +b_1 \sin{x} + b_2 \sin{2x} + \cdots + b_n\sin{nx} \\
+ &= a_0 + \sum_{k=1}^n a_k \cos{kx} + b_k \sin{kx}.
+\end{align*}
+
+Such a combination is called a {\bf trigonometric polynomial of
+  \boldmath degree~$n$}\index{polynomial!trigonometric}.  Note that
+any function of this form will in fact be periodic with period $2\pi$.
+More generally, if we were interested in approximating a function of
+period~$T$, we would want to look at trigonometric polynomials of the
+form 
+%
+\mar{Trigonometric polynomial of degree $n$ and period $T$}
+%
+\begin{align*}
+\phi(x) &= a_0 +a_1 \cos\dfrac{2\pi x}{T}+ a_2 \cos\dfrac{4\pi x}{T} 
+        + \cdots+ a_n \cos\dfrac{2n\pi x}{T} \\
+ & \mbox{}\quad +b_1 \sin\dfrac{2\pi x}{T}+ b_2 \sin\dfrac{4\pi x}{T} 
+        + \cdots+ b_n \sin\dfrac{2n\pi x}{T} \\
+ &= a_0+\sum_{k=1}^n a_k \cos\dfrac{2k\pi x}{T} 
+        + b_k \sin\dfrac{2k\pi x}{T}.
+\end{align*}
+You should verify that this does indeed have period~$T$.
+
+To find the coefficients $a_k$ and $b_k$ of the trigonometric
+polynomial that best fits a period-$2 \pi$ function $f$ over the
+interval $[c, c + 2 \pi]$, we proceed exactly as we did in the
+previous section, using the least squares criterion.  That is, for a
+given degree $n$, we want to find coefficients $a_0, \ldots , a_n$ and
+$b_1, \ldots , b_n$ that minimize the integral
+$$
+\int_c^{c+2\pi} \left( f(x) -\phi (x)\right)^2\, dx. 
+$$ 
+In practice, $c$ is usually either 0 or $-\pi$.
+
+The solution turns out to be remarkably compact 
+%
+\mar{Coefficients are independent of $n$} 
+%
+and easy to state. One of the key features of the formulas for the
+coefficients is that they are independent of each other and of the
+particular value of $n$ being used.  Thus, for example, $a_3$ in the
+7-th degree approximation has the same value as $a_3$ in the 39-th
+degree approximation.  This is a major advantage compared to the
+polynomial approximations over intervals that we worked with in
+chapter~10.
+
+\smallskip
+
+\begin{center}\label{fourforms}
+\framebox[5in]
+{\parbox{4.5in}{
+\vspace*{6pt} For a function $f$ with period $2 \pi$, its least
+squares $n$th degree trigonometric polynomial approximation over a
+full period is\vspace{-10pt}
+$$
+\phi_n(x) = a_0 + \sum_{k=1}^n  a_k \cos{kx}
+                  + b_k \sin{kx}, \vspace{-20pt}
+$$
+where\vspace{-10pt}
+\begin{align*}
+a_0 &= \dfrac{1}{2\pi} \int_0^{2\pi}f(x)\, dx, \\[3pt]
+a_k &= \dfrac{1}{\pi} \int_0^{2\pi}f(x)\cdot \cos{kx}\, dx \quad 
+              \mbox{for $k=1, 2, \ldots , n$},\\[3pt]
+b_k &= \dfrac{1}{\pi} \int_0^{2\pi}f(x)\cdot \sin{kx}\, dx \quad 
+              \mbox{for $k=1, 2, \ldots , n$}.
+\end{align*}\vspace{-10pt}}
+}
+\end{center}
+
+\newpage
+
+The infinite series
+$$
+a_0 + \sum_{k=1}^{\infty} a_k \cos{kx} + b_k \sin{kx}
+$$ 
+with the prescribed values for $a_k$ and $b_k$ is called the {\bf
+  Fourier series}\index{Fourier series} for~$f$, and the coefficients
+$a_k$ and $b_k$ are called the {\bf Fourier
+  coefficients}\index{Fourier coefficients} for~$f$.  It turns out
+that any continuous function equals its Fourier series in the same
+sense we used earlier with Taylor series---for any $x$ in the given
+interval, $f(x)$ is the limit as $n\rightarrow\infty$ of the $n$th
+degree approximating trigonometric polynomials evaluated at $x$.
+The derivation is straightforward, but we shall leave it to the end
+of this section so we can look at some examples first.
+
+\aside{Joseph Fourier (1768--1830)\index{Fourier, J.}
+  was active in both politics and in mathematics.  He was an advocate
+  of the French Revolution, worked as an engineer in Napoleon's army,
+  and served as a prefect for a while.  In mathematics he was
+  interested in the mathematics of heat conduction and developed the
+  series that now bear his name as a tool for investigating problems
+  in this area.  His ideas initially met with considerable resistance,
+  but eventually became a central tool in mathematics.}
+
+Although our formulas give the values of $a_k$ and $b_k$ in terms of
+integrals over $[0, 2\pi]$, periodicity of the integrands implies that
+integrations over \emph{any} interval of width $2\pi$ gives the same
+values. In practice (as in the first example, immediately below), we
+often use $[-\pi, \pi]$ instead of $[0, 2\pi]$.
+ 
+\medskip
+\noindent
+{\bf Example 1}\quad\label{triangle function} Let's find the
+approximating trigonometric polynomials for
+\[
+f(x) = \begin{cases}
+\pi + x & \quad\text{if $-\pi\le x\le 0$}, \\
+\pi - x & \quad\text{if $0\le x\le \pi$}.
+\end{cases}
+\]
+Then the graph of $f$
+%
+\mar{\vspace{.25in}The graph of $f$\\ is ``triangular"}
+%
+simply consists of two line segments:
+
+\vspace*{1.44in}
+\special{psfile=../ps/calc2/sawtoo1.ps}
+
+%\noindent
+Now make $f(x)$ periodic over the entire $x$-axis by horizontal
+translations: $f(x) = f(x - 2\pi)$. The periodic graph is shown in
+gray, above.  We can obtain first Fourier coefficient without any
+calculus at all: $a_0=(1/2\pi)\,\pi^2=\pi/2$. It is just the area of
+one triangle divided by $2\pi$.  The other coefficients can be
+evaluated with integration by parts (chapter~11.3).  We
+have
+\begin{align*}
+a_k &= \dfrac{1}{\pi}\int_{-\pi}^{\pi} f(x) \cos{kx} \, dx \\
+    &= \dfrac{1}{\pi}\int_{-\pi}^0 (\pi+x) \cos{kx} \, dx 
+         + \dfrac{1}{\pi}\int_0^{\pi}(\pi-x) \cos{kx} \, dx.
+   \end{align*}
+The first of these integrals can be evaluated as
+\begin{align*}
+\int_{-\pi}^0 (\pi+x)\cos{kx}\, dx  
+  &= \left.(\pi+x)\dfrac{\sin{kx}}{k}\, \right|_{-\pi}^0
+       - \int_{-\pi}^0 \dfrac{\sin{kx}}{k}\, dx \\
+  &= 0 + \left.\dfrac{\cos{kx}}{k^2}\, \right|_{-\pi}^0 \\
+  &= \begin{cases}
+\dfrac{2}{k^2} & \quad\text{if $k$ is odd}, \\[6pt]
+0  & \quad\text{if $k$ is even}.
+     \end{cases}
+\end{align*}
+Similarly we find
+\begin{align*}
+\int_0^{\pi}(\pi-x)\cos{kx} \, dx  
+  &= \left.(\pi-x)\dfrac{\sin{kx}}{k}\, \right|_0^{\pi}
+      + \int_0^{\pi} \dfrac{\sin{kx}}{k}\, dx \\
+  &= 0 - \left.\dfrac{\cos{kx}}{k^2}\, \right|_0^{\pi} \\
+  &=\begin{cases}
+\dfrac{2}{k^2} & \quad\text{if $k$ is odd}, \\[6pt]
+0  & \quad\text{if $k$ is even}.
+\end{cases}
+\end{align*}
+   
+Combining these two integrals we find
+\[
+a_k = \begin{cases}
+\dfrac{4}{\pi k^2} & \quad\text{if $k$ is odd}, \\[6pt]
+\hphantom{0}0  & \quad\text{if $k$ is even}.
+\end{cases}
+\]
+An analogous derivation will show that all the $b_k$ are~0; this is
+left to the exercises. We can thus write down the Fourier series
+%
+\mar{\vspace{.25in}The Fourier series for $f$}
+%
+for~$f$: 
+\[
+f(x) = \dfrac{\pi}{2} +\dfrac{4}{\pi}\left(\dfrac{\cos{x}}{1} 
+        + \dfrac{\cos{3x}}{9} + \cdots 
+        +\dfrac{\cos{(2n+1)x}}{(2n+1)^2} + \cdots \right). 
+\]
+
+Let
+$$ 
+\phi_n(x) = \dfrac{\pi}{2} + \dfrac{4}{\pi} 
+     \sum_{k=0}^n \dfrac{\cos{(2k+1)x}}{(2k+1)^2}.
+$$
+Here are the graphs of $\phi_1(x)$, $\phi_2(x)$, and $\phi_{10}(x)$:
+
+\vspace*{1.5in}
+\special{psfile=../ps/calc2/sawtoo2.ps}
+
+\noindent
+We see that $\phi_{10}(x)$ already appears to be a very good
+approximation to~$f(x)$.  If we look at the maximum separation between
+$f(x)$ and $\phi_n(x)$ over $[-\pi, \pi]$ for different values of $n$,
+we get the following:
+$$
+\begin{array}{c|cccccc}
+n  & 1&2&10&50&100&1000 \\ [2pt] \hline
+	&&&&&& \\ [-8pt]
+{\displaystyle \max_{-\pi\le x\le \pi}|f(x)-\phi_n(x)|}
+        &.298&.156&.032&.0064&.0032&.00032
+\end{array}
+$$
+
+Since $\phi_n(x)$ is periodic, 
+%
+\mar{Approximating a triangular wave-form}
+%
+if we graph it over a larger interval, we get an approximation to a
+{\bf triangular wave-form}\index{wave-form!triangular}.  Here, for
+example, is the graph of $\phi_{20}(x)$ over the interval $[-\pi,
+  5\pi]$:
+
+
+\vspace{100pt}
+\special{psfile=../ps/calc2/sawtoo3.ps}
+
+\noindent
+{\bf Remark 2}\quad In addition to their use in approximating functions,
+Fourier series can lead to some interesting, and non-obvious,
+mathematical results.  For instance in the preceding example, we have
+$f(0)=\pi$\,. On the other hand, we should get the same value if we
+set $x=0$ in the Fourier series for $f$.  This leads to the identity
+$$
+\pi = \dfrac{\pi}{2} + \dfrac{4}{\pi}
+      \left( \dfrac{1}{1} + \dfrac{1}{9} + \dfrac{1}{25} 
+       + \dfrac{1}{49} + \dfrac{1}{81} + \cdots \right).
+$$
+With a little rearranging, this can be rewritten as
+$$
+\dfrac{\pi^2}{8} = 1 + \dfrac{1}{9} + \dfrac{1}{25} 
+   + \dfrac{1}{49} + \dfrac{1}{81} + \cdots 
+$$
+---that is, if we add up the reciprocals of the squares of all the odd
+integers, we get $\pi^2/8$!
+
+\medskip
+
+The formulas given on page~\pageref{fourforms} 
+%
+\mar{The general rule\\ for calculating\\ Fourier series} 
+%
+for approximating functions with period $2\pi$ extend readily to
+approximating periodic functions of any period~$T$.  For instance, if
+we wanted to approximate some function $f$ over the interval $[0, T]$,
+we have the following formulas.  Check that when $T=2\pi$, these
+equations reduce to the earlier ones.  Again, there is nothing special
+about the interval $[0, T]$.  If we had wanted to make the
+approximation over any other interval of length $T$---for example,
+$[-T/2, T/2]$---we simply change the limits of integration to be the
+endpoints of that interval.
+
+
+\begin{center}
+\framebox[5in]
+{\parbox{4.6in}{
+\vspace*{4pt} For a function $f(t)$ with period $T$, its least squares
+$n$th degree trigonometric polynomial approximation over a full period
+is\vspace{-4pt}
+\[
+\phi_n(x) =a_0+\sum_{k=1}^n a_k \cos\dfrac{2k\pi x}{T}
+     + b_k \sin\dfrac{2k\pi x}{T},\vspace{-10pt}
+\]
+where\vspace{-10pt}
+\begin{align*}
+a_0 &= \dfrac{1}{T}\int_0^T f(x)\, dx, \\[8pt]
+a_k &= \dfrac{2}{T}\int_0^T f(x)\cdot \cos\dfrac{2k\pi x}{T}\, dx 
+            \quad \mbox{for $k=1,2,\ldots ,n$},  \\[8pt]
+b_k &= \dfrac{2}{T}\int_0^T f(x)\cdot \sin\dfrac{2k\pi x}{T}\, dx 
+            \quad \mbox{for $k=1,2,\ldots ,n$}.
+\end{align*}\vspace{-8pt}}
+}
+\end{center}
+
+\medskip
+\noindent
+{\bf Example 2}\quad\label{May Fourier} Consider the 
+%
+\mar{Fourier series for the periodic solutions of May's predator-prey model} 
+%
+predator--prey model\index{predator--prey model} of May\index{May, R.} that
+we examined in chapter~7.3.  Recall that there were two species, the
+predator $y$ and the prey $x$, interacting according to the model
+\begin{align*}
+\mbox{prey:} \quad x' 
+   &= .6\,x\left(1-\frac{x}{10}\right) - \frac{.5\,xy}{x+1}, \\
+\mbox{predator:} \quad y' 
+   &= .1\,y\left(1-\frac{y}{2x}\right).
+\end{align*}
+We discovered that the populations seemed to move towards periodic
+cycles, regardless of the initial conditions (although the phase of
+the cycles did depend on the starting values).  In particular, if we
+begin with values on this cycle, our solution should be perfectly
+periodic with period, it turned out, $T=38.6$ days.  So let's start
+with $x=7.75$ and $y=2.38$, values that put us at the peak of the prey
+cycle.  Now go to the differential equations and compute the solution
+numerically, storing the $x$-values as an array. We can then use these
+values to calculate all the integrals needed to find the Fourier
+coefficients to approximate the function $x(t)$.  Here are the first
+13 terms of the series:
+\begin{align*}
+x(t)&= 3.7951 + 3.8125\cos\dfrac{2\pi x}{T} + .1514\cos\dfrac{4\pi x}{T}
+           + .0326\cos\dfrac{6\pi x}{T} \\[6pt]
+ & \mbox{}\quad - .0303\cos\dfrac{8\pi x}{T} 
+      - .0609\cos\dfrac{10\pi x}{T}+.0308\cos\dfrac{12\pi x}{T} 
+      + \cdots \\[8pt]
+ & \mbox{}\quad + 1.1724\sin\dfrac{2\pi x}{T}
+      - .0867\sin\dfrac{4\pi x}{T}-.3954\sin\dfrac{6\pi x}{T} \\[8pt]
+ & \mbox{}\quad + .0639\sin\dfrac{8\pi x}{T}
+      - .0142\sin\dfrac{10\pi x}{T}+.0129\sin\dfrac{12\pi x}{T} 
+      + \cdots .
+\end{align*}
+
+
+Let $\phi_3(t)$ be the 7-term trigonometric polynomial whose final
+terms involve $\cos(6\pi t/T)$ and $\sin(6\pi t/T)$. Below we graph
+$\phi_3(t)$ (dashed line) and $x(t)$ (solid gray line) together.  They
+are almost indistinguishable; we let $\phi_3(t)$ run on a little
+beyond $x(t)$ so you can see it's there.
+
+\vspace*{170pt}
+\special{psfile=../ps/calc2/BMay.ps}
+
+\newpage
+
+
+\subsubsection{Derivation of the formula for the Fourier coefficients}
+
+The logic behind the derivation is the same as that used in the
+previous subsection to find the least squares polynomial
+approximations. Fix $n$ and let
+$$
+\phi(x) = a_0 + \sum_{k=1}^n a_k \cos\dfrac{2k\pi x}{T} 
+     + b_k \sin\dfrac{2k\pi x}{T},
+$$
+where now we want to choose values of the $a_k$ and $b_k$ to minimize
+the integral
+$$
+\int_0^T \left( f(x) -\phi (x)\right)^2\, dx.
+$$ 
+The value of this integral is thus a function of the undetermined
+coefficients $a_0, \ldots , a_n$ and $b_1, \ldots , b_n$.  To find the
+coefficients that minimize that value we calculate the partial
+derivatives with respect to $a_0$, $a_1$, \ldots as before and set
+them equal to 0.  
+
+\enlargethispage*{15pt}
+Note that
+$$
+\dfrac{\partial}{\partial a_m}\phi(x) = \cos\dfrac{2m\pi x}{T}
+   \quad \mbox{and} \quad 
+\dfrac{\partial}{\partial b_m}\phi(x) = \sin\dfrac{2m\pi x}{T},
+$$
+so that
+\[
+\dfrac{\partial}{\partial a_m}
+   \int_0^T (f(x) -\phi (x))^2 \, dx 
+ = \int_0^T 2(f(x) -\phi (x))
+                \left(-\cos\dfrac{2m\pi x}{T}\right)\, dx
+\]
+and
+\[
+\dfrac{\partial}{\partial b_m}
+\int_0^T (f(x) -\phi (x))^2 \, dx 
+ = \int_0^T 2 (f(x) -\phi (x))
+                \left(-\sin\dfrac{2m\pi x}{T}\right)\, dx.
+\]
+The condition 
+that all the partial derivatives must be 0 thus leads to the equations
+\begin{align*}
+\int_0^T 2 (f(x) - \phi(x))(-1) \, dx 
+  &= 0, \\[3pt]
+\int_0^T 2 (f(x) - \phi(x))
+                \left(-\cos\dfrac{2\pi x}{T}\right) \, dx 
+  &= 0, \\[6pt]
+\int_0^T 2 (f(x) - \phi(x))
+                \left(-\cos\dfrac{4\pi x}{T}\right) \, dx 
+  &= 0, \\[-5pt]
+  &\ \, \vdots \\[-5pt]
+\int_0^T 2 (f(x) - \phi(x))
+                \left(-\cos\dfrac{2n\pi x}{T}\right) \, dx 
+  &= 0, 
+\end{align*}
+and
+\begin{align*}
+\int_0^T 2 (f(x) - \phi(x))
+                \left(-\sin\dfrac{2\pi x}{T}\right) \, dx
+  &= 0, \\[8pt]
+\int_0^T 2 (f(x) - \phi(x))
+                \left(-\sin\dfrac{4\pi x}{T}\right) \, dx
+  &= 0, \\[-3pt]
+  &\ \, \vdots \\[-3pt]
+\int_0^T 2 (f(x) - \phi(x))
+                \left(-\sin\dfrac{2n\pi x}{T}\right) \, dx
+  &= 0.
+\end{align*}
+These equations can be rewritten as
+\begin{align*}
+\int_0^T f(x) \, dx
+  &= \int_0^T \phi(x)\, dx,  \\[10pt]
+\int_0^T f(x)\cos\dfrac{2\pi x}{T} \, dx
+  &= \int_0^T \phi(x)\cos\dfrac{2\pi x}{T}\, dx,  \\[10pt]
+\int_0^T f(x)\cos\dfrac{4\pi x}{T} \, dx
+  &= \int_0^T \phi(x)\cos\dfrac{4\pi x}{T}\, dx,  \\[-3pt]
+  &\ \, \vdots  \\[-3pt]
+\int_0^T f(x)\cos\dfrac{2n\pi x}{T} \, dx
+  &= \int_0^T \phi(x)\cos\dfrac{2n\pi x}{T}\, dx,
+\end{align*}
+and
+\begin{align*}
+\int_0^T f(x)\sin\dfrac{2\pi x}{T} \, dx
+  &= \int_0^T \phi(x)\sin\dfrac{2\pi x}{T}\, dx,  \\[10pt]
+\int_0^T f(x)\sin\dfrac{4\pi x}{T} \, dx
+  &= \int_0^T \phi(x)\sin\dfrac{4\pi x}{T}\, dx,  \\[-3pt]
+  &\ \, \vdots  \\[-3pt]
+\int_0^T f(x)\sin\dfrac{2n\pi x}{T} \, dx
+  &= \int_0^T \phi(x)\sin\dfrac{2n\pi x}{T} \, dx,
+\end{align*}
+
+The Fourier coefficients $a_k$ and $b_k$ that we seek appear
+in~$\phi$, and we shall obtain them by calculating the integrals on
+the right (the ones involving~$\phi$) in the equations above.  Since 
+\[
+\phi(x) = a_0 + \sum_{k=1}^n a_k \cos\dfrac{2k\pi x}{T} 
+     + \sum_{k=1}^n b_k \sin\dfrac{2k\pi x}{T},
+\]
+we have (for each $m = 0, 1, \ldots , n$)
+\begin{align*}
+\phi(x)\cos\dfrac{2m\pi x}{T}  
+   &= a_0 \cos\dfrac{2m\pi x}{T}  
+     + \sum_{k=1}^n a_k \cos\dfrac{2k\pi x}{T} \cos\dfrac{2m\pi x}{T} \\  
+   &\mbox{}\quad 
+     + \sum_{k=1}^n b_k \sin\dfrac{2k\pi x}{T} \cos\dfrac{2m\pi x}{T},  \\
+\intertext{and (for each $m = 1, \ldots , n$)}
+\phi(x)\sin\dfrac{2m\pi x}{T}  
+   &= 
+      \sum_{k=1}^n a_k \cos\dfrac{2k\pi x}{T} \sin\dfrac{2m\pi x}{T}
+     + \sum_{k=1}^n b_k \sin\dfrac{2k\pi x}{T} \sin\dfrac{2m\pi x}{T}.  
+\end{align*}
+
+
+The integrals of the expressions on the left 
+%
+\mar{Integrating products\\ of sines and cosines}
+%
+therefore reduce to sums of integrals of various products of sines and
+cosines.  In each sum, only \emph{one} term yields a nonzero integral.
+All the values are given below.  The formulas are left for you to derive
+in the exercises, using integration formulas from the exercises in
+chapter~11.3.  For integers $k$ and $m$, we have
+\begin{align*}
+\int_0^T \sin\dfrac{2k\pi x}{T} \cos\dfrac{2m\pi x}{T} \, dx 
+  &=  0 \quad \mbox{ for all $k$ and $m$}; 
+  \\[6pt]
+\int_0^T \sin\dfrac{2k\pi x}{T} \sin\dfrac{2m\pi x}{T} \, dx 
+  &= \begin{cases}
+	T/2 & \text{if $k=m$}, \\
+	0   & \text{otherwise};
+     \end{cases}
+ \\[8pt]
+\int_0^T \cos\dfrac{2k\pi x}{T} \cos\dfrac{2m\pi x}{T} \, dx 
+  &= \begin{cases}
+	T/2  & \text{if $k=m \ne 0$}, \\
+	T & \text{if $k=m=0$}, \\
+	0    & \text{otherwise}.
+     \end{cases}
+\end{align*}
+For $m = 0$ we have $\cos\dfrac{2m\pi x}{T} = \cos{0} = 1$, so
+\[
+\int_0^T \phi(x)\cos\dfrac{2m\pi x}{T} \, dx
+   = \int_0^T a_0  \ dx
+   = a_0 \cdot T;
+\]
+it follows that 
+\[
+a_0 = \dfrac{1}{T} \int_0^T \phi(x) \, dx.
+\]
+For each $m = 1, 2, \ldots , n$, we have, first of all,
+\[
+\int_0^T \phi(x)\cos\dfrac{2m\pi x}{T} \, dx 
+   = \int_0^T a_m \cos^2\dfrac{2m\pi x}{T} \, dx 
+   = a_m \cdot T/2,
+\]
+from which it follows that
+\[
+a_m = \dfrac{2}{T} \int_0^T \phi(x)\cos\dfrac{2m\pi x}{T} \, dx.
+\]
+Second, we have
+\[
+\int_0^T \phi(x)\sin\dfrac{2m\pi x}{T} \, dx 
+   = \int_0^T b_m \sin^2\dfrac{2m\pi x}{T} \, dx 
+   = b_m \cdot T/2,
+\]
+so
+\[
+b_m = \dfrac{2}{T} \int_0^T \phi(x)\sin\dfrac{2m\pi x}{T} \, dx.
+\]
+The derivation is complete.
+
+\subsection{Exercises}
+
+\vspace{-10pt}
+
+\num Use the formulas on page~\pageref{`trig'} in chapter~11.3 to
+derive the following equalities; $k$ and $m$ are integers.
+
+\medskip
+
+\sub $\dint_0^T \sin\dfrac{2k\pi x}{T} \cos\dfrac{2m\pi x}{T} \, dx 
+  =  0$ for all $k$ and $m$.
+
+\medskip
+
+\sub $\dint_0^T \sin\dfrac{2k\pi x}{T} \sin\dfrac{2m\pi x}{T} \, dx 
+  = \begin{cases}
+	T/2 & \text{if $k=m$}, \\
+	0   & \text{otherwise}.
+     \end{cases}$
+
+\medskip
+
+\sub  $\dint_0^T \cos\dfrac{2k\pi x}{T} \cos\dfrac{2m\pi x}{T} \, dx 
+  = \begin{cases}
+	T/2  & \text{if $k=m \ne 0$}, \\
+	T & \text{if $k=m=0$}, \\
+	0    & \text{otherwise}.
+     \end{cases}$
+
+\num Show that in the Fourier series for the triangular function
+discussed in the text (example ~1, page~\pageref{triangle function}),
+all the coefficients of the sine terms really are~0.
+
+%\newpage
+
+\num Find the Fourier series for the following functions over the
+interval $[-\pi,\pi]$:
+
+\sub $f(x)=x$. \hfill [Ans. ${\displaystyle
+    2\sum_{k=1}^{\infty}\dfrac{(-1)^{n-1}\sin nx}{n}}$]
+
+\sub $f(x)= \pi^2-x^2$.
+
+\sub $f(x) = \begin{cases}
+0 & \mbox{if $-\pi\le x\le 0$}, \\ 
+x^2  & \mbox{if $0\le x\le \pi$}.
+\end{cases}$
+
+\num In May's predator--prey model, find the first seven terms of the
+Fourier series for the predator species,~$y(t)$.  Use $T = 38.6$ days
+and the initial conditions $x = 7.75$ and $y = 2.38$, and in example~2
+in the text (page~\pageref{May Fourier}).\index{May model}
+
+
+\cleardoublepage
+
+

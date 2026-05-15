@@ -1,0 +1,940 @@
+%includes Harriet's changes 5/28/94
+\documentstyle[12pt]{cicfinal}
+%took out leqno and bezier
+%Revised by Harriet & Jim 6/26/94
+% sent to Freeman 6/29/94
+
+\newcommand{\mar}[1]{\marginpar[\raggedright\footnotesize\sf #1]{\raggedleft\footnotesize\sf #1}}
+\newcommand{\asideleft}[1]{\medskip\noindent%
+        \rule{321pt}{0pt}\makebox[0pt][r]{%
+        \begin{minipage}[t]{400pt}\footnotesize\sf{#1}%
+        \end{minipage}}\bigskip}
+\newcommand{\asideright}[1]{\medskip\noindent%
+        \rule{40pt}{0pt}\makebox[0pt][l]{%
+        \begin{minipage}[t]{400pt}\footnotesize\sf{#1}%
+        \end{minipage}}\bigskip}
+\newcommand{\aside}[1]{\ifodd \value{page}%
+        {\asideright{#1}}\else{\asideleft{#1}}\fi}
+\newcounter{exercisenumber}[subsection]
+\newcounter{exercisepart}[exercisenumber]
+\newcommand{\num}{\stepcounter{exercisenumber}\par\bigskip%
+        \noindent\arabic{exercisenumber}.\quad}
+\newcommand{\numa}{\stepcounter{exercisenumber}\par\bigskip%
+        \noindent\arabic{exercisenumber}.\quad%
+        \stepcounter{exercisepart}\alph{exercisepart})\enskip}\newcommand{\sub}{\stepcounter{exercisepart}\par\smallskip%
+        \noindent\alph{exercisepart})\enskip\thinspace}
+\newcommand{\ans}[1]{\par\smallskip\noindent[Answer:\enskip%
+        {#1}]}
+        
+\makeindex
+
+\begin{document}
+
+\setcounter{chapter}{9}
+
+\chapter{Series and Approximations}
+\newpage
+
+\setcounter{page}{619}
+\setcounter{section}{4}
+\section{Convergence}
+
+We have written expressions like
+$$
+\sin(x) = x - {x^3 \over 3!} + {x^5 \over 5!} 
+                - {x^7 \over 7!} + {x^9 \over 9!} - \cdots \, ,
+$$
+meaning that for any value of $x$ the series on the right will converge to $\sin(x)$.  There are a couple of issues here.  The first is, what do we even mean when we say the series ``converges'', and how do we prove it converges to $\sin(x)$?  If $x$ is small, we can convince ourselves that the statement is true just by trying it.  If $x$ is large, though, say $x=100^{100}$, it would be convenient to have a more general method for 
+
+\newpage
+\noindent
+proving the stated convergence.  Further, we have the example of the function $1/(1+x^2)$ as a caution---it seemed to converge for small values of $x$ ($|x|<1$), but not for large values.
+
+Let's first clarify what we mean by convergence\index{convergence}.  It is,
+        \mar{Convergence essentially means ``decimals stabilizing"}
+essentially, the intuitive notion of ``decimals stabilizing'' that we have been using all along.  To make explicit what we've been doing, let's write a ``generic" series 
+$$b_0 + b_1 + b_2 + \cdots = \sum_{m=0}^\infty b_m \, .$$ 
+When we evaluated such a series, we looked at the {\bf partial sums}\index{partial sums}
+
+\vspace{10 pt}
+$\begin{array}{lclcl}
+S_1&=&b_0 + b_1 &=&{\displaystyle \sum_{m=0}^1 b_m}\\ [.18in]
+S_2&=&b_0 + b_1+b_2 &=&{\displaystyle\sum_{m=0}^2 b_m}\\ [.18in]
+S_3&=&b_0 + b_1 + b_2 +b_3&=&{\displaystyle\sum_{m=0}^3 b_m} \\ [.18in]
+&\vdots & &\vdots &  \\
+S_n&=&b_0 + b_1 + b_2 + \ldots+b_n&=&{\displaystyle\sum_{m=0}^n b_m} \\
+&\vdots&&\vdots & 
+\end{array}$
+
+\medskip
+Typically, when we calculated a number of these partial sums, we noticed that beyond a certain point they all seemed to agree on, say, the first 8 decimal places.  If we kept on going, the partial sums would agree on the first 9 decimals, and, further on, on the first 10 decimals, etc. This is precisely what we mean by convergence:\index{converges, definition of}\index{sum of a series, definition of}\index{diverges, definition of} 
+
+\medskip
+\noindent
+\begin{center}
+\framebox[4.7in]
+{
+\parbox{4.15in}
+{
+\vspace{8pt}
+The infinite series 
+        $$
+        b_0 + b_1 + b_2 + \cdots= \sum_{m=0}^\infty b_m
+        $$
+{\bf converges}  if, no matter how many decimal places are specified, it is always the case that all the partial sums eventually agree to at least this many decimal places.  
+    
+    \smallskip
+    Put more formally, we say the series converges if, given any number $D$ of decimal places, it is always possible to find an integer $N_D$ such that if $k$ and $n$ are both greater than $N_D$, then $S_k$ and $S_n$ agree to at least $D$ decimal places.
+    
+    \medskip
+    The number defined by these stabilizing decimals is called the {\bf sum} of the series.
+    
+    \medskip
+    If a series does not  converge, we say it {\bf diverges}.
+    \vspace{4pt} 
+    }
+   }
+\end{center}
+\medskip
+
+
+
+
+In other words, for me to prove to you that the Taylor series for $\sin(x)$  
+converges at $x=100^{100}$, you would specify a certain number of decimal places, say 5000, and I would
+\mar{What it means for an infinite sum to converge}
+ have to be able to prove to you that if you took partial sums with enough terms, they would all agree to at least 5000 decimals.  Moreover, I would have to be able to show the same thing happens if you specify {\em any} number of decimal places you want agreement on.
+
+How can this be done?  It seems like an enormously daunting task to be able to do for any series.  We'll tackle this challenge in stages.  First we'll see what goes wrong with some series that don't converge---divergent series.  Then we'll look at a particular convergent series---the {\bf geometric series}---that's relatively easy to analyze.  Finally, we will look at some more general rules that will guarantee convergence of series like those for the sine, cosine, and exponential functions.
+
+
+
+
+
+
+
+
+
+
+\subsection{Divergent Series}
+
+Suppose we have an infinite series
+$$b_0 + b_1 + b_2 + \cdots = \sum_{m=0}^\infty b_m \, ,$$ 
+and consider two successive partial sums, say
+$$S_{122}=b_0 + b_1 + b_2 + \ldots+b_{122}=\sum_{m=0}^{122} b_m $$
+and
+$$S_{123}=b_0 + b_1 + b_2 + \ldots+b_{122}+b_{123}=\sum_{m=0}^{123} b_m \, .$$
+
+Note that these two sums are exactly the same, except that the sum for
+$S_{123}$ has one more term, $b_{123}$, added on.  Now suppose that
+$S_{122}$ and $S_{123}$ agree to 19 decimal places.  Recall from \S 2
+that we defined this to
+mean $|S_{123}-S_{122}|<.5 \times 10^{-19}$.  But since
+$S_{123}-S_{122}=b_{123}$, this means that $|b_{123}|<.5 \times 10^{-19}$.  To phrase this more generally,
+
+\noindent
+\begin{center}
+\framebox[4.1in]
+{\parbox{3.85in}{\vspace{4pt}
+ Two successive partial sums, $S_n$ and $S_{n+1}$, agree out to $k$
+ decimal places if and only if $|b_{n+1}|<.5 \times 10^{-k}$.
+ \vspace{4pt} }
+ }
+\end{center}
+
+
+But since our definition of convergence required that we be able to fix any 
+specified number of decimals provided we took partial sums lengthy enough, it must be true that {\em if the series converges}, 
+\mar{A necessary condition for convergence}
+the individual terms $b_k$ must become arbitrarily small if we go out far enough. Intuitively, you can think of the partial sums $S_k$ as being a series of approximations to some quantity.  The term $b_{k+1}$ can be thought of as the ``correction'' which is added to $S_k$ to produce the next approximation $S_{k+1}$.  Clearly, if the approximations are eventually becoming good ones, the corrections made should become smaller and smaller.  We thus have the following necessary condition for convergence:
+
+\noindent
+\begin{center}
+\framebox
+{ \parbox{2.4in}{\vspace{8pt}
+If the infinite series 
+   $$b_0 + b_1 + b_2 + \cdots= \sum_{m=0}^\infty b_m$$
+    converges, then
+    $$\lim_{k\rightarrow \infty} b_k = 0 \, .$$}
+}
+\end{center}
+
+\newpage
+{\bf Remark:}  It is important to recognize what this criterion does and does 
+        \mar{{\em Necessary} and {\em sufficient} mean different things}
+not say---it is a {\bf necessary} condition for convergence (i.e., every convergent sequence has to satisfy the condition $\lim_{k\rightarrow \infty} b_k = 0$)---but it is not a {\bf sufficient} condition for convergence (i.e., there are some divergent sequences that also have the property that  $\lim_{k\rightarrow \infty} b_k = 0$).  The criterion is usually used to detect some divergent series, and is more useful in the following form (which you should convince yourself is equivalent to the preceding):\index{divergence criterion}
+
+\noindent
+\begin{center}
+\framebox[4in]
+{  \parbox{3.65in}{\vspace{8pt}
+If \hspace{.8in} ${\displaystyle \lim_{k\rightarrow \infty} b_k \ne 0 }$  \\
+   
+   \medskip
+   (either because the limit doesn't exist at all, or it equals something besides 0),\\
+   
+   then the infinite series 
+   $$b_0 + b_1 + b_2 + \cdots= \sum_{m=0}^\infty b_m$$
+    diverges .
+    \vspace{4pt}}
+}
+\end{center}
+
+This criterion allows us to detect a number of divergent series 
+        \mar{Detecting divergent series}
+right away.  For instance, we saw earlier that the statement
+$${\displaystyle {1 \over {1+x^2}} }= {\displaystyle 1-x^2+x^4-x^6+\cdots}$$
+appeared to be true only for $|x|<1$. Using the remarks above, we can see why this series has to diverge for $|x|\ge 1$.  If we write $1-x^2+x^4-x^6+\cdots$ as $b_0 + b_1 + b_2 + \cdots$, we see that $b_k=(-1)^kx^{2k}$.  Clearly $b_k$ does not go to 0 for $|x|\ge 1$---the successive ``corrections'' we make to each partial sum just become larger and larger, and the partial sums will alternate more and more wildly from a huge positive number to a huge negative number.  Hence the series converges {\em at most} for $-1<x<1$.  We will see in the next subsection how to prove that it really does converge for all  $x$ in this interval.
+
+Using exactly the same kind of argument, we can show that the following series also diverge for $|x|>1$:
+$$
+        \begin{array}{ccl}
+        f(x) &\hspace{.5in} & \hspace{.5in}\mbox{Taylor series for $f(x)$} \\ [2pt] \hline
+        & & \\ [-6pt] 
+        \ln{(1-x)}& &{\displaystyle  -(x+{x^2 \over 2} + {x^3 \over 3} 
+                + {x^4 \over 4} + \cdots)}\\ [.15in]
+        {\displaystyle {1 \over {1-x}} }& &{\displaystyle 1+x+x^2+x^3+\cdots } \\ [.15in]
+        (1+x)^c & &{\displaystyle 1 +cx+{c(c-1) \over 2!}x^2+{c(c-1)(c-2) \over 3!}x^3 + \cdots} \\ [.15in]
+        \arctan{x} & &x-{1 \over 3}x^3 + {1 \over 5} x^5 - \cdots \pm {1 \over {2n+1}}x^{2n+1} \, .
+
+        \end{array}
+$$
+The details are left to the exercises.  While these common series all happen to diverge for $|x|>1$, it is easy to find other series that diverge for $|x|>2$ or $|x|>17$ or whatever---see the exercises for some examples.
+
+\subsubsection{The Harmonic Series}
+
+We stated earlier in this section that simply knowing that the individual terms $b_k$ go to 0 for large values of $k$ does not guarantee that the series
+$$b_0 + b_1 + b_2 + \cdots$$
+will converge.  
+\mar{An important counterexample}
+Essentially what can happen is that the $b_k$ go to 0 slowly enough that they can still accumulate large values.  The classic example of such a series is the {\bf harmonic series}\index{harmonic series}:
+$$
+1 + {1\over 2} + {1 \over 3} + {1 \over 4} + \cdots = \sum_{i=1}^\infty {1\over i} \, .
+$$
+It turns out that this series just keeps getting larger as you add more terms. It is eventually larger than 1000, or 1 million, or $100^{100}$ or \ldots.  This fact is established in the exercises.  A suggestive argument, though, can be quickly given by observing that the harmonic series is just what you would get if you substituted $x=1$ into the power series
+$${\displaystyle x+{x^2 \over 2} + {x^3 \over 3} + {x^4 \over 4}+\cdots \, .}$$
+But this is just the Taylor series for $-\ln(1-x)$, and if we substitute $x=1$ into this we get $-\ln{0}\, $, which isn't defined.  Also, $\lim_{x \to 0} -\ln{x}=+\infty$.
+
+\subsection{The Geometric Series}
+
+A series occurring frequently in a wide range of contexts is the {\bf geometric series}\index{geometric series}
+$$G(x) = 1 + x + x^2 +x^3 + x^4 +\cdots \,.$$
+This is also a sequence we can analyze completely and rigorously in terms of its convergence.  It will turn out that we can then reduce the analysis of the convergence of several other sequences to the behavior of this one.
+
+By the analysis we performed above, 
+        \mar{To avoid divergence $|x|$ must be less than 1}
+if $|x|\ge 1$ the individual terms of the series clearly don't go to 0, and the series therefore diverges.  What about the case where $|x|<1$?
+
+The starting point is the partial sums.  A typical partial sum looks like:
+        $$
+        S_n =  1 +  x +  x^2 +  x^3 + \cdots +  x^n\, .
+        $$
+This is a finite number; we must find out what happens to it as $n$ grows without bound.  Since $S_n$ is finite, we can calculate with it.  In particular,
+        $$
+        xS_n =   x +  x^2 +  x^3 + \cdots +  x^n +  x^{n+1}\, .
+        $$
+Subtracting the second expression from the first, we get
+        $$
+        S_n - xS_n = 1  -  x^{n+1}
+        $$
+and thus (if $x \neq 1$)
+        \mar{A simple expression for the partial sum $S_n$}
+        $$
+        S_n =   {1 - x^{n+1} \over 1-x}\, .
+        $$
+(What is the value of $S_n$ if $x=1$?)
+
+     This is a handy, compact form for the partial sum.  Let us see what value it has  for various values of $x$.  For example, if $x = 1/2$, then
+        $$
+        \begin{array}{rccccccccc}
+        n: & 1 & 2 & 3 & 4 & 5 & 6 & \cdots & \to & \infty
+                \\[.07in]
+        S_n: & 1 & {3 \over 2}  & {7 \over 4}  & {15 \over 8}  
+                & {31 \over 16}  & {63 \over 32}  & \cdots & \to 
+                & 2  
+        \end{array}
+        $$
+
+
+It appears that as $n \to \infty$, $S_n \to 2 \/$.  
+        \mar{Finding the limit of $S_n$ as $n \to \infty$}
+Can we see this algebraically?
+\begin{eqnarray*}
+S_n & = & {\displaystyle {1 - (1/2)^{n+1} \over 1 - {1 \over 2}}} \\
+    &=& {\displaystyle {1 - (1/2)^{n+1} \over 1/2}} \\
+    & = & 2 \cdot (1 - (1/2)^{n+1}) \\
+    &=&2-(1/2)^n 
+\end{eqnarray*}
+As $n \to \infty$, $(1/2)^n \to 0$, so the values of $S_n$ become closer and closer to $2$.  Clearly the series converges, and its sum is 2.
+
+     Similarly, 
+     \mar{Summing another geometric series}
+when $x = -1/2$, the partial sums are
+        $$
+        S_n = {1 - (-1/2)^{n+1} \over 3/2} =
+                {2 \over 3} \left(
+                1 \pm { 1 \over 2^{n+1}} \right)\, .
+        $$
+The presence of the $\pm$ sign does not alter the outcome: since \mbox{$(1/2^{n+1}) \to 0$}, the partial sums converge to $2/3$.  Therefore, we can say the series converges and its sum is $2/3$.
+
+In exactly the same way, though, for any $x$ satisfying $|x|<1$ we have
+\begin{eqnarray*}
+        S_n &=  &{1 - x^{n+1} \over 1-x} \\
+            & = &{1 \over 1-x}(1-x^{n+1}) \, ,
+\end{eqnarray*}
+and as $n \to \infty$, $x^{n+1} \to 0$.  Therefore, $S_n \to 1/(1-x)$.  Thus the series converges, and its sum is $1/(1-x)$.
+
+To summarize, we have thus proved that
+        \mar{Convergence and divergence of the geometric series}
+
+\noindent
+\begin{center}
+\framebox[4.8in]
+{\parbox{4.45in}{\vspace{8pt}
+The geometric series\index{geometric series, convergence criterion}\index{convergence criterion, geometric series}
+   $$G(x) = 1 + x + x^2 +x^3 + x^4 +\cdots $$
+   converges for all $x$ such that $|x|<1$. In such cases the sum is
+   $${1 \over 1-x }\, .$$
+   The series diverges for all other values of $x$.
+   
+   \vspace{4pt}}
+}
+\end{center}
+
+As a final comment, note that the formula
+$$S_n=  {1 - x^{n+1} \over 1-x}$$
+is valid for all $x$ (except $x=1$).  Even though the partial sums aren't converging to any limit if $x>1$, the formula can still be useful as a quick way for summing powers.  Thus, for instance
+$$1+3+9+27+81+243={1-3^6 \over 1-3}={1-729 \over -2}={-728 \over -2}=364 \, ,$$
+and
+$$1-5+25-125+625-3125={1-(-5)^6 \over 1-(-5)}={1-15625 \over 6}=-264 \, .$$
+
+
+\subsection{Alternating Series}
+
+A large class of common 
+\mar{Many common series are alternating, at least for some values of $x$}
+power series consists of the {\bf alternating series}\index{alternating series, definition of}---series in which the terms are alternately positive and negative.  The behavior of such series is particularly easy to analyze, as we shall see in this section. Here are some examples of alternating series we've already encountered :
+        \begin{eqnarray*}
+        \sin{x} &=& x - {x^3 \over 3!} + {x^5 \over 5!} 
+                - {x^7 \over 7!} + \cdots \\ [.15in]
+        \cos{x} &=& 1 - {x^2 \over 2!} + {x^4 \over 4!} 
+                - {x^6 \over 6!} + \cdots \\ [.15in]
+        {\displaystyle {1 \over 1+x^2}}&=&{\displaystyle 1-x^2+x^4-x^6+\cdots } \mbox{\hspace{.5in} (for $|x|<1$)}
+        \end{eqnarray*}
+Other series may be alternating for some, but not all, values of $x$. For instance, here are two series that are alternating for negative values of $x$, but not for positive values:
+\begin{eqnarray*}
+        e^x&=&{\displaystyle 1+x+{x^2 \over 2!}+{x^3 \over 3!}+{x^4 \over 4!}+\cdots} \\[.15in]
+                \ln{(1-x)} &=& -(x+x^2+x^3+x^4 +   \cdots )\mbox{\hspace{.5in} (for $|x|<1$)} \, .
+\end{eqnarray*} 
+
+\medskip
+\noindent 
+{\bf Convergence criterion for alternating series.}  Let us write a generic alternating series as
+$$
+b_0-b_1 + b_2 - b_3 + \cdots + (-1)^mb_m + \cdots \, ,
+$$
+where the $b_m$ are positive. It turns out that an alternating series converges if the terms $b_m$ both consistently shrink in size and approach zero:\index{alternating series, convergence criterion}\index{convergence criterion, alternating series}
+
+\medskip
+\noindent
+\begin{center}
+\framebox[4.8in]
+{\parbox{4.45in}{\vspace{8pt}
+\begin{tabular}{l}
+$b_0-b_1 + b_2 - b_3 + \cdots + (-1)^mb_m + \cdots$ \hspace{.2in} converges if \\[.15in]
+$0<b_{m+1} \leq b_m$ \quad for all $\; m$ \quad and \quad ${\displaystyle \lim_{m \to \infty} b_m = 0}$  \, .\\
+\end{tabular} }
+}\index{alternating series, convergence of}
+\end{center}
+\medskip
+
+It is this property that makes alternating series particularly easy to deal
+\mar{Alternating series are easy to test for convergence}
+ with. Recall that this is {\em not} a property of series in general, as we saw by the example of the harmonic series.  The reason it is true for alternating series becomes clear if we view the behavior of the partial sums geometrically:  
+
+\vspace*{2in}
+%\special{psfile=/me/ps/calc2/altseries.ps}
+
+We mark the partial sums $S_n$  on a number line.  The first sum $S_0=b_0$ lies to the right of the origin.  To find $S_1$ we go to the left a distance $b_1$.  Because $b_1 \leq b_0$, $S_1$ will lie between the origin and $S_0$.  Next we go to the right a distance $b_2$, which brings us to $S_2$.  Since $b_2 \leq b_1$, we will have $S_2 \leq S_0$.  The next move is to the left a distance $b_3$, and we find $S_3 \geq S_1$.  We continue going back and forth in this fashion, each step being less than or equal to the preceding one, since $b_{m+1} \leq b_m$.  We thus get
+$$0\leq S_1 \leq S_3 \leq S_5 \leq \ldots \leq S_{2m-1} \leq \ldots \leq S_{2m} \leq \ldots \leq S_4 \leq S_2 \leq S_0 \, .$$
+
+The partial sums oscillate back and forth, 
+        \mar{The partial sums oscillate, with the exact sum trapped between consecutive partial sums}
+with all the odd sums on the left increasing and all the even sums on the right decreasing. Moreover, since $|S_{n}-S_{n-1}| = b_n$, and since $\lim_{n \to \infty} b_n = 0$, the difference between consecutive partial sums eventually becomes arbitrarily small---the oscillations take place within a smaller and smaller interval.  Thus given any number of decimal places, we can always go far enough out in the series so that $S_k$ and $S_{k+1}$ agree to that many decimal places. But if $n$ is any integer greater than $k$, then, since $S_n$ lies between $S_k$ and $S_{k+1}$, $S_n$ will also agree to that many decimal places---those decimals will be fixed from $k$ on out.  The series therefore converges, as claimed---the sum is the unique number $S$ that is greater than all the odd partial sums and less than all the even partial sums.
+
+For a convergent alternating
+\mar{A simple estimate for the accuracy of the partial sums}
+series, we also have a particularly simple bound for the error\index{error bound, alternating series}\index{alternating series, error bound} when we 
+approximate the sum $S$ of the series by partial sums. 
+
+\noindent
+\begin{center}
+\framebox[4.8in]
+{\parbox{4.45in}{\vspace{8pt}
+If 
+   $$S_n = b_0-b_1 + b_2 - \cdots \pm b_n \, ,$$
+   and if
+   $$0<b_{m+1} \leq b_m \quad \mbox{for all $\; m$ \quad and} \quad {\displaystyle \lim_{m \to \infty} b_m = 0} \,,$$
+   (so the series converges) \\  
+   then 
+$$|S-S_n| < b_{n+1} \, .$$
+In words, the error in approximating $S$ by $S_n$ is less than the next term in the series.
+
+\vspace{4pt}}
+}
+\end{center}
+
+\noindent
+{\bf Proof}:  Suppose $n$ is odd.  Then we have, as above, that $S_n<S<S_{n+1}$.  Therefore $0<S-S_n<S_{n+1}-S_n=b_{n+1}$.  If $n$ is even, a similar argument shows $0<S_n-S<S_n-S_{n+1}=b_{n+1}$.  In either case, we have $|S-S_n| < b_{n+1}$, as claimed.
+
+Note further that we also know whether $S_n$ is too large or too small, depending on whether $n$ is even or odd.
+
+\medskip
+\noindent 
+{\bf Example}.  Let's apply the error estimate 
+        \mar{Estimating the error in approximating $\cos(.7)$}
+for an alternating series
+to analyze the error if we approximate $\cos(.7)$ with a Taylor series with three terms:
+$$
+\cos(.7) \approx        1 - {1 \over 2!} (.7)^2 
+                + {1 \over 4!} (.7)^4
+                = 0.765004166\ldots
+$$
+
+Since the last term in this partial sum was an addition, this approximation is too big.  To get an estimate of how far off it might be, we look at the next term in the series:
+$$
+{1 \over 6!} (.7)^6 = .0001634\ldots
+$$
+We thus know that the correct value for $\cos(.7)$ is somewhere in the interval
+$$.76484 = .76500 - .00016 \leq \cos(.7) \leq .76501 \, ,$$
+so we know that $\cos(.7)$ begins $.76\ldots$  and the third decimal is either a 4 or a 5.
+
+If we use the partial sum with four terms, we get
+$$
+\cos(.7) \approx        1 - {1 \over 2!} (.7)^2 
+                + {1 \over 4!} (.7)^4
+                - {1 \over 6!} (.7)^6 
+                = .764840765\ldots
+$$
+and the error would be less than
+$$
+{1 \over 8!}(.7)^8 = .0000014\ldots < .5 \times 10^{-5},
+$$
+so we could now say that $\cos(.7) =.76484\ldots \,$.
+
+If we wanted to know in advance 
+        \mar{How many terms are needed to obtain accuracy to 12 decimal places?}
+how far out in the series we would have to go to determine $\cos(.7)$ to, say, 12 decimals, we could do it by finding a value for $n$ such that
+$$
+b_n={1 \over n!}(.7)^n \leq .5 \times 10^{-12}\, ,
+$$
+With a little trial and error, we see that $b_{12} \approx .3 \times
+10^{-10}$, while \mbox{$b_{14} < 10^{-13}$}.  Thus if we take the value of the 12th degree approximation for $\cos(.7)$, we can be assured that our value will be accurate to 12 places.
+
+We have met this capability of getting an error estimate in a single
+step before, in version 3 of Taylor's theorem.  It is in contrast to the
+approximations made in dealing with general series, where we typically
+had to look at the pattern of stabilizing digits in the succession of
+improving estimates to get a sense of how good our approximation was,
+and even then we had no guarantee.
+
+\medskip
+\noindent
+{\bf Computing $e$.}  Because of the fact that we
+\mar{It may be possible to convert a given problem to one involving alternating series}
+ can find sharp bounds for the accuracy  of an approximation with alternating series, it is often desirable to convert a given problem to this form where we can.  For instance, suppose we wanted a good value for $e$.  The obvious thing to do would be to take the Taylor series for $e^x$ and substitute $x=1$.  If we take the first 11 terms of this series we get the approximation
+$$e=e^1\approx 1+1+{1 \over 2!} + {1 \over 3!} + \cdots + {1 \over 10!}=2.718281801146\ldots \, ,$$
+but we have no way of knowing how many of these digits are correct.
+
+Suppose instead, that we evaluate $e^{-1}$:
+$$e^{-1}\approx 1-1+{1 \over 2!} - {1 \over 3!} + \cdots + {1 \over 10!}=.367879464286\ldots \, .$$
+
+Since $1/(11!) = .000000025\ldots \,$ , we know this approximation is accurate to at least 7 decimals.  If we take its reciprocal we get 
+$$1/.3678794624286\ldots = 2.718281657666\ldots \, ,$$
+which will then be accurate to 6 decimals (in the exercises you will show why the accuracy drops by 1 decimal place), so we can say $e=2.718281\ldots \,$.
+
+
+
+
+\subsection{The Radius of Convergence}
+
+     We have seen examples of power series that converge for all $x$ (like the Taylor series for $\sin{x}$) and others that converge only for certain $x$ (like the series for $\arctan{x}$).   How  can we determine the convergence of an arbitrary power series of the form
+        $$
+         a_0 + a_1 x + a_2 x^2 + a_3 x^3  + \cdots 
+                + a_n x^n + \cdots \ ?
+        $$
+We must suspect that this series {\em may not\/} converge for all values of $x$.  For example, does the Taylor series
+        $$
+        1 + x + {1 \over 2!} x^2 + {1 \over 3!} x^3 + \cdots
+        $$
+converge for all values of $x$, or only some?  When it converges, does it converge to $e^x$ or to something else?  After all, this Taylor series is designed to look like $e^x$  only near $x = 0$; it remains to be seen how well the function and its series match up far from $x = 0$.
+
+     The question of convergence has a definitive answer.  It goes like this: if the power series
+        $$
+         a_0 + a_1 x + a_2 x^2 + a_3 x^3  + \cdots 
+                + a_n x^n + \cdots \ .
+        $$
+\newpage
+\noindent
+converges for a particular value of $x$---say $x = s$---then it automatically
+        \mar{The answer to the convergence question}
+ converges for any {\em smaller\/} value of $x$ (meaning any $x$ that is closer to the origin than $s$ is; i.e, any $x$ for which $|x| < |s|$).  Likewise, if the series {\em diverges\/} for a particular value of $x$, then it also diverges for any value farther from the origin.  In other words, the values of $x$ where the series converges are not interspersed with the values where it diverges.  On the contrary, within a certain distance $R$ from the origin there is only convergence, while beyond that distance there is only divergence.  The number $R$ is called the {\bf radius of convergence}\index{radius of convergence} of the series, and the range where it converges is called its {\bf interval of convergence}\index{interval of convergence}.
+
+\begin{picture}(360,90)(0,-20)
+\put(10,30){\vector(1,0){320}}
+\put(100,30){\line(0,1){3}}
+\put(170,30){\line(0,1){3}}
+\put(240,30){\line(0,1){3}}
+\put(334,25){$x$}
+\put(90,19){$-R$}
+\put(167.5,19){$0$}
+\put(235,19){$R$}
+\put(100,37){$\overbrace{\rule{140pt}{0pt}}^
+        {\mbox{series converges here}}$}
+\put(10,16){$\underbrace{\rule{90pt}{0pt}}_
+        {\mbox{diverges here}}$}
+\put(240,16){$\underbrace{\rule{90pt}{0pt}}_
+        {\mbox{diverges here}}$}
+\put(170,-20){\makebox[0pt]
+        {The radius of convergence of a power series}}
+\end{picture}
+
+
+        An obvious example of the radius of convergence is given by
+the geometric series
+$$
+        {1\over1-x} = 1 + x + x^2 + x^3 + \cdots
+$$
+We know that this converges for $|x| < 1$ and diverges for $|x| > 1$.
+        \mar{The radius of convergence of the geometric series is 1}
+Thus the radius of convergence is $R = 1$ in this case.
+
+     It is possible for a power series to converge for all $x$; if that happens, we take $R$ to be $\infty$.  At the other extreme, the series may converge only for $x = 0$.  (When $x = 0$ the series collapses to its constant term $a_0$, so it certainly converges {\em at least\/} when $x = 0$.) If the series converges only for $x = 0$, then we take $R$ to be 0.
+
+     At $x = R$ the series may diverge or converge; different things happen for different series.  The same is true when $x = -R$.  The radius of convergence tells us {\em where\/} the switch from convergence to divergence happens.  It does not tell us {\em what\/} happens at the place where the switch occurs.  If we know that the series converges for $x=\pm R$, then we say that $[-R,R]$ is the  interval of convergence.  If the series converges when $x=R$ but {\em not\/} when $x=-R$, then the interval of convergence is $(-R,R]$, and so on.
+
+
+
+
+
+
+\subsection{The Ratio Test}
+
+     There are several ways to determine the radius of convergence of
+a power series.  One of the simplest and most useful is by means of the {\bf ratio test}.\index{ratio test}
+Because the power series to which we apply this test need not include {\em consecutive} powers of $x$ (think of the Taylor series for $\cos x$ or $\sin x\/$) we'll write a ``generic" series as
+$$
+b_0 + b_1 + b_2 + \cdots = \sum_{m=0}^\infty b_m
+$$ 
+
+\noindent
+Here are three examples of the use of this notation.
+\medskip
+
+\noindent
+1.  The Taylor series for $e^x$ is ${\displaystyle \sum_{m=0}^\infty b_m}$, where
+$$
+b_0 = 1, \quad  b_1 = x, \quad b_2 = {x^2 \over 2!}, \cdots , b_m = {x^m \over m!}.
+$$
+
+\noindent
+2.  The Taylor series for $\cos x$ is ${\displaystyle \sum_{m=0}^\infty b_m}$, where
+$$
+b_0 = 1, \quad b_1 = {-x^2 \over 2!}, \quad b_2 = {x^4 \over 4!}, \cdots ,
+b_m = (-1)^m {x^{2m} \over (2m)!} .
+$$
+
+\noindent
+3.  We can even describe the series
+$$
+17 + x + x^2 + x^4 + x^6 + x^8 + \cdots = 17 + x + \sum_{m=2}^\infty x^{2m-2}
+$$
+in our generic notation, in spite of the presence of the first two terms ``$17 + x$'' which don't fit the pattern of later ones.  We have $b_0 = 17$, $b_1 = x$, and then $b_m = x^{2m-2}$ for $m = 2$, 3, 4,~\ldots .  The question of convergence for a power series is 
+        \mar{Convergence is determined by the ``tail" of the series}
+unaffected by the ``beginning" of the series; only the pattern in the ``tail" matters.  (Of course the {\em value\/} of the power series is affected by all of its terms.)  So we can modify our generic notation to fit the circumstances at hand.  No harm is done if we don't begin with $b_0$.
+
+
+        Using this notation we can state the ratio test (but we give no proof).
+
+\begin{center}
+\begin{picture}(360,70)
+        \begin{thicklines}
+        \put(0,0){\framebox(360,70){\shortstack
+                {\bf Ratio Test: the series \boldmath 
+                        $b_0 + b_1 + b_2 + b_3 + \cdots + b_n + 
+                        \cdots$\\[1pt]
+                \bf converges if \boldmath ${\displaystyle 
+                        \lim_{m \to \infty}{|b_{m+1}| \over |b_m|} 
+                        < 1 \, .}$ 
+                }}}
+        \end{thicklines}
+\end{picture}
+\end{center}
+
+\noindent
+Let's see what the ratio test says about the geometric series:
+        \mar{Applying the ratio test to the geometric series $\ldots$}
+$$
+        1 + x + x^2 + x^3 + \cdots \ .
+$$
+We have $b_m = x^m$, so the ratio we must consider is
+$$
+{|b_{m+1}| \over |b_m|} = {|x^{m+1}| \over |x^m|} = {|x|^{m+1} \over |x|^m} = |x| \; .
+$$
+\noindent (Be sure you see why $|x^m| = |x|^m\/$.)  Obviously, this ratio has the same value for all $m$, so the limit
+$$
+\lim_{m \to \infty} |x| = |x|
+$$
+exists and is less than $1$ precisely when $|x| < 1\/$.  Thus the geometric series converges for
+$|x| < 1$---which we know is true.  This means that the radius of convergence of the geometric series is $R=1\/$.
+
+
+Look next at the Taylor series for $e^x$:
+        \mar{$\ldots$ and to $e^x$}
+$$
+1 + x + {\displaystyle {x^2 \over 2!}} + {\displaystyle {x^3 \over 3!}} + {\displaystyle {x^4 \over 4!}} + \cdots = \sum_{m=0}^{\infty} {\displaystyle {x^m \over m!}}
+$$
+For negative $x$ this is an alternating series, so by the criterion for convergence of alternating series we know it converges for all $x < 0$.  The radius of convergence should then be $\infty$.  We will use the ratio test to show that in fact this series converges for {\em all\/} $x$.
+
+In this case
+$$
+b_m={\displaystyle {x^m \over m!}},
+$$
+so the relevant ratio is
+\begin{eqnarray*}
+{|b_{m+1}| \over |b_m|} & = & \left|{x^{m+1} \over (m+1)!}\right| \cdot \left|{m! \over x^m}\right| \\
+                        & = & {|x^{m+1}| \over |x^m|} \cdot {m! \over (m+1)!} \\
+                        & = & |x| \cdot {1 \over m+1} = {|x| \over m+1}
+\end{eqnarray*}
+Unlike the example with the geometric series, the value of this ratio depends on $m$.  For any particular $x$, as $m$ gets larger and larger the numerator stays the same and the denominator grows, so this ratio gets smaller and smaller.  In other words,
+$$
+\lim_{m \to \infty} {|b_{m+1}| \over |b_m|} = \lim_{m \to \infty} {|x| \over m+1} = 0 \, .
+$$
+Since this limit is less than 1 for any value of $x$, the series converges for {\em all\/} $x$, and thus the radius of convergence of the Taylor series for $e^x$ is $R= \infty \/$, as we expected.
+
+
+        One of the uses of the theory developed so far
+is that it gives us a new way of specifying functions.  For example,
+consider the power series
+$$
+        \sum_{m=0}^\infty (-1)^m\,{2^m\over m^2+1}\,x^m = 
+        1 - x + {\displaystyle {4\over5}}\,x^2 - {\displaystyle {8\over10}}\,x^3
+        + {\displaystyle {16\over17}}\,x^4 + \cdots \ .
+$$
+In this case $b_m=(-1)^m{2^m \over m^2+1}x^m$, so to find the radius of convergence, we compute the ratio
+$$
+        {|b_{m+1}| \over |b_m|} = 
+        {2^{m+1}|x|^{m+1} \over (m+1)^2 + 1} \cdot {m^2 + 1 \over 2^m |x|^m}  = 2|x| \, {m^2 + 1 \over m^2 + 2m + 2}
+$$
+To figure out what happens to this ratio as $m$ grows large, 
+        \mar{Finding the limit of $|b_{m+1}|/|b_m|$ may require some algebra}
+it is helpful to rewrite the factor involving the $m$'s as
+$$
+{m^2 \cdot (1 + 1/m^2) \over m^2 \cdot (1+2/m +2/m^2)}
+= {1 + 1/m^2 \over 1 + 2/m + 2/m^2} \, .
+$$
+Now we can see that
+$$
+ \lim_{m \to \infty} {|b_{m+1}| \over |b_m|} = 2 |x| {1 \over 1} = 2|x| \, .\
+$$
+The limit value is less than $1$ precisely when $2|x| < 1\/$, or, equivalently, $|x| < 1/2,$ so the radius of convergence of this series is $R=1/2\/$.
+It follows that for $|x| < 1/2$, we have a new function $f(x)$ defined by the power series:
+\[
+        f(x) = \sum_{m=0}^\infty (-1)^m
+                {\displaystyle {2^m\over m^2+1}}\,x^m\ .
+\]
+
+
+     We can also discuss the radius of convergence of a power series
+\[
+         a_0 + a_1 (x - a) + a_2 (x - a)^2 + \cdots 
+                + a_m (x - a)^m + \cdots 
+\]
+centered at a number $a$ other than the origin.  The radius of
+convergence of a power series of this form can be found by the {\bf
+ratio test} in exactly the same way it was when $a = 0\/$.
+\medskip
+
+\noindent 
+{\bf Example.} Let's apply the ratio test to the Taylor series
+centered at $a=1$ for $\ln(x)$:
+$$
+\ln(x) = \sum_{m=1}^\infty {(-1)^{m-1} \over m} \, (x-1)^m \,.
+$$
+We can start our series with $b_1\/$, so we can take $b_m = {(-1)^{m-1} \over m} \, (x-1)^m\/$.  
+Then the ratio we must consider is
+$$
+{|b_{m+1}| \over |b_m|} = {|x-1|^{m+1} \over m+1} \cdot {m \over |x-1|^m} = |x-1| \cdot {m \over m+1} = |x-1| \cdot {1 \over 1 + 1/m} \, .
+$$
+Then
+$$
+ \lim_{m \to \infty} {|b_{m+1}| \over |b_m|} = |x-1| \cdot 1 = |x-1| \, .
+$$
+From this we conclude that this series converges for $|x-1| < 1\/$.  This inequality is equivalent to
+$$
+-1 < x-1 < 1,
+$$ 
+which is an interval of ``radius" $1$ about $a=1$, so the radius of convergence is $R=1$ in this case.  We may also write  the  interval of convergence for this power series as
+$$
+0 < x < 2 \, .
+$$
+
+More generally, using the ratio test we find that a power series centered at $a$ converges in an interval of ``radius" $R$ (and width $2R$)
+around the point $x = a$ on the $x$-axis.  Ignoring what happens at the endpoints, we say  the {\bf interval of
+convergence\/}\index{interval of convergence} is
+\[
+        a - R < x < a + R \ .
+\]
+Here is a picture of what this looks like:
+\begin{center}
+\begin{picture}(360,90)(0,-30)
+\put(10,30){\vector(1,0){320}}
+\put(100,30){\line(0,1){3}}
+\put(170,30){\line(0,1){3}}
+\put(240,30){\line(0,1){3}}
+\put(334,25){$x$}
+\put(87,19){$a-R$}
+\put(167.5,19){$a$}
+\put(228,19){$a+R$}
+\put(100,37){$\overbrace{\rule{140pt}{0pt}}^
+        {\mbox{convergence}}$}
+\put(10,16){$\underbrace{\rule{90pt}{0pt}}_
+        {\mbox{divergence}}$}
+\put(240,16){$\underbrace{\rule{90pt}{0pt}}_
+        {\mbox{divergence}}$}
+\put(170,-20){\makebox[0pt]
+        {The convergence of a power series centered at $a$}}
+\end{picture}
+\end{center}
+
+
+
+
+
+
+\subsection{Exercises}
+
+\num Find a formula for the sum of each of the following power series by performing suitable operations on the geometric series and the formula for {\em its\/} sum.
+
+\medskip
+\noindent
+\begin{tabular}{ll}
+a) $1-x^3 + x^6 - x^9 + \cdots .$ & d) $x+2x^2 +3x^3 + 4x^4 + \cdots .$ \\[3pt]
+b) $x^2 + x^6 + x^{10} + x^{14} + \cdots .$ & e) ${\displaystyle x +
+  {x^2 \over 2} + {x^3 \over 3} + {x^4 \over 4} + \cdots .}$ \\ [7pt]
+c) $1-2x+3x^2-4x^3 + \cdots .$ &
+\end{tabular}
+
+
+\num  Determine the value of each of the following infinite sums.  (Each os these sums is a geometric or related series evaluated at a particular value of $x$\/.) 
+
+\medskip
+\noindent
+\begin{tabular}{ll}
+  a) ${1 \over 4} + {1 \over 16} + {1 \over 64} + {1 \over 256} + \cdots
+  .$ & d) ${1 \over 1} - {2 \over 2} + {3 \over 4} - {4 \over 8} + {5
+    \over 16} - {6 \over 32} + \cdots .$ \\ [7pt]
+b) .02020202 \ldots . & e)
+  ${1 \over 1\cdot 10} + {1 \over 2\cdot10^2} + {1 \over 3\cdot10^3} +
+  {1 \over 4\cdot10^4} + \cdots .$
+\\ [7pt]
+c) $- {5 \over 2} + {5 \over 4} - {5 \over 8} + \cdots .$ & 
+
+\end{tabular}
+
+
+\num  {\bf The Multiplier Effect}.  Economists know that the effect on a local economy of tourist spending is greater than the amount actually spent by the tourists.  The {\em multiplier effect} quantifies this enlarged effect.  In this problem you will see that calculating the multiplier effect involves summing a geometric series.
+
+Suppose that, over the course of a year, tourists spend a total of $A$ dollars in a small resort town.  By the end of the year, the townspeople are  therefore $A$ dollars richer.  Some of this money leaves the town---for example, to pay state and federal taxes or to pay off debts owed to ``big city" banks.  Some of it stays in town but gets put away as savings.  Finally, a certain fraction of the original amount is spent in town, by the townspeople themselves.  Suppose 3/5-ths is spent this way.  The tourists and the townspeople {\em together} are therefore responsible for spending
+$$
+S = A + {3 \over 5} A \quad \mbox{dollars}
+$$
+in the town that year.  The second amount---${3 \over 5}A$ dollars---is {\em recirculated} money.
+
+Since one dollar looks much like another, the recirculated money should be handled the same way as the original tourist dollars:  some will leave the town, some will be saved, and the remaining 3/5-ths will get recirculated a {\em second} time.  The twice-recirculated amount is
+$$
+{3 \over 5} \times {3 \over 5}A \quad \mbox{dollars},
+$$
+and we must revise the calculation of the total amount spent in the town to
+$$
+S = A + {3 \over 5}A + \left({3 \over 5}\right)^2\!\! A \quad \mbox{dollars}.
+$$
+But the twice-recirculated dollars look like all the others , so 3/5-ths of them will get recirculated a {\em third} time.  Revising the total dollars spent yet again, we get
+$$
+S = A + {3 \over 5}A + \left({3 \over 5}\right)^2\!\! A + 
+\left({3 \over 5}\right)^3\!\! A \quad \mbox{dollars}.
+$$
+This process never ends:  no matter how many times a sum of money has been recirculated, 3/5-ths of it is recirculated once more.  The total amount spend in the town is thus given by a {\em series.}
+
+\sub  Write the series giving the total amount of money spent in the town and calculate its sum.
+
+\sub  Your answer in a) is a certain multiple of $A$---what is the multiplier?
+
+\sub  Suppose the recirculation rate is $r$ instead of 3/5.  Write the series giving the total amount spent and calculate its sum.  What is the multiplier now?
+
+\sub  Suppose the recirculation rate is 1/5; what is the multiplier in this case?
+
+\sub  Does a lower recirculation rate produce a smaller multiplier effect?
+
+\num Which of the following alternating series converge, which diverge? Why? \\
+\begin{minipage}{2.4in}
+\sub ${\displaystyle \sum_{n=1}^{\infty} (-1)^n{n \over n^2+1}}$
+\sub ${\displaystyle \sum_{n=1}^{\infty} (-1)^n{1 \over \sqrt{3n+2}}}$
+\sub ${\displaystyle \sum_{n=1}^{\infty} (-1)^n{n \over \ln{n}}}$
+\sub ${\displaystyle \sum_{n=1}^{\infty} (-1)^n{n \over 5n-4}}$
+\sub ${\displaystyle \sum_{n=1}^{\infty} (-1)^n{\arctan{n} \over n}}$
+\end{minipage} \ \
+\begin{minipage}{2.4in}
+\sub ${\displaystyle \sum_{n=1}^{\infty} (-1)^n{(1.0001)^n \over n^{10}+1}}$
+\sub ${\displaystyle \sum_{n=1}^{\infty} (-1)^n{1 \over n^{1/n}}}$
+\sub ${\displaystyle \sum_{n=1}^{\infty} (-1)^n{1 \over \ln{n}}}$
+\sub ${\displaystyle \sum_{n=1}^{\infty} (-1)^n{n! \over n^n}}$
+\sub ${\displaystyle \sum_{n=1}^{\infty} (-1)^n{n! \over 1\cdot 3\cdot 5\cdots (2n-1)}}$
+\end{minipage}
+
+\num For each of the sums in the preceding problem that converges, use the alternating series criterion to determine how far out you have to go before the sum is determined to 6 decimal places.  Give the sum for each of these series to this many places.
+
+\num Find a value for $n$ so that the $n$th degree Taylor series for $e^x$ gives at least 10 place accuracy for all $x$ in the interval $[-3, 0]$.
+
+\num We defined the harmonic series as the infinite sum
+$$
+1 + {1\over 2} + {1 \over 3} + {1 \over 4} + \cdots = \sum_{i=1}^\infty {1\over i} \, .
+$$
+\sub Use a calculator to find the partial sums
+$$
+S_n = 1 + {1 \over 2} + {1 \over 3} + {1 \over 4} + \cdots + {1 \over n}
+$$
+for  $n = 1, 2, 3, ..., 12\/$.
+\sub  Use the following program to find the value of $S_n$ for $n = 100$.  Modify the program to find the values of $S_n$ for $n = 500$, 1000, and $5000$.
+
+\newpage
+
+\index{program: HARMONIC}
+\begin{center}
+{\bf Program: HARMONIC}
+\end{center}
+\begin{verbatim}
+  n = 100
+  sum = 0
+  FOR i = 1 TO n
+       sum = sum + 1/i
+  NEXT i
+  PRINT  n, sum
+\end{verbatim}
+\sub Group the terms in the harmonic series as indicated by the parentheses:
+        \begin{eqnarray*}
+        \lefteqn{1 + 
+                \left({1 \over 2}\right) + 
+                \left({1 \over 3} + {1 \over 4}\right) + 
+                \left({1 \over 5} + {1 \over 6} + {1 \over 7} + 
+                {1 \over 8}\right) +}  \\ 
+        &&\mbox{} + \left({1 \over 9} + \cdots + 
+                {1 \over 16}\right) + \left({1 \over 17} + 
+                \cdots + {1 \over 32}\right) + \cdots
+        \end{eqnarray*}
+Explain why each parenthetical grouping totals at least $1/2$.
+\sub Following the pattern in part c), if you add up the terms of the harmonic series forming $S_n$ for $n=2^k$, you can arrange the terms as 
+$1 + k$ such groupings.  Use this fact and the result of c) to explain why $S_n$ exceeds $1+k\cdot {1 \over 2}$\,.
+\sub Use part d) to explain why the harmonic series {\em diverges}.
+\sub You might try this problem if you've had some physics---enough to know how to locate the center of mass of a system. Suppose you had $n$ cards and wanted to stack them on the edge of a table with the top of the pile leaning out over the edge. How far out could you get the pile to reach if you were careful?  Let's choose our units so the length of each card is 1. Clearly if $n=1$, the farthest reach you could  get \linebreak
+  \begin{minipage}{3in}
+{would be $\frac{1}{2}$.  If $n=2$, you could clearly place the top card to extend half a unit beyond the bottom card.  For the system to be stable, the center of mass of the two cards must be to the left of the edge of the table. Show that for this to happen, the bottom card can't extend more than 1/4 unit beyond the edge.  Thus with $n=2$\,, the maximum extension of the pile is $\frac{1}{2} + \frac{1}{4} = \frac{3}{4}$.  The picture at the right shows 10 cards stacked carefully.}
+\end{minipage} \ \ 
+\begin{minipage}{2in}
+\vspace{2in}
+%\special{psfile=/me/ps/calc2/cards.ps} 
+\end{minipage}
+
+\vspace{2pt}
+Prove that if you have $n$ cards, the stack can be built to extend a distance of
+$$\frac{1}{2}+\frac{1}{4}+\frac{1}{6}+\frac{1}{8}+\cdots +\frac{1}{2n}=\frac{1}{2}\left(1+\frac{1}{2}+\frac{1}{3}+\frac{1}{4}+\cdots +\frac{1}{n}\right) \, .$$
+
+In the light of what we have just proved about the harmonic series, this
+shows that if you had enough cards, you could have the top card
+extending 100 units beyond the edge of the table!
+
+\num  {\bf An estimate for the partial sums of the harmonic series}\index{harmonic series, logarithmic approximation to} \hspace{.5in} You may notice in part d) of the preceding problem that the sum $S_n = 1 + 1/2 + 1/3 + \cdots + 1/n$ grows in proportion to the exponent $k$ of $n=2^k\/$; i.e., the sum grows like the logarithm of $n\/$.  We can make this more precise by comparing the value of $S_n$ to the value of the integral
+$$
+\int_{1}^{n} {1 \over x} \, dx = \ln(n)\,.
+$$
+\sub Let's look at the case $n=6$ to see what's going on.  Consider the following picture:
+
+\vspace*{1.8in}
+%\special{psfile=/me/ps/calc2/harmonic.ps}
+
+Show that the lightly shaded region plus the dark region has area equal to $S_5$\,, which can be rewritten as $S_6-{1 \over 6}$.  Show that the dark region alone has area $S_6 - 1$. Hence prove that
+$$S_6 - 1 < \int_{1}^{6} {1 \over x} \, dx < S_6-{1 \over 6} \,,$$
+and conclude that
+$${1 \over 6}<S_6-\ln(6)<1 \,.$$
+\sub Show more generally that
+$${1 \over n}<S_n-\ln(n)<1 \,.$$
+\sub Use part b) to get upper and lower bounds for the value of $S_{10000}$.
+\ans{$9.21044<S_{10000}<10.21035$\,.}
+\sub Use the result of part b) to get an estimate for how many cards you would need in part f) of the preceding problem to make the top of the pile extend 100 units beyond the edge of the table.
+\ans{It would take approximately $10^{87}$ cards---a number which is on the same order of magnitude as the number of atoms in the universe!}
+\medskip
+
+\aside{Remarkably, partial sums of the harmonic series exceed $\ln(n)$ in a very regular way.  It turns out that
+        $$
+        \lim_{n \rightarrow \infty} \, 
+                \left\{ S_n - \ln(n) \right\} = \gamma,
+        $$
+where $\gamma = .5772\ldots$ is called {\bf Euler's constant.}\index{Euler's constant}  (You have seen another constant named for Euler, the base $e= 2.7183\ldots $.)  Although one can find the decimal expansion of $\gamma$ to any desired degree of accuracy, no one knows whether $\gamma$ is a rational number or not.}
+
+\num Show that the power series for $\arctan{x}$ and $(1+x)^c$ diverge for $|x|>1 \,$.  Do the series converge or diverge when $|x|=1$?
+
+
+\num  Find the radius of convergence of each of the following power series.
+\sub $1 + 2\, x + 3\, x^2 + 4\, x^3 + \cdots$ .
+\sub $x + 2\, x^2 + 3\, x^3 + 4\, x^4 + \cdots$ .
+\sub ${\displaystyle 1 + {1 \over 1^2} x + {1 \over 2^2} x^2 + {1 \over 3^2} x^3 + {1 \over 4^2} x^4 + \cdots}$ . \hfill [Answer: $R = 1.$]
+\sub  $x^3 + x^6 + x^9 + x^{12} + \cdots$.
+\sub $1 + (x + 1) + (x+1)^2 + (x+1)^3 + \cdots$ .
+\sub  ${\displaystyle 17 + {1 \over 3}\, x + {1 \over 3^2}\, x^2 + {1\over 3^3}\, x^3 + {1\over 3^4}\, x^4 + \cdots}$ .
+
+
+\num  Write out the first five terms of each of the following power series, and determine the radius of convergence of each.
+
+\sub  ${\displaystyle \sum_{n = 0}^{\infty}\, n x^n}$
+\hfill [Answer: $R = 1$.]
+\sub  ${\displaystyle \sum_{n = 0}^{\infty} {n^2 \over 2^n}\, x^n}$ \hfill [Answer: $R = 2$.]
+\sub  ${\displaystyle \sum_{n = 0}^{\infty} (n+5)^2\, x^n}$ \hfill [Answer: $R = 1$.]
+\sub  ${\displaystyle \sum_{n = 0}^{\infty} 
+{99 \over n^n}\, x^n}$ \hfill [Answer: $R = \infty$.]
+\sub  ${\displaystyle \sum_{n = 0}^{\infty} n!\, x^n}$
+\hfill [Answer: $R = 0$.]
+
+\num  Find the radius of convergence of the Taylor series for $\sin{x}$ and for $\cos{x}$.  For which values of $x$ can these series therefore represent the sine and cosine functions?
+
+\num    Find the radius of convergence of the Taylor series for 
+$f(x) = 1/(1 + x^2)$ at $x = 0$.  (See the table of Taylor series in \S3.)
+What is the radius of convergence of this series?  For which values of $x$ can this series therefore represent the function $f$?  Do these $x$ values constitute the {\em entire\/} domain of definition of $f$?
+
+\num  In the text we used the alternating series for $e^x$, $\; x < 0$, to approximate $e^{-1}$ accurate to 7 decimal places.  The claim was made that in taking the reciprocal to obtain an estimate for $e$, the accuracy drops by one decimal place.  In this problem you will see why this is true.
+
+\sub  Consider first the more general situation where two functions are reciprocals, $g(x) = 1/f(x)$.  Express $g'(x)$ in terms of $f(x)$ and $f'(x)$.
+
+\sub  Use your answer in part a) to find an expression for the {\em relative error} in $g$, $\Delta g/g(x) \approx g'(x) \Delta x/g(x)$, in terms of $f(x)$ and $f'(x)$.  How does this compare to the relative error in $f$?
+
+\sub  Apply your results in part b) to the functions $e^x$ and $e^{-x}$ at $x=1$.  Since $e$ is about 3 times as large as $1/e$, explain why the error in the estimate for $e$ should be about 3 times as large as the error in the estimate for $1/e$.
+
+\end{document}
+
+\section{Approximation Over Intervals}
+
+A powerful result in mathematical analysis is the {\bf Stone-Weierstrass Theorem}\index{Stone-Weierstrass Theorem} which states that given any continuous function $f(x)$ and given any interval $[a, b]$, there exist polynomials which fit $f$ over this interval to any level of accuracy we care to specify. In many cases, we can find such a polynomial simply by taking a Taylor polynomial of high enough degree.  There are several ways in which this is not a completely satisfactory response, however. First, some functions (like the absolute value function) have corners or other places where they aren't differentiable, so we can't even build a Taylor series at such points. Second, we have seen several functions (like $1/(1+x^2)$ ) that have a finite interval of convergence, so Taylor polynomials may not be good fits no matter how high a degree we try.  Third, even for well-behaved functions like $\sin(x)$ or $e^x$, we may have to take a very high degree Taylor polynomial to get the same overall fit that a much lower degree polynomial could achieve.
+
+In the first part of this section we will develop the general machinery for finding polynomial approximations to functions over given intervals.  In the second part we will see how this same approach can be adapted to approximating periodic functions by {\bf trigonometric polynomials}.
+
+\subsection{Approximation by polynomials}
+
+{\bf Example}.  Let's return to the problem introduced at the beginning of this chapter: find the second degree polynomial which best fits the function $\sin(x)$ over the interval $[0, \pi]$.  
+\mar{Two possible criteria for best fit}
+Just as we did with the Taylor polynomials, though, before we can start we need to agree on our criterion for the best fit. Here are two obvious candidates for such a criterion:
+
+
+
+\end{document}
+
+
+
