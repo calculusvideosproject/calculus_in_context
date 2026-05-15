@@ -1,0 +1,356 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 0 0 612.0 792
+/printscale .95 def
+/recip {1 printscale div} def
+/screenstretch {printscale 90 50 div mul} def
+/double {screenstretch 2 mul} def
+
+% 100 300 translate 		% print translation
+
+20 -60 translate
+
+ printscale printscale scale       %scale for printing
+% screenstretch screenstretch scale %printing scale on screen
+% double double scale               %magnified screen
+
+% -------------------- font codes --------------------------
+
+/typesize {10 printscale div} def
+/smalltype {8 printscale div} def
+
+/makeTR {/Times-Roman findfont typesize scalefont} def
+/makeTB {/Times-Bold findfont typesize scalefont} def
+/makeTI {/Times-Italic findfont typesize scalefont} def
+/makeSYM {/Symbol findfont typesize scalefont} def
+
+/maketr {/Times-Roman findfont smalltype scalefont} def
+/maketi {/Times-Italic findfont smalltype scalefont} def
+/makesym {/Symbol findfont smalltype scalefont} def
+
+/TR {makeTR setfont} def
+/TB {makeTB setfont} def
+/TI {makeTI setfont} def
+/SYM {makeSYM setfont} def
+
+/tr {maketr setfont} def
+/ti {maketi setfont} def
+/sym {makesym setfont} def
+
+% ---------------string placing procedures-------------------
+
+% stack: fontcode string x y 
+
+/placeBL {moveto show} def
+/placeBR {moveto dup stringwidth pop neg 0 rmoveto show} def
+/placeBC {moveto dup stringwidth pop 2 div neg 0 rmoveto show} def
+/placeTL {moveto 0 typesize neg rmoveto show} def
+/placeTR {moveto dup stringwidth pop neg typesize neg rmoveto show} def
+/placeTC {moveto dup stringwidth pop 2 div neg typesize neg rmoveto show} def
+
+% -------------------- Ken's arrow drawing procedure --------------
+
+/arrow
+ {/mtrx matrix def
+   /headlength exch def
+   /halfheadthickness exch 2 div def
+   /halfthickness exch 2 div def
+   /tipy exch def /tipx exch def
+   /taily exch def /tailx exch def
+   
+   /dx tipx tailx sub def
+   /dy tipy taily sub def
+   /arrowlength dx dx mul dy dy mul add sqrt def
+   dx 0 ne {/angle dy dx atan def}
+   	{dy 0 ne {/angle 90 dy dy abs div mul def}{/angle 0 def} ifelse}
+	 ifelse
+   /base arrowlength headlength sub def
+   
+   /savematrix mtrx currentmatrix def
+   
+   tailx taily translate
+   angle rotate
+   0 halfthickness neg moveto
+   base halfthickness neg lineto
+   base halfheadthickness neg lineto
+   arrowlength 0 lineto
+   base halfheadthickness lineto
+   base halfthickness lineto
+   0 halfthickness lineto
+   closepath
+   
+   savematrix setmatrix
+ }  def
+ 
+% -------------------------- program ----------------------------
+
+.3 setlinewidth
+
+ /Sc   %scales points
+ {vscale mul exch hscale mul exch} def
+ 
+  /Sclog   %scales points
+ { log vscale mul exch log hscale mul exch} def
+ 
+ 
+ /Schead
+ {/dx rtip r sub hscale mul def
+ /dy ftip f sub vscale mul def
+ /s dx dx mul dy dy mul add sqrt .1 mul def
+ s mul exch s mul exch} def
+ 
+ /model
+ {
+ {r 0 ge f 0 ge k numb le and and 
+ 	{  r f Sclog lineto
+	/k k 1 add def
+	/rp L r m mul sub a r f mul mul 1 b r f mul mul add div add def
+ 	/fp L f m mul sub a r f mul mul 1 b r f mul mul add div add def
+ 	/r r rp step mul add def
+ 	/f f fp step mul add def}{exit} ifelse 
+	} loop
+ } def
+ 
+ /manyrun
+ {/numb exch def
+ /f exch def
+/r exch def
+/rp L r m mul sub a r f mul mul 1 b r f mul mul add div add def
+ /fp L f m mul sub a r f mul mul 1 b r f mul mul add div add def
+ /dx rp r div def
+ /dy fp f div def
+ dx 0 ne {/angle dy dx atan def}
+   	{dy 0 ne {/angle 90 dy dy abs div mul def}{/angle 0 def} ifelse}
+	 ifelse
+  /rtip r log hscale mul angle cos arrleng mul 1.4 mul add def
+ /ftip f log vscale mul angle sin arrleng mul add def
+r f Sclog rtip ftip .1 2 3  arrow fill
+ 
+  r f Sclog moveto
+ /k 0 def
+  model
+ stroke
+ } def
+ 
+ /many
+ {1.1 newf 100 manyrun
+ newf 1.1 100 manyrun
+ /newf newf 10 sqrt mul def
+ } def
+ 
+/horgrid
+{/number exch def
+/k 0 def
+number 1 add {hashver} repeat
+} def
+
+/vergrid
+{/number exch def
+/k 0 def
+number 1 add {hashhor} repeat
+} def
+
+
+/hashver
+{/posit k vscale mul def
+pt 6 add neg posit 2 sub moveto
+SYM (10) show
+0 5 rmoveto
+sym
+k (      ) cvs show
+-3 posit moveto 
+0 posit lineto stroke
+/kk 2 def
+k fmax 1 sub le {8 {hashverlog} repeat}{} ifelse
+/k k 1 add def
+} def
+
+/hashverlog
+{/posi k kk log add vscale mul def
+-2 posi moveto
+0 posi lineto stroke
+/kk kk 1 add def
+} def
+
+/hashhor
+{/posit k hscale mul def
+posit pt 2 div sub -14 moveto
+SYM (10) show
+0 5 rmoveto
+sym k (      ) cvs show
+posit -3 moveto
+posit 0 lineto stroke
+/kk 2 def
+k rmax 1 sub le {8 {hashhorlog} repeat}{} ifelse
+/k k 1 add def
+} def
+
+/hashhorlog
+{/posi k kk log add hscale mul def
+posi -2 moveto
+posi 0 lineto stroke
+/kk kk 1 add def
+} def
+
+ 
+ /trajarrows
+ {/temp exch def
+ /ptemp temp 1.02 mul def
+ /ntemp temp 1.02 div def
+ /pptip temp 1.1 mul def
+ /nntip temp 1.1 div def
+ temp temp Sc 1.5 0 360 arc fill
+ nntip nntip Sc ntemp ntemp Sc .1 2 3 arrow fill
+ pptip pptip Sc ptemp ptemp Sc .1 2 3 arrow fill
+ } def
+
+/otraj
+ {/temp exch def
+ /ptemp temp .02 add def
+ /ntemp temp .02 sub def
+ /pptip temp .3 add def
+ /nntip temp .3 sub def
+temp temp Sc 1.5 0 360 arc fill
+ntemp ntemp Sc nntip nntip Sc .1 2 3 arrow fill
+ptemp ptemp Sc pptip pptip Sc .1 2 3 arrow fill
+ } def
+ 
+ /fntsize 10 def
+ /totalsteps 2000 def
+ /hscale 40 def  
+ /vscale 30 def
+    
+  /tscale 1.2 def
+ /rmax 5 def
+ /fmax 5 def
+ /tmax 250 def
+ /tchange .000001 def
+ /step .0001 def
+ /fac 10 rmax totalsteps div exp def
+ /ofac fac 1 sub def
+ 
+ /L 8000 def
+ /m 1000 def
+ /a 10 def
+ /b .000001 def
+ /mb m b mul def
+ /Lbpa L b mul a add def
+ 
+ 
+80 30 translate
+
+
+newpath
+
+% 40 40 vecs
+
+0 0 0 fmax vscale mul 20 add .15 2 4 arrow fill
+0 0 rmax hscale mul 20 add 0 .15 2 4 arrow fill
+TI (E) -9 fmax vscale mul 16 add placeBR
+0 -3 rmoveto
+sym (1) show
+TI (E) rmax hscale mul 20 add -2 placeTC
+0 -3 rmoveto
+sym (2) show
+ 
+  /Times-Roman findfont
+fntsize 2 sub scalefont setfont
+/pt2 (6) stringwidth pop def
+ /Times-Roman findfont
+fntsize scalefont setfont
+/pt1 (10) stringwidth pop def
+/pt pt1 pt2 add def
+.1 setlinewidth
+5 horgrid
+ 5 vergrid
+ 
+gsave
+  newpath
+  0 0 moveto 
+  rmax hscale mul 1.05 mul 0 rlineto
+  0 fmax vscale mul 1.05 mul rlineto
+  rmax hscale mul 1.05 mul neg 0 rlineto
+  closepath
+  clip
+
+  newpath
+  gsave
+   .84 recip mul setlinewidth  
+    0 0 moveto
+    rmax fmax Sc lineto stroke
+
+    /logeq1 .942944 def
+    /logeq2 1.9642 def
+    /logeq3 3.99595 def
+    logeq1 trajarrows
+    logeq3 trajarrows
+    logeq2 otraj
+
+    /newf 10 sqrt def
+    /arrleng 5 def
+    11 {many} repeat
+    1.1 600 500 manyrun
+    600 1.1 500 manyrun
+    1.1 400 500 manyrun
+    400 1.1 500 manyrun
+    /arrleng 4 def
+    10 4.5 exp 100000 500 manyrun
+    100000 10 4.5 exp 500 manyrun
+  grestore
+
+grestore 
+
+/rlscale {rmax hscale mul} def
+/udscale {fmax vscale mul 0.61803 div} def
+/fudge {udscale rlscale div} def
+
+rlscale  rlscale scale
+ 
+newpath
+0.004 recip mul setlinewidth
+0.53469 0 moveto
+0.53323 0.01118 fudge mul lineto
+0.52973 0.03114 fudge mul lineto
+0.52625 0.04727 fudge mul lineto
+0.51264 0.09299 fudge mul lineto
+0.49962 0.12382 fudge mul lineto
+0.47599 0.16456 fudge mul lineto
+0.45615 0.1899 fudge mul lineto
+0.44023 0.20643 fudge mul lineto
+0.42788 0.2175 fudge mul lineto
+0.41851 0.22505 fudge mul lineto
+0.41153 0.23028 fudge mul lineto
+0.40638 0.23392 fudge mul lineto
+0.40262 0.23649 fudge mul lineto
+0.39989 0.2383 fudge mul lineto
+0.39791 0.23958 fudge mul lineto
+0.39648 0.2405 fudge mul lineto
+0.39545 0.24115 fudge mul lineto
+0.39471 0.24161 fudge mul lineto
+stroke
+0.47599 0.16456 fudge mul 0.45615 0.1899 fudge mul .0005 .01 .015 arrow fill
+
+0 0.33046 fudge mul moveto
+0.01809 0.32956 fudge mul lineto
+0.05039 0.32739 fudge mul lineto
+0.07649 0.32524 fudge mul lineto
+0.15046 0.31683 fudge mul lineto
+0.20034 0.30878 fudge mul lineto
+0.26626 0.29418 fudge mul lineto
+0.30726 0.28192 fudge mul lineto
+0.33401 0.27208 fudge mul lineto
+0.35192 0.26444 fudge mul lineto
+0.36415 0.25865 fudge mul lineto
+0.3726 0.25434 fudge mul lineto
+0.37849 0.25116 fudge mul lineto
+0.38264 0.24883 fudge mul lineto
+0.38557 0.24714 fudge mul lineto
+0.38765 0.24592 fudge mul lineto
+0.38913 0.24504 fudge mul lineto
+0.39018 0.2444 fudge mul lineto
+0.39093 0.24394 fudge mul lineto
+stroke
+0.20034 0.30878 fudge mul 0.30726 0.28192 fudge mul .0005 .01 .015 arrow fill  
+
+ 
+showpage
+ 

@@ -1,0 +1,226 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 0 0 612.0 792
+/printscale  .95 def
+/recip {1 printscale div} def
+/screenstretch {printscale 90 50 div mul} def
+/double {screenstretch 2 mul} def
+
+% 100 300 translate 		% print translation
+
+25 0 translate
+
+ printscale printscale scale       %scale for printing
+% screenstretch screenstretch scale %printing scale on screen
+% double double scale               %magnified screen
+
+% -------------------- font codes --------------------------
+
+/typesize {10 printscale div} def
+/smalltype {8 printscale div} def
+
+/makeTR {/Times-Roman findfont typesize scalefont} def
+/makeTB {/Times-Bold findfont typesize scalefont} def
+/makeTI {/Times-Italic findfont typesize scalefont} def
+/makeSYM {/Symbol findfont typesize scalefont} def
+
+/maketr {/Times-Roman findfont smalltype scalefont} def
+/maketi {/Times-Italic findfont smalltype scalefont} def
+/makesym {/Symbol findfont smalltype scalefont} def
+
+/TR {makeTR setfont} def
+/TB {makeTB setfont} def
+/TI {makeTI setfont} def
+/SYM {makeSYM setfont} def
+
+/tr {maketr setfont} def
+/ti {maketi setfont} def
+/sym {makesym setfont} def
+
+% ---------------string placing procedures-------------------
+
+% stack: fontcode string x y 
+
+/placeBL {moveto show} def
+/placeBR {moveto dup stringwidth pop neg 0 rmoveto show} def
+/placeBC {moveto dup stringwidth pop 2 div neg 0 rmoveto show} def
+/placeTL {moveto 0 typesize neg rmoveto show} def
+/placeTR {moveto dup stringwidth pop neg typesize neg rmoveto show} def
+/placeTC {moveto dup stringwidth pop 2 div neg typesize neg rmoveto show} def
+
+% ----------------- arrow drawing procedures ------------------
+
+/arrow 
+{-4 recip mul 	0 		rmoveto
+ 0  		1 recip mul 	rlineto
+ 4 recip mul 	-1 recip mul 	rlineto
+-4 recip mul 	-1 recip mul 	rlineto
+ 0  		1 recip mul 	rlineto
+ 4 recip mul 	0 		rlineto} def
+
+/rarrowto {					% stack: dx dy
+  2 copy
+  dup mul exch dup mul add  sqrt		% length of arrow
+  3 1 roll exch atan dup 				% angle
+  rotate exch 0 rlineto arrow neg rotate	% make arrow
+} def
+/arrowto {					% stack: x y
+  currentpoint 3 -1 roll sub neg 3 1 roll sub exch rarrowto
+} def
+
+% --------------------------------------------------------------
+
+.3 setlinewidth
+
+/conv 3.6 3.14159 div def
+/vscale 100 def
+/shift (n=) stringwidth pop def
+
+/polyeval
+{/P 1 nx nx mul P mul sub def
+} def
+
+
+/crve
+{
+{y 180 le y -20 ge and
+{/x x 1 add def
+/nx x .01 mul def
+/r n def
+/P 1 def
+n  {polyeval} repeat
+/y P vscale mul def
+x y lineto}{exit} ifelse
+}loop
+} def
+
+/manyrun
+{/x 0 def
+/y vscale def
+0 vscale moveto
+crve
+stroke
+/n n 1 add def
+} def
+
+/geom
+{/x x 1 add def
+/nx x .01 mul def
+/y 1 1 nx nx mul add div vscale mul def
+x y lineto
+}def
+
+/hashver
+{/k k 1 add def
+/posit k vscale mul def
+-8 posit 2 sub moveto
+k (            ) cvs show
+-2 posit moveto 
+0 posit lineto stroke
+} def
+
+/hashhor
+{/k k 1 add def
+/posit k 100 mul def
+posit 5 sub -8 moveto
+k (     ) cvs show
+posit -2 moveto
+posit 0 lineto stroke
+} def
+
+
+15 20 translate
+newpath
+-10 vscale 30 add moveto
+335 vscale 30 add lineto
+335 -20 lineto
+-10 -20 lineto closepath
+clip  newpath
+
+% coord axes
+0 0 moveto
+330 0 arrowto
+0 0 moveto
+0 128 arrowto
+fill
+
+gsave
+.9 recip mul setlinewidth
+/x 0 def
+/y vscale def
+x y moveto
+300 {geom} repeat
+stroke
+
+.6 recip mul setlinewidth
+[1 1] 0 setdash
+/n 1 def
+8 {manyrun} repeat
+/n 100 def
+2 {manyrun} repeat
+grestore
+
+ti (n = ) 60 121 placeBL
+tr (4) show
+2 1 rmoveto
+96 93 arrowto
+fill
+ti (n = ) 56 110 placeBL
+tr (8) show
+2 2 rmoveto
+93 80 arrowto
+fill
+ti (n = ) 52 99 placeBL
+tr (12) show
+2 1 rmoveto
+91 71 arrowto
+fill
+ti (n = ) 48 88 placeBL
+tr (16) show
+2 1 rmoveto
+88 62 arrowto
+fill
+ti (n = ) 28 47 placeBL
+tr (14) show
+2 3 rmoveto
+84 55 arrowto
+fill
+ti (n = ) 32 36 placeBL
+tr (10) show
+2 3 rmoveto
+88 44 arrowto
+fill
+ti (n = ) 36 25 placeBL
+tr (6) show
+2 3 rmoveto
+88 34 arrowto
+fill
+ti (n = ) 40 14 placeBL
+tr (2) show
+2 3 rmoveto
+87 22 arrowto
+fill
+
+ti (n = ) 130 80 placeBL
+tr (200) show 
+ti (n = ) 130 15 placeBL
+tr (202) show
+127 81 moveto
+101 70 arrowto
+127 18 moveto
+101 33 arrowto
+fill
+
+sym
+/k 0 def
+3 {hashhor} repeat
+/k 0 def
+1 {hashver} repeat
+
+
+TI (x) 330 2 placeTC
+(y) -4 125 placeBR
+
+
+
+showpage
+

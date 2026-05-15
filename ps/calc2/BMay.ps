@@ -1,0 +1,181 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 0 0 612.0 792
+/printscale  1 def
+/recip {1 printscale div} def
+/screenstretch {printscale 90 50 div mul} def
+/double {screenstretch 2 mul} def
+
+% 100 300 translate 		% print translation
+
+20 -30 translate
+
+
+ printscale printscale scale       %scale for printing
+% screenstretch screenstretch scale %printing scale on screen
+% double double scale               %magnified screen
+
+% -------------------- font codes --------------------------
+
+/typesize {10 printscale div} def
+/smalltype {7 printscale div} def
+
+/makeTR {/Times-Roman findfont typesize scalefont} def
+/makeTB {/Times-Bold findfont typesize scalefont} def
+/makeTI {/Times-Italic findfont typesize scalefont} def
+/makeSYM {/Symbol findfont typesize scalefont} def
+
+/maketr {/Times-Roman findfont smalltype scalefont} def
+/maketi {/Times-Italic findfont smalltype scalefont} def
+/makesym {/Symbol findfont smalltype scalefont} def
+
+/TR {makeTR setfont} def
+/TB {makeTB setfont} def
+/TI {makeTI setfont} def
+/SYM {makeSYM setfont} def
+
+/tr {maketr setfont} def
+/ti {maketi setfont} def
+/sym {makesym setfont} def
+
+% ---------------string placing procedures-------------------
+
+% stack: fontcode string x y 
+
+/placeBL {moveto show} def
+/placeBR {moveto dup stringwidth pop neg 0 rmoveto show} def
+/placeBC {moveto dup stringwidth pop 2 div neg 0 rmoveto show} def
+/placeTL {moveto 0 typesize neg rmoveto show} def
+/placeTR {moveto dup stringwidth pop neg typesize neg rmoveto show} def
+/placeTC {moveto dup stringwidth pop 2 div neg typesize neg rmoveto show} def
+
+% ----------------- arrow drawing procedures ------------------
+
+/arrow 
+{-4 recip mul 	0 		rmoveto
+ 0  		1 recip mul 	rlineto
+ 4 recip mul 	-1 recip mul 	rlineto
+-4 recip mul 	-1 recip mul 	rlineto
+ 0  		1 recip mul 	rlineto
+ 4 recip mul 	0 		rlineto} def
+
+/rarrowto {					% stack: dx dy
+  2 copy
+  dup mul exch dup mul add  sqrt		% length of arrow
+  3 1 roll exch atan dup 				% angle
+  rotate exch 0 rlineto arrow neg rotate	% make arrow
+} def
+/arrowto {					% stack: x y
+  currentpoint 3 -1 roll sub neg 3 1 roll sub exch rarrowto
+} def
+
+% --------------------------------------------------------------
+
+.3 setlinewidth
+
+ 
+ /hashver
+{/k k 2 add def
+/posit k 20 mul def
+k (            ) cvs dup stringwidth pop 7 add neg 
+3 add posit 1 sub moveto
+show
+-2 posit moveto 
+0 posit lineto stroke
+} def
+
+/hashhor
+{/k k 20 add def
+/posit k 2 mul def
+k (     ) cvs dup stringwidth pop 2 div
+posit exch sub -10 moveto
+show
+posit -2 moveto
+posit 0 lineto stroke
+} def
+
+ 
+/xmay
+{/xp .5 x mul y mul x 1 add div x 10 div neg 1 add x mul .6 mul sub neg def
+/yp  y x div 2 div neg 1 add y mul .1 mul def
+/nx x xp .05 mul add def
+/ny y yp .05 mul add def
+/nt t .1 add def
+nt nx 20 mul lineto
+/x nx def
+/y ny def
+/t nt def
+} def
+
+/ymay
+{/xp .5 x mul y mul x 1 add div x 10 div neg 1 add x mul .6 mul sub neg def
+/yp  y x div 2 div neg 1 add y mul .1 mul def
+/nx x xp .05 mul add def
+/ny y yp .05 mul add def
+/nt t .1 add def
+nt ny 10 mul lineto
+/x nx def
+/y ny def
+/t nt def
+} def
+
+/pi 3.14159 def
+/Cn 2 pi mul 38.6 div def
+/Cos
+{180 mul pi div cos} def
+/Sin
+{180 mul pi div sin} def
+
+/coseval
+{Cn t mul mul Sin mul add} def
+
+/poly
+{/x 3.7951 3.8125  1 Cn t mul mul Cos mul add .1514 2 Cn t mul mul Cos mul add .0326 3 Cn t mul mul Cos mul add -.0303 4 Cn t mul mul Cos mul add def
+/x x 1.1724 1 Cn t mul mul Sin mul add -.0867 2 Cn t mul mul Sin mul add -.3954 3 Cn t mul mul Sin mul add .0639 4 Cn t mul mul Sin mul add def
+t 2 mul x 20 mul lineto
+/t .25 t add def
+} def
+% ------------------------------ program ------------------------------
+
+50 10 translate
+
+0 0 moveto
+260 0 arrowto
+0 0 moveto
+0 180 arrowto 
+fill
+
+sym
+/k 0 def
+4 {hashver} repeat
+/k 0 def
+6 {hashhor} repeat
+.1 setlinewidth
+/x 7.75 def
+/y 2.38 def
+/t 0 def
+t y 20 mul moveto
+%%1400 {ymay} repeat
+%%stroke
+
+gsave
+.7 setgray
+1.4 recip mul setlinewidth
+/x 7.75 def
+/y 2.38 def
+/t 0 def
+t x 20 mul moveto
+2000 {xmay} repeat
+stroke
+grestore
+
+gsave
+.8 recip mul setlinewidth
+0 setgray
+[2 1] 0 setdash
+/t 0 def
+0 7.75 20 mul moveto
+500 {poly} repeat
+stroke
+grestore
+
+showpage

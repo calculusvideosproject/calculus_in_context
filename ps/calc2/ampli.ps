@@ -1,0 +1,183 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 0 0 612.0 792
+/printscale .9 def
+/recip {1 printscale div} def
+/screenstretch {printscale 90 50 div mul} def
+/double {screenstretch 2 mul} def
+
+% 100 300 translate 		% print translation
+
+ printscale printscale scale       %scale for printing
+% screenstretch screenstretch scale %printing scale on screen
+% double double scale               %magnified screen
+
+% -------------------- font codes --------------------------
+
+/typesize {10 printscale div} def
+/smalltype {8 printscale div} def
+
+/makeTR {/Times-Roman findfont typesize scalefont} def
+/makeTB {/Times-Bold findfont typesize scalefont} def
+/makeTI {/Times-Italic findfont typesize scalefont} def
+/makeSYM {/Symbol findfont typesize scalefont} def
+
+/maketr {/Times-Roman findfont smalltype scalefont} def
+/maketi {/Times-Italic findfont smalltype scalefont} def
+/makesym {/Symbol findfont smalltype scalefont} def
+
+/TR {makeTR setfont} def
+/TB {makeTB setfont} def
+/TI {makeTI setfont} def
+/SYM {makeSYM setfont} def
+
+/tr {maketr setfont} def
+/ti {maketi setfont} def
+/sym {makesym setfont} def
+
+% ---------------string placing procedures-------------------
+
+% stack: fontcode string x y 
+
+/placeBL {moveto show} def
+/placeBR {moveto dup stringwidth pop neg 0 rmoveto show} def
+/placeBC {moveto dup stringwidth pop 2 div neg 0 rmoveto show} def
+/placeTL {moveto 0 typesize neg rmoveto show} def
+/placeTR {moveto dup stringwidth pop neg typesize neg rmoveto show} def
+/placeTC {moveto dup stringwidth pop 2 div neg typesize neg rmoveto show} def
+
+% ----------------- arrow drawing procedures ------------------
+
+/arrow 
+{-4 recip mul 	0 		rmoveto
+ 0  		1 recip mul 	rlineto
+ 4 recip mul 	-1 recip mul 	rlineto
+-4 recip mul 	-1 recip mul 	rlineto
+ 0  		1 recip mul 	rlineto
+ 4 recip mul 	0 		rlineto} def
+
+/rarrowto {					% stack: dx dy
+  2 copy
+  dup mul exch dup mul add  sqrt		% length of arrow
+  3 1 roll exch atan dup 				% angle
+  rotate exch 0 rlineto arrow neg rotate	% make arrow
+} def
+/arrowto {					% stack: x y
+  currentpoint 3 -1 roll sub neg 3 1 roll sub exch rarrowto
+} def
+
+% ------------------- program -------------------------
+
+.3 setlinewidth
+
+% position the origin
+% 100 200 moveto				% screen origin
+ 110 0 moveto
+currentpoint translate
+
+% ----------------------- defining units -----------------------------
+
+% 20 points = 1 graphical unit = 1 radian
+/pi 3.14 def
+/rad {20 div} def 			% pt --> rad
+/pt  {20 mul} def 			% rad --> pt
+/deg {180 mul pi div} def 		% rad --> deg
+
+/dot {currentpoint 1.5 0 360 arc} def	% make a dot
+
+/Sin {rad deg sin pt} def			% sin of angle 
+/Cos {rad deg cos pt} def 			% cos of angle
+/period {pi 2 mul pt} def
+
+
+% ------------------ ticks -----------------
+
+% ticks
+/htick {0 -4 rlineto} def
+/hscale {currentpoint
+pop pi pt add 1.5 sub 0 moveto 
+dot} def
+
+
+% --------------------  graph 2.5 sin(2 t); omega = 1/pi ---------------------
+
+% define g
+
+/g {2 mul Sin 2.5 mul} def
+
+
+gsave
+.9 recip mul setlinewidth
+newpath
+-70 dup g moveto			% initial point
+
+/step 2 def
+/end 235 def
+-70 step end				% gives x value
+{dup g					% gives x, y point
+ lineto					% draws line from previous point
+} for
+stroke
+grestore
+
+% coord axes
+newpath
+-75 0 moveto
+320 0 rarrowto
+0 -60 moveto
+0 130 rarrowto
+fill
+
+newpath
+pi neg pt 0 moveto
+dot
+4 {hscale} repeat
+-2 -50 moveto
+2 0 rlineto
+-2 50 moveto
+2 0 rlineto
+stroke
+
+% amplitude marks
+newpath
+255 0 moveto
+16 0 rlineto
+255 50 moveto
+16 0 rlineto
+stroke
+263 30 moveto
+263 1 arrowto
+0 48 rarrowto
+fill
+
+
+% labels
+TI (t) 245 0 placeTC
+(y) -4 70 placeBR
+(y) 80 60 placeBL						 
+TR ( = ) show
+TI (A) show
+1 0 rmoveto
+TR (sin\(2) show
+1 0 rmoveto
+SYM (p) show
+1 0 rmoveto
+(w) show
+1 0 rmoveto
+TI (t) show
+1 0 rmoveto
+TR (\)) show
+(amplitude) 270 22.5 placeBL
+SYM (-1/w) pi neg pt 2 add 1 placeTL
+(1/w) pi pt 2 add 1 placeTL
+(2/w) 2 pi mul pt 2 add 1 placeTL
+(3/w) 3 pi mul pt 2 add 1 placeTL
+(-) -10 -56 placeBR
+TI (A) show
+(A) -4 47 placeBR
+
+TR (The sine function of amplitude  ) -20 -75 placeBL
+TI (A) show
+TR (  and frequency  ) show			
+SYM (w) show
+
+showpage

@@ -1,0 +1,249 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 0 0 612.0 792
+/printscale .9 def
+/recip {1 printscale div} def
+/screenstretch {printscale 90 50 div mul} def
+/double {screenstretch 2 mul} def
+
+% 100 300 translate 		% print translation
+
+ printscale printscale scale       %scale for printing
+% screenstretch screenstretch scale %printing scale on screen
+% double double scale               %magnified screen
+
+% -------------------- font codes --------------------------
+
+/typesize {10 printscale div} def
+/smalltype {8 printscale div} def
+
+/makeTR {/Times-Roman findfont typesize scalefont} def
+/makeTB {/Times-Bold findfont typesize scalefont} def
+/makeTI {/Times-Italic findfont typesize scalefont} def
+/makeSYM {/Symbol findfont typesize scalefont} def
+
+/maketr {/Times-Roman findfont smalltype scalefont} def
+/maketi {/Times-Italic findfont smalltype scalefont} def
+/makesym {/Symbol findfont smalltype scalefont} def
+
+/TR {makeTR setfont} def
+/TB {makeTB setfont} def
+/TI {makeTI setfont} def
+/SYM {makeSYM setfont} def
+
+/tr {maketr setfont} def
+/ti {maketi setfont} def
+/sym {makesym setfont} def
+
+% ---------------string placing procedures-------------------
+
+% stack: fontcode string x y 
+
+/placeBL {moveto show} def
+/placeBR {moveto dup stringwidth pop neg 0 rmoveto show} def
+/placeBC {moveto dup stringwidth pop 2 div neg 0 rmoveto show} def
+/placeTL {moveto 0 typesize neg rmoveto show} def
+/placeTR {moveto dup stringwidth pop neg typesize neg rmoveto show} def
+/placeTC {moveto dup stringwidth pop 2 div neg typesize neg rmoveto show} def
+
+% ----------------- arrow drawing procedures ------------------
+
+/arrow 
+{-4 recip mul 	0 		rmoveto
+ 0  		1 recip mul 	rlineto
+ 4 recip mul 	-1 recip mul 	rlineto
+-4 recip mul 	-1 recip mul 	rlineto
+ 0  		1 recip mul 	rlineto
+ 4 recip mul 	0 		rlineto} def
+
+/rarrowto {					% stack: dx dy
+  2 copy
+  dup mul exch dup mul add  sqrt		% length of arrow
+  3 1 roll exch atan dup 				% angle
+  rotate exch 0 rlineto arrow neg rotate	% make arrow
+} def
+/arrowto {					% stack: x y
+  currentpoint 3 -1 roll sub neg 3 1 roll sub exch rarrowto
+} def
+
+% ------------------- program -------------------------
+
+.3 setlinewidth
+
+% position the origin
+%80 80 moveto				% screen origin
+50 0 moveto
+currentpoint translate
+
+
+% draw the graph
+
+gsave
+newpath
+3 3 scale
+.3 recip mul setlinewidth
+
+1 269 .016 mul 3 div moveto
+2 321 .016 mul 3 div lineto
+3 585 .016 mul 3 div lineto
+4 871 .016 mul 3 div lineto
+5 1475 .016 mul 3 div lineto
+6 2821 .016 mul 3 div lineto
+7 3928 .016 mul 3 div lineto
+8 5943 .016 mul 3 div lineto
+9 4950 .016 mul 3 div lineto
+10 2577 .016 mul 3 div lineto
+11 523 .016 mul 3 div lineto
+12 98 .016 mul 3 div lineto
+13 184 .016 mul 3 div lineto
+14 279 .016 mul 3 div lineto
+15 409 .016 mul 3 div lineto
+16 2285 .016 mul 3 div lineto
+17 2685 .016 mul 3 div lineto
+18 3409 .016 mul 3 div lineto
+19 1824 .016 mul 3 div lineto
+20 409 .016 mul 3 div lineto
+21 151 .016 mul 3 div lineto
+22 45 .016 mul 3 div lineto
+23 68 .016 mul 3 div lineto
+24 213 .016 mul 3 div lineto
+25 546 .016 mul 3 div lineto
+26 1033 .016 mul 3 div lineto
+27 2129 .016 mul 3 div lineto
+28 2536 .016 mul 3 div lineto
+29 957 .016 mul 3 div lineto
+30 361 .016 mul 3 div lineto
+31 377 .016 mul 3 div lineto
+32 225 .016 mul 3 div lineto
+33 360 .016 mul 3 div lineto
+34 731 .016 mul 3 div lineto
+35 1638 .016 mul 3 div lineto
+36 2725 .016 mul 3 div lineto
+37 2871 .016 mul 3 div lineto
+38 2119 .016 mul 3 div lineto
+39 684 .016 mul 3 div lineto
+40 299 .016 mul 3 div lineto
+41 236 .016 mul 3 div lineto
+42 245 .016 mul 3 div lineto
+43 552 .016 mul 3 div lineto
+44 1623 .016 mul 3 div lineto
+45 3311 .016 mul 3 div lineto
+46 6721 .016 mul 3 div lineto
+47 4254 .016 mul 3 div lineto
+48 687 .016 mul 3 div lineto
+49 255 .016 mul 3 div lineto
+50 473 .016 mul 3 div lineto
+51 358 .016 mul 3 div lineto
+52 784 .016 mul 3 div lineto
+53 1594 .016 mul 3 div lineto
+54 1676 .016 mul 3 div lineto
+55 2251 .016 mul 3 div lineto
+56 1426 .016 mul 3 div lineto
+57 756 .016 mul 3 div lineto
+58 299 .016 mul 3 div lineto
+59 201 .016 mul 3 div lineto
+60 229 .016 mul 3 div lineto
+61 469 .016 mul 3 div lineto
+62 736 .016 mul 3 div lineto
+63 2042 .016 mul 3 div lineto
+64 2811 .016 mul 3 div lineto
+65 4431 .016 mul 3 div lineto
+66 2511 .016 mul 3 div lineto
+67 389 .016 mul 3 div lineto
+68 73 .016 mul 3 div lineto
+69 39 .016 mul 3 div lineto
+70 49 .016 mul 3 div lineto
+71 59 .016 mul 3 div lineto
+72 188 .016 mul 3 div lineto
+73 377 .016 mul 3 div lineto
+74 1292 .016 mul 3 div lineto
+75 4031 .016 mul 3 div lineto
+76 3495 .016 mul 3 div lineto
+77 587 .016 mul 3 div lineto
+78 105 .016 mul 3 div lineto
+79 153 .016 mul 3 div lineto
+80 387 .016 mul 3 div lineto
+81 758 .016 mul 3 div lineto
+82 1307 .016 mul 3 div lineto
+83 3465 .016 mul 3 div lineto
+84 6991 .016 mul 3 div lineto
+85 6313 .016 mul 3 div lineto
+86 3794 .016 mul 3 div lineto
+87 1836 .016 mul 3 div lineto
+88 345 .016 mul 3 div lineto
+89 382 .016 mul 3 div lineto
+90 808 .016 mul 3 div lineto
+91 1388 .016 mul 3 div lineto
+92 2713 .016 mul 3 div lineto
+93 3800 .016 mul 3 div lineto
+94 3091 .016 mul 3 div lineto
+95 2985 .016 mul 3 div lineto
+96 3790 .016 mul 3 div lineto
+97 674 .016 mul 3 div lineto
+98 81 .016 mul 3 div lineto
+99 80 .016 mul 3 div lineto
+100 108 .016 mul 3 div lineto
+101 229 .016 mul 3 div lineto
+102 399 .016 mul 3 div lineto
+103 1132 .016 mul 3 div lineto
+104 2432 .016 mul 3 div lineto
+105 3574 .016 mul 3 div lineto
+106 2935 .016 mul 3 div lineto
+107 1537 .016 mul 3 div lineto
+108 529 .016 mul 3 div lineto
+109 485 .016 mul 3 div lineto
+110 662 .016 mul 3 div lineto
+111 1000 .016 mul 3 div lineto
+112 1590 .016 mul 3 div lineto
+113 2657 .016 mul 3 div lineto
+114 3396 .016 mul 3 div lineto
+stroke
+grestore
+
+
+% coord axes
+newpath
+0 0 moveto
+350 0 rarrowto
+0 0 moveto
+0 140 rarrowto
+fill
+
+% ticks
+/htick {0 -2 rlineto} def
+/vtick {-2 0 rlineto} def
+/hscale {currentpoint
+pop 60 add 0 moveto 
+htick} def
+/vscale {currentpoint 
+20 add 0 exch moveto
+vtick} def
+
+newpath
+0 0 moveto
+htick
+5 {hscale} repeat
+0 0 moveto
+6 {vscale} repeat
+stroke
+
+% labels
+sym 
+(1820) 0 -1 placeTC
+(1840) 60 -1 placeTC
+(1860) 120 -1 placeTC
+(1880) 180 -1 placeTC
+(1900) 240 -1 placeTC
+(1920) 300 -1 placeTC
+(2000) -5 38 placeBR
+(4000) -5 78 placeBR
+(6000) -5 118 placeBR
+TR (year) 350 -1 placeTC
+(Annual harvest of lynx pelts) 180 -20 placeTC
+gsave
+90 rotate
+(pelts) 80 36 placeBC
+grestore
+
+showpage
+
+

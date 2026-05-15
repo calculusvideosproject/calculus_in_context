@@ -1,0 +1,211 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 0 0 612.0 792
+/printscale .4 def
+/recip {1 printscale div} def
+/screenstretch {printscale 90 50 div mul} def
+/double {screenstretch 2 mul} def
+
+% 100 300 translate 		% print translation
+
+35 0 translate
+
+ printscale printscale scale       %scale for printing
+% screenstretch screenstretch scale %printing scale on screen
+% double double scale               %magnified screen
+
+% -------------------- font codes --------------------------
+
+/typesize {10 printscale div} def
+/smalltype {8 printscale div} def
+
+/makeTR {/Times-Roman findfont typesize scalefont} def
+/makeTB {/Times-Bold findfont typesize scalefont} def
+/makeTI {/Times-Italic findfont typesize scalefont} def
+/makeSYM {/Symbol findfont typesize scalefont} def
+
+/maketr {/Times-Roman findfont smalltype scalefont} def
+/maketi {/Times-Italic findfont smalltype scalefont} def
+/makesym {/Symbol findfont smalltype scalefont} def
+
+/TR {makeTR setfont} def
+/TB {makeTB setfont} def
+/TI {makeTI setfont} def
+/SYM {makeSYM setfont} def
+
+/tr {maketr setfont} def
+/ti {maketi setfont} def
+/sym {makesym setfont} def
+
+% ---------------string placing procedures-------------------
+
+% stack: fontcode string x y 
+
+/placeBL {moveto show} def
+/placeBR {moveto dup stringwidth pop neg 0 rmoveto show} def
+/placeBC {moveto dup stringwidth pop 2 div neg 0 rmoveto show} def
+/placeTL {moveto 0 typesize neg rmoveto show} def
+/placeTR {moveto dup stringwidth pop neg typesize neg rmoveto show} def
+/placeTC {moveto dup stringwidth pop 2 div neg typesize neg rmoveto show} def
+
+% ----------------- arrow drawing procedures ------------------
+
+/arrow 
+{-4 recip mul 	0 		rmoveto
+ 0  		1 recip mul 	rlineto
+ 4 recip mul 	-1 recip mul 	rlineto
+-4 recip mul 	-1 recip mul 	rlineto
+ 0  		1 recip mul 	rlineto
+ 4 recip mul 	0 		rlineto} def
+
+/rarrowto {					% stack: dx dy
+  2 copy
+  dup mul exch dup mul add  sqrt		% length of arrow
+  3 1 roll exch atan dup 				% angle
+  rotate exch 0 rlineto arrow neg rotate	% make arrow
+} def
+/arrowto {					% stack: x y
+  currentpoint 3 -1 roll sub neg 3 1 roll sub exch rarrowto
+} def
+
+% ------------- defining units -----------------
+
+% definition of the function
+%60 points = 1 graphical unit = 1 radian
+/pi 3.14 def
+/rad {60 div} def 			% pt --> rad
+/pt  {60 mul} def 			% rad --> pt
+/deg {180 mul pi div} def 		% rad --> deg
+
+/dot {currentpoint .2 0 360 arc} def	% make a dot
+
+/Sin {rad deg sin} def			% sin of angle 
+/Cos {rad deg cos} def 			% cos of angle
+%/period {pi 2 mul pt} def
+
+
+% ------------------- program -------------------------
+
+.3 recip mul setlinewidth
+
+% position the origin
+30 0 moveto				% print origin
+%130 170 moveto				% screen origin
+currentpoint translate
+
+% ------------------ graph ----------------------
+
+% g(x) = 2(10sin(7x) + 7cos(13x) + 5cos(23x) + 30) + 90
+
+% define g
+
+/g				% input x
+{dup				% make a copy of x
+7 mul Sin 10 mul		% 10sin(7x)
+exch dup			% new copy of x
+13 mul Cos 7 mul		% 7cos(13x)
+exch				% final copy of x
+23 mul Cos +5 mul		% 5cos(23x)
+30 add
+add 
+add				% add terms
+2 mul				% vertical stretch
+90 add
+} def
+
+% draw the graph
+
+gsave
+.9 recip mul setlinewidth
+newpath
+0 dup g moveto		% initial point
+
+/step 1 def
+/end 314 3 mul 1 add def
+0 step 800			% gives x value
+{dup g				% gives x, y point
+ lineto				% draws line from previous point
+} for
+
+stroke
+grestore
+
+% h(x) = 2(10sin(7x) + 7cos(13x) - 5cos(23x) + 30)
+
+% define h
+
+/h				% input x
+{dup				% make a copy of x
+7 mul Sin 10 mul		% 10sin(7x)
+exch dup			% new copy of x
+13 mul Cos 7 mul		% 7cos(13x)
+exch				% final copy of x
+23 mul Cos -5 mul		% 5cos(23x)
+30 add
+add 
+add				% add terms
+2 mul				% vertical stretch
+} def
+
+% draw the graph
+
+gsave
+.9 recip mul setlinewidth
+newpath
+0 dup h moveto		% initial point
+
+/step 1 def
+/end 314 3 mul 1 add def
+0 step 800			% gives x value
+{dup h				% gives x, y point
+ lineto				% draws line from previous point
+} for
+
+stroke
+grestore
+
+% coord axes
+
+newpath
+0 0 moveto
+840 0 rarrowto
+0 -5 moveto
+0 200 arrowto
+fill
+
+/htick {0 -5 rlineto} def
+/period {pi 80 mul} def
+/hscale {currentpoint
+pop 60 add 0 moveto 
+htick} def
+
+newpath
+0 0 moveto
+htick
+13 {hscale} repeat
+stroke
+
+
+% ---------labels -------------
+
+TR (0) 0 -5 placeTC
+(2) 120 -5 placeTC
+(4) 240 -5 placeTC
+(6) 360 -5 placeTC
+(8) 480 -5 placeTC
+(10) 600 -5 placeTC
+(12) 720 -5 placeTC
+(seconds)  840 0 placeTC
+TI (t)  830 12 placeBL 
+(y) -7 200 placeBR
+(y = h) -100 65 placeBL	
+SYM (\() show
+TI (t) show
+2 0 rmoveto
+SYM (\)) show
+TI (y = g) -100 150 placeBL	
+SYM (\() show
+TI (t) show
+2 0 rmoveto
+SYM (\)) show
+
+showpage

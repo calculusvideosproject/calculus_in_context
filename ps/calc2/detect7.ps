@@ -1,0 +1,295 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 0 0 612.0 792
+/printscale 1 def
+/recip {1 printscale div} def
+/screenstretch {printscale 90 50 div mul} def
+/double {screenstretch 2 mul} def
+
+% 100 300 translate 		% print translation
+
+40 135 translate
+
+ printscale printscale scale       %scale for printing
+% screenstretch screenstretch scale %printing scale on screen
+% double double scale               %magnified screen
+
+% -------------------- font codes --------------------------
+
+/typesize {10 printscale div} def
+/smalltype {8 printscale div} def
+
+/makeTR {/Times-Roman findfont typesize scalefont} def
+/makeTB {/Times-Bold findfont typesize scalefont} def
+/makeTI {/Times-Italic findfont typesize scalefont} def
+/makeSYM {/Symbol findfont typesize scalefont} def
+
+/maketr {/Times-Roman findfont smalltype scalefont} def
+/maketi {/Times-Italic findfont smalltype scalefont} def
+/makesym {/Symbol findfont smalltype scalefont} def
+
+/TR {makeTR setfont} def
+/TB {makeTB setfont} def
+/TI {makeTI setfont} def
+/SYM {makeSYM setfont} def
+
+/tr {maketr setfont} def
+/ti {maketi setfont} def
+/sym {makesym setfont} def
+
+% ---------------string placing procedures-------------------
+
+% stack: fontcode string x y 
+
+/placeBL {moveto show} def
+/placeBR {moveto dup stringwidth pop neg 0 rmoveto show} def
+/placeBC {moveto dup stringwidth pop 2 div neg 0 rmoveto show} def
+/placeTL {moveto 0 typesize neg rmoveto show} def
+/placeTR {moveto dup stringwidth pop neg typesize neg rmoveto show} def
+/placeTC {moveto dup stringwidth pop 2 div neg typesize neg rmoveto show} def
+
+% ----------------- arrow drawing procedures ------------------
+
+/arrow 
+{-4 recip mul 	0 		rmoveto
+ 0  		1 recip mul 	rlineto
+ 4 recip mul 	-1 recip mul 	rlineto
+-4 recip mul 	-1 recip mul 	rlineto
+ 0  		1 recip mul 	rlineto
+ 4 recip mul 	0 		rlineto} def
+
+/rarrowto {					% stack: dx dy
+  2 copy
+  dup mul exch dup mul add  sqrt		% length of arrow
+  3 1 roll exch atan dup 				% angle
+  rotate exch 0 rlineto arrow neg rotate	% make arrow
+} def
+/arrowto {					% stack: x y
+  currentpoint 3 -1 roll sub neg 3 1 roll sub exch rarrowto
+} def
+
+% ------------- defining units -----------------
+
+
+%100 points = 1 graphical unit = 1 radian
+/pi 3.14159 def
+/rad {100 div} def 			% pt --> rad
+/pt  {75 mul} def 			% rad --> pt
+/deg {180 mul pi div} def 	% rad --> deg
+
+/dot {currentpoint .2 0 360 arc} def	% make a dot
+
+/Sin {rad deg sin pt} def	% sin of angle given in pt
+/Cos {rad deg cos pt} def	% cos of angle given in pt
+
+
+% ------------------- program -------------------------
+
+.3 setlinewidth
+
+% position the origin
+%100 200 moveto					% screen origin
+20 0 moveto					% print origin
+currentpoint translate
+
+% ------------ differential equation solvers -------------------
+
+
+/so 0 def
+/eo 4 def
+/osteps 2 8 exp cvi def
+/do eo so sub osteps div def
+/a 0 def
+/b 10 def
+/n 2 7 exp cvi def
+/dt b a sub n div def
+/o so def
+/oldo o def
+/oldaccum 0 def
+
+% definition of probes
+  /sinep {t  o mul pi mul 2 mul deg sin} def
+/cosinep {t  o mul pi mul 2 mul deg cos} def
+
+% definition of signal 
+/signal 
+{t 7 mul deg sin 
+t 13 mul deg cos .7 mul add
+t 23 mul deg cos .5 mul add
+2 mul
+} def
+
+
+/power
+{/ds signal sinep mul dt mul b a sub div  def
+/accums accums ds add def
+/dc signal cosinep mul dt mul b a sub div  def
+/accumc accumc dc add def
+/t t dt add  def
+} def
+
+/powerplot
+{/t dt 2 div a add def
+/accums 0 def
+/accumc 0 def
+/accum 0 def
+n {power} repeat
+/accum {accums dup mul accumc dup mul add sqrt} def
+/o o do add def
+oldo pt  oldaccum pt moveto
+o pt  accum pt lineto
+stroke
+/oldo o def
+/oldaccum accum def
+} def 
+
+/htick {0 -2 rlineto} def
+/hscale {currentpoint
+pop 75 pi div 2 div  2 rmoveto 
+htick} def
+/vtick {-2 0 rlineto} def
+/vscale {currentpoint
+7.5 add exch pop 0 exch moveto
+vtick} def
+
+% ------------------- plotting the first graph -----------------------
+
+
+gsave
+.9 recip mul setlinewidth
+ osteps {powerplot} repeat
+grestore
+
+% coord axes
+
+newpath
+0 0 moveto
+315 0 rarrowto
+0 0 moveto
+0 87 arrowto
+fill
+
+%ticks
+newpath
+0 0 moveto
+-2 0 rlineto
+10 {vscale} repeat
+0 -2 moveto
+25 {hscale} repeat
+stroke
+
+% dotted lines
+
+gsave
+[1 2] 0 setdash
+0 37.5 moveto
+275 0 rlineto
+0 52.5 moveto
+155 0 rlineto
+0 75 moveto
+85 0 rlineto
+stroke
+grestore
+
+
+% labels
+sym (w) 315 4 placeBC
+(5/2p) 375 2 div pi div -1 placeTC
+(10/2p) 750 2 div pi div -1 placeTC
+(15/2p) 1125 2 div pi div -1 placeTC
+(20/2p) 1500 2 div pi div -1 placeTC
+(0) -5 -2 placeBR
+(5) -5 36 placeBR
+(10) -5 74 placeBR
+TI (y) -5 85 placeBR
+TR (cycles/sec) 290 -2 placeTL
+TI (y) 130 70 placeBL
+SYM ( = ) show
+TI (P) show
+SYM (\(w\)) show
+TR (power) -25 50 placeBR
+(spectrum) -25 40 placeBR
+(of ) -42 30 placeBR
+TI (g) show
+SYM (\() show
+TI (t) show 
+1 0 rmoveto
+SYM (\)) show
+
+
+% ------------------- plotting the second graph -----------------------
+
+0 -115 moveto
+currentpoint translate
+
+% definition of new signal 
+/signal 
+{t 7 mul deg sin 
+t 13 mul deg cos .7 mul add
+t 23 mul deg cos .5 mul sub		% sub instead of add
+2 mul
+} def
+
+/o so def
+/oldo o def
+/oldaccum 0 def
+
+gsave
+.9 recip mul setlinewidth
+ osteps {powerplot} repeat
+grestore
+
+% coord axes
+
+newpath
+0 0 moveto
+315 0 rarrowto
+0 0 moveto
+0 87 arrowto
+fill
+
+%ticks
+newpath
+0 0 moveto
+-2 0 rlineto
+10 {vscale} repeat
+0 -2 moveto
+25 {hscale} repeat
+stroke
+
+% dotted lines
+
+gsave
+[1 2] 0 setdash
+0 37.5 moveto
+275 0 rlineto
+0 52.5 moveto
+155 0 rlineto
+0 75 moveto
+85 0 rlineto
+stroke
+grestore
+
+
+% labels
+sym (w) 315 4 placeBC
+(5/2p) 375 2 div pi div -1 placeTC
+(10/2p) 750 2 div pi div -1 placeTC
+(15/2p) 1125 2 div pi div -1 placeTC
+(20/2p) 1500 2 div pi div -1 placeTC
+(0) -5 -2 placeBR
+(5) -5 36 placeBR
+(10) -5 74 placeBR
+TI (y) -5 85 placeBR
+TR (cycles/sec) 290 -2 placeTL
+TR (power) -25 50 placeBR
+(spectrum) -25 40 placeBR
+(of ) -42 30 placeBR
+TI (h) show
+SYM (\() show
+TI (t) show
+1 0 rmoveto
+SYM (\)) show
+
+showpage
+
+

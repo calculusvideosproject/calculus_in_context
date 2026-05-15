@@ -1,0 +1,184 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 0 0 612.0 792
+/printscale  1 def
+/recip {1 printscale div} def
+/screenstretch {printscale 90 50 div mul} def
+/double {screenstretch 2 mul} def
+
+% 0 300 translate 		% print translation
+
+-250 -70 translate
+
+ printscale printscale scale       %scale for printing
+
+/arrowdict 14 dict def
+arrowdict begin
+ /mtrx matrix def
+end
+
+/arrow
+ {arrowdict begin
+   /headlength exch def
+   /halfheadthickness exch 2 div def
+   /halfthickness exch 2 div def
+   /tipy exch def /tipx exch def
+   /taily exch def /tailx exch def
+   
+   /dx tipx tailx sub def
+   /dy tipy taily sub def
+   /arrowlength dx dx mul dy dy mul add sqrt def
+   /angle dy dx atan def
+   /base arrowlength headlength sub def
+   
+   /savematrix mtrx currentmatrix def
+   
+   tailx taily translate
+   angle rotate
+   0 halfthickness neg moveto
+   base halfthickness neg lineto
+   base halfheadthickness neg lineto
+   arrowlength 0 lineto
+   base halfheadthickness lineto
+   base halfthickness lineto
+   0 halfthickness lineto
+   closepath
+   
+   savematrix setmatrix
+   end
+ }  def
+ 
+/expon
+{/str exch def
+/Times-Roman findfont
+fntsize 2 sub scalefont setfont
+currentpoint moveto
+0 5 rmoveto
+str show
+currentpoint moveto
+0 -5 rmoveto
+} def
+
+/varib
+{/str exch def
+/Times-Italic findfont
+fntsize scalefont setfont
+currentpoint moveto
+str show
+} def
+
+/symb
+{/str exch def
+/Symbol findfont
+fntsize scalefont setfont
+currentpoint moveto
+str show
+} def
+
+/regular
+{/str exch def
+/Times-Roman findfont
+fntsize scalefont setfont
+currentpoint moveto
+str show
+} def
+
+
+/curve
+{/x x .01 add def
+/y x ln def
+x y lineto
+} def
+
+
+/b 140 def
+/fntsize 10 def
+
+80 10 translate
+
+gsave
+b b scale
+1 b div setlinewidth
+/x 1.5 def
+/y 1.5 ln def
+x y moveto    % Drawing the log curve from 1.5 to 2.5
+100 {curve} repeat
+stroke
+
+/a 2 ln def   % drawing tangent line at (2, ln 2)
+1.5 1.5 ln moveto
+2.5 2.5 ln lineto
+stroke
+
+gsave
+.5 b div setlinewidth
+1.5 0 moveto  % Drawing horizontal axis
+2.5 0 lineto
+stroke
+
+
+[2 b div 2 b div] 0 setdash
+1.5 0 moveto
+1.5 1.5 ln lineto stroke
+2.5 0 moveto
+2.5 2.5 ln lineto stroke
+grestore
+
+
+%2 a 1.5 b div 0 360 arc 
+gsave
+1 setgray
+fill
+grestore
+stroke
+2.5 2.5 ln 1.5 b div 0 360 arc 
+gsave
+1 setgray
+fill
+grestore
+stroke
+1.5 1.5 ln 1.5 b div 0 360 arc 
+gsave
+1 setgray
+fill
+grestore
+stroke
+
+
+grestore
+
+1.5 b mul 20 sub -12 moveto
+(x ) varib
+(=) symb
+( k ) varib
+(- 1) symb
+2.5 b mul 10 sub -12 moveto
+(x ) varib
+(=) symb
+( k ) varib
+
+
+1.5 b mul 120 moveto
+(graph of  ) regular
+(y ) varib
+(=) symb
+( ln ) regular
+(x) varib
+1.7 b mul 118 2 b mul a b mul .1 2 4 arrow fill
+
+2.5 b mul 4 add 2.5 ln b mul 7 sub moveto
+(\() regular
+(k , ) varib
+(ln) regular
+( k) varib
+( \)) regular
+
+1.5 b mul 4 add 1.5 ln b mul 7 sub moveto
+(\() regular
+(k) varib
+( - 1) symb
+(, ln\() regular
+( k) varib
+( -1\)\)) symb
+
+
+showpage

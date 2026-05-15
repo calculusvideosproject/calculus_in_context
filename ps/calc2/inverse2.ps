@@ -1,0 +1,346 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 0 0 612.0 792
+/printscale 1 def
+/recip {1 printscale div} def
+/screenstretch {printscale 90 50 div mul} def
+/double {screenstretch 2 mul} def
+
+ 100 300 translate 		% print translation
+
+ printscale printscale scale       %scale for printing
+% screenstretch screenstretch scale %printing scale on screen
+% double double scale               %magnified screen
+
+% -------------------- font codes --------------------------
+
+/typesize {10 printscale div} def
+/smalltype {7 printscale div} def
+
+/makeTR {/Times-Roman findfont typesize scalefont} def
+/makeTB {/Times-Bold findfont typesize scalefont} def
+/makeTI {/Times-Italic findfont typesize scalefont} def
+/makeSYM {/Symbol findfont typesize scalefont} def
+
+/maketr {/Times-Roman findfont smalltype scalefont} def
+/maketi {/Times-Italic findfont smalltype scalefont} def
+/makesym {/Symbol findfont smalltype scalefont} def
+
+/TR {makeTR setfont} def
+/TB {makeTB setfont} def
+/TI {makeTI setfont} def
+/SYM {makeSYM setfont} def
+
+/tr {maketr setfont} def
+/ti {maketi setfont} def
+/sym {makesym setfont} def
+
+% ---------------string placing procedures-------------------
+
+% stack: fontcode string x y 
+
+/placeBL {moveto show} def
+/placeBR {moveto dup stringwidth pop neg 0 rmoveto show} def
+/placeBC {moveto dup stringwidth pop 2 div neg 0 rmoveto show} def
+/placeTL {moveto 0 typesize neg rmoveto show} def
+/placeTR {moveto dup stringwidth pop neg typesize neg rmoveto show} def
+/placeTC {moveto dup stringwidth pop 2 div neg typesize neg rmoveto show} def
+
+% ----------------- arrow drawing procedures ------------------
+
+/arrow 
+{-4 recip mul 	0 		rmoveto
+ 0  		1 recip mul 	rlineto
+ 4 recip mul 	-1 recip mul 	rlineto
+-4 recip mul 	-1 recip mul 	rlineto
+ 0  		1 recip mul 	rlineto
+ 4 recip mul 	0 		rlineto} def
+
+/rarrowto {					% stack: dx dy
+  2 copy
+  dup mul exch dup mul add  sqrt		% length of arrow
+  3 1 roll exch atan dup 				% angle
+  rotate exch 0 rlineto arrow neg rotate	% make arrow
+} def
+/arrowto {					% stack: x y
+  currentpoint 3 -1 roll sub neg 3 1 roll sub exch rarrowto
+} def
+
+% ------------- defining units -----2-----------
+
+
+%30 points = 1 graphical unit = 1 radian
+/unit 30 def
+/pi 3.14159 def
+/rad {unit div} def 			% pt --> rad
+/pt  {unit mul} def 			% rad --> pt
+/deg {180 mul pi div} def 	% rad --> deg
+/dot {currentpoint 1 0 360 arc -1 0 rmoveto} def	% make a dot
+/bigdot {currentpoint 1.5 0 360 arc -1 0 rmoveto} def	% make a bigger dot
+
+
+% ------------------- program -------------------------
+
+.3 setlinewidth
+
+% position the origin
+%200 300 moveto					% screen origin
+80 0 moveto					% print origin
+currentpoint translate
+
+% ------------------- plotting the exponential graph -----------------------
+
+% defining the functions
+
+/e 2.71828 def
+/C .5 def
+
+/f {rad e exch exp C mul pt} def
+/g {rad ln C ln sub pt} def
+
+% plotting f
+
+gsave
+.9 recip mul setlinewidth
+newpath
+-50 dup f moveto
+-50 1 50
+{dup f lineto
+} for
+stroke
+grestore
+
+% coord axes
+
+newpath
+-50 0 moveto
+60 0 arrowto
+0 -30 moveto
+0 80 arrowto
+fill
+
+% boxes
+
+newpath
+29 30 f moveto
+6 0 rlineto
+0 6 rlineto
+-6 0 rlineto
+closepath
+100 20 moveto
+50 0 rlineto
+0 50 rlineto
+-50 0 rlineto
+closepath
+stroke
+
+gsave
+.9 recip mul setlinewidth
+107 20 moveto
+96 e div 50 rlineto
+stroke
+grestore
+107 20 moveto
+48 e div 25 rmoveto
+bigdot
+32 0 moveto
+dot
+0 30 f 3 add moveto
+dot
+fill
+
+% dotted lines
+
+gsave
+newpath
+%.1 setlinewidth
+[1 1] 0 setdash
+29 30 f moveto
+100 20 lineto
+29 30 f 6 add moveto
+100 70 lineto
+105 100 e div add 20 moveto
+0 50 rlineto
+
+32 0 moveto
+0 30 f 3 add rlineto
+-32 0 rlineto
+
+stroke
+grestore
+
+
+
+% labels
+
+TI (t) 60 1 placeTC
+(y) -3 80 placeBR
+(t) 29 1 placeTL
+0 -3 rmoveto
+sym (0) show
+TI (y) -12 30 f 1 add placeBL
+0 -3 rmoveto
+sym (0) show
+
+TI (y) -52 10 placeBR
+SYM ( = ) show
+TI (C) show
+(e) show
+1 3 rmoveto
+ti (t) show
+SYM (D) 125 22 placeBC
+TI (t) show
+SYM (D) 130 38 placeBL
+TI (y) show
+TR (slope = ) 165 40 placeBL
+SYM (D) show
+TI (y) show
+SYM (/D) show
+TI (t) show
+SYM ( \273 ) show
+TI (dy/dt) show
+
+gsave
+10 -8 moveto
+currentpoint translate
+SYM (D) 165 -5 placeBL
+TI (t) show
+1 0 rmoveto
+SYM (/D) show
+TI (y) show
+SYM ( = ) show
+(1) 212 0 placeBC
+200 -3 moveto 
+24 0 rlineto
+stroke
+SYM (D) 200 -2 placeTL
+TI (y) show
+SYM (/D) show
+TI (t) show
+grestore
+
+% ----------------- plotting the logarithm graph ------------------------
+
+0 -110 moveto
+currentpoint translate
+
+% plotting g
+
+gsave
+.9 recip mul setlinewidth
+newpath
+-40 dup f exch moveto
+-40 1 50
+{dup f exch lineto
+} for
+stroke
+grestore
+
+% coord axes
+
+newpath
+-30 0 moveto
+85 0 arrowto
+0 -40 moveto
+0 60 arrowto
+fill
+
+% boxes
+
+newpath
+30 f 29 moveto
+6 0 rlineto
+0 6 rlineto
+-6 0 rlineto
+closepath
+100 20 moveto
+50 0 rlineto
+0 50 rlineto
+-50 0 rlineto
+closepath
+stroke
+
+gsave
+.9 recip mul setlinewidth
+100 27 moveto
+50 96 e div rlineto
+stroke
+grestore
+
+100 27 moveto
+25 48 e div rmoveto
+bigdot
+0 32 moveto
+dot
+30 f 3 add 0 moveto
+dot
+fill
+
+% dotted lines
+
+gsave
+newpath
+.1 setlinewidth
+[1 1] 0 setdash
+30 f 29 moveto
+100 20 lineto
+30 f 35 moveto
+100 70 lineto
+100 27 moveto
+50 0 rlineto
+
+0 32 moveto
+30 f 3 add 0 rlineto
+0 -32 rlineto
+
+stroke
+grestore
+
+% labels
+
+TI (t) -3 60 placeBR
+(y) 85 0 placeTC
+(t) -9 29 placeBR
+0 -3 rmoveto
+sym (0) show
+TI (y) 30 f 1 add 1 placeTL
+0 -3 rmoveto
+sym (0) show
+
+TI (t) 14 -38 placeBR
+TR ( = ln) show
+2 0 rmoveto
+TI (y) show
+SYM ( - ) show
+TR (ln) show
+2 0 rmoveto
+TI (C) show
+SYM (D) 125 30 placeBC
+TI (y) show
+SYM (D) 145 41 placeBR
+TI (t) show
+TR (slope = ) 165 40 placeBL
+SYM (D) show
+TI (t) show
+1 0 rmoveto
+SYM (/D) show
+TI (y) show
+SYM ( \273 ) show
+TI (dt) show
+1 0 rmoveto
+(/dy) show
+
+gsave
+12 -10 moveto
+currentpoint translate
+TI (dt) 165 -5 placeBL
+1 0 rmoveto
+(/dy) show
+SYM ( = ) show
+(1) 206 0 placeBC
+196 -3 moveto 
+20 0 rlineto
+stroke
+TI (dy/dt) 196 -2 placeTL
+grestore
+
+showpage

@@ -1,0 +1,249 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 0 0 612.0 792
+/printscale 1 def
+/recip {1 printscale div} def
+/screenstretch {printscale 90 50 div mul} def
+/double {screenstretch 2 mul} def
+
+% 100 300 translate 		% print translation
+
+20 0 translate
+
+ printscale printscale scale       %scale for printing
+% screenstretch screenstretch scale %printing scale on screen
+% double double scale               %magnified screen
+
+% -------------------- font codes --------------------------
+
+/typesize {10 printscale div} def
+/smalltype {8 printscale div} def
+
+/makeTR {/Times-Roman findfont typesize scalefont} def
+/makeTB {/Times-Bold findfont typesize scalefont} def
+/makeTI {/Times-Italic findfont typesize scalefont} def
+/makeSYM {/Symbol findfont typesize scalefont} def
+
+/maketr {/Times-Roman findfont smalltype scalefont} def
+/maketi {/Times-Italic findfont smalltype scalefont} def
+/makesym {/Symbol findfont smalltype scalefont} def
+
+/TR {makeTR setfont} def
+/TB {makeTB setfont} def
+/TI {makeTI setfont} def
+/SYM {makeSYM setfont} def
+
+/tr {maketr setfont} def
+/ti {maketi setfont} def
+/sym {makesym setfont} def
+
+% ---------------string placing procedures-------------------
+
+% stack: fontcode string x y 
+
+/placeBL {moveto show} def
+/placeBR {moveto dup stringwidth pop neg 0 rmoveto show} def
+/placeBC {moveto dup stringwidth pop 2 div neg 0 rmoveto show} def
+/placeTL {moveto 0 typesize neg rmoveto show} def
+/placeTR {moveto dup stringwidth pop neg typesize neg rmoveto show} def
+/placeTC {moveto dup stringwidth pop 2 div neg typesize neg rmoveto show} def
+
+% -------------------- Ken's arrow drawing procedure --------------
+
+/arrow
+ {/mtrx matrix def
+   /headlength exch def
+   /halfheadthickness exch 2 div def
+   /halfthickness exch 2 div def
+   /tipy exch def /tipx exch def
+   /taily exch def /tailx exch def
+   
+   /dx tipx tailx sub def
+   /dy tipy taily sub def
+   /arrowlength dx dx mul dy dy mul add sqrt def
+   dx 0 ne {/angle dy dx atan def}
+   	{dy 0 ne {/angle 90 dy dy abs div mul def}{/angle 0 def} ifelse}
+	 ifelse
+   /base arrowlength headlength sub def
+   
+   /savematrix mtrx currentmatrix def
+   
+   tailx taily translate
+   angle rotate
+   0 halfthickness neg moveto
+   base halfthickness neg lineto
+   base halfheadthickness neg lineto
+   arrowlength 0 lineto
+   base halfheadthickness lineto
+   base halfthickness lineto
+   0 halfthickness lineto
+   closepath
+   
+   savematrix setmatrix
+ }  def
+ 
+% -------------------------- program ----------------------------
+
+%.3 setlinewidth
+
+ /Sin
+ { 57.29583 mul sin
+ } def
+
+ /Sc   %scales points
+ {vscale mul exch hscale mul exch} def
+ 
+ /Schead
+ {/dx xtip x sub hscale mul def
+ /dy vtip v sub vscale mul def
+ /s dx dx mul dy dy mul add sqrt .3 mul def
+ s 1 le {}{/s 1 def} ifelse
+ s mul exch s mul exch} def
+  
+ /model
+ {/xp .1 x mul 1 x 10000 div sub mul .005 x v mul mul sub def
+ /vp .00004 x v mul mul .04 v mul sub def
+ /x x xp step mul add def
+ /v v vp step mul add def
+ /t t step add def
+ x v Sc lineto
+ } def
+ 
+/horgrid
+{ sym
+ /number exch def
+ /change vrange number idiv def
+ /k vmin def
+ number 1 add {hashver} repeat
+} def
+
+/vergrid
+{ sym
+ /number exch def
+ /change xrange number div def
+ /k -4 def
+ 3 {hashhor} repeat
+ /k 2 def
+ 3 {hashhor} repeat
+ /posit hscale 3.14159 mul pi 2 div sub def
+ posit -10 moveto
+ sym (p) show
+ hscale 3.14159 mul -2 moveto
+ 0 2 rlineto stroke
+
+ /posit posit (-) stringwidth pop 2 div add pi add neg def
+ posit -10 moveto
+ sym (-p) show
+ hscale -3.14159 mul -2 moveto
+ 0 2 rlineto stroke
+ (0) dup stringwidth pop 2 div neg -10 moveto show
+ 0 -2 moveto
+ 0 0 lineto stroke
+ } def
+
+
+/hashver
+{sym /posit k vscale mul def
+k (            ) cvs dup stringwidth pop 7 add neg 
+2 add posit 2 sub moveto
+show
+-2 posit moveto 
+0 posit lineto stroke
+/k k change add def
+} def
+
+/hashhor
+{sym 
+ /posit k hscale mul 3.14159 mul def
+ k (     ) cvs stringwidth pop pi add 2 div
+ posit exch sub -10 moveto
+ k (     ) cvs show
+ (p) show
+ posit -2 moveto
+ posit 0 lineto stroke
+ /k k 1 add def
+} def
+
+/vecs
+{/xnum exch def
+/vnum exch def
+/xchange xrange xnum div def
+/vchange vrange vnum div def
+/v vmin def
+vnum 1 add {draw} repeat
+} def
+
+/drawsub
+{/xp v def
+ /vp x Sin neg  def
+ /xtip x xp tchange mul add def
+ /vtip v vp tchange mul add def
+ x v Sc .75 0 360 arc fill
+ x v Sc xtip vtip Sc .1 1 2 Schead arrow fill
+ /x x xchange add def
+ } def
+ 
+ /draw
+ {/x xmin def
+ xnum 1 add {drawsub} repeat
+ /v v vchange add def
+ } def
+ 
+ /isochrone
+ {xmin 0 Sc moveto
+ xmax 0 Sc lineto stroke
+ /k xmin 3.14159 div ceiling def
+ /l xmax 3.14159 div floor def
+ {k l le {k 3.14159 mul vmin Sc moveto
+ 	  0 vrange Sc rlineto stroke
+	  /k k 1 add def}{exit} ifelse
+	  } loop
+} def
+ 
+ 
+ 
+ /fntsize 12 def
+ SYM
+ /pi (p) stringwidth pop def
+ /totalsteps 2500 def
+ /tscale 1.2 def
+ /xmax 3.14159 4 mul def
+ /xmin -3.14159 4 mul def
+ /xrange xmax xmin sub def
+ /vmax 4 def
+ /vmin -4 def
+ /vrange vmax vmin sub def
+ /hscale 280 xrange div def  
+ /vscale 125 vrange div def 
+ /tmax 250 def
+ /tchange .2 def
+ /step tmax totalsteps div def
+ 
+xmin hscale mul neg 50 add vmin vscale mul neg 36 add translate
+
+24 24 vecs
+.1 setlinewidth
+isochrone
+
+ 
+.3 setlinewidth
+gsave
+xmin hscale mul 16 sub 0 translate
+0 vmin Sc moveto
+0 vmax Sc lineto stroke
+TI (v) -20 -1 placeBR
+sym
+8 horgrid
+grestore
+
+gsave
+0 vmin vscale mul 10 sub translate
+xmin 0 Sc moveto
+xmax 0 Sc lineto stroke
+TI (x) 0 -20 placeBC
+sym
+8 vergrid
+grestore
+
+ 
+showpage
+ 

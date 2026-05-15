@@ -1,0 +1,171 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 0 0 612.0 792
+/printscale 1 def
+/recip {1 printscale div} def
+/screenstretch {printscale 90 50 div mul} def
+/double {screenstretch 2 mul} def
+
+% 100 500 translate 		% print translation
+
+-4 0 translate
+
+ printscale printscale scale       %scale for printing
+% screenstretch screenstretch scale %printing scale on screen
+% double double scale               %magnified screen
+
+% -------------------- font codes --------------------------
+
+/typesize {10 printscale div} def
+/smalltype {8 printscale div} def
+
+/makeTR {/Times-Roman findfont typesize scalefont} def
+/makeTB {/Times-Bold findfont typesize scalefont} def
+/makeTI {/Times-Italic findfont typesize scalefont} def
+/makeSYM {/Symbol findfont typesize scalefont} def
+
+/maketr {/Times-Roman findfont smalltype scalefont} def
+/maketi {/Times-Italic findfont smalltype scalefont} def
+/makesym {/Symbol findfont smalltype scalefont} def
+
+/TR {makeTR setfont} def
+/TB {makeTB setfont} def
+/TI {makeTI setfont} def
+/SYM {makeSYM setfont} def
+
+/tr {maketr setfont} def
+/ti {maketi setfont} def
+/sym {makesym setfont} def
+
+% ---------------string placing procedures-------------------
+
+% stack: fontcode string x y 
+
+/placeBL {moveto show} def
+/placeBR {moveto dup stringwidth pop neg 0 rmoveto show} def
+/placeBC {moveto dup stringwidth pop 2 div neg 0 rmoveto show} def
+/placeTL {moveto 0 typesize neg rmoveto show} def
+/placeTR {moveto dup stringwidth pop neg typesize neg rmoveto show} def
+/placeTC {moveto dup stringwidth pop 2 div neg typesize neg rmoveto show} def
+
+% ----------------- arrow drawing procedures ------------------
+
+/arrow 
+{-4 recip mul 	0 		rmoveto
+ 0  		1 recip mul 	rlineto
+ 4 recip mul 	-1 recip mul 	rlineto
+-4 recip mul 	-1 recip mul 	rlineto
+ 0  		1 recip mul 	rlineto
+ 4 recip mul 	0 		rlineto} def
+
+/rarrowto {					% stack: dx dy
+  2 copy
+  dup mul exch dup mul add  sqrt		% length of arrow
+  3 1 roll exch atan dup 				% angle
+  rotate exch 0 rlineto arrow neg rotate	% make arrow
+} def
+/arrowto {					% stack: x y
+  currentpoint 3 -1 roll sub neg 3 1 roll sub exch rarrowto
+} def
+
+% ------------- defining units -----------------
+
+%20 points = 1 graphical unit = 1 radian
+/pi 3.14 def
+/rad {20 div} def 			% pt --> rad
+/pt  {15 mul} def 			% rad --> pt
+/deg {180 mul pi div} def 		% rad --> deg
+
+/dot {currentpoint 1 0 360 arc} def	% make a dot
+
+/Sin {rad deg sin pt} def			% sin of angle 
+/Cos {rad deg cos pt} def 			% cos of angle
+/period {pi 2 mul pt} def
+
+
+% ------------------- program -------------------------
+
+.9 recip mul setlinewidth
+
+% position the origin
+%100 350 moveto				% screen origin
+20 0 moveto
+currentpoint translate
+
+% ------------------ ticks -----------------
+
+% ticks
+/htick {0 -4 rlineto} def
+/hscale {currentpoint
+pop pi pt add 1 sub 0 moveto 
+dot} def
+
+
+% --------------------  graph  ---------------------
+
+% define f(z) = az(1-z)  a = 2.7
+% define plot(z) = 70z + 30 = x
+% define signal(k) = Sin(5k)
+
+
+/f {dup neg 1 add mul 3.95 mul} def
+/plot {.5 sub 100 mul} def
+/signal {5 mul Sin} def
+
+% graph signal
+
+newpath
+0 0 moveto				% set initial point
+1.5 1.5 300 				% sets k
+{dup 
+signal
+lineto
+} for
+stroke
+
+TR (signal) 315 0 placeBL
+
+% graph of noise
+
+
+0 -80 moveto
+currentpoint translate
+
+newpath
+0 0 moveto				% set initial point
+.54					% initial z
+1.5 1.5  300 				% sets k
+{exch
+f
+dup
+3 1 roll
+plot
+lineto} for
+stroke
+
+TR (noise ) 315 0 placeBL
+SYM (\(\264 10\)) show
+
+% graph of signal + noise
+
+0 -120 moveto
+currentpoint translate
+
+newpath
+0 0 moveto				% set initial point
+.54					% initial z
+1.5 1.5  300 				% sets k
+{dup
+3 -1 roll
+f
+dup
+4 1 roll
+plot
+exch
+signal
+add
+lineto} for
+stroke
+
+TR (signal + noise) 315 0 placeBL
+
+showpage

@@ -1,0 +1,187 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 0 0 612.0 792
+/printscale 1 def
+/recip {1 printscale div} def
+/screenstretch {printscale 90 50 div mul} def
+/double {screenstretch 2 mul} def
+
+% 100 300 translate 		% print translation
+
+10 0 translate
+
+ printscale printscale scale       %scale for printing
+% screenstretch screenstretch scale %printing scale on screen
+% double double scale               %magnified screen
+
+% -------------------- font codes --------------------------
+
+/typesize {10 printscale div} def
+/smalltype {8 printscale div} def
+
+/makeTR {/Times-Roman findfont typesize scalefont} def
+/makeTB {/Times-Bold findfont typesize scalefont} def
+/makeTI {/Times-Italic findfont typesize scalefont} def
+/makeSYM {/Symbol findfont typesize scalefont} def
+
+/maketr {/Times-Roman findfont smalltype scalefont} def
+/maketi {/Times-Italic findfont smalltype scalefont} def
+/makesym {/Symbol findfont smalltype scalefont} def
+
+/TR {makeTR setfont} def
+/TB {makeTB setfont} def
+/TI {makeTI setfont} def
+/SYM {makeSYM setfont} def
+
+/tr {maketr setfont} def
+/ti {maketi setfont} def
+/sym {makesym setfont} def
+
+% ---------------string placing procedures-------------------
+
+% stack: fontcode string x y 
+
+/placeBL {moveto show} def
+/placeBR {moveto dup stringwidth pop neg 0 rmoveto show} def
+/placeBC {moveto dup stringwidth pop 2 div neg 0 rmoveto show} def
+/placeTL {moveto 0 typesize neg rmoveto show} def
+/placeTR {moveto dup stringwidth pop neg typesize neg rmoveto show} def
+/placeTC {moveto dup stringwidth pop 2 div neg typesize neg rmoveto show} def
+
+% ----------------- arrow drawing procedures ------------------
+
+/arrow 
+{-4 recip mul 	0 		rmoveto
+ 0  		1 recip mul 	rlineto
+ 4 recip mul 	-1 recip mul 	rlineto
+-4 recip mul 	-1 recip mul 	rlineto
+ 0  		1 recip mul 	rlineto
+ 4 recip mul 	0 		rlineto} def
+
+/rarrowto {					% stack: dx dy
+  2 copy
+  dup mul exch dup mul add  sqrt		% length of arrow
+  3 1 roll exch atan dup 				% angle
+  rotate exch 0 rlineto arrow neg rotate	% make arrow
+} def
+/arrowto {					% stack: x y
+  currentpoint 3 -1 roll sub neg 3 1 roll sub exch rarrowto
+} def
+
+% ------------- defining units -----------------
+
+
+%100 points = 1 graphical unit = 1 radian
+/pi 3.14159 def
+/rad {100 div} def 			% pt --> rad
+%/pt  {8 mul} def 			% rad --> pt
+/deg {180 mul pi div} def 		% rad --> deg
+
+/dot {currentpoint .2 0 360 arc} def	% make a dot
+
+/Sin {deg sin} def			% sin of angle 
+/Cos {deg cos} def 			% cos of angle
+
+% ------------------- program -------------------------
+
+.3 setlinewidth
+
+% position the origin
+10 0 moveto				% print origin
+%50 200 moveto				% screen origin
+currentpoint translate
+
+% ------------------ graph ----------------------
+
+% g(x) = .03(5cos(500)sin(200pix) -2pixsin(500)cos(200pix))/(4pi^2x^2-25) 
+
+% define g
+
+/g {					% input x
+rad					% convert x to ``radians''
+dup dup pi mul 200 mul Sin		% sin(200pix)
+500 Cos mul 5 mul			% 5cos(500)sin(200pix) = A
+100 mul					% adjust size of A to B
+exch dup
+-2 mul pi mul 500 Sin mul 		% -2pixsin(500)
+exch
+200 mul pi mul Cos			% cos(200pix)
+mul					% -2pixsin(500)cos(200pix) = B
+add .03 mul				% .03(A + B)
+exch
+dup mul					% x^2
+pi mul pi mul 4 mul 25 sub		% 4pi^2x^2 - 25 = C (adjust ``1'')
+div 					%.3(A + B)/C
+2 div					% adjust vertical scale
+} def
+
+% draw the graph
+
+gsave
+.9 recip mul setlinewidth
+newpath
+0 dup g moveto				% initial point
+0 .3 78					% gives x value
+{dup g					% gives x, y point
+ lineto					% draws line from previous point
+} for
+79.5 75 lineto
+81 .3 300 
+{dup g
+lineto
+} for
+stroke
+grestore
+
+ % coord axes
+
+newpath
+0 0 moveto
+325 0 rarrowto
+0 -15 moveto
+0 85 arrowto
+fill
+
+/htick {0 -2 rlineto} def
+/hscale {currentpoint
+pop 100 add 0 moveto 
+htick} def
+
+newpath
+0 0 moveto
+htick
+3 {hscale} repeat
+0 50 moveto
+-2 0 rlineto
+stroke
+
+% frequency peak 
+79.6 -20 moveto
+0 13 rarrowto
+fill
+
+% ---------labels -------------
+
+SYM (1) 100 -4 placeTC
+(2) 200 -3 placeTC
+(3) 300 -3 placeTC
+(1) -5 47 placeBR
+(w) 325 5 placeBC
+TR (cycles/sec) 320 -1 placeTL
+TI (t) 840 0 placeTC
+(y) -4 85 placeBR
+(y ) 88 70 placeBL
+SYM (= ) show
+TI (D) show
+SYM (\(w\)) show
+(5/2p) 80 -20 placeTC
+TR (Detecting the frequency of 3sin\(5) 45 -35 placeTL
+TI (t) show
+1 0 rmoveto
+TR (\) on the interval ) show
+SYM ( 0 \243 ) show
+TI (t) show
+SYM ( \243 100) show
+
+showpage
+
+

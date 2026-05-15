@@ -1,0 +1,167 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 0 0 612.0 792
+/printscale .8 def
+/recip {1 printscale div} def
+/screenstretch {printscale 90 50 div mul} def
+/double {screenstretch 2 mul} def
+
+% 300 300 translate 		% print translation
+
+ printscale printscale scale       %scale for printing
+% screenstretch screenstretch scale %printing scale on screen
+% double double scale               %magnified screen
+
+% -------------------- font codes --------------------------
+
+/typesize {10 printscale div} def
+/smalltype {8 printscale div} def
+
+/makeTR {/Times-Roman findfont typesize scalefont} def
+/makeTB {/Times-Bold findfont typesize scalefont} def
+/makeTI {/Times-Italic findfont typesize scalefont} def
+/makeSYM {/Symbol findfont typesize scalefont} def
+
+/maketr {/Times-Roman findfont smalltype scalefont} def
+/maketi {/Times-Italic findfont smalltype scalefont} def
+/makesym {/Symbol findfont smalltype scalefont} def
+
+/TR {makeTR setfont} def
+/TB {makeTB setfont} def
+/TI {makeTI setfont} def
+/SYM {makeSYM setfont} def
+
+/tr {maketr setfont} def
+/ti {maketi setfont} def
+/sym {makesym setfont} def
+
+% ---------------string placing procedures-------------------
+
+% stack: fontcode string x y 
+
+/placeBL {moveto show} def
+/placeBR {moveto dup stringwidth pop neg 0 rmoveto show} def
+/placeBC {moveto dup stringwidth pop 2 div neg 0 rmoveto show} def
+/placeTL {moveto 0 typesize neg rmoveto show} def
+/placeTR {moveto dup stringwidth pop neg typesize neg rmoveto show} def
+/placeTC {moveto dup stringwidth pop 2 div neg typesize neg rmoveto show} def
+
+% ----------------- arrow drawing procedures ------------------
+
+/arrow 
+{-4 recip mul 	0 		rmoveto
+ 0  		1 recip mul 	rlineto
+ 4 recip mul 	-1 recip mul 	rlineto
+-4 recip mul 	-1 recip mul 	rlineto
+ 0  		1 recip mul 	rlineto
+ 4 recip mul 	0 		rlineto} def
+
+/rarrowto {					% stack: dx dy
+  2 copy
+  dup mul exch dup mul add  sqrt		% length of arrow
+  3 1 roll exch atan dup 				% angle
+  rotate exch 0 rlineto arrow neg rotate	% make arrow
+} def
+/arrowto {					% stack: x y
+  currentpoint 3 -1 roll sub neg 3 1 roll sub exch rarrowto
+} def
+
+% -------------------------- program ----------------------------
+
+.3 setlinewidth
+
+% position the origin
+% 200 200 moveto				% screen origin
+% 60 -10  moveto
+ 470 -25 moveto
+%-80 -25 moveto
+currentpoint translate
+
+% ------ arrow drawing procedures --------
+
+/arrow 
+{-2 0 rmoveto
+ 0  1 rlineto
+ 4 -1 rlineto
+-4 -1 rlineto
+ 0  1 rlineto} def
+
+/rightarrow {arrow} def
+/uparrow {90 rotate arrow -90 rotate} def
+/leftarrow {180 rotate arrow -180 rotate} def
+/downarrow {-90 rotate arrow 90 rotate} def
+
+% ------------------------ make picture ----------------------------
+
+/pendulum {
+3 -1.5 moveto
+72 0 rlineto
+3 1.5 moveto
+72 0 rlineto
+99 0 moveto
+87 0 12 0 360 arc
+} def
+
+gsave
+.6 recip mul setlinewidth
+newpath
+0 0 3 0 360 arc
+-49 rotate pendulum 49 rotate
+stroke
+grestore
+
+newpath
+0 0 23 273 303 arc
+stroke
+gsave
+33 rotate
+0 -23 moveto
+arrow
+fill
+grestore
+
+gsave
+.6 recip mul setlinewidth
+newpath
+[2 2] 2 setdash
+-90 rotate pendulum 90 rotate
+stroke
+grestore
+
+gsave
+[2 4] 0 setdash
+.1 setlinewidth
+-4 0 moveto
+-51 0 rlineto
+54 -66 moveto
+-89 0 rlineto
+-2 -87 moveto
+-53 0 rlineto
+stroke
+grestore
+
+% dimension arrows
+
+.2 setlinewidth
+-25 -100 moveto
+0 10 rarrowto
+-25 -43 moveto
+0 -20 rarrowto
+-25 -27 moveto
+0 24 rarrowto
+-49 -56 moveto
+0 -29 rarrowto
+-49 -36 moveto
+0 33 rarrowto
+fill
+
+% labels
+
+TI (x) 11 -20 placeTC
+SYM (1) 34 -32 placeBL
+(1) -49 -50 placeBC
+TR (cos) -35 -38 placeBL
+2 0 rmoveto
+TI (x) show
+(h) -25 -80 placeBC
+
+showpage

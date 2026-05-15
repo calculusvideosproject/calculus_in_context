@@ -1,0 +1,1453 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 0 0 612 792
+%%Creator: Mathematica
+%%OriginalTitle: micro1.eps
+%%CreationDate: Fri 8 Jul 1994 18:56:10
+%%EndComments
+
+% 100 100 translate		% print translation
+
+/Mnodistort true def
+130 dict begin
+/Mfixwid true def
+/Mrot 0 def
+/Mpstart {
+    MathPictureStart
+} bind def
+/Mpend {
+    MathPictureEnd
+} bind def
+/Mscale {
+    0 1 0 1
+    5 -1 roll
+    MathScale
+} bind def
+/Plain	/Symbol findfont def
+/Bold	/Times-Bold findfont def
+/Italic /Times-Italic findfont def
+/MathPictureStart {
+	/Mimatrix
+	 matrix currentmatrix
+	def
+	gsave
+	newpath
+	Mleft
+	Mbottom
+	translate
+	1 -1 scale
+	/Mtmatrix
+	matrix currentmatrix
+	def
+	Plain
+	Mfontsize scalefont
+	setfont
+	0 setgray
+	0 setlinewidth
+} bind def
+/MathPictureEnd {
+	grestore
+} bind def
+/MathSubStart {
+        Mgmatrix Mtmatrix
+        Mleft Mbottom
+        Mwidth Mheight
+        8 -2 roll
+        moveto
+        Mtmatrix setmatrix
+        currentpoint
+        Mgmatrix setmatrix
+        10 -2 roll
+        moveto
+        Mtmatrix setmatrix
+        currentpoint
+        2 copy translate
+        /Mtmatrix matrix currentmatrix def
+        /Mleft 0 def
+        /Mbottom 0 def
+        3 -1 roll
+        exch sub
+        /Mheight exch def
+        sub
+        /Mwidth exch def
+} bind def
+/MathSubEnd {
+        /Mheight exch def
+        /Mwidth exch def
+        /Mbottom exch def
+        /Mleft exch def
+        /Mtmatrix exch def
+        dup setmatrix
+        /Mgmatrix exch def
+} bind def
+/Mdot {
+	moveto
+	0 0 rlineto
+	stroke
+} bind def
+/Mtetra {
+	moveto
+	lineto
+	lineto
+	lineto
+	fill
+} bind def
+/Metetra {
+	moveto
+	lineto
+	lineto
+	lineto
+	closepath
+	gsave
+	fill
+	grestore
+	0 setgray
+	stroke
+} bind def
+/Mistroke {
+	flattenpath
+	0 0 0
+	{
+	4 2 roll
+	pop pop
+	}
+	{
+	4 -1 roll
+	2 index
+	sub dup mul
+	4 -1 roll
+	2 index
+	sub dup mul
+	add sqrt
+	4 -1 roll
+	add
+	3 1 roll
+	}
+	{
+	stop
+	}
+	{
+	stop
+	}
+	pathforall
+	pop pop
+	currentpoint
+	stroke
+	moveto
+	currentdash
+	3 -1 roll
+	add
+	setdash
+} bind def
+/Mfstroke {
+	stroke
+	currentdash
+	pop 0
+	setdash
+} bind def
+/Mrotsboxa {
+	gsave
+	dup
+	/Mrot
+	exch def
+	Mrotcheck
+	Mtmatrix
+	dup
+	setmatrix
+	7 1 roll
+	4 index
+	4 index
+	translate
+	rotate
+	3 index
+	-1 mul
+	3 index
+	-1 mul
+	translate
+	/Mtmatrix
+	matrix
+	currentmatrix
+	def
+	grestore
+	Msboxa
+	3  -1 roll
+	/Mtmatrix
+	exch def
+	/Mrot
+	0 def
+} bind def
+/Msboxa {
+	newpath
+	5 -1 roll
+	Mvboxa
+	pop
+	Mboxout
+	6 -1 roll
+	5 -1 roll
+	4 -1 roll
+	Msboxa1
+	5 -3 roll
+	Msboxa1
+	Mboxrot
+	[
+	7 -2 roll
+	2 copy
+	[
+	3 1 roll
+	10 -1 roll
+	9 -1 roll
+	]
+	6 1 roll
+	5 -2 roll
+	]
+} bind def
+/Msboxa1 {
+	sub
+	2 div
+	dup
+	2 index
+	1 add
+	mul
+	3 -1 roll
+	-1 add
+	3 -1 roll
+	mul
+} bind def
+/Mvboxa	{
+	Mfixwid
+	{
+	Mvboxa1
+	}
+	{
+	dup
+	Mwidthcal
+	0 exch
+	{
+	add
+	}
+	forall
+	exch
+	Mvboxa1
+	4 index
+	7 -1 roll
+	add
+	4 -1 roll
+	pop
+	3 1 roll
+	}
+	ifelse
+} bind def
+/Mvboxa1 {
+	gsave
+	newpath
+	[ true
+	3 -1 roll
+	{
+	Mbbox
+	5 -1 roll
+	{
+	0
+	5 1 roll
+	}
+	{
+	7 -1 roll
+	exch sub
+	(m) stringwidth pop
+	.3 mul
+	sub
+	7 1 roll
+	6 -1 roll
+	4 -1 roll
+	Mmin
+	3 -1 roll
+	5 index
+	add
+	5 -1 roll
+	4 -1 roll
+	Mmax
+	4 -1 roll
+	}
+	ifelse
+	false
+	}
+	forall
+	{ stop } if
+	counttomark
+	1 add
+	4 roll
+	]
+	grestore
+} bind def
+/Mbbox {
+	0 0 moveto
+	false charpath
+	flattenpath
+	pathbbox
+	newpath
+} bind def
+/Mmin {
+	2 copy
+	gt
+	{ exch } if
+	pop
+} bind def
+/Mmax {
+	2 copy
+	lt
+	{ exch } if
+	pop
+} bind def
+/Mrotshowa {
+	dup
+	/Mrot
+	exch def
+	Mrotcheck
+	Mtmatrix
+	dup
+	setmatrix
+	7 1 roll
+	4 index
+	4 index
+	translate
+	rotate
+	3 index
+	-1 mul
+	3 index
+	-1 mul
+	translate
+	/Mtmatrix
+	matrix
+	currentmatrix
+	def
+	Mgmatrix setmatrix
+	Mshowa
+	/Mtmatrix
+	exch def
+	/Mrot 0 def
+} bind def
+/Mshowa {
+	4 -2 roll
+	moveto
+	2 index
+	Mtmatrix setmatrix
+	Mvboxa
+	7 1 roll
+	Mboxout
+	6 -1 roll
+	5 -1 roll
+	4 -1 roll
+	Mshowa1
+	4 1 roll
+	Mshowa1
+	rmoveto
+	currentpoint
+	Mfixwid
+	{
+	Mshowax
+	}
+	{
+	Mshoway
+	}
+	ifelse
+	pop pop pop pop
+	Mgmatrix setmatrix
+} bind def
+/Mshowax {
+	0 1
+        4 index length
+        -1 add
+        {
+        2 index
+        4 index
+        2 index
+        get
+        3 index
+        add
+        moveto
+        4 index
+        exch get
+        show
+        } for
+} bind def
+/Mshoway {
+        3 index
+        Mwidthcal
+        5 1 roll
+	0 1
+	4 index length
+	-1 add
+	{
+	2 index
+	4 index
+	2 index
+	get
+	3 index
+	add
+	moveto
+	4 index
+	exch get
+	[
+	6 index
+	aload
+	length
+	2 add
+	-1 roll
+	{
+	pop
+	Strform
+	stringwidth
+	pop
+	neg
+	exch
+	add
+	0 rmoveto
+	}
+	exch
+	kshow
+	cleartomark
+	} for
+	pop
+} bind def
+/Mwidthcal {
+	[
+	exch
+	{
+	Mwidthcal1
+	}
+	forall
+	]
+	[
+	exch
+	dup
+	Maxlen
+	-1 add
+	0 1
+	3 -1 roll
+	{
+	[
+	exch
+	2 index
+	{
+	1 index
+	Mget
+	exch
+	}
+	forall
+	pop
+	Maxget
+	exch
+	}
+	for
+	pop
+	]
+	Mreva
+} bind def
+/Mreva	{
+	[
+	exch
+	aload
+	length
+	-1 1
+	{1 roll}
+	for
+	]
+} bind def
+/Mget	{
+	1 index
+	length
+	-1 add
+	1 index
+	ge
+	{
+	get
+	}
+	{
+	pop pop
+	0
+	}
+	ifelse
+} bind def
+/Maxlen	{
+	[
+	exch
+	{
+	length
+	}
+	forall
+	Maxget
+} bind def
+/Maxget	{
+	counttomark
+	-1 add
+	1 1
+	3 -1 roll
+	{
+	pop
+	Mmax
+	}
+	for
+	exch
+	pop
+} bind def
+/Mwidthcal1 {
+	[
+	exch
+	{
+	Strform
+	stringwidth
+	pop
+	}
+	forall
+	]
+} bind def
+/Strform {
+	/tem (x) def
+	tem 0
+	3 -1 roll
+	put
+	tem
+} bind def
+/Mshowa1 {
+	2 copy
+	add
+	4 1 roll
+	sub
+	mul
+	sub
+	-2 div
+} bind def
+/MathScale {
+	Mwidth
+	Mheight
+	Mlp
+	translate
+	scale
+	/Msaveaa exch def
+	/Msavebb exch def
+	/Msavecc exch def
+	/Msavedd exch def
+	/Mgmatrix
+	matrix currentmatrix
+	def
+} bind def
+/Mlp {
+	3 copy
+	Mlpfirst
+	{
+	Mnodistort
+	{
+	Mmin
+	dup
+	} if
+	4 index
+	2 index
+	2 index
+	Mlprun
+	11 index
+	11 -1 roll
+	10 -4 roll
+	Mlp1
+	8 index
+	9 -5 roll
+	Mlp1
+	4 -1 roll
+	and
+	{ exit } if
+	3 -1 roll
+	pop pop
+	} loop
+	exch
+	3 1 roll
+	7 -3 roll
+	pop pop pop
+} bind def
+/Mlpfirst {
+	3 -1 roll
+	dup length
+	2 copy
+	-2 add
+	get
+	aload
+	pop pop pop
+	4 -2 roll
+	-1 add
+	get
+	aload
+	pop pop pop
+	6 -1 roll
+	3 -1 roll
+	5 -1 roll
+	sub
+	dup /MsaveAx exch def
+	div
+	4 1 roll
+	exch sub
+	dup /MsaveAy exch def
+	div
+} bind def
+/Mlprun {
+	2 copy
+	4 index
+	0 get
+	dup
+	4 1 roll
+	Mlprun1
+	3 copy
+	8 -2 roll
+	9 -1 roll
+	{
+	3 copy
+	Mlprun1
+	3 copy
+	11 -3 roll
+	/gt Mlpminmax
+	8 3 roll
+	11 -3 roll
+	/lt Mlpminmax
+	8 3 roll
+	} forall
+	pop pop pop pop
+	3 1 roll
+	pop pop
+	aload pop
+	5 -1 roll
+	aload pop
+	exch
+	6 -1 roll
+	Mlprun2
+	8 2 roll
+	4 -1 roll
+	Mlprun2
+	6 2 roll
+	3 -1 roll
+	Mlprun2
+	4 2 roll
+	exch
+	Mlprun2
+	6 2 roll
+} bind def
+/Mlprun1 {
+	aload pop
+	exch
+	6 -1 roll
+	5 -1 roll
+	mul add
+	4 -2 roll
+	mul
+	3 -1 roll
+	add
+} bind def
+/Mlprun2 {
+	2 copy
+	add 2 div
+	3 1 roll
+	exch sub
+} bind def
+/Mlpminmax {
+	cvx
+	2 index
+	6 index
+	2 index
+	exec
+	{
+	7 -3 roll
+	4 -1 roll
+	} if
+	1 index
+	5 index
+	3 -1 roll
+	exec
+	{
+	4 1 roll
+	pop
+	5 -1 roll
+	aload
+	pop pop
+	4 -1 roll
+	aload pop
+	[
+	8 -2 roll
+	pop
+	5 -2 roll
+	pop
+	6 -2 roll
+	pop
+	5 -1 roll
+	]
+	4 1 roll
+	pop
+	}
+	{
+	pop pop pop
+	} ifelse
+} bind def
+/Mlp1 {
+	5 index
+	3 index	sub
+	5 index
+	2 index mul
+	1 index
+	le
+	1 index
+	0 le
+	or
+	dup
+	not
+	{
+	1 index
+	3 index	div
+	.99999 mul
+	8 -1 roll
+	pop
+	7 1 roll
+	}
+	if
+	8 -1 roll
+	2 div
+	7 -2 roll
+	pop sub
+	5 index
+	6 -3 roll
+	pop pop
+	mul sub
+	exch
+} bind def
+/intop 0 def
+/inrht 0 def
+/inflag 0 def
+/outflag 0 def
+/xadrht 0 def
+/xadlft 0 def
+/yadtop 0 def
+/yadbot 0 def
+/Minner {
+	outflag
+	1
+	eq
+	{
+	/outflag 0 def
+	/intop 0 def
+	/inrht 0 def
+	} if
+	5 index
+	gsave
+	Mtmatrix setmatrix
+	Mvboxa pop
+	grestore
+	3 -1 roll
+	pop
+	dup
+	intop
+	gt
+	{
+	/intop
+	exch def
+	}
+	{ pop }
+	ifelse
+	dup
+	inrht
+	gt
+	{
+	/inrht
+	exch def
+	}
+	{ pop }
+	ifelse
+	pop
+	/inflag
+	1 def
+} bind def
+/Mouter {
+	/xadrht 0 def
+	/xadlft 0 def
+	/yadtop 0 def
+	/yadbot 0 def
+	inflag
+	1 eq
+	{
+	dup
+	0 lt
+	{
+	dup
+	intop
+	mul
+	neg
+	/yadtop
+	exch def
+	} if
+	dup
+	0 gt
+	{
+	dup
+	intop
+	mul
+	/yadbot
+	exch def
+	}
+	if
+	pop
+	dup
+	0 lt
+	{
+	dup
+	inrht
+	mul
+	neg
+	/xadrht
+	exch def
+	} if
+	dup
+	0 gt
+	{
+	dup
+	inrht
+	mul
+	/xadlft
+	exch def
+	} if
+	pop
+	/outflag 1 def
+	}
+	{ pop pop}
+	ifelse
+	/inflag 0 def
+	/inrht 0 def
+	/intop 0 def
+} bind def
+/Mboxout {
+	outflag
+	1
+	eq
+	{
+	4 -1
+	roll
+	xadlft
+	leadjust
+	add
+	sub
+	4 1 roll
+	3 -1
+	roll
+	yadbot
+	leadjust
+	add
+	sub
+	3 1
+	roll
+	exch
+	xadrht
+	leadjust
+	add
+	add
+	exch
+	yadtop
+	leadjust
+	add
+	add
+	/outflag 0 def
+	/xadlft 0 def
+	/yadbot 0 def
+	/xadrht 0 def
+	/yadtop 0 def
+	} if
+} bind def
+/leadjust {
+	(m) stringwidth pop
+	.5 mul
+} bind def
+/Mrotcheck {
+	dup
+	90
+	eq
+	{
+	yadbot
+	/yadbot
+	xadrht
+	def
+	/xadrht
+	yadtop
+	def
+	/yadtop
+	xadlft
+	def
+	/xadlft
+	exch
+	def
+	}
+	if
+	dup
+	cos
+	1 index
+	sin
+	Checkaux
+	dup
+	cos
+	1 index
+	sin neg
+	exch
+	Checkaux
+	3 1 roll
+	pop pop
+} bind def
+/Checkaux {
+	4 index
+	exch
+	4 index
+	mul
+	3 1 roll
+	mul add
+	4 1 roll
+} bind def
+/Mboxrot {
+	Mrot
+	90 eq
+	{
+	brotaux
+	4 2
+	roll
+	}
+	if
+	Mrot
+	180 eq
+	{
+	4 2
+        roll
+	brotaux
+	4 2
+	roll
+	brotaux
+	}
+	if
+	Mrot
+	270 eq
+	{
+	4 2
+	roll
+	brotaux
+	}
+	if
+} bind def
+/brotaux {
+	neg
+	exch
+	neg
+} bind def
+/Mabswid {
+	Mimatrix
+	0 get
+	Mgmatrix
+	0 get
+	div
+	mul
+	setlinewidth
+} bind def
+/Mabsdash {
+	exch
+	Mimatrix
+	0 get
+	Mgmatrix
+	0 get
+	div
+	[
+	3 1 roll
+	exch
+	{
+	exch
+	dup
+	3 -1 roll
+	mul
+	exch
+	}
+	forall
+	pop ]
+	exch
+	setdash
+} bind def
+/colorimage where
+{ pop }
+{
+/colorimage {
+3 1 roll
+ pop pop
+ 5 -1 roll
+ mul
+ 4 1 roll
+{
+currentfile
+1 index
+readhexstring
+pop }
+image
+} bind def
+} ifelse
+/sampledsound where
+{ pop}
+{ /sampledsound {
+exch
+pop
+exch
+5 1 roll
+mul
+4 idiv
+mul
+2 idiv
+exch pop
+exch
+/Mtempproc exch def
+{ Mtempproc pop }
+repeat
+} bind def
+} ifelse
+
+/Mleft		0.000000 def
+/Mbottom	174.499466 def
+/Mwidth		282.000031 def
+/Mheight	174.499466 def
+/Mfontsize 12 def
+/Plain /Symbol findfont def
+
+% % % % % % % % % % % % % % custom insert - begin % % % % % % % % % % % % % % 
+%
+% PLACE THIS JUST BEFORE THE LINES:	1 -1 scale
+%		  ~~~~~~		
+%					%%Creator: Mathematica
+%					%%AspectRatio: 0.61803 
+%
+%
+
+/printscale .9 def
+/recip {1 printscale div} def
+/screenstretch {printscale 1.3 mul} def
+/double {screenstretch 2 mul} def
+
+ printscale printscale scale	    % scale for printing
+% screenstretch screenstretch scale % printing scale on screen
+% double double scale               % magnified screen
+
+% ----------------- arrow drawing procedures ------------------
+
+/arrow 
+{-4 recip mul 	0 		rmoveto
+ 0  		1 recip mul 	rlineto
+ 4 recip mul 	-1 recip mul 	rlineto
+-4 recip mul 	-1 recip mul 	rlineto
+ 0  		1 recip mul 	rlineto
+ 4 recip mul 	0 		rlineto} def
+
+/rarrowto {					% stack: dx dy
+  2 copy
+  dup mul exch dup mul add  sqrt		% length of arrow
+  3 1 roll exch atan dup 				% angle
+  rotate exch 0 rlineto arrow neg rotate	% make arrow
+} def
+/arrowto {					% stack: x y
+  currentpoint 3 -1 roll sub neg 3 1 roll sub exch rarrowto
+} def
+
+% ------------------ graphics instructions --------------------
+
+.3 setlinewidth
+
+% position the origin
+ 50 240 moveto				% screen origin
+% 0 0 moveto
+currentpoint translate
+
+newpath
+-10 -150 moveto
+290 0 rarrowto
+5 -180 moveto
+0 175 rarrowto
+fill
+
+/smbox {			% stack: x y for center
+  moveto
+  -3 -3 rmoveto
+  6 0 rlineto
+  0 6 rlineto
+  -6 0 rlineto
+  closepath
+} def
+  
+/bigbox {			% stack: x y for center
+  moveto
+  -35 -35 rmoveto
+  70 0 rlineto
+  0 70 rlineto
+  -70 0 rlineto
+  closepath
+} def
+
+newpath				% small boxes
+19 -130 smbox
+68 -88 smbox
+170 -100 smbox
+230 -97 smbox
+stroke
+
+newpath				% large boxes
+70 -195 bigbox
+190 -195 bigbox
+120 -35 bigbox
+240 -35 bigbox
+stroke
+
+gsave				% connecting dashed lines
+[2 2] 0 setdash
+16 -133 moveto
+35 -230 lineto
+22 -127 moveto
+105 -160 lineto
+65 -85 moveto
+85 0 lineto
+71 -91 moveto
+155 -70 lineto
+167 -97 moveto
+155 -160 lineto
+173 -97 moveto
+225 -160 lineto
+227 -100 moveto
+205 -70 lineto
+233 -100 moveto
+275 -70 lineto 
+stroke 
+grestore
+
+gsave				% graphs in large boxes
+.9 recip mul setlinewidth
+67 -230 moveto
+7 70 rlineto
+107 0 moveto
+24 -70 rlineto
+155 -207 moveto
+70 26 rlineto
+205 -32 moveto
+70 -6 rlineto
+stroke
+grestore
+
+newpath				% dx - dy lines
+69 -230 moveto
+0 20 rlineto
+36 0 rlineto
+73 -230 moveto
+0 60 rlineto
+32 0 rlineto
+115 -70 moveto
+0 46 rlineto
+40 0 rlineto
+121 -70 moveto
+0 28 rlineto
+34 0 rlineto
+185 -230 moveto
+0 34 rlineto
+40 0 rlineto
+195 -230 moveto
+0 38 rlineto
+30 0 rlineto
+230 -70 moveto
+0 36.5 rlineto
+45 0 rlineto
+247 -70 moveto
+0 34 rlineto
+28 0 rlineto
+stroke
+
+/sar {.5 .5 scale rarrowto stroke} def
+gsave				% dx - dy arrows
+1 recip mul setlinewidth
+69 -228 moveto
+gsave
+7 0 sar
+grestore
+103 -210 moveto
+gsave
+0 79 sar
+grestore
+115 -68 moveto
+gsave
+11 0 sar
+grestore
+153 -24 moveto
+gsave
+0 -35 sar
+grestore
+185 -228 moveto
+gsave
+18 0 sar
+grestore
+223 -196 moveto
+gsave
+0 7 sar
+grestore
+230 -68 moveto
+gsave
+32 0 sar
+grestore
+273 -34 moveto
+gsave
+0 -4 sar
+grestore
+
+
+grestore
+
+% -------------------- font codes --------------------------
+
+/typesize {10 printscale div} def
+/smalltype {8 printscale div} def
+
+/makeTR {/Times-Roman findfont typesize scalefont} def
+/makeTB {/Times-Bold findfont typesize scalefont} def
+/makeTI {/Times-Italic findfont typesize scalefont} def
+/makeSYM {/Symbol findfont typesize scalefont} def
+
+/maketr {/Times-Roman findfont smalltype scalefont} def
+/maketi {/Times-Italic findfont smalltype scalefont} def
+/makesym {/Symbol findfont smalltype scalefont} def
+
+/TR {makeTR setfont} def
+/TB {makeTB setfont} def
+/TI {makeTI setfont} def
+/SYM {makeSYM setfont} def
+
+/tr {maketr setfont} def
+/ti {maketi setfont} def
+/sym {makesym setfont} def
+
+% ---------------string placing procedures-------------------
+
+% stack: fontcode string x y 
+
+/placeBL {moveto show} def
+/placeBR {moveto dup stringwidth pop neg 0 rmoveto show} def
+/placeBC {moveto dup stringwidth pop 2 div neg 0 rmoveto show} def
+/placeTL {moveto 0 typesize neg rmoveto show} def
+/placeTR {moveto dup stringwidth pop neg typesize neg rmoveto show} def
+/placeTC {moveto dup stringwidth pop 2 div neg typesize neg rmoveto show} def
+
+
+% my labels
+TI (x) 280 -149 placeTC
+(y) 1 -8 placeBR
+sym (D) 71 -227 placeTR		% 
+ti (x) show
+sym (D) 107 -193 placeBL
+ti (y) show
+sym (D) 118 -66 placeTR		%
+ti (x) show
+sym (D) 157 -36 placeBL
+ti (y) show
+sym (D) 190 -227 placeTR	%
+ti (x) show
+sym (D) 228 -197 placeBL
+ti (y) show
+sym (D) 240 -67 placeTR		%
+ti (x) show
+sym (D) 277 -37 placeBL
+ti (y) show
+
+%
+%
+% % % % % % % % % % % % % custom insert - end % % % % % % % % % % % %
+
+1 -1 scale
+%!
+%%Creator: Mathematica
+%%AspectRatio: 0.61803 
+MathPictureStart
+/Symbol findfont 10  scalefont  setfont
+% Scaling calculations
+0.079832 0.112045 0.088291 0.882906 [
+[ -0.001 -0.001 0 0 ]
+[ 1.001 0.61903 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+%%Object: Graphics
+[ ] 0 setdash
+0 setgray
+0 0 moveto
+1 0 lineto
+1 0.61803 lineto
+0 0.61803 lineto
+closepath
+clip
+newpath
+gsave
+gsave
+0.0035 recip mul setlinewidth
+stroke
+stroke
+0.05318 0 moveto
+0.06349 0.11748 lineto
+stroke
+0.06349 0.11748 moveto
+0.07341 0.21139 lineto
+0.08333 0.2916 lineto
+0.09325 0.35802 lineto
+0.10317 0.41099 lineto
+0.1131 0.45114 lineto
+0.11806 0.46667 lineto
+0.12302 0.47934 lineto
+0.12798 0.48929 lineto
+0.13046 0.49329 lineto
+0.13294 0.49666 lineto
+0.13542 0.49942 lineto
+0.1379 0.50159 lineto
+0.13914 0.50247 lineto
+0.14038 0.5032 lineto
+0.14162 0.50379 lineto
+0.14286 0.50425 lineto
+0.1441 0.50457 lineto
+0.14534 0.50476 lineto
+0.14658 0.50483 lineto
+0.14782 0.50477 lineto
+0.14906 0.50459 lineto
+0.1503 0.50428 lineto
+0.15154 0.50386 lineto
+0.15278 0.50332 lineto
+0.15774 0.50005 lineto
+0.16022 0.49779 lineto
+0.1627 0.49512 lineto
+0.17262 0.48088 lineto
+0.18254 0.46178 lineto
+0.22222 0.3579 lineto
+0.2619 0.24957 lineto
+0.28175 0.20471 lineto
+0.30159 0.16898 lineto
+0.32143 0.1431 lineto
+0.33135 0.13382 lineto
+0.33631 0.13006 lineto
+0.34127 0.12688 lineto
+0.34623 0.12425 lineto
+0.35119 0.12216 lineto
+0.35367 0.12131 lineto
+0.35615 0.12058 lineto
+0.35863 0.11998 lineto
+0.36111 0.11951 lineto
+0.36235 0.11932 lineto
+0.36359 0.11915 lineto
+0.36483 0.11902 lineto
+0.36607 0.11891 lineto
+0.36731 0.11884 lineto
+0.36855 0.11879 lineto
+Mistroke
+0.36979 0.11876 lineto
+0.37103 0.11877 lineto
+0.37227 0.1188 lineto
+0.37351 0.11886 lineto
+0.37475 0.11895 lineto
+0.37599 0.11906 lineto
+0.38095 0.11976 lineto
+0.38343 0.12026 lineto
+0.38591 0.12085 lineto
+0.39087 0.1223 lineto
+0.40079 0.12619 lineto
+0.41071 0.13124 lineto
+0.42063 0.13726 lineto
+0.46032 0.16762 lineto
+0.5 0.20098 lineto
+0.53968 0.2307 lineto
+0.55952 0.24303 lineto
+0.57937 0.25341 lineto
+0.59921 0.26182 lineto
+0.61905 0.26832 lineto
+0.62897 0.27091 lineto
+0.63889 0.27308 lineto
+0.64881 0.27486 lineto
+0.65873 0.27629 lineto
+0.66865 0.27738 lineto
+0.67857 0.27818 lineto
+0.68353 0.27847 lineto
+0.68849 0.2787 lineto
+0.69345 0.27887 lineto
+0.69593 0.27893 lineto
+0.69841 0.27898 lineto
+0.70089 0.27902 lineto
+0.70213 0.27903 lineto
+0.70337 0.27904 lineto
+0.70461 0.27905 lineto
+0.70585 0.27905 lineto
+0.70709 0.27905 lineto
+0.70833 0.27905 lineto
+0.70957 0.27904 lineto
+0.71081 0.27904 lineto
+0.71205 0.27903 lineto
+0.71329 0.27901 lineto
+0.71577 0.27898 lineto
+0.71825 0.27893 lineto
+0.72321 0.27881 lineto
+0.72817 0.27866 lineto
+0.7381 0.27824 lineto
+0.75794 0.27711 lineto
+0.77778 0.2757 lineto
+0.81746 0.27255 lineto
+Mistroke
+0.85714 0.26959 lineto
+0.87698 0.26831 lineto
+0.89683 0.26721 lineto
+0.91667 0.26629 lineto
+0.93651 0.26554 lineto
+0.95635 0.26496 lineto
+0.97619 0.26453 lineto
+Mfstroke
+grestore
+grestore
+% End of Graphics
+MathPictureEnd%%PSTrailer
+end
+
+% Mathematica code
+%
+
+%
+% the following scale is needed to convert back to my coordinate system;
+% no other scaling changes are needed.
+
+1 -1 scale
+
+/printscale 1 def
+/recip {1 printscale div} def
+
+/arrow 
+{-4 recip mul 	0 		rmoveto
+ 0  		1 recip mul 	rlineto
+ 4 recip mul 	-1 recip mul 	rlineto
+-4 recip mul 	-1 recip mul 	rlineto
+ 0  		1 recip mul 	rlineto
+ 4 recip mul 	0 		rlineto} def
+
+/rightarrow {arrow} def
+/uparrow {90 rotate arrow -90 rotate} def
+/leftarrow {180 rotate arrow -180 rotate} def
+/downarrow {-90 rotate arrow 90 rotate} def
+/bigdot {currentpoint 1.5 0 360 arc fill} def	
+/smalldot {currentpoint 1 0 360 arc fill} def	
+/rarrowto {					% stack: dx dy
+  2 copy
+  dup mul exch dup mul add  sqrt		% length of arrow
+  3 1 roll exch atan dup 				% angle
+  rotate exch 0 rlineto arrow neg rotate	% make arrow
+} def
+/arrowto {					% stack: x y
+  currentpoint 3 -1 roll sub neg 3 1 roll sub exch rarrowto
+} def
+
+gsave
+newpath
+.4 setgray
+0 50 500 
+{ 0 moveto
+  0 -400 rlineto
+} for
+0 -50 -300 
+{ 0 exch moveto
+  500 0 rlineto
+} for
+% stroke			% comment out here to eliminate grid lines
+grestore
+
+%%EPS Trailer
