@@ -1,0 +1,450 @@
+%includes changes made by Harriet 5/28/94
+\documentstyle[12pt]{cicfinal}
+%leqno and bezier removed
+%Revised by Harriet & Jim 6/26/94
+% sent to Freeman 6/29/94
+
+\newcommand{\mar}[1]{\marginpar[\raggedright\footnotesize\sf #1]{\raggedleft\footnotesize\sf #1}}
+\newcommand{\asideleft}[1]{\medskip\noindent%
+        \rule{321pt}{0pt}\makebox[0pt][r]{%
+        \begin{minipage}[t]{400pt}\footnotesize\sf{#1}%
+        \end{minipage}}\bigskip}
+\newcommand{\asideright}[1]{\medskip\noindent%
+        \rule{40pt}{0pt}\makebox[0pt][l]{%
+        \begin{minipage}[t]{400pt}\footnotesize\sf{#1}%
+        \end{minipage}}\bigskip}
+\newcommand{\aside}[1]{\ifodd \value{page}%
+        {\asideright{#1}}\else{\asideleft{#1}}\fi}
+\newcounter{exercisenumber}[subsection]
+\newcounter{exercisepart}[exercisenumber]
+\newcommand{\num}{\stepcounter{exercisenumber}\par\bigskip%
+        \noindent\arabic{exercisenumber}.\quad}
+\newcommand{\numa}{\stepcounter{exercisenumber}\par\bigskip%
+        \noindent\arabic{exercisenumber}.\quad%
+        \stepcounter{exercisepart}\alph{exercisepart})\enskip}\newcommand{\sub}{\stepcounter{exercisepart}\par\smallskip%
+        \noindent\alph{exercisepart})\enskip\thinspace}
+\newcommand{\ans}[1]{\par\smallskip\noindent[Answer:\enskip%
+        {#1}]}
+        
+\makeindex
+
+\begin{document}
+
+\setcounter{chapter}{9}
+
+\chapter{Series and Approximations}
+\newpage
+\setcounter{page}{606}
+
+\setcounter{section}{3}
+\section{Power Series and Differential Equations}
+
+So far, we have begun with functions we already know, in the sense of being able to calculate the value of the function and all its derivatives at at least one point.  This in turn allowed us to write down the corresponding Taylor series. Often, though, we don't even have this much information about a function.  In such cases it is frequently useful to assume that there is some infinite polynomial---called a {\bf power series}\index{power series}---which represents the function, and then see if we can determine the coefficients of the polynomial. 
+
+This technique is especially useful in dealing with differential equations.  To see why this is the case, think of the alternatives.  If we
+can approximate the solution $y=y(x)$ to a certain differential equation to an acceptable degree of accuracy by, say, a 20-th degree polynomial, then the only storage space required is the insignificant space taken to keep track of the 21 coefficients.  Whenever we want the value of the solution for a given value of $x$, we can then get a quick approximation by evaluating the polynomial at $x$.  Other alternatives are much more costly in time or in space.  We could use Euler's method to grind out the solution at $x$, but, as you've already discovered, this can be a slow and tedious process.  Another option is to calculate lots of values and store them in a table in the computer's memory.  This not only takes up a lot of memory space, but it also only gives values for a finite set of values of $x$, and is not much faster than evaluating a polynomial.  Until 30 years ago, the table approach was the standard one---all scientists and mathematicians had a handbook of mathematical functions containing hundreds of pages of numbers giving the values of every function they might need.
+
+ 
+
+To see how this can happen, let's first look at a familiar differential equation whose solutions we already know:
+$$
+y'=y.
+$$
+Of course, we know by now that the solutions are $y=ae^x$ for an arbitrary constant $a$ (where $a=y(0)$).  Suppose, though, that we didn't already know how to solve this differential equation.  We might see if we could find a power series of the form
+$$
+y = a_0 + a_1\,x + a_2\, x^2 + a_3\, x^3 + \cdots + a_n\, x^n + \cdots
+$$
+which is a solution to the differential equation.  Can we determine values for the coefficients $a_0, a_1, a_2, \cdots , a_n , \cdots $ that will make $y'=y$?
+
+Using the rules for differentiation, we have
+$$
+y'= a_1 + 2a_2\,x + 3 a_3\,x^2 + 4 a_4\,x^3 + \cdots + n a_n\,x^{n-1} + \cdots
+\, .$$
+Two polynomials are equal if and only if the coefficients of corresponding powers of $x$ are equal.  Therefore, if $y'=y\,,$ it would have to be true that
+\begin{eqnarray*}
+a_1 & = & a_0 \\
+2 a_2 & = & a_1 \\
+3 a_3 & = & a_2 \\
+&\vdots&  \\
+n a_n & = & a_{n-1} \\
+& \vdots& 
+\end{eqnarray*}
+Therefore the values of $a_1$, $a_2$, $a_3$, \ldots are not arbitrary; indeed, each is determined by the preceding one.  Equations like these---which deal with a sequence of quantities and relate each term to those earlier in the sequence---are called {\bf recursion relations}\index{recursion relations}.  These recursion relations permit us to express every $a_n$ in terms of $a_0$: \\
+$$\begin{array}{rclclcl}
+a_1 & = & a_0 &&&&\\ [.15in]
+a_2 & = & {1 \over 2} \, a_1 && &=&{1 \over 2} \, a_0 \\ [.15in]
+a_3 & = & {1 \over 3} \, a_2 &= &{1 \over 3}\cdot {1 \over 2} \, a_0 &= &
+{1 \over 3!} \, a_0 \\ [.15in]
+a_4 & = & {1 \over 4} \, a_3& =& {1 \over 4}\cdot{1 \over 3!} \, a_0 &= &
+{1 \over 4!} \, a_0 \\
+ &\vdots& &\vdots& &\vdots& \\
+a_n & = & {1 \over n} \, a_{n-1} &= &{1 \over n}\cdot{1 \over (n-1)!} \, a_0 &=& {1 \over n!} \, a_0 \\
+& \vdots&  &\vdots & &\vdots&
+\end{array}$$
+
+Notice that $a_0$ remains ``free":  there is no equation that determines its value.  Thus, without additional information, $a_0$ is {\em arbitrary}.  The series for $y$ now becomes
+$$
+y = a_0 + a_0\, x + {1 \over 2!} \, a_0 \,x^2 + {1 \over 3!} \, a_0 \,x^3 + \cdots +
+{1 \over n!} \, a_0 \,x^n + \cdots
+$$
+or
+$$
+y = a_0\left[1 + x + {1 \over 2!} \, x^2 + {1 \over 3!} \, x^3 + \cdots +
+{1 \over n!} \, x^2 + \cdots \right] \, .
+$$
+But the series in square brackets is just the Taylor series for $e^x \,$---we have derived the Taylor series from the differential equation alone, without using any of the other properties of the exponential function.  Thus, we again find that the solutions of the differential equation $y'=y$ are
+$$
+y=a_0e^x \, ,
+$$
+where $a_0$ is an arbitrary constant.  Notice that $y(0)=a_0$, so the value of $a_0$ will be determined if the initial value of $y$ is specified.
+
+\noindent
+{\bf Note}  In general, once we have derived a power series expression for a function, that power series will also be the Taylor series for that function.  Although the two series are the same, the term Taylor series is typically reserved for those settings where we were able to evaluate the derivatives through some other means, as in the preceding section.
+
+\subsection{Bessel's Equation}\index{Bessel's equation}\index{Bessel equation of order $p$}
+
+  For a new example, let's look at a differential equation that arises in an enormous variety of physical problems (wave motion, optics, the conduction of electricity and of heat and fluids, and the stability of columns, to name a few):
+$$
+x^2 \cdot y'' + x \cdot y' + (x^2 - p^2) \cdot y = 0 \, .
+$$
+This is called the {\bf Bessel equation of order} {\boldmath $p$}.  Here $p$ is a parameter specified in advance, so we will really have a different set of solutions for each value of $p$.  To determine a solution completely, we will also need to specify the initial values of $y(0)$ and $y'(0)$.  The solutions of the Bessel equation of order $p$ are called {\bf Bessel functions of order} {\boldmath $p$}\index{Bessel functions of order $p$}, and the solution for a given value of $p$ (together with particular initial conditions which needn't concern us here) is written $J_p(x)$.  In general, there is no formula for a Bessel function in terms of simpler functions (although it turns out that a few special cases like $J_{1/2}(x), J_{3/2}(x) , \ldots$ can be expressed relatively simply).  To evaluate such a function we could use Euler's method, or we could try to find a power series solution.
+
+\aside{Friedrich Wilhelm Bessel (1784--1846)\index{Bessel, Wilhelm Friedrich (1784--1846)} was a German astronomer who studied the functions that now bear his name in his efforts to analyze the perturbations of planetary motions, particularly those of Saturn.}
+
+Consider the Bessel equation with $p=0$.  We are thus trying to solve the differential equation
+$$
+x^2 \cdot y'' + x \cdot y' + x^2  \cdot y = 0 \, .
+$$
+By dividing by $x$, we can simplify this a bit to
+$$
+x \cdot y'' + y' + x \cdot y = 0 \, .
+$$
+
+Let's look for a power series expansion
+$$
+y = b_0 + b_1\,x + b_2\,x^2 +b_3\,x^3 + \cdots \,.
+$$
+
+We can compute
+\begin{eqnarray*}
+y'&=&b_1+2b_2\,x+3b_3\,x^2+4b_4\,x^3+\cdots +(n+2)(n+1)b_{n+2}\,x^n+\cdots \\
+\mbox{and}\hspace{.1in}& & \\
+y''&=&2b_2+6b_3\,x+12b_4\,x^2+20b_5\,x^3 +\cdots +(n+1)b_{n+1}\,x^n+\cdots\, ,
+\end{eqnarray*}
+
+We can now use these expressions to calculate the series for the combination that occurs in the differential equation: 
+
+\medskip
+$
+\begin{array}{rclclclcl}
+xy''&=& & &2b_2\,x&+&6b_3\,x^2&+&\ldots \\
+y'&=&b_1 & +&2b_2\,x&+&3b_3\,x^2&+&\ldots \\
+xy&=& &  &b_0\,x&+&b_1\,x^2&+&\ldots  \\ \hline
+&&&&&&&& \\ [-8pt]
+xy''+y'+xy&=&b_1&+&(4b_2+b_0 )x&+&(9b_3+b_1)x^2&+&\ldots
+\end{array}
+$ 
+
+\medskip
+\noindent
+In general, 
+        \mar{Finding the coefficient of $x^n$}
+the coefficient of $x^n$ in the combination will be 
+$$(n+1)nb_{n+1} + (n+1)b_{n+1} +b_{n-1} = (n+1)^2b_{n+1} +b_{n-1}\,.$$
+
+If $y$ is to be a solution to the original differential equation, this infinite series must equal 0. This in turn means that every coefficient must be 0.  We thus get\begin{eqnarray*}
+b_1 &=&0 \\
+4b_2+b_0  &=&0 \\
+9b_3+b_1 &=&0 \\
+&\vdots& \\
+n^2b_n +b_{n-2}&=&0 \\
+&\vdots& \, .
+\end{eqnarray*}
+If we now solve these recursively as before, we see first off that since $b_1=0$, it must also be true that
+\begin{center}
+$b_k=0$ for every odd $k$.
+\end{center}
+ For the even coefficients we have
+\begin{eqnarray*}
+b_2&=&-\frac{1}{2^2}b_0 \\
+b_4&=&-\frac{1}{4^2}b_2= \frac{1}{2^24^2}b_0\\
+b_6&=&-\frac{1}{6^2}b_4=-\frac{1}{2^2 4^2 6^2}b_0 \\
+&\vdots& 
+\end{eqnarray*}
+so that in general, we have
+$$b_{2n}=\pm \frac{1}{2^2 4^2 6^2 \cdots (2n)^2}b_0= \pm \frac{1}{2^{2n} (n!)^2}b_0 \, .$$
+
+
+Thus any function $y$ satisfying the Bessel equation of order 0 must be of the form
+$$y=b_0\left(1-\frac{x^2}{2^2}+\frac{x^4}{2^4(2!)^2} -\frac{x^6}{2^6(3!)^2} +\cdots \right) \, .$$
+
+In particular, if we impose the initial condition $y(0)=1$ (which requires that $b_0=1$), we get the 0-th order Bessel function $J_0(x)$\index{Bessel function $J_0$}:
+$$J_0(x)=1-\frac{x^2}{4}+\frac{x^4}{64} -\frac{x^6}{2304} +\frac{x^8}{147456}+\cdots  \, .$$
+
+Here is the graph of $J_0(x)$ together with the 
+        \mar{The graph of the \mbox{Bessel function $J_0$}}
+polynomial approximations of degree 2, 4, 6, \ldots , 30 over the interval $[0,14]$:
+
+\vspace*{3in}
+\special{psfile=/me/ps/calc2/Bessel.ps}\index{Bessel function $J_0$, graph of}
+
+The graph of $J_0$ is suggestive:  it appears to be oscillatory, with decreasing amplitude. Both observations are correct: it can in fact be shown that $J_0$ has infinitely many zeroes, spaced roughly $\pi$ units apart, and that $\lim_{x \to\infty} J_0(x) = 0$ \,.
+
+\subsection{The $S$-$I$-$R$ Model One More Time}
+
+In exactly the same way, we can find power series solutions when there are several interacting variables involved. Let's look at the example we've considered at a number of points in this text to see how this works.  In the $S$-$I$-$R$ model we basically wanted 
+        \mar{The $S$-$I$-$R$ model}
+to solve the system of equations
+\begin{eqnarray*}
+S'&=& -a\, S\, I \\
+I'&=& a\, S\, I - b\, I \\
+R'&=& b\, I \, ,
+\end{eqnarray*}
+where $a$ and $b$ were parameters depending on the specific situation.  Let's look for solutions of the form
+\begin{eqnarray*}
+S&=&s_0 + s_1\,t + s_2\,t^2 + s_3\,t^3 + \cdots \\
+I&=&i_0 + i_1\,t + i_2\,t^2 + i_3\,t^3 + \cdots \\
+R&=&r_0 + r_1\,t + r_2\,t^2 + r_3\,t^3 + \cdots \, .
+\end{eqnarray*}
+
+If we put these series in the equation $S'= -a\, S\, I$, we get
+\begin{eqnarray*}
+s_1 + 2s_2t + 3s_3t^2 + \cdots&=&-a(s_0 + s_1t + s_2t^2 + \cdots)(i_0 + i_1t + i_2t^2 + \cdots) \\
+&=&-a(s_0i_0 + (s_0i_1+s_1i_0)t+(s_0i_2+s_1i_1+s_2i_0)t^2 + \cdots ).
+\end{eqnarray*}
+
+As before, 
+        \mar{Finding the coefficients of the power series for $S(t)$}
+if the two sides of the equation are to be equal, the coefficients of corresponding powers of $t$ must be equal:
+\begin{eqnarray*}
+s_1&=&-as_0i_0 \\
+2s_2&=&-a(s_0i_1+s_1i_0) \\
+3s_3&=&-a(s_0i_2+s_1i_1+s_2i_0) \\
+&\vdots& \\
+ns_n&=&-a(s_0i_{n-1}+s_1i_{n-2}+ \ldots +s_{n-2}i_1+s_{n-1}i_0) .
+\end{eqnarray*}
+
+While this looks messy, it has the crucial recursive feature---each $s_k$ is expressed in terms of previous terms.  
+\mar{Recursion again}
+That is, if we knew all the $s$ and the $i$ coefficients out through the coefficients of, say, $t^6$ in the series for $S$ and $I$, we could immediately calculate $s_7$.  We again have a {\em recursion relation}\index{recursion relation}.
+
+We could expand the equation $I'= a\, S\, I - b\, I$ in the same way, and get recursion relations for the coefficients $i_k$.  In this model, though, there is a shortcut if we observe that since $S'= -a\, S\, I$, and since 
+\linebreak
+
+\pagebreak
+
+\noindent
+$I'= a\, S\, I - b\, I$, we have $I' = -S' -b\, I$. If we substitute the power series in this expression and equate coefficients, we get
+$$ni_n = -ns_n - bi_{n-1} \, ,$$
+which leads to
+        \mar{Finding the \\power series \\for $I(t)$}
+$$i_n = -s_n-\frac{b}{n}i_{n-1} $$
+---so if we know $s_n$ and $i_{n-1}$, we can calculate $i_n$.
+
+We are now in a position to calculate the coefficients as far out as we like.  For we will be given values for $a$ and $b$ when we are given the model.  Moreover, since $s_0=S(0) = $ the initial $S$-population, and $i_0=I(0)=$ the initial $I$-population, we will also typically be given these values as well.  But knowing $s_0$ and $i_0$, we can determine $s_1$ and then $i_1$.  But then, knowing these values, we can determine $s_2$ and then $i_2$, and so on.  Since the arithmetic is tedious, this is obviously a place for a computer.  Here is a program that calculates the first 50 coefficients in the power series for $S(t)$ and $I(t)$:\index{program: SIRSERIES}
+
+\begin{center}
+{\bf Program: SIRSERIES}
+\end{center}
+\noindent
+\vspace*{-30pt}
+\begin{verbatim}
+DIM S(0 to 50), I(0 to 50)
+a = .00001
+b = 1/14
+S(0) = 45400
+I(0) = 2100
+FOR k = 1 TO 50
+     Sum = 0
+     FOR j = 0 TO k - 1
+          Sum = Sum + S(j) * I(k - j - 1)
+     NEXT j
+     S(k) = -a * SUM/k
+     I(k) = -S(k) - b * I(k - 1)/k
+NEXT k
+\end{verbatim}
+
+\noindent
+{\bf Comment:}  The opening command in this program introduces a new feature. It notifies the computer that the variables {\tt S} and {\tt I} are going to be {\bf arrays}\index{arrays}---strings of numbers---and that each array will consist of 51 elements.  The element {\tt S(k)} corresponds to what we have been calling $s_k$.  The integer {\tt k} is called the {\bf index}\index{index} of the term in the array.  The indices in this program run from 0 to 50.
+
+The effect of running this program is thus to create two 51-element arrays, {\tt S} and {\tt I}, containing the coefficients of the power series for $S$ and $I$ out to degree 50.  If we just wanted to see these coefficients, we could have the computer list them.  Here are the first 35 coefficients for $S$ (read across the rows):
+\vspace{12pt}
+
+\begin{small}
+\hspace{-60pt}
+\begin{tabular}{rrrrr}
+45400    &    $-953.4$  &  $-172.3611$   &  $-17.982061$  &  $-.86969127$ \\
+5.4479852e-2 & 1.5212707e-2 &1.4463108e-3  &  4.3532884e-5 &$-7.9100481$e-6\\
+$-1.4207959$e-6&$-1.0846994$e-7&$-6.512610$e-10 &9.304633e-10 &1.256507e-10 \\
+7.443310e-12&$-2.191966$e-13&$-9.787285$e-14&$-1.053428$e-14&$-4.382620$e-16\\
+4.230290e-17 & 9.548369e-18 & 8.321674e-19 & 1.760392e-20  & $-5.533369$e-21\\
+$-8.770972$e-22&$-6.101928$e-23&3.678170e-25& 6.193375e-25  & 7.627253e-26 \\ 4.011923e-27&$-1.986216$e-28&$-6.318305$e-29&$-6.271724$e-30&$-2.150100$e-31 \\ \end{tabular}
+\end{small}
+
+\vspace{12pt}
+\noindent
+ Thus the power series for $S$ begins
+\small
+ $$45400 - 953.4t - 172.3611t^2 - 17.982061t^3 - .86969127t^4 + \\ \cdots - 2.15010\times 10^{-31}t^{34} + \cdots$$
+\normalsize
+
+In the same fashion, we find that the power series for $I$ begins
+\small
+$$2100 +803.4t + 143.66824t^2 + 14.561389t^3 + .60966648t^4 + \cdots + 2.021195\times 10^{-31}t^{34} + \cdots $$
+\normalsize
+
+If we now wanted to graph these  polynomials over, say, $0\le t\le 10$, we can add some lines to the above program.  We first define a couple of short subroutines {\tt SUS} and {\tt INF}\index{subroutines, {\tt SUS} and {\tt INF}} to calculate the polynomial approximations for $S(t)$ and $I(t)$ using the coefficients we've derived in the first part of the program.  (Note that these subroutines calculate polynomials in the straightforward, inefficient way.  If you did the exercises in \S3 which developed techniques for evaluating polynomials rapidly, you might want to modify these subroutines to take advantage of the increased speed available.) Remember, too, that you will need to set up the graphics at the beginning of the program to be able to plot.
+
+%\pagebreak
+%this needs revision
+\noindent
+\begin{verbatim}
+DEF SUS(x)
+     Sum = S(0)
+     FOR j = 1 TO 50
+         Sum = Sum + S(j) * x^j
+     NEXT j
+     SUS = Sum
+END DEF
+DEF INF(x)
+     Sum = I(0)
+     FOR j = 1 TO 50
+         Sum = Sum + I(j) * x^j
+     NEXT j
+     INF = Sum
+END DEF
+FOR x = 0 TO 10 STEP .01
+\end{verbatim}
+\vspace{-10pt}
+\rule{34pt}{0pt} {\sl Plot the line from 
+                {\tt (x, SUS(x))}}\\[-1pt]
+\rule{52pt}{0pt} {\sl to 
+                {\tt (x + .01, SUS(x + .01))}}\\
+\rule{34pt}{0pt} {\sl Plot the line from 
+                {\tt (x, INF(x))}}\\[-1pt]
+\rule{52pt}{0pt} {\sl to 
+                {\tt (x + .01, INF(x + .01))}}\\
+\vspace{-25pt}
+\begin{verbatim}
+NEXT x
+\end{verbatim}
+
+Here is the graph of $I(t)$ over a 25-day period, together with the polynomial approximations of degree 5, 20, 30, and 70.  
+
+\vspace*{2.75in}
+\special{psfile=/me/ps/calc2/sircalc.ps}
+Note that these polynomials appear to converge to $I(t)$ only out to values of $t$ around 10.  If we needed polynomial approximations beyond that point, we could shift to a different point on the curve, find the values of $I$ and $S$ there by Euler's method, then repeat the above process. For instance, when $t=12$, we get by Euler's method that $S(12)=7670$ and $I(12)=27,136$\,. If we now shift our clock to measure time in terms of $\tau=t-12$, we get the following polynomial of degree 30:
+$$27136 +143.0455\tau-282.0180\tau^2+23.5594\tau^3+.4548\tau^4+\cdots+1.2795\times10^{-25}\tau^{30} \,$$
+
+Here is what the graph of this polynomial looks like when plotted with the graph of $I$.  On the horizontal axis we list the $t$-coordinates with the corresponding $\tau$-coordinates underneath.
+
+\vspace*{3in}
+\special{psfile=/me/ps/calc2/sircalc2.ps}
+The interval of convergence seems to be approximately $4<t<20$.  Thus if we combine this polynomial with the 30-th degree polynomial from the previous graph, we would have very accurate approximations for $I$ over the entire interval $[0, 20]$.
+
+
+\subsection{Exercises}
+
+\num  Find power series solutions of the form
+$$
+y = a_0 + a_1x + a_2 x^2 + a_3 x^3 + \cdots + a_n x^n + \cdots .
+$$
+for each of the following differential equations.
+\sub $y' = 2xy$
+\sub $y'=3x^2y$
+\sub $y'' + xy = 0$
+\sub $y'' + xy' + y = 0$
+
+\numa  Find power series solutions to the differential equation $y''=-y$.  Start with
+$$
+y = a_0 + a_1x + a_2 x^2 + a_3 x^3 + \cdots + a_n x^n + \cdots .
+$$
+Notice that, in the recursion relations you obtain, the coefficients of the even terms are completely independent of the coefficients of the odd terms.  This means you can get two separate power series, one with only even powers, with $a_0$ as arbitrary constant, and one with only odd powers, with $a_1$ as arbitrary constant.
+\sub  The two power series you obtained in part a) are the Taylor series centered at $x=0$ of two familiar functions; which ones?  Verify that these functions do indeed satisfy the differential equation $y''=-y\/$.
+
+\numa Find power series solutions to the differential equation $y''=y$.
+As in the previous problem, the coefficients of the even terms depend
+only on $a_0$, and the coefficients of the odd terms depend only on
+$a_1$.  Write down the two series, one with only even powers and $a_0$ as
+an arbitrary constant, and one with only odd powers, with $a_1$ as an
+arbitrary constant.
+
+\sub The two power series you obtained in part a) are the Taylor series
+centered at $x=0$ of two {\em hyperbolic trigonometric functions\/} (see
+the exercises in \S3).  Verify that these functions do indeed satisfy
+the differential equation $y''=y$.\index{hyperbolic functions}
+
+\numa  Find power series solutions to the differential equation $y'=xy$, starting with
+$$
+y = a_0 + a_1x + a_2 x^2 + a_3 x^3 + \cdots + a_n x^n + \cdots .
+$$
+What recursion relations do you get?  Is $a_1 = a_3 = a_5 = \cdots = 0$ ?
+\sub  Verify that
+$$
+y = e^{x^2/2}
+$$
+satisfies the differential equation $y'=xy$.  Find the Taylor series for this function and compare it with the series you obtained in a) using the recursion relations.
+
+\num  {\bf The Bessel Equation.}\index{Bessel equation}\index{Bessel function} 
+\sub  Take $p=1\,$.  The solution satisfying the initial condition $y' =1/2$ when $x=0$ is defined to be the first order Bessel function $J_1(x)$\index{Bessel function $J_1$}. (It will turn out that $y$ has to be 0 when $x=0$\,, so we don't have to specify the initial value of $y$---we have no choice in the matter.) Find the first five terms of the power series expansion for $J_1(x)$.  What is the coefficient of $x^{2n+1}$?
+\sub Show by direct calculation from the series for $J_0$ and $J_1$ that
+$$
+J_0' = - J_1 \, .
+$$
+\sub To see, from another point of view, that $J_0' = - J_1$,\index{Bessel function $J_0$}\index{Bessel function $J_1$} take the equation
+$$
+x \cdot J_0'' + J_0' + x \cdot J_0 = 0
+$$
+and differentiate it.  By doing some judicious cancelling and rearranging of terms, show that
+$$
+x^2 \cdot (J_0')'' + x \cdot (J_0')' + (x^2 -1)(J_0') = 0 \, .
+$$
+This demonstrates that $J_0'$ is a solution of the Bessel equation with $p=1$.
+
+\numa  When we found the power series expansion for solutions to the 0-th order Bessel equation, we found that all the odd coefficients had to be 0.  In particular, since $b_1$ is the value of $y'$ when $x=0$, we are saying that all solutions have to be flat at $x=0$.  This should bother you a bit.  Why can't you have a solution, say, that satisfies $y=1$ and $y'=1$ when $x=0$? 
+\sub You might get more insight on what's happening by using Euler's method, starting just a little to the right of the origin and moving left.  Use Euler's method to sketch solutions with the initial values
+
+\smallskip
+\begin{tabular}{rllcl}
+ i.& $y=2$ & $y'=1$& when &$x=1$\\
+  ii.& $y=1.1$ & $y'=1$ & when & $x=.1$\\
+ iii.& $y=1.01$ &  $y'=1$ & when & $x=.01 \, .$ \\
+ \end{tabular} 
+ 
+ \smallskip
+\noindent
+What seems to happen as you approach the $y$-axis?
+
+\num  {\bf Legendre's differential equation}\index{Legendre's equation}
+$$
+(1 - x^2)y'' - 2xy' + \ell(\ell + 1)y = 0
+$$
+arises in many physical problems---for example, in quantum mechanics, where its solutions are used to describe certain orbits of the electron in a hydrogen atom.  In that context, the parameter $\ell$ is called the {\em angular momentum}\index{angular momentum} of the electron; it must be either an integer or a ``half-integer'' (i.e., a number like 3/2).  Quantum theory\index{quantum theory} gets its name from the fact that numbers like the angular momentum of the electron in the hydrogen atom are ``quantized", that is, they cannot have just any value, but must be a multiple of some ``quantum"\index{quantum}---in this case, the number 1/2.
+\sub  Find power series solutions of Legendre's equation.
+\sub  Quantization of angular momentum has an important consequence.  Specifically, when $\ell$ is an integer it is possible for a series solution to stop---that is, to be a polynomial.  For example, when $\ell = 1$ and $a_0 = 0$ the series solution is just $y = a_1x$---all higher order coefficients turn out to be zero.  Find polynomial solutions to Legendre's equation
+for $\ell = 0, 2, 3, 4,$ and $5$ (consider $a_0=0$ or $a_1=0$).  These solutions are called, naturally enough, {\bf Legendre polynomials}\index{Legendre polynomials}.
+
+\num It turns out that the power series solutions to the $S$-$I$-$R$ model have a finite interval of convergence.  By plotting the power series solutions of different degrees against the solutions obtained by Euler's method, estimate the interval of convergence.
+
+\numa {\bf Logistic Growth}\index{logistic growth}  Find the first five terms of the power series solution to the differential equation
+$$y'=y(1-y) \, .$$
+Note that this is just the logistic equation, where we have chosen our units of time and of quantities of the species being studied so that the carrying capacity is 1 and the intrinsic growth rate is 1.
+\sub  Using the initial condition $y=.1$ when $x=0$, plot this power series solution on the same graph as the solution obtained by Euler's method.  How do they compare?
+\sub Do the same thing with initial conditions $y=2$ when $x=0$.
+
+\end{document}
+
+\section{Convergence}
+
+We have written expressions like
+$$
+\sin(x) = x - {x^3 \over 3!} + {x^5 \over 5!} 
+                - {x^7 \over 7!} + {x^9 \over 9!} - \cdots \, ,
+$$
+meaning that for any value of $x$ the series on the right will converge to $\sin(x)$.  There are a couple of issues here.  The first is, what do we even mean when we say the series ``converges'', and how do we prove it converges to $\sin(x)$?  If $x$ is small, we can convince ourselves that the statement is true just by trying it.  If $x$ is large, though, say $x=100^{100}$, it would be convenient to have a more general method for 
+\linebreak
+
+\end{document}
+
+
+

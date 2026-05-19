@@ -1,0 +1,44 @@
+% This puts the creation time and the date of the DVI file at the bottom 
+% of every page.  Invoke by putting an \input statement at the beginning of 
+% your document: in LaTeX, put \input{copyright} just after the 
+% \begin{document} command; in TeX, put \input copyright in the header.
+%
+% written by callahan, 2 june 1996 using the
+% time (``\now'' command) by adapting TIME.STY, written
+% by Sunando Sen <sens@nyuacf.bitnet> <sens@acfcluster.nyu.edu>
+% Source: INFO-TeX@SHSU.edu, Mon, 6 Jan 1992 23:14 EST
+%
+% 
+% revised 14 March 2002 adapting ``time.sty'' written by Mike Piff, to 
+% make timedraft/timestamp work with newer versions of latex.  Revision
+% implemented 22 jan 03 by callahan
+%
+\typeout{COPYRIGHT option, 20 January 2004}
+\def\hour{1} \def\minute{2}
+\count\hour=\time \divide \count\hour by 60
+\count\minute=\time
+\count99=\count\hour \multiply \count99 by -60 \advance \count\minute by \count99
+\def\now{%
+\the\count\hour:%
+\ifnum\count\minute<10
+  0%
+\fi
+\the\count\minute% 
+}%
+\special{!userdict begin
+  /bop-hook
+    {gsave 
+     100 40 translate 
+     /Helvetica findfont 11 scalefont setfont 
+     .5 setgray
+     0 0 moveto 
+     (DVI file created at \now, \space \number\day\space \ifcase\month\or
+        January\or February\or March\or April\or May\or June\or
+        July\or August\or September\or October\or November\or December\fi
+        \space \number\year) show
+     0 14 moveto
+     (Copyright 1994, 2008 Five Colleges, Inc.) show
+     grestore
+   } def 
+  end
+}

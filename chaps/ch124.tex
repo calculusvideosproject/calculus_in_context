@@ -1,0 +1,364 @@
+%&lplain
+\documentstyle[12pt]{cicfinal}
+%no bezier, leqno
+%revised (miniscule changes) by Harriet 7/10/94
+
+\newcommand{\mar}[1]{\marginpar[\raggedright\footnotesize\sf #1]{\raggedleft\footnotesize\sf #1}}
+\newcommand{\asideleft}[1]{\medskip\noindent%
+	\rule{321pt}{0pt}\makebox[0pt][r]{%
+	\begin{minipage}[t]{400pt}\footnotesize\sf{#1}%
+	\end{minipage}}\bigskip}
+\newcommand{\asideright}[1]{\medskip\noindent%
+	\rule{40pt}{0pt}\makebox[0pt][l]{%
+	\begin{minipage}[t]{400pt}\footnotesize\sf{#1}%
+	\end{minipage}}\bigskip}
+\newcommand{\aside}[1]{\ifodd \value{page}%
+	{\asideright{#1}}\else{\asideleft{#1}}\fi}
+\newcounter{exercisenumber}[subsection]
+\newcounter{exercisepart}[exercisenumber]
+\newcommand{\num}{\stepcounter{exercisenumber}\par\bigskip%
+	\noindent\arabic{exercisenumber}.\quad}
+\newcommand{\numa}{\stepcounter{exercisenumber}\par\bigskip%
+	\noindent\arabic{exercisenumber}.\quad%
+	\stepcounter{exercisepart}\alph{exercisepart})\enskip}\newcommand{\sub}{\stepcounter{exercisepart}\par\smallskip%
+	\noindent\alph{exercisepart})\enskip\thinspace}
+\newcommand{\ans}[1]{\par\smallskip\noindent[Answer:\enskip%
+	{#1}]}
+	
+\makeindex
+
+\begin{document}
+
+\setcounter{chapter}{11}
+
+\setcounter{page}{774}
+\setcounter{section}{3}
+
+\section{Fourier Series}
+
+In section~10.6 we obtained polynomials which were good approximations to a function over an interval, where ``good'' meant minimizing the {\em mean squared separation} between the function and the approximating polynomials.
+
+While polynomials are the most obvious approximating functions to use due to the ease with
+\mar{Problems with polynomial approximations}
+ which they can be evaluated, we have seen that finding good approximating polynomials leads to several serious technical complications.  The first is that we have to solve systems of equations to determine the unknown coefficients, a procedure that is very time-consuming, even for a computer if we are trying to get a polynomial of, say, degree 30.  Further, if we are trying to make the approximation over even a moderately-sized interval, since we are evaluating expressions of the form $x^n$, we get large numbers very rapidly as $x$ and $n$ get large.  This in turn leads to roundoff problems in the computer routines. 
+ 
+Another aspect of these polynomial approximations that makes them complicated is that the values of the coefficients change as we change the degree of the approximating polynomial.  Thus if we determine the least squares fourth-degree approximation and then decide we want the fifth-degree approximation instead, all the coefficients have to be recalculated.  Knowing what the coefficient of $x^3$ was in the fourth-degree approximation is no help at all in knowing what the coefficient of $x^3$ will be in the fifth-degree approximation.
+
+There is another class of approximating functions that avoids these problems.  Moreover, this class is a natural one to use 
+	\mar{Approximating periodic functions}
+when we are trying to approximate {\em periodic} functions. In such cases it is reasonable to take the simplest periodic functions---the sine and cosine functions---and try to combine them to approximate more complicated periodic functions.  This suggests that we want to look at functions of the form
+\begin{eqnarray*}
+\phi(x) &= &a_0 +a_1\,\cos(x)+ a_2\,\cos(2x) + \cdots+ a_n\,\cos(nx) \\ [.15in]
+	& & +b_1\,\sin(x) + b_2\,\sin(2x) + \cdots + b_n\,\sin(nx) \\ [.15in]
+	&=&a_0+\sum_{k=1}^n \left(a_k\,\cos(kx)+b_k\,\sin(kx)\right) \,.
+\end{eqnarray*}
+
+Such a combination is called a {\bf trigonometric polynomial of degree $n$}\index{trigonometric polynomial}.  Note that any function of this form will in fact be periodic with period $2\pi$.  More generally, if we were interested in approximating a function of period $T$, we would want to look at trigonometric polynomials of the form
+	\mar{Trigonometric polynomial of degree $n$ and period $T$}
+\begin{eqnarray*}
+\phi(x) &= &a_0 +a_1\,\cos{2\pi x \over T}+ a_2\,\cos{4\pi x \over T} + \cdots+ a_n\,\cos{2n\pi x \over T} \\ [.15in]
+	& & +b_1\,\sin{2\pi x \over T}+ b_2\,\sin{4\pi x \over T} + \cdots+ b_n\,\sin{2n\pi x \over T} \\ [.15in]
+	&=&a_0+\sum_{k=1}^n \left(a_k\,\cos{2k\pi x\over T}+b_k\,\sin{2k\pi x\over T}\right) \,.
+\end{eqnarray*}
+You should verify that anything of this form will have period $T$.
+
+Given a function $f(t)$, to find the coefficients $a_k$ and $b_k$ of the trigonometric polynomial that best fits $f$ over the interval $[0, 2\pi ]$, we proceed exactly as we did in the previous subsection, using the least squares criterion.  That is, for a given degree $n$, we want to find coefficients
+$a_0, \ldots , a_n$ and $b_1, \ldots , b_n$ that minimize the integral
+$$\int_0^{2\pi} \left( f(x) -\phi (x)\right)^2\, dx \, . $$ 
+
+The solution turns out to be remarkably compact and easy to state. Note one of the key features of the 
+	\mar{Coefficients are independent of $n$}
+formulas for the coefficients: They are independent of each other and of the particular value of $n$ being used.  Thus if we find the value of $a_3$ in the 7-th degree approximation, we will have exactly the same value of $a_3$ in the 39-th degree approximation.  This is a major advantage compared to the polynomial approximations we were working with in chapter 10.
+
+\noindent
+\begin{center}\label{fourforms}
+\framebox[4.8in]
+{\parbox{4.45in}{
+\vspace*{8pt}
+Given a function $f(t)$, the least squares $n$th degree trigonometric polynomial approximation to $f$ over the interval $[-\pi, \pi]$ is
+$$\phi_n(x) =a_0+\sum_{k=1}^n \left(a_k\,\cos(kx)+b_k\,\sin(kx)\right) \, ,$$
+where
+\begin{eqnarray*}
+a_0 &=&{1 \over 2\pi}\int_{-\pi}^{\pi}f(x)\, dx \\ [.15in]
+a_k &=&{1 \over \pi}\int_{-\pi}^{\pi}f(x)\cos(kx)\, dx \quad \mbox{ for $k=1,2,\ldots ,n$}\\ [.15in]
+b_k &=&{1 \over \pi}\int_{-\pi}^{\pi}f(x)\sin(kx)\, dx \quad \mbox{ for $k=1,2,\ldots ,n$}
+\end{eqnarray*}}
+}
+\end{center}
+
+The infinite series
+$$a_0+\sum_{k=1}^{\infty} \left(a_k\,\cos(kx)+b_k\,\sin(kx)\right)$$
+is called the {\bf Fourier series}\index{Fourier series} for $f$, and the coefficients $a_k$ and $b_k$ are called the {\bf Fourier coefficients}\index{Fourier coefficients} for $f$.  It turns out that any continuous function equals its Fourier series in the same sense we used earlier with Taylor series---for any $x$ in the given interval, $f(x)$ is the limit as $n\rightarrow\infty$ of the $n$th degree approximating trigonometric polynomials evaluated at $x$.
+
+While the derivation is straightforward, we will leave it to the end of this section so we can look at some examples first
+
+\aside{Joseph Fourier (1768--1830)\index{Fourier, Joseph (1768--1830)} was active in both politics and in mathematics.  He was an advocate of the French Revolution, worked as an engineer in Napoleon's army and served as a prefect for a while.  In mathematics he was interested in the mathematics of heat conduction and developed the series that now bear his name as a tool for investigating problems in this area.  His ideas initially met with considerable resistance, but eventually became a central tool in mathematics.}
+
+
+While we have expressed everything here in terms of the interval $[-\pi, \pi]$, any other interval of width $2\pi$ would have done as well. In such cases we need only change the limits of integration to cover the interval we are interested in. In particular, we often want to use the interval $[0, 2\pi]$. 
+ 
+\medskip
+\noindent
+{\bf Example 1}\quad Let's find the approximating trigonometric polynomials for
+$$f(x) =
+	\left\{ \begin{array}{ll}
+				\pi+x & \quad\mbox{if $-\pi\le x\le 0$} \\
+				\pi - x  & \quad\mbox{if $0\le x\le \pi$}
+		\end{array}
+	\right. \,.$$
+	
+Then the graph of $f$ simply consists of two line segments:
+	\mar{\vspace{.25in}The graph of $f$ is ``triangular"}
+
+\vspace*{1.5in}
+\special{psfile=me/ps/calc2/sawtooth1.ps}
+
+Finding the Fourier coefficients is straightforward.  We can evaluate $a_0=(1/2\pi)\,\pi^2=\pi/2$ without any calculus at all---it's just the area of the triangle divided by $2\pi$.  The other coefficients can be evaluated with one use of integration by parts.
+\begin{eqnarray*}
+a_k&=&{1 \over \pi}\int_{-\pi}^{\pi}f(x)\cos(kx)\, dx \\ [.15in]
+   &=&{1 \over \pi}\int_{-\pi}^0(\pi+x)\cos(kx)\, dx +{1 \over \pi}\int_0^{\pi}(\pi-x)\cos(kx)\, dx \,.
+   \end{eqnarray*}
+   The first of these integrals can be evaluated as
+   \begin{eqnarray*}
+ \int_{-\pi}^0(\pi+x)\cos(kx)\, dx  &=&\left.(\pi+x){\sin(kx) \over k}\right|_{-\pi}^0-\int_{-\pi}^0 {\sin(kx) \over k}\, dx \\ [.15in]
+ &=&0 +\left.{\cos(kx) \over k^2}\right|_{-\pi}^0 \\ [.15in]
+ &=&\left\{ \begin{array}{ll}
+				{\displaystyle {2 \over k^2}} & \quad\mbox{if $k$ is odd} \\ [.1in]
+				0  & \quad\mbox{if $k$ is even}
+		\end{array}
+	\right. \,.
+   \end{eqnarray*}
+Similarly we find
+   \begin{eqnarray*}
+ \int_0^{\pi}(\pi-x)\cos(kx)\, dx  &=&\left.(\pi-x){\sin(kx) \over k}\right|_0^{\pi}+\int_0^{\pi} {\sin(kx) \over k}\, dx \\ [.15in]
+ &=&0 -\left.{\cos(kx) \over k^2}\right|_0^{\pi} \\ [.15in]
+ &=&\left\{ \begin{array}{ll}
+				{\displaystyle {2 \over k^2}} & \quad\mbox{if $k$ is odd} \\ [.1in]
+				0  & \quad\mbox{if $k$ is even}
+		\end{array}
+	\right. \,.
+   \end{eqnarray*}
+   
+   Combining these two integrals we find
+   $$a_k=\left\{ \begin{array}{ll}
+				{\displaystyle {4 \over \pi k^2}} & \quad\mbox{if $k$ is odd} \\ [.1in]
+				0  & \quad\mbox{if $k$ is even}
+		\end{array}
+	\right. \,.$$
+In the homework you will be asked to show that an analogous derivation shows that all the $b_k$ are 0. We can thus write down the Fourier series for $f$:
+\mar{\vspace{.25in}The Fourier series for $f$}
+$$
+f(x)={\pi \over 2} +{4 \over \pi}\left({\cos(x) \over 1} + {\cos(3x) \over 9} + \cdots +{\cos((2n+1)x) \over (2n+1)^2} + \cdots \right) 
+$$
+
+Let
+$$ \phi_n(x)={\pi \over 2} +{4 \over \pi}\sum_{k=0}^n {\cos((2k+1)x) \over (2k+1)^2}\,.$$
+
+\smallskip
+\noindent
+Here are the graphs of $\phi_1(x)$, $\phi_2(x)$, and $\phi_{10}(x)$:
+
+\vspace*{1.5in}
+\special{psfile=me/ps/calc2/sawtooth2.ps}
+
+We see that $\phi_{10}(x)$ already appears to be a very good approximation to $f(x)$.  If we look at the maximum separation between $f(x)$ and $\phi_n(x)$ over $[-\pi, \pi]$ for different values of $n$, we get the following:
+$$
+	\begin{array}{c|cccccc}
+	n  & 1&2&10&50&100&1000 \\ [2pt] \hline
+	&&&&&& \\ [-8pt]
+	{\displaystyle \max_{-\pi\le x\le \pi}|f(x)-\phi_n(x)|}&.298&.156&.032&.0064&.0032&.00032
+	\end{array}
+	$$
+
+Since each $\phi_n(x)$ is periodic, if we graph it over a larger interval, we get an approximation to a {\bf triangular wave-form}\index{triangular wave-form}.  Here, for example, 
+\newpage
+\noindent
+is the graph of $\phi_{20}(x)$ over the interval $[-\pi, 5\pi]$:
+	\mar{\vspace{.25in}Approximating a triangular wave-form}
+
+\vspace*{1.5in}
+\special{psfile=me/ps/calc2/sawtooth3.ps}
+
+\noindent
+{\bf Remark}\quad In addition to their use in approximating functions, Fourier series can lead to some interesting, and non-obvious, mathematical results.  For instance in the preceding example, we have $f(0)=\pi$\,. On the other hand, we should get the same value if we set $x=0$ in the Fourier series for $f$.  This leads to the identity
+$$\pi ={\pi \over 2} +{4 \over \pi}\left({1 \over 1} + {1 \over 9} +{1 \over 25}+{1 \over 49} +{1 \over 81} + \cdots \right)$$
+With a little rearranging, this can be rewritten as
+$${\pi^2 \over 8} = 1 + {1 \over 9} +{1 \over 25}+{1 \over 49} +{1 \over 81} + \cdots $$
+---that is, if we add up the reciprocals of the squares of all the odd integers, we get $\pi^2/8$\,!
+
+The formulas given on page~\pageref{fourforms} for approximating functions over the interval $[-\pi,\pi]$ extend readily to approximating periodic functions of  any period $T$.  For instance, if we wanted to approximate some function $f$ over the interval $[-T/2,T/2]$, we have 
+the following formulas.  Check that when $T=2\pi$, these equations reduce to the earlier ones.  Again, there is nothing particularly important about the interval $[-T/2,T/2]$.  If we had wanted to make the approximation
+\mar{The general rule for calculating Fourier series}
+ over any other interval of length $T$, we simply change the limits of integration to be the endpoints of the interval.
+
+
+
+\noindent
+\begin{center}
+\framebox[4.8in]
+{\parbox{4.45in}{
+\vspace*{8pt}
+Given a function $f(t)$, the least squares $n$th degree trigonometric polynomial approximation to $f$ over the interval $[-T/2, T/2]$ is
+$$\phi_n(x) =a_0+\sum_{k=1}^n \left(a_k\,\cos{2k\pi x \over T}+b_k\,\sin{2k\pi x \over T}\right) \, ,$$
+where
+\begin{eqnarray*}
+a_0 &=&{1 \over T}\int_{-T/2}^{T/2}f(x)\, dx \\ [.15in]
+a_k &=&{2 \over T}\int_{-T/2}^{T/2}f(x)\cos(kx)\, dx \quad \mbox{ for $k=1,2,\ldots ,n$}\\ [.15in]
+b_k &=&{2 \over T}\int_{-T/2}^{T/2}f(x)\sin(kx)\, dx \quad \mbox{ for $k=1,2,\ldots ,n$}
+\end{eqnarray*}}
+}
+\end{center}
+
+\medskip
+\noindent
+{\bf Example 2}\quad Let's return to the 
+	\mar{Fourier series for the periodic functions produced by the predator-prey model of May} 
+predator-prey model\index{predator-prey model} of May\index{May} that we examined in section~7.3.  Recall that there we had two species, the predator $y$ and the prey $x$.  We used the following model
+	\begin{eqnarray*}
+	\mbox{prey:} \quad x' &=& 
+		.6\,x\left(1-\frac{x}{10}\right) - \frac{.5\,xy}{x+1} \\
+	\mbox{predator:} \quad y' &=& .1\,y\left(1-\frac{y}{2x}\right)\,,
+	\end{eqnarray*}
+and discovered that the populations seemed to move towards the same periodic cycles, regardless of the initial conditions (although the phase of the cycles did depend on the starting values).  In particular, if we begin with values on this cycle, our solution should be perfectly periodic with period, it turned out, $T=38.6$ days.  So let's start with $x=7.75$ and $y=2.38$, values that put us at the peak of the prey cycle.  Now go to the differential equations and compute the solution numerically, storing the $x$-values as an array. We can then use these values to calculate all the integrals needed to find the Fourier coefficients to approximate the function $x(t)$.  Here are the first 13 terms of the series:
+
+\begin{eqnarray*}
+x(t)&=&3.7951 + 3.8125\cos{2\pi x \over T}+.1514\cos{4\pi x \over T}+.0326\cos{6\pi x \over T} \\ [.15in]
+&&-.0303\cos{8\pi x \over T}-.0609\cos{10\pi x \over T}+.0308\cos{12\pi x \over T}+\cdots \\ [.15in]
+& &+1.1724\sin{2\pi x \over T}-.0867\sin{4\pi x \over T}-.3954\sin{6\pi x \over T} \\ [.15in]
+&&+.0639\sin{8\pi x \over T}-.0142\sin{10\pi x \over T}+.0129\sin{12\pi x \over T} + \cdots
+\end{eqnarray*}
+
+Let $\phi_3(t)$ be the 7-term trigonometric polynomial going out to the $\cos(6\pi t/T)$ and $\sin(6\pi t/T)$ terms in this expansion. If we graph $\phi_3(t)$ (dashed line) and $x(t)$ (solid line) together, they are almost indistinguishable.  We let $\phi_3(t)$ run on a little beyond $x(t)$ so you can see it's there.
+
+\vspace*{2.8in}
+\special{psfile=me/ps/calc2/BMay.ps}
+
+\subsubsection{Derivation of the formula for the Fourier coefficients}
+
+The logic behind the derivation is the same as that used in the previous subsection to find the least squares polynomial approximations. Fix $n$ and let
+$$\phi_n(x) =a_0+\sum_{k=1}^n \left(a_k\,\cos{2k\pi x \over T}+b_k\,\sin{2k\pi x \over T}\right),$$
+where now we want to choose values of the $a_k$ and $b_k$ to minimize the integral
+$$\int_0^{2\pi} \left( f(x) -\phi_n (x)\right)^2\, dx \,.$$ 
+The value of this integral is thus a function of the undetermined coefficients $a_0, \ldots , a_n$ and $b_1, \ldots , b_n$.  To find the coefficients that minimize this integral we calculate the partial derivatives with respect to $a_0$, $a_1$, \ldots as before and set them equal to 0.  Note that
+$${\partial \over \partial a_k}\phi(x) = \cos(kx) \quad \mbox{ and } \quad {\partial \over \partial b_k}\phi(x) = \sin(kx) \, ,$$
+so that
+$${\partial \over \partial a_k}\int_0^{2\pi} \left( f(x) -\phi (x)\right)^2\, dx =\int_0^{2\pi} 2\,\left( f(x) -\phi (x)\right)(-\cos(kx))\, dx $$
+and
+$${\partial \over \partial b_k}\int_0^{2\pi} \left( f(x) -\phi (x)\right)^2\, dx =\int_0^{2\pi} 2\,\left( f(x) -\phi (x)\right)(-\sin(kx))\, dx \, .$$
+
+The condition 
+	\mar{Setting the partial derivatives equal to zero gives the equations}
+that all the partial derivatives must be 0 thus leads to the equations
+\begin{eqnarray*}
+\int_0^{2\pi}2\,\left( f(x) - \phi(x)\right)(-1) \, dx &=&0 \\ [.15in]
+\int_0^{2\pi}2\,\left( f(x) - \phi(x)\right)(-\cos(x)) \, dx &=&0 \\ [.15in]
+\int_0^{2\pi}2\,\left( f(x) - \phi(x)\right)(-\cos(2x)) \, dx &=&0 \\
+&\vdots & \\
+\int_0^{2\pi}2\,\left( f(x) - \phi(x)\right)(-\cos(nx)) \, dx &=&0 
+\end{eqnarray*}
+and
+\begin{eqnarray*}
+\int_0^{2\pi}2\,\left( f(x) - \phi(x)\right)(-\sin(x)) \, dx &=&0 \\ [.15in]
+\int_0^{2\pi}2\,\left( f(x) - \phi(x)\right)(-\sin(2x)) \, dx &=&0 \\
+&\vdots & \\
+\int_0^{2\pi}2\,\left( f(x) - \phi(x)\right)(-\sin(nx)) \, dx &=&0 \, ,
+\end{eqnarray*}
+which can be rewritten as
+\begin{eqnarray*}
+\int_0^{2\pi}f(x) \, dx&=&\int_0^{2\pi}\phi(x)\, dx  \\ [.15in]
+\int_0^{2\pi}f(x)\cos(x) \, dx&=&\int_0^{2\pi}\phi(x)\cos(x)\, dx  \\ [.15in]
+\int_0^{2\pi}f(x)\cos(2x) \, dx&=&\int_0^{2\pi}\phi(x)\cos(2x)\, dx  \\
+&\vdots & \\
+\int_0^{2\pi}f(x)\cos(nx) \, dx&=&\int_0^{2\pi}\phi(x)\cos(nx)\, dx  \, ,
+\end{eqnarray*}
+and
+\begin{eqnarray*}
+\int_0^{2\pi}f(x)\sin(x) \, dx&=&\int_0^{2\pi}\phi(x)\sin(x)\, dx  \\ [.15in]
+\int_0^{2\pi}f(x)\sin(2x) \, dx&=&\int_0^{2\pi}\phi(x)\sin(2x)\, dx  \\
+&\vdots & \\
+\int_0^{2\pi}f(x)\sin(nx) \, dx&=&\int_0^{2\pi}\phi(x)\sin(nx)\, dx  \, .
+\end{eqnarray*}
+
+To use this information to determine the coefficients, 
+	\mar{Integration formulas help}
+we need some facts you will derive in the exercises.  They are based on integration formulas from the exercises at the end of section~11.3.
+\begin{eqnarray*}
+\int_0^{2\pi}\sin(kx)\cos(mx)\, dx & = & 0 \quad \mbox{ for all $k$ and $m$.} \\ [.15in]
+\int_0^{2\pi}\sin(kx)\sin(mx)\, dx & = &\left\{ \begin{array}{ll}
+						\pi & \mbox{ if $k=m$} \\
+						0   & \mbox {otherwise}
+						\end{array}
+					\right. \\
+\int_0^{2\pi}\cos(kx)\cos(mx)\, dx & = &\left\{ \begin{array}{ll}
+						\pi & \mbox{ if $k=m\ne 0$} \\
+						2\pi & \mbox{ if $k=m=0$} \\
+						0   & \mbox {otherwise}
+						\end{array}
+					\right. \, .
+\end{eqnarray*}
+
+Now we can evaluate the integrals we need.  For instance, to determine $a_k$, where $k\geq 1$,
+\begin{eqnarray*}
+\int_0^{2\pi}\phi(x)\cos(kx)\, dx & = & \int_0^{2\pi}\left[ a_0+\ldots +a_k\cos(kx) +\ldots+a_n\cos(nx) \right. \\ [.15in]
+& &\left. +b_1\sin(x) + \ldots + b_n\sin(nx)\right]\cos(kx)\, dx \\ [.15in]
+&=&a_0\int_0^{2\pi}\cos(kx)\, dx+\cdots+a_k\int_0^{2\pi}\cos^2(kx)\, dx\\ [.15in] & &+\cdots+a_n\int_0^{2\pi}\cos(nx)\cos(kx)\, dx	\\ [.15in]
+& &+b_1\int_0^{2\pi}\sin(x)\cos(kx)\, dx +\cdots \\ [.15in]
+& &+b_n\int_0^{2\pi}\sin(nx)\cos(kx)\, dx	\\ [.15in]
+&=&a_0\cdot 0 +a_1\cdot 0 +\cdots +a_k\cdot 2\pi +\cdots + a_n\cdot 0 \\ [.15in]
+& &+b_1\cdot 0 + \cdots +b_n\cdot 0 \\
+&=&\pi a_k \, .
+\end{eqnarray*}
+
+Thus	
+$$\int_0^{2\pi}f(x)\cos(kx) \, dx = \int_0^{2\pi}\phi(x)\cos(kx)\, dx =	\pi a_k \, ,$$
+so
+$$a_k = {1 \over \pi}\int_0^{2\pi}f(x)\cos(kx) \, dx \quad \mbox{ for $k=1,2,\ldots,n$}$$
+as claimed.
+
+In a similar way, the formulas for $a_0$ and the $b_k$ can be verified.
+
+\subsection{Exercises}
+
+\num  Use the formulas on page 689   %qqq
+in section~11.3 to derive the following equalities.
+
+\sub $\int_0^{2\pi}\sin(kx)\cos(mx)\, dx  =  0 \quad \mbox{ for all $k$ and $m$.}$ 
+\sub 
+$$
+\int_0^{2\pi}\sin(kx)\sin(mx)\, dx  = \left\{ \begin{array}{ll}
+						\pi & \mbox{ if $k=m$} \\
+						0   & \mbox {otherwise}
+						\end{array}
+					\right. 
+$$
+\sub
+$$
+\int_0^{2\pi}\cos(kx)\cos(mx)\, dx  = \left\{ \begin{array}{ll}
+						\pi & \mbox{ if $k=m\ne 0$} \\
+						2\pi & \mbox{ if $k=m=0$} \\
+						0   & \mbox {otherwise}
+						\end{array}
+					\right. \, .
+$$
+
+
+
+\num Show that in the Fourier series for the triangular function discussed in the text, all the coefficients of the sine terms really are 0.
+
+\num  Find the Fourier series for the following functions over the interval $[-\pi,\pi]$:
+\sub $f(x)=x$ \hfill [Ans. ${\displaystyle 2\sum_{k=1}^{\infty}{(-1)^{n-1}\sin nx \over n}}$]
+\sub $f(x)= \pi^2-x^2$
+\sub $f(x) = \left\{ \begin{array}{ll}
+				0 & \mbox{ if $-\pi\le x\le 0$} \\ 
+				x^2  & \mbox { if $0\le x\le \pi$}
+			\end{array}
+					\right. \, .$
+
+\num In May's predator-prey model, find the first 7 terms of the Fourier series for the predator species, $y(t)$.
+
+
+ 
+\end{document}
+
+
+

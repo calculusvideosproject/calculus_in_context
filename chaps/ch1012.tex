@@ -1,0 +1,1116 @@
+%&lplain
+\documentstyle[12pt]{cicfinal}
+%took out bezier, leqno
+%includes Harriet's revisions, 5/28/94
+%Lester's revisons, 6/15/94
+%Ken's revisions, 6/16/94
+%Harriet's revisions 6/17/94 -- includes Jim's new exercises 6/15
+%Revised by Harriet & Jim 6/26/94
+% sent to Freeman 6/29/94
+
+\newcommand{\mar}[1]{\marginpar[\raggedright\footnotesize\sf #1]{\raggedleft\footnotesize\sf #1}}
+\newcommand{\asideleft}[1]{\medskip\noindent%
+        \rule{321pt}{0pt}\makebox[0pt][r]{%
+        \begin{minipage}[t]{400pt}\footnotesize\sf{#1}%
+        \end{minipage}}\bigskip}
+\newcommand{\asideright}[1]{\medskip\noindent%
+        \rule{40pt}{0pt}\makebox[0pt][l]{%
+        \begin{minipage}[t]{400pt}\footnotesize\sf{#1}%
+        \end{minipage}}\bigskip}
+\newcommand{\aside}[1]{\ifodd \value{page}%
+        {\asideright{#1}}\else{\asideleft{#1}}\fi}
+\newcounter{exercisenumber}[subsection]
+\newcounter{exercisepart}[exercisenumber]
+\newcommand{\num}{\stepcounter{exercisenumber}\par\bigskip%
+        \noindent\arabic{exercisenumber}.\quad}
+\newcommand{\numa}{\stepcounter{exercisenumber}\par\bigskip%
+        \noindent\arabic{exercisenumber}.\quad%
+        \stepcounter{exercisepart}\alph{exercisepart})\enskip}\newcommand{\sub}{\stepcounter{exercisepart}\par\smallskip%
+        \noindent\alph{exercisepart})\enskip\thinspace}
+\newcommand{\ans}[1]{\par\smallskip\noindent[Answer:\enskip%
+        {#1}]}
+        
+\makeindex
+
+\begin{document}
+
+\setcounter{page}{581}
+\setcounter{chapter}{9}
+
+\chapter{Series and Approximations}
+
+     An important theme in this book is to give {\bf constructive} definitions\index{constructive definitions} of mathematical objects.  Thus, for instance, if you needed to evaluate
+     $$
+        \int_0^1 e^{-x^2} \, dx\, ,
+        $$
+you could set up a Riemann sum to evaluate this expression to any desired degree of accuracy.  Similarly, if you wanted to evaluate a quantity like $e^{.3}$ from first principles, you could apply Euler's method to approximate the solution to the differential equation
+        $$y'(t) = y(t) \mbox{ with initial condition } y(0) = 1 \, ,$$
+using small enough intervals to get a value for $y(.3)$ to the number of decimal places you needed.  You might pause for a moment to think how you would get $\sin(5)$ to 7 decimal places---you wouldn't do it by drawing a unit circle and measuring the $y$-coordinate of the point where this circle is intersected by the line making an angle of 5 radians with the $x$-axis!  Defining the sine function to be the solution to the second-order differential equation $y''=-y$ with initial conditions $y=0$ and $y'=1$ when $t=0$ is much better if we actually want to construct values of the function with more than two decimal accuracy.
+
+        What these examples illustrate is the fact that the only functions our brains or digital computers can evaluate directly are those involving the arithmetic operations of addition, subtraction, 
+\mar{Ordinary arithmetic lies at the heart of all calculations}
+multiplication, and division. Anything else we or computers evaluate must ultimately be reducible to these four operations.  But the only functions directly expressible in such terms are polynomials and rational functions (i.e., quotients of one polynomial by another).  When you use your calculator to evaluate $\ln 2$, and the calculator shows .69314718056, it is really doing some additions, subtractions, multiplications, and divisions to compute this 11-digit {\em approximation\/} to $\ln 2$\,.  There are no obvious connections to logarithms at all in what it does.  One of the triumphs of calculus is the development of techniques for calculating highly accurate approximations of this sort quickly.  In this chapter we will explore these techniques and their applications.
+        
+\section{Approximation Near a Point and Over an Interval}
+
+Suppose we were interested in approximating the sine function---we might need to make a quick estimate and not have a calculator handy, or we might even be designing a calculator.  In the next section we will examine a number of other contexts in which such approximations are helpful.  Here is a third degree polynomial that is a good approximation in a sense which will be made clear shortly:
+$$P(x) = x - {x^3 \over 6}\, .$$
+(You will see in \S2 where $P(x)$ comes from.)
+
+If we compare the values of $\sin(x)$ and $P(x)$ over the interval $[0, 1]$ we get the following:
+$$
+        \begin{array}{cccc}
+        x  & \sin{x} & P(x) &\sin{x}-P(x)\\ [2pt] \hline
+        \begin{array}{r}
+        \rule{0pt}{14pt} 0.0\\ .2 \\ .4 \\ .6 \\ .8 \\ 1.0 
+        \end{array}
+        &
+        \begin{array}{r}
+        \rule{0pt}{14pt} 0.0 \\ .198669 \\ .389418 \\ .564642 \\ .717356 \\ .841471  
+        \end{array}
+        &
+        \begin{array}{r}
+        \rule{0pt}{14pt} 0.0 \\ .198667 \\ .389333 \\ .564000 \\ .714667 \\ .833333
+        \end{array}
+        &
+        \begin{array}{r}
+        \rule{0pt}{14pt} 0.0 \\ .000002 \\ .000085 \\ .000642 \\ .002689 \\ .008138  
+        \end{array}
+        \end{array}
+        $$
+The fit is good, with the largest difference occurring at $x=1.0$, where the difference is only slightly greater than .008\,.
+
+If we plot $\sin(x)$ and $P(x)$ together over the interval $[0, \pi]$ we see the ways in which $P(x)$ is both very good and not so good.  Over the initial portion of the graph---out to around $x=1$---the graphs of the two functions seem to coincide. As we move further from the origin, though, the graphs separate more and more.  Thus if we were primarily interested in approximating $\sin(x)$ near the origin, $P(x)$ would be a reasonable choice.  If we need to approximate $\sin(x)$ over the entire interval, $P(x)$ is less useful.
+
+\vspace*{2.4in}
+%\special{psfile=me/ps/calc2/sin1.ps}
+
+On the other hand, consider the second degree polynomial 
+$$Q(x) = -.4176977 x^2 +1.312236205 x - .050465497$$
+(You will see how to compute these coefficients in \S6.)
+
+When we graph $Q(x)$ and $\sin(x)$ together we get the following:
+
+\vspace*{2in}
+%\special{psfile=me/ps/calc2/sin2.ps}
+
+While $Q(x)$ does not fits the graph of $\sin(x)$ as well as $P(x)$ does near the origin, it is a good fit overall.  In fact, $Q(x)$ exactly equals $\sin(x)$ at 4 values of $x$, and the greatest separation between the graphs of $Q(x)$ and $\sin(x)$ over the interval $[0,\pi]$ occurs at the endpoints, where the distance between the graphs is .0505 units.
+
+What we have here, then, are two kinds of approximation of the sine function by polynomials:  we have a polynomial $P(x)$ that behaves very much like the sine function near the origin, and we have another 
+\mar{There's more than one way to make the "best fit" to a given curve}
+polynomial $Q(x)$ that keeps close to the sine function over the entire interval $[0, \pi]$. Which one is the ``better" approximation depends on our needs.  Each solves an important problem.  Since finding approximations near a point has a neater solution---Taylor polynomials---we will start with this problem.  We will turn to the problem of finding approximations over an interval in \S6.
+
+
+\section{Taylor Polynomials}
+
+{\bf The general setting.} In chapter 3 we discovered that functions were locally linear at most points---when we zoomed in on them they looked more and more like straight lines.  This fact was central to the development of much of the subsequent material.  It turns out that this is only the initial manifestation of an even deeper phenomenon:  Not only are functions locally linear, but, if we don't zoom in quite so far, they look locally like parabolas.  From a little further back still they look locally like cubic polynomials, etc.  Later in this section we will see how to use the computer to visualize these ``local parabolizations'',  ``local cubicizations'', etc.  Let's summarize the idea and then explore its significance:
+
+\noindent
+\begin{center}
+\framebox[4.8in]
+{\parbox{4.45in}
+{\vspace{5pt}
+The functions of interest to calculus look locally like polynomials at
+most points of their domain.  The higher the degree of the polynomial,
+the better typically will be the fit.
+\vspace{5pt}
+}
+}
+\end{center}
+
+\noindent
+{\bf Comments}\quad The ``at most points'' qualification is because of exceptions like those we ran into when we explored locally linearity.  The function $|x|$, for instance, was not locally linear at $x=0$---it's not locally like any polynomial of higher degree at that point either.   The issue of what ``goodness of fit'' means and how it is measured is a subtle one which we will develop over the course of this section.  For the time being, your intuition is a reasonable guide---one fit to a curve is better than another near some point if it ``shares more phosphor'' with the curve when they are graphed on a computer screen centered at the given point.
+
+The fact that functions look locally like polynomials has profound implications conceptually and \mar{The behavior of a function can often be inferred from the behavior of a local polynomialization}
+computationally.  It means we can often determine the behavior of a
+function locally by examining the corresponding behavior of what we
+might call a ``local polynomialization'' instead.  In particular, to find the values of a function near some point, or graph a function near some point, we can deal with the values or graph of a local polynomialization instead.  Since we can actually evaluate polynomials directly, this can be a major simplification.
+
+There is an extra feature to all this which makes the concept particularly attractive:  not only are functions locally polynomial, it is easy to find the coefficients of the polynomials.  Let's see how this works.  Suppose we had some function $f(x)$ and we
+\mar{We want the best fit at $x=0$}
+ wanted to find the fifth degree polynomial that best
+ fit this function at $x=0$.  Let's call this polynomial
+$$P(x) = a_0+a_1x+a_2x^2+a_3x^3+a_4x^4+a_5x^5 \, .$$
+To determine $P$, we need to find values for the six coefficients $a_0$, $a_1$, $a_2$, $a_3$, $a_4$, $a_5$.  
+
+Before we can do this, we need to define what we mean by the ``best'' fit to $f$ at $x=0$.  Since we have six unknowns, we need six conditions.  One obvious \mar{The best fit should pass through the point $(0, f(0))$}
+condition is that the graph of $P$ should pass through the point $(0, f(0))$. 
+ But this is equivalent to requiring that $P(0)=f(0)$.  Since $P(0)=a_0$, we thus must have $a_0=f(0)$, and we have found one of the coefficients of $P(x)$.  Let's summarize the argument so far:
+
+\noindent
+\begin{center}
+\framebox[4.8in]
+{\parbox{4.45in}{\vspace{8pt}
+The graph of a polynomial passes through the point $(0,f(0))$
+   if and only if the polynomial is of the form
+    $$f(0)+a_1x+a_2x^2+\cdots \, .$$}
+}
+\end{center}
+
+But we're 
+\mar{The best fit should have the right slope at $(0, f(0))$}
+not interested in just any polynomial passing through the right point;  it should be headed in the right direction as well.  That is, we want the slope of $P$ at $x=0$ to be the same as the slope of $f$ at this point---we want $P'(0)=f'(0).$  But
+$$P'(x) = a_1 + 2a_2x + 3a_3x^2 + 4a_4x^3 + 5a_5x^4 \, ,$$
+so $P'(0)=a_1$.  Our second condition therefore must be that $a_1=f'(0)$.  Again, we can summarize this as
+
+\noindent
+\begin{center}
+\framebox[4.8in]
+{\parbox{4.45in}{\vspace{8pt}
+The graph of a polynomial passes through the point $(0, f(0))$
+  and has slope $f'(0)$ there if and only if it is of the form
+  $$f(0) + f'(0)x + a_2x^2 + \cdots \, .$$}
+}
+\end{center}
+
+\noindent
+Note that at this point we have recovered the general form for the local
+linear approximation to $f$ at $x=0$: $L(x) = f(0) + f'(0)x$.
+
+But there is no reason to stop with the first derivative.  Similarly, we
+would want the way in which the slope of $P(x)$ is changing---we are now
+talking about $P''(0)$---to behave the way the slope of $f$ is changing
+at $x=0$, etc.  Each higher derivative controls a more subtle feature of
+the shape of the graph.  We now see how we could formulate reasonable
+additional conditions which would determine the remaining coefficients of $P(x)$:
+
+\noindent
+\begin{center}
+\framebox[4.8in]
+{\parbox{4.45in}{\vspace{8pt}
+Say that $P(x)$ is the {\bf best fit}\index{best fit at a point} to $f(x)$ at the point $x=0$ if 
+$$P(0)=f(0), P'(0)=f'(0),P''(0)=f''(0),\ldots ,P^{(5)}(0)=f^{(5)}(0) \, .$$}
+}
+\end{center}
+
+Since $P(x)$ is a fifth degree polynomial, all the derivatives of $P$ beyond the fifth will be identically 0, so we can't control their values by altering the values of the $a_k$. What we are saying, then, is that we are using as our
+\mar{The final criterion for best fit at $x=0$}
+ criterion for the best fit that all the derivatives of $P$ as high as we can control them have the same values at $x=0$ as the corresponding derivatives of $f$. 
+
+While this is a reasonable definition for something we might call the ``best fit'' at the point $x=0$, it gives us no direct way to tell how good the fit really is.  This is a serious shortcoming---if we want to approximate function values by polynomial values, for instance, we would like to know how many decimal places in the polynomial values are going to be correct.  We will take up this question of goodness of fit later in this section;  we'll be able to make measurements that allow us to to see how well the polynomial fits the function.  First, though, we need to see how to determine the coefficients of the approximating polynomials and get some practice manipulating them.
+
+\smallskip
+\noindent
+{\bf Note on Notation:}  We have used the
+\mar{Notation for higher derivatives}
+ notation $f^{(5)}(x)$ to denote the fifth derivative of $f(x)$ as a convenient shorthand for $f'''''(x)$, which is harder to read.  We will use this throughout.
+
+\smallskip
+
+{\bf Finding the coefficients}\quad We first observe that the derivatives of $P$ at $x=0$ are easy to express in terms of $a_1,a_2,\ldots \, .$ We have
+\begin{eqnarray*}
+P'(x)&=&a_1+2\,a_2x+3\,a_3x^2+4\,a_4x^3+5\,a_5x^4 \\
+P''(x)&=&2\,a_2+3\cdot2\,a_3x+4\cdot3\,a_4x^2+5\cdot4\,a_5x^3 \\
+P^{(3)}(x)&=& 3\cdot2\,a_3+4\cdot3\cdot2\,a_4x+5\cdot4\cdot3\,a_5x^2 \\
+P^{(4)}(x)&=& 4\cdot3\cdot2\,a_4+5\cdot4\cdot3\cdot2\,a_5x \\
+P^{(5)}(x)&=&5\cdot4\cdot3\cdot2\,a_5 \, .
+\end{eqnarray*}
+Thus $P''(0)=2\,a_2$, $P^{(3)}(0)= 3\cdot2\,a_3$, $P^{(4)}(0)= 4\cdot3\cdot2\,a_4$, and $P^{(5)}(0)=5\cdot4\cdot3\cdot2\,a_5 \, .$  
+
+We can simplify this a bit by introducing the {\bf factorial}\index{factorial} notation: $n!=n\cdot(n-1)\cdot(n-2)\cdots3\cdot2\cdot1 \, .$ This is called ``$n$ factorial". 
+\mar{Factorial notation}
+Thus, for example, $7!=7\cdot6\cdot5\cdot4\cdot3\cdot2\cdot1 = 5040.$  It turns out to be convenient to extend the factorial notation to 0 by defining $0!=1.$ (Notice, for instance, that this makes the formulas below work out right.)  In the exercises you will see why this extension of the notation is not only convenient, but reasonable as well!
+
+With this notation we can express compactly the equations above as $P^{(k)}(0)=k!\,a_k$ for $k=0$, 1, 2, \ldots 5 \,.  Finally, since we want $P^{(k)}(0)=f^{(k)}(0)$, we can solve for the coefficients of $P(x)$:
+\mar{The desired rule for finding the coefficients}
+$$a_k = \frac{f^{(k)}(0)}{k!} \mbox{ for } k=0,1,2,3,4,5 \, .$$
+
+We can now write down an explicit formula for the fifth degree polynomial which best fits $f(x)$ at $x=0$ in the sense we've put forth:
+$$P(x)=f(0)+f'(0)x+\frac{f^{(2)}(0)}{2!}x^2+\frac{f^{(3)}(0)}{3!}x^3+\frac{f^{(4)}(0)}{4!}x^4+\frac{f^{(5)}(0)}{5!}x^5 \, .$$
+
+We can express this more compactly using the $\Sigma$--notation we introduced in the discussion of Riemann sums in chapter 6:
+\[P(x)=\sum_{k=0}^{5} \frac{f^{(k)}(0)}{k!}\,x^k \, .\]
+We call this the {\bf fifth degree Taylor polynomial for $f(x)$}.  It is sometimes also called the fifth {\bf order} Taylor polynomial.
+
+It should be obvious to you that we can generalize what we've done above to get a 
+        \mar{\vspace{30pt}General rule for the Taylor polynomial at $x=0$}
+best fitting polynomial\index{best fitting polynomial} of any degree.  Thus 
+
+\noindent
+\begin{center}
+\framebox[4.2in]
+{\parbox{3.85in}{\vspace{8pt}
+The {\bf Taylor polynomial\index{Taylor polynomial, defined} of degree} {\boldmath $n$} approximating the function $f(x)$ at $x=0$ is given by the formula
+\[P_n(x)=\sum_{k=0}^{n} \frac{f^{(k)}(0)}{k!}\,x^k \, .\]}
+}
+\end{center}
+
+\noindent
+We also speak of the Taylor polynomial {\em centered at} $x=0$.
+
+\noindent
+{\bf Example}  \hspace{.25in} Consider $f(x) = \sin(x)$. Then for $n=7$ we have 
+$$
+        \begin{array}{rcrcrcr}
+        f(x) &=& \sin(x) & \qquad & f(0) &=& 0 \\
+        f'(x) &=& \cos(x) &             & f'(0) &=& +1 \\
+        f^{(2)}(x) &=& -\sin(x) &       & f^{(2)}(0) &=& 0 \\
+        f^{(3)}(x) &=& -\cos(x) &       & f^{(3)}(0) &=& -1 \\
+        f^{(4)}(x) &=& \sin(x) &                & f^{(4)}(0) &=& 0 \\
+        f^{(5)}(x) &=& \cos(x) &                & f^{(5)}(0) &=& +1 \\
+        f^{(6)}(x) &=& -\sin(x) &       & f^{(6)}(0) &=& 0 \\
+        f^{(7)}(x) &=& -\cos(x) &       & f^{(7)}(0) &=& -1 \\
+        \end{array}
+        $$
+From this we can see that the pattern 0, $+1$, 0 , $-1$, \ldots will repeat forever.  Substituting these values into the formula we get that for any odd integer $n$ the $n$-th degree Taylor polynomial for $\sin(x)$ is
+        $$
+        P_n(x) =  x - {x^3 \over 3!} + {x^5 \over 5!} 
+                - {x^7 \over 7!} + \cdots \pm {x^n \over n!}.
+        $$
+        
+Note that $P_3(x)=x-x^3/6$, which is the polynomial we met in \S1. We saw there that this polynomial seemed to fit the graph of the sine function only out to around $x=1$.  Now, though, we have a way to generate polynomial approximations of higher degrees, and we would expect to get better fits as the degree of the approximating polynomial is increased.  To see how closely these polynomial approximations follow $\sin(x)$, here's the graph of $\sin(x)$ together with the Taylor polynomials of degrees $n=1,3,5,\ldots ,17$ plotted over the interval $[0, 7.5]$:\label{sin3}
+
+\vspace*{2.25in}
+%\special{psfile=me/ps/calc2/sin3.ps}\index{Taylor polynomial, graphs for $\sin{x}$}
+
+Note that while each polynomial eventually wanders off
+\mar{The higher the degree of the polynomial, the better the fit}
+ to infinity, successive polynomials stay close to the sine function for longer and longer intervals---the Taylor polynomial of degree 17 is just beginning to diverge visibly by the time $x$ reaches $2\pi$.  We might expect that if we kept going, we could find Taylor polynomials that were good fits out to $x=100$, or $x=1000$.  This is indeed the case, although they would be long and cumbersome polynomials to work with.  Fortunately, as you will see in the exercises, with a little cleverness we can use a Taylor polynomial of degree 9 to calculate $\sin(100)$ to 5 decimal place accuracy.
+
+\medskip
+\noindent
+{\bf Other Taylor Polynomials:}  
+\mar{Approximating polynomials for other basic functions}
+In a similar fashion, we can get Taylor polynomials for other functions.  You should use the general formula to verify the Taylor polynomials for the following basic functions.  (The Taylor polynomial for $\sin(x)$ is included for convenient reference.)
+
+%\newpage
+
+\mbox{}
+\vspace{-20pt}
+$$
+        \begin{array}{ccl}
+        f(x)  &\rule{30pt}{0pt}& \rule{60pt}{0pt} P_n(x) \\ [2pt] \hline
+        & \\ [-6pt]
+        \sin(x) & &{\displaystyle x - {x^3 \over 3!} + {x^5 \over 5!}
+                - {x^7 \over 7!} + \cdots \pm {x^n \over n!}} \;
+        (n \mbox{ odd})\\ [.2in]
+        \cos(x) & &{\displaystyle 1 - {x^2 \over 2!} + {x^4 \over 4!} 
+                - {x^6 \over 6!} + \cdots \pm {x^n \over n!}} \;
+                (n \mbox{ even})\\ [.2in]
+        e^x & &{\displaystyle 1 + x + {x^2 \over 2!} + {x^3 \over 3!} 
+                + {x^4 \over 4!} + \cdots + {x^n \over n!}} \\ [.2in]
+        \ln{(1-x)} & &{\displaystyle  -\left(x+{x^2 \over 2} + {x^3 \over 3} 
+                + {x^4 \over 4} + \cdots + {x^n \over n}\right) }\\ [.2in]
+        {\displaystyle {1 \over {1-x}} }& &{\displaystyle 1+x+x^2+x^3+\cdots +x^n}
+        \end{array}
+$$
+
+\medskip
+\noindent
+{\bf Taylor polynomials at points other than $x=0$.}  
+        \mar{General rule for the Taylor polynomial at $x=a$}
+Using exactly the same arguments we used to develop the best-fitting polynomial at $x=0$, we can derive the more general formula for the best-fitting polynomial at any value of $x$.  Thus, if we know the behavior of $f$ and its derivatives at some point $x=a$, we would like to find a polynomial $P_n(x)$ which is a good approximation to $f(x)$ for values of $x$ close to $a$.  
+
+Since the expression $x-a$ tells us how close $x$ is to $a$, we use it (instead of the variable $x$ itself) to construct the polynomials approximating $f$ at $x=a$:
+$$
+P_n(x)=b_0+b_1(x-a)+b_2(x-a)^2+b_3(x-a)^3+\cdots+b_n(x-a)^n \, .
+$$
+You should be able to apply the reasoning we used above to derive the following
+
+\noindent
+\begin{center}
+\framebox[5.1in]
+{\parbox{4.85in}{\vspace{8pt}
+The {\bf Taylor polynomial of degree} {\boldmath $n$} {\bf centered at} {\boldmath $x=a$} approximating the function $f(x)$  is given by the formula
+\begin{eqnarray*}
+P_n(x)&=&f(a) +f'(a)(x-a) + \frac{f''(a)}{2!}(x-a)^2+\cdots + \frac{f^{n}(a)}{n!}(x-a)^n \\
+        &=&\sum_{k=0}^{n} \frac{f^{(k)}(a)}{k!}(x-a)^k \, .
+    \end{eqnarray*}}
+}
+\end{center}\index{Taylor polynomials centered at points other than the origin}
+
+\medskip
+\noindent
+{\bf A computer program for graphing Taylor polynomials}  Here is a program that evaluates the 17-th degree Taylor polynomial for $\sin(x)$ and graphs it over the interval $[0, 3.14]$.  The first 7 lines of the program constitute a subroutine for evaluating factorials.  The syntax of such subroutines varies from one computer language to another, so be sure to use the format that's appropriate for you.  You may even be using a language that already knows how to compute factorials, in which case you can omit the subroutine.  The second set of 9 lines defines the function {\tt poly} which evaluates the 17-th degree Taylor polynomial.  Note the role of the variable {\tt Sign}---it simply changes the sign back and forth from positive to negative as each new term is added to the sum.  As usual, you will have to put in commands to set up the graphics and draw lines in the format your computer language uses.  You can modify this program to graph other Taylor polynomials.
+\index{program: TAYLOR}
+
+%This still needs fixing -- I can't get this program to run
+
+\begin{center}
+{\bf Program: TAYLOR }
+\end{center}
+\noindent
+{\sl Set up GRAPHICS}
+\vspace{-7pt}
+\begin{verbatim}
+DEF fnfact(m)
+     P = 1
+     FOR r = 2 TO m
+         P = P * r
+     NEXT r
+     fnfact = P
+END DEF
+DEF fnpoly(x)
+     Sum = x
+     Sign = -1
+     FOR k = 3 TO 17 STEP 2
+         Sum = Sum + Sign * x^k/fnfact(k)
+         Sign = (-1) * Sign
+     NEXT k
+     fnpoly = Sum
+END DEF
+FOR x = 0 TO 3.14 STEP .01
+\end{verbatim}
+\vspace{-8pt}
+\rule{34pt}{0pt} {\sl Plot the line from 
+                {\tt (x, fnpoly(x))}}\\[-1pt]
+\rule{52pt}{0pt} {\sl to 
+                {\tt (x + .01, fnpoly(x + .01))}}\\
+\vspace{-30pt}
+\begin{verbatim}
+NEXT x
+\end{verbatim}
+
+\subsection{New Taylor Polynomials from Old}
+
+Given a function we want to approximate by Taylor polynomials, we could always go straight to the general formula for deriving such polynomials.  On the other hand, it is often possible to avoid a lot of tedious calculation of derivatives by using a polynomial we've already calculated. It turns out that any manipulation on Taylor polynomials you might be tempted to try will probably work.  Here are some examples to illustrate the kinds of manipulations that can be performed on Taylor polynomials.
+
+\medskip
+\noindent
+{\bf Substitution in Taylor Polynomials.}  Suppose we wanted the Taylor polynomial for $e^{x^2}$.  We know from what we've already done that for any value of $u$ close to 0,
+$$e^u \approx {\displaystyle 1 + u + {u^2 \over 2!} + {u^3 \over 3!} 
+                + {u^4 \over 4!} + \cdots + {u^n \over n!}} \, .$$
+In this expression $u$ can be anything, including another variable expression.  For instance, if we set $u=x^2$, we get the Taylor polynomial
+\begin{eqnarray*}
+e^{x^2} & =& e^u \\
+         &\approx & {\displaystyle 1 + u + {u^2 \over 2!} + {u^3 \over 3!} 
+                + {u^4 \over 4!} + \cdots + {u^n \over n!}} \\ [.15in]
+        &=&{\displaystyle 1 + (x^2) + {(x^2)^2 \over 2!} + {(x^2)^3 \over 3!} + {(x^2)^4 \over 4!} + \cdots + {(x^2)^n \over n!} }\\ [.15in]
+        & = & {\displaystyle 1 + x^2 + {x^4 \over 2!} + {x^6 \over 3!} + {x^8 \over 4!} + \cdots + {x^{2n} \over n!} }\,.
+\end{eqnarray*}
+You should check to see that this is what you get if you apply the general formula for computing Taylor polynomials to the function $e^{x^2}$.
+
+Similarly, suppose we wanted a Taylor polynomial for $1/(1+x^2)$.  We could start with the approximation given earlier:
+$${\displaystyle {1 \over {1-u}} }\approx {\displaystyle 1+u+u^2+u^3+\cdots +u^n} \, .$$
+If we now replace $u$ everywhere by $-x^2$, we get the desired expansion:
+\begin{eqnarray*}
+{\displaystyle {1 \over {1+x^2}} } & = & {\displaystyle {1\over {1-(-x^2)}}} \\
+        & = &{\displaystyle {1 \over {1-u}} } \\
+        & \approx & {\displaystyle 1+u+u^2+u^3+\cdots +u^n} \\ [.15in]
+        & = & {\displaystyle 1+(-x^2)+(-x^2)^2+(-x^2)^3+\cdots +(-x^2)^n} \\ [.15in]
+        & = & {\displaystyle 1-x^2+x^4-x^6+\cdots \pm x^{2n}} \,.
+\end{eqnarray*}
+
+Again, you should verify that if you start with the function$f(x)=1/(1+x^2)$ and apply to $f$ the general formula for deriving Taylor polynomials, you will get the preceding result.  Which method is quicker?
+ 
+\medskip
+\noindent
+{\bf Multiplying Taylor Polynomials.}  Suppose we wanted the 5-th degree Taylor polynomial for $e^{3x}\cdot \sin(2x)$.  We can use substitution to write down polynomial approximations for $e^{3x}$ and $\sin(2x)$, so we can get an approximation for their product by multiplying the two polynomials:
+\begin{eqnarray*}
+\lefteqn{e^{3x} \cdot \sin(2x) \approx} \\ [.15in]
+& &{\displaystyle\left(1+(3x)+{(3x)^2 \over 2!}+{(3x)^3 \over 3!} +{(3x)^4 \over 4!}+{(3x)^5 \over 5!}\right)\left((2x)-{(2x)^3 \over 3!} +{(2x)^5 \over 5!}\right)} \\ [.15in]
+&\approx&{\displaystyle 2x+6x^2+{23 \over 3}x^3+5x^4-{61 \over 60}x^5} \,.
+\end{eqnarray*}
+
+Again, you should try calculating this polynomial directly from the general rule, both to see that you get the same result, and to appreciate how much more tedious the general formula is to use in this case.
+
+In the same way, we can also divide Taylor polynomials, raise them to powers, and chain them by composition. The exercises provide examples of some of these operations.
+
+\medskip
+\noindent
+{\bf Differentiating Taylor Polynomials.}  Suppose we know a Taylor polynomial for some function $f$. If $g$ is the derivative of $f$, we can immediately get a Taylor polynomial for $g$ (of degree one less) by differentiating the polynomial we know for $f$. You should review the definition of Taylor polynomial to see why this is so.  For instance, suppose $f(x) = 1/(1-x)$ and $g(x) =1/(1-x)^2 $.  Verify that $f'(x) = g(x)$. It then follows that
+\begin{eqnarray*}
+{\displaystyle 1 \over (1-x)^2 } & = & \frac{d}{dx} f(x) \\ [.1in]
+        & \approx & \frac{d}{dx} \left( 1+x+x^2 + \cdots + x^n \right) \\ [.1in]
+        &=&1+2\,x+3\,x^2+\cdots + n\,x^{n-1} \,.
+\end{eqnarray*} 
+
+\medskip
+\noindent
+{\bf Integrating Taylor Polynomials.}  Again suppose we have functions $f(x)$ and $g(x)$ with $f'(x) = g(x)$, and suppose this time that we know a Taylor polynomial for $g$.  We can then get a Taylor polynomial for $f$ by antidifferentiating term by term.  For instance, we find in chapter 11 that the derivative of $\arctan(x)$ is $1/(1+x^2)$, and we have seen above how to get a Taylor polynomial for  $1/(1+x^2)$.  Therefore we have
+\begin{eqnarray*}
+\arctan{x} &= & \int_0^x \frac{1}{1+t^2} dt \\ [.15in]
+        &\approx& \int_0^x \left( 1-t^2+t^4-t^6+ \cdots \pm t^{2n}\right) dt \\ [.15in]
+        &=&\left( \left. t-{1 \over 3}t^3 + {1 \over 5} t^5 - \cdots \pm {1 \over {2n+1}}t^{2n+1}\right) \right|_0^x \\ [.15in]
+        &=&x-{1 \over 3}x^3 + {1 \over 5} x^5 - \cdots \pm {1 \over {2n+1}}x^{2n+1} \, .
+\end{eqnarray*}
+
+
+\subsection{Goodness of fit}
+
+        Let's turn to the question of {\em measuring\/}
+        \mar{Graph the difference between a function and its Taylor polynomial}
+the fit between a function and one of its Taylor polynomials.  The ideas here have a strong geometric flavor, so you should use a computer graphing utility to follow this discussion.  Once again, consider the function $\sin(x)$ and its Taylor polynomial $P(x) = x - x^3/6$.  According to the table in \S 1, the difference $\sin(x) - P(x)$ got smaller as $x$ got smaller.  Stop now and graph the function $y = \sin(x) - P(x)$ near $x = 0$.  This will show you exactly how $\sin(x) - P(x)$ depends on $x$.  If you choose the interval $-1 \leq x \leq 1$ (and your graphing utility allows its vertical and horizontal scales to be set independently of each other), your graph should resemble this one.\label{startsine}
+
+
+\vspace{122pt}
+\special{psfile=../ps/calc2/j101.ps}
+
+        This graph looks very much like a cubic polynomial.  
+        \mar{The difference looks like a power of $x$} 
+If it really is a cubic, we can figure out its formula, because we know
+the value of $\sin(x) - P(x)$ is about .008 when $x = 1$.  Therefore the
+cubic should be $y = .008 \, x^3$ (because then $y = .008$ when $x =
+1$).  However, if you graph $y = .008 \, x^3$ together with $y = \sin(x)
+- P(x)$, you should  find a poor match (the left-hand figure, below.)
+Another possibility is that $\sin(x) - P(x)$ is more like a {\em
+  fifth\/} degree polynomial.  Plot $y = .008 \, x^5$; it's so close
+that it ``shares phosphor'' with $\sin(x) - P(x)$ near $x = 0$.
+
+ 
+\special{psfile=../ps/calc2/j102.ps}
+\special{psfile=../ps/calc2/j103.ps}
+
+\newpage
+
+        If $\sin(x) - P(X)$ were {\em exactly\/} a multiple of $x^5$, 
+        \mar{Finding the multiplier}
+then $(\sin{x} - P(x))/x^5$ would be constant and would equal the value
+of the multiplier.  What we actually find is this:
+        $$
+{\small
+        \begin{array}{lc}
+        \multicolumn{1}{c}{x} & 
+                {\displaystyle {\sin{x} - P(x) \over x^5}} \\ [8pt]
+        \hline 
+        1.0\rule{0pt}{14pt}     & .0081377 \\
+        0.5     & .0082839 \\
+        0.1     & .0083313 \\ 
+        0.05    & .0083328 \\
+        0.01    & .0083333
+        \end{array}
+}       
+        \qquad \mbox{suggesting} \quad
+        \lim_{x \to 0} {\sin{x} - P(x) \over x^5} = .008333\ldots .
+        $$
+
+\noindent
+Thus, although the ratio is not constant,  
+        \mar{How $P(x)$ fits $\sin(x)$}
+it appears to converge to a
+definite value---which we can take to be the value of the multipier:
+        $$
+        \sin{x} - P(x) \approx .008333 \, x^5 \quad 
+                \mbox{when} \quad x \approx 0.
+        $$
+We say that $\sin(x) - P(x)$ {\em has the same order of magnitude as\/} $x^5$ as $x \to 0$.  So $\sin(x) - P(x)$ is about as small as $x^5$.  Thus, if we know the size of $x^5$ we will be able to tell how close $\sin(x)$ and $P(x)$ are to each other.
+
+        A rough way to measure how close two numbers are 
+        \mar{Comparing two numbers}     
+is to count the number of decimal places to which they agree.  But there are pitfalls here; for instance, none of the decimals of 1.00001 and 0.99999 agree, even though the difference between the two numbers is only 0.00002.  This suggests that a good way to compare two numbers is to look at their difference.  Therefore, we say
+        \begin{center}
+        $A = B$ to $k$ decimal places 
+        \quad {\em means\/}  \quad
+        $A - B = 0$ to $k$ decimal places
+        \end{center}
+Now, a number equals 0 to k decimal places precisely when it {\em rounds off to\/} 0 (when we round it to k decimal places).  Since $X$ rounds to 0 to $k$ decimal places if and only $|X| < .5 \times 10^{-k}$, we finally have a precise way to compare the size of two numbers: 
+\begin{center}\framebox[360pt]
+{
+\parbox{324pt}
+        {\vspace{5pt}
+        \hfill 
+        $A = B$ to $k$ decimal places 
+        \quad {\em means\/}  \quad
+        $|A - B| < .5 \times 10^{-k}$.
+        \hfill
+        \vspace{5pt}
+        }
+}
+\end{center}
+
+        Now we can say how close $P(x)$ is to $\sin(x)$.  
+        \mar{What the fit means computationally}        
+Since $x$ is small, we can take this to mean {\em $x = 0$ to $k$ decimal places}, or $|x| < .5 \times 10^{-k}$.  But then,
+        $$
+        |x^5 - 0| = |x - 0|^5 < (.5 \times 10^{-k})^5 < .5 \times 10^{-5k - 1}
+        $$
+(since $.5^5 = .03125  < .5 \times 10^{-1}$).  In other words, if $x = 0$ to $k$ decimal places, then $x^5 = 0$ to $5k + 1$ places.  Since $\sin(x) - P(x)$ has the same order of magnitude as $x^5$ as $x \to 0$, $\sin(x) = P(x)$ to $5k + 1$ places as well.  In fact, because the multiplier in the relation
+        $$
+        \sin{x} - P(x) \approx .008333 \, x^5 \qquad 
+                (x \approx 0)
+        $$
+is .0083\ldots , we gain two more decimal places of accuracy.  (Do you see why?)  Thus, finally, we see how reliable the polynomial $P(x) = x - x^3/6$ is for calculating values of $\sin(x)$:   
+\begin{center}\framebox[360pt]
+{
+\parbox{324pt}
+        {
+        \vspace{5pt}
+        When $x = 0$ to $k$ decimal places of accuracy, we can use $P(x)$ to calculate the first $5k + 3$ decimal places of the value of $\sin(x)$. 
+        \vspace{-3pt}
+        }
+}
+\end{center}
+Here are a few examples comparing $P(x)$ to the {\em exact\/} value of $\sin(x)$:
+{\small
+\addtolength{\arraycolsep}{8pt}
+        $$
+        \begin{array}{lll}
+        \multicolumn{1}{c}{x} & \multicolumn{1}{c}{P(x)} &
+                \multicolumn{1}{c}{\sin(x)} \\[2pt]
+        \hline
+        .0372   &  .\underline{03719142}01920 & 
+             .\underline{0371942}07856\ldots \rule{0pt}{14pt} \\
+        .0086   & .\underline{00859989}39907 &
+             .\underline{00859989}3991\ldots \\
+        .0048   & .\underline{0047999815680}000 &
+                 .\underline{0047999815680}212\ldots
+        \end{array}
+        $$
+}
+The underlined digits are guaranteed to be correct, based on the number of decimal places for which $x$ agrees with 0.  (Note that, according to our rule, $.0086 = 0$ to {\em one\/} decimal place, not two.)\label{endsine}
+%\addtolength{\arraycolsep}{-8pt}
+
+\subsection{Taylor's theorem}
+
+        Taylor's theorem is the generalization of what we have just seen; it describes the goodness of fit between an arbitrary function and one of its Taylor polynomials.  We'll state three versions of the theorem, gradually uncovering more information.  To get started, we need a way to compare the order of magnitude of {\em any\/} two 
+        \mar{\vspace{12pt}Order of magnitude}   
+functions.
+\begin{center}\framebox[360pt]
+{
+\parbox{320pt}
+        {
+        \vspace{5pt}
+        We say that $\varphi(x)$ has {\bf the same order of magnitude} as $q(x)$ as $x \to a$, and we write $\varphi(x) = O(q(x))$ as $x \to a$, if there is a constant $C$ for which
+        $$
+        \lim_{x \to a} {\varphi(x) \over q(x)} = C.
+        $$
+        \vspace{-10pt}
+        }
+}
+\end{center}
+Now, when $\lim_{x\to a} \varphi(x)/q(x)$ is $C$, we have \label{order}
+        $$
+        \varphi(x) \approx C q(x) \quad \mbox{when $x \approx a$}.
+        $$
+We'll frequently use this relation to express the idea that $\varphi(x)$ has the same order of magnitude as $q(x)$ as $x \to a$.
+
+        The symbol $O$ is an upper case ``oh''.  
+        \mar{`Big oh' notation} 
+When $\varphi(x) = O(q(x))$ as $x \to a$, we say {\em $\varphi(x)$ is `big oh' of $q(x)$ as $x$ approaches $a$}.  Notice that the equal sign in $\varphi(x) = O(q(x))$ does {\em not\/} mean that $\varphi(x)$ and $O(q(x))$ are equal; $O(q(x))$ isn't even a function.  Instead, the equal sign and the $O$ together tell us that $\varphi(x)$ stands in a certain relation to $q(x)$.
+\begin{center}\framebox[360pt]
+{
+\parbox{330pt}
+        {
+        \vspace{5pt}
+{\bf Taylor's theorem, version~1}.  If $f(x)$ has derivatives up to order $n$ at $x = a$, then
+        $$
+        f(x) = f(a) + {f'(a) \over 1!}(x - a) + \cdots + 
+                {f^{(n)}(a) \over n!} (x - a)^n + R(x), 
+        $$
+where $R(x) = O((x - a)^{n+1})$ as $x \to a$.  The term $R(x)$ is called the {\bf remainder}.
+\vspace{8pt}
+        }
+}
+\end{center}
+
+%\newpage
+
+        This version of Taylor's theorem focusses 
+        \mar{Informal language} 
+on the general shape of the remainder function.  Sometimes we just say the remainder has ``order $n + 1$'', using this short phrase as an abbreviation for ``the order of magnitude of the function $(x - a)^{n+1}$''.  In the same way, we say that {\em a function and its $n$-th degree Taylor polynomial at $x = a$ agree to order $n+1$ as $x \to a$}.
+
+
+\aside{Notice that, if $\varphi(x) = O(x^3)$ as $x \to 0$, then it is also true that $\varphi(x) = O(x^2)$ (as $x \to 0$).  This implies that we should take $\varphi(x) = O(x^n)$ to mean ``$\varphi$ has {\em at least\/} order $n$'' (instead of simply ``$\varphi$ has order $n$'').  In the same way, it would be more accurate (but somewhat more cumbersome) to say that $\varphi = O(q)$ means ``$\varphi$ has {\em at least\/} the order of magnitude of $q$''.}
+ 
+        As we saw in our example, we can translate the order  
+        \mar{Decimal places of accuracy}        
+of agreement between the function and the polynomial into information about the number of decimal places of accuracy in the polynomial approximation.  In particular, if $x - a = 0$ to $k$ decimal places, then $(x - a)^n = 0$ to $nk$ places, at least.  Thus, as the order of magnitude $n$ of the remainder increases, the fit increases, too.  (You have already seen this illustrated with the sine function and its various Taylor polynomials, in the figure on page~\pageref{sin3}.)
+
+%
+% Note: put \label{sin3} near the \special command for sin3.ps 
+%
+
+\newpage
+
+        While the first version of Taylor's theorem tells us that $R(x)$ 
+        \mar{A formula for the remainder}       
+looks like $(x - a)^{n+1}$ in some general way, the next gives us a concrete formula.  At least, it {\em looks\/} concrete.  Notice, however, that $R(x)$ is expressed in terms of a number $c_x$ (which depends upon $x$), but the formula doesn't tell us {\em how\/} $c_x$ depends upon $x$.  Therefore, if you want to use the formula to {\em compute\/} the value of $R(x)$, you can't.  The theorem says only that $c_x$ exists; it doesn't say how to find its value.  Nevertheless, this version provides useful information, as you will see.
+\begin{center}\framebox[360pt]
+{
+\parbox{330pt}
+        {
+        \vspace{5pt}
+{\bf Taylor's theorem, version~2}.  Suppose $f$ has continuous derivatives up to order $n+1$ for all $x$ in some interval containing~$a$.  Then, for each $x$ in that interval, there is a number $c_x$ between $a$ and $x$ for which
+        $$
+        R(x) =  {f^{(n+1)}(c_x) \over (n+1)!} \, (x - a)^{n+1}. 
+        $$
+This is called {\bf Lagrange's form of the remainder}. 
+\vspace{8pt}
+        }
+}
+\end{center}
+
+        We can use the Lagrange form 
+        \mar{Another formula}   
+as an aid to computation.  To see how, return to the formula 
+        $$
+        R(x) \approx C (x - a)^{n+1} \quad (x \approx a)
+        $$
+that expresses $R(x) = O((x - a)^{n+1})$ as $x \to a$ (see page~\pageref{order}).  The constant here is the limit
+        $$
+        C = \lim_{x \to a} {R(x) \over (x - a)^{n+1}}.
+        $$
+If we have a good estimate for the value of $C$, then $R(x) \approx C (x - a)^{n+1}$ gives us a good way to estimate $R(x)$.   Of course, we could just evaluate the limit to determine $C$.  In fact, that's what we did in the example; knowing $C \approx .008$ there gave us two more decimal places of accuracy in our polynomial approxmation to the sine function.   
+
+        But the Lagrange form of the remainder 
+        \mar{Determining $C$ from $f$ at $x = a$}       
+gives us another way to determine $C$:  \begin{eqnarray*}
+        C \ = \ \lim_{x \to a} {R(x) \over (x - a)^{n+1}} &=&
+                \lim_{x \to a} {f^{(n+1)}(c_x) \over (n+1)!} \\ [3pt]
+                &=& {f^{(n+1)}(\lim_{x \to a} c_x) \over (n+1)!} \\ [3pt]
+                &=& {f^{(n+1)}(a) \over (n+1)!}.
+        \end{eqnarray*}
+In this argument, we are permitted to take the limit ``inside'' $f^{(n+1)}$ because $f^{(n+1)}$ is a continuous function.   (That is one of the hypotheses of version~2.)  Finally, since $c_x$ lies between $x$ and $a$, it follows that $c_x  \to a$ as $x \to a$; in other words, $\lim_{x \to a}c_x = a$.  Consequently, we get $C$ {\em directly\/} from the function $f$ itself, and we can therefore write
+        $$
+        R(x) \approx {f^{(n+1)}(a) \over (n+1)!} \, (x - a)^{n+1} \qquad
+                (x \approx a).
+        $$
+
+        The third version of Taylor's theorem 
+        \mar{An error bound}
+uses the Lagrange form of the remainder in a similar way to get an {\em error bound\/} for the polynomial approximation based on the size of $f^{(n+1)}(x)$.
+\begin{center}\framebox[360pt]
+{
+\parbox{330pt}
+        {
+        \vspace{5pt}
+{\bf Taylor's theorem, version~3}.  Suppose that $|f^{(n+1)}(x)| \leq M$ for all $x$ in some interval containing~$a$.  Then, for each $x$ in that interval,
+        $$
+        |R(x)| \leq  {M \over (n+1)!} \, |x - a|^{n+1}. 
+        $$ 
+        }
+}
+\end{center}
+With this error bound, which is derived from knowledge of $f(x)$ near $x = a$, we can determine quite precisely how many decimal places of accuracy a Taylor polynomial approximation achieves.  The following example illustrates the different versions of Taylor's theorem.
+
+
+\medskip
+\noindent
+{\bf Example}.  Consider $\sqrt{x}$ near $x = 100$.  The second degree Taylor polynomial for $\sqrt{x}$, centered at $x = 100$, is
+        $$
+        Q(x) = 10 + {(x - 100) \over 20} - {(x - 100)^2 \over 8000}.
+        $$
+
+\vspace{105pt}
+\special{psfile=../ps/calc2/j104.ps}
+\special{psfile=../ps/calc2/j105.ps}
+
+\noindent
+Plot $y = Q(x)$ and $y = \sqrt{x}$ together; 
+        \mar{Version 1: the remainder is $O((x-100)^3)$}
+the result should look like the figure on the left, above.  Then plot the remainder $y = \sqrt{x} - Q(x)$ near $x = 100$.  This graph should suggest that $\sqrt{x} - Q(x) = O((x-100)^3)$ as $x \to 100$.  In fact, this is what version 1 of Taylor's theorem asserts.  Furthermore,
+        $$
+        \lim_{x \to 100} {\sqrt{x} - Q(x) \over (x - 100)^3} 
+                \approx 6.25 \times 10^{-7};
+        $$
+check this yourself by constructing a table of values.  Thus
+        $$
+        \sqrt{x} - Q(x) \approx C (x - 100)^3 \quad 
+                \mbox{where $C \approx 6.25 \times 10^{-7}$}.
+        $$ 
+
+        We can use the Lagrange form of the remainder  
+        \mar{Version 2: determining $C$ in terms of $\sqrt{x}$ at $x = 100$}    
+(in version 2 of Taylor's theorem) to get the value of $C$ another way---directly from the third derivative of $\sqrt{x}$ at $x = 100$:
+        $$
+        C = \left. {(x^{1/2})''' \over 3!} \, \right|_{x = 100} = 
+          {{1 \over 2} \cdot {-1 \over 2} \cdot {-3 \over 2} \cdot (100)^{-5/2} 
+                \over 6} = 
+          {1 \over 2^4 \cdot 10^5} = 6.25 \times 10^{-7}.
+        $$
+This is the {\em exact\/} value, confirming the estimate obtained above.
+
+        Let's see what the equation  
+        \mar{Accuracy of the polynomial approximation}
+$\sqrt{x} - Q(x) \approx 6.25 \times 10^{-7} (x - 100)^3$ tells us about the accuracy of the polynomial approximation.  If we assume $|x - 100| < .5 \times 10^{-k}$, then
+        \begin{eqnarray*}
+        |\sqrt{x} - Q(x)| &<& 6.25 \times 10^{-7} \times 
+                        (.5 \times 10^{-k})^3 \\
+        &=& .78125 \times 10^{-(3k+7)} \ < \ .5 \times 10^{-(3k+6)}.
+        \end{eqnarray*}
+Thus
+        \begin{center}
+        $x = 100$ to $k$ decimal places 
+        $\Longrightarrow$
+        $\sqrt{x} = Q(x)$ to $3k + 6$ places.
+        \end{center}
+For example, if $x = 100.47$, then $k = 0$, so $Q(100.47) = \sqrt{100.47}$ to 6 decimal places.  We find 
+        $$
+        Q(100.47) = \underline{10.023472}3875, 
+        $$
+and the underlined digits should be correct.  In fact, 
+        $$
+        \sqrt{100.47} =  \underline{10.023472}4521\ldots .
+        $$
+Here is a second example.  If $x = 102.98$, then we can take $k = -1$, so $Q(102.98) = \sqrt{102.98}$ to $3 (-1) + 6 = 3$ decimal places.  We find
+        $$
+        Q(102.98) = \underline{10.147}88995, \qquad
+                \sqrt{102.98} = \underline{10.147}906187\ldots .
+        $$
+
+        Let's see what additional light version 3 
+        \mar{Version 3: \\ an explicit \\ error bound}  
+sheds on our investigation.  Suppose we assume $x = 100$ to $k = 0$ decimal places.  This means that $x$ lies in the open interval $(99.5, 100.5)$.    Version 3 requires that we have a bound on the size of the third derivative of $f(x) = \sqrt{x}$ over this interval.  Now $f'''(x) = {3 \over 8} x^{-5/2}$, and this is a decreasing function.  (Check its graph; alternatively, note that its derivative is negative.)  Its maximum value therefore occurs at the left endpoint of the (closed) interval $[99.5, 100.5]$:
+        $$
+        |f'''(x)| \leq f'''(99.5) = {\textstyle {3 \over 8}} \, (99.5)^{-5/2}
+                < 3.8 \times 10^{-6}.
+        $$
+Therefore, from version 3 of Taylor's theorem,
+        $$
+        |\sqrt{x} - Q(x)| < {3.8 \times 10^{-6} \over 3!} \, |x - 100|^3
+        $$
+Since $|x - 100| < .5$, $|x - 100|^3 < .125$, so
+        $$
+        |\sqrt{x} - Q(x)| < {3.8 \times 10^{-6} \times .125 \over 6} = 
+                .791667 \times 10^{-7} < .5 \times 10^{-6}.
+        $$
+This proves $\sqrt{x} = Q(x)$ to 6 decimal places---confirming what we found earlier.
+
+
+
+
+
+\subsection{Applications}
+
+{\bf Evaluating Functions.}  An obvious use 
+\mar{Now you can do anything your calculator can!}
+of Taylor polynomials is to evaluate functions.  In fact, whenever you
+ask a calculator or computer to evaluate a function---trigonometric,
+exponential, logarithmic---it is typically giving you the value of an
+appropriate polynomial (though not necessarily a Taylor polynomial).
+
+\medskip
+\noindent {\bf Evaluating Integrals.} The fundamental theorem of
+calculus gives us a quick way of evaluating a definite integral provided
+we can find an antiderivative for the function under the integral (cf.
+chapter 6, \S4).  Unfortunately, many common functions, like $e^{-x^2}$
+or $(\sin{x} )/x$, don't have antiderivatives that can be expressed as
+finite algebraic combinations of the basic functions.  Up until now,
+whenever we encountered such a function we had to rely on a Riemann sum
+to estimate the integral.  But now we have Taylor polynomials, and it's
+easy to find an antiderivative for a polynomial!  Thus, if we have an
+awkward definite integral to evaluate, it is reasonable to expect that
+we can estimate it by first getting a good polynomial approximation to
+the integrand, and then integrating this polynomial.  As an example,
+consider the {\bf error function}\index{Error function}, erf$(t)$,
+\mar{\vspace{18pt}The error function} defined by
+        $$
+        \mbox{erf$(t)$} = {2 \over \sqrt{\pi}}\int_0^t e^{-x^2} \, dx\, .
+        $$ 
+This is perhaps the most important integral in statistics.
+        It is the basis of the so-called ``normal distribution" and is
+        widely used to decide how good certain statistical estimates
+        are.  It is important to have a way of obtaining fast, accurate
+        approximations for erf$(t)$.  We have already seen that
+        $$
+        e^{-x^2} \approx 1 - x^2 + {x^4 \over 2!} - 
+                {x^6 \over 3!} + {x^8 \over 4!} - \cdots \pm {x^{2n} \over (n)!} \, .
+        $$
+Now, if we antidifferentiate term by term:
+        \begin{eqnarray*}
+        \int e^{-x^2}\, dx &\approx& \int \left( 1 - x^2 + 
+                {x^4 \over 2!} - {x^6 \over 3!} + 
+                {x^8 \over 4!} - \cdots \pm {x^{2n} \over (n)!}\right) \, dx \\ [.15in]
+        &=& \int 1 \, dx - \int x^2 \, dx + 
+                \int {x^4 \over 2!} \, dx - \int {x^6 \over 3!} \, dx 
+                + \cdots  \pm \int {x^{2n} \over (n)!} \, dx\\ [.15in]
+        &=& x - {x^3 \over 3} + {x^5 \over 5 \cdot 2!} -
+                {x^7 \over 7 \cdot 3!} + \cdots \pm {x^{2n+1} \over (2n+1)\cdot n!}\, .
+        \end{eqnarray*}
+Thus,
+        $$
+        \int_0^t e^{-x^2} \, dx\, \approx \left.
+                x - {x^3 \over 3} + {x^5 \over 5 \cdot 2!} -
+                {x^7 \over 7 \cdot 3!} + \cdots\ \pm {x^{2n+1} \over
+                  (2n+1) \cdot n!}\right|_0^t \, ,
+        $$
+giving us, finally, 
+        \mar{\vspace{5pt}A formula for approximating the \\error function}
+a formula for erf$(t)$:
+        $$
+        \mbox{erf$(t)$} \approx {2 \over \sqrt{\pi}} \left(t - {t^3\over 3} + {t^5\over 5 \cdot 2!} -
+{t^7 \over 7 \cdot 3!} + \cdots \pm {t^{2n+1} \over (2n+1) \cdot n!}\right)\, .
+        $$
+Thus if we needed to know, say, erf(1), we could quickly approximate it.  For instance, letting $n=6$, we have
+\begin{eqnarray*}
+\mbox{erf$(1)$}& \approx &{2 \over \sqrt{\pi}} \left(1-{1\over 3} + {1\over 5 \cdot 2!} -
+        {1\over 7 \cdot 3!} + {1\over 9 \cdot 4!} - {1\over 11 \cdot 5!} + {1\over 13 \cdot 6!}\right)\\ [.15in]
+        &\approx&{2 \over \sqrt{\pi}} \left(1-{1 \over 3}+{1 \over 10}-{1 \over 42}+{1 \over 216}-{1 \over 1320}+{1 \over 9360}\right) \\ [.15in]
+        &\approx&.746836\,{2 \over \sqrt{\pi}} \approx .842714\, ,
+\end{eqnarray*}
+a value accurate to 4 decimals.  If we had needed greater accuracy, we could simply have taken a larger value for $n$.  For instance, if we take $n=12$, we get the estimate .8427007929\ldots \,, where all 10 decimals are accurate (i.e., they don't change as we take larger values of $n$).
+
+\vspace*{14pt}
+\noindent
+{\bf Evaluating Limits.}  Our final application of Taylor polynomials makes explicit use of the order of magnitude of the remainder.  Consider the problem of evaluating a limit like
+        $$
+        \lim_{x \to 0} {1 - \cos(x) \over x^2}.
+        $$
+Since both numerator and denominator approach $0$ as $x \to 0$, it isn't clear what  the quotient is doing.  If we replace $\cos(x)$ by its third degree Taylor polynomial with remainder, though, we get
+        $$
+        \cos(x) = 1 - {1 \over 2!} x^2 + R(x),
+        $$
+and $R(x) = O(x^4)$ as $x \to 0$.  Consequently, if $x \neq 0$ but $x \to 0$, then
+        \begin{eqnarray*}
+        {1 - \cos(x) \over x^2} & = &
+                {1-\left(1-{1 \over 2}x^2 + R(x)\right) \over x^2}\\ [6pt]
+        &=&{{1 \over 2}x^2 - R(x) \over x^2} \ = \ 
+                \frac{1}{2} - {R(x) \over x^2}.
+        \end{eqnarray*}
+Since $R(x) = O(x^4)$, we know there is some constant $C$ for which $R(x)/x^4 \to C$ as $x \to 0$.  Therefore,
+        \begin{eqnarray*}
+        \lim_{x \to 0}{1 - \cos(x) \over x^2} & = &
+                \frac{1}{2} + \lim_{x \to 0}{R(x) \over x^2} \ = \
+                \frac{1}{2} + \lim_{x \to 0}{x^2 \cdot R(x) \over x^4} \\[6pt]
+        &=& \frac{1}{2} + 
+                \lim_{x \to 0} x^2 \cdot \lim_{x \to 0}{R(x) \over x^4} \ = \
+        \frac{1}{2} +  0 \cdot C \ = \ \frac{1}{2}.
+        \end{eqnarray*}
+
+\newpage
+
+        There is a way to shorten        
+        \mar{Extending the `big oh' notation}    
+these calculations---and make them more
+transparent---by extending the way we read the `big oh'
+notation.  Specifically, we will read $O(q(x))$ as ``some (unspecified)
+function that is the same order of magnitude as $q(x)$''.  
+
+Then, instead of writing $\cos(x) = 1 - {\textstyle{1 \over 2}} x^2 +
+R(x)$, and then noting $R(x) = O(x^4)$ as $x \to 0$, we'll just write
+        $$
+        \cos(x) = 1 - {\textstyle{1 \over 2}} x^2 + O(x^4) \qquad (x \to 0).
+        $$
+In this spirit,
+        \begin{eqnarray*}
+        {1 - \cos(x) \over x^2} & = &
+                {1-\left(1-{1 \over 2}x^2 + O(x^4)\right) \over x^2}\\ [.1in]
+        &=&{{1 \over 2}x^2 + O(x^4) \over x^2} \ = \ \frac{1}{2} +O(x^2)
+                \qquad (x \to 0).
+        \end{eqnarray*}
+We have used the fact that $O(x^4)/x^2 = O(x^2)$.  Finally, since $O(x^2) \to 0$ as $x \to 0$ (do you see why?), the limit of the last expression is just 1/2 as $x \to 0$.  Thus, once again we arrive at the result
+        $$
+        \lim_{x \to 0} {1 - \cos(x) \over x^2} = {1 \over 2}.
+        $$
+
+\subsection{Exercises}
+
+
+\num Find a seventh degree Taylor polynomial centered at $x=0$ for the indicated antiderivatives.
+\sub ${\displaystyle \int {\sin(x) \over x} \, dx }$
+\ans  {${\displaystyle \int {\sin(x) \over x} \, dx} \approx {\displaystyle x - {x^3 \over 3 \cdot 3!} +
+{x^5 \over 5 \cdot 5!} - {x^7 \over 7 \cdot 7!} }$ .}
+\sub ${\displaystyle \int e^{x^2} \, dx}$
+\sub ${\displaystyle \int \sin(x^2) \, dx}$
+
+\num  Plot the 7-th degree polynomial you found in part a) above over the interval $[0, 5]$.  Now plot the 9-th degree approximation on the same graph.  When do the two polynomials begin to differ visibly?
+
+
+\num  Using the seventh degree Taylor approximation 
+        $$
+        E(t) \approx \int_0^t e^{-x^2} \, dx\, 
+                = t - {t^3 \over 3} + {t^5 \over 5 \cdot 2!} - {t^7 \over 7 \cdot 3!} \, ,
+        $$
+calculate the values of $E(.3)$ and $E(-1)$.  Give only the significant digits---that is, report only those decimals of your estimates that you think are fixed.  (This means you will also need to calculate the ninth degree Taylor polynomial as well---do you see why?)
+
+\num  Calculate the values of $\sin(.4)$ and $\sin(\pi/12)$ using the seventh degree Taylor polynomial centered at $x=0$
+        $$
+        \sin(x) \approx x - {x^3 \over 3!} + {x^5 \over 5!} 
+                -  {x^7 \over 7!} \, .
+        $$
+Compare your answers with what a calculator gives you.
+
+\num  Find the third degree Taylor polynomial for $g(x) = x^3 - 3x$ at $x=1$.  Show that the Taylor polynomial is actually equal to $g(x)$---that is, the remainder is 0.  What does this imply about the {\em fourth} degree Taylor polynomial for $g$ at $x=1$ ?
+
+\num Find the seventh degree Taylor polynomial centered at $x=\pi$ for
+\linebreak (a) $\sin(x)$; (b) $\cos(x)$; (c) $\sin(3x)$.
+
+\num In this problem you will compare computations using Taylor
+polynomials centered at $x=\pi$ with computations using Taylor
+polynomials centered at $x=0$.
+
+\sub Calculate the value of $\sin(3)$ using a seventh degree Taylor
+polynomial centered at $x=0$.  How many decimal places of your estimate
+appear to be fixed?
+
+\sub  Now calculate the value of $\sin(3)$ using a seventh degree Taylor polynomial centered at $x=\pi$.  Now how many decimal places of your estimate appear to be fixed?
+
+
+\num Write a program which evaluates a Taylor polynomial to print out $\sin(5^\circ)$, $\sin(10^\circ)$, $\sin(15^\circ)$, \ldots, $\sin(40^\circ)$, $\sin(45^\circ)$ accurate to 7 decimals.  (Remember to convert to radians before evaluating the polynomial!)
+
+\num {\bf Why $0!=1$}  \ \ \ \  When you were first introduced to exponential notation in expressions like $2^n$, $n$ was restricted to being a positive integer, and $2^n$ was defined to be the product of 2 multiplied by itself $n$ times.  Before long, though, you were working with expressions like $2^{-3}$ and $2^{1/4}$.  These new expressions weren't defined in terms of the original definition.  For instance, to calculate $2^{-3}$ you wouldn't try to multiply 2 by itself $-3$ times---that would be nonsense!  Instead, $2^{-m}$ is defined by looking at the key {\em properties} of exponentiation for positive exponents, and extending the definition to other exponents in a way that preserves these properties.  In this case, there are two such properties, one for adding exponents and one for multiplying them:
+
+\medskip
+\begin{tabular}{lrcll}
+Property A:\hspace{.15in} &$2^m\cdot 2^n$ &=& $2^{m+n}$ & for all positive $m$ and $n$ \\
+Property M:\hspace{.15in} &$\left(2^m\right)^n$&=&$2^{mn}$ & for all positive $m$ and $n$. \\
+\end{tabular}
+\medskip
+\sub Show that to preserve property A we have to define $2^0=1$\, . 
+\sub Show that we then have to define $2^{-3}=1/(2^3)$ if we are to continue to preserve property A.
+\sub Show why $2^{1/4}$ must be $\sqrt[4]{2}$\,.
+\sub In the same way, you should convince yourself that a basic property of the factorial notation is that $(n+1)!=(n+1)\cdot n!$ for any positive integer $n$.  Then show that to preserve this property, we then have to define $0!=1$\, .
+\sub Show that there is no way to define $(-1)!$ which preserves this property.
+
+\num  Use the general rule to derive the 5-th degree Taylor polynomial centered at $x=0$ for the function
+$$f(x) = (1+x)^{\frac{1}{2}} \, .$$
+Use this approximation to estimate $\sqrt{1.1}$\, . How accurate is this?
+
+\num Use the general rule to derive the formula for the $n$-th degree Taylor polynomial centered at $x=0$ for the function
+$$f(x) = (1+x)^c \, \mbox{ where $c$ is a constant.} $$
+
+\num Use the result of the preceding problem to get the 6-th degree Taylor polynomial centered at $x=0$ for $1/\sqrt[3]{1+x^2}$.
+\ans{${\displaystyle 1-{1 \over 3}x^2+{2 \over 9}x^4-{14 \over 81}x^6}$}
+
+\num Use the result of the preceding problem to approximate
+$$\int_0^1{1 \over \sqrt[3]{1+x^2}}\, dx \,.$$
+
+\num Calculate the first 7 decimals of erf$(.3)$. Be sure to show why you think all 7 decimals are correct.  What degree Taylor polynomial did you need to produce these 7 decimals?
+\ans{erf$(.3)=.3286267\ldots \,.$}
+
+\numa Apply the general formula for calculating Taylor polynomials centered at $x=0$ to the tangent function to get the 5-th degree approximation.
+\ans{$\tan(x)\approx x+x^3/3+2x^5/15$\, .}
+\sub Recall that $\tan(x) =\sin(x)/\cos(x)$.  Multiply the 5-th degree Taylor polynomial for $\tan(x)$ from part a) by the 4-th degree Taylor polynomial for $\cos(x)$ and show that you get the fifth degree polynomial for $\sin(x)$ (discarding higher degree terms). 
+
+\num Show that the $n$-th degree Taylor polynomial centered at $x=0$ for $1/(1-x)$ is $1+x+x^2+\cdots+x^n$.
+
+\num Note that
+$$\int \frac{1}{1-x}\, dx = -\ln(1-x) \, .$$ Use this observation,
+together with the result of the previous problem, to get the $n$-th
+degree Taylor polynomial centered at $x=0$ for $\ln(1-x)$.
+
+\numa Find a formula for the $n$-th degree Taylor polynomial centered at
+$x=1$ for $\ln(x)$.
+
+\sub Compare your answer to part (a) with the Taylor polynomial centered
+at $x=0$ for $\ln(1-x)$ you found in the previous problem.  Are your
+results consistent?
+
+\numa The first degree Taylor polynomial for $e^x$ at $x=0$ is $1+x$.
+Plot the remainder $R_1(x) = e^x - (1+x)$ over the interval $-.1 \leq x
+\leq .1$.  How does this graph demonstrate that $R_1(x) = O(x^2)$ as $x
+\rightarrow 0$?
+
+\sub There is a constant $C_2$ for which $R_1(x) \approx C_2 x^2$ when
+$x \approx 0$.  Why?  Estimate the value of $C_2$.
+
+\num This concerns the second degree Taylor polynomial for $e^x$ at
+$x=0$.  Plot the remainder $R_2(x) = e^x - (1 + x + x^2/2)$ over the
+interval $-.1 \leq x \leq .1$.  How does this graph demonstrate that
+$R_2(x) = O(x^3)$ as $x \rightarrow 0$?
+
+\sub There is a constant $C_3$ for which $R_3(x) \approx C_3 x^3$ when
+$x \approx 0$.  Why?  Estimate the value of $C_3$.
+
+\num Let $R_3(x) = e^x - P_3(x)$, where $P_3(x)$ is the third degree
+Taylor polynomial for $e^x$ at $x=0$.  Show $R_3(x) = O(x^4)$ as $x
+\rightarrow 0$.
+
+\num At first glance, Taylor's theorem says that
+$$
+\sin(x) = x - {1 \over 6} x^3 + O(x^4) \quad \mbox{as } x \rightarrow 0.
+$$ 
+However, graphs and calculations done in the text
+(pages~\pageref{startsine}--\pageref{endsine}) make it clear that
+$$
+\sin(x) = x - {1 \over 6} x^3 + O(x^5) \quad \mbox{as } x \rightarrow 0.
+$$
+Explain this.  Is Taylor's theorem wrong here?
+
+\num  Using a suitable formula (that is, a Taylor polynomial with
+remainder) for each of the functions involved, find the indicated limit.
+
+\sub ${\displaystyle \lim_{x \to 0} {\sin(x) \over x}}$ \hfill [Answer: 1]
+
+\sub ${\displaystyle \lim_{x \to 0} {e^x - (1 + x) \over x^2}}$ \hfill
+[Answer: 1/2]
+
+\sub ${\displaystyle \lim_{x \to 1} {\ln{x} \over x - 1}}$
+
+\sub ${\displaystyle \lim_{x \to 0} {x - \sin(x) \over x^3}}$ \hfill
+[Answer: 1/6]
+
+\sub ${\displaystyle \lim_{x \to 0} {\sin(x^2) \over 1 - \cos(x)}}$
+
+\num  Suppose  $f(x) = 1 + x^2 + O(x^4)$ as $x \rightarrow 0$.  Show that
+$$
+(f(x))^2 = 1 + 2x^2 + O(x^4) \quad \mbox{as } x \rightarrow 0.
+$$
+
+\numa Using  $\sin x = x - {1 \over 6} x^3 + O(x^5)$ as $x \rightarrow 0$, show
+$$
+(\sin x)^2 = x^2 - {1 \over 3} x^4 + O(x^6) \quad \mbox{as } x \rightarrow 0.
+$$
+
+\sub  Using $\cos x = 1 - {1 \over 2} x^2 + {1 \over 24} x^4 + O(x^5)$ as
+$x \rightarrow 0$, show
+$$
+(\cos x)^2 = 1 - x^2 + {\textstyle {1 \over 3}} x^4 + O(x^5) \quad \mbox{as } 
+x \rightarrow 0.
+$$
+
+\sub  Using the previous parts, show $(\sin x)^2 + (\cos x)^2 = 1 + O(x^5)$ as
+$x \rightarrow 0$.  (Of course, you already know $(\sin x)^2 + (\cos x)^2 = 1$ {\em exactly}.)
+
+\numa  Apply the general formula for calculating Taylor polynomials to the tangent function to get the 5-th degree approximation.
+
+% ans:  $\tan(x) \approx x + x^3/3 + 2x^5/15$
+
+\sub  Recall that $\tan(x) = \sin(x)/\cos(x)$, so $\tan(x) \cdot \cos(x) = \sin(x)$.  Multiply the fifth degree Taylor polynomial for $\tan(x)$ from part a) by the fifth degree Taylor polynomial for $\cos(x)$ and show that you get the fifth degree Taylor polynomial for $\sin(x)$ plus $O(x^6)$---that is, plus terms of order 6 and higher.
+
+\numa  Using the formulas
+        $$
+        \begin{array}{l}
+        e^u = 1 + u + {\textstyle {1 \over 2}}u^2  + 
+                {\textstyle {1 \over 6}}u^3 + O(u^4) \qquad (u \to 0) \\ [4pt]
+        \sin{x} = x - {\textstyle {1 \over 6}}x^3 + O(x^5) \qquad (x \to 0),
+        \end{array}
+        $$
+show that $e^{\sin{x}} = 1 + x + {\textstyle {1 \over 2}} x^2 + O(x^4)$ as              $x \to 0$.
+
+\sub  Apply the general formula to obtain the third degree Taylor polynomial for $e^{\sin{x}}$ at $x = 0$, and compare your result with the formula in part (a).
+
+\num  Using $e^x = 1 + {1 \over 2} x + {1 \over 6} x^2 + {1 \over 24} x^3 + O(x^4)$ as $x \to 0$, show that 
+        $$
+        {x \over e^x - 1} = 1 - {\textstyle {1 \over 2}} x + 
+                {\textstyle {1 \over 12}} x^2 + O(x^4) \qquad (x \to 0).
+        $$
+
+\num  Show that the following are true as $x \rightarrow \infty$.
+
+\sub $x + 1/x = O(x)$
+
+\sub  $5x^7 - 12x^4 + 9 = O(x^7)$
+
+\sub  $\sqrt{1 + x^2} = O(x)$
+
+\sub  $\sqrt{1 + x^p} = O(x^{p/2})$
+
+\numa  Let $f(x) = \ln(x)$.  Find the smallest bound $M$ for which
+        $$
+        |f^{(4)}(x)| \leq M \quad \mbox{when $|x - 1| \leq .5$}.
+        $$
+
+\sub  Let $P_3(x)$ be the degree 3 Taylor polynomial for $\ln(x)$ at $x = 1$, and let $R_3(x)$ be the remainder $R_3(x) = \ln(x) - P_3(x)$.  Find a number $K$ for which
+        $$
+        |R(x)| \leq K \, |x - 1|^4 
+        $$
+for all $x$ satisfying $|x - 1| \leq .5$.
+
+\sub  If you use $P_3(x)$ to approximate the value of $\ln(x)$ in the interval $.5 \leq x \leq 1.5$, how many digits of the approximation are correct?  
+
+\sub  Suppose we restrict the interval to $|x - 1| \leq .1$.  Repeat parts (a) and (b), getting {\em smaller\/} values for $M$ and $K$.  Now how many digits of the polynomial approximation $P_3(x)$ to $\ln(x)$ are correct, if $.9 \leq x \leq 1.1$? 
+
+\bigskip
+\noindent
+{\bf ``Little oh" notation}.  Similar to the ``big oh" notation is another, called the ``little oh":  if
+$$
+\lim_{x \rightarrow a} {\phi(x) \over q(x)} = 0
+$$
+then we write $\phi(x) = o(q(x))$ and say $\phi$ is `{\em little oh}' of $q$ as $x \rightarrow a$.
+
+\num  Suppose $\phi(x) = O(x^6)$ as $x \rightarrow 0$.  Show the following.
+
+\sub  $\phi(x) = O(x^5)$ as $x \rightarrow 0$.
+
+\sub  $\phi(x) = o(x^5)$ as $x \rightarrow 0$.
+
+\sub  It is false that $\phi(x) = O(x^7)$ as $x \rightarrow 0$.  (One way you can do this is to give an explicit example of a function $\phi(x)$ for which $\phi(x) = O(x^6)$ but for which you can show $\phi(x) = O(x^7)$ is false.)
+
+\sub  It is false that $\phi(x) = o(x^6)$ as $x \rightarrow 0$.
+
+\num Sketch the graph $y = x \ln(x)$ over the interval $0 < x \leq 1$.  Explain why your graph shows $\ln(x) = o(1/x)$ as $x \rightarrow 0$.
+
+
+\end{document}
+

@@ -1,0 +1,762 @@
+%&lplain
+\documentstyle[12pt,leqno,bezier]{cicfinal}
+
+\newcommand{\dint}{\displaystyle \int}
+\newcommand{\mar}[1]{\marginpar[\raggedright\footnotesize\sf #1]{\raggedleft\footnotesize\sf #1}}
+\newcommand{\asideleft}[1]{\medskip\noindent%
+	\rule{321pt}{0pt}\makebox[0pt][r]{%
+	\begin{minipage}[t]{400pt}\footnotesize\sf{#1}%
+	\end{minipage}}\bigskip}
+\newcommand{\asideright}[1]{\medskip\noindent%
+	\rule{40pt}{0pt}\makebox[0pt][l]{%
+	\begin{minipage}[t]{400pt}\footnotesize\sf{#1}%
+	\end{minipage}}\bigskip}
+\newcommand{\aside}[1]{\ifodd \value{page}%
+	{\asideright{#1}}\else{\asideleft{#1}}\fi}
+\newcounter{exercisenumber}[subsection]
+\newcounter{exercisepart}[exercisenumber]
+\newcommand{\num}{\stepcounter{exercisenumber}\par\bigskip%
+	\noindent\arabic{exercisenumber}.\quad}
+\newcommand{\numa}{\stepcounter{exercisenumber}\par\bigskip%
+	\noindent\arabic{exercisenumber}.\quad%
+	\stepcounter{exercisepart}\alph{exercisepart})\enskip}
+\newcommand{\sub}{\stepcounter{exercisepart}\par\smallskip%
+	\noindent\alph{exercisepart})\enskip\thinspace}
+\newcommand{\ans}[1]{\par\smallskip\noindent[Answer:\enskip%
+	{#1}]}
+
+\makeindex
+
+\begin{document}
+\setcounter{chapter}{11}
+
+\setcounter{page}{751}
+\setcounter{section}{2}
+
+\section{The Power Spectrum}
+
+
+
+
+	This section is an 
+	\mar{The problem of signal + noise}	
+application of ideas about periodic functions and integrals to the problem of separating a signal from noise.  We face this problem in our daily life.  Radio and television signals have noise added to them from other radio sources we can't control.  The noise sounds like hissing static on a radio and looks like ``snow'' on a television screen.  A good receiver is designed to filter out the noise while allowing the the transmitted signal to come through undistorted.
+\vspace{150pt}
+
+\special{psfile=/me/ps/calc2/lynx2.ps}
+
+	Scientific data and a radio broadcast have something in common: both are combinations of signal and noise.  For instance, consider the annual harvest of lynx pelts\index{lynx} by the Hudson's Bay Company.\index{Hudson's Bay Company}  It is conceivable that the lynx population itself (the {\em signal\/}) was periodic, but various random fluctuations (the {\em noise\/})\index{signal and noise} caused the harvest (which is {\em signal\/} + {\em noise\/}) to take the form it did.  
+	\mar{The power spectrum filters noise to detect periodic signals}
+If this is the case, then we should try to ``filter out'' the noise and find the underlying periodic signal.  There is a mathematical tool to do this; it is called the {\bf power spectrum}.\index{power spectrum}  We will discuss the ideas behind the power spectrum and show how it can be used to detect the underlying in noisy data.  
+
+\subsection{Signal + Noise}
+
+	To prepare for working with the power spectrum, let's first see what happens to a periodic signal that has some noise added to it.  The signal we will use is a pure sine wave.  The {\bf information}\index{information} that the signal carries is the frequency of that wave.  The noise will also be a function, but one whose values vary in a random fashion.  It can be thought of as a combination of periodic signals of all frequencies.  For this reason it is sometimes called ``white noise,'' because white light is a combination of light rays of all colors (i.e., frequencies).  Here is the question we will explore:  If we increase the strength of the noise, when do we lose the information contained in the original signal?
+	
+	The signal and noise are shown below.  
+	\mar{A signal with faint noise}	
+As you can see, the amplitude of the signal is about 4 times as large as the amplitude of the noise.  
+\linebreak
+\vspace{16pt}
+
+\special{psfile=/me/ps/calc2/noise2.ps}
+
+\vspace{100pt}
+
+\noindent
+We say that the {\bf signal-to-noise ratio} is 4:1.\index{signal-to-noise ratio}
+\label{faint noise}  
+The combined signal + noise is no longer a pure sine wave, of course.  However, it is still recognizable as a ``noisy'' wave with the same frequency as the original signal.  The information from the signal has not yet been lost.
+
+	Look what happens when 
+	\mar{The noise level becomes stronger}	
+we increase the amplitude of the noise.  In the figure below, the noise has been increased by a factor of 4, so the signal-to-noise ratio is now 1:1.  The combined signal + noise is now very noisy.  Would you be willing to argue that it is a wave of the same frequency as the original signal?  Or would you prefer to say that it has no periodic pattern whatsoever?  It appears we are close to losing the information from the original signal.
+\vspace{30pt}
+
+\special{psfile=/me/ps/calc2/noise3.ps}
+
+%\vspace{160pt}
+
+\newpage
+
+	If we increase the original noise level 
+	\mar{The noise level becomes overwhelming}	
+by a factor of 10, we appear to lose the original signal altogether.  The signal-to-noise ratio is now 1:2.5, and the signal + noise appears to be as random as the noise itself.
+\linebreak
+
+\vspace{20pt}
+
+\special{psfile=/me/ps/calc2/noise4.ps}
+
+
+\vspace{265pt}
+
+\noindent
+In spite of appearances, the signal is still there, and it will be detected in the power spectrum! 
+
+
+\subsection{Detecting the Frequency of a Signal}\index{frequency, of a signal}
+
+	Assume we have a signal that may be distorted by a lot of noise.  
+	\mar{Compare the signal to a probe whose frequency can be varied} 	
+We want to decide whether the signal has a periodic component; if it does, we want to determine its frequency.  Our detector is based on this simple idea: {\em Compare the signal to a test probe of known frequency; vary the frequency of the probe until there is a positive response}.  Of course, we still need to explain how the comparison is made, and what constitutes a positive response.  
+	
+	Although the detector will work on a very noisy signal, like the one above, we will understand it better if we first use it to analyze a signal whose periodic nature is evident.  Let the signal $S(t)$ be a pure sine wave lying above the $t$-axis, and suppose that $t$ is the time measured in seconds.  
+	\mar{The test probe}	
+Our {\bf test probe}\index{test probe} is the function
+	$$
+	P(t) = \sin(2\pi \omega t)
+	$$
+whose frequency is $\omega$ cycles per second.  As its graph demonstrates, the values of $P$ are equally likely to be positive or negative.  
+
+	Is the same true for the product $P(t)S(t)$?  
+	\mar{When the signal matches the test frequency}	
+Suppose first that $S(t)$ has the same frequency as $P(t)$ (below, left).  As you can see, the positive values of $P(t)$ are always multiplied by the larger values of $S(t)$.  By contrast, the negative values of $P(t)$ are always multiplied by the smaller values of $S(t)$.  Consequently, the positive values of $P(t)S(t)$ outweigh the negative ones.  On average, the value of the product is positive.   In fact, the average value\index{average value} of the product is half the amplitude of the original signal. \label{frequencies match}  Later on we will see why this is so.  
+\vspace{80pt}
+
+\special{psfile=/me/ps/calc2/sinetest1.ps}  	  
+
+\vspace{195pt}
+
+	On the right we see what happens 
+	\mar{When the signal {\em doesn't\/} match the test frequency}	
+if $S(t)$ is {\em not\/} related to $P(t)$.  In that case, a large value of $S(t)$ is just as likely to multiply a positive value of $P(t)$ as a negative one.  Consequently, the product $P(t)S(t)$ will have both large positive and large negative values.  On average, the value of the product will be about 0.  
+
+	Let's use the detector on the signals we constructed on page~\pageref{faint noise}.  In both we started with a pure sine wave and added some white noise.  In the first, the signal-to-noise ratio was 4:1. 
+\vspace{60pt}
+
+\special{psfile=/me/ps/calc2/sinetest2.ps}
+	
+\vspace{160pt}	
+	
+\noindent
+In the second the noise was stronger; the signal-to-noise ratio was 1:1.
+\vspace{70pt}
+
+\special{psfile=/me/ps/calc2/sinetest3.ps}
+	
+\vspace{190pt}	
+	
+	To use the detector yourself, you have to be able to calculate the average value of a function.  This is discussed in section 6.3.  The average value of $y = f(x)$ on the interval 
+	\mar{\vspace{14pt} The average value of a function}
+$a \leq x \leq b$ is
+	$$
+	{1 \over b - a} \int_a^b f(x) \, dx.
+	$$
+Our detector is the average value of the product of the signal $S(t)$ and the test probe $P(t) = \sin(2\pi \omega t)$.\index{frequency detector}\index{average value}
+\begin{center}
+\begin{picture}(340,50)
+\put(0,0) {\framebox(340,50)
+{
+\begin{minipage}{310pt}
+{\bf Frequency detector}: \hfill $D(\omega) = \displaystyle{{1 \over b-a} \int_a^b S(t) \sin(2\pi\omega t)\,dt}$. \hfill \mbox{}
+\end{minipage}
+}}
+\end{picture}
+\end{center}
+
+	Clearly, the value of the detector depends 
+	\mar{Integrals with parameters define functions}
+on the frequency $\omega$ of the probe $P$.  We have tried to reflect this in the notation: the detector is a function $D$ whose input is the frequency $\omega$.  The output of the function is calculated as an integral in which the input $\omega$ plays the role of a parameter.  
+
+	This is the first time we have defined a function as an integral with a parameter.  Let's see how the detector works to analyze the signal $S(t) = 3\sin(5t)$ over the interval $0 \leq t \leq 10$.  We have
+	$$
+	D(\omega) = {1 \over 10} \int_0^{10} 3\sin(5t) \sin(2\pi\omega t)\,dt.
+	$$
+In the exercises at the end of section 11.3 we obtained an explicit formula for the integral of the product of two sine functions.  Find that formula and check that it yields the following:
+	$$
+	D(\omega) = {3 \over 10(4\pi^2\omega^2 - 25)}
+	(5\cos(50)\sin(20\pi\omega)-2\pi\omega\sin(50)\cos(20\pi\omega)).
+	$$	
+Notice, in your own calculations, that $\omega$ emerges as the variable on which the whole expression depends.   
+
+	The graph of $D(\omega)$ is shown on the top of the next page.  You should plot it yourself, using a computer graphing utility.  
+	\mar{$D(\omega)$ peaks when $\omega$ is the frequency of the signal}	
+For most frequencies $\omega$, the value of the detector $D$ is close to 0.  There is a single strong peak, which you can find at $\omega \approx .795$ cycles/sec.  As it happens, the frequency of the signal $S = 3\sin(5t)$ is $5/2\pi = .79577\ldots$ cycles/sec!  Moreover, the height of the peak is about 1.5, which is exactly half the amplitude of the signal.
+
+\newpage
+
+\mbox{}
+\vspace{80pt}
+
+\special{psfile=/me/ps/calc2/detector1.ps}
+
+\vspace{50pt}
+
+	The graph above tests the signal $S(t)$ when the detector is integrated over a time interval that is 10 seconds long.	
+That is, $0 \leq t \leq 10$ seconds.  If we repeat the test by integrating over a much larger interval, the frequency detector gives us a sharper report on the frequency of the signal.  In the graph below the function $D(\omega)$ was calculated by integrating over the interval 
+  	\mar{\vspace{24pt} The peak in $D(\omega)$ is sharper if the signal is tested over a longer time interval}
+$0 \leq t \leq 100$ seconds.
+\vspace{100pt}
+
+\special{psfile=/me/ps/calc2/detector2.ps}
+%NOTE: this won't run on a 300 dpi laser printer unless the stepsize in
+%the graphing program is .3 or greater
+
+\vspace{65pt}
+
+\noindent
+{\bf Computation}.  Of course, it is rare to find a formula for $D(\omega)$ in terms of the frequency $\omega$.  For most signals $S(t)$, the best we can do is calculate the value of the integral numerically for a sequence of values of the parameter $\omega$.  The program DETECTOR, 
+	\mar{The program DETECTOR}	
+which is listed on the next page, does this.  As it is written, it analyzes the function $3\sin(5t)$ on the interval $0 \leq t \leq 10$, and it produces the graph $D(\omega)$ at the top of this page.  The ``outer loop'' 
+	\begin{quote}
+	{\tt FOR j = 1 TO omegasteps} \quad \ldots \quad {\tt NEXT j}
+	\end{quote}
+plots $D(\omega)$ over the interval $0 \leq \omega \leq 3$, using $2^{10}$ equally spaced values of $\omega$.  Each $D(\omega)$ is an integral whose value is first calculated as a midpoint Riemann sum with $2^7$ steps.  The calculation is carried out by the short ``inner loop''  
+	\begin{quote}
+	{\tt FOR k = 1 TO numberofsteps} \quad \ldots \quad {\tt NEXT k},
+	\end{quote}
+which you should recognize as an adaptation of the program RIEMANN from chapter~6.  
+
+
+\begin{center}
+{\bf Program: DETECTOR \\  \index{Program: DETECTOR}
+To detect the frequency of a signal}
+\end{center}
+
+\footnotesize
+\hspace{-20pt}
+\begin{minipage}{358pt}
+\noindent
+{\sl Set up GRAPHICS}
+\vspace{-11pt}
+\begin{verbatim}
+startomega = 0
+endomega = 3
+omegasteps = 2 ^ 10
+deltaomega = (endomega - startomega) / omegasteps
+twopi = 8 * ATN(1)
+DEF fnf (t) = 3 * SIN(5 * t)
+a = 0
+b = 10
+numberofsteps = 2 ^ 7
+deltat = (b - a) / numberofsteps
+omega = startomega
+oldomega = omega
+oldaccum = 0
+FOR j = 1 TO omegasteps
+     t = a + deltat / 2
+     accum = 0
+     FOR k = 1 TO numberofsteps
+          deltaS = (fnf(t) * SIN(twopi * omega * t) * deltat) / (b - a)
+          accum = accum + deltaS
+          t = t + deltat
+     NEXT k
+     omega = omega + deltaomega
+\end{verbatim}
+
+\vspace{-10pt}
+\rule{23pt}{0pt} {\sl Plot the line from {\tt (oldomega, oldaccum)} to {\tt (omega, accum)}}
+
+\vspace{-13pt}
+\begin{verbatim}
+     oldomega = omega
+     oldaccum = accum
+NEXT j
+\end{verbatim}
+\end{minipage}
+\normalsize
+\bigskip
+
+	If we modify the program DETECTOR so that it analyzes the function
+	$$
+	S(t) = 3\sin(5t) + \sin(8t),
+	$$
+we get the graph at the top of the next page.  The scale on the $\omega$-axis has also been modified to make it easier to read multiples of $1/2\pi$ cycles per second.  Notice the strongest peak is at $\omega = 5/2\pi$ cycles/sec, and $D \approx 1.5$ there.  But there is now a second peak at $\omega = 8/2\pi$ cycles/sec, where $D \approx .5$.  Indeed, $S$ consists of two periodic components, one with three times the amplitude of the other.  The stronger component has frequency $5/2\pi$ cycles/sec, the weaker $8/2\pi$ cycles/sec.
+\vspace{95pt}
+
+\special{psfile=/me/ps/calc2/detector3.ps}
+
+\vspace{50pt}
+
+	The following example first appeared in section 7.2.  It is clear from the graph that it has a basic frequency of 5 Hz.  The detector shows that it also has an equally strong component at 10 Hz and a much weaker component at 15 Hz.  
+	\mar{\vspace{20pt} A periodic \\ signal \ldots \\ \vspace{100pt} \ldots and its frequency detector}	
+Can you guess a formula for $g(t)$?
+\vspace{75pt}
+
+\special{psfile=/me/ps/calc2/period3.ps}
+ 
+\vspace{140pt}
+
+\special{psfile=/me/ps/calc2/detector4.ps}
+
+\vspace{50pt}
+
+\noindent
+The graph of $z = D(\omega)$ was produced by DETECTOR.  The integral was calculated for {\tt a = 0}, {\tt b = 10}, and {\tt numberofsteps = 2 \verb+^+ 9}.    
+
+
+\subsection{The Problem of Phase}\index{phase}
+
+\noindent
+\begin{minipage}[t]{40pt}
+\special{psfile=/me/ps/calc2/sinetest6.ps}
+
+\vspace{220pt}
+\special{psfile=/me/ps/calc2/sinetest5.ps}
+
+\end{minipage}
+\hfill
+\begin{minipage}[t]{300pt}
+	Our detector is built on the premise that, if you take the product of two functions of the same frequency, its average value\index{average value} will be different from~0.  This is illustrated by the top three graphs on the left.  The signal and the probe are both $\sin(t)$.  Their product is a function that ranges between 0 and 1, and has average value 1/2.  However, something quite different happens if we change the signal from $\sin(t)$ to $\cos(t)$.  This doesn't change the period, but it does change the product, as you can see in the three lower graphs.  The new product is centered around the $t$-axis; its average value is~0.  Thus the detector fails to reveal that the signal has the same frequency as the probe.   
+		  
+\quad \	A closer look at the two sets of graphs will show what has happened.  In the first case, when $P$ is positive, so is $S$.  When $P$ is negative, so is $S$.  Thus, the product $S \cdot P$ is never negative; on average, its value is positive.  This is what we expect.
+
+\quad \ The second case is only a little more complicated.  When $P$ is positive, $S$ is positive only half the time; the other half it is negative.  Consequently, the product $S \cdot P$ takes both positive and negative values.  The same thing happens when $P$ is negative.  On average, the value of the product is~0, {\em even though the frequencies of $P$ and $S$ match}.  
+	
+\quad \ The problem is that their {\em phases\/} don't match.  The signal $S = \cos(t)$ hits its peak $\pi/2$ seconds before the probe $P = \sin(t)$.  This kind of a difference is called a {\bf phase shift}.  In the exercises for section 7.2, you showed that if the phase of the sine function is shifted to the left by $\pi/2$, the result is the cosine function:
+\vspace{-8pt}
+	$$
+	S = \sin(t + \pi/2) = \cos(t).
+	$$
+\end{minipage}
+\medskip
+
+\noindent
+Since $\pi/2$ radians is the same as 90$^\circ$, we sometimes express this equation by saying that ``the sine and the cosine are 90$^\circ$ out of phase.''	
+	
+	Of course the signal could involve a phase shift 
+	\mar{Arbitrary phase shifts}\index{phase shift}	
+of any amount $\varphi$: $S = \sin(t - \varphi)$.  All these signals have the same period as the probe $P = \sin(t)$.  Exercise 20 of section 7.2 shows what happens if this signal is tested against the probe: the average value of the product $S \cdot P$ is $\cos(\varphi)/2$.  Clearly, this depends on the size of the phase shift $\varphi$.  In particular, if  
+	\mar{The average value varies with the phase}	
+$\varphi = 0$ (so $S = \sin(t)$), the average value is~1/2.  If $\varphi = -\pi/2$ (so $S = \cos(t)$), the average value is~0.  The formula therefore agrees with what we already know for the two signals we considered as examples.  
+
+	There is one more case worth glancing at: $\varphi = \pm \pi$.  This is also called a phase shift of 180$^\circ$.   It doesn't matter whether you go forward 180$^\circ$ or backward; in either case $S = \sin(t \pm \pi) = -\sin(t)$.  This time the average value of the product is~$-1/2$.
+
+	The problem of phase 
+	\mar{The problem of phase \ldots}	
+is now be clear: The probes $P = \sin(2 \pi \omega t)$ have trouble detecting the frequency of a signal that is out of phase with them.  However, any phase-shifted sine function can be expressed as a sum of pure sine and cosine functions:
+	$$
+	\sin(bt - \varphi) = M\sin(bt) + N\cos(bt),
+	$$
+where $M = \cos(\varphi)$ and $N = -\sin(\varphi)$.  (See the exercises.)  Since the sine probes $P$ will detect $M\sin(bt)$,   
+	\mar{\ldots and its solution}	
+we need only construct a second set of probes to detect $N\cos(bt)$.  The test probes we add are the cosine functions
+	$$
+	P_c = \cos(2 \pi \omega t).
+	$$ 
+We use the subscript ``$c$'' to distinguish these from the sine probes, which henceforth will be denoted $P_s$.  
+
+	We must also construct a second detector, to handle the new cosine probes.  Let's take this opportunity to make a technical adjustment: 
+	\mar{Two new detectors}	
+we redefine a detector to be {\em twice\/} the average value of the signal and the probe.  In that way, the height of the detector at a peak equals the amplitude of the signal at that frequency---rather than half the amplitude. \label{detectors} \index{sine detector}\index{cosine detector}
+
+\begin{center}
+\begin{picture}(340,85)
+\put(0,0) {\framebox(340,85)
+{
+\begin{minipage}{310pt}
+\rule{14pt}{0pt}
+	{\bf Sine detector}: 
+	\hfill $D_s(\omega) = 
+	\displaystyle{{2 \over b-a} \int_a^b S(t) \sin(2\pi\omega t)\,dt}$. 
+	\hfill \mbox{}\\[8pt]
+{\bf Cosine detector}: 
+	\hfill $D_c(\omega) = 
+	\displaystyle{{2 \over b-a} \int_a^b S(t) \cos(2\pi\omega t)\,dt}$. 	
+	\hfill \mbox{}
+\end{minipage}
+}}
+\end{picture}
+\end{center}
+
+	You can modify the program DETECTOR to produce the graphs of $D_s(\omega)$ and $D_c(\omega)$.  
+	\mar{The graphs of $D_s$ and $D_c$}	
+Here is how they analyze the signal $S = \cos(7t)$ over the interval $0 \leq t \leq 10$.  The cosine detector $D_c$ has a shape we've 
+\linebreak
+  
+\vspace{70pt}
+
+\special{psfile=/me/ps/calc2/detector5.ps}
+	
+\vspace{180pt}
+
+\noindent
+seen before.\label{cos7t}  It has a single peak at $\omega = 7/2\pi$ cycles/sec, which is the frequency of the signal.  The peak is 1 unit high, which is the amplitude of the signal.  The sine detector has an unfamiliar shape.  Notice first that $D_s(7/2\pi) = 0$.  This confirms our earlier observation that the average value of the product of a sine and a cosine at the same frequency is~0.  For values of $\omega$ slightly larger or smaller than $7/2\pi$, though, the sine detector swings relatively far from~0.  This pattern is typical when a detector is analyzing a signal that is 90$^\circ$ out of phase with the probes.      
+\medskip
+
+\noindent
+{\bf Resonance}.\index{resonance}  Try this experiment.  Sit at a piano and hold all the pedals down.  Then sing a note.  If you sing loud enough, and hold the note long enough, one of the piano strings will start vibrating.  If you stop abruptly and listen to the string, you will hear it sounding the same note you were singing.   
+	\mar{The physical analogue of a detector is a resonator}
+The piano has detected the frequency of your signal!  It is the physical analogue of our mathematical frequency detectors.  The response of the string is called {\bf resonance}.  Had you sung a lower note, a larger string would have resonated.  
+
+	Resonance gives us a  vivid language for describing how our detectors work.  We can say a test probe ``resonates'' with a signal when their product is different from zero on average.  The larger the average value, the stronger the resonance.
+
+	\aside{Resonance occurs all around us.  Sometimes it is a nuisance---for instance, when the windows in our house rattle while a heavy truck drives by, or an air conditioner runs.  Sometimes we exploit it deliberately---for instance, when we use a radio tuner as an electronic resonator to detect and amplify certain electromagnetic waves.}
+
+
+\subsubsection{Detector as transform}\index{transform}
+
+	We now have two distinct ways to describe a signal $S$.  The function $S(t)$ is one way.  It tells us how strong the signal is at each instant $t$.  But we can also think of the signal as a mixture of sine and cosine waves of different frequencies.  The detectors $D_s(\omega)$ and $D_c(\omega)$ tell us how strong the signal is at each frequency $\omega$.  That is the second way.  
+	
+	There is a direct connection between these two descriptions, of course.  It is provided by the formulas
+	$$
+	D_s(\omega) = {2 \over b-a}
+			\int_a^b S(t) \sin(2\pi\omega t)\,dt
+		\qquad
+	D_c(\omega) = {2 \over b-a}
+			\int_a^b S(t) \cos(2\pi\omega t)\,dt.
+	$$
+In effect, these formulas tell us how to {\em transform\/}  
+	\mar{Integrals transform $S$\\ into $D_s$ and $D_c$}
+the first description $S(t)$ into the second $D_s(\omega)$, $D_c(\omega)$.  The transformation is so complete that even the input variable is changed---from $t$ to $\omega$.  Look back at the formulas to see how the new variable $\omega$ is brought in.  
+
+	Our detectors are essentially the same as the {\bf Fourier sine transform}\index{Fourier transform} and the {\bf Fourier cosine transform}.  There is also an {\bf inverse Fourier transform}\index{Fourier transform, inverse} that works in reverse: it produces $S(t)$ from the frequency data $D_s(\omega)$ and $D_c(\omega)$.  The Fourier transforms are an important tool in mathematics and in science.  For example, a hologram is the Fourier transform of an ordinary image.  Fourier transforms and their inverses are used in photo restoration, in the enhancement of the digitized pictures sent back from cameras in space, and in filtering the signal in a stereo set.   
+	
+	\aside{The French mathematician Jean Baptiste Fourier (1768--1830) introduced what we call Fourier transforms and Fourier series to study the conduction of heat.  Now his methods are used to study all sorts of periodic and non-periodic phenomena.  They are also the foundation for the part of pure mathematics called harmonic analysis.}\index{Fourier, J. B.}
+
+
+\subsection{The Power Spectrum}
+
+	The sine and cosine detectors provide enough information to reconstruct the original signal in complete detail---including phase.  
+	\mar{A detector that ignores phase differences}\index{phase}	
+Often, though, they provide more detail than we want.  We can use another tool---called the {\bf power spectrum}---to\index{power spectrum} determine only the strength of the different frequencies that occur in a signal, without regard to their phase. The power spectrum is constructed from the two detectors in the following way:
+\begin{center}
+\begin{picture}(330,40)
+\put(0,0) {\framebox(330,40)
+{
+\begin{minipage}{300pt}
+{\bf Power spectrum}: \hfill $P(\omega) = \displaystyle{\sqrt{[D_s(\omega)]^2 + [D_c(\omega)]^2}}$ \hfill \mbox{}
+\end{minipage}
+}}
+\end{picture}
+\end{center}
+  
+	To see how the power spectrum works, we'll consider the signal $S(t) = A\sin(7t - \varphi)$.  This is a sine wave of frequency $\omega = 7/2\pi$ and amplitude $A$.  Let's concentrate first on $\omega = 7/2\pi$.  If there were no phase shift $\varphi$ present, we would expect that
+	$$
+	D_s(7/2\pi) = A \qquad D_c(7/2\pi) = 0.
+	$$
+However, because there is a phase shift, the actual values turn out to be
+	$$
+	D_s(7/2\pi) = A\cos{\varphi} \qquad D_c(7/2\pi) = -A\sin{\varphi}.
+	$$
+(These calculations are given as exercises.)  The values of the detectors clearly depend on the phase shift.  By contrast,
+	\begin{eqnarray*}
+	P(7/2\pi) &=& \displaystyle{\sqrt{[D_s(7/2\pi)]^2 + [D_c(7/2\pi)]^2}}\\
+		&=& \displaystyle{\sqrt{A^2\cos^2{\varphi} + 
+			A^2\sin^2{\varphi}}}\\
+		&=& A.
+	\end{eqnarray*}
+We have used the fact that $\cos^2{\varphi} + \sin^2{\varphi} = 1$ for every $\varphi$.  Thus, the power spectrum does {\em not\/} depend on the phase.  It tells us only the amplitude of the signal at the frequency $\omega = 7/2\pi$.  
+
+	If we calculate the power spectrum over all frequencies $\omega$, we get the graph shown at the top of the next page.  
+	\mar{The program POWER}	
+The program POWER generates this graph. It was derived from the program DETECTOR.  Compare the two programs, particularly the terms {\tt deltaS} and {\tt deltaC}.  In POWER, they have been multiplied by~2, to agree with our new definition of $D_s$ and $D_c$ on page~\pageref{detectors}.      
+	
+\newpage
+
+\mar{\vspace{25pt} \mbox{Power spectrum of} $3\sin(7t - \pi/3)$}
+\vspace{80pt}
+
+\special{psfile=/me/ps/calc2/detector6.ps}
+
+\vspace{20pt}
+
+\begin{center}
+{\bf Program: POWER \\  \index{Program: POWER}
+The power spectrum of a signal}
+\end{center}
+
+\footnotesize
+\hspace{-20pt}
+\begin{minipage}{358pt}
+\noindent
+{\sl Set up GRAPHICS}
+\vspace{-11pt}
+\begin{verbatim}
+startomega = 0
+endomega = 3
+omegasteps = 2 ^ 9
+deltaomega = (endomega - startomega) / omegasteps
+pi = 4 * ATN(1)
+twopi = 2 * pi
+DEF fnf (t) = 3 * SIN(7 * t - pi / 3)
+a = 0
+b = 10
+numberofsteps = 2 ^ 6
+deltat = (b - a) / numberofsteps
+omega = startomega
+oldomega = omega
+oldpower = 0
+FOR j = 1 TO omegasteps
+     t = a + deltat / 2
+     accumS = 0
+     accumC = 0
+     power = 0
+     FOR k = 1 TO numberofsteps
+          deltaS = 2 * (fnf(t) * SIN(twopi * omega * t) * deltat) / (b - a)
+          accumS = accumS + deltaS
+          deltaC = 2 * (fnf(t) * COS(twopi * omega * t) * deltat) / (b - a)
+          accumC = accumC + deltaC
+          t = t + deltat
+     NEXT k
+     power = SQR(accumS ^ 2 + accumC ^ 2)
+     omega = omega + deltaomega
+\end{verbatim}
+
+\vspace{-10pt}
+\rule{23pt}{0pt} {\sl Plot the line from {\tt (oldomega, oldpower)} to {\tt (omega, power)}}
+
+\vspace{-13pt}
+\begin{verbatim}
+     oldomega = omega
+     oldpower = power
+NEXT j
+\end{verbatim}
+\end{minipage}
+\normalsize
+
+%\newpage
+
+	To see how the power spectrum detects the frequencies	
+in a signal while overlooking the phases of the different components, consider these two  
+	\mar{Two signals whose components differ only in phase}
+signals:\label{testfunction}
+	\begin{eqnarray*}
+	g(t) &=& 10\sin(7t) + 7\cos(13t) + 5\cos(23t) \\
+	h(t) &=& 10\sin(7t) + 7\cos(13t) - 5\cos(23t)
+	\end{eqnarray*}
+They differ only in the sign of the last term.  This is equivalent to a phase shift of 180$^\circ$ in that term.  The graphs are drawn below (with 
+\linebreak  
+\vspace{88pt}
+
+\special{psfile=/me/ps/calc2/period4.ps}
+
+\vspace{20pt}
+\noindent
+constants added to separate them vertically).  It is remarkable how different the graphs appear to be, considering how nearly alike their formulas are.  You can find similarities if you look closely, though.  For instance, the peaks of one graph tend to match the peaks of the other.
+
+	The power spectrum, however, has no trouble detecting the similarities between the two signals.  As you can see, they indicate that    
+\linebreak
+\vspace{90pt}
+
+\special{psfile=/me/ps/calc2/detector7.ps}
+
+\newpage
+
+\noindent
+the same dominant frequencies occur in $g$ and $h$, and that corresponding frequencies occur with the same amplitude.  We learn that the formula for $g$ or $h$ can be written as
+	$$
+	10\sin(7t - \varphi_1) + 7\sin(13t - \varphi_2) + 
+		5\sin(23t - \varphi_3).
+	$$
+The only thing we can't learn from the power spectrum are the three phase differences $\varphi_1$,  $\varphi_2$, $\varphi_3$.
+
+	The graphs of the power spectra were drawn by POWER, using the following values:
+	\begin{verbatim} 
+     endomega = 4
+     omegasteps = 2 ^ 8
+     numberofsteps = 2 ^ 7
+	\end{verbatim}
+These two graphs actually differ very slightly.  You can see the difference most clearly near $\omega = 20/2\pi$.
+\medskip
+
+	For a final demonstration of the properties of the 
+	\mar{Detecting a periodic wave in a noisy signal}	
+power spectrum, we return to the signal + noise problem that we raised at the beginning of this section.  Let's see what happens to the power spectrum of a pure sine wave when we gradually gradually add noise.  For simplicity, we take the frequency of the pure signal to be 2 cycles/sec.  The spectrum has a single strong spike at this frequency.
+\vspace{185pt}
+
+\special{psfile=/me/ps/calc2/detector8.ps}
+
+\vspace{25pt}
+
+	One the following pages you can see what happens as the noise level is increased. The power spectrum, which was virtually zero for all $\omega > 3$ cycles/sec, is now non-zero for almost all frequencies in the range we have graphed.  
+	\mar{In the power spectrum, noise and signal are separated}	
+In other words, the noise is a mixture of many frequencies.  Notice how the height of the power graph increases with the strength of the noise.  This is most noticeable in the higher frequencies.  Eventually, in the final graph, we lose sight of the signal; the noise has swamped it.  The signal to noise ratio is 1:2.5, meaning that the noise is 2$1 \over 2$ times as strong as the signal.  Nevertheless, the power spectrum still shows a strong spike at $\omega = 2$ cycles/sec.  This corresponds to the signal.  The power spectrum can still see the signal even when we can't! 	
+\vspace{180pt}
+
+\special{psfile=/me/ps/calc2/detector9.ps}
+
+\vspace{230pt}
+
+\special{psfile=/me/ps/calc2/detector10.ps}
+
+\newpage
+
+\mbox{}
+\vspace{235pt}
+
+\special{psfile=/me/ps/calc2/detector11.ps}
+
+\vspace{25pt}
+
+\subsection{Exercises}
+
+\subsubsection{The problem of phase}
+
+\vspace{-10pt}
+\num  Use the ``sum of two angles formula,''
+	$$
+	\sin(A + B) = \sin(A) \cos(B) + \cos(A) \sin(B),
+	$$
+to show that the circular function $\sin(bt - \varphi)$ with period $2\pi/b$ and phase difference $\varphi$ can be written as a combination of pure sine and cosine functions of the same period:
+	$$
+	\sin(bt - \varphi) = M \sin(bt) + N \cos(bt).
+	$$
+show that $M = \cos(\varphi)$ and $N = -\sin(\varphi)$.  [Note that $M^2 + N^2~=~1$.]
+
+\numa  Express $\sin(5t - \pi/3)$ as a sum of a pure sine function and a pure cosine function.
+
+\sub  Express ${\sqrt{3} \over 2}\sin(7t) + {1 \over 2}\cos(7t)$ in the form $A\sin(bt - \varphi)$.  To check your result, graph it together with the given function using a computer graphing utility.
+
+\sub  Express $f(t) = \sin(t) + 2\cos(t)$ in the form $A\sin(bt - \varphi)$.  Notice that the formula in exercise 1 requires that $M^2 + N^2 = 1$, but in this example $M^2 + N^2 = 5$.   Therefore, first write
+	$$
+	f(t) = \sqrt{5} \left( {\textstyle {1 \over \sqrt{5}}} \sin(t) + 
+		{\textstyle {2 \over \sqrt{5}}} \cos(t) \right).
+	$$
+The expression in parentheses has the right form.  Does your result check on a computer?
+
+\num  Suppose 
+	$$
+	A \sin(bt - \varphi) = M \sin(bt) + N \cos(bt).
+	$$
+How are $A$, $M$, and $N$ related?
+
+\num  The functions $\sin(t) + 2 \cos(t)$ and $2\sin(t) + \cos(t)$ have the same period but differ in phase.  What is the phase difference?  Determine this two ways: by graphing, and by writing each expression as a single function of the form $A \sin(bt - \varphi)$.
+
+\num  Choose values for $A$, $b$, and $\varphi$ so that the function
+	$$
+	3 \sin(2x) + 4 \cos(2x) + A \sin(bx - \varphi) 
+	$$
+is {\em identically\/} zero---that is, equal to 0 for every value of~$x$.
+
+\num  Choose values of $A$ and $\varphi$ so that the function
+	$$
+	\sin(x) + \sin(x + 1) + \sin(x + 2) + A\sin(x - \varphi)
+	$$
+is identically zero.
+
+
+\subsubsection{The programs DETECTOR and POWER}
+
+
+	The purpose of these exercises is to give you experience interpreting the power spectrum of a known signal using the program POWER and modifications of DETECTOR.  The first exercise asks you to construct these modifications.
+	
+\num  Modify DETECTOR to produce two new programs, SDETECTOR and CDETECTOR, which generate the sine detector and the cosine detector functions that appear on page~\pageref{detectors}.
+
+\numa  Compare the outputs of $f(t) = \sin(t)$ and $g(t) = \cos(t)$ on POWER.  Use the domain $0 \leq \omega \leq 1$.  Does POWER distinguish between these functions?  Would you expect it to?
+
+\sub  Compare $f(t)$ and $g(t)$ using SDETECTOR.  Does SDETECTOR distinguish between these functions?  Would you expect it to?
+
+\sub  Compare $f(t)$ and $g(t)$ using CDETECTOR.  Does CDETECTOR distinguish between these functions?  Why is the output of $g(t)$ on CDETECTOR the same as the output of $f(t)$ on SDETECTOR?
+
+\numa  Describe the power spectrum of the signal $S = \sin(t) + \cos(t)$.  How many peaks are there, and where are they?
+
+\sub  How does the spectrum of $S$ compare with the two generated in the last question?
+
+\sub  Describe the output of SDETECTOR and CDETECTOR for the signal $S$.  Compare these outputs to the corresponding outputs for $f$ and $g$ in the last exercise.
+
+\numa   Graph the function
+	$$
+	h(t) = 10\sin(7t) + 7 \cos(13(t) - 5 \cos(23t)
+	$$
+over the domain $0 \leq t \leq 14$.  Compare your result with the graph on page~\pageref{testfunction}.
+
+\sub  Graph the power spectrum of $h(t)$ over the frequency domain $0 \leq \omega \leq 4$.  Compare your result with the text.  How many peaks are there?  Where are they?  How high are they?  Do these results agree with the amplitude and frequency information provided by the formula for $h(t)$?
+
+\num  (Continuation of the previous exercise.)  Use SDETECTOR to analyze $h(t)$ over the same frequency domain.  Compare the pattern near $\omega = 13/2\pi$ with the patterns generated by the sine and cosine detectors that appear on page~\pageref{cos7t}.  Compare the patterns near $\omega = 7/2\pi$ and near $\omega = 23/2\pi$ the same way.  Would you expect the patterns near $\omega = 13/2\pi$ and $\omega = 23/2\pi$ to be similar?  Are they?  Are they similar to the pattern near $\omega = 7/2\pi$?  Is this what you would expect?
+
+\num  (Continuation.)  Use CDETECTOR to analyze $h(t)$.  Follow the guidelines of the previous question. 
+
+
+
+
+\subsubsection{A Grain of Salt}
+
+	The purpose of the power spectrum is to make visible the periodic patterns contained with a given function.  However, our {\em method of computing\/} the spectrum can introduce spurious information, too.  It can tell us there are periods that are not really present in the function.  So we must take the calculations with a grain of salt.  The purpose of these exercises is to point out the spurious information, show why it arises, and how we can get rid of it.
+
+
+\num  Use the program POWER to graph the power spectrum of the function $\sin{2 \pi x}$ on the interval $0 \leq x \leq 10$.  Let $0 \leq \omega \leq 3$.  Set {\tt numberofsteps = 100}, but let all the other parameters keep the values they have in the program.     
+
+\ans{The power spectrum has a single peak of height~1 at $\omega \approx 1$}
+
+
+\num  Now increase the domain of integration to $0 \leq x \leq 30$, and set {\tt numberofsteps = 300}, to adjust for the increase in the size of the domain.  Use POWER again to graph the power spectrum.  Compare this spectrum with the previous one.
+
+\num  Leave $0 \leq x \leq 30$, but restore {\tt numberofsteps = 100}.  Use POWER once again to graph the power spectrum.  Compare this spectrum with the previous two.  
+
+\ans{A new peak, of height 1, appears at $\omega \approx 7/3$.}
+
+\num  Let {\tt numberofsteps = 50}, and calculate the power spectrum one more time.  What happens?
+\medskip
+
+	When we reduce the number of integration steps, new peaks appear in the power spectrum.  These new peaks represent {\em spurious\/} information: the function $\sin{2\pi x}$ has no components whose frequencies are 2/3, 7/3, or 8/3.  Let's see why this happens.  We'll concentrate on $\omega = 7/3$.  First, you must decide whether the peak in the power spectrum at $\omega = 7/3$ comes from the sine or the cosine detector. 
+
+\num  Use SDETECTOR and CDETECTOR to analyze $\sin(2\pi x)$.  Take $0 \leq x \leq 30$, $0 \leq \omega \leq 3$, and set {\tt numberofsteps = 100}.  One of these detectors has the value 0 when $\omega = 7/3$.  Which one?
+
+
+\num  According to the previous exercise, the peak in the power spectrum that is detected at $\omega \approx 7/3$ comes from the integral 
+	$$
+	{2 \over 30}\int_0^{30} \sin(2\pi x) 
+	\sin\left(2\pi {\textstyle {7 \over 3}} x\right)\, dx,
+	$$
+{\em not\/} from the cosine integral.  By using one of the sine and cosine integrals from the exercises for section~11.3, determine the {\em exact\/} value of this integral.  Is this the value you expected to get?
+\medskip
+
+	The program POWER calculates the spectrum numerically.  In particular, we used it to calculate
+	$$
+	\int_0^{30} \sin(2\pi x) 
+	\sin\left(2\pi {\textstyle {7 \over 3}} x\right)\, dx,
+	$$
+with 100 steps.  The step size is therefore $\Delta x = .3$.  In the following exercises you will duplicate this numerical work ``by hand.''
+
+
+\num  Make a sketch of the graph of the function
+	$$
+ h(x) = \sin(2\pi x) \sin\left(2\pi {\textstyle {7 \over 3}} x \right)
+	$$
+on an appropriate interval.  What is the period of this function?
+
+\num  Determine the value of $h(x)$ at $x = 0$, .3, .6, .9, 1.2, and 1.5, and use these values to construct a Riemann sum for the integral
+	$$
+		\int_0^{1.5} h(x) \, dx
+	$$
+using left endpoints and a step size of $\Delta x = .3$.  Mark these values of $h$ on the sketch you made in the previous exercise.
+
+\ans{The Riemann sum is $-.3(2 \sin^2(2\pi/5) + 2 \sin^2(\pi/5)) = -.75$.}
+
+
+\num  Evaluate the expression 
+	$$
+		{1 \over 15}\int_0^{30} h(x) \, dx
+	$$
+using a left endpoint Riemann sum with a step size of $\Delta x = .3$  How can you use the previous exercise to answer this question?
+
+\ans{$-1$.  Since $h(x)$ is periodic with period $x = 1.5$, the interval $[0, 30]$ contains 20 periods of $h$.  The integral of $h$ over $[0, 30]$ is therefore 20 times its integral over $[0, 1.5]$.}
+
+\num  Compare the values of the detector
+	$$
+	{2 \over 30}\int_0^{30} \sin(2\pi x) 
+	\sin\left(2\pi {\textstyle {7 \over 3}} x\right)\, dx,
+	$$
+you have obtained by antidifferentiation and by numerical integration.
+\medskip
+
+	These exercises demonstrate that the exact and computed values of the power spectrum can be quite different, essentially because the steps in a Riemann sum can pick out very special values of the integrand.  
+	
+	One way to deal with the problem is 
+	\mar{The {\em true\/} spectrum is the limit of the computed graphs of the spectrum}	
+to increase the number of steps.  How will you know if you have gone far enough?  Increase in stages until the graph of the power spectrum {\bf stabilizes}---that is, until it no longer changes when you make a further increase in the number of steps.  
+
+	Of course, increasing the number of steps increases computer time.  This creates new problems.  To deal with them, however, we can switch to more efficient numerical integration methods.  Simpson's rule (section~11.6) is the most efficient method we have covered.  You should try rewriting DETECTOR using Simpson's rule to see how it improves the performance.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
+
+
+
+

@@ -1,0 +1,367 @@
+%&lplain
+\documentstyle[12pt,leqno,bezier]{cicfinal}
+
+\newcommand{\mar}[1]{\marginpar[\raggedright\footnotesize\sf #1]{\raggedleft\footnotesize\sf #1}}
+\newcommand{\asideleft}[1]{\medskip\noindent%
+	\rule{321pt}{0pt}\makebox[0pt][r]{%
+	\begin{minipage}[t]{400pt}\footnotesize\sf{#1}%
+	\end{minipage}}\bigskip}
+\newcommand{\asideright}[1]{\medskip\noindent%
+	\rule{40pt}{0pt}\makebox[0pt][l]{%
+	\begin{minipage}[t]{400pt}\footnotesize\sf{#1}%
+	\end{minipage}}\bigskip}
+\newcommand{\aside}[1]{\ifodd \value{page}%
+	{\asideright{#1}}\else{\asideleft{#1}}\fi}
+\newcounter{exercisenumber}[subsection]
+\newcounter{exercisepart}[exercisenumber]
+\newcommand{\num}{\stepcounter{exercisenumber}\par\bigskip%
+	\noindent\arabic{exercisenumber}.\quad}
+\newcommand{\numa}{\stepcounter{exercisenumber}\par\bigskip%
+	\noindent\arabic{exercisenumber}.\quad%
+	\stepcounter{exercisepart}\alph{exercisepart})\enskip}\newcommand{\sub}{\stepcounter{exercisepart}\par\smallskip%
+	\noindent\alph{exercisepart})\enskip\thinspace}
+\newcommand{\ans}[1]{\par\smallskip\noindent[Answer:\enskip%
+	{#1}]}
+
+\makeindex
+
+\begin{document}
+
+\setcounter{chapter}{11}
+\setcounter{page}{727}
+
+\chapter{Case Studies}
+
+To enable you to further explore the ways the concepts of calculus are used as analytical tools in scientific and mathematical investigations, this chapter presents four extended case studies.  The four can be studied separately, although the first two and the last two are loosely linked 
+\begin{description}
+\item[Sterling's Formula]  As an example of the way many of the ideas---Taylor series, numerical integration, reduction formulas, limits---developed in the earlier chapters of this book can be used in a tightly-reasoned argument to produce some powerful mathematical insights, in the first section we derive a famous formula approximating $n!$.  This formula is then applied to the binomial probability distribution.
+\item[The Poisson Distribution] Section 12.2 continues the probability theme by developing the Poisson distribution and using it to study the frequency of radioactive decay events.  
+\item[The Power Spectrum] Section 12.3 builds on the study of periodicity begun in chapter 7. We develop the Fourier transform, a basic tool in the sciences for detecting the relative strength of periodic components in a noisy data set.
+\item[Fourier Series]  Section 12.4 expands on some of the ideas in chapter 11.  Here we develop tools for approximating functions over intervals using sums of sine and cosine terms.  This is an extensively used method in a wide range of disciplines, from thermodynamics to music synthesis.
+\end{description} 
+	
+
+
+
+\section{Stirling's Formula}
+\index{Stirling's formula}
+\index{factorial}
+\index{$n!$}
+
+	Given a positive integer $n$, we define $n!$---pronounced {\em $n$ factorial}---by the rule $n!=1\cdot 2\cdot 3\cdots (n-1)\cdot n$\,.  This is a convenient concept which occurs in a number of settings, 
+	\mar{Factorials in probability}	
+particularly combinatorial and probabilistic ones.  For instance, the probability\index{probability} of getting exactly $n$ heads out of $2n$ tosses of a coin turns out to be 
+	$$
+	{(2n)! \over 2^{2n}(n!)^2}.
+	$$  
+Unfortunately, evaluating $n!$ for values of $n$ at all large is cumbersome at best.  Although though many calculators will compute factorials, few of them can handle numbers as large as $1000!$\,.  Even when we can evaluate $n!$, we are often as interested in the asymptotic behavior of a certain expression as much as in its exact value for specific $n$.  
+	\mar{$n!$ is difficult \\to calculate}
+For instance, using methods we develop below, it turns out that the above expression for the probability of $n$ heads in $2n$ tosses is very close to $1/\sqrt{\pi n}$, with the approximation being more accurate the larger $n$ is.  In fact, for $n \geq 8$, the approximation is good to two places; for $n \geq 25$, the approximation gives three-place accuracy.  
+
+In his book {\em Methodus differentialis\/} (1730), the British mathematician James Stirling\index{Stirling, J.} published the following approximation, now know as {\bf Stirling's formula}, for the factorial operator:
+$$
+n!\sim \sqrt{2\pi}\,n^{n+{1 \over 2}}\,e^{-n} \,.
+$$
+
+While the right-hand side may look much more complicated than the left, think which one you would rather evaluate for, say, $n=100$. To see how good this approximation is, here are some comparisons:
+
+\begin{center}
+\begin{tabular}{ccc}\label{table}
+&&Stirling's \\
+$n$&$n!$&approximation \\ [2pt]
+\hline\\[-10pt]
+2&2&1.9190   \\
+10 & 3,628,800   & 3,598,695.6\\
+50 & $3.0414\times 10^{64}$   & $3.0363\times 10^{64}$\\
+100 & $9.3326\times 10^{157}$   & $9.3248\times 10^{157}$\\
+1000 & $4.02387\times 10^{2567}$   & $4.02354\times 10^{2567}$\\
+10000& $2.84626\times 10^{35659}$ & $2.84624\times 10^{35659}$ \\
+\end{tabular}
+\end{center}
+
+As an example of the way elementary ideas in calculus can be used to derive powerful and subtle results, we will outline a derivation of Stirling's approximation for $n!$.  You should write up your own summary of this proof, filling in the gaps in the text below.
+
+We will work in two stages.  In the first stage, we will show that
+$$
+n!\sim c\,n^{n+{1 \over 2}}\,e^{-n} \,.
+$$
+for some constant $c$.  In the second stage we will show that this constant is actually $\sqrt{2\pi}$.
+
+\subsection{Stage One: Deriving the General Form}
+
+We first observe that
+$$\ln (n!) = \ln 1 + \ln 2 + \ldots +\ln n \,.$$
+It turns out to be easier to prove things about this logarithmic form.\index{logarithm}  In fact, we will deal most easily with
+$$A_n=\ln 1 + \ln 2 + \ldots +\ln (n-1) + {1 \over 2}\,\ln n  \,.$$
+Thus $\ln(n!) = A_n+{1 \over 2}\ln n \,.$  Even though $\ln 1 = 0$, it will be useful to retain the term in the expression for $A_n$.
+
+We will find upper and lower bounds for $A_n$ (and hence for $\ln(n!)$\,) by approximating the area under the curve $y=\ln x$ by certain inscribed and circumscribed trapezoids.\index{trapezoid}  We will then use these bounds to predict the asymptotic behavior of $A_n$ for large values of $n$.
+
+\medskip
+\noindent
+\begin{minipage}{3.2in}
+{\bf The upper bound}:\index{bound, integral}  Note that if we inscribe a trapezoid under the graph of $y=\ln x$ between $x=k-1$ and $x=k$, its area will be ${1 \over 2}(\ln (k-1) +\ln k)$. (How do we know that the straight line connecting the points $(k-1, \ln (k-1))$ and $(k, \ln k)$ will lie under the graph of $y=\ln x$?) The sum of the areas of all such trapezoids from $x=1$ to $x=n$ is clearly less than the area under the curve $y=\ln x$ over the interval $[1,n]$. 
+\end{minipage} \ \
+\begin{minipage}{2.2in}
+\special{psfile=/me/ps/calc2/ch121-1.ps}
+\end{minipage}
+
+\vspace{4pt}
+We therefore have the inequality
+$${1 \over 2}(\ln 1 +\ln 2) +{1 \over 2}(\ln 2 +\ln 3)+\ldots +{1 \over 2}(\ln(n-1)+\ln n)<\int_1^n\ln x\,dx \,,$$
+which is equivalent to
+$$A_n<\int_1^n\ln x\,dx \,.$$
+
+\noindent
+\begin{minipage}{3.2in}
+{\bf The lower bound}: On the other hand if we draw the tangent line to $y=\ln x$ at \mbox{$x=k$} and form the trapezoid between $x=k-.5$ and $x=k+.5$, its area will just be $\ln k$ and will be greater than the area under the curve over the same interval. (We've used the fact---which you should check---that the area of a trapezoid equals the distance between the parallel sides times the distance between the midpoints of the other two sides.) 
+\end{minipage} \ \
+\begin{minipage}{2.2in}
+\special{psfile=/me/ps/calc2/ch121-2.ps}
+\end{minipage}
+
+\vspace{3pt}
+Adding up all such trapezoids, we get the inequality
+$$\int_{{3 \over 2}}^n\ln x\,dx <A_n\,.$$
+
+Since we know that $\int \ln x\,dx = x\ln x -x$, we can evaluate these upper and lower bounds to conclude
+$$n\ln n-n-{3 \over 2}\ln {3 \over 2} + {3 \over 2} <A_n<n\ln n -n +1\,,$$
+which in turn yields
+$$\left(n+{1 \over 2}\right)\ln n-n+{3 \over 2}\left(1-\ln {3 \over 2}\right) <\ln n!<\left(n+{1 \over 2}\right)\ln n -n +1\,.$$
+
+Pause for a moment to observe that the differences 
+$$
+D_n = (n+{1 \over 2})\ln n -n +1-\ln n!
+$$ 
+between the expressions  in the rightmost inequality is just the accumulated error from approximating the area under $y=\ln x$ by the inscribed trapezoids. Since the error over each interval is always positive, $D_n$ must therefore get larger as $n$ increases,   We will need this fact shortly.
+
+Returning to our inequalities, they can finally be rewritten as
+$${3 \over 2}\left(1-\ln {3 \over 2}\right) <\ln n!-\left(n+{1 \over 2}\right)\ln n +n <1\,.$$
+Evaluating the constants, we thus have that for any value of $n$,
+$$.8918<\ln n!-(n+{1 \over 2})\ln n +n <1\,.$$
+If we exponentiate, this becomes
+$$2.395<{n! \over n^{n+{1 \over 2}}e^{-n}} <2.719\,,$$
+or
+$$2.395n^{n+{1 \over 2}}e^{-n} <n!<2.719n^{n+{1 \over 2}}e^{-n}\,.$$
+
+	Notice that these bounds are already quite strong 
+	\mar{These estimates are often adequate}	
+and would be adequate for many estimates.  Moreover, they are true for any value of $n$.  If we are only interested in large values of $n$, we can do a little better.  Let 
+$$
+\delta_n=\ln n!-(n+{1 \over 2})\ln n +n.
+$$ 
+Then $1-\delta_n=(n+{1 \over 2})\ln n -n +1-\ln n!$ is just the expression we called $D_n$ a moment ago and said had to be increasing as $n$ increases.  But if $D_n=1-\delta_n$ is increasing, it must be true that $\delta_n$ itself is decreasing as $n$ gets larger.  We thus must have $1>\delta_1>\delta_2>\ldots >\delta_n \ldots >.8918$.  There must therefore be some constant $d\geq .8918$ such that $\lim_{n\rightarrow \infty}\delta_n=d$. Define the constant $c$ by $c=e^d$. Then
+$$\lim_{n\rightarrow \infty}{n! \over n^{n+{1 \over 2}}e^{-n}} = c\,,$$
+which is what we mean when we write
+$$
+n!\sim c\,n^{n+{1 \over 2}}\,e^{-n} \,.
+$$
+
+
+This completes stage 1.  In stage 2 we will see that $c=\sqrt{2\pi}$.
+
+
+
+
+
+\subsection{Stage Two: Evaluating $c$}
+
+We will do this using an interesting result of a 17th century English mathematician, John Wallis,\index{Wallis, J.}\index{Wallis's formula} 
+	\mar{\vspace{25pt}Wallis's formula}
+who showed that
+$$
+\lim_{n \rightarrow \infty} {2 \over 1}\times {2 \over 3}\times {4 \over 3}\times {4 \over 5}\times {6 \over 5}\times {6 \over 7}\times \cdots \times {2n \over 2n-1}\times {2n \over 2n+1} = {\pi \over 2} \, .
+$$
+
+Suppose for the moment that we had proved Wallis's formula. We can express it in terms of factorials by noting that we can rewrite the product of the first $n$ even numbers---$2\times 4\times 6\times \ldots \times (2n)$---by factoring a $2$ out of each term, leaving us 
+$$2\times 4\times 6\times \ldots \times (2n) = 2^n\,(n!)\,.$$
+Similarly, we can take the product of the first $n$ odd integers---$1\times 3\times 5\times 7\times \ldots \times (2n-1)$---and insert the missing even terms to get
+\begin{eqnarray*}
+1\times 3\times 5\times 7\times \ldots \times (2n-1) &=&{1\times 2\times 3\times 4\times \ldots \times (2n-1)\times (2n) \over 2\times 4\times 6\times \ldots \times (2n)} \\
+&=&{(2n)! \over 2^n\,(n!)}
+\end{eqnarray*}
+
+We can thus rewrite Wallis's formula as
+$$
+\lim_{n \rightarrow \infty}{\left(2^n\,n!\right)^4 \over \left((2n)!\right)^2(2n+1)}= {\pi \over 2} \, .
+$$
+
+If we now replace all the factorials by their corresponding expressions using Stirling's approximation, we get
+$$
+\lim_{n \rightarrow \infty}{2^{4n}c^4n^{4n+2}e^{-4n} \over c^2(2n)^{4n+1}e^{-4n}(2n+1)}={\pi \over 2}\,,
+$$
+which, after a great deal of cancelation, reduces to
+$$\lim_{n \rightarrow \infty}{c^2n \over 2(2n+1)}={\pi \over 2}\,.
+$$
+
+Now since
+$$\lim_{n \rightarrow \infty} {n \over 2n+1} = {1 \over 2} \,,
+$$
+this reduces to
+$${c^2 \over 4}={\pi \over 2} \,,$$
+so
+$$c^2 = 2\pi \,,$$
+and
+$$c=\sqrt{2\pi}\,,$$
+as desired.
+
+\subsubsection{Deriving Wallis's formula}
+One way to derive Wallis's formula involves the integrals
+	$$
+	I_k = \int_0^{\pi/2}\sin^kx\,dx.
+	$$
+Note that $I_0>I_1>I_2>I_3>\ldots \,.$  Moreover, you should verify that
+	$$
+	I_0 = {\pi \over 2} \qquad \mbox{and} \qquad I_1=1.
+	$$
+Using the reduction formula derived in section 11.5 for antiderivatives of $\sin^n{x}$, we have a similar reduction formula for the $I_k$:
+\begin{eqnarray*}
+I_k&=&\int_0^{\pi/2}\sin^kx\,dx  \\
+	&=&\left. {-1 \over k}\sin^{k-1}x\,\cos x \right|_0^{\pi/2}+{k-1 \over k} \int_0^{\pi/2} \sin^{k-2}x\,dx \\
+	&=&{k-1 \over k} I_{k-2} \,.
+\end{eqnarray*}
+
+This in turn leads to
+	$$
+	I_k  = \left\{ \begin{array}{ll}
+						{\displaystyle {2n-1 \over 2n}\cdot {2n-3 \over 2n-2}\cdots {1 \over 2}\cdot  {\pi \over 2}} & \mbox{ if $k=2n$ is even} \\ [.15in]
+						{\displaystyle {2n \over 2n+1}\cdot {2n-2 \over 2n-1}\cdots {2 \over 3}\cdot  1}  & \mbox { if $k=2n+1$ is odd}
+						\end{array}
+					\right.
+	$$				
+
+	Further, note that
+	$$
+	I_{2n+2}/I_{2n}= {2n+1 \over 2n+2},
+	$$
+which has the limit 1 for large $n$.  Since $I_{2n}>I_{2n+1}>I_{2n+2}$, it follows that $I_{2n+1}/I_{2n}$ also approaches 1 for large $n$.  But this gives us
+\begin{eqnarray*}
+	1 &=&{\displaystyle\lim_{n \rightarrow \infty}I_{2n+1}/I_{2n}} \\[4pt]
+	& = & {\displaystyle  \lim_{n \rightarrow \infty}
+    	\left({2n \over 2n+1}\cdot {2n-2 \over 2n-1}\cdots 
+		{2 \over 3}\cdot  1\right)
+	\div 
+	\left({2n-1 \over 2n}\cdot {2n-3 \over 2n-2}\cdots {1 \over 2}\cdot 
+		{\pi \over 2}\right)} \\[4pt]
+	& = & {\displaystyle\lim_{n \rightarrow \infty}
+	{2n \over 2n+1}\cdot {2n \over 2n-1}\cdot {2n-2 \over 2n-1}\cdots 
+	{2n-2 \over 2n-3} \cdots {2 \over 3}\cdot {2 \over 1}\cdot 
+	{2 \over \pi}}
+	\end{eqnarray*}
+If we multiply both sides of this equation by $\pi/2$, we get Wallis's formula.
+
+\subsubsection{Further refinements}
+
+Using even more careful methods of analysis, 
+	\mar{Some refinements}
+it is possible to improve on Stirling's approximation and derive approximations like
+$$n!\sim \sqrt{2\pi}\,n^{n+{1 \over 2}}\,e^{-n+{1 \over 12n}-{1 \over 360n^3}+{1 \over 1260n^5}-\cdots} \,.
+$$
+
+If we use this expression to approximate $1000!$, for instance, our result is accurate for the first 24 digits.  
+
+While this approximation and Stirling's original one are good in the sense that they give more and more accurate digits the larger $n$ gets---so that the {\em ratio} of $n!$ to either approximation goes to 1 as $n$ gets large---they are bad in the sense that the {\em difference} between $n!$ and either approximation becomes infinite as $n$ gets large.
+
+\subsection{The Binomial Distribution}\index{binomial probability distribution}\index{probability distribution, binomial}
+
+One of the most frequently encountered concepts in probability theory is the {\bf binomial probability distribution}. Suppose we repeat a certain experiment---flipping a penny, rolling a single die, mating a pair of fruit flies, feeding cholesterol to a lab rat---over and over.  Suppose further that there is some outcome we are looking for---getting heads, rolling a 2, getting a red-eyed offspring, developing liver cancer in the rat---in each experiment.  If $p$ is the probability $p$ of obtaining the looked-for outcome in any one experiment, denote by $P(n, k, p)$ the probability of the outcome happening exactly $k$ times in $n$ experiments.  It turns out that
+$$P(k,n, p)={n!\over k!(n-k)!}p^k(1-p)^{n-k}.$$
+
+\medskip
+\noindent
+{\bf Example 1}\quad How likely is it to get four 2's if we roll twelve dice?  The probability of getting a 2 by throwing one die is ${1\over 6}$.  Therefore the answer to the question is
+$$P(12, 4, {1 \over 6})={12! \over 4!\, 8!}\left({1 \over 6}\right)^4\left({5 \over 6}\right)^8=.0888281$$
+---we should get exactly four 2's slightly less frequently than once out of every 11 times we roll twelve dice.
+
+\medskip
+\noindent
+{\bf Example 2}\quad What is the probability of getting exactly 47 heads if we flip 100 pennies? Since the probability of getting heads on a single toss of a penny is ${1\over 2}$, 
+$$P(100, 47, .5)={100!\over 47!\,53!}\left({1\over 2}\right)^{100}=.0665905.$$
+---on the average, if we flip 100 pennies, we should get 47 heads about once out of every 15 times.
+
+\medskip
+The second example demonstrates the fact that calculating binomial probabilities can get very messy very quickly.  Several of the exercises are designed to show how Stirling's formula can give us quick estimates that are easy to calculate and work with.
+
+\subsection{Exercises}
+
+\num Go through the derivation in this section and find several passages that seem to you to go a bit fast or skip over details.  Rewrite these sections to make them clearer and more complete.
+
+\num Confirm the values given in the table on page~\pageref{table} for the approximations of $100!$ and $1000!$ that Stirling's formula produces.
+
+\num {\bf Rate of growth of $n!$}\quad Factorials get very large very rapidly.  The purpose of this exercise is to develop a sense of just how rapidly $n!$ grows by comparing it to exponential functions.   
+
+Let $N$ be some integer $>1$, and consider the sequence $a_1$, $a_2$, $a_3$, \ldots defined by
+$$a_n={N^n \over n!}.$$
+\sub Show that 
+$$a_k = {N \over k}a_{k-1},$$
+and conclude that 
+\medskip 
+
+\begin{tabular}{ll}
+If $k<N$ then &$a_{k-1}<a_k$ \\
+If $k>N$ then &$a_{k-1}>a_k$ \\
+If $k=N$ then &$a_{k-1}=a_k$ \\
+\end{tabular}
+
+\noindent
+We thus have a sequence that increases for a while: $$a_1<a_2<\cdots a_{N-1}=a_N,$$ 
+and then decreases forever after:
+$$a_N>a_{N+1}>a_{N+2}>\cdots\,.$$
+
+\sub If $k>2N$ show that $a_k<.5a_{k-1}$.  Hence conclude that ${\displaystyle \lim_{n\rightarrow\infty}a_n=0}$.
+
+\sub Use Stirling's approximation to show that
+$$a_N\approx {e^N \over \sqrt{2\pi N}}.$$
+Calculate the values of this expression for $N=10$ and $N=100$ to get an idea of how large the sequence $\{a_n\}$ can get.  This shows that {\em for a while}, the exponential series $\{N^n\}$ can get large much more rapidly than the series $\{n!\}$.
+
+\sub Show that $a_n<1$ if $n>eN$.  This gives an upper bound on how long it takes the factorials to catch up with the exponentials.
+
+\num If $n\geq 5$, then $n!$ terminates in a certain number of zeroes.  For instance, $5!=120$ ends in one zero, $23!=25852016738884976640000$ ends in four zeroes, and so on.  How many zeroes are there at the end of $1000!$\,?
+
+\subsubsection{The binomial distribution}
+
+\num The formula for the binomial distribution gives us that the probability of getting exactly $n$ heads in $2n$ flips of a coin is
+	$$
+	{(2n)! \over (n!)^2}\left({1\over 2}\right)^{2n}.
+	$$  
+Show using Stirling's formula this can be approximated by
+$${1 \over \sqrt{\pi n}}.$$ 
+Use the approximation to find the probability of getting 50 heads out of 100 tosses of a coin.  If you have a computer or calculator which can compute factorials, use the original binomial distribution formula to calculate the exact probability of getting 50 heads and compare the answers.
+
+\num More generally, if we try a certain experiment $n$ times with a probability $p$ of success each time, the most likely number of successes is $k=np$.  (Assume that $p$ is a fraction and $n$ is such that $n\cdot p$ is an integer.)  Use Stirling's approximation to show that the probability of getting exactly $np$ successes is
+$$
+P(n, np, p)\approx {1 \over \sqrt{2\pi np(1-p)}}.
+$$
+Is this consistent with the answer to problem 4?
+
+\num {\bf One-dimensional random walk}\quad An important class of problems, including {\bf diffusion} and {\bf Brownian motion} involve the long-term behavior of particles moving randomly.  We will look at the simplest case of such problems.  A particle starts at the origin on a line and at each stage moves one unit to the right or one unit to the left, being equally likely to do either.  What can we say about where the particle will be after $n$ steps?
+In this problem we will use Stirling's formula to develop some useful insights into this question.
+
+\sub Explain why the particle will be $r$ units to the right of the origin after $n$ steps if and only if it has moved to the right $k=(n+r)/2$ times and to the left $n-k=(n-r)/2$ times. Explain why it could never be 3 units or 7 units to the right after 100 steps.
+
+\sub Using the same symbols as in part (a), show that the probability of the particle's being exactly $r$ units to the right after $n$ steps is
+$${n!\over k!(n-k)!}\left({1 \over 2}\right)^n.$$
+
+\sub Use Stirling's formula to show that this probability of being $r$ units to the right after $n$ steps is approximately
+$${\sqrt{2} \over \sqrt{\pi n} (1+(r/n))^{{1\over 2}(n+r+1)} \, (1-(r/n))^{{1\over 2}(n-r+1)}}.$$
+
+\sub To simplify the denominator of this fraction, recall the Taylor series approximation for $\ln(1+x)$:
+$$\ln(1+x)=x-{x^2 \over 2} +\cdots\,.$$
+Hence, if $r$ is much smaller than $n$, $\ln(1+r/n)$ can be approximated by $r/n-r^2/(2n^2)$, and $\ln(1-r/n)$ can be approximated by $-r/n-r^2/(2n^2)$. By ignoring all powers of $r$ greater than the second, conclude that
+$$
+(1+(r/n))^{{1\over 2}(n+r+1)}\,(1-(r/n))^{{1\over 2}(n-r+1)}\approx e^{r^2/(2n)},
+$$
+so that the probability of being $r$ units to the right after $n$ steps is
+$$
+\sqrt{{2 \over \pi n}}e^{-r^2/2n}.
+$$
+
+\sub Explain how we can get the answer to problem 4 as a special case of the result just obtained in part (d).
+
+\sub  Using the approximation from part (d), calculate the probability that after 100 steps the particle will be {\em no more} than 5 units away from the starting point to either the right or the left.  Remember that after 100 steps it is impossible to be an odd number of units away from the starting point.  The exact probability is
+$$\sum_{k=48}^{52} {100! \over k!(100-k)!}\left({1\over 2}\right)^{100}=.382701\,.$$
+
+
+
+
+\end{document}

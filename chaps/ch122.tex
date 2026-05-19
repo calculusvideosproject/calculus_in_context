@@ -1,0 +1,595 @@
+%&lplain
+\documentstyle[12pt,leqno,bezier]{cicfinal}
+
+\newcommand{\mar}[1]{\marginpar[\raggedright\footnotesize\sf #1]{\raggedleft\footnotesize\sf #1}}
+\newcommand{\asideleft}[1]{\medskip\noindent%
+	\rule{321pt}{0pt}\makebox[0pt][r]{%
+	\begin{minipage}[t]{400pt}\footnotesize\sf{#1}%
+	\end{minipage}}\bigskip}
+\newcommand{\asideright}[1]{\medskip\noindent%
+	\rule{40pt}{0pt}\makebox[0pt][l]{%
+	\begin{minipage}[t]{400pt}\footnotesize\sf{#1}%
+	\end{minipage}}\bigskip}
+\newcommand{\aside}[1]{\ifodd \value{page}%
+	{\asideright{#1}}\else{\asideleft{#1}}\fi}
+\newcounter{exercisenumber}[subsection]
+\newcounter{exercisepart}[exercisenumber]
+\newcommand{\num}{\stepcounter{exercisenumber}\par\bigskip%
+	\noindent\arabic{exercisenumber}.\quad}
+\newcommand{\numa}{\stepcounter{exercisenumber}\par\bigskip%
+	\noindent\arabic{exercisenumber}.\quad%
+	\stepcounter{exercisepart}\alph{exercisepart})\enskip}\newcommand{\sub}{\stepcounter{exercisepart}\par\smallskip%
+	\noindent\alph{exercisepart})\enskip\thinspace}
+\newcommand{\ans}[1]{\par\smallskip\noindent[Answer:\enskip%
+	{#1}]}
+\newcommand{\dint}{\displaystyle \int}
+
+\makeindex
+
+\begin{document}
+
+\setcounter{chapter}{11}
+\setcounter{page}{734}
+
+\setcounter{section}{1}
+\section{The Poisson Distribution}
+\index{Poisson distribution}
+
+\subsection{A Linear Model for $\alpha$-Ray Emission}
+\index{$\alpha$-ray}
+\index{alpha ray}
+
+        When a radioactive element decays, we know from the study of differential equations in chapter 4 that the amount $A(t)$ of radioactive material present at time $t$ satisfies the differential equation
+$$A' = -kA,$$
+where $k > 0$ is the decay constant.  If $A_0$ is the amount present at time $t = 0$, then the solution is
+$$A(t) = A_0e^{-kt}\ .$$
+
+The time $T$ it takes for a given amount of radioactive material to decay to half the starting quantity is known as the {\bf half life}\index{half life} of the element.  Since, by definition, $A(T)=.5\,A(0)=.5\,A_0$, we must have
+$$e^{-kT}={1 \over 2},$$
+which leads to
+$$kT=\ln{2}$$
+and therefore
+\mar{The relation between the half-life and the decay constant}
+$$T={\ln{2} \over k}.$$
+
+Suppose, for example, that we have a sample of polonium,\index{polonium} which is a radioactive isotope of radium.\index{radium}  The decay constant of polonium is $k = .500865$ \% per day, and thus its half life is 
+$$T = {{\ln2}\over k} = {{\ln2}\over.00500865} = 138.39\ \hbox{days}\ .$$
+By local linearity, $A(t)$ is closely approximated by a linear function for short intervals of time.  Because polonium has a half-life of 138.39 days, a ``short time'' means several hours in this case.  Thus, if we spend an afternoon in a laboratory studying the decay of polonium, we can assume that $A(t)$ is linear.
+
+        When polonium decays, it produces various sorts of radiation,\index{radiation} including $\alpha$-rays (``alpha rays'').  Using a scintillation counter, one can determine the number of rays emitted in given directions:
+\vspace*{2in}
+\special{psfile=ch122-1a.ps}
+\special{psfile=ch122-1b.ps}
+
+\noindent A setup like this will count a fixed percentage of the total number of $\alpha$-rays emitted.  Since our model of decay\index{radioactive decay model} is linear, it follows that the number of $\alpha$-rays detected should be a linear function of time.  If we start counting at time $t = 0$, the number of particles observed will have a straight-line graph:\label{linear}
+\vspace*{2in}
+\special{psfile=ch122-2.ps}
+
+
+        In the early 20th century, researchers like Marie Curie\index{Curie, M.} and Ernest Rutherford\index{Rutherford, E.} did numerous studies of the $\alpha$-rays emitted by polonium.  For example, in 1911, Rutherford, Geiger\index{Geiger} and Bateman\index{Bateman} counted the number of $\alpha$-rays detected in a 7.5-second time period.  They repeated their experiment 2608 times and detected a total of 10,097 $\alpha$-rays.  This is an average of
+$${10097\over2608} = 3.8715\ \hbox{$\alpha$-rays per 7.5-second period},$$
+so the number of $\alpha$-rays per second is 
+$${3.8715\over7.5} = .5162\ \hbox{$\alpha$-rays per second\ .}$$
+Thus the straight line in the above graph has slope .5162\ .
+
+        This model of $\alpha$-ray production has several problems. First, it predicts the existence of fractional $\alpha$-rays, which makes no sense---the number detected is always a nonnegative integer. To remedy this, we can modify our model as follows:
+\vspace*{2in}
+\special{psfile=ch122-3.ps}
+
+
+\noindent Notice that the graph is now a step function\index{step function}.  It shows that we should see a new $\alpha$-ray every $1/.5162 = 1.937$ seconds. This model also has the following consequence: if we observe the number of $\alpha$-rays produced in a 7.5-second interval, then we will always see 3 or 4 particles:
+\vspace*{2.3in}
+\special{psfile=ch122-4.ps}
+
+
+\noindent As the picture indicates, whether we get 3 or 4 depends on where the interval starts.  Now comes the serious problem: this prediction is {\em inconsistent\/} with the experimental data collected by Rutherford\index{Rutherford, E.} and the others in 1911.  For example, in 57 of the 2608 times they ran the experiment, {\em no\/} $\alpha$-rays were observed, while in 139 cases, 7 $\alpha$-rays were observed.  Here are the complete data of the experiment:
+\begin{center}
+	\begin{tabular}{cc}\label{data}
+	number of & number of \\
+	$\alpha$-rays observed & occurrences \\
+	$n$ & $N_n$ \\ [2pt] \hline
+		\begin{tabular}{r}
+		\rule{0pt}{14pt} 0 \\
+		1 \\
+		2 \\
+		3 \\
+		4 \\
+		5 \\
+		6 \\
+		7 \\
+		8 \\
+		9 \\
+		10 \\
+		11 \\
+		12 \\
+		13 \\
+		14 
+		\end{tabular}
+		&
+		\begin{tabular}{r}
+		\rule{0pt}{14pt} 57\\
+		203\\
+		383\\
+		525\\
+		532\\
+		408\\
+		273\\
+		139\\
+		 45\\
+		 27\\
+		 10\\
+		  4\\
+		  0\\
+		  1\\
+		  1
+		\end{tabular}
+	\\ [6pt] \hline
+	Total & \rule{0pt}{14pt} 2608 \rule{6pt}{0pt}
+	\end{tabular}
+\end{center}
+
+        It follows that the linear model of $\alpha$-ray emission doesn't apply to time intervals of length 7.5 seconds.  This is a common occurrence---a model may work nicely over a certain range, but outside of that range, its answers may be meaningless.  The problem in our case comes from the random nature of radioactive decay.  In fact, there are two sources of randomness to deal with: the {\em time\/} when a polonium atom decays is random, and the {\em direction\/} in which it then emits an $\alpha$-ray is also random (this affects us since the scintillation counter only detects emissions in certain directions).  We need to modify our model to take the randomness into account, and this is where probability enters in.
+
+\subsection{Probability Models}
+\index{model, probability}
+
+
+        The basic idea of probability theory is that the outcome
+\mar{Randomness has structure} 
+of a	certain event can be unpredictable in the individual instance but predictable on the average.  Throwing dice and tossing a coin are familiar examples.  In this section, we will show how the Poisson probability distribution gives an excellent model of the $\alpha$-ray experiment described above.
+
+\subsubsection{The definition of probability}
+\index{probability}
+
+        We will let $p_n$ denote the probability of observing exactly $n$ $\alpha$-rays in a 7.5-second time interval.  By this statement, we mean the following.  Suppose we run the experiment $N$ times, where $N$ is large.  Let $N_n$ be the number of times we observed $n$ $\alpha$-rays.  Then the ratio $N_n/N$ is the frequency with which this outcome occurs.  Now imagine $N$ getting larger and larger. Being ``predictable on the average'' means that the ratios $N_n/N$ approach a fixed number, that is,  the limit $\lim_{N\to\infty}N_n/N$ exists.  We then {\em define\/} this number to be the probability $p_n$.  Thus
+\[ 
+p_n = \lim_{N\to\infty}{N_n\over N}\ .
+\]
+For example, the data presented on page~\pageref{data} were obtained from $N = 2608$ repetitions of our experiment.  From the table given there, we see that 0 $\alpha$-rays were observed 57 times.  This means $N_0 = 57$, and thus the probability of detecting 0 $\alpha$-rays is
+\[ 
+p_0 \approx {N_0\over N} = {57\over2608} = .0218\ .
+\]
+Similarly, we can approximate $p_1$, $p_2$, etc.,~using the data in the table.  Our goal is to describe these probabilities $p_0$, $p_1$, \ldots \,..  Ideally, we would like to have  a way of determining the numbers $p_0, p_1, p_2, \ldots$ ``before the fact."
+
+\subsubsection{Some properties of probabilities}
+
+        In any introductory course on probability, one learns certain basic principles for working with probabilities.  We will give examples to illustrate some of these principles, and more examples may be found in the exercises.  
+
+For our purposes, we will be working in the following setting.  There is a certain {\bf experiment} being performed.  This might consist of flipping
+\mar{The general context}
+ a coin and noting which side comes up, or running a survey asking people at random their opinions about a certain TV show, or, in our case, counting the number of $\alpha$-rays detected in a 7.5-second interval.  Moreover, there is a {\bf discrete} set of possible outcomes of the experiment.  That is, the possible outcomes can be listed in a sequence $O_1$, $O_2$, $O_3$, \ldots\,.  In some cases, like throwing a pair of dice, this list might be finite.  In other cases, like our $\alpha$-ray experiment, the list might be infinite.  What is ruled out are experiments like choosing a person at random and measuring the person's height---there is a continuum of possible outcomes here which cannot be listed in the way we've specified.  Moreover, there should be a {\bf probability} assigned to each outcome, with the outcome $O_n$ having probability $p_n$..  Finally, the possible outcomes should be {\bf disjoint}---two different outcomes can't both result from a single experiment.  Thus if we are examining the attributes of a group of people, ``being male'' and ``having green eyes'' would not be acceptable outcomes in our sense unless we somehow knew in advance that there were no green-eyed males in the group.
+
+Knowing the probabilities $p_0,p_1,\ldots$ of the possible outcomes allows us to compute other, possibly more complicated probabilities.  This brings in the concept of an {\bf event}, which is basic to probability.  In the case of our $\alpha$-ray experiment, here are some examples of events:
+\begin{itemize}
+\item Detecting 3 $\alpha$-rays.
+\item Detecting 2 or 4 $\alpha$-rays.
+\item Detecting an odd number of $\alpha$-rays.
+\end{itemize}
+In general, an {\bf event}\index{event, in probability} is a subcollection of the possible outcomes.
+\mar{\vspace*{12pt} The addition rule for probabilities}
+\begin{quote}  
+{\bf Rule 1\quad The {\bf probability of an event}\index{probability, of an event} is simply the sum of the probabilities of its component outcomes.}\label{rule1}
+\end{quote}
+Thus, for the events just described, we have:
+\begin{itemize}
+\item The probability of detecting 3 $\alpha$-rays is $p_3$;
+\item The probability of detecting 2 or 4 $\alpha$-rays is $p_2+p_4$;
+\item The probability of detecting an odd number of $\alpha$-rays is
+the infinite sum
+\[
+p_1+p_3+p_5+p_7+\cdots 
+\]
+(since an odd number of $\alpha$-rays means that 1 or 3 or 5
+or 7 etc.~have been detected).
+\end{itemize}
+
+Another important property of probabilities follows directly from Rule 1:
+\begin{quote}
+{\bf Rule 2\quad The sum of the probabilities of all possible outcomes is 1:
+\[
+ \sum_{k=0}^\infty p_k=1.
+\]
+}
+\end{quote}
+The reason for this is that the list of outcomes was stipulated to be the list of {\em all possible} outcomes. Hence the event consisting of all these outcomes is bound to occur every time---its probability is 1.
+
+A third rule we will need relates the probabilities of {\bf independent} events.  Two events are independent if the  occurrence or non- occurrence of one of the events has no impact on the probability of the second event occurring.  For instance, suppose we are examining a group of people.  Consider the following events which may or may not occur each time we look at a person:
+\begin{enumerate}
+\item The person is female;
+\item The person has green eyes;
+\item The person is over 5'7" tall.
+\end{enumerate}
+We would expect the first and second events to be independent, and also the second and third, but not the first and third. 
+\mar{\vspace*{12pt} The product rule for probabilities}
+\begin{quote}
+{\bf Rule 3\quad The probability that two or more independent events all occur is the product of their separate probabilities.}\label{rule3}
+\end{quote}
+Thus, for example, suppose that in our hypothetical group of people ${1 \over 2}$ are female, ${1 \over 8}$ are green-eyed, and ${1 \over 3}$ are taller than 5'7".  We might then expect roughly ${1 \over 24}$ of them to be green-eyed {\em and} over 5'7", but we would have no particular reason to expect that  ${1 \over 6}$ of them are females taller than 5'7".
+
+A final rule that is often useful is
+\mar{\vspace*{12pt} The probability that something doesn't happen}
+\begin{quote}
+{\bf Rule 4\quad If a certain event has a probability $p$ of happening, then the probability that the event doesn't take place is $1-p$.}\label{rule4}
+\end{quote}
+For example, in our group of people, we would expect ${2 \over 3}$ of them to be less than 5'7" tall, ${7 \over 8}$ of them to have eyes colored something other than green, etc.    
+
+\subsubsection{The notion of a probability model}
+
+A {\bf model}\index{model} is a mathematical picture of a real-life
+phenomenon.  We have seen that dynamical systems can be used to create models of physical situations.  Another type of mathematical model is a {\em probability model}.  In general, a {\bf probability model}\index{probability model} for an experiment with a finite number of outcomes is {\em a listing of all possible outcomes and an assignment of probabilities to each outcome so that their sum is 1}.  In  order that the probability model be a good picture of reality, we ask that the {\em probability assigned to an outcome  should be the relative  frequency with which that outcome would appear if the  experiment were duplicated independently a large number of times}.
+
+As an example, a probability model for one toss of a fair die consists of a list of all possible outcomes, namely  1, 2, 3, 4, 5, 6, and an assignment of a probability to each,  namely ${1\over 6}$, ${1\over 6}$, ${1\over 6}$, ${1\over 6}$, ${1\over 6}$, ${1\over 6}$, respectively.  We assign the number ${1\over 6}$ to each outcome because we expect that if the the experiment were repeated  (that is, if the die were tossed) a large number of times, then any particular outcome  (3, say) would occur about one sixth of the time.  Another probability model for the experiment consisting of a toss of a die might be  a list of all outcomes, again 1, 2, 3, 4, 5, 6, together with an  assignment of the numbers ${1\over 2}$, 0, ${1\over 6}$, 0, 0,  ${1\over 3}$ to 1, 2, 3, 4, 5, 6, respectively.   This is a probability  model, because the numbers we have assigned add to 1, but it certainly  does not model very well the throw of a fair die.
+
+We would like to set up a probability model for our experiment with  $\alpha$-rays.  The outcomes are 0, 1, 2, 3, 4, ... where, for example, the number 5 labels the outcome in which we observe 5 $\alpha$-rays in our 7.5-second interval.  The total number of outcomes is equal to  the number of $\alpha$-rays that we could conceivably see in a  7.5-second interval.  Since it is conceivable (but extremely unlikely)  that every atom in the sample could decay and emit an $\alpha$-ray in the direction of the scintillation counter in one 7.5-second interval,  we could conceivably see as many $\alpha$-rays as there are atoms in the sample. This number is  so large that we can think of it as infinite.  To have a  probability model, we need to assign numbers  $p_0$,  $p_1$, $p_2$, \ldots to the outcomes 0, 1, 2, \ldots, respectively, so that $p_0 + p_1 + p_2 + \cdots = 1$.  For the  model to be reasonable, we would like each $p_n$ to be  approximately equal to the corresponding number $N_n/N$ observed by Rutherford, Geiger, and Bateman.
+
+\subsection{The Poisson Probability Distribution}
+
+
+\subsubsection{The Poisson model of $\alpha$-ray emission}
+\index{Poisson model}
+
+        To describe the probabilities $p_0$, $p_1$, \ldots, $p_n$, \ldots that we will observe 0, 1,  \ldots, $n$, \ldots  $\alpha$-rays in a 7.5-second interval for our $\alpha$-ray experiment,  we use the {\bf Poisson probability distribution}\index{Poisson distribution} \[p_n = {{\lambda^n e^{-\lambda}}\over {n!}}\ ,\] where $\lambda$ is a number yet to be determined.  The number $n!$ is called $n$-factorial\index{factorial}\index{$n!$} and is defined by
+\[n! = \cases{n\cdot(n-1)\cdot 	(n-2)\cdot\cdots\cdot3\cdot2\cdot1 & $n > 0$\cr         1 & $n = 0$\ .\cr}\]
+Thus the first few Poisson probabilities are:
+\begin{eqnarray*}
+p_0 & = & e^{-\lambda}\\
+p_1 & = & \lambda e^{-\lambda}\\
+p_2 & = & {\lambda^2e^{-\lambda}\over2}\\
+p_3 & = & {\lambda^3e^{-\lambda}\over6}\ .
+\end{eqnarray*}
+
+        Note that this assignment does indeed give us a probability model, because
+\begin{eqnarray*}
+p_0 + p_1 + p_2  +p_3 + \cdots &=&
+{\lambda^0\over 0!}e^{-\lambda}+{\lambda\over 1!} e^{-\lambda} + 
+{\lambda ^2\over 2!}e^{-\lambda} + {\lambda ^3\over 3!}e^{-\lambda} 
++\cdots \\
+& =& e^{-\lambda}\left( 1 + {\lambda\over 1!} + {\lambda ^2\over 2!} 
++ {\lambda ^3\over 3!} + \cdots \right) \\
+& = & e^{-\lambda}\cdot e^{\lambda}\\
+& = & 1. 
+\end{eqnarray*}
+(The transition from the second line to the third uses the fact that the expression in parentheses is just the Taylor series for $e^{\lambda}$.)
+
+We will shortly derive the Poisson distribution from basic principles.  For the moment, though, we will assume that the probabilities $p_0$, $p_1$, $\ldots$ for $\alpha$-ray emission are given by the above formulas, where we still need to choose an appropriate value for the parameter $\lambda$.  The key to determining $\lambda$ is the notion of {\bf expectation},\index{expectation} which for us will mean the average number of $\alpha$-rays observed in a 7.5-second interval.
+
+        Suppose we repeat our experiment $N$ times.  As usual, we let $N_n$ denote the number of times exactly $n$ $\alpha$-rays were observed.  Then the total number of $\alpha$-rays observed in the $N$ experiments is 
+\[0\cdot N_0 + 1\cdot N_1 + 2\cdot N_2 + 3\cdot N_3 + \cdots\ .\]
+Then the ``average number of $\alpha$-rays observed in a 7.5-second interval'' means the limit
+\[E = \lim_{N\to\infty}{{0\cdot N_0 + 1\cdot N_1 + 2\cdot N_2 + 3\cdot N_3
+        + \cdots}\over N}\ .\]
+This limit is called the {\bf expected value}\index{expected value} or {\bf expectation} (which explains why it is denoted $E$).
+
+        We claim that for the Poisson distribution, the expected value $E$ is exactly the number $\lambda$.  To see this, notice that the above limit can be written in the form
+\[
+E = \lim_{N\to\infty} \left( 0\cdot {N_0\over N} + 1\cdot {N_1\over N} +
+        2\cdot {N_2\over N} + 3\cdot {N_3\over N} + \cdots\ \right).
+\]
+Since we defined
+\[p_n = \lim_{N\to\infty} {N_n\over N}\ ,\]
+it follows 
+\mar{The general formula for the expected value in a probability model}
+that we get the following formula for the expectation:
+\[E = 0\cdot p_0 + 1\cdot p_1 + 2\cdot p_2 + 3\cdot p_3 + \cdots =
+        \sum_{n=0}^\infty np_n\ .\]
+(Note that this equality is true for {\em any} probability model, not just the one we are considering)
+
+Substituting in the values of $p_n$ given by the Poisson distribution,  we have\index{summation}
+\begin{eqnarray*}
+E & = &0\cdot e^{-\lambda} + 1\cdot \lambda e^{-\lambda} + 
+2\cdot {\lambda ^2\over 2!} e^{-\lambda} + 
+3\cdot {\lambda ^3\over 3!}e^{-\lambda} + \cdots \\
+  & = &\sum_{n=0}^\infty n{\lambda ^n\over n!}e^{-\lambda}\\
+  & = &\lambda e^{-\lambda}\sum_{n=1}^\infty {\lambda ^{n-1}\over (n-1)!},
+\end{eqnarray*}
+where we pulled the common factor  $\lambda e^{-\lambda}$ outside the  summation, noted that the term in the summation corresponding to $n=0$  is 0, and observed that 
+$$
+{n\over n!} = {n\over n(n-1)\cdot\cdots\cdot2\cdot 1} = {1\over (n-1)!}\ .
+$$ 
+Letting  $k=n-1$, we have
+\begin{eqnarray*}
+E & = & \lambda e^{-\lambda}\sum_{k=0}^\infty {\lambda ^k\over k!}\\
+  & = & \lambda e^{-\lambda}e^{\lambda}\\
+  & =& \lambda \ .
+\end{eqnarray*} 
+(We have again used the Taylor series for $e^{\lambda}$.)
+
+This proves that the expected value is $\lambda$ as claimed.
+
+     Now that we know how to interpret $\lambda$, it is easy to determine what it should be for the $\alpha$-ray experiment.  The data given on page~\pageref{data} covered $N = 2608$ repetitions of the experiment, with
+$$0\cdot N_0 + 1\cdot N_1 + \cdots = 10097$$
+ in this case. Thus
+\[
+{0\cdot N_0 + 1\cdot N_1 + \cdots\over N} = {10097\over2608}
+        = 3.8715
+\]
+is an approximation of the expected value $\lambda$. However, since this is the only information about $\lambda$ we have, we will let $\lambda = 3.8715$. Using this value of $\lambda$, we can then compare the frequencies predicted by the Poisson distribution to the actual data from on page~\pageref{data}:
+\begin{center}
+\begin{tabular}{ccccc}
+	number of & number of & probability  & 
+		Poisson & Poisson \\
+	$\alpha$-rays observed & occurrences & 
+		approximation & probability & prediction \\
+	$n$ & $N_n$ & $N_n/N$ & $p_n$ & $2608\,p_n$ \\[2pt]
+		\hline
+	\begin{tabular}{r}
+	\rule{0pt}{14pt} 0 \\
+		1 \\
+		2 \\
+		3 \\
+		4 \\
+		5 \\
+		6 \\
+		7 \\
+		8 \\
+		9 \\
+		10 \\
+		11 \\
+		12 \\
+		13 \\
+		14 
+	\end{tabular}
+	&
+	\begin{tabular}{r}
+	\rule{0pt}{14pt} 57  \\
+		203 \\
+		383 \\
+		525 \\
+		532 \\
+		408 \\
+		273 \\
+		139 \\
+		 45 \\
+		 27 \\
+		 10 \\
+		  4 \\
+		  0 \\
+		  1 \\
+		  1 
+	\end{tabular}
+	&
+	\begin{tabular}{l}
+		.021855 \rule{0pt}{14pt} \\
+		.077837 \\
+		.146855 \\
+		.201303 \\
+		.203398 \\
+		.156441 \\
+		.104677 \\
+		.053297 \\
+		.017254 \\
+		.010352 \\
+		.003834 \\
+		.001533 \\
+		.000000 \\
+		.000383 \\
+		.000383 
+	\end{tabular}
+	&
+	\begin{tabular}{l}
+		.020827 \rule{0pt}{14pt} \\
+		.080632 \\
+		.156083 \\
+		.201426 \\
+		.194955 \\
+		.150953 \\
+		.097402 \\
+		.053870 \\
+		.026070 \\
+		.011214 \\
+		.004341 \\
+		.001528 \\
+		.000492 \\
+		.000146 \\
+		.000040 
+	\end{tabular}
+	&
+	\begin{tabular}{r}
+		\rule{0pt}{14pt} 54.3\\
+		210.3\\
+		407.1\\
+		525.3\\
+		508.4\\
+		393.7\\
+		254.0\\
+		140.5\\
+		 68.0\\
+		 29.2\\
+		 11.3\\
+		  4.0\\
+		  1.3\\
+	  	   .4\\
+		   .1
+	\end{tabular}
+	\\ [6pt] \hline
+	Totals & 2608 & 1 & 1 & \rule{0pt}{14pt} 2608
+\end{tabular}
+\end{center}
+The Poisson model agrees nicely\index{prediction} with the data since for each $n$, $N_n/N$ and  $p_n$ are reasonably close.  Notice that  we shouldn't expect perfect agreement since $N_n/N$ is only an approximation to $p_n$.  We would expect these approximations to get better as we take larger values of $N$.
+
+        Look at the last column, labelled ``Poisson prediction.''  The numbers here are the Poisson probabilities multiplied by $N = 2608$, and they represent the ``ideal'' number of occurrences.  This makes it easier to compare the model to the data.  For example, the graph below plots the number of occurrences, both actual and predicted.  The circles are the experimental data, while the line-segment graph connects the Poisson predictions.
+
+        Although the model seems to fit the data nicely, we should point out that there are statistical tests which can be used measure the fit more precisely.  These tests are part of the material covered in courses in probability and statistics.
+
+\vspace*{3in}
+\special{psfile=ch122-5.ps}
+
+        A final and very important point to make concerns the number of $\alpha$-rays observed over a long period of time.  Our particular Poisson model with $\lambda=3.8715$ only works for a 7.5-second interval.  What happens if we count $\alpha$-rays over a longer time period?  For simplicity, assume that we have a time interval of length $T$ which is a multiple of 7.5 seconds, so that $T = 7.5\,N$ for some large integer $N$.  We can regard this as running our 7.5-second experiment $N$ consecutive times. Thus the ratio
+\[{\hbox{total number of $\alpha$-rays observed}\over N}\]
+is an approximation to the expected value $\lambda = 3.8715$.  It follows that
+\begin{eqnarray*}
+\hbox{total number of $\alpha$-rays observed} & \approx & 3.8715\,N\\
+        & = & {3.8715\over7.5}7.5\,N\\
+        & = & .5162\,T
+\end{eqnarray*}
+This shows that for large time intervals, we recover the linear model of $\alpha$-ray emissions discussed on page~\pageref{linear}.  Thus our probabilistic model is consistent with what we did earlier and yet allows us to describe what happens when the linear model breaks down.
+
+\subsubsection{Derivation of the Poisson model}
+\index{Poisson model, derivation}
+
+        In the previous discussion we simply assumed that the $\alpha$-ray probabilities were given by the Poisson distribution, and found that the Poisson probabilities agreed with the experimental data. Let's see where the Poisson formulas come from.  It turns out that we can derive the Poisson probabilities $p_n$ from the following assumptions:
+\begin{itemize}
+\item We have an extremely large number $M$ of polonium atoms;
+\item Each atom has a small but equal probability of emitting an
+$\alpha$-ray that is detected by our scintillation counter in a 7.5-second period;  
+\item Observing an $\alpha$-ray from a given atom is independent of observing an $\alpha$-ray from any other atom.
+\end{itemize}
+
+Now suppose that we see an average of $\lambda = 3.8715$ $\alpha$-rays in a 7.5-second period.   Because the number of atoms $M$ is large  (in the  Rutherford-Geiger-Bateman experiment  $M > 10^{18}$), then the probability that a single fixed atom emits an $\alpha$-ray detected by our scintillation counter in a given  time period is very close to $\lambda/M$.  The probability that the single atom does not emit a detected $\alpha$-ray in the period is  then $1-\lambda/M$ (by Rule 4, page~\pageref{rule4}). Thus, the probability $p_0$  that none of the $M$  atoms emits an  $\alpha$-ray in the 7.5-second period is $(1-\lambda/M)^M$ (by Rule 3, page~\pageref{rule3}).  
+
+The fact that $M$ is so large allows us to make a simplifying approximation.  Recall that for any value of $x$, positive or negative,
+$$
+e^x = \lim_{n\rightarrow\infty}\left(1+{x\over n}\right)^n.
+$$
+Therefore  
+$$
+p_0 = \left(1-{\lambda\over M}\right)^M \approx 
+	e^{-\lambda}.
+$$
+You might calculate some sample values for various values of $M$ to see how good this approximation is.
+
+To derive the values of $p_k$ for $k>1$, we need a slight improvement on the estimate we just made.  Let $k$ be a relatively small (compared to the size of $M$) number. Then
+$$
+\left( 1-{\lambda\over M}\right)^{M-k}=\left(\left( 1-{\lambda\over M}\right)^M\right)^{{M-k\over M}}\ .
+$$
+Now if $M$ is very large compared to $k$---we will be thinking of values of $M$ on the order of magnitude of $10^{18}$ and $k<100$---then $(M-k)/M$
+\mar{$(M-k)/M$ is essentially equal to 1}
+ will essentially equal 1, Hence
+$$\left( 1-{\lambda\over M}\right)^{M-k}\approx \left(e^{-\lambda}\right)^1=e^{-\lambda}.$$
+
+We can now work out  $p_1$. Fix your attention first on a particular atom.  The probability that {\em that\/} atom does emit
+an $\alpha$-ray detected by the scintillation counter while the other $M-1$ atoms do not is (again by Rule 3)
+$$
+\left({\lambda\over M}\right)^1\left( 1-{\lambda\over M}\right)^{M-1}\approx {\lambda \over M}\,e^{-\lambda},
+$$
+by the preceding approximation.
+
+Since there are altogether $M$ atoms which might have been responsible for the single $\alpha$-ray emission, the probability that some {\em unspecified\/}
+atom emits an $\alpha$-ray while the others do not is (Rule 1, page~\pageref{rule1}) the sum of the probability we just calculated for each of the $M$ atoms, which is equal to $M$ times that probability.  The total probability is $p_1$:
+$$
+p_1 \approx M\,{\lambda \over M}\,e^{-\lambda} 
+= \lambda \,e^{-\lambda}.
+$$
+
+To work out $p_2$, note that the probability that each atom of some fixed 
+pair of atoms emits an $\alpha$-ray detected by the counter, and no other 
+atoms does, is 
+$$
+\left( \lambda\over M\right) \left( \lambda\over M\right)
+\left(1-{\lambda\over M}\right)^{M-2}\approx {\lambda ^2\over M^2}\, e^{-\lambda},
+$$
+using our usual approximation.  Since there are ${1\over 2}M(M-1)$  different pairs of atoms (we can  choose the first  $M$ different ways and the second $(M-1)$ ways, but  each pair gets counted twice in this scheme, so we have to divide by 2),  we obtain
+\begin{eqnarray*}
+	p_2 & \approx & {M(M-1)\over 2}
+		{\lambda ^2\over M^2}e^{-\lambda}\\
+	& = & \left( 1 - {1\over M}\right)
+		{\lambda ^2\over 2}e^{-\lambda}\\
+	&\approx & {\lambda ^2\over 2}e^{-\lambda}.
+\end{eqnarray*}
+
+As one can easily imagine, the computations for $p_3$, $p_4$, $\ldots$  are similar.  The observant reader will note that the exact values we got for $p_0$, $p_1$ and  $p_2$  are not the values given by  the Poisson distribution.  We only got the Poisson probabilities by making various approximations which were justified by the large value of $M$.  The assumptions we have made actually lead  to what is called the {\bf binomial distribution} (see section 12.1), a distribution which tends to the Poisson distribution in the limit $M\rightarrow\infty$.  In this case, where  $M$ is large and $\lambda$ relatively small, the binomial distribution is extremely close to the Poisson distribution.
+ 
+\subsubsection{Other applications of the Poisson distribution}
+
+        The Poisson distribution can be used to model many other
+situations that have a random element.  Examples include:
+\begin{itemize}
+\item The number of chromosome interchanges caused by exposure to
+X-rays for a fixed interval of time.
+\item The number of bacteria in a given unit of area on a Petri dish.
+\item The number of misprints on a page in a book.
+\item The number of flying-bomb hits per unit area in London during
+World War II.
+\end{itemize}
+In the exercises we will explore some examples.
+
+
+
+\subsection{Exercises}
+
+\subsubsection{Probability models}
+\index{probability model}
+
+\num  A fair coin is tossed.  If it comes up  $H$ (heads), a fair die 
+is rolled.  If the coin comes up $T$, the coin is tossed again.  Construct a
+probability model for this experiment, listing the possible outcomes and their probabilities.  (Hint:  the list of outcomes is $H,1$, $H, 2$, $\ldots$, $H,6$, $TT$, $TH$.)
+
+
+\num  Two identical fair coins are put in cup, shaken, and spilled out onto a 
+table.  Construct a probability model for this experiment.
+
+
+\num  In the disintegration of large numbers of particles  $Ra$, it is noted
+that 29\% of the disintegrations result in
+$$Ra \longrightarrow P + A$$ 
+and the remainder in 
+$$Ra \longrightarrow He^+ + B.$$
+What is a model for the disintegration of a single particle of $Ra$?
+
+\num  In problem 3 above, construct a probability model for the disintegration
+of two particles of $Ra$.
+
+
+\subsubsection{The Poisson distribution}
+
+
+\num  The purpose of this exercise is to present another way to show that the 
+expected value $E$ of the Poisson distribution is equal to 
+$\lambda$.  As in the text we have 
+\[E = \lim_{N\to\infty}{{0\cdot N_0 + 1\cdot N_1 + 2\cdot N_2 + 3\cdot N_3
+        + \cdots}\over N}\ .\]
+The numbers $np_n$ can be simplified as
+follows:
+\[\begin{array}{l}
+0\cdot p_0 =  0 \\[2pt]
+1\cdot p_1  =  1\cdot\lambda e^{-\lambda}  =
+         \lambda\cdot e^{-\lambda}  =  \lambda p_0\\[5pt]
+2\cdot p_2  =  2\cdot 
+		{\displaystyle {\lambda^2e^{-\lambda}\over 2}}  =
+         \lambda\cdot\lambda e^{-\lambda}  =  
+		\lambda p_1\\[10pt]
+3\cdot p_3  =  3\cdot 
+		{\displaystyle {\lambda^3e^{-\lambda}\over 6}}  =
+         \lambda \cdot 
+		{\displaystyle {\lambda^2e^{-\lambda}\over2}}  =
+         \lambda p_2
+\end{array}\]
+
+\sub  This pattern generalizes: show that
+\[np_n = \lambda p_{n-1}\quad\hbox{for all $n > 0$}\ .\]
+
+\sub  Use part (a) to compute the expectation $E$ (you will need to 
+use the fact that the sum of the
+probabilities is $p_0+p_1+p_2+\cdots = 1$).
+
+
+\num  A model is to be constructed for the number of rain drops that 
+fall per square foot over a short time interval.  Under what conditions 
+would a Poisson distribution be appropriate.  Under what conditions would 
+a linear model be better?
+
+\num  In analyzing flying-bomb hits in the south of London during World 
+War II, investigators partitioned the are into 576 small sectors, 
+each being ${1\over 4}$ of a square kilometer.  There were 229 sectors
+with no hits, 211 sectors with exactly 1 hit, 93 sectors with exactly 
+2 hits, 35 sectors with 3 hits, 7 sectors with 4 hits, and one sector 
+with 5 or more hits.  What might lead you to expect that a Poisson 
+distribution might be a good model for the number of hits on each sector?
+Fit a Poisson distribution to the data by taking  $\lambda$ to be the average
+number of hits per sector.  Use this $\lambda$ to compute the theoretical 
+frequencies of 0, 1, 2, 3, 4 and 5 hits in 576 sectors.
+
+\num  A meteorite shower sprinkles a large area of the earth's surface 
+with small meteorite hits.  The average density is $5\times 10^{-6}$ 
+hits per square meter.  Set up a model assigning a probability to the 
+number of hits per square kilometer.
+
+\num  The central processing unit (CPU) of a laptop computer will freeze if 
+more than ten instructions are received in a millisecond.  If the average
+number of instructions per second received in the course of executing a 
+large program is one per millisecond, what is the probability that the 
+instructions received by the CPU will cause it to freeze (and, hence, the
+program to crash).
+
+
+\end{document}

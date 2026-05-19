@@ -1,0 +1,94 @@
+\documentclass[12pt]{book}
+
+\usepackage{amsmath,amssymb,array,amscd,makeidx,graphics}
+
+%\input{cicfinal}
+
+\input{copyright}
+
+\renewcommand{\thesubsection}{}
+
+\newcommand{\mar}[1]{\marginpar[\raggedright\footnotesize\sf #1]%
+     {\raggedleft\footnotesize\sf #1}}
+\newcommand{\asideleft}[1]{\medskip\noindent%
+     \rule{321pt}{0pt}\makebox[0pt][r]{%
+     \begin{minipage}[t]{400pt}\footnotesize\sf{#1}% 
+     \end{minipage}}\bigskip}
+\newcommand{\asideright}[1]{\medskip\noindent%
+     \rule{40pt}{0pt}\makebox[0pt][l]{%
+     \begin{minipage}[t]{400pt}\footnotesize\sf{#1}%
+     \end{minipage}}\bigskip}
+\newcommand{\aside}[1]{\ifodd \value{page}%
+     {\asideright{#1}}\else{\asideleft{#1}}\fi}
+\newcounter{exercisenumber}[subsection]
+\newcounter{exercisepart}[exercisenumber]
+\newcommand{\num}{\stepcounter{exercisenumber}\par\bigskip%
+     \noindent\arabic{exercisenumber}.\quad}
+\newcommand{\numa}{\stepcounter{exercisenumber}\par\bigskip%
+     \noindent\arabic{exercisenumber}.\quad%     
+     \stepcounter{exercisepart}\alph{exercisepart})\enskip}
+\newcommand{\sub}{\stepcounter{exercisepart}\par\smallskip%
+     \noindent\alph{exercisepart})\enskip\thinspace}
+\newcommand{\ans}[1]{\par\smallskip\noindent[Answer:\enskip%
+     {#1}]}
+\newcommand{\dint}{\displaystyle \int}
+
+
+
+\newcounter{derivexercise}
+\setcounter{derivexercise}{\value{exercisenumber}}
+\newcounter{firstintexercise}
+\newcounter{softexercise}
+\newcounter{spina}
+\newcounter{spinb}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%\makeindex
+
+%\includeonly{ch11}%board,pref2008,pref1994,ch1,ch2,ch3,ch4,ch5,ch6}
+
+  %ch1,ch2,ch3,ch4,ch5,ch6}
+  %ch7,ch8,ch9,ch10,ch11,ch12}
+
+\begin{document}
+
+%%%%%%  TITLE PAGE %%%%%%%
+
+  \newpage \thispagestyle{empty} \mbox{} \includegraphics{../ps/calc1/cusp3.pdf}
+  \newpage \include{board}
+
+
+%%%%%%%%%     front matter    %%%%%%%%%%%
+
+% \newpage \setcounter{page}{1}\pagenumbering{roman}\include{pref2008}\include{pref1994}
+
+% \tableofcontents \newpage \thispagestyle{empty}\mbox{}\newpage
+
+%%%%%%%%%    chapters     %%%%%%%%%%%% 
+  
+\setcounter{page}{1}
+\pagenumbering{arabic}
+
+\include{ch1}
+\include{ch2}
+\include{ch3}
+\include{ch4}
+\include{ch5}
+\include{ch6}
+\include{ch7}
+\include{ch8}
+\include{ch9}
+\include{ch10}
+\include{ch11}
+\include{ch12}
+
+%%%%%%%%%%%%%     index     %%%%%%%%%%%%%%%
+
+{\small
+\printindex
+}
+
+
+\end{document}
