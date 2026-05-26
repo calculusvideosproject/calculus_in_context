@@ -1,0 +1,607 @@
+<section xml:id="sec_approximation-over-intervals">
+  <title>Approximation Over Intervals</title>
+  <introduction>
+    <p>
+      A powerful result in mathematical analysis is the
+      <em> Stone<ndash/>Weierstrass Theorem</em>,
+          <idx><h>Stone<ndash/>Weierstrass Theorem</h></idx>
+      which states that given any continuous function <m>f(x)</m> and any interval <m>[a, b]</m>,
+      there exist polynomials that fit <m>f</m> over this interval to any level of accuracy we care to specify.
+      In many cases,
+      we can find such a polynomial simply by taking a Taylor polynomial of high enough degree.
+      There are several ways in which this is not a completely satisfactory response, however.
+      First, some functions
+      (like the absolute value function)
+      have corners or other places where they aren't differentiable,
+      so we can't even build a Taylor series at such points.
+      Second, we have seen several functions (like
+      <m>1/(1+x^2)</m>) that have a finite interval of convergence,
+      so Taylor polynomials may not be good fits no matter how high a degree we try.
+      Third, even for well-behaved functions like <m>\sin(x)</m> or <m>e^x</m>,
+      we may have to take a very high degree Taylor polynomial to get the same overall fit that a much lower degree polynomial could achieve.
+      In this section we will develop the general machinery for finding polynomial approximations to functions over given intervals.
+      In chapter 12.4 we will see how this same approach can be adapted to approximating periodic functions by
+      <term>trigonometric polynomials</term>.
+    </p>
+  </introduction>
+  <subsection xml:id="subsec_approximation-by-polynomials">
+    <title>Approximation by polynomials</title>
+    <p>
+      <term>Example</term>.
+      Let's return to the problem introduced at the beginning of this chapter:
+      find the second degree polynomial which best fits the function <m>\sin(x)</m> over the interval <m>[0, \pi]</m>.
+    </p>
+    <aside>
+      <p>
+        Two possible criteria for best fit
+      </p>
+    </aside>
+    <p>
+      Just as we did with the Taylor polynomials, though,
+      before we can start we need to agree on our criterion for the best fit.
+      Here are two obvious candidates for such a criterion:
+      <ol>
+        <li>
+          <p>
+            The second degree polynomial <m>Q(x)</m> is the best fit to <m>\sin(x)</m> over the interval
+            <m>[0, \pi]</m> if the <em>maximum</em>
+            separation between <m>Q(x)</m> and <m>\sin(x)</m> is smaller than the maximum separation between <m>\sin(x)</m> and any other second degree polynomial:
+            <me>
+              \max_{0\le x\le \pi}|\sin(x)-Q(x)| \qquad \text{ is the smallest possible }
+            </me>.
+          </p>
+        </li>
+        <li>
+          <p>
+            The second degree polynomial <m>Q(x)</m> is the best fit to <m>\sin(x)</m> over the interval
+            <m>[0, \pi]</m> if the <em>average</em>
+            separation between <m>Q(x)</m> and <m>\sin(x)</m> is smaller than the average separation between <m>\sin(x)</m> and any other second degree polynomial:
+            <me>
+              \dfrac{1}{\pi }\int_0^{\pi} |\sin(x)-Q(x)|\, dx \qquad \text{ is the smallest possible }
+            </me>.
+          </p>
+        </li>
+      </ol>
+    </p>
+    <p>
+      Unfortunately,
+      even though their clear meanings make these two criteria very attractive,
+      they turn out to be largely
+    </p>
+    <aside>
+      <p>
+        Why we don't use either criterion
+      </p>
+    </aside>
+    <p>
+      unusable<mdash/>if we try to apply either criterion to a specific problem,
+      including our current example,
+      we are led into a maze of tedious and unwieldy calculations.
+      Instead, we use a criterion that,
+      while slightly less obvious than either of the two we've already articulated,
+      still clearly measures some sort of
+      <q>best fit</q>
+      and has the added virtue of behaving well mathematically.
+      We accomplish this by modifying criterion 2 slightly.
+      It turns out that the major difficulty with this criterion is the presence of absolute values.
+      If, instead of considering the average separation between <m>Q(x)</m> and <m>\sin(x)</m>,
+      we consider the average of the <em>square</em>
+      of the separation between <m>Q(x)</m> and <m>\sin(x)</m>,
+      we get a criterion we can work with.
+      (Compare this with the discussion of the best-fitting line in the exercises for chapter<nbsp/>9.3.)
+      Since this is a definition we will be using for the rest of this section,
+      we frame it in terms of arbitrary functions <m>g</m> and <m>h</m>,
+      and an arbitrary interval <m>[a, b]</m>: \framebox[4.8in] {Given two functions <m>g</m> and <m>h</m> defined over an interval <m>[a, b]</m>,
+      we define the <term>mean square separation</term>
+      between <m>g</m> and <m>h</m> over this interval to be
+      <me>
+        \dfrac{1}{(b-a)} \int_a^b \left(g(x) -h(x)\right)^2 \, dx
+      </me>.
+    </p>
+    <p>
+      } }
+          <idx><h>mean square separation</h></idx>
+      Note: In this setting the word <term>mean</term>
+          <idx><h>mean</h></idx>
+      is synonymous with what we have called
+      <q>average</q>. It turns out that there is often more than one way to define the term
+      <q>average</q>
+      <mdash/>the concepts of median and mode are two other natural ways of capturing
+      <q>averageness</q>, for instance<mdash/>so we use the more technical term to avoid ambiguity.
+      We can now rephrase our original
+    </p>
+    <aside>
+      <p>
+        The criterion we shall use
+      </p>
+    </aside>
+    <p>
+      problem as: find the second degree polynomial <m>Q(x)</m> whose mean squared separation from <m>\sin(x)</m> over the interval
+      <m>[0, \pi]</m> is as small as possible.
+      In mathematical terms, we want to find coefficients <m>a_0</m>,
+      <m>a_1</m>, and <m>a_2</m> which such that the integral
+      <me>
+        \int_0^{\pi} \left( \sin(x) - (a_0 + a_1\,x + a_2\,x^2)\right)^2 \, dx
+      </me>
+      is minimized.
+      The solution <m>Q(x)</m> is called the quadratic
+      <term>least squares approximation</term><idx><h>approximation</h><h>least squares</h></idx> to <m>\sin(x)</m> over <m>[0,\pi]</m>.
+      The key to solving this problem is to observe that <m>a_0</m>,
+      <m>a_1</m>,
+      and <m>a_2</m> can take on any values we like and that this integral can thus be considered a function of these three variables.
+      For instance, if we couldn't think of anything cleverer to do,
+      we might simply try various combinations of <m>a_0</m>,
+      <m>a_1</m>,
+      and <m>a_2</m> to see how small we could make the given integral.
+      Therefore another way to phrase our problem is
+    </p>
+    <aside>
+      <p>
+        A mathematical formulation of the problem
+      </p>
+    </aside>
+    <p>
+      \framebox[4.8in] {Find values for <m>a_0</m>,
+      <m>a_1</m>, and <m>a_2</m> that minimize the function
+      <me>
+        F(a_0, a_1, a_2) = \int_0^{\pi} \left( \sin(x) - (a_0 + a_1\,x + a_2\,x^2)\right)^2 \, dx \
+      </me>,.
+      } } We know how to find points where functions take on their extreme values<mdash/>we look for the places where the partial derivatives are 0.
+      But how do we differentiate an expression involving an integral like this?
+      It turns out that for all continuous functions,
+      or even functions with only a finite number of breaks in them,
+      we can simply interchange integration and differentiation.
+      Thus, in our example,
+      <md>
+        <mrow>\dfrac{\partial}{\partial a_0}F(a_0, a_1, a_2) \amp = \dfrac{\partial}{\partial a_0}\int_0^{\pi} \left( \sin(x) - (a_0 + a_1\,x + a_2\,x^2)\right)^2 \, dx</mrow>
+        <mrow>[.15in] \amp = \int_0^{\pi} \dfrac{\partial}{\partial a_0} \left( \sin(x) - (a_0 + a_1\,x + a_2\,x^2)\right)^2 \, dx</mrow>
+        <mrow>[.15in] \amp = \int_0^{\pi}2\left( \sin(x) - (a_0 + a_1\,x + a_2\,x^2)\right)(-1) \, dx</mrow>
+      </md>.
+    </p>
+    <p>
+      Similarly we have
+      <md>
+        <mrow>\dfrac{\partial}{\partial a_1}F(a_0, a_1, a_2) \amp = \int_0^{\pi}2\left( \sin(x) - (a_0 + a_1\,x + a_2\,x^2)\right)(-x) \, dx,</mrow>
+        <mrow>[.15in] \dfrac{\partial}{\partial a_2}F(a_0, a_1, a_2) \amp = \int_0^{\pi}2\left( \sin(x) - (a_0 + a_1\,x + a_2\,x^2)\right)(-x^2) \, dx</mrow>
+      </md>.
+    </p>
+    <p>
+      We now want
+    </p>
+    <aside>
+      <p>
+        Setting the partials equal to zero gives equations for <m>a_0, a_1, a_2</m>
+      </p>
+    </aside>
+    <p>
+      to find values for <m>a_0</m>, <m>a_1</m>,
+      and <m>a_2</m> that make these partial derivatives simultaneously equal to 0.
+      That is, we want
+      <md>
+        <mrow>\int_0^{\pi}2\left( \sin(x) - (a_0 + a_1\,x + a_2\,x^2)\right)(-1) \, dx \amp = 0,</mrow>
+        <mrow>[.15in] \int_0^{\pi}2\left( \sin(x) - (a_0 + a_1\,x + a_2\,x^2)\right)(-x) \, dx \amp = 0,</mrow>
+        <mrow>[.15in] \int_0^{\pi}2\left( \sin(x) - (a_0 + a_1\,x + a_2\,x^2)\right)(-x^2) \, dx \amp = 0</mrow>
+      </md>,
+      which can be rewritten as
+      <md>
+        <mrow>\int_0^{\pi}\sin(x) \, dx \amp = \int_0^{\pi}\left( a_0 + a_1\,x + a_2\,x^2\right)\, dx,</mrow>
+        <mrow>[.15in] \int_0^{\pi}x\,\sin(x) \, dx \amp = \int_0^{\pi}\left(a_0\,x + a_1\,x^2 + a_2\,x^3\right) \, dx,</mrow>
+        <mrow>[.15in] \int_0^{\pi}x^2\,\sin(x) \, dx \amp = \int_0^{\pi}\left( a_0\,x^2 + a_1\,x^3 + a_2\,x^4\right) \, dx</mrow>
+      </md>.
+    </p>
+    <p>
+      All of these integrals
+    </p>
+    <aside>
+      <p>
+        Evaluating the integrals gives three linear equations
+      </p>
+    </aside>
+    <p>
+      can be evaluated relatively easily
+      (see the exercises for a hint on evaluating the integrals on the left<ndash/>hand side).
+      When we do so, we are left with
+      <md>
+        <mrow>2 \amp = \pi a_0 + \dfrac{\pi^2}{2}a_1 + \dfrac{\pi^3}{3}a_2,</mrow>
+        <mrow>\pi \amp =\dfrac{\pi^2}{2}a_0 + \dfrac{\pi^3}{3}a_1 + \dfrac{\pi^4}{4}a_2,</mrow>
+        <mrow>\pi^2 - 4 \amp = \dfrac{\pi^3}{3}a_0 + \dfrac{\pi^4}{4}a_1 + \dfrac{\pi^5}{5}a_2</mrow>
+      </md>.
+    </p>
+    <p>
+      But this is simply a set of three linear equations in the unknowns <m>a_0</m>,
+      <m>a_1</m>,
+      and <m>a_2</m>, and they can be solved in the usual ways.
+      We could either replace each expression in <m>\pi</m> by a corresponding decimal approximation,
+      or we could keep everything in terms of <m>\pi</m>.
+      Let's do the latter; after a bit of tedious arithmetic we find
+    </p>
+    <tabular>
+      <row>
+        <cell><m>a_0</m></cell>
+        <cell>=</cell>
+        <cell><m>\dfrac{12}{\pi}-\dfrac{120}{\pi^3}</m></cell>
+        <cell>=</cell>
+        <cell><m>-0.050465\ldots</m>,</cell>
+      </row>
+      <row>
+        <cell>[.15in]
+          <m>a_1</m></cell>
+        <cell>=</cell>
+        <cell><m>\dfrac{-60}{\pi^2}+\dfrac{720}{\pi^4}</m></cell>
+        <cell>=</cell>
+        <cell><m>1.312236\ldots</m>,</cell>
+      </row>
+      <row>
+        <cell>[.15in]
+          <m>a_2</m></cell>
+        <cell>=</cell>
+        <cell><m>\dfrac{60}{\pi^3}-\dfrac{720}{\pi^5}</m></cell>
+        <cell>=</cell>
+        <cell><m>-0.417697\ldots</m>,</cell>
+      </row>
+      <row>
+        <cell>[.15in]</cell>
+      </row>
+    </tabular>
+    <p>
+      and we have
+      <me>
+        Q(x) = -0.050465 +1.312236\,x-0.417698\,x^2
+      </me>,
+      which is the equation given in section<nbsp/>1 at the beginning of the chapter.
+      The analysis
+    </p>
+    <aside>
+      <p>
+        How to find least squares polynomial approximations in general
+      </p>
+    </aside>
+    <p>
+      we gave for this particular case can clearly be generalized to apply to any function over any interval.
+      When we do this we get \framebox[5.4in] { Given a function <m>g</m> over an interval <m>[a, b]</m>,
+      then the <m>n</m>-th degree polynomial
+      <me>
+        P(x) = c_0 +c_1\,x+c_2\,x^2 + \cdots +c_n\,x^n
+      </me>
+      whose mean square distance from <m>g</m> is a minimum has coefficients that are determined by the following <m>n+1</m> equations in the <m>n+1</m> unknowns <m>c_0</m>,
+      <m>c_1</m>,
+      <m>c_2</m>, <ellipsis/> , <m>c_n</m>:
+      <md>
+        <mrow>\int_a^b g(x)\,dx \amp = c_0\int_a^b dx +c_1\int_a^b x\,dx  + \cdots + c_n\int_a^b x^n\,dx,</mrow>
+        <mrow>\int_a^b x\,g(x)\,dx \amp = c_0\int_a^b x\,dx +c_1\int_a^b x^2\,dx + \cdots + c_n\int_a^b x^{n+1}\,dx,</mrow>
+        <mrow>[-6pt] \amp \ \, \vdots</mrow>
+        <mrow>[-6pt] \int_a^b x^n\,g(x)\,dx \amp = c_0\int_a^b x^n\,dx +c_1\int_a^b x^{n+1}\,dx  + \cdots + c_n\int_a^b x^{2n}\,dx</mrow>
+      </md>.
+    </p>
+    <p>
+      } } <idx><h>least squares polynomial approximation,
+      general rule</h></idx> All the integrals on the right-hand side can be evaluated immediately.
+      The integrals on the left-hand side will typically need to be evaluated numerically,
+      although simple cases can be evaluated in closed form.
+      Integration by parts is often useful in these cases.
+      The exercises contain several problems using this technique to find approximating polynomials.
+      The real catch, though, is not in obtaining the
+    </p>
+    <aside>
+      <p>
+        Solving the equations is a job for the computer
+      </p>
+    </aside>
+    <p>
+      equations<mdash/>it is that solving systems of equations by hand is excruciatingly boring and subject to frequent arithmetic mistakes if there are more than two or three unknowns involved.
+      Fortunately,
+      there are now a number of computer packages available which do all of this for us.
+      Here are a couple of examples,
+      where the details are left to the exercises.
+      <term>Example</term>.
+      Let's find polynomial approximation for \mbox{<m>1/(1+x^2)</m>} over the interval <m>[0, 2]</m>.
+      We saw earlier that the Taylor series for this function converges only for
+      <m>|x|\lt 1</m>, so it will be no help.
+      Yet with the above technique we can derive the following approximations of various degrees (see the exercises for details):
+      <image width="73%" source="images/leastsq1.png"/> Here are the corresponding equations of the approximating polynomials:
+    </p>
+    <tabular>
+      <row>
+        <cell>degree</cell>
+        <cell>\hspace{1in} polynomial</cell>
+      </row>
+      <row bottom="minor">
+        <cell></cell>
+        <cell></cell>
+      </row>
+      <row>
+        <cell>[-8pt]
+          1</cell>
+        <cell><m>1.00722 - 0.453645\,x</m></cell>
+      </row>
+      <row>
+        <cell>2</cell>
+        <cell><m>1.08789 -0.695660\,x +.121008\,x^2</m></cell>
+      </row>
+      <row>
+        <cell>3</cell>
+        <cell><m>1.04245 -0.423017\,x-0.219797\,x^2+.113602\,x^3</m></cell>
+      </row>
+      <row>
+        <cell>4</cell>
+        <cell><m>1.00704 -0.068906\,x-1.01653\,x^2+.733272\,x^3-0.154916\,x^4</m></cell>
+      </row>
+    </tabular>
+    <p>
+      <term>Example</term>.
+      We can even use this new technique to find
+    </p>
+    <aside>
+      <p>
+        The technique works even when differentiability fails
+      </p>
+    </aside>
+    <p>
+      polynomial approximations for functions that aren't differentiable at some points.
+      For instance, let's approximate the function
+      <m>h(x) = |x|</m> over the interval <m>[-1,1]</m>.
+      Since this function is symmetric about the <m>y</m><ndash/>axis,
+      and we are approximating it over an interval that is symmetric about the <m>y</m><ndash/>axis,
+      only even powers of <m>x</m> will appear.
+      (See the exercises for details.)
+      We get the following approximations of degrees 2, 4, 6, and<nbsp/>8:
+      <image width="73%" source="images/leastsq2.png"/> Here are the corresponding polynomials:
+    </p>
+    <tabular>
+      <row>
+        <cell>degree</cell>
+        <cell>\hspace{1in} polynomial</cell>
+      </row>
+      <row bottom="minor">
+        <cell></cell>
+        <cell></cell>
+      </row>
+      <row>
+        <cell>[-8pt]
+          2</cell>
+        <cell><m>.1875 +.9375\,x^2</m></cell>
+      </row>
+      <row>
+        <cell>4</cell>
+        <cell><m>.117188 +1.64062\,x^2 -0.820312\,x^4</m></cell>
+      </row>
+      <row>
+        <cell>6</cell>
+        <cell><m>.085449 +2.30713\,x^2-2.81982\,x^4+1.46631\,x^6</m></cell>
+      </row>
+      <row>
+        <cell>8</cell>
+        <cell><m>.067291 +2.960821\,x^2-6.415132\,x^4+7.698173\,x^6-3.338498\,x^8</m></cell>
+      </row>
+    </tabular>
+    <p>
+      <term>A Numerical Example</term>.
+      If we have some function
+    </p>
+    <aside>
+      <p>
+        The technique is useful for data functions
+      </p>
+    </aside>
+    <p>
+      which exists only as a set of data points<mdash/>a numerical solution to a differential equation, perhaps,
+      or the output of some laboratory instrument<mdash/>it can often be quite useful to replace the function by an approximating polynomial.
+      The polynomial takes up much less storage space and is easier to manipulate.
+      To see how this works,
+      let's return to the <m>S</m>-<m>I</m>-<m>R</m> model we've studied before
+      <md>
+        <mrow>S'\amp = -0.00001\, SI,</mrow>
+        <mrow>I'\amp = 0.00001\, SI -  I/14,</mrow>
+        <mrow>R'\amp = I/14</mrow>
+      </md>,
+      with initial values <m>S(0)=45400</m> and <m>I(0)=2100</m>.
+      Let's find an 8th degree polynomial
+      <m>Q(t)=i_0+i_1t+i_2t^2+\cdots +i_8t^8</m> approximating <m>I</m> over the time interval <m>0\le t\le 40</m>.
+      We can do this by a minor modification of the Euler's method programs we've been using all along.
+      Now, in addition to keeping track of the current values for <m>S</m> and <m>I</m> as we go along,
+      we will also need to be calculating Riemann sums for the integrals
+      <me>
+        \int_0^{40} t^kI(t)\,dt \qquad \text{ for \(k =0\), 1, 2, \ldots , 8 }
+      </me>,
+      as we go through each iteration of Euler's method.
+      Since the numbers involved become enormous very quickly,
+      we open ourselves to various sorts of computer
+    </p>
+    <aside>
+      <p>
+        The importance of using the right-sized units
+      </p>
+    </aside>
+    <p>
+      roundoff error.
+      We can avoid some of these difficulties by <term>rescaling</term>
+          <idx><h>rescaling</h></idx>
+      our equations<mdash/>using units that keep the numbers involved more manageable.
+      Thus, for instance, suppose we measure <m>S</m>, <m>I</m>,
+      and <m>R</m> in units of 10,000 people,
+      and suppose we measure time in
+      <q>decadays</q>, where 1 decaday = 10 days.
+      When we do this, our original differential equations become
+      <md>
+        <mrow>S'\amp = -SI,</mrow>
+        <mrow>I'\amp = SI -  I/1.4,</mrow>
+        <mrow>R'\amp = I/1.4</mrow>
+      </md>,
+      with initial values <m>S(0)=4.54</m> and <m>I(0)=0.21</m>.
+      The integrals we want are now of the form
+      <me>
+        \int_0^{4} t^kI(t)\,dt \qquad \text{ for \(k = 0\), 1, 2, \ldots , 8 }
+      </me>.
+    </p>
+    <p>
+      The use of Simpson's rule
+          <idx><h>Simpson's rule</h></idx>
+      (see chapter<nbsp/>11.3) will also reduce errors.
+    </p>
+    <aside>
+      <p>
+        Using Simpson's rule helps reduce errors
+      </p>
+    </aside>
+    <p>
+      It may be easiest to calculate the values of <m>I</m> first,
+      using perhaps 2000 values, and store them in an array.
+      Once you have this array of <m>I</m> values,
+      it is relatively quick and easy to use Simpson's rule to calculate the 9 integrals needed.
+      If you later decide you want to get a higher-degree polynomial approximation,
+      you don't have to re-run the program.
+      Once we've evaluated these integrals,
+      we set up and solve the corresponding system of 9 equations in the 9 unknown coefficients <m>i_k</m>.
+      We get the following 8-th degree approximation
+      <md>
+        <mrow>Q(t) \amp = 0.3090 -0.9989\, t + 7.8518\,t^2 - 3.6233\,t^3 - 3.9248\,t^4 + 4.2162\,t^5</mrow>
+        <mrow>\amp  -1.5750\,t^6 +.2692\,t^7-0.01772\,t^8 \, </mrow>
+      </md>.
+    </p>
+    <p>
+      When we graph <m>Q</m> and <m>I</m> together over the interval <m>[0, 4]</m> (decadays),
+      we get <image width="73%" source="images/sireuler.png"/> <mdash/>a reasonably good fit.
+      <term>A Caution</term>.
+      Numerical least-squares fitting of the sort performed in this last example fairly quickly pushes into regions where the cumulative effects of the inaccuracies of the original data,
+      the inaccuracies of the estimates for the integrals,
+      and the immense range in the magnitude of the numbers involved all combine to produce answers that are obviously wrong.
+      Rescaling the equations and using good approximations for the integrals can help put off the point at which this begins to happen.
+    </p>
+  </subsection>
+  <subsection xml:id="subsec_exercises">
+    <title>Exercises</title>
+    <ol>
+      <li>
+        <p>
+          To find polynomial approximations for <m>\sin(x)</m> over the interval <m>[0,\pi]</m>,
+          we needed to be able to evaluate integrals of the form
+          <me>
+            \int_0^{\pi} x^n \sin(x)\,dx
+          </me>.
+          The value of this integral clearly depends on the value of <m>n</m>,
+          so denote it by<nbsp/><m>I_n</m>.
+          <ol>
+            <li>
+              <p>
+                Evaluate <m>I_0</m> and <m>I_1</m>.
+                Suggestion: use integration by parts (Chapter<nbsp/>11.3) to evaluate<nbsp/><m>I_1</m>. \ans{<m>I_0=2</m>,
+                and <m>I_1=\pi</m>.}
+              </p>
+            </li>
+            <li>
+              <p>
+                Use integration by parts twice to prove the general
+                <em>  reduction formula</em>:
+            <idx><h>reduction formula</h></idx>
+                <me>
+                  I_{n+2} = \pi^{n+2}-(n+2)(n+1)I_n \qquad \mbox{for all \(n \ge 0\)}
+                </me>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Evaluate <m>I_2</m>, <m>I_3</m>,
+                and <m>I_4</m>. \ans{<m>I_2=\pi^2-4</m>,
+                <m>I_3=\pi^3-6\pi</m>, and <m>I_4=\pi^4-12\pi^2+48</m>.}
+              </p>
+            </li>
+            <li>
+              <p>
+                If you have access to a computer package that will solve a system of equations,
+                find the 4-th degree polynomial that best fits the sine function over the interval <m>[0,\pi]</m>.
+                What is the maximum difference between this polynomial and the sine function over this interval? \ans{<m>.00131 +.98260\,x+ 0.05447\,x^2-0.23379\,x^3+.03721\,x^4</m>,
+                with maximum difference occuring at the endpoints.}
+              </p>
+            </li>
+          </ol>
+        </p>
+      </li>
+      <li>
+        <p>
+          To find polynomial approximations for <m>|x|</m> over the interval <m>[-1,1]</m>,
+          we needed to be able to evaluate integrals of the form
+          <me>
+            \int_{-1}^{1} x^n |x|\,dx
+          </me>.
+          As before, let's denote this integral by <m>I_n</m>.
+          <ol>
+            <li>
+              <p>
+                Show that
+                <me>
+                  I_n  = \begin{cases}\dfrac{2}{n+2} \amp \text{ if \(n\) is even } , \\ 0              \amp \text{ if \(n\) is odd } . \end{cases}
+                </me>
+              </p>
+            </li>
+            <li>
+              <p>
+                Derive the quadratic least squares approximation to <m>|x|</m> over <m>[-1,1]</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                If you have access to a computer package that will solve a system of equations,
+                find the 10-th degree polynomial that best fits <m>|x|</m> over the interval <m>[-1,1]</m>.
+                What is the maximum difference between this polynomial and <m>|x|</m> over this interval?
+              </p>
+            </li>
+          </ol>
+        </p>
+      </li>
+      <li>
+        <p>
+          To find polynomial approximations for
+          <m>1/(1+x^2)</m> over the interval <m>[0,2]</m>,
+          we needed to be able to evaluate integrals of the form
+          <me>
+            \int_0^2 \dfrac{x^n}{1+x^2}\,dx
+          </me>.
+          Call this integral <m>I_n</m>.
+          <ol>
+            <li>
+              <p>
+                Evaluate <m>I_0</m> and <m>I_1</m>. \ans{<m>I_0 = \arctan(1)=\pi/4</m>,
+                and <m>I_1=(\ln{2})/2=.3465736</m>.}
+              </p>
+            </li>
+            <li>
+              <p>
+                Prove the general reduction formula:
+                <me>
+                  I_{n+2} = \dfrac{2^{n+1}}{n+1} -I_n \qquad \text{ for \(n = 0\), 1, 2, \ldots }
+                </me>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Evaluate <m>I_2</m>, <m>I_3</m>,
+                and <m>I_4</m>. \ans{<m>I_2=2-\dfrac{\pi}{4}, I_3=2-\dfrac{\ln{2}}{2}, I_4= \dfrac{2}{3} + \dfrac{\pi}{4}</m>.}
+              </p>
+            </li>
+            <li>
+              <p>
+                If you have access to a computer package that will solve a system of equations,
+                find the 4-th degree polynomial that best fits
+                <m>1/(1 + x^2)</m> over the interval <m>[0, 2]</m>.
+                What is the maximum difference between this polynomial and the function over this interval?
+              </p>
+            </li>
+          </ol>
+        </p>
+      </li>
+      <li>
+        <p>
+          Set up the equations
+          (including evaluating all the integrals)
+          for finding the best fitting 6-th degree polynomial approximation to <m>\sin(x)</m> over the interval <m>[-\pi, \pi]</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+          In the <m>S</m>-<m>I</m>-<m>R</m> model,
+          find the best fitting 8-th degree polynomial approximation to <m>S(t)</m> over the interval <m>0\le t\le 40</m>.
+        </p>
+      </li>
+    </ol>
+  </subsection>
+</section>

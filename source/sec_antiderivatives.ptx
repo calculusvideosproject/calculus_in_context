@@ -1,0 +1,1367 @@
+<section xml:id="sec_antiderivatives">
+  <title>Antiderivatives</title>
+  <subsection xml:id="subsec_definition">
+    <title>Definition</title>
+    <p>
+      Recall that we say <m>F</m> is an
+      <em> antiderivative</em><idx><h>antiderivative</h><h>definition of</h></idx> of <m>f</m> if <m>F' = f</m>.
+      Here are some examples.
+    </p>
+    <tabular>
+      <row>
+        <cell><sc>function</sc>:</cell>
+        <cell></cell>
+        <cell><m>x^2</m></cell>
+        <cell></cell>
+        <cell><m>1/y</m></cell>
+        <cell></cell>
+        <cell><m>\sin{u}</m></cell>
+        <cell></cell>
+        <cell><m>2\sin{t} \, \cos{t}</m></cell>
+        <cell></cell>
+        <cell><m>2^z</m></cell>
+      </row>
+      <row>
+        <cell></cell>
+        <cell></cell>
+        <cell><m>\updownarrow</m></cell>
+        <cell></cell>
+        <cell><m>\updownarrow</m></cell>
+        <cell></cell>
+        <cell><m>\updownarrow</m></cell>
+        <cell></cell>
+        <cell><m>\updownarrow</m></cell>
+        <cell></cell>
+        <cell><m>\updownarrow</m></cell>
+      </row>
+      <row>
+        <cell><sc>antiderivative</sc>:</cell>
+        <cell></cell>
+        <cell><m>\dfrac{x^3}{3}</m></cell>
+        <cell></cell>
+        <cell><m>\ln{y}</m></cell>
+        <cell></cell>
+        <cell><m>-\cos{u}</m></cell>
+        <cell></cell>
+        <cell><m>\sin^2{t}</m></cell>
+        <cell></cell>
+        <cell><m>\dfrac{2^z}{\ln{2}}</m></cell>
+      </row>
+    </tabular>
+    <p>
+      Notice that you go up (<m>\uparrow</m>) from the bottom row
+    </p>
+    <aside>
+      <p>
+        Undo a differentiation
+      </p>
+    </aside>
+    <p>
+      to the top by carrying out a differentiation.
+          <idx><h>differentiation</h></idx>
+      To go down (<m>\downarrow</m>) you must
+      <q>undo</q>
+      that differentiation.
+      The process of reversing, or undoing,
+      a differentiation has come to be called
+      <term>antidifferentiation</term>.
+          <idx><h>antidifferentiation</h></idx>
+      You should differentiate each function on the bottom row to check that it is an antiderivative of the function above it.
+      While a function can have only one derivative,
+    </p>
+    <aside>
+      <p>
+        A function has many antiderivatives
+      </p>
+    </aside>
+    <p>
+      it has many antiderivatives.
+          <idx><h>antiderivative</h></idx>
+      For example, <m>1-\cos{u}</m> and
+      <m>99 - \cos{u}</m> are also antiderivatives of the function <m>\sin{u}</m> because
+      <me>
+        (1-\cos{u})' = \sin{u} = (99 - \cos{u})'
+      </me>.
+    </p>
+    <p>
+      In fact, every function <m>C - \cos{u}</m> is an antiderivative of <m>\sin{u}</m>,
+      for any constant <m>C</m> whatsoever.
+      This observation is true in general.
+      That is, if <m>F</m> is an antiderivative of a function <m>f</m>,
+      then so is <m>F + C</m>, for any constant <m>C</m>.
+      This follows from the addition rule for derivatives:
+          <idx><h>derivative</h><h>addition rule</h></idx>
+      <me>
+        (F + C)' = F' + C' = F' + 0 = f
+      </me>.
+    </p>
+    <p>
+      It is tempting to claim
+    </p>
+    <aside>
+      <p>
+        A caution
+      </p>
+    </aside>
+    <p>
+      the converse<mdash/>that <em>every</em>
+      antiderivative of <m>f</m> is equal to <m>F + C</m>,
+      for some appropriately chosen value of <m>C</m>.
+      In fact, you will often see this statement written.
+      The statement is true, though,
+      only for continuous functions.
+      If the function <m>f</m> has breaks in its domain,
+      then there will be more antiderivatives than those of the form <m>F+C</m> for a <em>single</em>
+      constant<nbsp/><m>C</m><mdash/>over each piece of the domain of <m>f</m>,
+      <m>F</m> can be modified by a <em>different</em>
+      constant and still yield an antiderivative for <m>f</m>.
+      Exercises 18, 19, and 20 at the end of this section explore this for a couple of cases.
+      If <m>f</m> is continuous,
+      though, <m>F + C</m> will cover all the possibilities, and
+    </p>
+    <aside>
+      <p>
+        What the <sq><m>+\ C</m></sq> term really means
+      </p>
+    </aside>
+    <p>
+      we sometimes say that <m>F + C</m> is <em>the</em>
+      antiderivative of <m>f</m>.
+      For the sake of keeping a compact notation,
+      we will even write this when the domain of <m>f</m> consists of more than one interval.
+      You should understand, though, that in such cases,
+      over each piece <m>F</m> can be modified by a different constant For future reference we collect a list
+    </p>
+    <aside>
+      <p>
+        Antiderivatives of basic functions
+      </p>
+    </aside>
+    <p>
+      of basic functions whose antiderivatives
+          <idx><h>antiderivative</h></idx>
+      we already know.
+      Remember that each antiderivative in the table can have an arbitrary constant added to it.
+      <me>
+        \begin{array}{ccc} \mbox{function}  \amp  \qquad \amp   \mbox{antiderivative}  \\ \hline \\ [-9pt] \begin{array}{l} x^p   \\ 1/x   \\ \sin{x} \\ \cos{x} \\ e^x  \\ b^x \end{array} \amp  \amp \begin{array}{l} \dfrac{x^{p+1}}{p+1},  p \neq -1 \\ \ln{x}\\ -\cos{x}\\ \sin{x}\\ e^x \\ \dfrac{b^x}{\ln{b}} \end{array} \end{array}
+      </me>
+    </p>
+    <p>
+      All of these antiderivatives are easily verified and could have been derived with at most a little trial and error fiddling to get the right constant.
+      You should notice one incongruity:
+      the function <m>1/x</m> is defined for all <m>x\neq 0</m>,
+      but its listed antiderivative, <m>\ln{x}</m>,
+      is only defined for <m>x>0</m>.
+      In exercise 18 ( <xref ref="log"></xref>) you will see how to find antiderivatives for <m>1/x</m> over its entire domain.
+      Two of our basic functions<mdash/><m>\ln{x}</m> and <m>\tan{x}</m><mdash/>do not appear in the left column of the table.
+      This happens because there is no simple multiple of a basic function whose derivative is equal to either <m>\ln{x}</m> or <m>\tan{x}</m>.
+      It turns out that these functions <em>do</em>
+      have antiderivatives, though,
+      that can be expressed as more complicated combinations of basic functions.
+      In fact, by differentiating
+      <m>x \ln{x} - x</m> you should be able to verify that it is an antiderivative of <m>\ln{x}</m>.
+      Likewise, <m>- \ln(\cos{x})</m> is an antiderivative of <m>\tan{x}</m>.
+      It would take a long time to stumble on these antiderivatives by inspection or by trial and error.
+      It is the purpose of later sections to develop techniques which will enable us to discover antiderivatives like these quickly and efficiently.
+      In particular,
+      the antiderivative of <m>\ln{x}</m> is derived in chapter<nbsp/>11.3 <xref ref="lnder">on</xref>,
+      while the antiderivative of <m>\tan{x}</m> is derived in chapter<nbsp/>11.5 <xref ref="tander">on</xref>.
+      There are a couple of other functions that don't appear in the above table whose antiderivatives are needed frequently enough that they should become part of your repertoire of elementary functions that you recognize immediately:
+      <me>
+        \begin{array}{ccc} \mbox{function}  \amp  \qquad \amp   \mbox{antiderivative}  \\ \hline \\ [-9pt] \begin{array}{l} \dfrac{1}{\sqrt{1-x^2}}  \\ \dfrac{1}{1+x^2} \end{array} \amp  \amp \begin{array}{l} \arcsin{x} \\ \arctan{x} \end{array} \end{array}
+      </me>
+    </p>
+    <p>
+      The antiderivatives are inverse trigonometric functions,
+      which we've had no need for until now.
+      We introduce them immediately below.
+      They are examples of functions that occur more often for their antiderivative properties than for themselves.
+      Note that the derivatives of the inverse trigonometric functions have no obvious reference to trigonometric relations.
+      In fact, they often occur in settings where there are no triangles or periodic functions in sight.
+      Let's see how the derivatives of these inverse functions are derived.
+    </p>
+  </subsection>
+  <subsection xml:id="subsec_inverse-functions">
+    <title>Inverse Functions</title>
+    <introduction>
+      <p>
+        We discussed inverse functions in chapter 4.4.
+        Here's a quick summary of the main points made there.
+        Two functions <m>f</m> and <m>g</m> are <em> inverses</em>
+            <idx><h>function</h><h>inverse</h></idx>
+        if
+        <md>
+          <mrow>f(g(a)) \amp = a,</mrow>
+          <mrow>\text{ and }   g(f(b)) \amp = b</mrow>
+        </md>,
+        for every <m>a</m> in the domain
+            <idx><h>domain</h></idx>
+        of <m>g</m> and every <m>b</m> in the domain of<nbsp/><m>f</m>.
+        It follows that the <em>range</em>
+        of<nbsp/><m>f</m> is the same as the <em>domain</em>
+        of<nbsp/><m>g</m>, and vice versa.
+        We write <m>g = f^{-1}</m> to indicate that <m>g</m> is the inverse of<nbsp/><m>f</m>,
+        and <m>f = g^{-1}</m> to indicate that <m>f</m> is the inverse of<nbsp/><m>g</m>.
+        The graphs of <m>y = f(x)</m> and
+        <m>y = g(x)</m> are mirror reflections about the line <m>y=x</m>.
+        As the figure below shows,
+        the mirror image of a point with coordinates <m>(a, b)</m> is the point with coordinates <m>(b, a)</m>.
+        <image width="73%" source="images/ch11-1.png"/> This connection between the graphs is a direct translation of the definitions into graphical language, since
+        <md>
+          <mrow>\text{ \((a, b)\) is on the graph of \(y=g(x)\) }  \amp \Longleftrightarrow g(a) = b \qquad \text{ (definition of graph) }</mrow>
+          <mrow>\amp \Longleftrightarrow  f(b)=a \qquad \text{ (definition of inverse } )</mrow>
+          <mrow>\amp \Longleftrightarrow  \text{ \((b, a)\) is on the graph of \(y=f(x)\) } </mrow>
+        </md>.
+      </p>
+      <p>
+        Because of the connection between the graphs,
+        it follows immediately that if the graph of <m>f</m> is locally linear at the point <m>(b, a)</m> with slope <m>m</m>,
+        then the graph of <m>g</m> will be locally linear at the point <m>(a, b)</m> with slope <m>1/m</m>.
+        Algebraically, this is expressed as
+        <me>
+          g'(a)=1/f'(b)
+        </me>,
+        where <m>a=f(b)</m> and <m>b=g(a)</m>.
+        We get same result by differentiating the expression
+        <m>f(g(x))=x</m>, using the chain rule:
+        <me>
+          1=x'=(f(g(x))'=f'(g(x))g'(x)
+        </me>,
+        and therefore
+        <me>
+          g'(x)=\dfrac{1}{f'(g(x))}
+        </me>
+        for any value of <m>x</m> for which <m>g(x)</m> is defined.
+      </p>
+    </introduction>
+    <subsubsection xml:id="subsubsec_inverse-trigonometric-functions">
+      <title>Inverse trigonometric functions</title>
+      <p>
+        <term>The arcsine function</term>
+            <idx><h>function</h><h>arcsine</h></idx>
+        In the discussion in chapter 4 we saw that a function has an inverse only when it is
+        <term>one-to-one</term>, so if we want an inverse,
+        we often have to restrict the domain of a function to a region where it is one-to-one.
+        This is certainly the case with the sine function,
+        which takes the same value infinitely many times.
+        The standard choice of domain on which the sine function is one-to-one is <m>[-\pi/2, \pi/2]</m>.
+        Over this interval the sine function increases from <m>-1</m> to <m>1</m>.
+        We can then define an inverse function,
+        which we call the <term>arcsine function</term>,
+        written <m>\arcsin{x}</m>,
+        whose domain is the interval <m>[-1,1]</m>,
+        and whose range is <m>[-\pi/2, \pi/2]</m>.
+        Since the sine function is strictly increasing on its domain,
+        the arcsine function will be strictly increasing on its domain as well<mdash/>do you see why this has to be?
+        Another notation for the arcsine function is <m>\sin^{-1}{x}</m>;
+        this form commonly appears on one of the buttons on a calculator.<image width="73%" source="images/ch11-2a.png"/> <image width="73%" source="images/ch11-2b.png"/> To find the derivative of the arcsine function,
+        let <m>f(x)=\sin{x}</m>, and let <m>g(x)=\arcsin{x}</m>.
+        Then by the remarks above, we have
+        <me>
+          g'(x) = \dfrac{1}{f'(g(x))} = \dfrac{1}{\cos{(g(x))}} = \dfrac{1}{\cos(\arcsin{x})}
+        </me>.
+      </p>
+      <p>
+        The function <m>\cos(\arcsin{x})</m> can be expressed in another form,
+        which we will obtain two ways,
+        one algebraic, the other geometric.
+        Both perspectives are useful.
+        <term>The algebraic approach.</term>Recall that for any input <m>t</m>,
+        <m>\sin^2{t} + \cos^2{t}=1</m>.
+        This can be solved for <m>\cos{t}</m> as <m>\cos{t}=\pm\sqrt{1-\sin^2{t}}</m>.
+        That is, the cosine of anything is the square root of 1 minus the square of the sine of that input,
+        with a possible minus sign needed out front, depending on the context.
+        Since the output of the arcsine function lies in the range <m>[-\pi/2, \pi/2]</m>,
+        and the cosine function is positive (or 0) for numbers in this interval,
+        it follows that <m>\cos(\arcsin{x})\geq 0</m> for any value of <m>x</m> in the domain of the arcsine function.
+        Therefore,
+        <me>
+          \cos(\arcsin{x}) = \sqrt{1-\sin^2(\arcsin{x})} =\sqrt{1-(\sin(\arcsin{x}))^2}=\sqrt{1-x^2}
+        </me>,
+        since <m>\sin(\arcsin{x})=x</m> by definition of inverse functions.
+        It follows that
+        <me>
+          (\arcsin{x})'=\dfrac{1}{\cos{(\arcsin{x})}}=\dfrac{1}{\sqrt{1-x^2}}
+        </me>,
+        as we indicated above <xref ref="arcsin_deriv">on</xref>.
+        <term>The geometric approach</term>Introduce a new variable <m>\theta = \arcsin{x}</m>,
+        so that <m>x=\sin{\theta}</m>.
+        We can represent these relationships in the following picture:
+      </p>
+      <image source="images/114a6ed2cba4276a28826c42292ea27b3a3a238a.png"/>
+      <p>
+        Notice that we have labelled the side opposite the angle <m>\theta</m> as <m>x</m> and the hypotenuse as 1.
+        This ensures that <m>\sin\theta=x</m>.
+        By the Pythagorean theorem,
+        the remaining side must then be <m>\sqrt{1-x^2}</m>.
+        From this picture it is then obvious that <m>\cos(\arcsin{x})=\cos\theta=\sqrt{1-x^2}/1=\sqrt{1-x^2}</m>,
+        as before.
+        <term>The arctangent function</term><idx><h>function</h><h>arctangent</h></idx>
+        To get an inverse for the tangent function,
+        we again need to limit its domain.
+        Here the standard choice is to restrict it to the interval <m>(-\pi/2, \pi/2)</m> (<em>not</em>
+        including the endpoints this time,
+        since <m>\tan(-\pi/2)</m> and <m>\tan(\pi/2)</m> aren't defined).
+        Over this domain the tangent function increases from <m>-\infty</m> to <m>+\infty</m>.
+        We can then define the inverse of the tangent,
+        called the <term>arctangent function</term>,
+        written <m>\arctan{x}</m>,
+        whose domain is the interval <m>(-\infty, \infty)</m>,
+        and whose range is <m>(-\pi/2, \pi/2)</m>.
+        Again, both functions are increasing over their domains.
+        <image width="73%" source="images/ch11-3a.png"/> <image width="73%" source="images/ch11-3b.png"/> To find the derivative,
+        we proceed as we did with <m>\arcsin{x}</m>,
+        letting <m>f(x)=\tan{x}</m>, and <m>g(x)=\arctan{x}</m>.
+        This time we get
+        <me>
+          g'(x) = \dfrac{1}{f'(g(x))} = \dfrac{1}{\sec^2{(g(x))}} =\dfrac{1}{\sec^2(\arctan{x})}
+        </me>.
+      </p>
+      <p>
+        This expression also has a different form;
+        we obtain it from another trigonometric identity, as we did before,
+        deriving the desired result algebraically and geometrically.
+        <term>Algebraic</term>We start as before with the identity <m>\sin^2{t} + \cos^2{t}=1</m>.
+        Dividing through by <m>\cos^2{t}</m>,
+        we get the equivalent identity <m>\tan^2{t}+1=\sec^2{t}</m>.
+        That is, the square of the secant of any input is just 1 plus the square of the tangent applied to the same input.
+        In particular,
+        <me>
+          \sec^2{(\arctan{x})} = \tan^2(\arctan{x}) + 1 =(\tan(\arctan{x}))^2 + 1 = x^2+1;
+        </me>
+        since <m>\tan(\arctan{x}) = x</m>.
+        It follows that
+        <me>
+          (\arctan{x})' = \dfrac{1}{\sec^2(\arctan{x})} = \dfrac{1}{1+x^2}
+        </me>,
+        as we indicated above <xref ref="arcsin_deriv">on</xref>.
+        <term>Geometric</term>Let <m>\theta=\arctan{x}</m>, so <m>x=\tan\theta</m>.
+        Again we can draw and label a triangle reflecting these relationships:
+      </p>
+      <image source="images/a6ea8b5580b23db63d539380a44cf0276292c0ab.png"/>
+      <p>
+        Notice that this time we have labelled the side opposite the angle <m>\theta</m> as <m>x</m> and the adjacent side as 1 to ensure that <m>\tan\theta=x</m>.
+        Again by the Pythagorean theorem,
+        the hypotenuse must be <m>1+x^2</m>.
+        From this picture it is then obvious that <m>\sec(\arctan{x})=\sec\theta=(\sqrt{1+x^2})/1=\sqrt{1+x^2}</m>,
+        so <m>\sec^2(\arctan{x})=1+x^2</m> again.
+      </p>
+    </subsubsection>
+  </subsection>
+  <subsection xml:id="subsec_notation">
+    <title>Notation</title>
+    <p>
+      According to the fundamental theorem of calculus<idx><h>fundamental theorem of calculus</h></idx>
+      (see chapter<nbsp/>6.4),
+      every accumulation function<idx><h>accumulation function</h><h>as antiderivative</h></idx>
+      <me>
+        A(x) = \int_a^x f(t) \, dt
+      </me>
+      is an antiderivative of the function <m>f</m>,
+      no matter at what point <m>t = a</m> the accumulation begins<mdash/>so long as the function is defined over the entire interval from <m>t=a</m> to <m>t=x</m>.
+      (This is an important caution when dealing with functions like <m>1/x</m>,
+      for instance,
+      for which the integral from, say,
+      <m>-1</m> to 1 makes no sense.)
+      In other words, the expression
+      <me>
+        \int_a^x f(t) \, dt
+      </me>
+      represents an antiderivative of <m>f</m>.
+    </p>
+    <aside>
+      <p>
+        Write an antiderivative as an integral
+      </p>
+    </aside>
+    <p>
+      The influence of the fundamental theorem is so pervasive that this expression<mdash/>with the
+      <q>limits of integration</q>
+      <m>a</m> and <m>x</m> omitted<mdash/>is used to denote an antiderivative:
+          <idx><h>integral</h></idx>
+    </p>
+    <image source=""/>
+    <p>
+      With this new notation<idx><h>notation</h><h>antiderivative</h></idx> the antiderivatives we have listed so far can be written
+          <idx><h>antiderivative</h></idx>
+    </p>
+    <aside>
+      <p>
+        The basic antiderivatives again
+      </p>
+    </aside>
+    <p>
+      in the following form.
+      <md>
+        <mrow>\int x^p \, dx \amp = \dfrac{1}{p+1} \, x^{p+1} + C  \qquad\mbox{ ( \(p\neq -1\))}</mrow>
+        <mrow>\int \dfrac{1}{x} \, dx \amp = \ln{x} + C</mrow>
+        <mrow>\int \sin{x} \, dx \amp = - \cos{x} + C</mrow>
+        <mrow>\int \cos{x} \, dx \amp = \sin{x} + C</mrow>
+        <mrow>\int e^x \, dx \amp =  e^x + C</mrow>
+        <mrow>\int b^x \, dx \amp = \dfrac{1}{\ln{b} \, b^x} + C</mrow>
+        <mrow>\int  \dfrac{1}{\sqrt{1-x^2}}\, dx \amp = \arcsin{x} + C</mrow>
+        <mrow>\int  \dfrac{1}{1+x^2} \, dx \amp = \arctan{x} + C</mrow>
+      </md>
+    </p>
+    <p>
+      The integration sign <m>\int</m> now has two distinct meanings.
+    </p>
+    <aside>
+      <p>
+        The <em>definite</em> integral
+      </p>
+      <p>
+        is a number<ellipsis/>
+      </p>
+    </aside>
+    <p>
+      Originally, it was used to describe the <em>number</em>
+      <me>
+        \int_a^b f(x) \, dx
+      </me>,
+      which was always calculated as the limit of a sequence of Riemann sums.
+      Because this integral has a definite numerical value,
+      it is called the <term>definite integral</term>
+          <idx><h>definite integral</h></idx>.
+          <idx><h>integral</h><h>definite</h></idx>
+      In its new meaning,
+      the integration sign is used to describe the antiderivative
+      <me>
+        \int f(x) \, dx
+      </me>,
+      which is a <em>function</em>, not a number.
+    </p>
+    <aside>
+      <p>
+        <ellipsis/> while the <em>indefinite</em> integral is a function
+      </p>
+    </aside>
+    <p>
+      To contrast the new use of <m>\int</m> with the old,
+      and to remind us that the new expression is a variable quantity,
+      it is called the <em> indefinite integral</em>
+          <idx><h>indefinite integral</h></idx>.
+          <idx><h>integral</h><h>indefinite</h></idx>
+      The function that appears in either a definite or an indefinite integral is called the <term>integrand</term>.
+          <idx><h>integrand</h></idx>
+      The terms
+      <q>antiderivative</q>
+      and
+      <q>indefinite integral</q>
+      are completely synonymous.
+      We will tend to use the former term in general discussions,
+      using the latter term when focusing on the process of finding the antiderivative.
+      Because an indefinite integral represents an antiderivative,
+      the process of finding an antiderivative is sometimes called <em> integration</em>.
+          <idx><h>integration</h></idx>
+      Thus the term <em>integration</em>,
+      as well as the symbol for it,
+      has two distinct meanings.
+    </p>
+  </subsection>
+  <subsection xml:id="subsec_using-antiderivatives">
+    <title>Using Antiderivatives</title>
+    <p>
+      According to the fundamental theorem,
+      we can use an <em>indefinite</em>
+      integral to find the value of a <em>definite</em>
+      integral<mdash/>and this largely explains the importance of antiderivatives.
+          <idx><h>antiderivative</h><h>importance of</h></idx>
+      In the language of indefinite integrals,
+      the statement of the fundamental theorem in the box <xref ref="fund_th-antider">on</xref> takes the following form.
+          <idx><h>fundamental theorem of calculus</h></idx>
+    </p>
+    <image source="images/9e082f9707b8ec20e2c512848deded5eb0445be3.png"/>
+    <p>
+      <term>Example 1</term>Find <m>\dint_1^4 x^2 \, dx</m>.
+      We have that
+      <me>
+        \int x^2 \, dx = \tfrac{1}{3} x^3 + C;
+      </me>
+      it follows that
+      <me>
+        \int_1^4 x^2 \, dx = \tfrac{1}{3} 4^3 + C - \left(\tfrac{1}{3}1^3 +C)\right) = \dfrac{64}{3} + C - \dfrac{1}{3} - C = 21
+      </me>.
+    </p>
+    <p>
+      <term>Example 2</term>Find <m>\dint_0^{\pi/2} \cos{t} \, dt</m>.
+      This time the indefinite integral we need is
+      <me>
+        \int \cos{t} \, dt = \sin{t} + C
+      </me>.
+    </p>
+    <p>
+      The value of the definite integral is therefore
+      <me>
+        \int_0^{\pi/2} \cos{t} \, dt = \sin{\pi/2} + C - \left( \sin{0} + C \right) = 1 + C - 0 - C = 1
+      </me>.
+    </p>
+    <p>
+      In each example the two appearances of <m>C</m> cancel each other.
+    </p>
+    <aside>
+      <p>
+        The calculation doesn't depend on <m>C</m>, so take <m>C = 0</m>
+      </p>
+    </aside>
+    <p>
+      Thus <m>C</m> does not appear in the final result.
+      This implies that it does not matter which value of <m>C</m> we choose to do the calculation.
+      Usually, we just take <m>C = 0</m>.
+      <term>Notation</term><idx><h>notation</h><h>indefinite integral</h></idx>
+      :
+          <idx><h>indefinite integral</h><h>notation</h></idx>
+      Because expressions like <m>F(b) - F(a)</m> occur often when we are using indefinite integrals,
+      we use the abbreviation
+      <me>
+        F(b) - F(a) = \left. F(x) \, \right|_a^b
+      </me>.
+    </p>
+    <p>
+      Thus,
+      <me>
+        \int_1^4 x^2 \, dx = \left. \dfrac{x^3}{3} \, \right|_1^4 = \dfrac{64}{3} - \dfrac{1}{3} = 21
+      </me>.
+    </p>
+    <p>
+      There are clear advantages to using antiderivatives to evaluate definite integrals:
+      we get exact values and we avoid many lengthy calculations.
+      The difficulty is that the method works only if we can find a formula for the antiderivative.
+      There are several reasons why we might not
+    </p>
+    <aside>
+      <p>
+        We may not recognize the \mbox{antiderivative\ldots}
+      </p>
+    </aside>
+    <p>
+      find the formula we need.
+      For instance,
+      the antiderivative we want may be a function we have never seen before.
+      The function <m>\arctan{x}</m> is an example.
+      Even if we have a broad acquaintance with functions,
+      we may still not be able to find the formula for a given antiderivative.
+    </p>
+    <aside>
+      <p>
+        <ellipsis/> and there may even be no formula for it
+      </p>
+    </aside>
+    <p>
+      The reason is simple: for most functions we can write down,
+      the antiderivative is just not among the basic functions of calculus.
+      For example, none of the basic functions,
+      in any form or combination, equals
+      <me>
+        \int e^{x^2} dx \qquad \mbox{or}  \qquad \int \dfrac{\sin{x}}{x} \, dx
+      </me>.
+    </p>
+    <p>
+      This does not mean that <m>e^{x^2}</m>,
+      for example, has no antiderivative.
+      On the contrary, the accumulation function
+      <me>
+        \int_0^x e^{t^2} dt
+      </me>
+      is an antiderivative of <m>e^{x^2}</m>.
+      It can be evaluated, graphed,
+      and analyzed like any other function.
+      What we lack is a <em>formula</em>
+      for this antiderivative in terms of the basic functions of calculus.
+    </p>
+  </subsection>
+  <subsection xml:id="subsec_finding-antiderivatives">
+    <title>Finding Antiderivatives</title>
+    <p>
+      In the rest of this chapter we will be deriving a number of statements involving antiderivatives.
+      It is important to remember what such statements mean.
+    </p>
+    <image source=""/>
+    <p>
+      In other words, a statement
+    </p>
+    <aside>
+      <p>
+        We differentiate to verify a statement about antiderivatives
+      </p>
+    </aside>
+    <p>
+      about antiderivatives can be verified by looking at a statement about derivatives.
+      If it is claimed that the antiderivative of <m>f</m> is <m>F</m>,
+      you check the statement by seeing if it is true that <m>F'=f</m>.
+      This was how we verified the elementary antiderivatives we've considered so far.
+      Another way of expressing these relationships is
+      <me>
+        \left(\int f(x)\,dx\right)' = f(x)\mbox{and}  \int F'(x)\,dx = F(x)+C
+      </me>
+      for any functions <m>f</m> and <m>F</m>.
+      This duality between statements about derivatives and statements about antiderivatives also holds when applied to more general statements.
+      Many of the most useful techniques for finding antiderivatives are based on converting the general rules for taking derivatives of sums,
+      products, and chains into equivalent antiderivative form.
+    </p>
+    <aside>
+      <p>
+        The constant multiple and addition rules
+      </p>
+    </aside>
+    <p>
+      We'll start with the simplest combinations,
+      which involve a <em> function multiplied by a constant</em>
+      and a <term>sum of two functions</term>.
+      <me>
+        \begin{array}{rclcrcl} \multicolumn{3}{c}{\mbox{derivative form} } \amp  \amp \multicolumn{3}{c}{\mbox{antiderivative form} } \\ \hline \\ [-10pt] (k \cdot F)' \amp =\amp  k \cdot F'\amp  \amp \dint k \cdot f \, dx \amp =\amp  k \cdot \!\!\dint f \, dx \\[.15in] (F + G)' \amp =\amp  F' + G' \amp  \qquad\qquad \amp \dint (f + g) \, dx \amp =\amp  \dint f \, dx + \dint g \, dx \end{array}
+      </me>
+    </p>
+    <p>
+      Let's verify these rules.
+      Set <m>\int f=F</m> and <m>\int g = G</m>.
+      Then the first rule is claiming that
+      <m>\int (k\cdot f) = k\cdot F</m><mdash/>the antiderivative of a constant times a function equals the constant times the antiderivative of the function.
+      To verify this,
+      we have to show that when we take the derivative of the right-hand side,
+      we get the function under the integral on the left-hand side.
+      But <m>(k\cdot F)'=k\cdot F'</m>
+      (by the derivative rule),
+      which is just <m>k\cdot f</m>,
+      which is what we had to show.
+      Similarly, to show that <m>\int (f+g) = F + G</m><mdash/>the antiderivative of the sum of two functions is the sum of their separate antiderivatives<mdash/>we differentiate the right-hand side and find <m>(F+G)'=F'+G'</m>
+      (by the derivative rule for sums)
+      which is just <m>f+g</m>, so the rule is true.
+      <term>Example 3</term>This example illustrates the use of both the addition and the constant multiple rules.
+      <md>
+        <mrow>\int (7e^x + \cos{x}) \, dx \amp = \int 7e^x \, dx + \int \cos{x} \, dx</mrow>
+        <mrow>\amp = 7 \int e^x \, dx + \int \cos{x} \, dx</mrow>
+        <mrow>\amp = 7 e^x + \sin{x} + C</mrow>
+      </md>.
+    </p>
+    <p>
+      To verify this answer,
+      you should take the derivative of the right-hand side to see that it equals the integrand on the left-hand side.
+      In the following sections we will develop the antidifferentiation rules that correspond to the product rule and to the chain rule.
+      They are called <em>integration by parts</em>
+          <idx><h>integration by parts</h></idx>
+          <idx><h>integration by parts</h><h>correspondence to product rule</h></idx>
+      and <em>integration by substitution</em><idx><h>integration by substitution</h></idx>,
+          <idx><h>integration by substitution</h><h>correspondence to chain rule</h></idx>
+      respectively.
+      While antiderivatives can be hard to find,
+    </p>
+    <aside>
+      <p>
+        Trial and error
+      </p>
+    </aside>
+    <p>
+          <idx><h>trial and error</h></idx>
+      they are easy to check.
+      This makes
+      <q>trial and error</q>
+      a good strategy.
+      In other words,
+      if you don't immediately see what the antiderivative should be,
+      but the function doesn't look too bad, try guessing.
+      When you differentiate your guess,
+      what you see may lead you to a better guess.
+      <term>Example 4</term>Find
+      <me>
+        F(x) = \dint \cos(3x) \, dx
+      </me>.
+      Since the derivative of <m>\sin{u}</m> is <m>\cos{u}</m>,
+      it is reasonable to try <m>\sin(3x)</m> as an antiderivative for <m>\cos(3x)</m>.
+      Therefore:
+      <md>
+        <mrow>\mbox{first guess: }  F(x) \amp = \sin(3x),</mrow>
+        <mrow>\mbox{check: }  F'(x) \amp = \cos(3x) \cdot 3 \neq \cos(3x)</mrow>
+      </md>.
+    </p>
+    <p>
+      We wanted <m>F' = \cos(3x)</m> but we got <m>F' = 3\cos(3x)</m>.
+      The chain rule gave us an extra<mdash/>and unwanted<mdash/>factor of 3.
+      We can compensate for that factor by multiplying our first guess by 1/3.
+      Then
+      <md>
+        <mrow>\mbox{second guess: }  F(x) \amp = \tfrac{1}{3}\sin(3x),</mrow>
+        <mrow>\mbox{check: }  F'(x) \amp = \tfrac{1}{3}\cos(3x)\cdot 3  = \cos(3x)</mrow>
+      </md>.
+    </p>
+    <p>
+      Thus <m>\dint \cos(3x) \, dx = \tfrac{1}{3}\sin(3x)</m>.
+      Because indefinite integrals are difficult to calculate,
+    </p>
+    <aside>
+      <p>
+        Tables of Integrals
+      </p>
+    </aside>
+    <p>
+          <idx><h>integrals</h><h>table of</h></idx>
+      reference manuals in mathematics and science often include tables of integrals.
+      There are sometimes many hundreds of individual formulas,
+      organized by the type of function being integrated.
+      A modest selection of such formulas can be found at the back of this book.
+      You should take some time to learn how these tables are arranged and get some practice using them.
+      You should also check some of the more unlikely looking formulas by differentiating them to see that they really are the antiderivatives they are claimed to be.
+      Computers are having a major impact on integration techniques.
+      We saw in the last chapter that any continuous function<mdash/>even one given by the output from some laboratory recording device or as the result of a numerical technique like Euler's method<mdash/>can be approximated by a polynomial
+      (usually using lots of computation!),
+      and the antiderivative of a polynomial is easy to find.
+      Moreover, computer software packages
+    </p>
+    <aside>
+      <p>
+        Integration can now be done quickly and efficiently by computer software
+      </p>
+    </aside>
+    <p>
+      which can find any existing formula for a definite integral are becoming widespread and will probably have a profound impact on the importance of integration techniques over the next several years.
+      Just as hand-held calculators have rendered obsolete many traditional arts<mdash/>like using logarithms for performing multiplications or knowing how to interpolate in trig tables<mdash/>there is likely to be a decreased importance placed on humans' being adept at some of the more esoteric integration techniques.
+      While some will continue to derive pleasure from becoming proficient in these skills,
+      for most users it will generally be much faster,
+      and more accurate, to use an appropriate software package.
+      Nevertheless,
+      for those going on in mathematics and the physical sciences,
+      it will still to be useful to be able to perform some of the simpler integrations by hand reasonably rapidly.
+      The subsequent sections of this chapter develop the most commonly needed techniques for doing this.
+    </p>
+  </subsection>
+  <subsection xml:id="subsec_exercises">
+    <title>Exercises</title>
+    <ol>
+      <li>
+        <p>
+          What is the inverse of the function <m>y = 1/x</m>?
+          Sketch the graph of the function and its inverse.
+        </p>
+      </li>
+      <li>
+        <p>
+          What is the inverse of the function <m>y = 1/x^3</m>?
+          Sketch the graph of the the function and its inverse.
+          Do the same for <m>y = 3x - 2</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+          Let <m>\theta=\arctan{x}</m>.
+          Then <m>\tan{\theta} = x</m>.
+          Refer to the picture <xref ref="picture2">on</xref>
+          showing the relationship between <m>x</m> and <m>\theta</m>.
+          Use this drawing to show that
+          <m>\arctan(x) + \arctan(1/x)</m> is constant<mdash/>that is,
+          its value doesn't depend on <m>x</m>.
+          What is the value of the constant?
+          <ol>
+            <li>
+              <p>
+                Use part (a), and the derivative of <m>\arctan{x}</m>,
+                to find the derivative of <m>\arctan(1/x)</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Use the chain rule to verify your answer to part (b).
+              </p>
+            </li>
+          </ol>
+        </p>
+      </li>
+      <li>
+        <p>
+          The logarithm for the base <m>b</m> is defined as the inverse to the exponential function with base <m>b</m>:
+          <me>
+            y = \log_b{x} \qquad \mbox{if}  \qquad x = b^y
+          </me>.
+          Using only the fact that <m>dx/dy = \ln{b} \cdot b^y</m>,
+          deduce the formula
+          <me>
+            \dfrac{dy}{dx} = \dfrac{1}{\ln{b}} \cdot \dfrac{1}{x}
+          </me>.
+          Note: this is purely an algebra problem;
+          you don't need to invoke any differentiation rules.
+        </p>
+      </li>
+      <li>
+        <p>
+          Define <m>\arccos{x}</m>,<idx><h>function</h><h>arccosine</h></idx> the inverse of the cosine function.
+          Be sure to limit the domain of the cosine function to an interval on which it is one-to-one.
+          <ol>
+            <li>
+              <p>
+                Sketch the graph <m>y = \arccos{x}</m>.
+                How did you limit the range of <m>y</m>?
+              </p>
+            </li>
+            <li>
+              <p>
+                Determine <m>dy/dx</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </li>
+      <li>
+        <p>
+          If <m>\theta = \arcsin{x}</m>,
+          refer to the picture <xref ref="picture">on</xref>
+          reflecting the relation between <m>\theta</m> and <m>x</m>.
+          Using this picture,
+          proceed as in problem 3 to to show that the sum <m>\arcsin{x} + \arccos{x}</m> is constant.
+          What is the value of the constant?
+          <ol>
+            <li>
+              <p>
+                Use part (a), and the derivative of <m>\arcsin{x}</m>,
+                to determine the derivative of <m>\arccos{x}</m>.
+                Does this result agree with what you got in the last exercise?
+              </p>
+            </li>
+          </ol>
+        </p>
+      </li>
+      <li>
+        <p>
+          Find a formula for <m>\dint \dfrac{dx}{\sqrt{1 - x^2}}</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+          Verify that the antiderivatives given in the table <xref ref="table">on</xref> are correct.
+        </p>
+      </li>
+      <li>
+        <p>
+          Find an antiderivative of each of the following functions.
+          Don't hesitate to use the
+          <q>trial and error</q>
+          method of Example 4 above.
+          <tabular>
+            <row>
+              <cell><m>3</m></cell>
+              <cell><m>5t</m></cell>
+              <cell><m>-5t</m></cell>
+              <cell><m>3 - 5t</m></cell>
+            </row>
+            <row>
+              <cell><m>7x^4</m></cell>
+              <cell><m>\dfrac{1}{y^3}</m></cell>
+              <cell><m>e^{\displaystyle 2z}</m></cell>
+              <cell><m>u + \dfrac{1}{u}</m></cell>
+            </row>
+            <row>
+              <cell><m>(1 + w^3)^2</m></cell>
+              <cell><m>\cos(5v)</m></cell>
+              <cell><m>x^9 + 5x^7 - 2x^5</m></cell>
+              <cell><m>\sin{t} \, \cos{t}</m></cell>
+            </row>
+          </tabular>
+        </p>
+      </li>
+      <li>
+        <p>
+          Find a formula for each of the following indefinite integrals.
+          <ol>
+            <li>
+              <p>
+                <m>\dint 3x \, dx</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\dint 3u \, du</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\dint e^z \, dz</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\dint 5t^4 \, dt</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\dint 7y + \dfrac{1}{y} \, dy</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\dint 7y - \dfrac{4}{y^2} \, dy</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\dint 5\sin{w} - 2\cos{w} \, dw</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\dint dx</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\dint e^{z+2} \, dz</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\dint \cos(4x) \, dx</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\dint \dfrac{5}{1+r^2}\,dr</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\dint \dfrac{1}{\sqrt{1-4s^2}}\, ds</m>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </li>
+      <li>
+        <p>
+          Find an antiderivative <m>F(x)</m> of
+          <m>f(x) = 7</m> for which <m>F(0) = 12</m>.
+          <ol>
+            <li>
+              <p>
+                Find an antiderivative <m>G(x)</m> of
+                <m>f(x) = 7</m> for which <m>G(3) = 1</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Do <m>F(x)</m> and <m>G(x)</m> differ by a constant?
+                If so, what is the value of that constant?
+              </p>
+            </li>
+          </ol>
+        </p>
+      </li>
+      <li>
+        <p>
+          Find an antiderivative <m>F(t)</m> of
+          <m>f(t) = t + \cos{t}</m> for which <m>F(0) = 3</m>.
+          <ol>
+            <li>
+              <p>
+                Find an antiderivative <m>G(t)</m> of
+                <m>f(t) = t + \cos{t}</m> for which <m>G(\pi/2) = -5</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Do <m>F(t)</m> and <m>G(t)</m> differ by a constant?
+                If so, what is the value of that constant?
+              </p>
+            </li>
+          </ol>
+        </p>
+      </li>
+      <li>
+        <p>
+          Find an antiderivative of the function <m>a + by</m> when <m>a</m> and <m>b</m> are fixed constants.
+        </p>
+      </li>
+      <li>
+        <p>
+          Verify that <m>(1 + x^3)^{10}</m> is an antiderivative of <m>30x^2(1 + x^3)^9</m>.
+          <ol>
+            <li>
+              <p>
+                Find an antiderivative of <m>x^2(1 + x^3)^9</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Find an antiderivative of <m>x^2 + x^2(1 + x^3)^9</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </li>
+      <li>
+        <p>
+          Verify that <m>x \ln{x}</m> is an antiderivative of <m>1 + \ln{x}</m>.
+          <ol>
+            <li>
+              <p>
+                Find an antiderivative of <m>\ln{x}</m>. [Do you see how you can use part (a) to find this antiderivative?]
+              </p>
+            </li>
+          </ol>
+        </p>
+      </li>
+      <li>
+        <p>
+          Recall that <m>F(y) = \ln(y)</m> is an antiderivative of <m>1/y</m> for <m>y>0</m>.
+          According to the text, <em>every</em>
+          antiderivative of <m>1/y</m> over this domain must be of the form
+          <m>\ln(y) + C</m> for an appropriate value of <m>C</m>.
+          <ol>
+            <li>
+              <p>
+                Verify that <m>G(y) = \ln(2y)</m> is also an antiderivative of <m>1/y</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Find <m>C</m> so that <m>\ln(2y) = \ln(y) + C</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </li>
+      <li>
+        <p>
+          Verify that <m>-\cos^2{t}</m> is an antiderivative of <m>2\sin{t} \, \cos{t}</m>.
+          Since you already know <m>\sin^2{t}</m> is an antiderivative,
+          you should be able to show
+          <me>
+            -\cos^2{t} = \sin^2{t} + C
+          </me>
+          for an appropriate value of <m>C</m>.
+          What is <m>C</m>?
+        </p>
+      </li>
+      <li xml:id="log">
+        <p>
+          Since the function <m>\ln{x}</m> is defined only when <m>x > 0</m>,
+          the equation
+          <me>
+            \int \dfrac{1}{x} \, dx = \ln{x} + C
+          </me>
+          applies only when <m>x > 0</m>.
+          However, the integrand <m>1/x</m> is defined when <m>x \lt  0</m> as well.
+          Therefore, it makes sense to ask what the integral (i.e., antiderivative) of <m>1/x</m> is when <m>x \lt  0</m>.
+          <ol>
+            <li>
+              <p>
+                When <m>x \lt 0</m> then <m>-x > 0</m> so <m>\ln(-x)</m> is defined.
+                In these circumstances,
+                show that <m>\ln(-x)</m> is an antiderivative of <m>1/x</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Now put these two
+                <q>pieces</q>
+                of antiderivative together by defining the function
+                <me>
+                  F(x) = \begin{cases}\ln(-x)  \amp \mbox{if \(x \lt  0\)} , \\ \ln(x)   \amp \mbox{if \(x > 0\)} \end{cases}
+                </me>
+                Sketch together the graphs of the functions <m>F(x)</m> and <m>1/x</m> in such a way that it is clear that <m>F(x)</m> is an antiderivative of <m>1/x</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Explain why <m>F(x) = \ln{|x|}</m>.
+                For this reason a table of integrals often contains the entry
+                <me>
+                  \int \dfrac{1}{x} \, dx = \ln{|x|} + C
+                </me>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Every function <m>\ln{|x|} + C</m> is an antiderivative of <m>1/x</m>,
+                but there are even more.
+                As you will see,
+                this can happen because the domain of <m>1/x</m> is broken into two parts.
+                Let
+                <me>
+                  G(x) = \begin{cases}\ln(-x) \amp  \mbox{if \(x \lt  0\)} , \\ \ln(x) + 1 \amp  \mbox{if \(x > 0\)} . \end{cases}
+                </me>
+                Sketch together the graphs of the functions <m>G(x)</m> and <m>1/x</m> in such a way that it is clear that <m>G(x)</m> is an antiderivative of <m>1/x</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Explain why there is no value of <m>C</m> for which
+                <me>
+                  \ln{|x|} + C = G(x)
+                </me>.
+                This shows that the functions
+                <m>\ln{|x|} + C</m> do not exhaust the set of antiderivatives of <m>1/x</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Construct two more antiderivatives of <m>1/x</m> and sketch their graphs.
+                What is the general form of the new antiderivatives you have constructed? (A suggestion:
+                you should be able to use two separate constants <m>C_1</m> and <m>C_2</m> to describe the general form.)
+              </p>
+            </li>
+          </ol>
+        </p>
+      </li>
+      <li>
+        <p>
+          <xref ref="tangent">On</xref> of the text there is an antiderivative for the tangent function:
+          <me>
+            \int \tan{x} \, dx = - \ln(\cos{x})
+          </me>.
+          However, this is not defined when <m>x</m> makes <m>\cos{x}</m> either zero or negative.
+          <ol>
+            <li>
+              <p>
+                How many separate intervals does the domain of <m>\tan{x}</m> break down into?
+              </p>
+            </li>
+            <li>
+              <p>
+                For what values of <m>x</m> is <m>\cos{x}</m> equal to zero,
+                and for what values is it negative?
+              </p>
+            </li>
+            <li>
+              <p>
+                Modify the antiderivative <m>-\ln(\cos{x})</m> so that it <em>is</em>
+                defined when <m>\cos{x}</m> is negative. (How is this problem with the logarithm function treated in the previous question?)
+              </p>
+            </li>
+            <li>
+              <p>
+                In a typical table of integrals you will find the statement
+                <me>
+                  \int \tan{x} \, dx =  - \ln{|\cos{x}|} + C
+                </me>.
+                Explain why this does not cover all the possibilities.
+              </p>
+            </li>
+            <li>
+              <p>
+                Give a more precise expression for <m>\dint \tan{x}\,dx</m>,
+                modelled on the way you answered part (f) of problem 18.
+                How many different constants will you need?
+              </p>
+            </li>
+            <li>
+              <p>
+                Find a function <m>G</m> that is an antiderivative for <m>\tan{x}</m> and that also satisfies the following conditions:
+                <me>
+                  G(0) = 5,  \qquad G(\pi) = -23, \qquad G(17\pi) = 197
+                </me>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </li>
+      <li>
+        <p>
+          In the table <xref ref="table">on</xref>
+          the antiderivative of <m>x^p</m> is given as
+          <me>
+            \dfrac{1}{p+1} x^{p+1} +C
+          </me>.
+          For some values of <m>p</m> this is correct,
+          with only a single constant <m>C</m> needed.
+          For other values of <m>p</m>, though,
+          the domain of <m>x^p</m> will consist of more than one piece,
+          and <m>\dfrac{1}{p+1} x^{p+1}</m> can be modified by a different constant over each piece.
+          For what values of <m>p</m> does this happen?
+        </p>
+      </li>
+      <li>
+        <p>
+          Find <m>F'(x)</m> for the following functions.
+          In parts (a), (b), and (d) do the problems two ways:
+          by finding an antiderivative,
+          and by using the fundamental theorem to get the answer without evaluating an antiderivative.
+          Check that the answers agree.
+          <ol>
+            <li>
+              <p>
+                <m>F(x) = \dint_0^x (t^2 + t^3) \, dt</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>F(x) = \dint_1^x \dfrac{1}{u} \, du</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>F(x) = \dint_1^x \dfrac{v}{1+v^3} \, dv</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>F(x) = \dint_0^{x^2} \cos{t} \, dt</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>F(x) = \dint_1^{x^2} \dfrac{v}{1+v^3} \, dv</m>.
+                <nbsp/><nbsp/> [Hint:
+                let <m>u = x^2</m> and use the chain rule.] Comment: It may seem that parts (c) and (e) are more difficult than the others.
+                However, there is a way to apply the fundamental theorem of calculus here to get answers to parts (c) and (e) quickly and with little effort.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </li>
+      <li>
+        <p>
+          Consider the two functions
+          <me>
+            F(x) = \sqrt{1 + x^2} - 1  \mbox{and} G(x) = \int_0^x \dfrac{t}{\sqrt{1+t^2}} \, dt
+          </me>.
+          <ol>
+            <li>
+              <p>
+                Show that <m>F</m> and <m>G</m> both satisfy the initial value problem
+                <me>
+                  y' = \dfrac{x}{\sqrt{1+x^2}},  \qquad y(0) = 0
+                </me>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Since an initial value problem typically has a
+                <em>unique</em> solution,
+                <m>F</m> and <m>G</m> should be equal.
+                Assuming this,
+                determine the exact value of the following definite integrals.
+                <me>
+                  \int_0^1 \dfrac{t}{\sqrt{1+t^2}} \, dt, \qquad \int_0^2 \dfrac{t}{\sqrt{1+t^2}} \, dt, \qquad \int_0^5 \dfrac{t}{\sqrt{1+t^2}} \, dt
+                </me>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </li>
+      <li>
+        <p>
+          The connection between integration and differentiation that is provided by the fundamental theorem of calculus makes it possible to determine an integral by solving a differential equation.
+          For example, the accumulation function
+          <me>
+            A(x) = \int_0^x e^{-t^2} dt
+          </me>
+          is the solution to the initial value problem
+          <me>
+            y' = e^{-x^2} \, , \qquad y(0) = 0
+          </me>.
+          Therefore, <m>A(x)</m> can be found by solving the differential equation.
+          As you have seen, Euler's method is a useful way to solve differential equations.
+          <ol>
+            <li>
+              <p>
+                Use either a program (e.g., PLOT) or a differential equation solver on a computer to get a graphical solution <m>A(x)</m> to the initial value problem above.
+              </p>
+            </li>
+            <li>
+              <p>
+                Sketch the graph of <m>y = A(x)</m> over the domain <m>0 \leq x \leq 4</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Your graph should increase from left to right.
+                How can you tell this even before you see the computer output?
+              </p>
+            </li>
+            <li>
+              <p>
+                Your graph should level off as <m>x</m> increases.
+                Determine <m>A(5)</m>, <m>A(10)</m>, <m>A(30)</m>.
+                (Approximations provided by the computer are adequate here.)
+              </p>
+            </li>
+            <li>
+              <p>
+                Estimate <m>{\displaystyle \lim_{x \to \infty} A(x)}</m>. [The <em>exact</em>
+                value is <m>\sqrt{\pi}/2</m>.]
+              </p>
+            </li>
+            <li>
+              <p>
+                Determine <m>\dint_0^1 e^{-t^2} dt</m> and <m>\dint_0^2 e^{-t^2} dt</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Determine <m>\dint_1^2 e^{-t^2} dt</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </li>
+      <li>
+        <p>
+          Find the area under the curve
+          <m>y = x^3 + x</m> for <m>x</m> between 1 and<nbsp/>4. (See chapter 6.3.)
+        </p>
+      </li>
+      <li>
+        <p>
+          Find the area under the curve
+          <m>y = e^{3x}</m> for <m>x</m> between 0 and <m>\ln{3}</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+          The <term>average value</term> of the function <m>f(x)</m> on the interval <m>a \leq x \leq b</m> is the integral
+          <me>
+            \dfrac{1}{b-a} \int_a^b f(x) \, dx
+          </me>.
+          (See the discussion of average value in chapter<nbsp/>6,
+          <xref ref="average-begin">pages</xref><ndash/> <xref ref="average-end"></xref>.)
+          <ol>
+            <li>
+              <p>
+                Find the average value of each of the functions <m>y = x</m>,
+                <m>x^2</m>,
+                <m>x^3</m>,
+                and <m>x^4</m> on the interval <m>0 \leq x \leq 1</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Explain, using the graphs of <m>y = x</m> and <m>y = x^2</m>,
+                why the average value of <m>x^2</m> is less than the average value of <m>x</m> on the interval <m>[0, 1]</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </li>
+      <li>
+        <p>
+          What are the maximum, minimum,
+          and average values of the function
+          <me>
+            f(x) = x + 2 e^{-x}
+          </me>
+          on the interval <m>[0, 3]</m>?
+          <ol>
+            <li>
+              <p>
+                Sketch the graph of <m>y = f(x)</m> on the interval <m>[0, 3]</m>.
+                Draw the line <m>y = \mu</m>,
+                where <m>\mu</m> is the average value you found in part (a).
+              </p>
+            </li>
+            <li>
+              <p>
+                For which <m>x</m> does the graph of
+                <m>y = f(x)</m> lie above the line <m>y = \mu</m>,
+                and for which <m>x</m> does it lie below the line?
+                The region between the graph and the line has two parts<mdash/>one is above the line
+                (and below the graph)
+                and the other is below the line
+                (and above the graph).
+                Shade these two regions and compare their areas:
+                which is larger?   [The two are equal.]
+              </p>
+            </li>
+          </ol>
+        </p>
+      </li>
+    </ol>
+  </subsection>
+</section>

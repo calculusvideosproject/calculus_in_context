@@ -1,0 +1,1720 @@
+<section xml:id="sec_optimization">
+  <title>Optimization</title>
+  <introduction>
+    <p>
+          <idx><h>optimization</h></idx> <term>Optimization</term> is the process of making the best choice from a range of possibilities. (
+      <q>Optimum</q>
+          <idx><h>optimum</h></idx>
+      is the Latin word for <em>best</em>.)
+    </p>
+    <aside>
+      <p>
+        The contexts for optimization
+      </p>
+    </aside>
+    <p>
+      We are all familiar with optimization in the economic arena:
+      managers of an enterprise typically seek to to maximize profit or minimize cost by making conscious choices.
+      It is perhaps more surprising to learn that we sometimes use the same language to describe physical processes.
+      For instance,
+      the atoms in a molecule are arranged so that their total energy is minimized.
+      A light ray travels from one point to another along the path that takes the least time.
+      Of course atoms and photons don't make conscious choices.
+      Nevertheless,
+      the imagery of optimization is so vivid and useful that we try to invoke it whenever we can.
+      Usually, there is a restriction<mdash/>called a
+      <term>constraint</term><mdash/>on the choices that can be made to achieve to best possible outcome.
+          <idx><h>constraint</h></idx>
+    </p>
+    <aside>
+      <p>
+        Constrained optimization
+      </p>
+    </aside>
+    <p>
+      For instance, consider a factory that makes tennis rackets.
+      We can expect that the factory managers are instructed to minimize cost
+      <em>while producing a given number of rackets</em>.
+      This is their constraint.
+      Production cost is a function of many quantities that the managers can control<mdash/>the number of workers,
+      the wage scale, and the cost of the raw materials are just a few.
+      When the managers choose values for these quantities that minimize the cost function,
+      they must be sure those values will also satisfy the constraint.
+      In mathematical terms, optimization
+    </p>
+    <aside>
+      <p>
+        Mathematical optimization
+      </p>
+    </aside>
+    <p>
+      is the process of finding the minimum
+          <idx><h>minimum</h></idx>
+      or maximum
+          <idx><h>maximum</h></idx>
+      value of a function.
+      The presence of constraints complicates this task, as you shall see.
+    </p>
+  </introduction>
+  <subsection xml:id="subsec_visual-inspection">
+    <title>Visual Inspection</title>
+    <introduction>
+      <p>
+        <image width="73%" source="images/OPT1.png"/>
+      </p>
+      <sidebyside>
+        The maximum value of a function is the highest point on its graph; the
+        minimum value is the lowest.  Shown at the right is the graph of <m>z =
+        x^3 - 4x - y^2</m> on the domain
+        <m>-2 \leq x \leq 3 \qquad -2 \leq y \leq 3</m>.
+        The maximum occurs where <m>(x, y) = (3, 0)</m>, and it has the value <m>z =
+        15</m>.  The minimum is <m>z \approx -12.1</m>, when <m>(x, y) \approx (1.2,
+        3)</m>.  Confirm this yourself by inspecting the graph and then
+        calculating <m>z</m>.
+      </sidebyside>
+      <p>
+        We'll use the term <term>extreme</term>
+            <idx><h>extreme</h></idx>
+            <idx><h>local extreme</h></idx>
+            <idx><h>extreme</h><h>local</h></idx>
+      </p>
+      <aside>
+        <p>
+          Extremes, and local extremes
+        </p>
+      </aside>
+      <p>
+        to refer to either a maximum or a minimum.
+        In the example we see several <em>local</em> extremes.
+        These are points where the value of the function is larger or smaller than it is at any <em>nearby</em> point.
+        There are local minima at both left-hand corners of the graph,
+        at <m>(-2, -2)</m> and <m>(-2, 3)</m>.
+        There is another along the front edge, near <m>(1.2, -2)</m>.
+        There is a local maximum
+            <idx><h>maximum</h><h>local</h></idx>
+            <idx><h>local maximum</h></idx>
+        in the interior, near <m>(-1.2, 0)</m>.
+        To decide which local minimum
+            <idx><h>minimum</h><h>local</h></idx>
+            <idx><h>local minimum</h></idx>
+        is the <em>true</em> minimum, we must simply look.
+        It is the same for local maxima.
+        In our example,
+            <idx><h>domain</h></idx>
+      </p>
+      <aside>
+        <p>
+          The domain is a constraint
+        </p>
+      </aside>
+      <p>
+        the domain of definition of the function acts as a <em>constraint</em>.
+        If we change the domain, the positions of the extreme points can change.
+        For example,
+        suppose we change the position of the right-hand border in stages:
+        first, <m>x \leq 3</m>; second, <m>x \leq 2.5</m>;
+        third, <m>x \leq 2</m>. (Since the graph itself doesn't change,
+        we use a grid to show the part of the graph that satisfies
+      </p>
+      <p>
+        <image width="73%" source="images/OPT2.png"/> <image width="73%" source="images/OPT3.png"/> <image width="73%" source="images/OPT4.png"/> the constraint in each case below.) At the start,
+        the maximum is on the boundary.
+        When we first move the boundary to the left (from <m>x = 3</m> to <m>x = 2.5</m>),
+      </p>
+      <aside>
+        <p>
+          The maximum moves <mdash/>it even jumps
+        </p>
+      </aside>
+      <p>
+        the maximum just moves with it.
+        However, when we move the boundary farther
+        (from <m>x = 2.5</m> to <m>x = 2</m>),
+        the maximum jumps from the boundary to an interior point
+            <idx><h>interior point</h></idx>
+        (near <m>(-1.2, 0)</m>).
+        During these changes the minimum is not affected.
+        It stays at the same place.
+        The sudden jump in the maximum
+      </p>
+      <aside>
+        <p>
+          Catastrophes
+        </p>
+      </aside>
+      <p>
+        is called a <term>catastrophe</term>.
+            <idx><h>catastrophe</h></idx>
+        The figures explain what happens.
+        We impose a constraint <m>x \leq a</m>,
+        and then we reduce the value of the parameter<nbsp/><m>a</m>.
+        At first, the maximum is at the boundary point <m>(a, 0)</m>.
+        The position of this point changes smoothly with <m>a</m>,
+        causing a gradual drop in the value of the maximum.
+        Eventually, the maximum reaches the same value as the interior local maximum.
+        (This happens when <m>a = 4/\sqrt{3}</m>; see the exercises.)
+        If <m>a</m> continues to decrease,
+        the local maximum at <m>(a, 0)</m> then has a lower value than the local maximum at the interior point,
+        so the true maximum jumps to the interior.
+        There are many variations on this pattern.
+        Whenever a function depends on a parameter the positions of its extremes do, too.
+        There are many ways for the position of an extreme to jump suddenly
+        <em>while the parameter is changing gradually</em>.
+            <idx><h>parameter</h></idx>
+        Any such jump is called a catastrophe.
+      </p>
+      <aside>
+        <p>
+          Catastrophes make the task of optimization more interesting.
+          If the maximum of a certain function gives the optimal solution to a problem,
+          and that maximum jumps to a new position,
+          then the optimal solution changes radically.
+          For example,
+          suppose the problem is to determine the minimum-energy configuration of atoms in a molecule.
+          When the minimum jumps catastrophically,
+          there is a new configuration of the same atoms,
+          producing an <em>isomeric</em> form of the molecule.
+          The quest for an optimum does not have to involve mathematical tools.
+          A good example is John Stuart Mill's
+              <idx><h>Mill, J. S.</h></idx>
+          philosophy of
+          <q>the greatest good for the greatest number</q>. In politics a catastrophe is called a revolution.
+          Even scientific research pursues an optimum in raising the question:
+          <q>What is the best way to explain certain phenomena?</q>
+          The consensus in the scientific community can change catastrophically,
+          in what is called a <em>paradigm shift</em>
+              <idx><h>paradigm shift</h></idx>
+          or an intellectual revolution.
+          The geological theory of plate tectonics
+              <idx><h>plate tectonics</h></idx>
+          is a familiar example.
+          Though proposed in the 1920s,
+          it was dismissed until the 1960s,
+          when it was suddenly and overwhelmingly accepted.
+        </p>
+      </aside>
+      <p>
+        <image width="73%" source="images/OPT5.png"/> <image width="73%" source="images/OPT6.png"/> <image width="73%" source="images/OPT7.png"/> \begin{minipage}[t]{3.75in}
+      </p>
+    </introduction>
+    <subsubsection xml:id="density1">
+      <title>Density plots</title>
+      <p>
+        We can also solve optimization problems by inspecting density plots.
+            <idx><h>plot</h><h>density</h></idx>
+        Suppose <m>z</m> is the yield from a process that is controlled by two inputs <m>x</m> and <m>y</m>, and
+        <me>
+          z = 3xy - 2 y^2
+        </me>.
+      </p>
+      <p>
+        Initially we take <m>0 \leq x \leq 4</m>, <m>0 \leq y \leq 4</m>.
+        The maximum yield is at the darkest spot in the upper density plot.
+        It occurs on the right boundary, near <m>y = 3</m>.
+      </p>
+      <p>
+        The position of the maximum
+            <idx><h>maximum</h></idx>
+        is subject to change if we have to impose further constraints.
+            <idx><h>constraint</h></idx>
+        For instance,
+        suppose the resource <m>y</m> is more limited than we first assumed,
+        requiring us to set <m>y \leq 2.3</m>.
+        With this added constraint we see that the maximum shifts to the corner <m>(x, y) = (4, 2.3)</m>.
+        (The points shown in a lighter gray are the ones that have been removed from consideration by the new constraint.)
+        \end{minipage} <image width="73%" source="images/OPT8.png"/> <image width="73%" source="images/OPT9.png"/>
+      </p>
+      <sidebyside>
+        <nbsp/><nbsp/>  Besides limits on individual resources, we are often faced
+        with a limit on <em>total</em> resources.  In our case, let's suppose
+        the limit has the form
+        <me>
+          x + y \leq 4
+        </me>.
+        That means all points above the line <m>x + y = 4</m> must be removed from
+        consideration.  (They are shown in lighter gray.)  This new constraint
+        causes the maximum to shift yet again.  It now appears near the point
+        <m>(x, y) = (3, 1)</m>.
+      </sidebyside>
+      <p>
+        As we add constraints that force the maximum to move,
+        the density at each new maximum is less than it was at the previous one.
+        Thus, the value of the maximum itself decreases.
+      </p>
+      <aside>
+        <p>
+          Constraints reduce optimality
+        </p>
+      </aside>
+      <p>
+        In other words,
+        each added constraint makes the optimal solution slightly
+        <q>less optimal</q>
+        than it had been.
+        This is only to be expected.
+        Of course the extremes may appear in the interior
+            <idx><h>interior point</h></idx>
+            <idx><h>domain</h></idx>
+      </p>
+      <aside>
+        <p>
+          Extremes on the interior of a density plot
+        </p>
+      </aside>
+      <p>
+        of the domain as well as on the boundary<mdash/>and density plots can show this.
+        Here are the density plots that correspond to the graphs of
+        <m>z = x^3 - 4x - y^2</m> that we saw <xref ref="optimum1">on</xref>.
+        The maximum jumps to the interior
+            <idx><h>catastrophe</h></idx>
+        when the value of <m>a</m> in the constraint <m>x \leq a</m>
+      </p>
+      <p>
+        <image width="73%" source="images/OPT10.png"/> <image width="73%" source="images/OPT11.png"/> <image width="73%" source="images/OPT12.png"/> <image width="73%" source="images/OPT13.png"/> <image width="73%" source="images/OPT14.png"/> drops below <m>a = 4/\sqrt{3}</m>.
+        In all three plots the minimum appears as the bright spot at the top of the rectangle near where <m>x = 1</m>. (The exact location is
+        <m>(x, y) = (2/\sqrt{3}, 3)</m>.) We can also see a local minimum at the bottom of the rectangle near <m>x = 1</m>.
+        From the graph we know there are two more at the left corners of the rectangle,
+        but they are harder to notice in the density plots.
+      </p>
+    </subsubsection>
+    <subsubsection xml:id="subsubsec_contour-plots">
+      <title>Contour plots</title>
+      <p>
+        A density plot is useful for showing the general location of the highs and lows,
+        but we can get a more precise picture by switching to a contour plot.
+            <idx><h>plot</h><h>contour</h></idx>
+        Let's look at the contour plots of the same problems we just analyzed using density plots.
+        <image width="73%" source="images/OPT15.png"/> <image width="73%" source="images/OPT16.png"/> <image width="73%" source="images/OPT17.png"/>
+      </p>
+      <sidebyside>
+        <nbsp/><nbsp/>  We'll start with the function <m>z = 3xy - 2 y^2</m> we first
+        considered <xref ref="density1">on</xref> and search for its extremes
+        subject to the constraints<idx><h>constraint</h></idx>
+        <md>
+          <mrow>0 \leq x,</mrow>
+          <mrow>0 \leq y \leq 2.3,</mrow>
+          <mrow>x + y \leq 4</mrow>
+        </md>,
+        that we introduced earlier.  From the density plot <xref ref="density1">on</xref> it was obvious that the values of <m>z</m>
+      </sidebyside>
+      <p>
+        increase steadily from the upper left corner of the large square to the upper part of the right side.
+        In the contour plot, though,
+        we need some sort of labels to show us where the low and high values of <m>z</m> are to be found.
+      </p>
+      <p>
+        To locate the extremes within the constrained region,
+        we need to find contours that carry the lowest and the highest values of <m>z</m>.
+        We can do this quite precisely.
+      </p>
+      <aside>
+        <p>
+          An extreme can occur where a contour is tangent to the boundary
+        </p>
+      </aside>
+      <p>
+        The contour that just passes through the upper left corner<mdash/>and meets the region at that point alone<mdash/>carries the lowest value of <m>z</m>.
+        If you study the plot you can see that the contour carrying the <em>highest</em>
+        value of <m>z</m> also touches the boundary at just a single point.
+        It is the contour that is tangent
+            <idx><h>tangent</h></idx>
+        to the line <m>x + y = 4</m>,
+        and elsewhere lies outside the constrained region.
+        <image width="73%" source="images/opt18.png"/> <image width="73%" source="images/opt19.png"/> <image width="73%" source="images/opt20.png"/>
+      </p>
+      <sidebyside>
+        <nbsp/><nbsp/>  Suppose the extreme is in the <em>interior</em><idx><h>interior
+        point</h></idx> of the constrained region, rather than on the boundary.  For
+        example, the function <m>z = x^3 - 4x - y^2</m> has an interior maximum
+        when
+        <md>
+          <mrow>-2 \leq x \leq 2</mrow>
+          <mrow>-2 \leq y \leq 3</mrow>
+        </md>.
+        Around the maximum there is a nest of concentric ovals.  This pattern
+        is characteristic for an interior extreme.  Notice the local maximum
+        where a contour is tangent to the boundary line <m>x = 2</m>.
+      </sidebyside>
+      <p>
+        These examples demonstrate
+            <idx><h>plot</h><h>contour</h></idx>
+      </p>
+      <aside>
+        <p>
+          Contour patterns at an extreme
+        </p>
+      </aside>
+      <p>
+        that there are characteristic patterns that contour lines make near an extreme point.
+            <idx><h>extreme</h></idx>
+        One pattern appears along a constraint
+            <idx><h>constraint</h></idx>
+        curve; another pattern appears at interior points of a domain.
+        We first
+      </p>
+      <p>
+        <image width="73%" source="images/opt21.png"/> <image width="73%" source="images/opt22.png"/> Patterns of contour lines at an extreme point met the pattern that appears at an interior
+            <idx><h>interior point</h></idx>
+        extreme point when we discussed the <sq>standard</sq> minimum (<m>x^2 + y^2</m>) and maximum (<m>-x^2 - y^2</m>) in section<nbsp/>1
+        (<xref ref="standard_min_max-begin">pages</xref><ndash/> <xref ref="standard_min_max-end"></xref>).
+        <term>Caution</term>: the patterns you see here are
+        <q>typical</q>, but they do not <em>guarantee</em>
+        the presence of an extreme point.
+        The exercises give you a chance to explore some of the subtleties.
+      </p>
+    </subsubsection>
+  </subsection>
+  <subsection xml:id="subsec_dimension-reducing-constraints">
+    <title>Dimension-reducing Constraints</title>
+    <p>
+          <idx><h>constraint</h><h>dimension-reducing</h></idx>
+      Constraints appear frequently in optimization problems.
+    </p>
+    <aside>
+      <p>
+        How a constraint can reduce the dimension of a problem
+      </p>
+    </aside>
+    <p>
+      Thus far, however,
+      the constraints we considered have been described by
+      <em>inequalities</em>, like <m>x + y \leq 4</m>.
+      Initially, <m>x</m> and <m>y</m> give us the coordinates of a point in a two-dimensional plane.
+      The effect of the constraint
+      <m>x + y \leq 4</m> is to restrict the points <m>(x, y)</m> to just a part of that plane<mdash/>but it is still a
+      <em>two-dimensional</em> part.
+      Sometimes, though, the constraint is given by an
+      <em>equality</em>, like <m>x + y = 4</m>.
+      In that case,
+      the points <m>(x, y)</m> are restricted to lie on a line<mdash/>which is a one-dimensional set in the plane.
+      The second constraint therefore reduces the dimension of the problem.
+      <image width="73%" source="images/constr1.png"/> <image width="73%" source="images/constr2.png"/> There is a standard form
+    </p>
+    <aside>
+      <p>
+        A standard form
+      </p>
+    </aside>
+    <p>
+      for any constraint that reduces a two-dimensional optimization problem to a one-dimensional problem.
+      The form is this:
+      <me>
+        \mbox{constraint:}   g(x, y) = 0
+      </me>.
+    </p>
+    <p>
+      For instance, the constraint
+      <m>x + y = 4</m> can be written this way by setting <m>g(x, y) = x + y - 4</m>.
+      We'll look at another example in a moment.
+      First, though, notice that
+      <m>g(x, y) = 0</m> is one of the contour lines of the function <m>g(x, y)</m>,
+      namely, the contour at level zero.
+      Since the contours of <m>g</m> are curves,
+      we often call <m>g(x, y) = 0</m> a
+      <em> constraint curve</em>.
+          <idx><h>constraint curve</h></idx>
+    </p>
+    <aside>
+      <p>
+        A comment on dimension
+      </p>
+    </aside>
+    <p>
+      This curve is <em>one</em>-dimensional,
+      even though it might twist and turn in a two-dimensional plane.
+      We say the curve is one-dimensional because it looks like a straight line under a microscope.
+      Likewise, a curved surface is two-dimensional because it looks like a flat plane under a microscope.
+          <idx><h>dimension</h><h>of a curve or surface</h></idx>
+      <term>Example</term>.
+      Find the extreme values of
+      <m>f(x, y) = x^2 + 8 x y + 3 y^2 - 5 x</m> subject to the constraint <m>g(x, y) = x^2 + y^2 - 4 = 0</m>.
+      The constraint curve is a circle of radius<nbsp/>2,
+      and the level curves of <m>z = f(x, y)</m> form a set of hyperbolas.
+      We need to find the highest and the lowest <m>z</m>-levels on the constraint curve.
+      <image width="73%" source="images/constr3.png"/> The <m>z</m>-levels are labelled around the right and the bottom edges of the figure.
+    </p>
+    <aside>
+      <p>
+        Finding the highest and lowest levels on the constraint curve
+      </p>
+    </aside>
+    <p>
+      It is in the third quadrant, near the point <m>(-1.4, -1.5)</m>,
+      that the constraint curve meets the highest <m>z</m>-level.
+      At that point <m>z</m> is slightly more than 30.
+      The constraint curve is evidently tangent to the contour there.
+      The lowest <m>z</m>-level that the constraint curve meets is about <m>z = -16</m>,
+      near the point <m>(1.6, -1.2)</m>.
+      Picture in your mind how the contours between <m>z = -10</m> and <m>z = -20</m> fit together.
+      Can you see that the constraint curve is tangent
+          <idx><h>tangent</h></idx>
+      to contour at the minimum?
+      <term>Example, continued</term>.
+    </p>
+    <aside>
+      <p>
+        Locate points on the constraint circle with a single variable <m>t</m>
+      </p>
+    </aside>
+    <p>
+      There is still more to say about the way the constraint
+      <m>x^2 + y^2 - 4 = 0</m> reduces the dimension of our problem.
+      First of all,
+      we can describe the coordinates of any point on the constraint circle by using the circular functions:
+      <me>
+        x = 2 \cos{t}, \qquad y = 2 \sin{t}
+      </me>.
+    </p>
+    <p>
+      We need the factor 2 because the circle has radius 2.
+      These equations mean that <m>x</m> and <m>y</m> are now functions of a
+      <em>single</em> variable, <m>t</m>.
+          <idx><h>function</h><h>of one variable</h></idx>
+      Next, consider the function
+      <me>
+        z = f(x, y) = x^2 + 8 x y + 3 y^2 - 5x
+      </me>
+      that we seek to optimize <em>subject to the constraint</em>.
+    </p>
+    <aside>
+      <p>
+        <m>z</m> becomes a function of <m>t</m>
+      </p>
+    </aside>
+    <p>
+      But the constraint makes <m>x</m> and <m>y</m> functions of <m>t</m>.
+      Thus, <em>when we take the constraint into account</em>,
+      <m>z</m> itself becomes a function of <m>t</m>:
+      <md>
+        <mrow>z \amp = f(2 \cos{t}, 2 \sin{t})</mrow>
+        <mrow>\amp = ( 2 \cos{t} )^2 + 8\, ( 2\cos{t} ) ( 2\sin{t} ) + 3 ( 2\sin{t} )^2 - 5 ( 2\cos{t} )</mrow>
+      </md>.
+    </p>
+    <p>
+      The graph of <em>this</em> function is thus just an ordinary curve in the <m>t,
+      z</m>-plane.
+      It is shown on the right, below.
+      A value of <m>t</m> determines a point on the circle,
+      as shown in the contour plot on the left.
+      (We have taken <m>t \approx \pi/3</m>.)
+      The value of <m>z</m> at that point then determines the height of the graph on the right.
+      As you can see,
+      our chosen value of <m>t</m> puts <m>z</m> near a local maximum.
+      <image width="73%" source="images/constr4.png"/> <image width="73%" source="images/constr5.png"/> <image width="73%" source="images/wrap1.png"/>
+    </p>
+    <sidebyside>
+      <term>Example, continued</term>.  Let's look at the graph of <m>z = x^2 + 8 x y
+      + 3 y^2 - 5x</m>.  The constraint tells us that we should look <em>only</em> at the points on the graph that lie above the circle <m>x^2 +
+      y^2 - 4 = 0</m>.  These are the points where the graph intersects the
+      cylinder<idx><h>cylinder</h></idx> that you see at the right.  The intersection
+      is a curve that goes up and down around the cylinder.  At some point
+      on the curve <m>z</m> has a maximum, and at some other point it has a
+      minimum.  (In fact, both the maximum and the minimum are visible in
+      this view.)
+    </sidebyside>
+    <p>
+      Since the intersection curve lies on the cylinder,
+    </p>
+    <aside>
+      <p>
+        Unwrap the cylinder
+      </p>
+    </aside>
+    <p>
+      we can get a better view of the curve if we slit open the cylinder and unwrap it.
+      Follow the sequence clockwise from the upper left.
+      We can use coordinates to describe the curve on the flattened cylinder.
+      The <m>t</m> variable takes us around the cylinder,
+      so it becomes the horizontal coordinate.
+      The <m>z</m> variable measures vertical height.
+      The <m>z</m>-range in the figure above is larger than we need:
+      it goes from <m>-50</m> to <m>+100</m>.
+      In the bottom row on the left we have rescaled the <m>z</m>-axis so it runs from <m>-20</m> to <m>+35</m>.
+      Compare this graph with the one on the opposite page.
+      <image width="73%" source="images/wrap2.png"/> <image width="73%" source="images/wrap3.png"/> <image width="73%" source="images/wrap5.png"/> <image width="73%" source="images/wrap6.png"/> <image width="73%" source="images/wrap7.png"/>
+    </p>
+    <p>
+      The example shows us how a constraint works
+    </p>
+    <aside>
+      <p>
+        A general view of the dimension-reducing effect of a constraint
+      </p>
+    </aside>
+    <p>
+      to reduce the dimension of a problem in general.
+      Suppose we want to maximize the value of the function <m>z = f(x, y)</m>,
+      subject to the constraint <m>g(x, y) = 0</m>.
+      Then:
+      <ul>
+        <li>
+          <p>
+            <em>Without</em> the constraint,
+            we would look for the highest point on a
+            <em>two</em>-dimensional surface in three-dimensional space.
+          </p>
+        </li>
+        <li>
+          <p>
+            <em>With</em> the constraint,
+            we would restrict our search to the vertical
+            <q>curtain</q>
+              <idx><h>curtain</h></idx>
+            that lies above the constraint curve.
+            The graph intersects this curtain in a curve,
+            so we end up looking for the highest point on a
+            <em>one</em>-dimensional curve in a two-dimensional plane.
+            We can think of this plane as the curtain after it has been unwrapped and straightened out.
+          </p>
+        </li>
+      </ul>
+    </p>
+    <p>
+      <image width="73%" source="images/wrap9.png"/> <image width="73%" source="images/wrap10.png"/> <image width="73%" source="images/wrap11.png"/> This is just a picture of the relation between the function and the constraint.
+      We may still have to determine <em>analytically</em>
+      the form that the function <m>f(x, y)</m> takes when we impose the constraint <m>g(x, y) = 0</m>.
+      You can find a number of possibilities in the exercises.
+    </p>
+  </subsection>
+  <subsection xml:id="subsec_extremes-and-critical-points">
+    <title>Extremes and Critical Points</title>
+    <p>
+          <idx><h>extreme</h></idx>
+          <idx><h>critical point</h></idx>
+      <image width="73%" source="images/sample.png"/>
+    </p>
+    <sidebyside>
+      Suppose that a function <m>f(x, y)</m> has a maximum<idx><h>maximum</h></idx> or a
+      minimum<idx><h>minimum</h></idx> at an <em>interior</em><idx><h>interior point</h></idx>
+      point <m>(a, b)</m>.  Suppose also that the function is <em>locally
+      linear</em> at <m>(a, b)</m>, so we have a
+      <q>bowl</q>
+      rather than a
+      <q>spike</q>
+      <idx><h>spike</h></idx> or some other irregularity in the graph.  Then
+      we must have
+      <me>
+        \mbox{grad}  f (a, b) = \left(\dfrac{\partial f}{\partial x}(a, b),
+        \dfrac{\partial f}{\partial y}(a, b) \right)  = (0, 0)
+      </me>.
+    </sidebyside>
+    <p>
+      Here is why.
+      The gradient
+          <idx><h>gradient</h></idx>
+      vector <m>\mbox{grad} f (a, b)</m>
+    </p>
+    <aside>
+      <p>
+        A proof
+      </p>
+    </aside>
+    <p>
+      tells us how the graph of <m>z = f(x, y)</m> is tilted at the point <m>(a, b)</m>.
+      (We discuss the geometric meaning of the gradient <xref ref="gradtheorem2">on</xref>.)
+      At a maximum or a minimum,
+      though, the graph is <em>not</em> tilted; it must be flat.
+      Therefore, the gradient must be the zero vector.
+      The ideas here carry over to functions
+    </p>
+    <aside>
+      <p>
+        Moving to an arbitrary number of input variables
+      </p>
+    </aside>
+    <p>
+      that have any number of input variables.
+      First, we give a name to a point where the gradient is zero.
+    </p>
+    <image source=""/>
+    <p>
+      The observation we just made can now be restated as a theorem that connects extreme points and critical points.
+    </p>
+    <image source=""/>
+    <p>
+      The direction of the implication in this theorem is important.
+    </p>
+    <aside>
+      <p>
+        A statement and its converse
+      </p>
+    </aside>
+    <p>
+      Here is the theorem, written in a very abbreviated form:
+      <me>
+        \emph{statement}: \qquad \mbox{extreme}  \Longrightarrow \mbox{critical}
+      </me>.
+    </p>
+    <p>
+      When we reverse the direction of the implication,
+      we get a new statement, abbreviated the same way:
+      <me>
+        \emph{converse}: \qquad \mbox{critical}  \Longrightarrow \mbox{extreme}
+      </me>.
+    </p>
+    <p>
+      The converse
+          <idx><h>converse</h></idx>
+      says that a critical point must be an extreme point.
+    </p>
+    <aside>
+      <p>
+        The converse of <em>this</em> theorem is not true
+      </p>
+    </aside>
+    <p>
+      But that is just not true.
+      For example,
+      an ordinary saddle point (a minimax) is a critical point,
+      but it is not a minimum or a maximum.
+      The theorem and the observation
+    </p>
+    <aside>
+      <p>
+        Searching critical points for extremes
+      </p>
+    </aside>
+    <p>
+      about its converse are both important in the <em>optimization
+          <idx><h>optimization</h></idx>
+      process</em><mdash/>that is, the search for extremes.
+      Together they offer us the following guidance:
+      <m>\bullet</m> Search for the extremes of a function among its critical points.
+      <m>\bullet</m> A critical point may be neither a maximum nor a minimum.
+      To see how we can find extremes by searching among the critical points of a function,
+      we'll do a few examples.
+      All the examples use the same basic idea.
+      However, as the details get more complicated we bring in more powerful techniques.
+      <term>Example 1</term>.
+      We'll start with the function
+      <me>
+        z = f(x, y) =  x^3 - 4 x - y^2
+      </me>
+      we have frequently used as a test case in this chapter.
+      The critical points of <m>f</m> are the points that <em>simultaneously</em>
+      satisfy the two equations<idx><h>derivative</h><h>partial</h></idx>
+      <md>
+        <mrow>\dfrac{\partial f}{\partial x} \amp =  3 x^2 - 4 = 0,</mrow>
+        <mrow>\dfrac{\partial f}{\partial y} \amp =  - 2 y = 0</mrow>
+      </md>.
+    </p>
+    <p>
+      <image width="73%" source="images/contour1.png"/>
+    </p>
+    <sidebyside>
+      It is clear that <m>y = 0</m> and <m>x = \pm \sqrt{4/3} \approx \pm 1.1547</m>.
+      The two critical points are therefore
+      <me>
+        \left(+\sqrt{4/3}, 0\right) \qquad \mbox{and}  \qquad
+        \left(-\sqrt{4/3}, 0\right)
+      </me>.
+      If you check the contour plot you can see that <m>(-\sqrt{4/3}, 0)</m> is a
+      local maximum<idx><h>maximum</h><h>local</h></idx> and <m>(+\sqrt{4/3}, 0)</m> is a saddle
+      point.<idx><h>saddle point</h></idx>
+    </sidebyside>
+    <p>
+      <term>Example 2</term>.
+      Here is a somewhat more complicated function:
+      <me>
+        g(x, y) =  2 x^2 y - y^2 - 4 x^2 + 3 y
+      </me>.
+    </p>
+    <p>
+      The critical points are the solutions of the equations
+      <me>
+        \dfrac{\partial g}{\partial x} =  4 x y - 8 x = 0, \qquad \qquad \dfrac{\partial g}{\partial y} =  2 x^2 - 2 y + 3 = 0
+      </me>.
+    </p>
+    <p>
+      Algebraic methods will still work,
+      even though both variables appear in both equations.
+      For example,
+      we can rewrite <m>{\partial g/\partial y} = 0</m> as
+      <me>
+        2y = 2 x^2 + 3 \qquad \mbox{or}  \qquad y = x^2 + \tfrac{3}{2}
+      </me>.
+    </p>
+    <p>
+      We can then substitute this expression for <m>y</m> into <m>{\partial g/\partial x} = 0</m> and get
+      <me>
+        4x \left(x^2 + \tfrac{3}{2}\right) - 8x = 4x \left( x^2 + \tfrac{3}{2} - 2 \right) = 4x \left( x^2 - \tfrac{1}{2} \right) = 0
+      </me>.
+    </p>
+    <p>
+      This implies <m>x = 0</m> or <m>x = \pm \sqrt{1/2}</m>.
+      For each <m>x</m> we can then find the corresponding <m>y</m> by from the equation <m>y = x^2 + \tfrac{3}{2}</m>.
+      Let's work through this a second time using a geometric approach.
+      The equations <m>{\partial g/\partial x} = 0</m> and
+      <m>{\partial g/\partial y} = 0</m> both define curves in the <m>x,
+      y</m>-plane.
+      The curve <m>{\partial g/\partial y} = 0</m> is a parabola:
+      <m>y = x^2 + \tfrac{3}{2}</m>.
+      The equation <m>{\partial g/\partial x} = 0</m> factors as
+      <me>
+        4 x ( y - 2) = 0 \qquad \mbox{or}  \qquad x ( y - 2 ) = 0
+      </me>.
+    </p>
+    <p>
+      <image width="73%" source="images/locus1.png"/>
+    </p>
+    <sidebyside>
+      Now a product equals 0 precisely when one of its factors equals 0, so
+      <m>{\partial g/\partial x} = 0</m> implies that <em>either</em> <m>x = 0</m> <em>or</em> <m>y - 2 = 0</m>.  In other words, the
+      <q>curve</q>
+      <m>{\partial
+      g/\partial x} = 0</m> consists of two lines:
+      <md>
+        <mrow>{2}
+        x \amp = 0,   \amp  \amp \mbox{a vertical line} ,</mrow>
+        <mrow>y \amp = 2,   \amp  \amp \mbox{a horizontal line} </mrow>
+      </md>.
+      The two curves are shown in the figure at the right.  They intersect
+      in three points.  (The place where the horizontal and vertical lines
+      cross is <em>not</em> one of the intersection points.)
+    </sidebyside>
+    <p>
+      One of the immediate benefits of the geometric approach is to make it clear that the <m>y</m>-coordinate of a critical point is either 2 or <m>\tfrac{3}{2}</m>.
+      The critical points are therefore <image width="73%" source="images/contour2.png"/>
+    </p>
+    <sidebyside>
+      <me>
+        \left(-\sqrt{1/2}, 2 \right),
+        \left(
+        0, \tfrac{3}{2} \right),
+        \left(+\sqrt{1/2}, 2 \right)
+      </me>.
+      A glance at the contour plot of <m>g</m> makes it clear that the first and
+      third of these are saddle points.  The middle point is a local
+      maximum.  There are several ways to determine this.  One is to look at
+      the graph of <m>g</m>.  Another is to look at a vertical slice of the graph
+      through the line <m>x = 0</m>.  Then <m>z = g(0, y) = -y^2 + 3y</m>.  Here <m>z</m>
+      has a maximum when <m>y = \tfrac{3}{2}</m>.
+    </sidebyside>
+    <aside>
+      <p>
+        We first identified the local maximum of the function
+        <m>z = x^3 - 4x - y^2</m> <xref ref="max">on</xref>.
+        At the time,
+        though, we could only estimate its position by eye.
+        Now, however, we can specify its location exactly,
+        because we have analytical tools for finding critical points.
+        As the next example shows,
+        these tools are useful even when we can't carry out the algebraic manipulations.
+      </p>
+    </aside>
+    <p>
+      <term>Example 3</term>.
+      Here is a function whose critical points we <em>can't</em>
+      find using just algebraic computations:
+      <me>
+        z = h(x, y) = x^2 y^2 - x^4 - y^4 - 2x^2 + 5 xy + y
+      </me>
+    </p>
+    <p>
+      The equations for the critical points are <image width="73%" source="images/contour3.png"/> <image width="73%" source="images/contour4.png"/>
+    </p>
+    <sidebyside>
+      <md>
+        <mrow>\dfrac{\partial h}{\partial x} \amp =
+        2 x y^2 - 4 x^3 - 4 x + 5 y = 0,</mrow>
+        <mrow>\dfrac{\partial h}{\partial y} \amp =
+        2 x^2 y - 4 y^3 + 5 x + 1 = 0</mrow>
+      </md>.
+      Even though we can't solve the equations algebraically, we can plot
+      the curves they define by using the contour-plotting program of a
+      computer.<idx><h>derivative</h><h>partial</h></idx>
+      <idx><h>plot</h><h>contour</h></idx>
+  This is done
+      at the right.  The curves intersect in three points.  (If you draw the
+      plots on a large scale, you will find that these are still the only
+      intersections.)
+      <nbsp/><nbsp/>  A contour plot of <m>z = h(x, y)</m> itself reveals that the middle
+      point is a saddle and the outer two are local maxima.  Let's focus on
+      the maximum in the upper right and determine its position more
+      precisely.
+      <nbsp/><nbsp/>  We can always use a microscope.  But if we magnify the contour
+      plot, we just get a set of nested ovals.  The maximum would lie
+      somewhere inside the smallest<mdash/>but we wouldn't know quite where.  By
+      contrast, the curves <m>{\partial h/\partial x} = 0</m> and <m>{\partial
+      h/\partial y} = 0</m> give us a pair of
+      <q>crosshairs</q>
+      to focus on.
+      Even with relatively little magnification we can see that the maximum
+      is at <m>(1.202\ldots, 1.404\ldots)</m>.
+    </sidebyside>
+    <p>
+      <image width="73%" source="images/contour5.png"/> <image width="73%" source="images/contour6.png"/> <image width="73%" source="images/contour7.png"/>
+    </p>
+  </subsection>
+  <subsection xml:id="subsec_the-method-of-steepest-ascent">
+    <title>The Method of Steepest Ascent</title>
+    <p>
+          <idx><h>steepest ascent</h><h>method of</h></idx>
+          <idx><h>method of steepest ascent</h></idx>
+      Here is yet another way to find the maximum
+          <idx><h>maximum</h></idx>
+    </p>
+    <aside>
+      <p>
+        Walk uphill to get to a maximum
+      </p>
+    </aside>
+    <p>
+      of a function <m>z = f(x, y)</m>.
+      Imagine that the graph of <m>f</m> is a landscape that you're standing on.
+      You want to get to the highest point.
+      To do that you just walk uphill.
+      But the uphill direction on the landscape is given by the gradient vector field of <m>f</m>
+      (<xref ref="gradtheorem2">see</xref>).
+          <idx><h>gradient</h><h>geometric interpretation</h></idx>
+      So you move to higher ground by following the gradient field.
+      In fact, the gradient field defines a
+    </p>
+    <aside>
+      <p>
+        Trajectories of the gradient dynamical system<ellipsis/>
+      </p>
+    </aside>
+    <p>
+      <term>dynamical system</term>
+          <idx><h>dynamical system</h></idx>
+      of exactly the sort we studied in chapter<nbsp/>8.
+      The differential equations are<idx><h>derivative</h><h>partial</h></idx>
+      <md>
+        <mrow>\dfrac{dx}{dt} \amp = \dfrac{\partial f}{\partial x}(x, y),</mrow>
+        <mrow>\dfrac{dy}{dt} \amp = \dfrac{\partial f}{\partial y}(x, y)</mrow>
+      </md>.
+    </p>
+    <p>
+      Because the gradient points uphill,
+    </p>
+    <aside>
+      <p>
+        <ellipsis/> lead to the local maxima
+      </p>
+    </aside>
+    <p>
+      the trajectories
+          <idx><h>trajectory</h></idx>
+      of this dynamical system also go uphill.
+      Trajectories flow to the attractors
+          <idx><h>attractor</h></idx>
+      of the system; these are the local maxima of the function.
+      Furthermore,
+      since the gradient points in the direction <m>f</m> increases <em>most rapidly</em>,
+      the trajectories follow paths of
+      <term>steepest ascent</term> to the maxima.
+      This explains the name of the method.
+      <term>Example 1</term>.
+      Let's see how the method of steepest ascent will find the local maxima of the function
+      <me>
+        z = h(x, y) = x^2 y^2 - x^4 - y^4 - 2x^2 + 5 xy + y
+      </me>
+    </p>
+    <p>
+      <image width="73%" source="images/ascent1.png"/>
+    </p>
+    <sidebyside>
+      we considered in the previous example.  The gradient field is
+      <md>
+        <mrow>\dfrac{dx}{dt} \amp = 2 x y^2 - 4 x^3 - 4 x + 5 y.</mrow>
+        <mrow>\dfrac{dy}{dt} \amp = 2 x^2 y - 4 y^3 + 5 x + 1</mrow>
+      </md>.
+      As you can see at the left, some of the trajectories flow to a local
+      maximum near <m>(-1, -1)</m>, while other flow to the maximum whose
+      position we determine on the opposite page.  Each attractor has its
+      own basin of attraction<idx><h>basin of attraction</h></idx> (as described in
+      chapter 8).  Therefore, the maximum found by the method of steepest
+      ascent depends on the initial point of the trajectory.
+    </sidebyside>
+    <p>
+      If we replace the gradient vectors by their negatives,
+    </p>
+    <aside>
+      <p>
+        The method of steepest <em>descent</em>
+      </p>
+    </aside>
+    <p>
+      the new field will point directly
+      <em>downhill</em><mdash/>to the local minima.
+      Using the trajectories of the negative gradient field to find the minima is thus called the method of steepest descent.
+      In the following example we use this method to investigate an economic question.
+          <idx><h>steepest descent</h><h>method of</h></idx>
+          <idx><h>method of steepest descent</h></idx> <image width="73%" source="images/distrib1.png"/> <term>Example 2</term>.
+      Manufacturing companies ship their products to regional warehouses from large distribution centers.
+      Suppose a company has regional warehouses at <m>A</m>,
+      <m>B</m>, and <m>C</m>, as shown on the map at the right.
+      Where should it put its distribution center <m>X</m> so as to minimize the total cost of supplying the three regional warehouses?
+      This is a complicated problem that depends on many factors.
+      For example, <m>X</m> probably should be put near major roads.
+      The managers may also want to choose a location where labor costs are lower.
+      Certainly, the total distance between the center and the three warehouses is important.
+      Let's simply get a <em>first approximation</em>
+      to a solution by concentrating on the last factor.
+    </p>
+    <aside>
+      <p>
+        Minimize the total distance
+      </p>
+    </aside>
+    <p>
+      We will find the position for <m>X</m> that minimizes the total straight-line distance
+      (the distance
+      <q>as the crow flies</q>
+      )
+      from <m>X</m> to the three points <m>A</m>, <m>B</m>, and <m>C</m>.
+      The map shows these distances as three dotted lines.
+      To describe the various positions we have introduced a coordinate system in which
+      <me>
+        A: \ (0, 0), \qquad B: \  (6, 9), \qquad C: \ (10, 2)
+      </me>.
+    </p>
+    <p>
+      The coordinates here are arbitrary.
+      That is, they don't represent miles, or kilometers,
+      or any of the usual units of distance<mdash/>but they are
+      <em>proportional</em> to the usual units,
+      so we can measure with them.
+      If we let the unknown position of <m>X</m> be <m>(x, y)</m>,
+      then we seek to minimize the function
+      <me>
+        S(x, y) = \sqrt{x^2 + y^2} + \sqrt{(x-6)^2 + (y-9)^2} + \sqrt{(x-10)^2 + (y-2)^2}
+      </me>.
+    </p>
+    <p>
+      According to the method of steepest descent,
+      we want to find the attractor of this dynamical system:
+      <md>
+        <mrow>\dfrac{dx}{dt} \amp = - \dfrac{x}{\sqrt{x^2 + y^2}} - \dfrac{x - 6}{\sqrt{(x-6)^2 + (y-9)^2}} - \dfrac{x - 10}{\sqrt{(x-10)^2 + (y-2)^2}},</mrow>
+        <mrow>\dfrac{dy}{dt} \amp = - \dfrac{y}{\sqrt{x^2 + y^2}} - \dfrac{y - 9}{\sqrt{(x-6)^2 + (y-9)^2}} - \dfrac{y - 2}{\sqrt{(x-10)^2 + (y-2)^2}}</mrow>
+      </md>.
+    </p>
+    <p>
+      <image width="73%" source="images/descent1.png"/> <image width="73%" source="images/distrib2.png"/>As you can see from the vector field of the dynamical system
+    </p>
+    <aside>
+      <p>
+        The attractor is a global minimum
+      </p>
+    </aside>
+    <p>
+      (above left), there is a single attractor,
+      near the point <m>(6, 4)</m>.
+      This implies the total distance function <m>S(x, y)</m> has a single global minimum<mdash/>which is what our intuition about the problem would lead us to expect.
+      To find the position of <m>X</m> more exactly, you can do the following.
+      First, obtain a solution <m>(x(t),
+      y(t))</m> to the system of differential equations with an arbitrary initial condition<mdash/>for example,
+      <me>
+        x(0)  = 1, \qquad y(0) = 1
+      </me>.
+    </p>
+    <p>
+      Then, obtain the coordinates of the
+    </p>
+    <aside>
+      <p>
+        The attractor is the limit point of a solution
+      </p>
+    </aside>
+    <p>
+      attractor by evaluating <m>(x(t),
+      y(t))</m> for larger and larger values of <m>t</m>,
+      stopping when the values of <m>x(t)</m> and <m>y(t)</m> stabilize.
+      You will find that
+          <idx><h>limit</h></idx>
+      <me>
+        X = \lim_{t \to \infty}(x(t), y(t)) = (6.22120\ldots, 3.96577\ldots)
+      </me>.
+    </p>
+    <p>
+      The important point to note here is that it is not necessary to plot the vector field<mdash/>or any other graphic aid,
+      like a contour plot or graph.
+    </p>
+    <aside>
+      <p>
+        The method needs only a differential equation solver
+      </p>
+    </aside>
+    <p>
+      You simply need to solve a system of differential equations.
+      For example,
+      the values above were found by modifying the computer program SIRVALUE
+          <idx><h>program</h><h>SIRVALUE</h></idx>
+      we introduced in chapter<nbsp/>2.
+      In summary: <em>the method of steepest descent
+      (or ascent)
+      requires no graphical tools,
+      but only a basic differential equation solver</em>.
+    </p>
+  </subsection>
+  <subsection xml:id="subsec_lagrange-multipliers">
+    <title>Lagrange Multipliers</title>
+    <p>
+          <idx><h>Lagrange multiplier</h></idx>
+          <idx><h>multiplier</h><h>Lagrange</h></idx>
+      In searching for the interior
+          <idx><h>interior point</h></idx>
+      extremes of a function <m>f(x, y)</m>,
+      we have seen that it is helpful to solve the critical point equations:
+          <idx><h>critical point</h></idx>
+      <me>
+        \dfrac{\partial f}{\partial x} = 0, \qquad \dfrac{\partial f}{\partial y} = 0
+      </me>.
+    </p>
+    <p>
+      There is a similar set of equations
+    </p>
+    <aside>
+      <p>
+        Equations for a constrained extreme
+      </p>
+    </aside>
+    <p>
+      we can use in the search for the <em>constrained</em>
+          <idx><h>constraint</h></idx>
+      extremes
+          <idx><h>extreme</h></idx>
+          <idx><h>constrained extreme</h></idx>
+          <idx><h>extreme</h><h>constrained</h></idx>
+      of <m>f</m>.
+      These equations involve a new variable called a Lagrange multiplier.
+      So, suppose the function <m>f(x, y)</m> has an extreme on the constraint curve <m>g(x, y) = 0</m>
+          <idx><h>constraint curve</h></idx>
+      at the point <m>(a, b)</m>.
+      According to the following diagram, the gradient
+          <idx><h>gradient</h></idx>
+      vectors <m>\nabla f</m>
+          <idx><h><m>\nabla</m></h></idx>
+          <idx><h>gradient</h></idx>
+      and <m>\nabla g</m> must be parallel at <m>(a, b)</m>.
+    </p>
+    <aside>
+      <p>
+        <m>\nabla f</m> and <m>\nabla g</m> must be parallel at a point where <m>f</m> has an extreme along the constraint curve <m>g = 0</m>
+      </p>
+    </aside>
+    <p>
+      (This means they are in the same direction or in opposite directions.) Here is why.
+      We already know
+      (<xref ref="constraint">see</xref>)
+      that the level curve of <m>f</m> that passes through the constrained maximum or minimum must be tangent to the constraint curve.
+          <idx><h>gradient</h><h>geometric interpretation</h></idx>
+      Now, the gradient vector <m>\nabla f</m> at any point is perpendicular to the level curve of <m>f</m> through that point<mdash/>and the same is true for <m>g</m>.
+      At a point where the level curves are tangent,
+      the gradients <m>\nabla f</m> and
+      <m>\nabla g</m> are perpendicular to the <em>same</em> curve,
+      and must therefore be parallel.
+      <image width="73%" source="images/lagr1.png"/> Parallel vectors are multiples of each other.
+    </p>
+    <aside>
+      <p>
+        The multiplier equation
+      </p>
+    </aside>
+    <p>
+          <idx><h>multiplier equation</h></idx>
+      Specifically, at a point <m>(a, b)</m> where <m>\nabla f</m> and <m>\nabla g</m> are parallel, there must be a number <m>\lambda</m>
+          <idx><h><m>\lambda</m></h></idx>
+      for which
+      <me>
+        \nabla g (a, b) = \lambda \cdot \nabla f (a, b)
+      </me>.
+    </p>
+    <p>
+      The multiplier <m>\lambda</m> is called a
+      <term>Lagrange multiplier</term>.
+      In the figure above, <m>\lambda \approx 1/2</m>.
+      If <m>\nabla g</m> and <m>\nabla f</m> were in
+      <em>opposite</em> directions,
+      then <m>\lambda</m> would be negative.
+    </p>
+    <aside>
+      <p>
+        Joseph Louis Lagrange
+            <idx><h>Lagrange, J. L.</h></idx>
+        (1736<ndash/>1813) was a French mathematician and a younger contemporary of Leonhard Euler.
+            <idx><h>Euler, L.</h></idx>
+        Like Euler he played an important role in making calculus the primary analytical tool for study the physical world.
+        He is particularly noted for his contributions to celestial mechanics,
+            <idx><h>celestial mechanics</h></idx>
+        the field where Isaac Newton
+            <idx><h>Newton, I.</h></idx>
+        first applied the calculus.
+      </p>
+    </aside>
+    <p>
+      If we write out the multiplier equation using the components of <m>\nabla f</m> and <m>\nabla g</m>,
+      we get<idx><h>derivative</h><h>partial</h></idx>
+      <me>
+        \left(\dfrac{\partial g}{\partial x}(a, b), \dfrac{\partial g}{\partial y}(a, b) \right) = \lambda \left(\dfrac{\partial f}{\partial x}(a, b), \dfrac{\partial f}{\partial y}(a, b) \right) = \left(\lambda \, \dfrac{\partial f}{\partial x}(a, b), \lambda \, \dfrac{\partial f}{\partial y}(a, b) \right)
+      </me>.
+    </p>
+    <p>
+      In a vector equation, the vectors are equal component by component.
+      Thus,
+      <md>
+        <mrow>\dfrac{\partial g}{\partial x}(a, b) \amp = \lambda \, \dfrac{\partial f}{\partial x}(a, b)</mrow>
+        <mrow>\dfrac{\partial g}{\partial y}(a, b) \amp = \lambda \, \dfrac{\partial f}{\partial y}(a, b)</mrow>
+      </md>
+    </p>
+    <p>
+      Let's return to the main question,
+    </p>
+    <aside>
+      <p>
+        How can we find a constrained maximum or minimum?
+      </p>
+    </aside>
+    <p>
+      which can be stated this way: How do we determine where the function <m>f(x, y)</m> has a maximum or a minimum,
+      subject to the constraint <m>g(x, y) = 0</m>?
+      If we let <m>(a, b)</m> denote the point we seek,
+      then we see that <m>a</m> and <m>b</m> satisfy three equations:
+          <idx><h>constraint equation</h></idx>
+      <me>
+        \begin{array}{rl} \mbox{the constraint equation} : \amp  \hspace{24pt} g(a, b) = 0,     \\ \mbox{the multiplier equations} : \amp \left\{ \begin{array}{l} \dfrac{\partial g}{\partial x}(a, b) = \lambda \, \dfrac{\partial f}{\partial x}(a, b), \\ \dfrac{\partial g}{\partial y}(a, b) = \lambda \, \dfrac{\partial f}{\partial y}(a, b). \end{array} \right. \end{array}
+      </me>
+    </p>
+    <p>
+      In fact, there are <em>three</em>
+      unknowns in these equations:
+      <m>a</m>, <m>b</m>, and <m>\lambda</m>.
+      When we solve the three equations for the three unknowns,
+      we will determine the location of the constrained extreme.
+      (We'll also have a piece of information we can throw away:
+      the value of <m>\lambda</m>.)
+      <term>Example</term>.
+      Find the maximum of <m>f(x, y) = x^p y^{1-p}</m> subject to the constraint <m>x + y = c</m>.
+      There are two parameters in this problem:
+      <m>p</m> and <m>c</m>.
+      We assume that <m>0 \lt  p \lt  1</m> and <m>0 \lt  c</m>.
+      We introduce parameters to remind you that analytic methods
+      (such as Lagrange multipliers)
+      are especially valuable in solving problems that depend on parameters.
+      We let <m>g(x, y) = x + y - c</m>.
+      Then
+      <me>
+        \nabla g = (1, 1), \qquad  \nabla f = \left(p x^{p-1} y^{1-p}, (1-p) x^p y^{-p} \right)
+      </me>,
+      so the three equations we must solve are
+      <md>
+        <mrow>x + y - c \amp = 0,</mrow>
+        <mrow>1 \amp = \lambda p x^{p-1} y^{1-p},</mrow>
+        <mrow>1 \amp = \lambda (1-p) x^p y^{-p}</mrow>
+      </md>.
+    </p>
+    <p>
+      Since the second and third equations both equal 1, we can set them equal to each other:
+      <me>
+        \lambda p x^{p-1} y^{1-p} = \lambda (1-p) x^p y^{-p}
+      </me>.
+    </p>
+    <p>
+      We can cancel the two <m>\lambda</m>s and combine the powers of <m>x</m> and <m>y</m> to get
+      <me>
+        p x^{-1} y = 1 - p \qquad \mbox{or}  \qquad \dfrac{y}{x} = \dfrac{1 - p}{p}
+      </me>.
+    </p>
+    <p>
+      According to the first of the three equations, <m>y = c - x</m>.
+      If we substitution this expression in for <m>y</m> into the last equation, we get
+      <me>
+        \dfrac{c - x}{x} = \dfrac{1 - p}{p} \qquad \mbox{or}  \qquad p(c - x) = (1 - p) x
+      </me>.
+    </p>
+    <p>
+      This equation reduces to <m>pc = x</m>,
+      which gives us the <m>x</m>-coordinate of the maximum.
+      To get the <m>y</m>-coordinate,
+      we use <m>y = c - x = c - pc = c(1 - p)</m>.
+      To sum up, the maximum is at
+      <me>
+        (x, y) = (cp, c(1-p)) = c(p, 1-p)
+      </me>.
+    </p>
+  </subsection>
+  <subsection xml:id="subsec_exercises">
+    <title>Exercises</title>
+    <introduction>
+      <p>
+        When searching for an extreme,
+        be sure to zoom in on the graph or plot you are using as you narrow down the location of the point you seek.
+      </p>
+      <ol>
+        <li>
+          <p>
+            Inspect the graph of <m>z = xy</m> to find the maximum value of <m>z</m> subject to the constraints
+            <me>
+              x \geq 0, \qquad  y \geq 0, \qquad  3 x + 8 y \leq 120
+            </me>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Inspect the graph of <m>z = 5 x + 2 y</m> to find the minimum value of <m>z</m> subject to the constraints
+            <me>
+              x \geq 0, \qquad  y \geq 0, \qquad  xy  \geq 10
+            </me>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Inspect a contour plot of <m>z = 3xy - y^2</m> to find the maximum value of <m>z</m> subject to the constraints
+            <me>
+              x \geq 0, \qquad  y \geq 0, \qquad  x + y \leq 5
+            </me>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Continuation.
+            Add the constraint <m>x \leq a</m> to the preceding three,
+            where <m>a</m> is a parameter that takes values between 0 and 5.
+            Find the maximum value of <m>z</m> subject to all four constraints.
+            Describe how the position of the constraint depends on the value of the parameter <m>a</m>. \ans{The maximum is found at <m>(x, y) = (25/8, 15/8)</m>,
+            as long as <m>a \geq 25/8</m>.
+            When <m>a \lt 25/8</m>, the maximum is at <m>(x, y) = (a, 5 - a)</m>.}
+          </p>
+        </li>
+        <li>
+          <p>
+            Find the maximum and minimum values of
+            <m>z = 12 x - 5 y</m> when <m>(x, y)</m> is exactly 1<nbsp/>unit from the origin.
+          </p>
+        </li>
+        <li>
+          <p>
+            Find the maximum and minimum value
+            <aside>
+              <p>
+                How is the gradient involved here?
+              </p>
+            </aside>
+            of <m>z = px + qy</m> when <m>(x, y)</m> is exactly 1<nbsp/>unit from the origin.
+          </p>
+          <ol>
+            <li>
+              <p>
+                At what point is the maximum achieved;
+                at what point is the minimum achieved?
+              </p>
+            </li>
+          </ol>
+        </li>
+        <li>
+          <p>
+            Use a graph to locate the maximum value of the function
+            <me>
+              z = 2 x y - 5 x^2 - 7 y^2 + 2 x + 3 y
+            </me>.
+            There are no constraints.
+          </p>
+        </li>
+        <li>
+          <p>
+            Use a graph to find the maximum value of <m>z = 6x + 12 y - x^3 - y^3</m>,
+            subject to the constraints
+            <me>
+              x \geq 0, \qquad y \geq 0, \qquad x^2 + y^2 \leq 100
+            </me>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Locate the position of the minimum of
+            <m>x^4 - 2 x^2 - \alpha x + y^2</m> as a function of the parameter <m>\alpha</m>.
+            <ol>
+              <li>
+                <p>
+                  The position of the minimum jumps catastrophically when <m>\alpha</m> passes through a certain value.
+                  At what value of <m>\alpha</m> does this happen,
+                  and what jump occurs in the minimum?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Locate the maximum of <m>x^3 + y^3 - 3x - 3y</m> subject to
+            <me>
+              x \leq 3, \qquad  y \leq 0, \qquad  x + y \leq \beta
+            </me>.
+            The position of the maximum depends on the value of the parameter <m>\beta</m>,
+            which you can assume lies between 0 and 5.
+            <ol>
+              <li>
+                <p>
+                  The position of the maximum jumps catastrophically when <m>\beta</m> crosses a certain threshold value <m>\beta_0</m>.
+                  What is <m>\beta_0</m>?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Find the maximum value of <m>x^2 y</m> in the first quadrant,
+            subject to the constraint <m>x + 5 y = 10</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Find the maximum and minimum values of
+            <m>z = 3x + 4 y</m> subject to the single constraint <m>x^2 + 4xy + 5y^2 = 10</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Find all the critical points of the following functions.
+            <ol>
+              <li>
+                <p>
+                  <m>3 x^2 + 7xy + 2 y^2 + 5x - 6 y + 3</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\sin{x} \sin{y}</m> <nbsp/><nbsp/> on the domain
+                  <m>-4 \leq x \leq 4</m>, <m>-4 \leq y \leq 4</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\sin{xy}</m> <nbsp/><nbsp/> on the domain
+                  <m>-4 \leq x \leq 4</m>, <m>-4 \leq y \leq 4</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\exp(x^2 + y^2)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>x^3 + y^3 - 3x - 3 y</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>x^3 - 3x y^2 - x^2 - y^2</m>. [There are four critical points;
+                  three are saddles.]
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Find the nine critical points of the function
+            <me>
+              C(x, y) = (x^2 + xy + y^2 -1)(x^2 - xy + y^2 - 1)
+            </me>.
+            Four are minima, four are saddles, and one is a maximum.
+            <ol>
+              <li>
+                <p>
+                  Mark the locations of the critical points on a suitable contour plot of <m>C(x, y)</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Locate and classify the critical points of the energy integral of a pendulum:
+            <me>
+              E(x, v) = 1 - \cos{x} + \tfrac{1}{2}v^2
+            </me>.
+            <ol>
+              <li>
+                <p>
+                  Compare the <em>critical points</em>
+                  of <m>E</m> with the <em>equilibrium points</em>
+                  of the dynamical system associated with this energy integral.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Use the method of steepest descent to find the minimum of the function
+            <me>
+              z = p(x, y) =  e^{2 + y - x^2 - y^2} \sin{x}
+            </me>.
+          </p>
+        </li>
+      </ol>
+    </introduction>
+    <subsubsection xml:id="subsubsec_the-distribution-problem">
+      <title>The distribution problem</title>
+      <p>
+        The next two exercises are modifications of the distribution problem on <xref ref="distribstart">pages</xref><ndash/> <xref ref="distribend"></xref>.
+        In the example we assumed that deliveries from the center <m>X</m> to each of the regional warehouse <m>A</m>,
+        <m>B</m>,
+        and <m>C</m> happened equally often.
+        These exercises assume that deliveries to some warehouses are more frequent than others.
+      </p>
+      <ol>
+        <li>
+          <p>
+            Suppose that one truck makes deliveries to <m>A</m> 5 times each week,
+            while a second truck is used to make 3 deliveries to <m>B</m> and 2 to <m>C</m> each week.
+            It makes sense to locate <m>X</m> so that the
+            <em>total weekly travel</em> is minimized,
+            rather than just the total distance to the three warehouses.
+            To get the total weekly travel, we should:
+            <m>\bullet</m> multiply the distance from <m>X</m> to <m>A</m> by 5;
+            <m>\bullet</m> multiply the distance from <m>X</m> to <m>B</m> by 3;
+            <m>\bullet</m> multiply the distance from <m>X</m> to <m>C</m> by 2.  (Actually,
+            the total <em>round-trip</em> distances are twice these values,
+            but the proportions would remain the same,
+            so we can use these numbers.)  Thus,
+            the function to minimize is
+            <me>
+              T(x, y) = 5\sqrt{x^2 + y^2} + 3\sqrt{(x-6)^2 + (y-9)^2} + 2\sqrt{(x-10)^2 + (y-2)^2}
+            </me>.
+          </p>
+          <ol>
+            <li>
+              <p>
+                Use the method of steepest descent to find the minimum of <m>T</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Compare the location of the distribution center <m>X</m> as determined by <m>T</m> to its location determined by the function <m>S</m> of example<nbsp/>2 in the text.
+                Would you <em>expect</em> the location to change?
+                In what direction?
+                Does the calculated change in position agree with your intuition?
+              </p>
+            </li>
+          </ol>
+        </li>
+        <li>
+          <p>
+            Suppose that deliveries to <m>A</m> are twice as frequent as deliveries to either <m>B</m> or <m>C</m>.
+            (For example,
+            two trucks make the round-trip to <m>A</m> each day,
+            but only one truck to <m>B</m> and one to <m>C</m>.)
+            Where should the distribution center <m>X</m> be located in these circumstances?
+            Explain how you got your answer. \ans{<m>X</m> should be at <m>A</m>.
+            Does this surprise you?}
+          </p>
+        </li>
+        <li>
+          <p>
+            A company which has four offices around the country holds an annual meeting for its top executives.
+            The location of each office,
+            and the number of executives at that office,
+            are given in the following table.
+            (The coordinates <m>x</m> and <m>y</m> of the position are given in arbitrary units.)
+            <tabular>
+              <row>
+                <cell>office</cell>
+                <cell>executives</cell>
+                <cell><m>x</m></cell>
+                <cell><m>y</m></cell>
+              </row>
+              <row bottom="minor">
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+              </row>
+              <row>
+                <cell>[-10pt] <m>A</m></cell>
+                <cell>32</cell>
+                <cell>200</cell>
+                <cell>300</cell>
+              </row>
+              <row>
+                <cell><m>B</m></cell>
+                <cell>17</cell>
+                <cell>1920</cell>
+                <cell>1100</cell>
+              </row>
+              <row>
+                <cell><m>C</m></cell>
+                <cell>20</cell>
+                <cell>2240</cell>
+                <cell>450</cell>
+              </row>
+              <row>
+                <cell><m>D</m></cell>
+                <cell>41</cell>
+                <cell>2875</cell>
+                <cell>1150</cell>
+              </row>
+            </tabular>
+            Where should the meeting be held if the location depends <em>solely</em>
+            on the total travel cost for all the participants?
+            Assume that the travel cost, per mile,
+            is the same for every participant.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection xml:id="subsubsec_the-best-fitting-line">
+      <title>The best-fitting line</title>
+      <p>
+        Suppose we've taken measurements of two quantities <m>x</m> and <m>y</m>,
+        and obtained the results shown in the table and graph below.
+        We assume that <m>y</m> depends on <m>x</m> according to some rule that we don't happen to know.
+        In particular,
+        we'd like to know what <m>y</m> is when <m>x = 5</m>.
+        We have no data.
+        Can we <em>predict</em> what <m>y</m> should be?
+        <image width="73%" source="images/data1.png"/>
+      </p>
+      <tabular>
+        <row>
+          <cell><m>x</m></cell>
+          <cell><m>y</m></cell>
+        </row>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell>0</cell>
+          <cell>1</cell>
+        </row>
+        <row>
+          <cell>1</cell>
+          <cell>3</cell>
+        </row>
+        <row>
+          <cell>2</cell>
+          <cell>4</cell>
+        </row>
+        <row>
+          <cell>3</cell>
+          <cell>3</cell>
+        </row>
+        <row>
+          <cell>4</cell>
+          <cell>5</cell>
+        </row>
+        <row>
+          <cell>5</cell>
+          <cell>?</cell>
+        </row>
+      </tabular>
+      <p>
+        <image width="73%" source="images/data2.png"/>
+      </p>
+      <sidebyside>
+        <nbsp/><nbsp/>  Here is a common approach to the question.  We assume there is
+        a simple underlying relation between <m>y</m> and <m>x</m>. However, the
+        measurements that give us the data contain errors or
+        <q>noise</q>
+        of some
+        sort that obscure the relationship.  The simplest relation is a linear
+        function, so we assume that there is a formula <m>Y = mx + b</m> that
+        describes the connection between <m>x</m> and <m>y</m>.
+      </sidebyside>
+      <p>
+        Which line should we choose?
+        In other words, how should we choose <m>m</m> and <m>b</m>?
+        Since the data points don't lie on a line,
+        there is no perfect solution.
+        For any choices,
+        we must expect a difference <m>e_j</m> between the the <m>j</m>-th data value <m>y_j</m> and the value
+        <m>Y_j = m \, j + b</m> predicted by the formula.
+        These differences are the <em>errors</em> we assume are present.
+        A reasonable way to proceed is to
+        <term>minimize</term> the total error.
+        Even this involves choices.
+        In the figure above, <m>e_0</m> and <m>e_3</m> are negative,
+        so the ordinary total could be zero,
+        or nearly so, even if the individual errors were large.
+        We need a total that <em>ignores</em> the signs of the errors.
+        Here is one:
+        <me>
+          \mbox{absolute error:}  \qquad |e_0| + |e_1| + |e_2| + |e_3| + |e_4| = AE
+        </me>.
+      </p>
+      <p>
+        Here is another:
+        <me>
+          \mbox{squared error:}  \qquad e_0^2 + e_1^2 + e_2^2 + e_3^2 + e_4^2 = SE
+        </me>.
+      </p>
+      <p>
+        In the following table we compare the data <m>y_j</m> with the calculated values <m>Y_j</m> and the resulting errors <m>e_j</m>.
+        <me>
+          \begin{array}{cc|cc} x \amp  y \amp  Y \amp  e = y - Y \\ \hline 0 \amp  1 \amp  b \amp  1-b    \\ 1 \amp  3 \amp  m+b \amp  3-m-b \\ 2 \amp  4 \amp  2m+b \amp  4-2m-b \\ 3 \amp  3 \amp  3m+b \amp  3-3m-b \\ 4 \amp  5 \amp  4m+b \amp  5-4m-b \end{array}
+        </me>
+      </p>
+      <p>
+        To get the values of <m>AE</m> and <m>SE</m>,
+      </p>
+      <aside>
+        <p>
+          The total errors are functions of <m>m</m> and <m>b</m>
+        </p>
+      </aside>
+      <p>
+        we take either the absolute values or the squares of the elements of the rightmost column,
+        and then add.
+        In particular,
+        the table makes it clear that both total errors are functions of <m>m</m> and<nbsp/><m>b</m>.
+        The absolute error is
+        <me>
+          AE(m, b) = |1-b| + |3-m-b| + |4-2m-b| + |3-3m-b| + |5-4m-b|
+        </me>.
+      </p>
+      <ol>
+        <li>
+          <p>
+            Inspect a graph and a contour plot to determine the values of <m>m</m> and <m>b</m> which minimize
+            <m>AE(m, b)</m>. \ans{Remarkable as is may seem,
+            there is an entire line segment of solutions to this problem in the <m>m,
+            b</m>-plane.
+            One end of the line is near <m>(m, b) = (.67, 2.3)</m>,
+            the other is near <m>(m, b) = (1, 1)</m>.}
+          </p>
+        </li>
+        <li>
+          <p>
+            Using a best-fitting line from the previous question,
+            find the predicted value of <m>y</m> when <m>x = 5</m>.
+          </p>
+          <ol>
+            <li>
+              <p>
+                Since there is a range of best-fitting lines,
+                there should be a range of predicted values for <m>y</m> when <m>x = 5</m>.
+                What is that range?
+              </p>
+            </li>
+          </ol>
+        </li>
+        <li>
+          <p>
+            Write down the function <m>SE(m, b)</m> that describes the squared error in the fit of a straight line to the data given above.
+          </p>
+        </li>
+        <li>
+          <p>
+            Use a graph and a contour plot to locate the minimum of the function
+            <m>SE(m, b)</m> from the previous exercise.
+            Indicate how many digits of accuracy your answer has.
+            <ol>
+              <li>
+                <p>
+                  Use the method of steepest descent to locate the minimum.
+                  How many digits of accuracy does
+                  <em>this</em> method yield?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+  </subsection>
+</section>

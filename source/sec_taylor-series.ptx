@@ -1,0 +1,568 @@
+<section xml:id="sec_taylor-series">
+  <title>Taylor Series</title>
+  <introduction>
+    <p>
+      In the previous section we have been talking about approximations to functions by their Taylor polynomials.
+      Thus, for instance, we were able to write statements like
+      <me>
+        \sin(x) \approx x - \dfrac{x^3}{3!} + \dfrac{x^5}{5!} - \dfrac{x^7}{7!}
+      </me>,
+      where the approximation was a good one for values of <m>x</m> not too far from 0.
+      On the other hand,
+      when we looked at Taylor polynomials of higher and higher degree,
+      the approximations were good for larger and larger values of <m>x</m>.
+      We are thus tempted to write
+      <me>
+        \sin(x) = x - \dfrac{x^3}{3!} + \dfrac{x^5}{5!} - \dfrac{x^7}{7!} + \dfrac{x^9}{9!} - \cdots
+      </me>,
+      indicating that the sine function is equal to this
+      <q>infinite degree</q>
+      polynomial.
+      This infinite sum is called the
+      <term>Taylor series</term><idx><h>Taylor series</h><h>definition</h></idx> centered at <m>x=0</m> for <m>\sin(x)</m>.
+      But what would we even mean by such an infinite sum? \cicmarginnote {You have seen
+    </p>
+    <p>
+      infinite sums before} We will explore this question in detail in section<nbsp/>5,
+      but you should already have some intuition about what it means,
+      for it can be interpreted in exactly the same way we interpret a more familiar statement like
+      <md>
+        <mrow>\dfrac{1}{3} \amp = 0.33333 \ldots</mrow>
+        <mrow>\amp = \dfrac{3}{10} + \dfrac{3}{100} + \dfrac{3}{1000} + \dfrac{3}{10000} + \dfrac{3}{100000} + \cdots </mrow>
+      </md>.
+    </p>
+    <p>
+      Every decimal number is a sum of fractions whose denominators are powers of 10; 1/3 is a number whose decimal expansion happens to need an infinite number of terms to be completely precise.
+      Of course, when a practical matter arises
+      (for example,
+      typing a number like 1/3 or <m>\pi</m> into a computer)
+      just the beginning of the sum is used<mdash/>the
+      <q>tail</q>
+      is dropped.
+      We might write 1/3 as 0.33, or as 0.33333,
+      or however many terms we need to get the accuracy we want.
+      Put another way, we are saying that 1/3 is the <em>limit</em>
+      of the finite sums of the right hand side of the equation.
+      Our new formulas for Taylor series
+    </p>
+    <aside>
+      <p>
+        Infinite degree polynomials are to be viewed like infinite decimals
+      </p>
+    </aside>
+    <p>
+      are meant to be used exactly the same way:
+      when a computation is involved,
+      take only the beginning of the sum, and drop the tail.
+      Just where you cut off the tail depends on the input value <m>x</m> and on the level of accuracy needed.
+      Look at what happens when we we approximate the value of
+      <m>\cos(\pi/3)</m> by evaluating Taylor polynomials of increasingly higher degree:
+      <md>
+        <mrow>1  \amp = 1.0000000</mrow>
+        <mrow>1 - \dfrac{1}{2!} \left( \dfrac{\pi}{3} \right)^2 \amp \approx 0.4516887</mrow>
+        <mrow>1 - \dfrac{1}{2!} \left( \dfrac{\pi}{3} \right)^2 + \dfrac{1}{4!} \left( \dfrac{\pi}{3} \right)^4 \amp \approx  0.5017962</mrow>
+        <mrow>1 - \dfrac{1}{2!} \left( \dfrac{\pi}{3} \right)^2 + \dfrac{1}{4!} \left( \dfrac{\pi}{3} \right)^4 - \dfrac{1}{6!} \left( \dfrac{\pi}{3} \right)^6 \amp \approx  0.4999646</mrow>
+        <mrow>1 - \dfrac{1}{2!} \left( \dfrac{\pi}{3} \right)^2 + \dfrac{1}{4!} \left( \dfrac{\pi}{3} \right)^4 - \dfrac{1}{6!} \left( \dfrac{\pi}{3} \right)^6 + \dfrac{1}{8!} \left( \dfrac{\pi}{3} \right)^8 \amp \approx  0.5000004</mrow>
+        <mrow>1 - \dfrac{1}{2!} \left( \dfrac{\pi}{3} \right)^2 + \dfrac{1}{4!} \left( \dfrac{\pi}{3} \right)^4 - \dfrac{1}{6!} \left( \dfrac{\pi}{3} \right)^6 + \dfrac{1}{8!} \left( \dfrac{\pi}{3} \right)^8 - \dfrac{1}{10!} \left( \dfrac{\pi}{3} \right)^{10} \amp \approx  0.5000000</mrow>
+      </md>
+    </p>
+    <p>
+      These sums were evaluated by setting <m>\pi = 3.141593</m>.
+      As you can see, at the level of precision we are using,
+      a sum that is six terms long gives the correct value.
+      However, five, four,
+      or even three terms may have been adequate for the needs at hand.
+      The crucial fact is that these are all honest calculations using <em>only</em>
+      the four operations of elementary arithmetic.
+      Note that if we had wanted to get the same 6 place accuracy for <m>\cos(x)</m> for a larger value of <m>x</m>,
+      we might need to go further out in the series.
+      For instance <m>\cos(7\pi/3)</m> is also equal to 0.5, but the tenth degree Taylor polynomial centered at <m>x=0</m> gives
+      <me>
+        1 - \dfrac{1}{2!} \left( \dfrac{7\pi}{3} \right)^2 + \dfrac{1}{4!} \left( \dfrac{7\pi}{3} \right)^4 - \dfrac{1}{6!} \left( \dfrac{7\pi}{3} \right)^6 + \dfrac{1}{8!} \left( \dfrac{7\pi}{3} \right)^8 - \dfrac{1}{10!} \left( \dfrac{7\pi}{3} \right)^{10} = -37.7302
+      </me>,
+      which is not even close to 0.5 . In fact,
+      to get <m>\cos(7\pi/3)</m> to 6 decimals,
+      we need to use the Taylor polynomial centered at <m>x=0</m> of degree 30,
+      while to get <m>\cos(19\pi/3)</m>
+      (also equal to 0.5)
+      to 6 decimals we need the Taylor polynomial centered at <m>x=0</m> of degree 66!
+      The key fact, though, is that,
+      for any value of <m>x</m>, if we go out in the series far enough
+      (where what constitutes
+      <q>far enough</q>
+      will depend on <m>x</m>),
+      we can approximate <m>\cos(x)</m> to any number of decimal places desired.
+      For any <m>x</m>,
+      the value of <m>\cos(x)</m> is the limit of the finite sums of the Taylor series,
+      just as 1/3 is the limit of the finite sums of its infinite series representation.
+      In general, given a function <m>f(x)</m>,
+      its Taylor series<idx><h>Taylor series</h><h>definition</h></idx> centered at <m>x=0</m> will be
+      <me>
+        f(0) + f'(0)x + \frac{f^{(2)}(0)}{2!}x^2 + \frac{f^{(3)}(0)}{3!}x^3 + \frac{f^{(4)}(0)}{4!}x^4 + \cdots = \sum_{k=0}^{\infty} \frac{f^{(k)}(0)}{k!}x^k
+      </me>.
+    </p>
+    <p>
+      We have the following Taylor series
+          <idx><h>Taylor series</h></idx>
+      centered at <m>x=0</m> for some common functions:
+      <me>
+        \begin{array}{ccl} f(x) \amp \hspace{.5in} \amp  \hspace{.5in}\mbox{Taylor series for \(f(x)\)}  \\ \hline \amp  \amp  \\ [-6pt] \sin(x) \amp  \amp   x - \dfrac{x^3}{3!} + \dfrac{x^5}{5!} - \dfrac{x^7}{7!} + \cdots \\[.15in] \cos(x) \amp  \amp  1 - \dfrac{x^2}{2!} + \dfrac{x^4}{4!} - \dfrac{x^6}{6!} + \cdots \\[.15in] e^x \amp  \amp  1 + x + \dfrac{x^2}{2!} + \dfrac{x^3}{3!} + \dfrac{x^4}{4!} + \cdots  \\[.15in] \ln{(1-x)}\amp  \amp  -\left(x + \dfrac{x^2}{2} + \dfrac{x^3}{3} + \dfrac{x^4}{4} + \cdots \right)\\[.15in] \dfrac{1}{1-x} \amp  \amp   1 + x + x^2 + x^3 + \cdots \\ [.15in] \dfrac{1}{1+x^2}\amp  \amp  1 - x^2 + x^4 - x^6 + \cdots \\ [.15in] (1+x)^c \amp  \amp  1 +cx+ \dfrac{c(c-1)}{2!}x^2 + \dfrac{c(c-1)(c-2)}{3!}x^3 + \cdots \end{array}
+      </me>
+    </p>
+    <p>
+          <idx><h>Taylor series</h><h>table of</h></idx>
+      While it is true that <m>\cos(x)</m> and <m>e^x</m> equal their Taylor series, just as <m>\sin(x)</m> did, we have to be more careful with the last four functions.
+      To see why this is, let's graph
+      <m>1/(1+x^2)</m> and its Taylor polynomials
+      <m>P_n(x) = 1-x^2+ x^4-x^6+\cdots \pm x^n</m> for <m>n=2</m>, 4, 6, 8, 10, 12, 14, 16, 200, and 202.
+      Since all the graphs are symmetric about the <m>y</m>-axis
+      (why is this?),
+      we draw only the graphs for positive<nbsp/><m>x</m>:
+      <image width="73%" source="images/Darct.png"/> <idx><h>Taylor polynomial</h><h>graphs for
+      <m>1/(1+x^2)</m></h></idx> It appears that the
+    </p>
+    <aside>
+      <p>
+        A Taylor series may not converge for all values of <m>x</m>
+      </p>
+    </aside>
+    <p>
+      graphs of the Taylor polynomials <m>P_n(x)</m> approach the graph of <m>1/(1+x^2)</m> very nicely
+      <em>so long as <m>x \lt  1</m></em>.
+      If <m>x\geq1</m>, though,
+      it looks like there is no convergence,
+      no matter how far out in the Taylor series we go.
+      We can thus write
+      <me>
+        \dfrac{1}{1+x^2} = 1 - x^2 + x^4 - x^6 + \cdots \qquad \text{ for \(|x| \lt  1\) }
+      </me>,
+      where the restriction on <m>x</m> is essential if we want to use the <m>=</m> sign.
+      We say that the interval <m>-1\lt x\lt 1</m> is the
+      <term>interval of convergence</term>
+          <idx><h>interval of convergence</h></idx>
+      for the Taylor series centered at <m>x=0</m> for <m>1/(1+x^2)</m>.
+      Some Taylor series, like those for <m>\sin(x)</m> and <m>e^x</m>,
+      converge for all values of <m>x</m><mdash/>their interval of convergence is <m>(-\infty, \infty)</m>.
+      Other Taylor series,
+      like those for <m>1/(1+x^2)</m> and <m>\ln(1-x)</m>,
+      have finite intervals of convergence.
+    </p>
+    <aside>
+      <p>
+        Brook Taylor (1685<ndash/>1731)
+            <idx><h>Taylor, Brook</h></idx>
+        was an English mathematician who developed the series that bears his name in his book
+        <em>Methodus incrementorum</em> (1715).
+        He did not worry about questions of convergence,
+        but used the series freely to attack many kinds of problems,
+        including differential equations.
+      </p>
+    </aside>
+    <p>
+      <term>Remark</term> On the one hand it is perhaps not too surprising that a function should equal its Taylor series<mdash/>after all,
+      with more and more coefficients to fiddle with,
+      we can control more and more of the behavior of the associated polynomials.
+      On the other hand,
+      we are saying that a function like <m>\sin(x)</m> or <m>e^x</m> has its behavior for all values of <m>x</m> completely determined by the value of the function and all its derivatives at a single point,
+      so perhaps it is surprising after all!
+    </p>
+  </introduction>
+  <subsection xml:id="subsec_exercises">
+    <title>Exercises</title>
+    <ol>
+      <li>
+        <p>
+          Suppose you wanted to use the Taylor series centered at <m>x=0</m> to calculate <m>\sin(100)</m>.
+          How large does <m>n</m> have to be before the term <m>(100)^n/{n!}</m> is less than 1?
+          <ol>
+            <li>
+              <p>
+                If we wanted to calculate <m>\sin(100)</m> directly using this Taylor series,
+                we would have to go very far out before we began to approach a limit at all closely.
+                Can you use your knowledge of the way the circular functions behave to calculate
+                <m>\sin(100)</m> much more rapidly (but still using the Taylor series centered at <m>x=0</m>)?
+                Do it.
+              </p>
+            </li>
+            <li>
+              <p>
+                Show that we can calculate the sine of any number by using a Taylor series centered at <m>x=0</m> <em>either</em>
+                for <m>\sin(x)</m> <em>or</em>
+                for <m>\cos(x)</m> to a suitable value 0f <m>x</m> between 0 and <m>\pi/4</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </li>
+      <li>
+        <p>
+          Suppose we wanted to calculate <m>\ln{5}</m> to 7 decimal places.
+          An obvious place to start is with the Taylor series centered at <m>x=0</m> for <m>\ln(1-x)</m>:
+          <me>
+            -\left(x + \dfrac{x^2}{2} + \dfrac{x^3}{3} + \dfrac{x^4}{4} + \cdots \right)
+          </me>
+          with <m>x=-4</m>.
+          What happens when you do this, and why?
+          Try a few more values for <m>x</m> and see if you can make a conjecture about the interval of convergence for this Taylor series. \ans{The Taylor series converges for <m>-1\leq x \lt  1</m>.}
+          <ol>
+            <li>
+              <p>
+                Explain how you could use the fact that
+                <m>\ln(1/A)=-\ln{A}</m> for any real number <m>A>0</m> to evaluate <m>\ln{x}</m> for <m>x>2</m>.
+                Use this to compute <m>\ln{5}</m> to 7 decimals.
+                How far out in the Taylor series did you have to go?
+              </p>
+            </li>
+            <li>
+              <p>
+                If you wanted to calculate <m>\ln 1.5</m>,
+                you could use the Taylor series for
+                <m>\ln(1-x)</m> with either <m>x=-1/2</m>,
+                which would lead directly to <m>\ln 1.5</m>,
+                or you could use the series with <m>x=1/3</m>,
+                which would produce <m>\ln(2/3) = -\ln 1.5</m><nbsp/> . Which method is faster, and why?
+              </p>
+            </li>
+          </ol>
+        </p>
+      </li>
+      <li>
+        <p>
+          We can improve the speed of our calculations of the logarithm function slightly by the following series of observations:
+          <ol>
+            <li>
+              <p>
+                Find the Taylor series centered at <m>u=0</m> for
+                <m>\ln(1+u)</m>. \ans{<m>u-u^2/2+u^3/3-u^4/4+u^5/5+\cdots</m>}
+              </p>
+            </li>
+            <li>
+              <p>
+                Find the Taylor series centered at <m>u=0</m> for
+                <me>
+                  \ln\left( \dfrac{1-u}{1+u} \right)
+                </me>.
+                (Remember that <m>\ln(A/B) = \ln{A} - \ln{B}</m>.)
+              </p>
+            </li>
+            <li>
+              <p>
+                Show that <em>any</em> <m>x>0</m> can be written in the form
+                <m>(1-u)/(1+u)</m> for some suitable <m>-1\lt u\lt 1</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Use the preceding to evaluate <m>\ln{5}</m> to 7 decimal places.
+                How far out in the Taylor series did you have to go?
+              </p>
+            </li>
+          </ol>
+        </p>
+      </li>
+      <li>
+        <p>
+          Evaluate <m>\arctan(.5)</m> to 7 decimal places.
+          <ol>
+            <li>
+              <p>
+                Try to use the Taylor series centered at <m>x=0</m> to evaluate
+                <m>\arctan(2)</m> directly<mdash/>what happens?
+                Remembering what the arctangent function means geometrically,
+                can you figure out a way around this difficulty?
+              </p>
+            </li>
+          </ol>
+        </p>
+      </li>
+      <li>
+        <p>
+          <term>Calculating <m>\pi</m></term><idx><h><m>\pi</m>,
+          calculation of</h></idx> <nbsp/><nbsp/> The Taylor series for the arctangent function,
+          <me>
+            \arctan{x} = x - \dfrac{1}{3}x^3 + \dfrac{1}{5} x^5 - \cdots \pm \dfrac{1}{{2n+1}} x^{2n+1} + \cdots
+          </me>,
+          lies behind many of the methods for getting lots of decimals of <m>\pi</m> rapidly.
+          For instance, since <m>\tan\left(\tfrac{\pi}{4}\right) = 1</m>,
+          we have <m>\tfrac{\pi}{4} = \arctan{1}</m>.
+          Use this to get a series expansion for <m>\pi</m>.
+          How far out in the series do you have to go to evaluate <m>\pi</m> to 3 decimal places?
+          <ol>
+            <li>
+              <p>
+                The reason the preceding approximations converged so slowly was that we were substituting <m>x=1</m> into the series,
+                so we didn't get any help from the <m>x^n</m> terms in making the successive corrections get small rapidly.
+                We would like to be able to do something with values of <m>x</m> between 0 and 1.
+                We can do this by using the addition formula for the tangent function:
+                <me>
+                  \tan(\alpha + \beta ) = \dfrac{{\tan\alpha +\tan\beta}} {1 - \tan\alpha \tan\beta}
+                </me>.
+                Use this to show that
+                <me>
+                  \dfrac{\pi}{4} = \arctan{\left(\dfrac{1}{2}\right)} + \arctan{\left(\dfrac{1}{5}\right)} + \arctan{\left(\dfrac{1}{8}\right)}
+                </me>.
+                Now use the Taylor series for each of these three expressions to calculate <m>\pi</m> to 12 decimal places.
+                How far out in the series do you have to go?
+                Which series did you have to go the farthest out in before the 12th decimal stabilized?
+                Why?
+              </p>
+            </li>
+          </ol>
+        </p>
+      </li>
+      <li>
+        <p>
+          <term>Raising <m>e</m> to imaginary powers</term><idx><h><m>e</m>,
+          raised to imaginary powers</h></idx> One of the major mathematical developments of the last century was the extension of the ideas of calculus to
+          <em>  complex numbers</em>
+            <idx><h>complex numbers</h></idx>
+          <mdash/>i.e., numbers of the form <m>r+s\,i</m>,
+          where <m>r</m> and <m>s</m> are real numbers,
+          and <m>i</m> is a new symbol,
+          defined by the property that <m>i\cdot i=-1</m><nbsp/>.
+          Thus <m>i^3=i^2\,i=-i</m>, <m>i^4=i^2\,i^2=(-1)(-1)=1</m>,
+          and so on.
+          If we want to extend our standard functions to these new numbers,
+          we proceed as we did in the previous section and look for the crucial <em>properties</em>
+          of these functions to see what they suggest.
+          One of the key properties of <m>e^x</m> as we've now seen is that it possesses a Taylor series:
+          <me>
+            e^x = 1 + x + \dfrac{x^2}{2!} + \dfrac{x^3}{3!} + \dfrac{x^4}{4!} + \cdots
+          </me>.
+          But this property only involves operations of ordinary arithmetic,
+          and so makes perfectly good sense even if <m>x</m> is a complex number
+          <ol>
+            <li>
+              <p>
+                Show that if <m>s</m> is any real number,
+                we must define <m>e^{i\,s}</m> to be
+                <m>\cos(s)+i\,\sin(s)</m> if we want to preserve this property.
+              </p>
+            </li>
+            <li>
+              <p>
+                Show that <m>e^{\pi\,i}=-1</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Show that if <m>r+s\,i</m> is any complex number, we must have
+                <me>
+                  e^{r+s\,i}=e^r(\cos{s}+i\,\sin{s})
+                </me>
+                if we want complex exponentials to preserve all the right properties.
+              </p>
+            </li>
+            <li>
+              <p>
+                Find a complex number <m>r+si</m> such that <m>e^{r+s\,i}= -5</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </li>
+      <li>
+        <p>
+          <term>Hyperbolic trigonometric functions</term><idx><h>function</h><h>hyperbolic</h></idx>
+            <idx><h><m>\cosh</m></h></idx>
+            <idx><h><m>\sinh</m></h></idx>
+        The hyperbolic trigonometric functions are defined by the formulas
+          <me>
+            \cosh(x) = \dfrac{e^x + e^{-x}}{2}, \qquad \sinh(x) = \dfrac{e^x - e^{-x}}{2}
+          </me>.
+          (The names of these functions are usually pronounced
+          <q>cosh</q>
+          and
+          <q>cinch.</q>
+          )  In this problem you will explore some of the reasons for the adjectives <em>hyperbolic</em>
+          and <em>trigonometric</em>.
+          <ol>
+            <li>
+              <p>
+                Modify the Taylor series centered at <m>x=0</m> for <m>e^x</m> to find a Taylor series for <m>\cosh(x)</m>.
+                Compare your results to the Taylor series centered at <m>x=0</m> for <m>\cos(x)</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Now find the Taylor series centered at <m>x=0</m> for <m>\sinh(x)</m>.
+                Compare your results to the Taylor series centered at <m>x=0</m> for <m>\sin(x)</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Parts (a) and (b) of this problem should begin to explain the
+                <em>trigonometric</em> part of the story.
+                What about the <em>hyperbolic</em> part?
+                Recall that the familiar trigonometric functions are called
+                <em>circular functions</em>
+                because, for any<nbsp/><m>t</m>,
+                the point <m>(\cos t, \sin t)</m> is on the unit circle with equation <m>x^2 + y^2 =1</m>
+                (cf.<nbsp/>chapter<nbsp/>7.2).
+                Show that the point <m>(\cosh t, \sinh t)</m> lies on the hyperbola with equation <m>x^2 - y^2 = 1</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </li>
+      <li>
+        <p>
+          Consider the Taylor series centered at <m>x=0</m> for <m>(1+x)^c</m>.
+          <ol>
+            <li>
+              <p>
+                What does the series give if you let <m>c=2</m>?
+                Is this reasonable?
+              </p>
+            </li>
+            <li>
+              <p>
+                What do you get if you set <m>c=3</m>?
+              </p>
+            </li>
+            <li>
+              <p>
+                Show that if you set <m>c=n</m>,
+                where <m>n</m> is a positive integer,
+                the Taylor series will terminate.
+                This yields a general formula<mdash/>the
+                <em>  binomial theorem</em>
+            <idx><h>binomial theorem</h></idx>
+                <mdash/>that was discovered by the 12th century Persian poet and mathematician, Omar Khayyam
+            <idx><h>Khayyam, Omar</h></idx>
+                (c.<nbsp/>1050<ndash/>1130),
+                and generalized by Newton to the form you have just obtained.
+                Write out the first three and the last three terms of this formula.
+              </p>
+            </li>
+            <li>
+              <p>
+                Use an appropriate substitution for <m>x</m> and a suitable value for <m>c</m> to derive the Taylor series for <m>1/(1-u)</m>.
+                Does this agree with what we previously obtained?
+              </p>
+            </li>
+            <li>
+              <p>
+                Suppose we want to calculate <m>\sqrt{17} </m>.
+                We might try letting <m>x=16</m> and <m>c=1/2</m> and using the Taylor series for <m>(1+x)^c</m>.
+                What happens when you try this?
+              </p>
+            </li>
+            <li>
+              <p>
+                We can still use the series to help us, though,
+                if we are a little clever and write
+                <me>
+                  \sqrt{17} =\sqrt{16+1} = \sqrt{16\left(1+\dfrac{1}{16}\right)} =\sqrt{16}\cdot\sqrt{1+ \dfrac{1}{16}} = 4 \cdot \sqrt{1 + \dfrac{1}{16}}
+                </me>.
+                Now apply the series using <m>x=1/16</m> to evaluate
+                <m>\sqrt{17}</m> to 7 decimal place accuracy.
+                How many terms does it take?
+              </p>
+            </li>
+            <li>
+              <p>
+                Use the same kind of trick to evaluate <m>\sqrt[3]{30}</m>.
+                <term>Evaluating Taylor series rapidly</term><idx><h>polynomial</h><h>rapid evaluation of</h></idx> Suppose we wanted to plot the Taylor polynomial of degree 11 associated with <m>\sin(x)</m>.
+                For each value of <m>x</m>, then, we would have to evaluate
+                <me>
+                  P_{11}(x)= x - \dfrac{x^3}{3!} + \dfrac{x^5}{5!} - \dfrac{x^7}{7!} + \dfrac{x^9}{9!} - \dfrac{x^{11}}{11!}
+                </me>.
+                Since the length of time it takes the computer to evaluate an expression like this is roughly proportional to the number of multiplications and divisions involved
+                (additions and subtractions, by comparison,
+                take a negligible amount of time),
+                let's see how many of these operations are needed to evaluate <m>P_{11}(x)</m>.
+                To calculate <m>x^{11}</m> requires 10 multiplications,
+                while 11! requires 9
+                (if we are clever and don't bother to multiply by 1 at the end!),
+                so the evaluation of the term
+                <m>x^{11}/11!</m> will require a total of 20 operations
+                (counting the final division).
+                Similarly, evaluating <m>x^9/9!</m> requires 16 operations,
+                <m>x^7/7!</m> requires 12, on down to <m>x^3/3!</m>, which requires 4.
+                Thus the total number of multiplications and divisions needed is
+                <me>
+                  4 + 8 + 12 + 16 + 20 = 60
+                </me>.
+                This is not too bad,
+                although if we were doing this for many different values of <m>x</m>,
+                which would be the case if we wanted to graph <m>P_{11}(x)</m>,
+                this would begin to add up.
+                Suppose, though, that we wanted to graph something like
+                <m>P_{51}(x)</m> or <m>P_{101}(x)</m>.
+                By the same analysis, evaluating
+                <m>P_{51}(x)</m> for a single value of <m>x</m> would require
+                <me>
+                  4 + 8 + 12 + 16 + 20 + 24 + \cdots + 96 + 100 = 1300
+                </me>
+                multiplications and divisions,
+                while evaluation of <m>P_{101}(x)</m> would require 5100 operations.
+                Thus it would take roughly 20 times as long to evaluate
+                <m>P_{51}(x)</m> as it takes to evaluate <m>P_{11}(x)</m>,
+                while <m>P_{101}(x)</m> would take about 85 times as long.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </li>
+      <li>
+        <p>
+          Show that, in general,
+          the number of multiplications and divisions needed to evaluate <m>P_n(x)</m> is roughly <m>n^2/2</m>.
+          We can be clever, though.
+          Note that <m>P_{11}(x)</m> can be written as
+          <me>
+            x \left(1 - \dfrac{x^2}{2 \cdot 3} \left(1 - \dfrac{x^2}{4 \cdot 5} \left(1 - \dfrac{x^2}{6 \cdot 7} \left(1 - \dfrac{x^2}{8 \cdot 9} \left(1 - \dfrac{x^2}{10 \cdot 11}\right) \right) \right) \right) \right)
+          </me>.
+        </p>
+      </li>
+      <li>
+        <p>
+          How many multiplications and divisions are required to evaluate this expression? \ans{<m>3+4+4+4+4+1=20</m>.}
+        </p>
+      </li>
+      <li>
+        <p>
+          Thus this way of evaluating
+          <m>P_{11}(x)</m> is roughly three times as fast, a modest saving.
+          How much faster is it if we use this method to evaluate
+          <m>P_{51}(x)</m>? \ans{The old way takes roughly 13 times as long.}
+        </p>
+      </li>
+      <li>
+        <p>
+          Find a general formula for the number of multiplications and divisions needed to evaluate <m>P_n(x)</m> using this way of grouping.
+          Finally, we can extend these ideas to reduce the number of operations even further,
+          so that evaluating a polynomial of degree <m>n</m> requires only <m>n</m> multiplications,
+          as follows.
+          Suppose we start with a polynomial
+          <me>
+            p(x) = a_0 +a_1\,x+a_2\,x^2+a_3\,x^3 + \cdots +a_{n-1}\,x^{n-1}+a_n\,x^n
+          </me>.
+          We can rewrite this as
+          <me>
+            a_0+x\left(a_1+x\left(a_2+\ldots +x\left(a_{n-2}+x\left(a_{n-1}+a_n\,x\right)\right)\ldots\right)\right)
+          </me>.
+          You should check that with this representation it requires only <m>n</m> multiplications to evaluate <m>p(x)</m> for a given <m>x</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+          Write two computer programs to evaluate the 300th degree Taylor polynomial centered at <m>x=0</m> for <m>e^x</m>,
+          with one of the programs being the obvious, standard way,
+          and the second program being this method given above.
+          Evaluate <m>e^1=e</m> using each program,
+          and compare the length of time required.
+          <ol>
+            <li>
+              <p>
+                Use these two programs to graph the 300th degree Taylor polynomial for <m>e^x</m> over the interval <m>[0, 2]</m>,
+                and compare times.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </li>
+    </ol>
+  </subsection>
+</section>

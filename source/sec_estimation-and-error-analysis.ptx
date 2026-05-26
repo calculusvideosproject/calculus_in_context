@@ -1,0 +1,584 @@
+<section xml:id="sec_estimation-and-error-analysis">
+  <title>Estimation and Error Analysis</title>
+  <subsection xml:id="subsec_making-estimates">
+    <title>Making Estimates</title>
+    <introduction>
+      <p>
+            <idx><h>estimate</h></idx>
+      </p>
+    </introduction>
+    <subsubsection xml:id="subsubsec_the-expanding-house">
+      <title>The Expanding House</title>
+      <p>
+            <idx><h>expanding house</h></idx>
+        In the book <em>The Secret House <mdash/> 24 hours in the strange and unexpected world in which we spend our nights and days</em> (Simon and Schuster, 1986), David Bodanis describes many remarkable events that occur at the microscopic level in an ordinary house.
+        At one point he explains how sunlight heats up the structure,
+        stretching it imperceptibly in every direction through the day until it has become several cubic inches larger than it was the night before.
+      </p>
+      <aside>
+        <p>
+          How much does a house expand in the heat?
+        </p>
+      </aside>
+      <p>
+        Is it plausible that a house can become several cubic inches larger as it expands in the heat of the day?
+        In particular, how much longer, wider,
+        and taller would it have to become if it were to grow in volume by,
+        let us say, 3<nbsp/>cubic inches?
+        For simplicity, assume the house is a cube 200 inches on a side.
+        (This is about 17 feet,
+        so the house is the size of a small, two-story cottage.)
+        If <m>s</m> is the length of a side of <em>any</em> cube,
+        in inches, then its volume is
+        <me>
+          V = s^3 \ \mbox{cubic inches}
+        </me>.
+      </p>
+      <p>
+        Our question is about how <m>V</m> changes with <m>s</m> when <m>s</m> is about 200 inches.
+        In particular, we want to know which
+        <m>\Delta s</m> would yield a <m>\Delta V</m> of 3 cubic inches.
+        This is a natural question for the microscope equation
+            <idx><h>microscope equation</h></idx>
+        <me>
+          \Delta V \approx V'(200)\cdot \Delta s
+        </me>.
+      </p>
+      <p>
+        According to exercise 2c in the previous section,
+        we can estimate the value of <m>V'(200)</m> to be about 120,000,
+        and the appropriate units for <m>V'</m> are cubic inches per inch.
+        Thus
+        <md>
+          <mrow>\Delta V \amp \approx 120000 \, \Delta s</mrow>
+          <mrow>3 \ \mbox{cubic inches}  \amp \approx 120000 \ \dfrac{\mbox{cubic inches} }{\mbox{inches} } \times \Delta s \ \mbox{inches} </mrow>
+        </md>,
+        so <m>\Delta s \approx 3/120000 = 0.000025</m> inches<mdash/>many times thinner than a human hair!
+        This value is much too small.
+        To get a more realistic value,
+        let's suppose the house is made of wood and the temperature increases about 30<m>^\circ</m>F from night to day.
+        Then measurements show that a 200-inch length of wood will actually become about <m>\Delta s = 0.01</m> inches longer.
+        Consequently the volume will actually expand by about
+        <me>
+          \Delta V \approx 120000 \dfrac{\mbox{cubic inches} }{\mbox{inches} } \times 0.01 \ \mbox{inches}  = 1200 \ \mbox{cubic inches}
+        </me>.
+      </p>
+      <p>
+        This increase is 400 times as much as Bodanis claimed;
+        it is about the size of a small computer monitor.
+        So even as he opens our eyes to the effects of thermal expansion, Bodanis dramatically understates his point.
+      </p>
+    </subsubsection>
+    <subsubsection xml:id="subsubsec_estimates-versus-exact-values">
+      <title>Estimates versus Exact Values</title>
+      <p>
+        Don't lose sight of the fact that the values we derived for the expanding house are <em>estimates</em>.
+        In some cases we can get the exact values.
+        Why don't we, whenever we can?
+        For example,
+        we can calculate exactly how much the volume increases when we add
+        <m>\Delta s = 0.01</m> inches to <m>s = 200</m> inches.
+        The increase is from <m>V = 200^3</m> = 8,000,000 cubic inches to
+        <me>
+          V = (200.01)^3 = 8001200.060001 \ \mbox{cubic inches}
+        </me>.
+      </p>
+      <p>
+        Thus, the <em>exact</em> value of
+        <m>\Delta V</m> is 1200.060001 cubic inches.
+        The estimate is off by only about 0.06 cubic inches.
+        This isn't very much,
+        and it is even less significant when you think of it as a percentage of the volume (namely 1200 cubic inches) being calculated.
+        The percentage is
+        <me>
+          \dfrac{.06 \ \mbox{cubic inches} } {1200 \ \mbox{cubic inches} } = 0.00005 = 0.005\%
+        </me>.
+      </p>
+      <p>
+        That is, the difference is only 1/200 of 1% of the calculated volume.
+        To get the exact value we had to cube two numbers and take their difference.
+        To get the estimate we only had to do a single multiplication.
+      </p>
+      <aside>
+        <p>
+          Exact values can be harder to calculate than estimates.
+        </p>
+      </aside>
+      <p>
+        Estimates made with the microscope equation are always easy to calculate<mdash/>they involve only linear functions.
+        Exact values are usually harder to calculate.
+        As you can see in the example,
+        the extra effort may not gain us extra information.
+        That's one reason why we don't always calculate exact values when we can.
+        Here's another reason.
+        Go back to the question: How large must
+        <m>\Delta s</m> be if <m>\Delta V</m> = 3 cubic inches?
+        To get the exact answer, we must solve for <m>\Delta s</m> in the equation
+        <md>
+          <mrow>3 \amp = \Delta V = (200 + \Delta s)^3 - 200^3</mrow>
+          <mrow>\amp = 200^3 + 3(200)^2\Delta s + 3(200)(\Delta s)^2 + (\Delta s)^3 - 200^3</mrow>
+        </md>.
+      </p>
+      <p>
+        Simplifying, we get
+        <me>
+          3 = 120000\,\Delta s + 600(\Delta s)^2 + (\Delta s)^3
+        </me>.
+      </p>
+      <p>
+        This is a cubic equation for <m>\Delta s</m>;
+        it <em>can</em> be solved, but the steps are complicated.
+        Compare this with solving the microscope equation:
+        <me>
+          3 = 120000\,\Delta s
+        </me>.
+      </p>
+      <p>
+        Thus, another reason we don't calculate exact values at every opportunity is that the calculations can be daunting.
+        The microscope estimates are always straightforward.
+        Perhaps the most important reason,
+        though, is the insight that calculating <m>V'</m> gave us.
+        Let's translate into English what we have really been talking about:
+      </p>
+      In dealing with a cube 200 inches on a side, any small change
+      (measured in inches) in the length of the sides produces a change
+      (measured in cubic inches) in the volume approximately 120,000 times
+      as great.
+      <p>
+        This is, of course,
+        simply another instance of the point we have made before,
+        that small changes in the input and the output are related in an (almost) linear way,
+        even when the underlying function is complex.
+        Let's continue this useful perspective by looking at error analysis.
+      </p>
+    </subsubsection>
+  </subsection>
+  <subsection xml:id="subsec_propagation-of-error">
+    <title>Propagation of Error</title>
+    <introduction>
+      <p>
+            <idx><h>error</h></idx>
+            <idx><h>propagation of error</h></idx>
+      </p>
+    </introduction>
+    <subsubsection xml:id="subsubsec_from-measurements-to-calculations">
+      <title>From Measurements to Calculations</title>
+      <p>
+        We can view all the estimates we made for the expanding house from another perspective<mdash/>the lack of precision in measurement.
+        To begin with,
+        just think of the house as a cubical box that measures 200 inches on a side.
+        Then the volume must be 8,000,000 cubic inches.
+        But measurements are never exact, and any uncertainty
+            <idx><h>uncertainty</h></idx>
+        in measuring the length of the side will lead to an uncertainty in calculating the volume.
+        Let's say your measurement of length is accurate to within 0.5 inch.
+        In other words,
+        you believe the true length lies between 199.5 inches and 200.5 inches,
+        but you are uncertain precisely where it lies within that interval.
+        How uncertain does that make your calculation of the volume?
+        There is a direct approach to this question:
+      </p>
+      <aside>
+        <p>
+          How uncertain is the calculated value of the volume?
+        </p>
+      </aside>
+      <p>
+        we can simply say that the volume must lie between <m>199.5^3</m> = 7,940,149.875 cubic inches and <m>200.5^3</m> = 8,060,150.125 cubic inches.
+        In a sense, these values are almost too precise.
+        They don't reveal a general pattern.
+        We would like to know how an uncertainty<mdash/>or error<mdash/>in measuring the length of the side of a cube propagates to an error in calculating its volume.
+        Let's take another approach.
+        If we measure <m>s</m> as 200 inches,
+        and the true value differs from this by <m>\Delta s</m> inches,
+        then <m>\Delta s</m> is the error in measurement.
+        That produces an error <m>\Delta V</m> in the calculated value of <m>V</m>.
+        The microscope equation for the expanding house ( <xref ref="house"></xref>) tells us how
+        <m>\Delta V</m> depends on <m>\Delta s</m> when <m>s = 200</m>:
+        <me>
+          \Delta V \approx 120000\,\Delta s
+        </me>.
+      </p>
+      <p>
+        Since we now interpret <m>\Delta s</m> and <m>\Delta V</m> as errors,
+        the microscope equation becomes the
+        <term>error propagation</term>
+            <idx><h>error</h><h>propagation</h></idx>
+        equation:
+        <me>
+          \mbox{error in \(V\)}  \ (\mbox{cu.\ in.} ) \approx 120000 \ \left(\dfrac{\mbox{cu.\ in.} }{\mbox{inch} }\right) \times \mbox{error in \(s\)}  \ (\mbox{inches} )
+        </me>.
+      </p>
+      <p>
+        Thus, for example,
+      </p>
+      <aside>
+        <p>
+          The microscope equation describes how errors propagate
+        </p>
+      </aside>
+      <p>
+        an error of 1/2 inch in measuring <m>s</m> propagates to an error of about 60,000 cubic inches in calculating <m>V</m>.
+        This is about 35 cubic feet, the size of a large refrigerator!
+        Putting it another way: if <m>s = 200 \pm 0.5</m> inches,
+        then <m>V \approx 8,000,000 \pm 60,000</m> cubic inches.
+        If we keep in mind the error propagation equation <m>\Delta V \approx 120000\,\Delta s</m>,
+        we can quickly answer other questions about measuring the same cube.
+        For instance,
+        suppose we wanted to determine the volume of the cube to within 5,000 cubic inches.
+        How accurately would we have to measure the side?
+        Thus we are given <m>\Delta V = 5000</m>,
+        and we conclude <m>\Delta s \approx 5000/120000 \approx 0.04</m> inches.
+        This is just a little more than 1/32 inch.
+      </p>
+    </subsubsection>
+    <subsubsection xml:id="subsubsec_relative-error">
+      <title>Relative Error</title>
+      <p>
+            <idx><h>relative error</h></idx>
+            <idx><h>error</h><h>relative</h></idx>
+        Suppose we have a second cube whose side is twice as large (<m>s = 400</m> inches),
+        and once again we measure its length with an error of 1/2 inch.
+        Then the error in the calculated value of the volume is
+        <me>
+          \Delta V \approx  V'(400) \cdot \Delta s = 480000 \times 0.5 = \mbox{240,000 cubic inches.}
+        </me>
+      </p>
+      <p>
+        (In the exercises you will be asked to show <m>V'(400)</m> = 480,000.) The error in our calculation for the bigger cube is four times what it was for the smaller cube,
+        even though the length was measured to the same accuracy in both cases!
+        There is no mistake here.
+      </p>
+      <aside>
+        <p>
+          Bigger numbers have bigger errors
+        </p>
+      </aside>
+      <p>
+        In fact, the volume of the second cube is eight times the volume of the first,
+        so the numbers we are dealing with in the second case are roughly eight times as large.
+        We should not be surprised if the error is larger, too.
+        In general, we must expect that the size of an error will depend on the size of the numbers we are working with.
+        We expect big numbers to have big errors and small numbers to have small errors.
+        In a sense, though,
+        an error of 1 inch in a measurement of 50 inches is no worse than an error of 1/10-th of an inch in a measurement of 5 inches:
+        both errors are 1/50-th the size of the quantity being measured.
+      </p>
+      <aside>
+        <p>
+          A watchmaker who measures the tiny objects that go into a watch only as accurately as a carpenter measures lumber would never make a watch that worked;
+          likewise, a carpenter who takes the pains to measure things as accurately as a watchmaker does would take forever to build a house.
+          The scale of allowable errors is dictated by the scale of the objects they work on.
+        </p>
+      </aside>
+      <p>
+        The errors <m>\Delta x</m> we have been considering are called
+        <em> absolute errors</em>;
+            <idx><h>absolute error</h></idx>
+            <idx><h>error</h><h>absolute</h></idx>
+        their values depend on the size of the quantities <m>x</m> we are working with.
+      </p>
+      <aside>
+        <p>
+          Absolute and relative error
+        </p>
+      </aside>
+      <p>
+        To reduce the effect of differences due to the size of <m>x</m>,
+        we can look instead at the error as a <em>fraction</em>
+        of the number being measured or calculated.
+        This fraction <m>\Delta x/x</m> is called
+        <em> relative error</em>.
+            <idx><h>relative error</h></idx>
+            <idx><h>error</h><h>relative</h></idx>
+        Consider two measurements: one is 50 inches with an error of <m>\pm</m>1 inch; the other is 2 inches with an error of <m>\pm</m>.1 inch.
+        The <em>absolute</em> error in the second measurement is much smaller than in the first,
+        but the <em>relative</em> error is 2<m>\tfrac{1}{2}</m> times larger.
+        (The first relative error is 0.02<nbsp/>inch per inch,
+        the second is .05<nbsp/>inch per inch.)
+        To judge how good or bad a measurement really is,
+        we usually take the relative error instead of the absolute error.
+        Let's compare the propagation of relative and absolute errors.
+        For example,
+        the absolute error in calculating the volume of a cube whose side measures <m>s</m> is
+        <me>
+          \Delta V \approx V'(s) \cdot \Delta s
+        </me>.
+      </p>
+      <p>
+        The absolute errors are proportional,
+        but the multiplier <m>V'(s)</m> depends on the size of <m>s</m>.
+        (We saw above that the multiplier is 120,000 cubic inches per inch when <m>s = 200</m> inches,
+        but it grows to 480,000 cubic inches per inch when <m>s = 400</m> inches.)
+        In section<nbsp/>5, which deals with formulas for derivatives,
+        we will see that <m>V'(s) = 3\,s^2</m>.
+        If we substitute <m>3s^2</m> for <m>V'(s)</m> in the propagation equation for absolute error, we get
+        <me>
+          \Delta V \approx 3s^2 \cdot \Delta s
+        </me>.
+      </p>
+      <p>
+        To see how relative error propagates,
+        let us divide this equation by <m>V = s^3</m>:
+        <me>
+          \dfrac{\Delta V}{V} \approx \dfrac{3s^2 \cdot \Delta s}{s^3} = 3 \, \dfrac{\Delta s}{s}
+        </me>
+      </p>
+      <p>
+        The relative errors are proportional,
+        but the multiplier is always 3;
+        it doesn't depend on the size of the cube,
+        as it did for absolute errors.
+        Return to the case where <m>\Delta s = 0.5</m> inch and <m>s = 200</m> inches.
+        Since <m>\Delta s</m> and <m>s</m> have the same units,
+        the relative error <m>\Delta s/s</m> is
+        <q>dimensionless</q>
+        <mdash/>it has no units.
+        We can, however,
+        describe <m>\Delta s/s</m> as a <em>percentage</em>:
+        <m>\Delta s/s = 0.5/200 =</m> .25%, or 1/4 of 1%. For this reason,
+      </p>
+      <aside>
+        <p>
+          Percentage error is relative error
+        </p>
+      </aside>
+      <p>
+        relative error is sometimes called
+        <term>percentage error</term>.
+            <idx><h>percentage error</h></idx>
+            <idx><h>error</h><h>percentage</h></idx>
+        It tells us the error in measuring a quantity as a <em>percentage</em> of the value of that quantity.
+        Since the percentage error in volume is
+        <me>
+          \dfrac{\Delta V}{V} = \dfrac{\mbox{60,000 cu.\ in.} } {\mbox{8,000,000 cu.\ in.} } = 0.0075 = 0.75\
+        </me>
+        we see that the percentage error in volume is 3 times the percentage error in length<mdash/><em>and this is independent of the length and volumes involved</em>.
+        This is what the propagation equation for relative error says: A 1% error in measuring <m>s</m>,
+        whether <m>s</m> = 0.0002 inches or <m>s</m> = 2000 inches,
+        will produce a 3% error in the calculated value of the volume.
+      </p>
+    </subsubsection>
+  </subsection>
+  <subsection>
+    <title>Exercises</title>
+    <subsubsection xml:id="subsubsec_estimation">
+      <title>Estimation</title>
+      <p>
+            <idx><h>estimate</h></idx>
+      </p>
+      <ol>
+        <li>
+          <p>
+            Suppose you are going on a 110 mile trip.
+            Then the time <m>T</m> it takes to make the trip is a function of how fast you drive:
+            <me>
+              T(v) = \dfrac{110\ \mbox{miles} }{v \ \mbox{miles per hour} } = 110\,v^{-1} \ \mbox{hours}  \,
+            </me>.
+            If you drive at <m>v</m> = 55 miles per hour, <m>T</m> will be 2 hours.
+            Use a computer microscope to calculate <m>T'(55)</m> and write an English sentence interpreting this number.
+          </p>
+          <ol>
+            <li>
+              <p>
+                More generally,
+                if you and a friend are driving separate cars on a 110 mile trip,
+                and you are travelling at some velocity <m>v</m>,
+                while her speed is 1% greater than yours,
+                then her travel time is less.
+                How much less, as a percentage of yours?
+                Use the formula <m>T'(v)=-110v^{-2}</m>,
+                which can be obtained using rules given in the next section.
+              </p>
+            </li>
+          </ol>
+        </li>
+        <li>
+          <p>
+            Suppose you have 600 square feet of plywood which you are going to use to construct a cubical box.
+            Assuming there is no waste, what will its volume be?
+            <ol>
+              <li>
+                <p>
+                  Find a general formula which expresses the volume <m>V</m> of the box as a function of the area <m>A</m> of plywood available.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Use a microscope to determine <m>V'(600)</m>,
+                  and express its significance in an English sentence.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Use this multiplier to estimate the additional amount of plywood you would need to increase the volume of the box by 10 cubic feet.
+                </p>
+              </li>
+              <li>
+                <p>
+                  In the original problem,
+                  if you had to allow for wasting 10 square feet of plywood in the construction process,
+                  by how much would this decrease the volume of the box?
+                </p>
+              </li>
+              <li>
+                <p>
+                  In the original problem,
+                  if you had to allow for wasting 2% of the plywood in the construction process,
+                  by what percentage would this decrease the volume of the box?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Let <m>R(s) = 1/s</m>.
+            You can use the fact that <m>R'(s) = - 1/s^2</m>,
+            to be established in section<nbsp/>5.
+            Since <m>R(100) =</m> \rule[-3pt]{1in}{.3pt} and
+            <m>R'(100) =</m> \rule[-3pt]{1in}{.3pt}, we can make the following approximations:
+            <me>
+              1/97 \approx \rule[-3pt]{.5in}{.3pt} 1/104 \approx \rule[-3pt]{.5in}{.3pt} R(\rule[-3pt]{.5in}{.3pt}) \approx 0.0106 \,
+            </me>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Using the fact that the derivative of
+            <m>f(x) = \sqrt{x}</m> is <m>f'(x) = 1/(2\sqrt{x})</m>,
+            you can estimate the square roots of numbers that are close to perfect squares.
+            <ol>
+              <li>
+                <p>
+                  For instance <m>f(4) =</m> \rule[-3pt]{.5in}{.3pt} and <m>f'(4) =</m> \rule[-3pt]{.5in}{.3pt}, so
+                  <m>\sqrt{4.3} \approx</m> \rule[-3pt]{.5in}{.3pt}.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Use the values of <m>f(4)</m> and <m>f'(4)</m> to approximate
+                  <m>\sqrt{5}</m> and <m>\sqrt{3.6}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Use the values of <m>f(100)</m> and <m>f'(100)</m>to approximate
+                  <m>\sqrt{101}</m> and <m>\sqrt{99.73}</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection xml:id="subsubsec_error-analysis">
+      <title>Error analysis</title>
+      <p>
+            <idx><h>error</h></idx>
+      </p>
+      <ol>
+        <li>
+          <p>
+            If you measure the side of a square to be 12.3 inches,
+            with an uncertainty of <m>\pm.05</m> inch,
+            what is your relative error?
+          </p>
+          <ol>
+            <li>
+              <p>
+                What is the area of the square?
+                Write an error propagation equation that will tell you how uncertain you should be about this value.
+              </p>
+            </li>
+            <li>
+              <p>
+                What is the relative error in your calculation of the area?
+              </p>
+            </li>
+            <li>
+              <p>
+                If you wanted to calculate the area with an error of less than 1 square inch,
+                how accurately would you have to measure the length of the side?
+                If you wanted the error to be less than 0.1 square inch,
+                how accurately would you have to measure the side?
+              </p>
+            </li>
+          </ol>
+        </li>
+        <li>
+          <p>
+            Suppose the side of a square measures <m>x</m> meters,
+            with a possible error of <m>\Delta x</m> meters.
+            Write the equation that describes how the error in length propagates to an error in the area. (The derivative of
+            <m>f(x) = x^2</m> is <m>f'(x) = 2x</m>;
+            see section<nbsp/>5.)
+            <ol>
+              <li>
+                <p>
+                  Write an equation that describes how the <em>relative</em>
+                  error in length propagates to a
+                  <em>relative</em> error in area.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            You are trying to measure the height of a building by dropping a stone off the top and seeing how long it takes to hit the ground,
+            knowing that the distance <m>d</m>
+            (in feet)
+            an object falls is related to the time of fall, <m>t</m>
+            (in seconds),
+            by the formula <m>d =16t^2</m>.
+            You find that the time of fall is 2.5 seconds,
+            and you estimate that you are accurate to within a quarter of a second.
+            What do you calculate the height of the building to be,
+            and how much uncertainty do you consider your calculation to have?
+          </p>
+        </li>
+        <li>
+          <p>
+            You see a flash of lightning in the distance and note that the sound of thunder arrives 5 seconds later.
+            You know that at 20<m>^\circ</m>C sound travels at 343.4 m/sec.
+            This gives you an estimate of
+            <me>
+              5 \ \mbox{sec}  \times 343.4 \ \frac{\mbox{meters} }{\mbox{sec} } = 1717 \ \mbox{meters}
+            </me>
+            for the distance between you and the spot where the lightning struck.
+            You also know that the velocity <m>v</m> of sound varies as the square root of the temperature <m>T</m> measured in degrees Kelvin
+            (the Kelvin temperature = Celsius temperature + 273),
+            so
+            <me>
+              v(T) = k \sqrt{T}
+            </me>
+            for some constant <m>k\/</m>.
+            <ol>
+              <li>
+                <p>
+                  Use the information given here to determine the value of <m>k</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  If your estimate of the temperature is off by 5 degrees,
+                  how far off is your estimate of the distance to the lightning strike?
+                  How significant is this source of error likely to be in comparison with the imprecision with which you measured the 5 second time lapse? (Suppose your uncertainty about the time is 0.25 seconds.) Give a clear analysis justifying your answer.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            We can measure the distance to the moon by bouncing a laser beam off a reflector placed on the moon's surface and seeing how long it takes the beam to make the round trip.
+            If the moon is roughly 400,000 km away,
+            and if light travels at 300,000 km/sec,
+            how accurately do we have to be able to measure the length of the time interval to be able to determine the distance to the moon to the nearest 0.1 meter?
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+  </subsection>
+</section>

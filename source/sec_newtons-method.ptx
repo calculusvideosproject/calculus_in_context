@@ -1,0 +1,831 @@
+<section xml:id="sec_newtons-method">
+  <title>Newton's Method</title>
+  <subsection xml:id="subsec_finding-critical-points">
+    <title>Finding Critical Points</title>
+    <p>
+      When we solve optimization problems for functions given by formulas,
+      we begin by calculating the derivative and using the derivative formula to find critical points.
+      Almost always the derivative is defined for all elements of the domain,
+      and we find the critical points by determining the roots of the equation obtained by setting the derivative equal to zero.
+      Finding the roots of this equation often requires an estimation procedure.
+      For example, consider the function
+      <me>
+        f(x) = x^4 + x^3 + x^2 + x + 1
+      </me>.
+    </p>
+    <p>
+      The derivative of <m>f</m> is
+      <me>
+        f'(x) = 4x^3 +3x^2 +2x + 1
+      </me>,
+      which is certainly defined for all <m>x</m>.
+      In order to use a graphing utility to find the roots of <m>f'(x)=0</m>,
+      we need to choose an interval that will contain the roots we seek.
+    </p>
+    <aside>
+      <p>
+        Solving <m>f'(x)=0</m>
+      </p>
+    </aside>
+    <p>
+      Since <m>f'(0)=1>0</m> and <m>f'(-1) = -2 \lt  0</m>,
+      we know <m>f'</m> has at least one root on <m>[-1,0]</m>. (Why is this?) But might there be other roots outside this interval?
+      It is easy to see that <m>f'(x)</m> is positive for all <m>x>0</m>,
+      so there are no roots to the right of <m>[-1,0]</m>.
+      What about <m>x\lt -1</m>?
+      Rewriting the derivative as
+      <me>
+        f'(x) = (2x+1)(2x^2+1) + x^2
+      </me>
+      lets us see that <m>f'(x)</m> is negative for all <m>x\lt -1</m>
+      (check this for yourself),
+      so there are no roots to the left of <m>[-1,0]</m> either.
+      Examining the graph of <m>y=4x^3 +3x^2 +2x + 1</m> on <m>[-1,0]</m>,
+      we see that it crosses the <m>x</m>-axis exactly once,
+      so there is a unique critical point.
+      Progressively shrinking the interval,
+      we find that, to eight decimal places, this critical point is
+      <me>
+        c= -0.60582958 \ldots
+      </me>.
+    </p>
+    <p>
+      Notice that it in this method it requires roughly the same amount of work to get each additional digit in the answer.
+      There is, however,
+      another approximation procedure we can use, called Newton's method.
+      This has wide applicability and usually converges very rapidly to solutions<mdash/>additional digits are much easier
+    </p>
+    <aside>
+      <p>
+        A good algorithm is a convenient tool
+      </p>
+    </aside>
+    <p>
+      to get than in the method we just looked at.
+      It also has the virtue of being algorithmic,
+      so that we can write a single computer program which can then be used for any root-finding problem we may encounter without a great deal of thought and decision-making.
+      Newton's method is also an interesting application of both local linearity and successive approximation,
+      two important themes of this course.
+    </p>
+  </subsection>
+  <subsection xml:id="subsec_local-linearity-and-the-tangent-line">
+    <title>Local Linearity and the Tangent Line</title>
+    <p>
+      Let's give the derivative function the new name <m>g</m> to emphasize that we now want to consider it as a function in its own right,
+    </p>
+    <aside>
+      <p>
+        The root is an <m>x</m>-intercept of the graph
+      </p>
+    </aside>
+    <p>
+      out of the context of the function <m>f</m> from which it was derived.
+      Look at the following graph of the function
+      <me>
+        y = g(x) = 4x^3 +3x^2 + 2x + 1\,
+      </me>.
+    </p>
+    <p>
+      We are seeking the number <m>r</m> such that <m>g(r) = 0</m>.
+      The root <m>r</m> is the <m>x</m>-coordinate of the point where the graph crosses the <m>x</m>-axis.
+      The basic plan of attack in Newton's method is to replace the graph of <m>y=g(x)</m> by a straight line that looks reasonably like the graph near the root <m>r</m>.Then,
+      the <m>x</m>-intercept of that line will be a reasonably good estimate for <m>r</m>.
+      The graph below includes such a line.<image width="73%" source="images/pic280a.png"/> <image width="73%" source="images/pic280b.png"/> The function <m>g</m> is locally linear at <m>x=-1\/</m>,
+      and we have drawn an extension of the local linear approximation of <m>g</m> at this point.
+    </p>
+    <aside>
+      <p>
+        The tangent line extends the local linear approximation
+      </p>
+    </aside>
+    <p>
+      This line is called the <term>tangent line</term>
+          <idx><h>tangent line</h></idx>
+      to the graph of <m>y=g(x)</m> at <m>x=-1\/</m>,
+      by analogy to the tangent line to a circle.
+      To find the <m>x</m>-intercept of the tangent line,
+      we must know its equation.
+      Clearly the line passes through the
+      <term>point of tangency</term>
+          <idx><h>tangency</h><h>point of</h></idx>
+      <m>(-1,g(-1))=(-1,-2)</m>.
+      What is its slope?
+      It is the same as the slope of the local linear approximation at <m>(-1,g(-1))</m>, namely
+      <me>
+        g'(-1)=12(-1)^2 + 6(-1) + 2 = 8
+      </me>.
+    </p>
+    <p>
+      Thus the equation
+    </p>
+    <aside>
+      <p>
+        The equation of the tangent line
+      </p>
+    </aside>
+    <p>
+      of the tangent line is
+      <me>
+        y + 2 = 8(x+1)
+      </me>.
+    </p>
+    <p>
+      To find the <m>x</m>-intercept of this line,
+      we must set <m>y</m> equal to zero and solve for <m>x</m>:
+      <m>0+2=8(x+1)</m> gives us <m>x=-0.75</m>.
+    </p>
+    <aside>
+      <p>
+        Finding the <m>x</m>-intercept of the tangent line
+      </p>
+    </aside>
+    <p>
+      Of course, this <m>x</m>-intercept is not equal to <m>r</m>,
+      but it's a better approximation than, say, <ndash/>1.
+      To get an even better approximation, we repeat this process,
+      starting with the line tangent to the graph of <m>g</m> at <m>x=-0.75</m> instead of at <m>x=-1</m>.
+      <image width="73%" source="images/pic281.png"/> The slope of this new tangent line is <m>g'(-0.75) = 4.25</m>,
+      and it passes through <m>(-0.75, -0.5)</m>, so its equation is
+      <me>
+        y + 0.5 = 4.25(x+0.75)
+      </me>.
+    </p>
+    <p>
+      Setting <m>y=0</m> and solving for <m>x</m> gives a new <m>x</m>-intercept whose value is equal to
+      <m>-0.6323529</m>, closer still to <m>r</m>.
+      It seems reasonable to repeat the process yet again,
+      using the tangent line at <m>x = -0.6323529</m>.
+      Let's first introduce some notation to keep track of our computations.
+    </p>
+    <aside>
+      <p>
+        Successive approximations get closer to the root <m>r</m>
+      </p>
+    </aside>
+    <p>
+      Call the original point of tangency <m>x_0</m>, so <m>x_0=-1</m>.
+      Let <m>x_1</m> be the <m>x</m>-intercept of the tangent line at <m>x=x_0</m>.
+      Draw the tangent line at <m>x=x_1</m>,
+      and call its <m>x</m>-intercept <m>x_2</m>.
+      Continuing in this way, we get a sequence of points
+      <m>x_{0}, x_{1}, x_{2}, x_{3}, \ldots</m> which appear to approach nearer and nearer to <m>r</m>.
+      That is, they appear to approach <m>r</m> as their limit.
+    </p>
+  </subsection>
+  <subsection xml:id="subsec_the-algorithm">
+    <title>The Algorithm</title>
+    <p>
+      This process of using one number to determine the next number in the sequence is the heart of Newton's method<mdash/>it is an iterative method.
+      Moreover, it turns out to be quite simple to calculate each new estimate in terms of the previous one.
+      To see how this works,
+      let's compute <m>x_{1}</m> in terms of <m>x_{0}</m>.
+      We know <m>x_{1}</m> is the <m>x</m>-intercept of the line tangent to the graph of <m>g</m> at <m>(x_{0}, g(x_{0}))</m>.
+      The slope of this line is <m>g'(x_{0})</m>,
+    </p>
+    <aside>
+      <p>
+        The general equation of the tangent line
+      </p>
+    </aside>
+    <p>
+      so
+      <me>
+        y - g(x_{0}) = g'(x_{0})(x - x_{0})
+      </me>
+      is the <term>equation of the tangent line</term>.
+          <idx><h>tangent line</h></idx>
+      Since this line crosses the <m>x</m>-axis at the point <m>(x_{1},0)</m>,
+      we set <m>x = x_{1}</m> and <m>y = 0</m> in the equation to obtain
+      <me>
+        0 - g(x_{0}) = g'(x_{0})(x_{1} - x_{0})
+      </me>.
+    </p>
+    <p>
+      Now it is easy to solve for <m>x_{1}</m>:
+      <md>
+        <mrow>g'(x_{0})(x_{1} - x_{0}) \amp = -g(x_{0})</mrow>
+        <mrow>x_{1} - x_{0} \amp = \frac{-g(x_{0})}{g'(x_{0})}</mrow>
+        <mrow>x_{1} \amp = x_{0} - \frac{g(x_{0})}{g'(x_{0})}</mrow>
+      </md>.
+    </p>
+    <p>
+      In the same way we get
+      <me>
+        x_{2} = x_{1} - \frac{g(x_{1})}{g'(x_{1})},  \qquad x_{3} = x_{2} - \frac{g(x_{2})}{g'(x_{2})}
+      </me>,
+      and so on.
+      To summarize,
+      suppose that <m>x_{0}</m> is given some value START. Then Newton's method
+          <idx><h>Newton's method</h></idx>
+      is the computation of the sequence of numbers determined by
+      <md>
+        <mrow>x_{0} \amp = \mbox{START}</mrow>
+        <mrow>x_{n+1} \amp = x_{n} - \frac{g(x_{n})}{g'(x_{n})}, \qquad n = 0,1,2,3,\ldots</mrow>
+      </md>
+    </p>
+    <p>
+      As we have seen many times, the sequence
+      <me>
+        x_1, x_2, x_3, \ldots, x_n, \ldots
+      </me>
+      is a list of numbers to which we can always add a new term<mdash/>by iterating our method yet again.
+    </p>
+    <aside>
+      <p>
+        The limit of the successive approximations is the root
+      </p>
+    </aside>
+    <p>
+      For most functions,
+      if we begin with an appropriate starting value of <m>x_0\/</m>,
+      there is another number <m>r</m> that is the
+      <em>limit</em> of this list of numbers,
+      in the sense that the difference between <m>x_n</m> and <m>r</m> becomes as small as we wish as <m>n</m> increases without bound,
+      <me>
+        r= \lim_{n \rightarrow \infty} x_n
+      </me>.
+    </p>
+    <p>
+      The numbers <m>x_1, x_2, x_3, \ldots,
+      x_n, \ldots</m> constitute a sequence of
+      <em>successive approximations</em>
+      for the root <m>r</m> of the equation <m>g(x)=0\/</m>.
+      We can write a computer program to carry out this algorithm for as many steps as we choose.
+      The program NEWTON does just that for <m>g(x) = 4x^3 + 3x^2 +2x +1\/</m>.
+      <term>Program: NEWTON</term>
+          <idx><h>program</h><h>NEWTON</h></idx>
+      <term>Newton's method for solving <m>g(x)=4x^3 + 3x^2 +2x +1 = 0</m></term>
+    </p>
+<pre>
+start = -1
+numberofsteps = 8
+x = start
+FOR n = 0 to numberofsteps
+print n, x
+g = 4 * x^3 + 3 * x^2 + 2 * x + 1
+gprime = 12 * x^2 + 6 * x + 2
+x = x - g/gprime
+NEXT n
+</pre>
+    <p>
+      If we program a computer using this algorithm with START = <ndash/>1, then we get
+      <md>
+        <mrow>x_0 \amp = -1.00000000000</mrow>
+        <mrow>x_1 \amp = -0.75000000000</mrow>
+        <mrow>x_2 \amp = -0.63235294118</mrow>
+        <mrow>x_3 \amp = -0.60687911790</mrow>
+        <mrow>x_4 \amp = -0.60583128240</mrow>
+        <mrow>x_5 \amp = -0.60582958619</mrow>
+        <mrow>x_6 \amp = -0.60582958619</mrow>
+        <mrow>x_7 \amp = -0.60582958619</mrow>
+        <mrow>x_8 \amp = -0.60582958619</mrow>
+      </md>.
+    </p>
+    <p>
+      Thus we have found the root of <m>g(x)=0</m><mdash/>the critical point we were looking for.
+      In fact, after only 6 steps we could see that the value of the critical point was specified to at least ten decimal places.
+      Also at the sixth step,
+      we had the eight decimal places obtained with the use of the graphing utility.
+      In fact, it turns out that the number of decimal places fixed roughly doubles with each round.
+      In the above list, for instance,
+      <m>x_2</m> fixed one decimal,
+      <m>x_3</m> fixed two decimals,
+      <m>x_4</m> fixed four, <m>x_5</m> fixed ten
+      (the eleventh digit of the root is really an 8, which gets rounded to a 9 in <m>x_6</m> <mdash/> <m>x_8</m>.),
+      and <m>x_6</m> would have fixed at least twenty if we had printed them all out!
+      Moreover, by changing only three lines of the program<mdash/>the first, sixth,
+      and seventh<mdash/>we can use NEWTON for any other function.
+      With the use of the program NEWTON, we will see that in most cases we can obtain results more quickly and to a higher degree of accuracy with Newton's method than by using a graphing utility,
+      although it is still sometimes helpful to use a graphing utility to get a reasonable starting value.
+    </p>
+  </subsection>
+  <subsection xml:id="subsec_examples">
+    <title>Examples</title>
+    <p>
+      <term>Example 1</term>.
+      Start with <m>\cos{x} = x</m>.
+      The solution(s) to this equation
+      (if any)
+      will be the <m>x</m>-coordinates of any points of intersection of the graphs of <m>y = \cos{x}</m> and <m>y = x</m>.
+      Sketch these two graphs and convince yourself that there is one solution,
+      between 0 and <m>\pi/2</m>.
+      The equation <m>\cos{x} = x</m> is not in the form <m>g(x) = 0</m>,
+      so rewrite it as <m>\cos{x} - x = 0</m>.
+      Now we can apply Newton's method with <m>g(x) = \cos{x} - x</m>.
+      Try starting with <m>x_{0} = 1</m>.
+      This gives the iteration scheme
+      <md>
+        <mrow>x_{0} \amp = 1</mrow>
+        <mrow>x_{n+1} \amp = x_{n} - \frac{\cos{x_{n}} - x_{n}}{-\sin{x_{n}} - 1}, \qquad n = 0,1,2, \ldots</mrow>
+      </md>
+    </p>
+    <p>
+      The numbers we get are
+      <md>
+        <mrow>x_{0} \amp = 1.000000000</mrow>
+        <mrow>x_{1} \amp = .750363868 \ldots</mrow>
+        <mrow>x_{2} \amp = .739112891 \ldots</mrow>
+        <mrow>x_{3} \amp = .739085133 \ldots</mrow>
+        <mrow>x_{4} \amp = .739085133 \ldots</mrow>
+      </md>
+    </p>
+    <p>
+      We have the solution to 9 decimal places in only four steps.
+      Not only does Newton's method work, it works fast!
+      <term>Example 2</term>.
+      Suppose we continue with the equation <m>\cos{x} = x</m>,
+      but this time choose <m>x_{0} = 0</m>.
+      What will we find?
+      The numbers we get are
+      <md>
+        <mrow>x_{0} \amp = 0.000000000</mrow>
+        <mrow>x_{1} \amp = 1.000000000</mrow>
+        <mrow>x_{2} \amp = 0.750363868</mrow>
+      </md>
+    </p>
+    <p>
+      There is no need to continue;
+      we can see that we will again obtain
+      <m>r = 0.739085133 \ldots</m> as in Example<nbsp/>1.
+      Look again at your sketch and see why you might have predicted this result.
+      <term>Example 3</term>.
+      Next, let's find the roots of the polynomial <m>x^{5} - 3x + 1\/</m>.
+      This means solving the equation <m>x^{5} - 3x + 1 = 0\/</m>.
+      We know the necessary derivative,
+    </p>
+    <aside>
+      <p>
+        Finding the starting value <m>x_0</m> can be hard
+      </p>
+    </aside>
+    <p>
+      so we're ready to apply Newton's method, except for one thing:
+      which starting value <m>x_{0}</m> do we pick?
+      This is the part of Newton's method that leaves us on our own.
+      Assuming that some graphing software is available,
+      the best thing to do is graph the function.
+      But for most graphing utilities,
+      we need to choose an interval.
+      How do we choose one which is sure to include all the roots of the polynomial?
+      The derivative <m>5x^4 -3</m> of this polynomial is simple enough
+    </p>
+    <p>
+      that we can use it to get an idea of the shape of the graph of
+      <m>y=x^5-3x+1</m> before we turn to the computer.
+      Clearly the derivative is zero only for <m>x = \pm \sqrt[4]{3/5}\/</m>,
+      and the derivative is positive except between these two values of <m>x\/</m>.
+    </p>
+    <aside>
+      <p>
+        Using the derivative to find the shape of the graph
+      </p>
+    </aside>
+    <p>
+      In other words, we know the shape of the graph of
+      <m>y=g(x)\/</m><mdash/>it is increasing,
+      then decreases for a bit, then increases from there on out.
+      This still is not enough information to tell us how many roots <m>g</m> has, though;
+      its graph might lie in any one of the following configurations and so have 1, 2, or 3 roots
+      (there are two other possibilities not shown<mdash/>one has 2 roots and one has 1 root).
+    </p>
+    <aside>
+      <p>
+        <image width="73%" source="images/pic285.png"/>
+      </p>
+    </aside>
+    <p>
+      We can thus say that <m>g(x)=0</m> has at least one and at most three real roots.
+      However, if we further observe that <m>g(-2) = -25,
+      g(-1)=3, g(0) = 1,g(1)= -1</m>, and <m>g(2)=27</m>,
+      we see that the graph of <m>g</m> must cross the <m>x</m><ndash/>axis at some value of <m>x</m> between -2 and -1, between 0 and 1, and again between 1 and 2.
+      Therefore the right<ndash/>hand sketch above must be the correct one.
+      Or we can almost as easily turn to a graphing utility.
+      If we try the interval <m>[-5,5]\/</m>,
+      we see again that the graph crosses the <m>x</m>-axis in exactly three points.
+      <image width="73%" source="images/pic286.png"/>
+    </p>
+    <p>
+      One of the roots is between <m>-2</m> and <m>-1</m>,
+    </p>
+    <aside>
+      <p>
+        Finding the root between <m>-2</m> and <m>-1</m>
+      </p>
+    </aside>
+    <p>
+      one is between 0 and 1, and the third is between 1 and 2.
+      To find the first, we apply Newton's method with <m>x_{0} = -2\/</m>.
+      Then we get
+      <md>
+        <mrow>x_{0} \amp = -2.000000000</mrow>
+        <mrow>x_{1} \amp = -1.675324675 \ldots</mrow>
+        <mrow>x_{2} \amp = -1.478238029 \ldots</mrow>
+        <mrow>x_{3} \amp = -1.400445373 \ldots</mrow>
+        <mrow>x_{4} \amp = -1.389019863 \ldots</mrow>
+        <mrow>x_{5} \amp = -1.388792073 \ldots</mrow>
+        <mrow>x_{6} \amp = -1.38879198 4\ldots</mrow>
+        <mrow>x_{7} \amp = -1.388791984 \ldots</mrow>
+      </md>
+    </p>
+    <p>
+      This took a few more steps than the other examples, but not a lot.
+      Notice again that once there are any decimals fixed at all,
+      the number of decimals fixed roughly doubles in the next approximation.
+      In the exercises you will be asked to compute the other two roots.
+      <term>Example 4</term>.
+      Let's use Newton's method to find the obvious solution <m>r = 0</m> of <m>x^{3} - 5x = 0\/</m>.
+      If we choose <m>x_{0}</m> sufficiently close to 0, Newton's method should work just fine.
+      But what does
+      <q>sufficiently close</q>
+      mean?
+      Suppose we try <m>x_{0} = 1\/</m>.
+      Then we get
+      <md>
+        <mrow>x_{0} \amp = 1</mrow>
+        <mrow>x_{1} \amp = -1</mrow>
+        <mrow>x_{2} \amp = 1</mrow>
+        <mrow>x_{3} \amp = -1</mrow>
+        <mrow>x_{4} \amp = 1</mrow>
+        <mrow>\amp \ \vdots</mrow>
+      </md>
+    </p>
+    <p>
+      The <m>x_{n}\/</m>'s oscillate endlessly, never getting close to 0.
+    </p>
+    <aside>
+      <p>
+        Newton's method can fail
+      </p>
+    </aside>
+    <p>
+      Going back to the geometric interpretation of Newton's method,
+      this oscillation can be explained by the graph below.
+      <image width="73%" source="images/pic287.png"/> Using more advanced methods,
+      it is possible to get precise estimates for how close <m>x_{0}</m> needs to be to <m>r</m> in order for Newton's method to succeed.
+      For now, we'll just have to rely on common sense and trial and error.
+      One important thing to note is the relation between algebra and Newton's method.
+      Although we can now solve many more equations than we could earlier,
+      this doesn't mean that we can abandon algebra.
+      In fact, given a new equation,
+      you should first try to solve it algebraically,
+      for exact solutions are often better.
+      Only when this fails should you look for approximate solutions using Newton's method.
+      So don't forget algebra<mdash/>you'll still need it!
+    </p>
+  </subsection>
+  <subsection xml:id="subsec_exercises">
+    <title>Exercises</title>
+    <introduction>
+      <ol>
+        <li>
+          <p>
+            <term>The Babylonian algorithm.</term>
+              <idx><h>Babylonian algorithm</h></idx>
+            Show that the Babylonian algorithm of chapter 2 is the same as Newton's method applied to the equation <m>x^2-a=0\/</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            When Newton introduced his method,
+            he did so with the example <m>x^3 - 2x - 5 = 0</m>.
+            Show that this equation has only one root, and find it.
+            <aside>
+              <p>
+                This example appeared in 1669 in an unpublished manuscript of Newton's (a published version came later,
+                in 1711).
+                The interesting fact is that Newton's method <em>differs</em>
+                from the one presented here:
+                his scheme was more complicated,
+                requiring a different formula to get each approximation.
+                In 1690, Joseph Raphson
+              <idx><h>Raphson, Joseph</h></idx>
+                transformed Newton's scheme into the one used above.
+                Thus,
+                <q>Newton's method</q>
+                is more properly called the
+                <q>Newton<ndash/>Raphson method</q>, and many modern texts use this more accurate name.
+              </p>
+            </aside>
+          </p>
+        </li>
+        <li>
+          <p>
+            Use Newton's method to find a solution of
+            <m>x^3 + 2x^2 + 10x = 20</m> near the point <m>x=1</m>.
+            <aside>
+              <p>
+                The approximate solution 1;22,7,42,33,4,40 of this equation appears in a book written in 1228 by Leonardo of Pisa
+              <idx><h>Leonardo of Pisa</h></idx>
+                (also known as \mbox{Fibonacci} ).
+              <idx><h>Fibonacci</h></idx>
+          This number looks odd because it's written in sexagesimal notation:
+                it translates into
+                <me>
+                  1+\frac{22}{60} +\frac{7}{60^2}+\frac{42}{60^3}+\frac{33}{60^4}+\frac{4}{60^5}+\frac{40}{60^6}
+                </me>.
+              </p>
+              <p>
+                This solution is accurate to 10 decimal places,
+                which is not bad for 750 years ago.
+                In the Middle Ages, there was a lot of interest in solving equations.
+                There were even contests,
+                with a prize going to the person who could solve the most.
+                The quadratic formula,
+                which expresses algebraically the roots of any second degree equation,
+                had been known for thousands of years,
+                but there were no general methods for finding roots of higher degree equations in the 13th century.
+                We don't know how Leonardo found his solution<mdash/>why give away your secrets to your competitors!
+              </p>
+            </aside>
+          </p>
+        </li>
+        <li>
+          <p>
+            Use Newton's method to find a solution of <m>x^3+3x^2=5</m>.
+            <aside>
+              <p>
+                In 1530, Nicolo Tartaglia
+              <idx><h>Tartaglia, Nicolo</h></idx>
+                was challenged to solve this equation algebraically.
+                Five years later, in 1535, he found the solution
+                <me>
+                  x = \sqrt[3]{\frac{3+\sqrt{5}}{2}}+\sqrt[3]{\frac{3-\sqrt{5}}{2}}-1 \,
+                </me>.
+              </p>
+              <p>
+                Initially, Tartaglia could solve only certain types of cubic equations,
+                but this was enough to let him win some famous contests with other mathematicians of the time.
+                By 1541, he knew the general solution,
+                but he made the mistake of telling Geronimo Cardano.
+              <idx><h>Cardano, Geronimo</h></idx>
+          Cardano published the solution in 1545 and the resulting formulas are called
+                <q>Cardan's Formulas</q>.
+              <idx><h>Cardan's formulas</h></idx>
+          </p>
+            </aside>
+            The above solution of <m>x^3+3x^2=5</m> is called a
+            <term>solution by radicals</term><idx><h>solution</h><h>by radicals</h></idx> because it is obtained by extracting various roots or radicals.
+            Similarly, some time before 1545, Luigi Ferrari
+              <idx><h>Ferrari, Luigi</h></idx>
+            showed that any fourth degree equation can be solved by radicals.
+            This led to an intense interest in the fifth degree equation.
+            To see what happens in this case, read the next problem.
+          </p>
+        </li>
+        <li>
+          <p>
+            In Example 3, we saw that one root of
+            <m>x^5-3x+1</m> was <ndash/>1.39887919<ellipsis/> . Use Newton's method to find the other two roots.
+            <aside>
+              <p>
+                In 1826, Niels Henrik Abel
+              <idx><h>Abel, Niels</h></idx>
+                proved that the general polynomial of degree 5 or greater cannot be solved by radicals.
+                Using the work of Evariste Galois
+              <idx><h>Galois, Evariste</h></idx>
+                (done around 1830, but not understood until many years later),
+                it can be shown that the roots of the equation
+                <m>x^5-3x+1=0</m> cannot be expressed by any combination of radicals.
+                Thus algebra can't solve this equation<mdash/>some kind of successive approximation technique is unavoidable!
+              </p>
+            </aside>
+          </p>
+        </li>
+        <li>
+          <p>
+            One of the more surprising applications of Newton's method is to compute reciprocals.
+            To make things more concrete,
+            we will compute 1/3.4567 .  Note that this number is the root of the equation <m>1/x = 3.4567</m>.
+            <ol>
+              <li>
+                <p>
+                  Show that the formula of Newton's method gives us
+                  <me>
+                    x_{n+1} = 2 x_n-3.4567 x_n^2
+                  </me>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Using <m>x_0=.5</m> and the formula from (a),
+                  compute 1/3.4567 to a high degree of accuracy.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Try starting with <m>x_0=1</m>.
+                  What happens?
+                  Explain graphically what goes wrong.
+                  This method for computing reciprocals is important because it involves only <em>multiplication</em>
+                  and <em>subtraction</em>.
+                  Since <m>a/b=a\cdot (1/b)</m>,
+                  this implies that division can likewise be built from multiplication and subtraction.
+                  Thus, when designing a computer,
+                  the division routine doesn't need to be built from scratch<mdash/>the designer can use the method illustrated here.
+                  There are some computers that do division this way.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            In this problem we will determine the maximum value of the function
+            <me>
+              f(x) = \dfrac{x+1}{x^4+1}
+            </me>.
+            <ol>
+              <li>
+                <p>
+                  Graph <m>f(x)</m> and convince yourself that the maximum value occurs somewhere around <m>x=.5</m>.
+                  Of course, the exact location is where the slope of the graph is zero,
+                  i.e., where <m>f'(x)=0</m>.
+                  So we need to solve this equation.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Compute <m>f'(x)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Since the answer to (b) is a fraction,
+                  it vanishes when its numerator does.
+                  Setting the numerator equal to 0 gives a fourth degree equation.
+                  Use Newton's method to find a solution near <m>x=.5 </m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Compute the maximum value of <m>f(x)</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Consider the hyperbola <m>y=1/x</m> and the circle <m>x^2-4x+y^2+3=0</m>.
+            <ol>
+              <li>
+                <p>
+                  By graphing the circle and the hyperbola,
+                  convince yourself that there are two points of intersection.
+                </p>
+              </li>
+              <li>
+                <p>
+                  By substituting <m>y=1/x</m> into the equation of the circle,
+                  obtain a fourth degree equation satisfied by the <m>x</m><ndash/>coordinate of the points of intersection.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Solve the equation from (b) by Newton's method,
+                  and then determine the points of intersection.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Sometimes Newton's method doesn't work so nicely.
+            For example, consider the equation <m>\sin x = 0</m>.
+            <ol>
+              <li>
+                <p>
+                  Compute <m>x_1</m> using Newton's method for each of the four starting values <m>x_0=1.55,1.56,1.57 \mbox{ and } 1.58</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The answers you get are wildly different.
+                  Using the basic formula
+                  <me>
+                    x_{n+1}=x_n-\frac{g(x_n)}{g'(x_n)}
+                  </me>
+                  explain why.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+      </ol>
+    </introduction>
+    <subsubsection xml:id="subsubsec_the-epidemic-runs-its-course">
+      <title>The epidemic runs its course</title>
+      <p>
+        We return to the epidemiology example we have studied since chapter<nbsp/>1.
+        Recall that our <m>S</m>-<m>I</m>-<m>R</m> model keeps track of three subgroups of the population:
+        the susceptible, the infected, and the recovered.
+        One of the interesting features of the model is that the larger the initial susceptible population,
+        the more rapidly the epidemic runs its course.
+        We observe this by choosing fixed values of <m>R_0 = R(0)</m> and
+        <m>I_0 = I(0)</m> and looking at graphs of <m>S(t)</m> versus <m>t</m> for various values of
+        <m>S_0 = S(0)</m>.<image width="73%" source="images/pic291.png"/> We see in each case that for sufficiently large <m>t</m> the graph of <m>S</m> levels off,
+        approaching a value we'll call <m>S_\infty</m>:
+        <me>
+          S_\infty = \lim_{t \rightarrow \infty} S(t)
+        </me>.
+      </p>
+      <p>
+        What we mean by the epidemic
+        <q>running its course</q>
+        is that <m>S(t)</m> reaches this limit value.
+        We can see from the graphs that the value of <m>S_0</m> affects the number
+        <m>S_\infty</m> of individuals who escape the disease entirely.
+        It turns out that we can actually find the value of
+        <m>S_\infty</m> if we know the values of <m>S_0, I_0</m>,
+        and the parameters <m>a</m> and <m>b</m>.
+        Recall that <m>a</m> is the <em>transmission coefficient</em>,
+        and <m>b</m> is the <em>recovery coefficient</em> for the disease.
+        The differential equations of the <m>S</m>-<m>I</m>-<m>R</m> model are
+        <md>
+          <mrow>S' \amp = -aSI,</mrow>
+          <mrow>I' \amp = aSI - bI,</mrow>
+          <mrow>R' \amp = bI</mrow>
+        </md>.
+      </p>
+      <ol>
+        <li>
+          <p>
+            Use the differentiation rules together with these differential equations to show that
+            <me>
+              (I+S-(b/a)\cdot \ln S)'=0
+            </me>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Explain why the result of problem 10 means that
+            <m>I+S-(b/a)\cdot \ln S</m> has the same value<mdash/>call it <m>C</m><mdash/>for every value of <m>t</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Look at the graphs of the solutions <m>I(t)</m> for various values of <m>S(0)</m> below.
+            <image width="73%" source="images/pic292.png"/> Write
+            <m>\lim_{t \rightarrow \infty} I(t) = I_\infty</m> . What is the value of
+            <m>I_\infty</m> for all values of <m>S(0)</m>?
+          </p>
+        </li>
+        <li>
+          <p>
+            Use the results of problems 11 and 12 to explain why
+            <me>
+              S_\infty-\frac{b}{a}\ln (S_\infty)=I_0+S_0-\frac{b}{a}\ln (S_0)
+            </me>.
+            This equation determines <m>S_\infty</m> implicitly as a function of <m>I_0</m> and <m>S_0</m>.
+            For particular values of <m>I_0</m> and <m>S_0</m>
+            (and of the parameters),
+            you can use Newton's method to find <m>S_\infty</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Use the values
+            <md>
+              <mrow>a \amp  =  0.00001 \mbox{ (person-days)} ^{-1}</mrow>
+              <mrow>b \amp  = 0.08 \mbox{ day} ^{-1}</mrow>
+              <mrow>I_0 \amp =  100 \mbox{ persons}</mrow>
+              <mrow>S_0 \amp  =  35,000 \mbox{ persons}</mrow>
+            </md>
+            Writing <m>x</m> instead of <m>S_\infty</m> gives
+            <me>
+              x-8000\ln (x) = -48,605
+            </me>.
+            Apply Newton's method to find <m>x = S_\infty</m>.
+            Judging from the graph for <m>S_0=35000</m>,
+            it looks like a reasonable first estimate for <m>S_\infty</m> might be 100.
+          </p>
+        </li>
+        <li>
+          <p>
+            Using the same values of <m>a</m>, <m>b</m>,
+            and <m>I_0</m> as in problem 14,
+            determine the value of <m>S_\infty</m> for each of the following initial population sizes:
+          </p>
+          <ol>
+            <li>
+              <p>
+                <m>S_0=45,000</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>S_0=25,000</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>S_0=5,000</m>.
+              </p>
+            </li>
+          </ol>
+        </li>
+      </ol>
+    </subsubsection>
+  </subsection>
+</section>

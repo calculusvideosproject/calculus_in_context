@@ -1,0 +1,91 @@
+<section xml:id="sec_limit-cycles">
+  <title>Limit Cycles</title>
+  <introduction>
+    <p>
+      With this analysis of the behavior of vector fields near equilibrium points,
+      we now know most of the possibilities for the long-term behavior of trajectories.
+      The one important phenomenon we haven't discussed is
+      <term>limit cycles</term>.
+          <idx><h>limit cycle</h></idx>
+      To see an example of this,
+      let's return to May's predator<ndash/>prey model we first encountered in chapter 4.
+      If <m>x(t)</m> and <m>y(t)</m> are the prey and predator populations,
+      respectively, at time <m>t</m>,
+      then the general form of May's model is
+      <md>
+        <mrow>x' \amp = ax\left(1-\frac{x}{b}\right) - \frac{cxy}{x+d},</mrow>
+        <mrow>y' \amp = ey\left(1-\frac{y}{fx}\right);</mrow>
+      </md>
+      the parameters <m>a</m>, <m>b</m>,
+      <m>c</m>, <m>d</m>, <m>e</m> and <m>f</m> are all positive.
+      Using parameter values of <m>a = 0.6</m>, <m>b = 10</m>,
+      <m>c = 0.5</m>, <m>d = 1</m>,
+      <m>e = .1</m> and <m>f = 2</m>,
+      let's take several different starting values and sketch the resulting trajectories.
+      Here's what we find:
+      <image width="73%" source="images/limcyc.png"/> Notice that no matter where we start,
+      the trajectory is apparently always drawn to the closed loop shown in dashes above.
+      This loop is an example of an <term>attracting limit cycle</term>.
+      As usual, we could reverse all the arrows in our vector field,
+      in which case this example would be converted to a
+      <term>repelling limit cycle</term>.
+      A limit cycle is very different from the kind of behavior we saw in the neighborhood of a neutral equilibrium point called a center.
+      Around a center there is a closed loop
+    </p>
+    <aside>
+      <p>
+        Limit cycles give models for cyclic behavior
+      </p>
+    </aside>
+    <p>
+      trajectory through every point:
+      displace the state slightly, and it would move happily along the new loop.
+      If the state is on an attracting limit cycle,
+      though, and you displace it,
+      it will move back toward the cycle it started from.
+      For this reason limit cycles make very good models for cyclic behavior,
+      whether it is in the firing of neurons or population cycles of mammals.
+      The size of the limit cycle, and even its very existence,
+      depends on the specific values of the parameters in the model.
+      If you change the parameters,
+      you change the limit cycle.
+      If you change the parameters enough,
+      the limit cycle may disappear all together.
+      (See the exercises.)
+      A result proved early in this century is the
+      <em> Poincar&#xe9;<ndash/>Bendixson Theorem</em>
+          <idx><h>Poincar&#xe9;<ndash/>Bendixson Theorem</h></idx>
+      which says that equilibrium points and limit cycles are as complicated as dynamical systems in two variables can get.
+      Once we pass to three variables,
+      the situation becomes much more complicated.
+      Many of the phenomena associated with such systems have been discovered only within the past 50 years,
+      and their exploration is a subject of continuing research.
+      In the next section we will give a brief introduction of some of the new behaviors that can arise.
+    </p>
+  </introduction>
+  <subsection xml:id="subsec_exercises">
+    <title>Exercises</title>
+    <ol>
+      <li>
+        <p>
+          Using the parameter values given in the text,
+          find the coordinates of the equilibrium point at the center of the limit cycle and show that it is, in fact,
+          a repellor.
+        </p>
+      </li>
+      <li>
+        <p>
+          May's model is interesting in that it exhibits a phenomenon known as
+          <term>Hopf bifurcation</term>.
+            <idx><h>Hopf bifurcation</h></idx>
+        Namely, the existence of a limit cycle depends on the values of the parameters.
+          Choose one of the parameters in May's model and try a range of values both larger and smaller than in the example we've worked out.
+          At what value does the limit cycle disappear?
+          When this happens,
+          the equilibrium point inside the cycle has become an attractor.
+          Can you work out analytically when this happens?
+        </p>
+      </li>
+    </ol>
+  </subsection>
+</section>

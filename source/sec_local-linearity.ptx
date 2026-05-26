@@ -1,0 +1,2150 @@
+<section xml:id="sec_local-linearity">
+  <title>Local Linearity</title>
+  <introduction>
+    <p>
+          <idx><h>local linearity</h></idx>
+      Local linearity is the central idea of chapter 3: it says that a graph looks straight when viewed under a microscope.
+          <idx><h>microscope</h></idx>
+      Using this observation we were able to give a precise meaning to the <em>rate of change</em>
+      of a function and, as a consequence,
+      to see why Euler's method produces solutions to differential equations.
+      At the time we concentrated on functions with a single input variable.
+      In this section we explore local linearity for functions with two or more input variables.
+    </p>
+  </introduction>
+  <subsection xml:id="subsec_microscopic-views">
+    <title>Microscopic Views</title>
+    <p>
+      Consider the cubic <m>f(x, y) = x^3 - 4x - y^2</m> that we used as an example in the previous section.
+      We'll examine both the graph and the plot of <m>f</m> under a microscope.
+          <idx><h>graph</h><h>magnifying a</h></idx>
+          <idx><h>graph</h></idx>
+          <idx><h>graph</h><h>surface</h></idx>
+    </p>
+    <aside>
+      <p>
+        Magnifying a graph
+      </p>
+    </aside>
+    <p>
+      In the figure below we see successive magnifications of the graph near the point where <m>(x, y) = (1.5, -1)</m>.
+      The initial graph, in the left rear, is drawn over the square
+      <me>
+        -2.5 \leq x \leq 2.5, \qquad -2.5 \leq y \leq 2.5
+      </me>.
+    </p>
+    <p>
+      With each magnification,
+      the portion of the surface we see bends less and less.
+      <term>The graph approaches the shape of a flat plane</term>.
+      <image width="73%" source="images/micro1.png"/> <image width="73%" source="images/micro2.png"/> <image width="73%" source="images/micro3.png"/> Contour plots
+          <idx><h>plot</h><h>contour</h></idx>
+      for <m>f(x, y) = x^3 - 4x - y^2</m> appear below.
+      Again, we magnify near the point <m>(x, y) = (1.5, -1)</m>.
+      Each window below is a small part of the window to its left.
+      In the large scale plot, which is the first one on the left,
+      the contours are quite variable in their direction and spacing.
+      With each magnification, that variability decreases.
+      <term>The contours become straight,
+      parallel, and equally spaced</term>.
+          <idx><h>contour</h></idx>
+      <image width="73%" source="images/micro4.png"/> The process of magnification thus leads us to functions whose graphs are flat and whose contours are straight,
+      parallel, and equally-spaced.
+      As we shall now see, these are the linear functions.
+    </p>
+  </subsection>
+  <subsection xml:id="subsec_linear-functions">
+    <title>Linear Functions</title>
+    <introduction>
+      <p>
+            <idx><h>linear function</h></idx>
+            <idx><h>function</h><h>linear</h></idx>
+        A linear function
+      </p>
+      <aside>
+        <p>
+          Responses to changes in input
+        </p>
+      </aside>
+      <p>
+        is defined by the way its output responds to
+        <em>changes</em> in the input.
+        Specifically, in chapter 1 we said
+        <me>
+          y = f(x)  \mbox{is linear if}   \Delta y = m \cdot \Delta x
+        </me>.
+      </p>
+      <p>
+        This is the simplest possibility:
+        changes in output are strictly proportional to changes in input.
+        The multiplier
+            <idx><h>multiplier</h></idx>
+        <m>m</m> is both the <em>rate</em>
+        at which <m>y</m> changes with respect to <m>x</m> and the <em>slope</em>
+        of the graph of <m>f</m>.
+        Exactly same idea defines a linear function
+      </p>
+      <aside>
+        <p>
+          The definition
+        </p>
+      </aside>
+      <p>
+        of two or more variables:
+        the change in output is strictly proportional to the change in any one of the inputs.
+      </p>
+      <image source=""/>
+      <p>
+        There is one multiplier for each input variable.
+        The multipliers are constants and they are,
+        in general, all different.
+        The definition describes how <m>z</m> responds
+      </p>
+      <aside>
+        <p>
+          Partial and total changes
+        </p>
+      </aside>
+      <p>
+        to each input separately.
+        We call each <m>p_j \cdot \Delta x_j</m> a
+        <em> partial change</em>.
+            <idx><h>change</h><h>partial</h></idx>
+        The multiplier <m>p_j = \Delta z/\Delta x_j</m> is the corresponding
+        <term>partial rate of change</term>.
+            <idx><h>partial rate of change</h></idx>
+            <idx><h>rate of change</h><h>partial</h></idx>
+        Of course, several input variables may change simultaneously.
+        In that case, the <term>total change</term>
+            <idx><h>total change</h></idx>
+            <idx><h>change</h><h>total</h></idx>
+        in <m>z</m> will just be the sum of the individual changes produced by the several variables:
+        <me>
+          \Delta z = p_1 \cdot \Delta x_1 + p_2 \cdot \Delta x_2 + \cdots + p_n \cdot \Delta x_n
+        </me>.
+      </p>
+      <p>
+        Of course, if the total change of a function satisfies
+      </p>
+      <aside>
+        <p>
+          Another way to describe a linear function
+        </p>
+      </aside>
+      <p>
+        this condition,
+        then each partial change has the form <m>p_j \cdot \Delta x_j</m>.
+        (If only <m>x_j</m> changes, then all the other <m>\Delta x_k</m> must be 0.
+        So <m>\Delta z</m> becomes simply <m>p_j \cdot \Delta x_j</m>.)
+        Consequently, the function must be linear.
+        In other words,
+        we can use the formula for the total change as another way to define a linear function.
+      </p>
+      <image source=""/>
+    </introduction>
+    <subsubsection xml:id="subsubsec_formulas-for-linear-functions">
+      <title>Formulas for linear functions</title>
+      <p>
+        When <m>z = f(x_1, x_2, \ldots,
+        x_n)</m> is a linear function,
+      </p>
+      <aside>
+        <p>
+          From the definition to a formula
+        </p>
+      </aside>
+      <p>
+        we know how <m>\Delta z</m> depends on the changes <m>\Delta x_j</m>,
+        but that doesn't tell us explicitly how <m>z</m> itself is related to the input variables <m>x_j</m>.
+        There are several ways to express this relation as a formula,<idx><h>linear function</h><h>formula</h></idx> depending on the nature of the information we have about the function.
+        For the sake of clarity,
+        we'll develop these formulas first for a function of two variables:
+        <m>z = f(x, y)</m>.
+        <m>\bullet</m> <term>The initial-value form</term>.
+            <idx><h>linear function</h><h>initial-value form</h></idx>
+            <idx><h>initial-value form</h></idx>
+      </p>
+      <aside>
+        <p>
+          Given the partial rates of change and an initial point
+        </p>
+      </aside>
+      <p>
+        Suppose we know the value of a linear function at some given point<mdash/>called the
+        <term>initial point</term><mdash/>and
+            <idx><h>initial point</h></idx>
+        we also know its partial rates of change.
+        Can we construct a formula for the function?
+        Suppose <m>z = z_0</m> when <m>(x, y) = (x_0, y_0)</m>,
+        and suppose the partial rates of change are
+        <me>
+          p = \dfrac{\Delta z}{\Delta x} \qquad \mbox{and}  \qquad q = \dfrac{\Delta z}{\Delta y}
+        </me>.
+      </p>
+      <p>
+        If we let
+        <me>
+          \Delta x = x - x_0, \qquad \Delta y = y - y_0, \qquad \Delta z = z - z_0
+        </me>,
+        then we can write
+        <md>
+          <mrow>z - z_0 = \Delta z \amp = p \cdot \Delta x + q \cdot \Delta y</mrow>
+          <mrow>\amp = p \cdot (x - x_0) + q \cdot (y - y_0)</mrow>
+        </md>.
+      </p>
+      <p>
+        This is the initial-value form of a linear function.
+        For example,
+        if the initial point is <m>(x, y) = (4, 3)</m>, <m>z = 5</m>,
+        and the partial rates of change are <m>\Delta z/\Delta x = -\tfrac{1}{2}</m>,
+        <m>\Delta z/\Delta y = +1</m>,
+        the equation of the linear function can be written
+        <me>
+          z - 5 = -\tfrac{1}{2} (x - 4) + (y - 3)
+        </me>.
+      </p>
+      <p>
+        <m>\bullet</m> <term>The intercept form</term>.
+            <idx><h>linear function</h><h>intercept form</h></idx>
+            <idx><h>intercept form</h></idx>
+      </p>
+      <aside>
+        <p>
+          Given the partial rates of change and the <m>z</m>-intercept
+        </p>
+      </aside>
+      <p>
+        This is a special case of the initial-value form,
+        in which the initial point is the origin:
+        <m>(x, y) = (0, 0)</m>, <m>z = r</m>.
+        The formula becomes
+        <me>
+          z - r = p  x + q y, \qquad \mbox{or}  \qquad z = p x + q  y + r
+        </me>.
+      </p>
+      <p>
+        As we shall see, the graph of this function in
+        <m>x,
+        y, z</m>-space passes through the point
+        <m>(x, y, z) = (0, 0, r)</m> on the <m>z</m>-axis.
+        This point is called the \mathbf{{ <m>z</m>}-intercept}
+            <idx><h>intercept</h></idx>
+            <idx><h><m>z</m>-intercept</h></idx>
+        of the graph.
+        Sometimes we simply call the number <m>r</m> itself the <m>z</m>-intercept.
+        Notice that, with a little algebra,
+        we can convert the previous example to the form <m>z = -\tfrac{1}{2}x + y + 4</m>.
+        This is the intercept form, and the <m>z</m>-intercept is <m>z = 4</m>.
+        If there are <m>n</m> input variables, <m>x_1</m>,
+        <m>x_2</m>, <ellipsis/> , <m>x_n</m>,
+      </p>
+      <aside>
+        <p>
+          The form of a linear function of <m>n</m> variables
+        </p>
+      </aside>
+      <p>
+        instead of two,
+        and an initial point has coordiantes <m>x_1^0</m>, <m>x_2^0</m>,
+        <ellipsis/>, <m>x_n^0</m>, then a linear equation has the following forms:
+        <md>
+          <mrow>{2} \textbf{initial-value:}\amp  \amp   z - z_0 \amp = p_1 (x_1 - x_1^0) + p_2 (x_2 - x_2^0) + \cdots + p_n (x_n - x_n^0),</mrow>
+          <mrow>\textbf{\boldmath $z$-intercept:}\amp  \amp   z \amp = p_1  x_1 + p_2  x_2 + \cdots + p_n  x_n + r</mrow>
+        </md>.
+      </p>
+    </subsubsection>
+    <subsubsection xml:id="subsubsec_the-graph-of-a-linear-function">
+      <title>The graph of a linear function</title>
+      <p>
+            <idx><h>graph</h><h>linear function</h></idx>
+            <idx><h>linear function</h><h>graph</h></idx>
+        On the left at the top of the next page is the graph of the linear function
+        <me>
+          z = \tfrac{1}{2} x  + y + 4
+        </me>.
+      </p>
+      <p>
+        The graph is a flat plane.
+        In particular, grid lines
+            <idx><h>grid line</h></idx>
+        parallel to the <m>x</m>-axis
+        (which represent vertical slices
+            <idx><h>slice</h></idx>
+        with <m>y = c</m>)
+        are all straight lines with the same slope <m>\Delta z/\Delta x = -\tfrac{1}{2}</m>.
+        The other grid lines
+        (with <m>x = c</m>)
+        are all straight lines with the same slope
+        <m>\Delta z/\Delta y = +1</m>.<image width="73%" source="images/linear1.png"/> <image width="73%" source="images/linear2.png"/> { <m>z = - \tfrac{1}{2} x + y + 4</m>
+        <m>z = px + qy + r</m> } On the right, above,
+        is the graph of the general linear function written in intercept form:
+        <m>z = px + qy + r</m>.
+        The graph is the plane that can be identified by three distinguishing features:
+        <m>\bullet</m> it has slope
+            <idx><h>slope</h></idx>
+        <m>p</m> in the <m>x</m>-direction;
+        <m>\bullet</m> it has slope <m>q</m> in the <m>y</m>-direction.
+        <m>\bullet</m> it intercepts the <m>z</m>-axis at <m>z = r</m>; Let's see how we can <em>deduce</em>
+      </p>
+      <aside>
+        <p>
+          The definition of a linear function implies that its graph is a flat plane
+        </p>
+      </aside>
+      <p>
+        that the graph must be this plane.
+        First of all, the partial rate
+        <m>\Delta z/\Delta x</m><idx><h>rate of change</h><h>partial</h></idx> tells us how <m>z</m> changes when <m>y</m> is held fixed.
+        But if we fix <m>y = c</m>,
+        we get a vertical slice of the graph in the <m>x</m>-direction.
+        The slope if that vertical slice is <m>\Delta z/\Delta x = p</m>.
+        Since <m>p</m> is constant, the slice is a straight line.
+        The value of <m>y = c</m> determines which slice we are looking at.
+        Since <m>\Delta z/\Delta x</m> doesn't depend on <m>y</m>,
+        all the slices in the <m>x</m>-direction have the <em>same</em> slope.
+        Similarly, all the slices in the <m>y</m>-direction are straight lines with the same slope <m>q</m>.
+        The only surface that can be covered by a grid of straight lines in this way is a flat plane.
+        Finally, since <m>z = r</m> when <m>(x, y) = (0, 0)</m>,
+        the graph intercepts the <m>z</m>-axis at <m>z = r</m>.
+      </p>
+    </subsubsection>
+    <subsubsection xml:id="subsubsec_contours-of-a-linear-function">
+      <title>Contours of a linear function</title>
+      <p>
+            <idx><h>linear function</h><h>contours</h></idx>
+            <idx><h>contour</h><h>linear function</h></idx>
+        A contour of <em>any</em> function
+      </p>
+      <aside>
+        <p>
+          Each contour is a straight line
+        </p>
+      </aside>
+      <p>
+        <m>f(x, y)</m> is the set of points in the
+        <m>x,
+        y</m>-plane where <m>f(x, y) = c</m>,
+        for some given constant <m>c</m>.
+        If <m>f = px + qy + r</m>, then a contour has the equation
+        <me>
+          px + qy + r = c \qquad \mbox{or}  \qquad y = - \dfrac{p}{q}x + \dfrac{c - r}{q}
+        </me>.
+      </p>
+      <p>
+        This is an ordinary straight line in the <m>x, y</m>-plane.
+        Its slope is <m>-p/q</m> and its <m>y</m>-intercept is
+        <m>(c - r)/q</m>. (If <m>q = 0</m> we can't do these divisions.
+        However, this causes no problem;
+        you should check that the contour is just the vertical line
+        <m>x = (c - r)/p</m>.) <image width="73%" source="images/linear3.png"/>
+      </p>
+      <sidebyside>
+        <nbsp/><nbsp/>  To construct a contour plot, we must give the constant <m>c</m> a
+        sequence of equally-spaced values <m>c_j</m>, with <m>c_{j+1} = c_j + \Delta
+        c</m>.  This generates a sequence of straight lines
+        <me>
+          px + qy + r = c_j,  \mbox{or}
+          y = - \dfrac{p}{q}x + \dfrac{c_j - r}{q}
+        </me>.
+        These lines all have the same slope <m>-p/q</m>, so they are parallel.
+        (Notice the value of <m>c</m> doesn't affect the slope.)  The <m>y</m>-intercept
+        of the <m>j</m>-th contour is <m>(c_j - r)/q</m>.  Therefore, the distance along
+        the <m>y</m>-axis
+      </sidebyside>
+      <p>
+        between one intercept and the next is <m>\Delta c/q</m>.
+        The contours are thus straight,
+        parallel, and equally-spaced.
+        (You should check that this is still true if <m>q = 0</m>.)
+        Note that the figure at the left, above,
+        is drawn with <m>\Delta c > 0</m> but <m>q \lt 0</m>.
+      </p>
+    </subsubsection>
+    <subsubsection xml:id="subsubsec_geometric-interpretation-of-the-partial-rates">
+      <title>Geometric interpretation of the partial rates</title>
+      <p>
+        What happens to the graph or the contour plot if you double one of the partial rates of change<idx><h>rate of change</h><h>partial</h></idx>
+            <idx><h>partial slope</h></idx>
+            <idx><h>slope</h><h>partial</h></idx>
+        of a linear function?
+      </p>
+      <aside>
+        <p>
+          Partial rates and partial slopes
+        </p>
+      </aside>
+      <p>
+        The graph on the right, below,
+        shows the effect of doubling the partial rate with respect to <m>x</m> of the function <m>z = - \tfrac{1}{2}x + y + 4</m>.
+        As you can see, the slope in the <m>x</m>-direction
+      </p>
+      <p>
+        <image width="73%" source="images/linear4.png"/> <image width="73%" source="images/linear5.png"/> {
+        <m>z = -\tfrac{1}{2} x + y + 4</m> <m>z = -x + y + 4</m> } is doubled
+        (from <m>-\tfrac{1}{2}</m> to <m>-1</m>).
+        Had we increased the partial rate by a factor of<nbsp/>10,
+        the slope would have increased by a factor of<nbsp/>10 as well.
+        Notice that the slope in the <m>y</m>-direction is not affected.
+      </p>
+      <aside>
+        <p>
+          The overall tilt of a graph is altered
+        </p>
+      </aside>
+      <p>
+        Nevertheless, the overall <sq>tilt</sq> of the graph
+        <em>has</em> been altered.
+        We shall have more to say about this feature in a moment,
+        when we introduce the <term>gradient</term>
+            <idx><h>gradient</h></idx>
+        of a linear function to describe the overall tilt.
+        A change in the partial rates has a more complex effect on the contour plot.
+        Perhaps it is more surprising, too.
+        To make valid comparisons,
+        we have constructed all three plots below with the same spacing between levels
+        (namely <m>\Delta z = 1</m>).
+        Notice how the levels meet the <m>x</m>- and <m>y</m>-axes in the plot on the left
+        (<m>z = -tfrac{1}{2}x + y +4</m>).
+      </p>
+      <aside>
+        <p>
+          Partial rate and the spacing of contours
+        </p>
+      </aside>
+      <p>
+        For each unit step we take along the <m>y</m>-axis,
+        the <m>z</m>-value increases by 1.
+        This is the meaning of <m>\Delta z/\Delta y = +1</m>.
+        By contrast, we have to take <em>two</em>
+        unit steps along the <m>x</m>-axis to produce the same size change in <m>z</m>.
+        Moreover, <m>z</m> <em>decreases</em>
+        by 1 when <m>x</m> increases by 2.
+        This is the meaning of <m>\Delta z/\Delta x = -\tfrac{1}{2}</m>.
+        In particular,
+        the relatively wide spacing between <m>z</m>-levels along the <m>x</m>-axis reflects the relative smallness of <m>\Delta z/\Delta x</m>.
+        <image width="73%" source="images/linear6.png"/> <image width="73%" source="images/linear7.png"/> <image width="73%" source="images/linear8.png"/> {
+        <m>z = -\tfrac{1}{2} x  + y + 4 \hspace{65pt} z = -x + y + 4</m> \mbox{<m>z = -x + 2y + 4</m>} } Therefore,
+        when we double the size of
+        <m>\Delta z/\Delta x</m><mdash/>as we do in the middle plot<mdash/>we should cut in half
+      </p>
+      <aside>
+        <p>
+          The larger the partial rate, the closer the contours
+        </p>
+      </aside>
+      <p>
+        the spacing between <m>z</m>-levels along the <m>x</m>-axis.
+        As you can see, this is exactly what happens.
+        Notice that the spacing along the <m>y</m>-axis is not altered.
+        Consequently,
+        the contours change direction and they get packed more closely together.
+        Suppose we double <em>both</em>
+        partial rates<mdash/>as we do in the plot on the right.
+        Then the spacing between contours is cut in half along both axes.
+        Because the change is uniform,
+        the contours keep their original direction.
+      </p>
+    </subsubsection>
+  </subsection>
+  <subsection xml:id="subsec_the-gradient-of-a-linear-function">
+    <title>The Gradient of a Linear Function</title>
+    <p>
+          <idx><h>linear function</h><h>gradient</h></idx>
+          <idx><h>gradient</h></idx>
+      By making use of the concept of a vector,
+          <idx><h>vector</h></idx>
+      introduced in the last chapter, we can construct
+    </p>
+    <aside>
+      <p>
+        The vector of partial rates
+      </p>
+    </aside>
+    <p>
+      still another geometric interpretation of the partial rates<idx><h>rate of change</h><h>partial</h></idx> of a linear function.
+      This vector is called the gradient,
+      and it is defined in the following way.
+    </p>
+    <image source=""/>
+    <p>
+      The gradient is perhaps the most concise and useful tool for describing the growth of a
+    </p>
+    <aside>
+      <p>
+        The direction of most rapid growth
+      </p>
+    </aside>
+    <p>
+      function of several variables.
+          <idx><h>growth</h><h>most rapid</h></idx>
+      To get an idea of the role that it plays, consider this question:
+      <em>In what direction should we move from a given point in the
+      <m>x,
+      y</m>-plane so that the value of a linear function increases most rapidly</em>?
+      <image width="73%" source="images/linear9.png"/> <image width="73%" source="images/linear10.png"/> <image width="73%" source="images/linear11.png"/> Of course,
+      the answer will depend on the linear function.
+    </p>
+    <aside>
+      <p>
+        <m>z = -\tfrac{1}{2} x + y + 4</m>
+      </p>
+    </aside>
+    <p>
+      Let's use <m>z = -\tfrac{1}{2} x + y + 4</m> and start from the point <m>(x, y) = (2.4, 1.6)</m>.
+      We can make <m>z</m> undergo a very large change simply by moving very far from this point.
+      Therefore, to make valid comparisons,
+      we will restrict ourselves to motions that carry us exactly one unit of distance in various directions.
+      The vectors in the figure at the right show some of the possibilities.
+      Their tips lie on a circle of radius<nbsp/>1.
+      Thus, to choose the direction in which <m>z</m> increases most rapidly,
+      we must simply find the point on this circle where the value of <m>z</m> is largest.
+      The contour line at this level must be tangent to the circle.
+      The vector perpendicular to this contour line
+      (see the second figure)
+      therefore points in the direction of most rapid growth.
+      Since perpendiculars have negative reciprocal slopes,
+      and since all the contour lines have slope <m>+1/2</m>,
+      it follows that the vector must have slope <m>-2/1</m>.
+      At the left is a magnified view of this vector.
+      We know
+      <me>
+        \Delta x \lt  0, \qquad \dfrac{\Delta y}{\Delta x} = -2, \qquad \mbox{and}  \qquad  (\Delta x)^2 + (\Delta y)^2 = 1
+      </me>.
+    </p>
+    <p>
+      Thus <m>\Delta y = -2 \cdot \Delta x</m>,
+      so <m>(\Delta x)^2 + 4 \, (\Delta x)^2 = 1</m>.
+      This implies
+      <me>
+        5 \, (\Delta x)^2 = 1, \qquad \mbox{so}  \qquad \Delta x = \dfrac{-1}{\sqrt{5}}, \Delta y = \dfrac{2}{\sqrt{5}}
+      </me>.
+    </p>
+    <p>
+      Thus, among all the motions <m>(\Delta x, \Delta y)</m> we have considered,
+      we obtain the greatest change in <m>z</m> by choosing
+      <me>
+        (\Delta x, \Delta y) = \left(\dfrac{-1}{\sqrt{5}}, \dfrac{2}{\sqrt{5}}\right)
+      </me>.
+    </p>
+    <p>
+      To determine how large this change is, we can use
+    </p>
+    <aside>
+      <p>
+        The magnitude of most rapid growth
+      </p>
+    </aside>
+    <p>
+      the alternate definition of a linear function (<xref ref="altdef">see</xref>)
+      <me>
+        \Delta z = \dfrac{\Delta z}{\Delta x} \cdot \Delta x + \dfrac{\Delta z}{\Delta y} \cdot \Delta y = -\dfrac{1}{2} \cdot \dfrac{-1}{\sqrt{5}} + 1 \cdot \dfrac{2}{\sqrt{5}} = \dfrac{5}{2 \sqrt{5}} = \dfrac{\sqrt{5}}{2}
+      </me>.
+    </p>
+    <p>
+      <image width="73%" source="images/linear12.png"/> The gradient vector quickly gives us all this information.
+      First of all, the gradient vector has the value
+      <me>
+        \mbox{grad \(z\)}  = \left( \dfrac{\Delta z}{\Delta x}, \dfrac{\Delta z}{\Delta y}\right) = \left( -\tfrac{1}{2}, 1 \right)
+      </me>.
+    </p>
+    <p>
+      Since its slope is <m>1/-\tfrac{1}{2} = -2</m>,
+      we see that it does indeed point in the direction of most rapid growth.
+    </p>
+    <aside>
+      <p>
+        Information from the gradient
+      </p>
+    </aside>
+    <p>
+      Consequently, it is also perpendicular to the contour line.
+      Furthermore, its <em>length</em>
+      gives the maximum growth rate.
+      We can see this by calculating the length using the Pythagorean theorem:
+          <idx><h>Pythagorean theorem</h></idx>
+      <me>
+        \mbox{length}  = \sqrt{\left(\dfrac{\Delta z}{\Delta x}\right)^2 + \left(\dfrac{\Delta z}{\Delta y} \right)^2} = \sqrt{\dfrac{1}{4} + 1} = \sqrt{\dfrac{5}{4}} = \dfrac{\sqrt{5}}{2}
+      </me>.
+    </p>
+    <p>
+      Our findings with this example point to the following conclusion.
+    </p>
+    <image source=""/>
+    <p>
+      Let's see why this is true.
+    </p>
+    <aside>
+      <p>
+        A proof
+      </p>
+    </aside>
+    <p>
+      According to the observation on the previous page,
+      the direction of most rapid increase will be perpendicular to the contour lines.
+      The gradient of <m>z = px + qy + r</m> is the vector <m>\nabla z = (p, q)</m>.
+      Its slope is <m>q/p</m>.
+      <xref ref="contourslope">On</xref>
+      we saw that the slope of the contour lines is <m>-p/q</m>.
+      Since these slopes are negative reciprocals,
+      the gradient is indeed perpendicular to the contour lines.
+      To determine the maximum rate of increase,
+      we must see how much <m>z</m> increases when we move exactly 1 unit of distance in the gradient direction.
+      The gradient vector is <m>(p, q)</m>,
+      and its length is <m>\sqrt{p^2 + q^2}</m>.
+      Therefore, the vector
+      <me>
+        (\Delta x, \Delta y) = \left(\dfrac{p}{\sqrt{p^2 + q^2}}, \dfrac{q}{\sqrt{p^2 + q^2}}\right)
+      </me>
+      is 1 unit long and in the same direction as the gradient.
+      The increase in <m>z</m> along this vector is
+      <me>
+        \Delta z = p \cdot \Delta x + q \cdot \Delta y = p \cdot \dfrac{p}{\sqrt{p^2 + q^2}} + q \cdot \dfrac{q}{\sqrt{p^2 + q^2}} = \dfrac{p^2 + q^2}{\sqrt{p^2 + q^2}} = \sqrt{p^2 + q^2}
+      </me>.
+    </p>
+    <p>
+      This <em>is</em> the length of the gradient vector,
+    </p>
+    <aside>
+      <p>
+        End of the proof
+      </p>
+    </aside>
+    <p>
+      so we have confirmed that the length of the gradient is equal to the maximum rate of increase.
+      <image width="73%" source="images/linear13.png"/> <image width="73%" source="images/linear14.png"/> <image width="73%" source="images/linear15.png"/> { <m>z = -\tfrac{1}{2} x + y + 4</m>
+      <m>z = -x + y + 4</m> \mbox{<m>z = -x + 2y + 4</m>} } Shown above are the three linear functions we've already examined.
+          <idx><h>plot</h><h>contour</h></idx>
+      In each case the gradient vector is perpendicular to the contours,
+    </p>
+    <aside>
+      <p>
+        Contour spacing and the length of the gradient
+      </p>
+    </aside>
+    <p>
+      and it gets longer as the space between the contours <em>decreases</em>.
+      This is to be expected because the space between contours is also an indicator of the maximum rate of growth of the function.
+      Widely-spaced contours tell us that <m>z</m> changes relatively little as <m>x</m> and <m>y</m> change;
+      closely-spaced contours tell us that <m>z</m> changes a lot as <m>x</m> and <m>y</m> change.
+      The connection between the<idx><h>gradient</h><h>geometric interpretation</h></idx>
+    </p>
+    <aside>
+      <p>
+        The gradient points directly uphill
+      </p>
+    </aside>
+    <p>
+      gradient and the graph is particularly simple.
+      Since the gradient
+      (which is a vector in the <m>x, y</m>-plane)
+      points in the direction of greatest increase,
+      it points in the direction in which the graph is tilted up.
+      If we project the gradient vector onto the graph,
+      as in the figure at the top of the next page, it points directly
+      <q>uphill</q>. Putting it another way, we can
+    </p>
+    <p>
+      <image width="73%" source="images/linear16.png"/>
+    </p>
+    <sidebyside>
+      say that the gradient shows us the
+      <q>overall tilt</q>
+      of the graph.
+      There are two parts to this information.  First, the direction of the
+      gradient tells us which way the graph is tilted.  Second, the length
+      tells us how steep the graph is.
+      <nbsp/><nbsp/>  The figure at the left combines all the visual elements we
+      have introduced to analyze a linear function: contours, graph, and
+      gradient.  Study it to see how they are related.
+    </sidebyside>
+  </subsection>
+  <subsection xml:id="subsec_the-microscope-equation">
+    <title>The Microscope Equation</title>
+    <introduction>
+      <p>
+            <idx><h>microscope equation</h></idx>
+      </p>
+    </introduction>
+    <subsubsection xml:id="subsubsec_local-linearity">
+      <title>Local linearity</title>
+      <p>
+            <idx><h>local linearity</h></idx>
+        Let's return to arbitrary functions of two variables<mdash/>that is, ones that are not necessarily linear.
+            <idx><h>function</h><h>of two variables</h></idx>
+      </p>
+      <aside>
+        <p>
+          Local linearity
+        </p>
+      </aside>
+      <p>
+        First we looked at magnifications of their graphs and contour plots under a microscope.
+        We found that the graph becomes a plane,
+        and the plot becomes a series of parallel, equally-spaced lines.
+        Next, we saw that it is precisely the linear functions which have planar graphs and uniformly parallel contour plots.
+        Hence this function is <term>locally linear</term>.
+        Of course, not <em>every</em> function is locally linear,
+      </p>
+      <aside>
+        <p>
+          Exceptions
+        </p>
+      </aside>
+      <p>
+        and even a function that <em>is</em>
+        locally linear at most points may fail to be so at particular points.
+        We have already seen this with functions of a single variable in chapter 3.
+        For example, <m>g(x) = x^{2/3}</m> is locally linear everywhere
+        <em>except</em> the origin.
+        It has a sharp spike
+            <idx><h>spike</h></idx>
+        there.
+        The two-variable function <m>f(x, y) = (x^2 + y^2)^{1/3}</m> has the same sort of spike at the origin.
+        The two graphs help make it clear that <m>g</m> is just a slice of<nbsp/><m>f</m>
+      </p>
+      <p>
+        <image width="73%" source="images/linear18.png"/> <image width="73%" source="images/linear17.png"/> {
+        <m>z = g(x) = x^{2/3}</m> <m>z = f(x, y) = (x^2 + y^2)^{1/3}</m> }
+        (constructed by taking <m>y = 0</m>). (Compare chapter<nbsp/>3.2, <xref ref="cusp-begin">pages</xref><ndash/> <xref ref="cusp-end"></xref>.) The spike is just one example;
+        there are many other ways that a function can fail to be locally linear.
+        Functions that are
+      </p>
+      <aside>
+        <p>
+          The relation between calculus and fractals
+        </p>
+      </aside>
+      <p>
+        <em>nowhere</em> locally linear are now being used in science to construct what are called <term>fractal</term>
+            <idx><h>fractal</h></idx>
+        models.
+        However, calculus does not deal with fractals.
+        On the contrary,
+        we remind you of the stipulation first made in chapter 3:
+      </p>
+      <image source=""/>
+    </subsubsection>
+    <subsubsection xml:id="subsubsec_the-microscope-equation-with-two-input-variables">
+      <title>The microscope equation with two input variables</title>
+      <p>
+        If the function <m>z = f(x, y)</m> is locally linear,
+      </p>
+      <aside>
+        <p>
+          The equation of a microscopic view
+        </p>
+      </aside>
+      <p>
+        then its graph looks like a plane when we view it under a microscope.
+        The linear equation that describes that plane is the
+        <term>microscope equation</term>.
+            <idx><h>microscope equation</h></idx>
+        Since the plane is part of the graph of <m>f</m>,
+        <m>f</m> itself must determine the form of the microscope equation.
+        Let's see how that happens.
+        The idea is to reduce <m>f</m> to a function of one variable and then use the microscope equation for one-variable functions
+        (described in chapter<nbsp/>3.3 and<nbsp/>3.7).
+        Suppose the microscope is focused at the point <m>(x, y) = (a, b)</m>.
+        If we fix <m>y</m>
+        (at <m>y = b</m>),
+        then <m>z</m> depends on <m>x</m> alone: <m>z = f(x, b)</m>.
+        The microscope equation
+      </p>
+      <aside>
+        <p>
+          The microscope equation in the <m>x</m>-direction<ellipsis/>
+        </p>
+      </aside>
+      <p>
+        for this function at <m>x = a</m> is just
+        <me>
+          \Delta z \approx \dfrac{\partial f}{\partial x}(a, b) \cdot \Delta x
+        </me>.
+      </p>
+      <p>
+        The multiplier
+            <idx><h>multiplier</h></idx>
+            <idx><h>slope</h><h>partial</h></idx>
+            <idx><h>partial slope</h></idx>
+            <idx><h>partial derivative</h></idx>
+            <idx><h>derivative</h><h>partial</h></idx> <m>\partial f/\partial x</m> is the rate of change of <m>f</m> with respect to<nbsp/><m>x</m>.
+        We need to write it as a partial derivative because <m>f</m> is a function of two variables.
+        Geometrically,
+        the multiplier tells us the slope of a vertical slice of the graph in the <m>x</m>-direction.
+        Now reverse the roles of <m>x</m> and <m>y</m>, fixing <m>x = a</m>.
+        The microscope equation for the function <m>z = f(a, y)</m>
+      </p>
+      <aside>
+        <p>
+          <ellipsis/> and in the <m>y</m>-direction
+        </p>
+      </aside>
+      <p>
+        at <m>y = b</m> is
+        <me>
+          \Delta z \approx \dfrac{\partial f}{\partial y}(a, b) \cdot \Delta y
+        </me>.
+      </p>
+      <p>
+        The multiplier <m>\partial f/\partial y</m> in this equation is the slope of a vertical slice of the graph in the <m>y</m>-direction.
+        The slopes of the two vertical slices are indicated in the microscope window that appears in the foreground of the following figure.<image width="73%" source="images/micro5.png"/> <image width="73%" source="images/micro6.png"/> The separate microscope equations
+      </p>
+      <aside>
+        <p>
+          From partial changes to total change
+        </p>
+      </aside>
+      <p>
+        for the <m>x</m>- and <m>y</m>-directions give us the partial changes in <m>z</m>.
+        However, as we saw when we were defining linear functions ( <xref ref="altdef"></xref>),
+        when we know all the <em>partial</em> changes,
+            <idx><h>change</h><h>partial</h></idx>
+        we can immediately write down the <em>total</em> change:
+            <idx><h>change</h><h>total</h></idx>
+            <idx><h>microscope equation</h></idx>
+      </p>
+      <image source=""/>
+      <p>
+        As always, the origin of the microscope window corresponds to the point
+        <m>(a, b, f(a, b))</m> on which the microscope is focused.
+        The microscope coordinates <m>\Delta x</m>, <m>\Delta y</m>,
+        and <m>\Delta z</m> measure distances from this origin.
+        For the sake of clarity in the figure above,
+        we put the origin at one corner of the (three-dimensional) window.
+        Incidentally,
+        the function shown above is <m>f(x, y) = x^3 - 4x - y^2</m>,
+      </p>
+      <aside>
+        <p>
+          An example
+        </p>
+      </aside>
+      <p>
+        and the microscope is focused at <m>(a, b) = (1.5, -1)</m>.
+        Since
+        <me>
+          \dfrac{\partial f}{\partial x} = 3 x^2 - 4 = 2.75, \qquad \qquad \dfrac{\partial f}{\partial y} = -2 y = 2
+        </me>
+        when <m>(x, y) = (1.5, -1)</m>,
+        the microscope equation is
+        <me>
+          \Delta z \approx 2.75 \, \Delta x + 2 \, \Delta y
+        </me>.
+      </p>
+    </subsubsection>
+  </subsection>
+  <subsection xml:id="subsec_linear-approximation">
+    <title>Linear Approximation</title>
+    <p>
+          <idx><h>linear approximation</h></idx>
+          <idx><h>approximation</h><h>linear</h></idx>
+      The microscope equation
+    </p>
+    <aside>
+      <p>
+        The microscope equation gives a linear approximation
+      </p>
+    </aside>
+    <p>
+      describes a linear function that approximates the original function near the point on which the microscope is focused.
+      It is easy to see exactly how good the approximation is by comparing contour plots of the two functions.
+      This is done below.
+      In the window on the right, which shows the highest magnification,
+      the solid contours belong to the original function <m>f = x^3 - 4x - y^2</m>.
+      They are curved, but only slightly so.
+      The dotted contours belong to the linear function
+      <me>
+        (z + 3.625) = 2.75 (x - 1.5) + 2 (y + 1)  \mbox{or} z = 2.75 \, x + 2 \, y - 5.75
+      </me>.
+    </p>
+    <p>
+      (This is the microscope equation expressed in terms of the original variables <m>x</m>,
+      <m>y</m> and <m>z</m> instead of the microscope coordinates <m>\Delta x = x - 1.5</m>,
+      <m>\Delta y = y - (-1)</m> and <m>\Delta z = z - (-3.625)</m>.) The
+    </p>
+    <aside>
+      <p>
+        Comparing the contours <ellipsis/>
+      </p>
+    </aside>
+    <p>
+      difference between the two sets of contours shows us just how good the approximation is.
+      As you can see,
+      the two functions are almost indistinguishable near the center of the window,
+      which is the point <m>(x, y) = (1.5, -1)</m>.
+      As we look farther from the center,
+      we find the contours of <m>f</m> depart more and more from strict linearity.
+      <image width="73%" source="images/micro7.png"/> We can also compare
+    </p>
+    <aside>
+      <p>
+        <ellipsis/> and the graph of the function and its linear approximation
+      </p>
+    </aside>
+    <p>
+      the <em>graphs</em> of a function and its linear approximation.
+      The graph of the linear approximation is a plane, of course.
+      It is, in fact,
+      the plane that is tangent to the graph of the function.
+      In the left figure immediately below we see the tangent plane to the graph of
+      <m>z = f(x, y) = x^3 - 4x -y^2</m> at the point where <m>(x, y) = (1.5, -1)</m>.
+      On the right is a magnified view at the point of tangency.
+      The graph of <m>f</m> is almost flat.<image width="73%" source="images/micro9.png"/> <image width="73%" source="images/micro10.png"/> The grid
+          <idx><h>grid line</h></idx>
+      helps us distinguish it from the tangent plane, which is solid gray.
+      Such close agreement between the graph and the plane demonstrates how good the linear approximation is near the point.
+      Notice, however,
+      that the plane diverges from the graph as we move away from the point of tangency.
+      At first glance you may not think that the plane
+          <idx><h>tangent</h></idx>
+          <idx><h>tangent plane</h></idx>
+    </p>
+    <aside>
+      <p>
+        Tangent planes
+      </p>
+    </aside>
+    <p>
+      in the figures above is tangent to the surface.
+      The word
+      <q>tangent</q>
+      comes from the Latin <em>tangere</em>, to touch.
+      We sometimes take this to mean
+      <q>touch at one point</q>, like the plane in the figure at the left, below.
+      More properly, though, two objects are <term>tangent</term>
+      if they have the same direction at a point where they meet.
+      The plane in the figures above <em>does</em>
+      meet this condition<mdash/>as the microscopic view helps make clear.
+      <image width="73%" source="images/micro11.png"/> <image width="73%" source="images/micro12.png"/> There are many different ways
+    </p>
+    <aside>
+      <p>
+        Elliptic points<ellipsis/>
+      </p>
+    </aside>
+    <p>
+      that a tangent plane can intersect a surface.
+      What happens depends on the shape of the surface at the point of tangency.
+      The surface could bend the same way in all directions at that point,
+      or it could bend up in some directions and down in others.
+      In the first case, it will bend away from its tangent plane,
+      so the two will meet at only one point.
+      This is called an <term>elliptic point</term>,
+          <idx><h>elliptic point</h></idx>
+      because the intersection turns into an ellipse if we push the plane in a bit.
+      The figure on the right, above,
+      shows what happens.<image width="73%" source="images/micro9.png"/> <image width="73%" source="images/micro13.png"/>
+    </p>
+    <p>
+      Suppose, on the other hand,
+      that the surface bends up in some directions but down in others.
+      Then, in some intermediate directions,
+      it will not be bending at all.
+          <idx><h>hyperbolic point</h></idx>
+    </p>
+    <aside>
+      <p>
+        <ellipsis/> and hyperbolic points
+      </p>
+    </aside>
+    <p>
+      In those directions it will meet its tangent plane<mdash/>which doesn't bend, either.
+      Typically, there are two pairs of such directions.
+      The surface and the tangent plane then intersect in an<nbsp/><em>X</em>.
+      This always happens at a minimax
+      (or saddle point)
+      on a graph. and it also happens at the first point we considered on the graph of <m>z = x^3 - 4x - y^2</m>.
+      This is shown again in the figure on the left above.
+      It is called a <term>hyperbolic point</term>,
+      because the intersection turns into a hyperbola if we push the plane a bit<mdash/>as on the right.
+      The lines where the tangent plane itself intersects the surface are called
+      <em> asymptotic lines</em>,
+          <idx><h>asymptotic line</h></idx>
+      because they are the asymptotes of the hyperbolas.
+      (To make it easier to see the elliptical and hyperbolic intersections we made the surface grid finer.)
+    </p>
+    <aside>
+      <p>
+        The curve of intersection between a surface and a shifted tangent plane is called the
+        <em>Dupin indicatrix</em>.
+            <idx><h>Dupin indicatrix</h></idx>
+        The Dupin indicatrix can take many forms besides the ones we have described here.
+        However, at almost all points on almost all surfaces it turns out to be an ellipse or a hyperbola.
+        More precisely, the indicatrix is <em>approximately</em>
+        an ellipse or a hyperbola<mdash/>in the same way that the surface itself is only approximately flat.
+      </p>
+    </aside>
+    <p>
+      Most points on a surface fall into one of two regions;
+      one region consists of elliptic points, the other of hyperbolic.
+    </p>
+    <aside>
+      <p>
+        Parabolic points
+      </p>
+    </aside>
+    <p>
+      Points on the boundary between these two regions are said to be <em> parabolic</em>.
+          <idx><h>parabolic point</h></idx>
+      On the graph of <m>z = x^3 - 4x - y^2</m>,
+      if <m>x \lt 0</m> the point is elliptic;
+      if <m>x > 0</m> it is hyperbolic;
+      and if <m>x = 0</m>, it is parabolic.
+      Try to confirm this yourself,
+      just by looking at the surface.
+    </p>
+    <aside>
+      <p>
+        The classification of the points into elliptical, parabolic,
+        and hyperbolic types is one of the first steps in studying the curvature of a surface.
+            <idx><h>curvature</h></idx>
+            <idx><h>differential geometry</h></idx>
+            <idx><h>geometry</h><h>differential</h></idx>
+        This is part of <em>differential geometry</em>; calculus provides an essential language and tool.
+        Differential geometry is used to model the physical world at both the cosmic scale (general relativity)<idx><h>relativity</h><h>general</h></idx> and the subatomic
+        (string theory).
+            <idx><h>string theory</h></idx>
+      </p>
+    </aside>
+  </subsection>
+  <subsection xml:id="subsec_the-gradient">
+    <title>The Gradient</title>
+    <p>
+          <idx><h>gradient</h></idx>
+      Local linearity is a powerful principle.
+          <idx><h>local linearity</h></idx>
+    </p>
+    <aside>
+      <p>
+        Consequences of local linearity
+      </p>
+    </aside>
+    <p>
+      It says that an arbitrary function looks linear when we view it on a sufficiently small scale.
+      In particular,
+      all these statements are approximately true in a microscope window:
+      <m>\bullet</m> the contours are straight,
+      parallel, and equally spaced;
+      <m>\bullet</m> the graph is a flat plane (the tangent plane);
+      <m>\bullet</m> the function has a linear formula (the microscope equation);
+      <m>\bullet</m> the partial derivatives are the slopes of the graph in the
+    </p>
+    <p>
+      directions of the axes.
+      There is one more aspect of a linear function
+    </p>
+    <aside>
+      <p>
+        Extending the gradient to non-linear functions
+      </p>
+    </aside>
+    <p>
+      for us to interpret<mdash/>the gradient.
+      Since partial rates become partial derivatives,
+      we can make the following definition for an arbitrary locally linear function.
+          <idx><h><m>\nabla</m></h></idx>
+    </p>
+    <image source=""/>
+    <p>
+      The partial derivatives are functions,
+      so the gradient varies from point to point.
+    </p>
+    <aside>
+      <p>
+        The gradient vector field
+      </p>
+    </aside>
+    <p>
+      Thus, gradients form a <term>vector field</term>
+          <idx><h>vector field</h></idx>
+      in the same sense that a dynamical system
+          <idx><h>dynamical system</h></idx>
+      does
+      (see chapter 8).
+      We draw the gradient vector
+      <m>(f_x(x, y),
+      f_y(x, y))</m> as an arrow whose tail is at the point <m>(x, y)</m>.
+      <term>Example</term>.
+      <m>f(x, y) = x^3 - 4x - y^2</m>,
+    </p>
+    <aside>
+      <p>
+        Contours and gradient vectors together
+      </p>
+    </aside>
+    <p>
+      <m>\mbox{grad <m>f</m>} = (3x^2 - 4, -2y)</m> <image width="73%" source="images/grad1.png"/> <image width="73%" source="images/grad2.png"/> There is one thing you should notice about the previous figure:
+    </p>
+    <aside>
+      <p>
+        The vectors are rescaled for clarity
+      </p>
+    </aside>
+    <p>
+      we drew the gradient vectors much shorter than they actually are.
+      For instance, at the origin grad <m>f</m> = <m>(-4, 0)</m>,
+      but the arrow <em>as drawn</em>
+      is closer to <m>(-0.25, 0)</m>.
+      The purpose of rescaling
+          <idx><h>rescaling</h></idx>
+      is to keep the vectors out of each other's way,
+      so the overall pattern easier to see.
+      The example shows contours as well as gradients so we can see how the two are related.
+      The result is very striking.
+      Even though the vectors vary in length and direction,
+      and the contours vary in direction and spacing,
+      the two are related the same way they were for a <em>linear</em>
+      function ( <xref ref="grad"></xref>ff).
+    </p>
+    <aside>
+      <p>
+        The relation between gradients and contours
+      </p>
+    </aside>
+    <p>
+      First of all,
+      each vector is perpendicular to the level curve that passes through its tail.
+      Second, the vectors get longer where the spacing between level curves gets smaller.
+      The similarity is no accident, of course;
+      it is a consequence of local linearity.
+      We can summarize and extend our observations in the following theorem.
+      It is just a modification of the earlier theorem on the gradient of a linear function ( <xref ref="gradtheorem"></xref>).
+    </p>
+    <image source=""/>
+    <p>
+      To see why this theorem is true,
+    </p>
+    <aside>
+      <p>
+        A proof
+      </p>
+    </aside>
+    <p>
+      just look in a microscope.
+      The gradient and the contours become the gradient and the contours of the linear approximation at the point where the microscope is focused.
+      But we already know the theorem is true for linear functions,
+      so there is nothing more to prove.
+      There is a direct connection<idx><h>gradient</h><h>geometric interpretation</h></idx>
+    </p>
+    <aside>
+      <p>
+        The gradient points uphill
+      </p>
+    </aside>
+    <p>
+      between the gradient field of a function <m>z = f(x, y)</m> and its graph.
+      Since the gradient (which is a vector in the
+    </p>
+    <p>
+      <image width="73%" source="images/grad3.png"/>
+    </p>
+    <sidebyside>
+      <m>x, y</m>-plane) points in the direction in which <m>z</m> increases most
+      rapidly, it points in the direction in which the graph is tilted up.
+      Thus, if we project the gradient onto the graph, as we do in the
+      figure at the left, it points directly
+      <q>uphill</q>.  Since <m>f</m> is not
+      a linear function, both the steepness and the uphill direction vary
+      from point to point.  The gradient vector field also varies; in this
+      way, it keeps track of the steepness of the graph and the direction
+      of its tilt.
+    </sidebyside>
+  </subsection>
+  <subsection xml:id="subsec_the-gradient-of-a-function-of-three-variables">
+    <title>The Gradient of a Function of Three Variables</title>
+    <p>
+      Let's take a brief glance at the gradient of a function <m>f(x, y, z)</m>.
+          <idx><h>function</h><h>of three variables</h></idx>
+          <idx><h>gradient</h></idx>
+      It has three components:
+      <me>
+        \mbox{grad}  f = \nabla f = \left( \dfrac{\partial f}{\partial x}, \dfrac{\partial f}{\partial y}, \dfrac{\partial f}{\partial z} \right) = (f_x, f_y, f_z)
+      </me>,
+      and it defines a vector field in <m>x, y, z</m>-space.
+      At each point,
+      the gradient of <m>f</m> is perpendicular to the level set through that point,
+      and it points in the direction in which <m>f</m> increases most rapidly.
+      <term>Example</term>.
+      In the two boxes below you can compare the gradient field of <m>f(x, y, z) = x^2 + y^2 - z^2</m> with its level sets.
+    </p>
+    <aside>
+      <p>
+        Visualizing a three-dimensional vector field
+      </p>
+    </aside>
+    <p>
+      At first glance,
+          <idx><h>vector field</h></idx>
+      you may not find a clear pattern to the gradient vectors.
+      After all, the picture is three-dimensional,
+      and it is difficult to tell whether an arrow is near the front of the box or the back.
+      However, there is a pattern:
+      at the top and the bottom of the
+    </p>
+    <p>
+      <image width="73%" source="images/shells4.png"/> <image width="73%" source="images/grad4.png"/> { <m>x^2 + y^2 - z^2 = c</m>
+      <m>\nabla f = (2x, 2y, -2z)</m> } box, arrows point inward;
+      closer to the middle of the box, they flare outward.
+      The lowest values of the function occur along the <m>z</m>-axis,
+      inside the shallow bowls that sit at the top and the bottom of the box.
+      The highest values occur outside the
+      <q>equatorial belt</q>
+      formed by the outermost level set.
+      This is where the <m>x, y</m>-plane meets the middle of the box.
+      Notice also that the level sets are symmetric around the <m>z</m>-axis.
+      The gradient field has the same symmetry,
+      though this is harder to see.
+    </p>
+  </subsection>
+  <subsection xml:id="subsec_exercises">
+    <title>Exercises</title>
+    <introduction>
+      <p>
+        In many of these exercises it will be essential to have a computer program to make graphs and contour plots of functions of two variables.
+      </p>
+      <ol>
+        <li>
+          <p>
+            Obtain the graph of <m>z = x^3 - 4x - y^2</m> on a domain centered at the point <m>(x, y) = (1.5, -1)</m>,
+            and magnify the graph until it looks like a plane.
+          </p>
+          <ol>
+            <li>
+              <p>
+                Estimate, by eye,
+                the slopes in the <m>x</m>-direction and the <m>y</m>-direction of the plane you found in part (a). [You should find numbers between +2 and +3 in both cases.]
+              </p>
+            </li>
+          </ol>
+        </li>
+        <li>
+          <p>
+            Obtain a contour plot of <m>z = x^3 - 4x - y^2</m> on a domain centered at the point <m>(x, y) = (1.5, -1)</m>,
+            and magnify the plot until the contours look straight,
+            parallel, and equally spaced.
+            Compare your results with the plots <xref ref="plots1">on</xref>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Continuation.
+            The purpose of this exercise is to estimate the rate of change
+            <m>\Delta z/\Delta x</m> at <m>(x, y) = (1.5, -1)</m>,
+            using the most highly magnified contour plot you constructed in the last exercise.
+            <image width="73%" source="images/contour1.png"/>
+            <ol>
+              <li>
+                <p>
+                  What is the horizontal spacing
+                  <m>\Delta x</m> between the two contours closest to the point <m>(1.5, -1)</m>?
+                  See the illustration at the right.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Find the <m>z</m>-levels <m>z_1</m> and <m>z_2</m> of those contours,
+                  and then compute <m>\Delta z = z_2 - z_1</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Compare the value of <m>\Delta z/\Delta x</m> you now obtain with the slope in the <m>x</m>-direction that you estimated in exercise<nbsp/>1.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Continuation.
+            Repeat all the work of the last exercise,
+            this time for <m>\Delta z/\Delta y</m>.
+          </p>
+        </li>
+      </ol>
+    </introduction>
+    <subsubsection xml:id="subsubsec_linear-functions">
+      <title>Linear functions</title>
+      <ol>
+        <li>
+          <p>
+            Find the <m>z</m>-intercept of the graph of the linear function given by the formula
+            <me>
+              z - 3 = 2 (x - 4) - 3 (y + 1)
+            </me>.
+            <ol>
+              <li>
+                <p>
+                  Write the formula for this linear function in intercept form.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Write, in initial-value form,
+            the formula for the linear function
+            <m>z = L(x, y)</m> for which <m>\Delta z/\Delta x = 3</m>,
+            <m>\Delta z/\Delta y = -2</m>, and <m>L(1, 4) = 0</m>.
+            <ol>
+              <li>
+                <p>
+                  Write the intercept form of the same function.
+                  What is the <m>z</m>-intercept of the graph of <m>L</m>?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Suppose <m>z</m> is a linear function of <m>x</m> and <m>y</m>,
+            and <m>\Delta z/\Delta x = -7</m>,
+            <m>\Delta z/\Delta y = 12</m>.
+            If <m>(x, y)</m> changes from <m>(35, 24)</m> to <m>(33, 33)</m>,
+            what is the total change in <m>z</m>?
+            <ol>
+              <li>
+                <p>
+                  Suppose <m>z = 29</m> when <m>(x, y) = (35, 24)</m>.
+                  What value does <m>z</m> have when <m>(x, y) = (33, 33)</m>?
+                  What value does <m>z</m> have when <m>(x, y) = (0, 0)</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Write the intercept form of the formula for <m>z</m> in terms of <m>x</m> and <m>y</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Suppose <m>z</m> is a linear function of <m>x</m> and <m>y</m> for which we have the following information:
+            <me>
+              \begin{array}{r||r|r|r|r|r|r|r|r} x  \amp   5  \amp   7  \amp   0  \amp      \amp   4  \amp   0  \amp   4  \amp     \\ \hline y  \amp   9  \amp   1  \amp   4  \amp   6  \amp   7  \amp   0  \amp      \amp   -1 \\ \hline \hline z  \amp   2  \amp      \amp  12  \amp  -7  \amp   2  \amp      \amp   20 \amp   20 \end{array}
+            </me>
+            <ol>
+              <li>
+                <p>
+                  Fill in the blanks in this table.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Write the formula for <m>z</m> in intercept form.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Sketch the graph of <m>z = x - 2y + 7</m> on the domain
+            <m>0 \leq x \leq 3</m>, <m>0 \leq y \leq 3</m>.
+            <ol>
+              <li>
+                <p>
+                  Determine the slope of this graph in the <m>x</m>-direction,
+                  and indicate on your sketch where this slope can be found.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Determine the slope of this graph in the <m>y</m>-direction,
+                  and indicate on your sketch where this slope can be found.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Continuation.
+            Draw the gradient vector of
+            <m>z = x - 2y + 7</m> in the <m>x, y</m>-plane,
+            and then lift it up so it sits on the graph you drew in the previous exercise.
+            Does the gradient point directly
+            <q>uphill</q>?
+          </p>
+        </li>
+        <li>
+          <p>
+            Sketch the graph of the linear function <m>z = L(x, y)</m> for which
+            <me>
+              \dfrac{\Delta z}{\Delta x} = -1, \qquad \dfrac{\Delta z}{\Delta y} = 0.6, \qquad L(1, 1) = 8
+            </me>.
+            Be sure your graph shows clearly the slopes in the <m>x</m>-direction and the <m>y</m>-direction,
+            and the <m>z</m>-intercept.
+          </p>
+        </li>
+        <li>
+          <p>
+            Continuation.
+            Draw the gradient of the function <m>L</m> from the previous exercise,
+            and lift it up so it sits on the graph of <m>L</m> you drew there.
+            Does the gradient point directly uphill?
+          </p>
+        </li>
+        <li>
+          <p>
+            What is the equation of the linear function
+            <m>z = L(x, y)</m> whose graph (a) has a slope of <m>-4</m> in the <m>x</m>-direction, (b) a slope of +5 in the <m>y</m>-direction,
+            and (c) passes through the point <m>(x, y, z) = (2, -9, 0)</m>?
+          </p>
+        </li>
+        <li>
+          <p>
+            Suppose <m>z = L(x, y)</m> is a linear function whose graph contains the three points
+            <me>
+              (1, 1, 2), \qquad  (0, 5, 4), \qquad  (-3, 0, 12)
+            </me>.
+            <ol>
+              <li>
+                <p>
+                  Determine the partial rates of change
+                  <m>\Delta z/\Delta x</m> and <m>\Delta z/\Delta y</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Where is the <m>z</m>-intercept of the graph?
+                </p>
+              </li>
+              <li>
+                <p>
+                  If <m>(4, 1, c)</m> is a point on the graph,
+                  what is the value of <m>c</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Is the point <m>(2, 2, 4)</m> on the graph?
+                  Explain your position.
+                  <image width="73%" source="images/linear1.png"/> <image width="73%" source="images/linear2.png"/>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            The figure on the left above is the contour plot of a function <m>z = L_1(x, y)</m>.
+            <ol>
+              <li>
+                <p>
+                  What are the values of <m>L_1(1, 0)</m>,
+                  <m>L_1(2, 0)</m>, <m>L_1(3, 0)</m>,
+                  <m>L_1(0, 3)</m>, <m>L_1(2, 3)</m>, and <m>L_1(0, 0)</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What are the partial rates
+                  <m>\Delta L_1/\Delta x</m> and <m>\Delta L_1/\Delta y</m>?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Continuation.
+            Find the values of <m>L_1(3, 2)</m>,
+            <m>L_1(7, 0)</m>, <m>L_1(7, 7)</m>,
+            <m>L_1(1.4, 2.9)</m>, <m>L_1(-2, 9)</m>, <m>L(-10, -100)</m>.
+            <ol>
+              <li>
+                <p>
+                  Find <m>x</m> so that <m>L_1(x, 0) = 0</m>.
+                  Find <m>y</m> so that <m>L_1(0, y) = 0</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Continuation.
+            Write the intercept form of the formula for <m>L_1(x, y)</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Find the partial rates <m>\Delta L_2/\Delta x</m> and
+            <m>\Delta L_2/\Delta y</m> of the linear function <m>L_2</m> whose contour plot is shown at the right on the previous page.
+            <ol>
+              <li>
+                <p>
+                  Obtain the intercept form of the formula for <m>L_2(x, y)</m>.
+                  <image width="73%" source="images/graph1.png"/> <image width="73%" source="images/graph2.png"/>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            The figures above are the graphs of <m>L_1</m> and <m>L_2</m>.
+            Which is which?
+            Explain your choice.
+            (Note that both graphs are shown from the same viewpoint.
+            The <m>x</m>-axis is on the right,
+            and the <m>y</m>-axis is in the foreground.
+            The <m>z</m>-axis has no scale on it.)
+          </p>
+        </li>
+        <li>
+          <p>
+            Determine the gradient vectors of <m>L_1</m> and <m>L_2</m>.
+            <ol>
+              <li>
+                <p>
+                  Sketch the gradient vector of each function on the <m>x,y</m>-plane and on its own graph.
+                  Does the gradient point directly uphill in each case?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Suppose the gradient vector of the linear function
+            <m>p = L(q, r)</m> is grad <m>p = \nabla p = (5, -12)</m>.
+            If <m>L(9, 15) = 17</m>, what is the value of <m>L(11, 11)</m>?
+          </p>
+        </li>
+        <li>
+          <p>
+            What is the gradient vector of the function <m>w = 2 u + 5 v</m>?
+            <ol>
+              <li>
+                <p>
+                  At what point on the circle
+                  <m>u^2 + v^2 = 1</m> does <m>w</m> have its largest value?
+                  What is that value?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Write the formula of a linear function
+            <m>z = L(x, y)</m> whose gradient vector is grad <m>z = \nabla z = (-3, 4)</m>
+            <ol>
+              <li>
+                <p>
+                  Using your formula for <m>L</m>,
+                  calculate the total change in <m>L</m> when
+                  <m>\Delta x = 2</m>, <m>\Delta y = 1</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Continuation; in particular,
+            continue to use your formula for <m>z = L(x, y)</m>.
+            What is the value of <m>L(0, 0)</m>?
+            <ol>
+              <li>
+                <p>
+                  What is the maximum value of <m>z</m> on the circle <m>x^2 + y^2 = 1</m>?
+                  At what point <m>(x, y)</m> does <m>z</m> achieve that value?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Determine the difference between the maximum and minimum values of <m>L</m> on the circle
+                  <m>x^2 + y^2 = 1</m>. \ans{The difference is 10,
+                  independent of the formula you use.}
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            What value does <m>z = 7x + 3 y + 31</m> have when <m>x = 5</m> and <m>y = 2</m>?
+            <ol>
+              <li>
+                <p>
+                  If <m>x</m> increases by 2,
+                  <aside>
+                    <p>
+                      The concept of a <em>trade-off</em>
+                    </p>
+                  </aside>
+                  how must <m>y</m> change so that the value of <m>z</m> doesn't change.
+                  (The change in <m>y</m> needed to keep <m>z</m> fixed when <m>x</m> changes is called the <term>trade-off</term>.
+              <idx><h>trade-off</h></idx>
+          See also chapter<nbsp/>3, <xref ref="trade_off"></xref>.)
+                </p>
+              </li>
+              <li>
+                <p>
+                  What is the trade-off in <m>y</m> when <m>x</m> increases by <m>\alpha</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What is the trade-off in <m>x</m> when <m>y</m> increases by <m>\beta</m>?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Suppose <m>z = L(x, y)</m> is a linear function for which
+            <m>\Delta z/\Delta x = 5</m> and <m>\Delta z/\Delta y = -2</m>.
+            What is the trade-off in <m>y</m> when <m>x</m> increases by 50?
+            <ol>
+              <li>
+                <p>
+                  What is the trade-off in <m>x</m> when <m>y</m> increases by 1?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Suppose <m>z = L(x, y)</m> is a linear function and suppose the trade-off in <m>y</m> when <m>x</m> increases by 1 is <m>-4</m>.
+            <ol>
+              <li>
+                <p>
+                  What is the trade-off in <m>y</m> when <m>x</m> is
+                  <em>decreased</em> by 3?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What is the trade-off in <m>x</m> when <m>y</m> is increased by 10? [Note that <m>x</m> and <m>y</m> are reversed here,
+                  in comparison to the earlier parts of this question.]
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Suppose <m>z = L(x, y)</m> is a linear function for which we know
+            <me>
+              L(3, 7) = -2, \qquad  \dfrac{\Delta z}{\Delta x} = 2
+            </me>.
+            Suppose also that the trade-off in <m>y</m> when <m>x</m> increases by 10 is <m>-4</m>.
+            <ol>
+              <li>
+                <p>
+                  What is the value of <m>L(7, 7)</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  If <m>L(7, \beta) = -2</m>, what is the value of <m>\beta</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What is the value of <m>\Delta z/\Delta y</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Write the formula for <m>L(x, y)</m> in intercept form.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Suppose the graph of the linear function
+            <m>z = L(x, y)</m> has a slope of <m>-1.5</m> in the <m>x</m>-direction and <m>-2.4</m> in the <m>y</m>-direction.
+            What is the trade-off between <m>x</m> and <m>y</m>?
+            That is, how much should <m>y</m> change when <m>x</m> is increased by the amount <m>\alpha</m>?
+            <ol>
+              <li>
+                <p>
+                  Suppose the partial slopes become <m>+1.5</m> and <m>+2.4</m> in the <m>x</m>- and <m>y</m>-directions,
+                  respectively.
+                  How does that affect the trade-off?
+                  Explain.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Sketch in the <m>x,
+            y</m>-plane the set of points where <m>z = 2x + 3y + 7</m> has the value 34.
+            <ol>
+              <li>
+                <p>
+                  If <m>x = 10</m> then what value must <m>y</m> have so that the point <m>(x, y)</m> is on the set in part (a)?
+                </p>
+              </li>
+              <li>
+                <p>
+                  If <m>x</m> increases from 10 to 14,
+                  how must <m>y</m> change so that the point <m>(x, y)</m> stays on the set in part (a)?
+                  In other words, what is the trade-off?
+                  <aside>
+                    <p>
+                      The set in the last question is called a
+                      <em>trade-off line</em>.
+              <idx><h>trade-off line</h></idx>
+          Do you see that it is just a contour line by another name?
+                    </p>
+                  </aside>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Write, in intercept form, the formula for the linear function
+            <me>
+              w - 4 = 3(x - 2) - 7(y + 1) - 2( z - 5)
+            </me>.
+            <ol>
+              <li>
+                <p>
+                  What is the gradient vector of the linear function in part (a)?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Suppose the gradient of the linear function
+            <m>w = L(x, y, z)</m> is <m>\nabla w = (1, -1, 4)</m>.
+            If <m>L(3, 0, 5) = 10</m>, what is the value of <m>L(1, 2, 3,)</m>?
+          </p>
+        </li>
+        <li>
+          <p>
+            Describe the level sets of the function <m>w = f(x, y, z) = x + y + z</m>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection xml:id="subsubsec_the-microscope-equation">
+      <title>The microscope equation</title>
+      <ol>
+        <li>
+          <p>
+            Find the microscope equation for the function
+            <m>f(x, y) = 3 x^2 + 4 y^2</m> at the point <m>(x, y) = (2, -1)</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Continuation.
+            Use the microscope equation to estimate the values of
+            <m>f(1.93, -1.05)</m> and <m>f(2.07, -0.99)</m>
+            <ol>
+              <li>
+                <p>
+                  Calculate the <em>exact</em> values of the quantities in part (a),
+                  and compare those values with the estimates.
+                  In particular,
+                  indicate how many digits of accuracy the estimates have.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Find the microscope equation for the function
+            <m>f(x, y, z) = x^2 y \sin{z}</m> at the point <m>(x, y, z) = (1, 1, \pi)</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Suppose <m>f(87, 453) = 1254</m> and
+            <me>
+              \dfrac{\partial f}{\partial x}(87, 453) = -3.4, \qquad \dfrac{\partial f}{\partial y}(87, 453) = 4.2
+            </me>.
+            Estimate the following values:
+            <m>f(90, 453)</m>, <m>f(87, 450)</m>,
+            <m>f(90, 450)</m>, and <m>f(100, 500)</m>.
+            Explain how you got your estimates.
+          </p>
+        </li>
+        <li>
+          <p>
+            Continuation.
+            Find an estimate for <m>y</m> to solve the equation <m>f(87, y) = 1250</m>.
+            <ol>
+              <li>
+                <p>
+                  Find an estimate for <m>x</m> to solve <m>f(x, 450) = 1275</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Continuation: a trade-off.
+            Go back to the starting values <m>x = 87</m>,
+            <m>y = 453</m>, and <m>f(87, 453) = 1254</m>.
+            If <m>x</m> increases from 87 to 88,
+            how should <m>y</m> change to keep the value of the function fixed at 1254?
+          </p>
+        </li>
+        <li>
+          <p>
+            Suppose <m>Q(27.3, 31.9) = 15.7</m> and <m>Q(27.9, 31.9) = 15.2</m>.
+            Estimate the value of <m>\partial Q/\partial x(27.6, 31.9)</m>.
+            <ol>
+              <li>
+                <p>
+                  Estimate the value of <m>Q(27, 31.9)</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Suppose <m>S(105, 93) = 10</m>,
+            <m>S(110, 93) = 10.7</m>, <m>S(105, 95) = 9.3</m>.
+            Estimate the value of <m>S(100, 100)</m>.
+            Explain how you made your estimate.
+          </p>
+        </li>
+        <li>
+          <p>
+            Let <m>P</m> be the point <m>(x, y, z) =(173, -29, 553)</m>.
+            Suppose <m>f(P) = 48</m> and
+            <me>
+              \dfrac{\partial f}{\partial x}(P) = 7, \qquad \dfrac{\partial f}{\partial y}(P) = -2, \qquad \dfrac{\partial f}{\partial z}(P) = 5
+            </me>.
+            Estimate the value of <m>f(175, -30, 550)</m>, and explain what you did.
+          </p>
+        </li>
+        <li>
+          <p>
+            What is the equation of the tangent plane to the graph of <m>z = xy</m> at the point <m>(x, y) = (2, -3)</m>?
+            <ol>
+              <li>
+                <p>
+                  Which has a higher <m>z</m>-intercept:
+                  the graph or the tangent plane?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Suppose the function <m>H(x, y)</m> has the microscope equation
+            <me>
+              \Delta H \approx 2.53 \, \Delta x - 1.19 \, \Delta y
+            </me>
+            at the point <m>(x, y) = (35, 26)</m>.
+            Sketch the gradient vector <m>\nabla\! H</m> at that point.
+            <ol>
+              <li>
+                <p>
+                  Pick the point exactly one unit away from
+                  <m>(35, 26)</m> at which you estimate <m>H</m> has the largest possible value. \ans{At <m>(35.324, 25.848)</m>,
+                  <m>H</m> is about 2.796 units larger than it is at <m>(35, 26)</m>.}
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Write the microscope equation for the function
+            <m>V(x, y) = x^2 y</m> at the point <m>(x, y) = (25, 10)</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Continuation.
+            <aside>
+              <p>
+                Refer to the discussion of error propagation in chapter<nbsp/>3.4
+              </p>
+            </aside>
+            Suppose a cardboard carton has a square base that is 25 inches on a side and a height of 10 inches.
+            If there is an error of <m>\Delta x</m> inches in measuring the base and an error of
+            <m>\Delta y</m> inches in measuring the height,
+            how much error will there be in the calculated volume?
+            <ol>
+              <li>
+                <p>
+                  Why is this a continuation of the previous question?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Continuation.
+            Which causes a larger percentage error in the calculated volume:
+            a 1% error in the measurement of the length of the base,
+            or a 1% error in the measurement of the height?
+            <image width="73%" source="images/cone.png"/>
+          </p>
+        </li>
+        <li>
+          <p>
+            A large basin in the shape of a cone is to be used as a water reservoir.
+            If the radius <m>r</m> is 186 meters and the depth <m>h</m> is 31 meters,
+            how much water can the basin hold, in cubic meters?
+          </p>
+        </li>
+        <li>
+          <p>
+            Continuation.
+            If there were a 3% error in the measurement of the radius,
+            how much error would that lead to in the calculation of the capacity of the basin?
+            <ol>
+              <li>
+                <p>
+                  If there were a 5% error in the measurement of the depth,
+                  how much error would there in the calculated capacity of the basin?
+                </p>
+              </li>
+              <li>
+                <p>
+                  If <em>both</em> errors are present in the measurements,
+                  what is the total error in the calculated capacity of the basin?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Continuation.
+            Suppose the measured radius of the basin (<m>r = 186</m> meters) is assumed to be accurate to within 2%. The depth has been measured at 31 meters.
+            Is it possible to make that measurement so accurate that the calculated capacity is known to within 5%? How accurate does the depth measurement have to be?
+          </p>
+        </li>
+        <li>
+          <p>
+            Continuation.
+            Suppose the accuracy of the radius measurement can only be guaranteed to be 3%. Is it still possible to measure the depth accurately enough to guarantee that the calculated capacity is accurate to within 5%? Explain.
+            <image width="73%" source="images/bowl.png"/>
+          </p>
+        </li>
+        <li>
+          <p>
+            Let's give the basin the more realistic shape of a parabolic bowl.
+            If the radius <m>r</m> is still 186 meters and the depth <m>h</m> is still 31 meters,
+            what is the capacity of the basin now?
+            Is it larger or smaller than the conical basin of the same dimensions?
+          </p>
+        </li>
+        <li>
+          <p>
+            Continuation.
+            Determine the error in the calculated capacity of the bowl if there were a 3% error in the measurement of the radius and,
+            at the same time, a 5% error in the measurement of the depth.
+          </p>
+        </li>
+        <li>
+          <p>
+            Continuation.
+            Is it possible for the calculated capacity to be accurate to within 5% when the measured radius is accurate to within 2%? How accurate does the measurement of the depth have to be to achieve this?
+          </p>
+        </li>
+        <li>
+          <p>
+            The energy of a certain pendulum whose position is <m>x</m> and velocity is <m>v</m> can be given by the formula
+            <me>
+              E(x, v) = 1 - \cos{x} + \tfrac{1}{2} v^2
+            </me>.
+            Suppose the position of the pendulum is known to be
+            <m>x = \pi/2</m> with a possible error of 5% and its velocity is <m>v = 2</m> with possible error of 10%.  What is the calculated value of the energy,
+            and how accurately is that value known?
+          </p>
+        </li>
+        <li>
+          <p>
+            A frictionless pendulum conserves energy:
+            <aside>
+              <p>
+                The conservation of energy leads to a trade-off
+              </p>
+            </aside>
+            as the pendulum moves, the value of <m>E</m> does not change.
+            Suppose <m>x = \pi/2</m> and <m>v = 2</m>,
+            as in the previous exercise.
+            When <m>x</m> decreases by <m>\pi/180</m>
+            (this is 1<nbsp/>degree),
+            does <m>v</m> increase or decrease to conserve energy?
+            <ol>
+              <li>
+                <p>
+                  Approximately how much does <m>v</m> change when <m>x</m> decreases by <m>\pi/180</m>?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection xml:id="subsubsec_linear-approximations">
+      <title>Linear approximations</title>
+      <ol>
+        <li>
+          <p>
+            Write the linear approximation to
+            <m>f(x, y) = \sin{x} \cos{y}</m> at the point <m>(x, y) = (0, \pi/2)</m>.
+            <ol>
+              <li>
+                <p>
+                  Write the equation of the tangent plane to the graph of <m>f(x, y)</m> at the point <m>(x, y) = (0, \pi/2)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Where does the tangent plane in part (b) meet the <m>x,
+                  y</m>-plane?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Suppose <m>w(3, 4) = 2</m> while
+            <me>
+              \dfrac{\partial w}{\partial x}(3, 4) = -1, \qquad \dfrac{\partial w}{\partial y} (3, 4) = 3
+            </me>.
+            Write the equation of the tangent plane of <m>w</m> at the point <m>(3, 4)</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Write the equation of the tangent plane to the graph of the function
+            <m>\varphi(x, y) = 3 x^2 + 7 xy - 2 y^2 - 5x + 3 y</m> at an arbitrary point <m>(x, y) = (a, b)</m>.
+            <ol>
+              <li>
+                <p>
+                  At what point <m>(a, b)</m> is the tangent plane horizontal?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Magnify the graph of <m>\varphi</m> at the point you found in part (b) until it looks flat.
+                  Is it also horizontal?
+                  The next few exercises concern the Lotka<ndash/>Volterra differential equations and their linear approximations at an equilibrium point.
+                  Specifically, consider the <em>bounded growth</em>
+                  system from chapter<nbsp/>4.1 (<xref ref="L-V_bounded_growth-begin">pages</xref><ndash/> <xref ref="L-V_bounded_growth-end"></xref>):
+                  <md>
+                    <mrow>R' \amp =  0.1\,R  - 0.00001\,R^2 - 0.005\,RF,</mrow>
+                    <mrow>F' \amp =  0.00004\,RF - 0.04\,F</mrow>
+                  </md>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Confirm that the system has an equilibrium point at <m>(R, F) = (1000, 18)</m>.
+            Then obtain the phase portrait of the system near that point.
+            What kind of equilibrium is there at <m>(1000, 18)</m>?
+          </p>
+        </li>
+        <li>
+          <p>
+            Obtain the linear approximations of the functions
+            <md>
+              <mrow>g_1(R, F) \amp = 0.1\,R  - 0.00001\,R^2 - 0.005\,RF,</mrow>
+              <mrow>g_2(R, F) \amp = 0.00004\,RF - 0.04\,F</mrow>
+            </md>,
+            at the point <m>(r, F) = (1000, 18)</m>.
+            Call them <m>\ell_1(R, F)</m> and <m>\ell_2(R, F)</m>,
+            respectively.
+          </p>
+        </li>
+        <li>
+          <p>
+            Obtain the phase portrait of the
+            <term>linear</term> dynamical system
+            <md>
+              <mrow>R' \amp = \ell_1(R, F),</mrow>
+              <mrow>F' \amp = \ell_2(R, F)</mrow>
+            </md>.
+            <ol>
+              <li>
+                <p>
+                  Does this system have an equilibrium at <m>(1000, 18)</m>?
+                  Compare this phase portrait to the phase portrait of the original
+                  <em>non</em>-linear system.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection xml:id="subsubsec_the-gradient-field">
+      <title>The gradient field</title>
+      <ol>
+        <li>
+          <p>
+            Make a sketch of the gradient vector field of <m>f(x, y) = x^2 - y^2</m> on the domain
+            <m>-2 \leq x \leq 2</m>, <m>-2 \leq y \leq 2</m>.
+            <ol>
+              <li>
+                <p>
+                  Mark on your sketch where the gradient field indicates the maximum and the minimum values of <m>f</m> are to be found in the domain.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Repeat the previous exercise,
+            using <m>f(x, y) = 2x + 4 x^2 - x^4 - y^2</m> and the domain
+            <m>-2 \leq x \leq 2</m>, <m>-4 \leq y \leq 4</m>.
+            (See exercises<nbsp/>5 and<nbsp/>6 in the previous section,
+            <xref ref="quartic"></xref>.)
+          </p>
+        </li>
+        <li>
+          <p>
+            Continuation.
+            Add to your sketch in the previous exercise a contour plot of the function
+            <m>f(x, y) = 2x + 4 x^2 - x^4 - y^2</m> and confirm that each gradient vector is perpend1 of 82icular to the contour that passes through its base.
+            (Note: most vectors have no contour passing through their bases,
+            so you have to infer the shape and position of such a contour from the contours that <em>are</em> drawn.)
+          </p>
+        </li>
+        <li>
+          <p>
+            Draw a plausible set of contour lines for the function whose gradient vector field is plotted on the left below.
+          </p>
+        </li>
+        <li>
+          <p>
+            Draw a plausible gradient vector field for the function whose contour plot is shown on the right below.
+            <m>H</m> marks a local maximum and <m>L</m> a local minimum.
+            <image width="73%" source="images/gradient.png"/> <image width="73%" source="images/contour2.png"/>
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+  </subsection>
+</section>

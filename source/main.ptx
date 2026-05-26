@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pretext xmlns:xi="http://www.w3.org/2001/XInclude" xml:lang="en-US">
+  <docinfo>
+<macros>
+\def\hour{1}
+\def\minute{2}
+\def\now{\the\count\hour:\ifnum\count\minute\lt 10
+0\fi
+\the\count\minute
+}
+\newcommand{\dint}{\displaystyle \int}
+</macros>
+<latex-image-preamble>
+\usepackage{tikz}
+\usepackage{tkz-graph}
+\usepackage{tkz-euclide}
+\usetikzlibrary{patterns}
+\usetikzlibrary{positioning}
+\usetikzlibrary{matrix,arrows}
+\usetikzlibrary{calc}
+\usetikzlibrary{shapes}
+\usetikzlibrary{through,intersections,decorations,shadows,fadings}
+\usepackage{pgfplots}
+</latex-image-preamble>
+  </docinfo>
+  <book>
+    <title>Title Goes Here</title>
+    <frontmatter>
+      <titlepage>
+      </titlepage>
+    </frontmatter>
+    <xi:include href="./chapter1x.ptx"/>
+    <xi:include href="./chapter2x.ptx"/>
+    <xi:include href="./chap_a-context-for-calculus.ptx"/>
+    <xi:include href="./chap_successive-approximations.ptx"/>
+    <xi:include href="./chap_the-derivative.ptx"/>
+    <xi:include href="./chap_differential-equations.ptx"/>
+    <xi:include href="./chap_techniques-of-differentiation.ptx"/>
+    <xi:include href="./chap_the-integral.ptx"/>
+    <xi:include href="./chap_periodicity.ptx"/>
+    <xi:include href="./chap_dynamical-systems.ptx"/>
+    <xi:include href="./chap_functions-of-several-variables.ptx"/>
+    <xi:include href="./chap_series-and-approximations.ptx"/>
+    <xi:include href="./chap_techniques-of-integration.ptx"/>
+    <xi:include href="./chap_case-studies.ptx"/>
+    <backmatter>
+      <xi:include href="./bibliography.ptx"/>
+      <index>
+        <title>Index</title>
+        <index-list/>
+      </index>
+    </backmatter>
+  </book>
+</pretext>

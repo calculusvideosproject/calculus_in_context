@@ -1,0 +1,52 @@
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="chap_series-and-approximations">
+  <title>Series and Approximations</title>
+  <introduction>
+    <p>
+      An important theme in this book is to give
+      <term>constructive</term> definitions
+          <idx><h>constructive definition</h></idx>
+      of mathematical objects.
+      Thus, for instance, if you needed to evaluate
+      <me>
+        \int_0^1 e^{-x^2} \, dx
+      </me>,
+      you could set up a Riemann sum to evaluate this expression to any desired degree of accuracy.
+      Similarly, if you wanted to evaluate a quantity like <m>e^{.3}</m> from first principles,
+      you could apply Euler's method to approximate the solution to the differential equation
+      <me>
+        y'(t) = y(t), \mbox{ with initial condition }  y(0) = 1
+      </me>,
+      using small enough intervals to get a value for <m>y(.3)</m> to the number of decimal places you needed.
+      You might pause for a moment to think how you would get <m>\sin(5)</m> to 7 decimal places<mdash/>you wouldn't do it by drawing a unit circle and measuring the <m>y</m>-coordinate of the point where this circle is intersected by the line making an angle of 5 radians with the <m>x</m>-axis!
+      Defining the sine function to be the solution to the second-order differential equation <m>y''=-y</m> with initial conditions <m>y=0</m> and <m>y'=1</m> when <m>t=0</m> is much better if we actually want to construct values of the function with more than two decimal accuracy.
+      What these examples illustrate
+    </p>
+    <aside>
+      <p>
+        Ordinary arithmetic lies at the heart of all calculations
+      </p>
+    </aside>
+    <p>
+      is the fact that the only functions our brains or digital computers can evaluate directly are those involving the arithmetic operations of addition,
+      subtraction, multiplication, and division.
+      Anything else we or computers evaluate must ultimately be reducible to these four operations.
+      But the only functions directly expressible in such terms are polynomials and rational functions (i.e., quotients of one polynomial by another).
+      When you use your calculator to evaluate <m>\ln 2</m>,
+      and the calculator shows 0.69314718056,
+      it is really doing some additions,
+      subtractions, multiplications,
+      and divisions to compute this 11-digit
+      <em>approximation</em> to <m>\ln 2</m><nbsp/>.
+      There are no obvious connections to logarithms at all in what it does.
+      One of the triumphs of calculus is the development of techniques for calculating highly accurate approximations of this sort quickly.
+      In this chapter we will explore these techniques and their applications.
+    </p>
+  </introduction>
+  <xi:include  href="sec_approximation-near-a-point-or-over-an-interval.ptx"/>
+  <xi:include  href="sec_taylor-polynomials.ptx"/>
+  <xi:include  href="sec_taylor-series.ptx"/>
+  <xi:include  href="sec_power-series-and-differential-equations.ptx"/>
+  <xi:include  href="sec_convergence.ptx"/>
+  <xi:include  href="sec_approximation-over-intervals.ptx"/>
+  <xi:include  href="section10-7.ptx"/>
+</chapter>

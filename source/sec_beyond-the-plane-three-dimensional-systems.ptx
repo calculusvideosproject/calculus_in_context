@@ -1,0 +1,266 @@
+<section xml:id="sec_beyond-the-plane-three-dimensional-systems">
+  <title>Beyond the Plane:
+  Three-Dimensional Systems</title>
+  <introduction>
+    <p>
+      Up to now we have worked with dynamical systems in which there are only two interacting quantities.
+      We have thought of the two quantities as specifying a point in the state space,
+      which we think of as some subset of the plane.
+      The dynamical system defined a vector field on the state space.
+      These geometric notions carry over to dynamical systems involving more than two interacting quantities.
+      In particular,
+      if we have a dynamical system consisting of three interacting quantities,
+      then we think of the values of the three quantities as specifying a point
+      (or state)
+      in three-dimensional space.
+      So, for instance,
+      if we have an ecological system consisting of three species,
+      then we think of the numbers <m>x</m>, <m>y</m>,
+      <m>z</m> of each of the three species as specifying a point <m>(x,y,z)</m> in space.
+      The set of all possible points or
+      <q>states</q>
+      is the set of points
+      <me>
+        \{(x,y,z): x \ge 0, y\ge 0, z\ge 0\}
+      </me>
+      that constitute the
+      <q>first octant</q>
+      in Cartesian 3-space.
+      We think of the dynamical system as a vector field:
+      that is, as a rule which assigns to each point of the state space a vector.
+      As in the case of the plane, we can define equilibrium points,
+      trajectories, limit cycles, attractors, and the like.
+      In three-space there is a much wider range of behavior possible,
+      even in the case of equilibrium points.
+      We do, of course, have point attractors and repellors:
+      all trajectories near a point attractor flow towards the attractor and all trajectories near a point repellor flow away from the repellor.
+      However, a greater range of combinations is possible:
+      an equilibrium point can attract all points along some plane,
+      but repel all other points.
+      Or the equilibrium point could be a center,
+      surrounded by closed orbits lying in some plane which attract trajectories off the plane.
+      <image width="73%" source="images/ctr.png"/>
+    </p>
+    <p>
+      It is worth pointing out that we can represent the two-dimensional systems we've been exploring so far in this chapter in three dimensions by introducing a time axis.
+      This has the effect of `unwinding" the trajectories by stretching them out in the <m>t</m>-direction:
+      closed trajectories become endless coils,
+      equilibrium points become straight lines parallel to the <m>t</m>-axis,
+      and so on.
+      The analytic tools we introduced to find and explore the nature of equilibrium points in two-dimensional systems carry over to three dimensions.
+      In particular,
+      in investigating the nature of an equilibrium point analytically,
+      we first localize the system at the equilibrium point and linearize.
+      The behavior of the linearized system can then be explored using analogues of the techniques introduced in the previous section
+      (or using simple linear algebra).
+      There are also, of course, limit cycles, which can be attractors,
+      repellors of a mix of the two (attracting,
+      for example, all trajectories on a plane,
+      but repelling all trajectories off the plane) in three-dimensional systems.
+      As in the case of dynamical systems in the plane,
+      attracting limit cycles in a three-dimensional system signal stable periodic behavior.
+      <image width="73%" source="images/cycle.png"/>
+    </p>
+    <p>
+      However, more complicated types of periodic behavior are possible in the three-dimensional case:
+      we could, for example, have an attracting torus in the state space.
+      <image width="73%" source="images/torus.png"/> In this case,
+      the behavior of the states does not settle down to periodic behavior,
+      but a behavior which is approximately periodic
+      (often called <term>quasi-periodic</term>).
+          <idx><h>quasi-periodic</h></idx>
+      In the plane,
+      there is a well studied phenomenon called Hopf bifurcation
+          <idx><h>Hopf bifurcation</h></idx>
+      in which changing the parameters in a dynamical system can cause an attracting fixed point to become a repellor surrounded by a stable attracting limit cycle.
+      Such dynamical systems arise in modelling situations in which a state begins to oscillate.
+      In three dimensions we also sees the same sort of phenomenon in which an attractor can give birth to an attracting limit cycle.
+      However, there are also three-dimensional systems in which varying the parameters results in an attracting limit cycle becoming a repelling limit cycle enclosed by an attracting torus
+      (this is also called Hopf bifurcation and is frequently encountered in applications).
+      These sorts of behavior are relatively straightforward generalizations of behavior in the plane.
+      At the turn of the century, Poincar&#xe9;
+      realized that simple three-dimensional systems could have exceedingly complicated trajectories which exhibit behavior totally unlike any two-dimensional trajectory.
+      Discoveries in the last three decades have made it clear that qualitatively new types of <em>attractors</em>
+      (not just trajectories)
+      can exist in three-dimensional systems with even very simple equations.
+      The most famous such attractor was discovered by a meteorologist, Edward Lorenz,
+          <idx><h>Lorenz, Edward</h></idx>
+      in the course of using dynamical systems to model weather patterns.
+      He discovered a class of simple systems with an attractor which corresponded to behavior which was in no sense periodic.
+      An example of such a system is
+      <md>
+        <mrow>x' \amp = -3x - 3y,</mrow>
+        <mrow>y' \amp = -xz + 30x - y,</mrow>
+        <mrow>z' \amp = xy - z</mrow>
+      </md>.
+    </p>
+    <p>
+      All trajectories of the system entered a bounded region of the state space and tended towards a clearly defined geometrical object
+      (resembling a butterfly).
+      But along the attractor,
+      nearby points followed trajectories which rapidly diverged from one another.
+      Below, we have sketched two views of a trajectory beginning at (0,1,0) of the system above.
+      <image width="73%" source="images/lor.png"/> As Lorenz noted in the paper describing his discovery (Deterministic Nonperiodic Flow,
+      <em>J. Atmos.
+      Sci.</em>, <term>20</term> 130 (1963)),
+      this divergence of trajectories along an attractor has astonishing practical implications.
+      It means that that the trajectories of nearby points in state space could
+      (and would)
+      wind up following very different paths along the attractor.
+      Since we never know initial conditions exactly
+      (and even if we did,
+      a computer truncates decimal expansions of the coordinates of any point,
+      effectively replacing the point with a nearby point),
+      this means that long-term predictions using a model possessing such an attractor are impossible.
+      In other words,
+      although the future is completely determined by a dynamical system given an initial state,
+      it is unknowable in systems of the sort discovered by Lorenz,
+      because initial states are never known exactly in practice.
+      Such systems are called <term>chaotic</term>
+          <idx><h>chaotic system</h></idx>
+      and attractors which are not points,
+      limit cycles or tori are called
+      <term>strange attractors</term>.
+          <idx><h>strange attractor</h></idx>
+      These systems have been intensively studied in the last thirty years and are still far from completely understood.
+      Chaotic systems have been used to attempt to model a wide variety of real situations which exhibit unpredictable behavior:
+      business cycles, turbulence, heart attacks, etc.
+      Although fascinating and philosophically provocative,
+      most of this work is still very speculative and has yet to prove of practical value.
+      Systems involving more than three variables can still be treated geometrically:
+      we think of the space of states as a higher dimensional space
+      (one dimension for each quantity)
+      and the dynamical system as defining a vector field on the state space.
+      Of course, we cannot visualize such spaces directly,
+      but the geometrical insight we gain in dimensions two and three very frequently allows us to handle such systems.
+    </p>
+  </introduction>
+  <subsection xml:id="subsec_exercises">
+    <title>Exercises</title>
+    <p>
+      In the next two exercises,
+      we look at some three-dimensional systems which arise in ecology.
+      These questions are challenging and you will probably find it helpful to work them out in a group.
+    </p>
+    <ol>
+      <li>
+        <p>
+          Consider a system consisting of three species:
+          giant carnivorous reptiles, vegetarian mammals, and plants.
+          Suppose that the populations of these are given by <m>x</m>,
+          <m>y</m> and <m>z</m> respectively.
+          The reptiles eat the mammals,
+          the mammals eat the plants, and the plants compete among themselves.
+          Explain why the following system is consistent with these hypotheses:
+          <md>
+            <mrow>x' \amp = -0.2 x + 0.0001 x y,</mrow>
+            <mrow>y' \amp = -0.05 y - 0.001 x y + 0.000001 y z,</mrow>
+            <mrow>z' \amp = z - 0.00001 z^2 - 0.0001 y z</mrow>
+          </md>.
+        </p>
+        <ol>
+          <li>
+            <p>
+              Find all equilibrium points of the system.
+              There are five, one of which is physically impossible.
+              Describe the significance of the other four.
+            </p>
+          </li>
+          <li>
+            <p>
+              The most interesting equilibrium is the one in which all three species are present.
+              Localize the system at this equilibrium,
+              using local variables <m>u</m>, <m>v</m>, and <m>w</m>.
+              Linearize.
+              Show that the linearized system has the form
+              <md>
+                <mrow>{2} u' \amp =     \amp  .003v, \amp</mrow>
+                <mrow>v' \amp = -2u \amp        \amp + 0.002w,</mrow>
+                <mrow>w' \amp =     \amp  -8v   \amp - 0.8w</mrow>
+              </md>.
+              Can you determine whether the equilibrium is an attractor?
+              This is a hard question<mdash/>it
+              <em>is</em> an attractor.
+              One way to show this is a generalization of the technique we used in the preceding section to examine the distance of points on a trajectory from the origin over time.
+              For the current problem we use a
+              <term>generalized distance function</term>
+              <me>
+                D(t) = 8\cdot 10^6u^2+12000v^2+3w^2
+              </me>.
+              Show, using arguments like those we used when we looked at ordinary distance,
+              that as we move along a trajectory,
+              the value of <m>D</m> must decrease.
+              Hence conclude that the equilibrium point must be an attractor.
+            </p>
+          </li>
+        </ol>
+      </li>
+      <li>
+        <p>
+          The system of equations
+          <md>
+            <mrow>x' \amp = x - 0.001 x^2 + 0.002 x y -0.1 x z,</mrow>
+            <mrow>y' \amp = y - 0.01 y ^2 + 0.001 x y,</mrow>
+            <mrow>z' \amp = -z + 0.001 x z</mrow>
+          </md>.
+          arises in a general family of models proposed in 1980 by Heithaus, Culver,
+          and Beattie (
+          <q>Models of Some Ant-Plant Mutualisms,</q>
+          <em>American Naturalist</em>,
+          <term>116</term> (1980) pp. 347-361) for investigating the interactions three species:
+          violets, ants, and mice.
+          Violets produce seeds with density <m>x</m>
+          (per square meter, say).
+          The ants take some of the seeds and use the seed covering for food.
+          But they leave the remainder,
+          which is still a perfectly good seed, in their refuse piles,
+          which happily turn out to be good sites for germination.
+          The ants have density<nbsp/><m>y</m>.
+          Finally, the seeds are also taken by mice,
+          who use the whole seed for food
+          (destroying both the cover and the seed within).
+          The mice have density<nbsp/><m>z</m>.
+          <ol>
+            <li>
+              <p>
+                Explain why these equations are consistent with the hypotheses we made on the interactions between the violets,
+                ants and mice.
+              </p>
+            </li>
+            <li>
+              <p>
+                Find all equilibrium points for the system.
+                Don't forget the points where one or more of the variables equals 0.
+                <md>
+                  <mrow>x' \amp = x - 0.001 x^2 + 0.002 x y -0.1 x z,</mrow>
+                  <mrow>y' \amp = y - 0.01 y ^2 + 0.001 x y,</mrow>
+                  <mrow>z' \amp = -z + 0.001 x z</mrow>
+                </md>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Localize the model at each of these equilibria,
+                using local coordinates <m>u</m>, <m>v</m>,
+                and <m>w</m> as before, and linearize.
+              </p>
+            </li>
+            <li>
+              <p>
+                In the case of the equilibrium point (1000, 200, 4) the local linearization is
+                <md>
+                  <mrow>u' \amp = -u + 2 v - 100 w,</mrow>
+                  <mrow>v' \amp = 0.2 u - 2 v,</mrow>
+                  <mrow>w' \amp = 0.004 u</mrow>
+                </md>.
+                As in the preceding problem,
+                show that this point is an attractor by examining the generalized distance function
+                <m>R(t)=u(t)^2+v(t)^2+25000w(t)^2</m> and showing that the value of <m>R</m> decreases as you move along a trajectory.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </li>
+    </ol>
+  </subsection>
+</section>

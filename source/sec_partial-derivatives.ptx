@@ -1,0 +1,738 @@
+<section xml:id="sec_partial-derivatives">
+  <title>Partial Derivatives</title>
+  <introduction>
+    <p>
+      Let's return to the sunrise function once again.
+          <idx><h>sunrise</h></idx>
+      The time of sunrise depends not only on the date, but on our latitude.
+      In fact, if we are far enough north or south,
+      there are days when the sun never rises at all.
+      We give in the table below the time of sunrise at eight different latitudes on March 15, 1990.
+    </p>
+    <tabular>
+      <row>
+        <cell>Latitude</cell>
+        <cell><m>36^\circ</m>N</cell>
+        <cell><m>38^\circ</m>N</cell>
+        <cell><m>40^\circ</m>N</cell>
+        <cell><m>42^\circ</m>N</cell>
+        <cell><m>44^\circ</m>N</cell>
+        <cell><m>46^\circ</m>N</cell>
+        <cell><m>48^\circ</m>N</cell>
+        <cell><m>50^\circ</m>N</cell>
+      </row>
+      <row bottom="minor">
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+      </row>
+      <row>
+        <cell>Mar 15</cell>
+        <cell>6:10</cell>
+        <cell>6:11</cell>
+        <cell>6:12</cell>
+        <cell>6:13</cell>
+        <cell>6:13</cell>
+        <cell>6:13</cell>
+        <cell>6:14</cell>
+        <cell>6:14</cell>
+      </row>
+    </tabular>
+    <p>
+      Thus on March 15, the time of sunrise increases as latitude increases.
+      Clearly what this shows
+    </p>
+    <aside>
+      <p>
+        The time of sunrise depends on latitude as well as on the date
+      </p>
+    </aside>
+    <p>
+      is that the time of sunrise is actually a function of two independent inputs:
+      the date and the latitude.
+      If <m>T</m> denotes the time of sunrise,
+      then we will write <m>T = T(d, \lambda)</m> to make explicit the dependence of <m>T</m> on both the date <m>d</m> and the latitude <m>\lambda</m>.
+      To capture this double dependence,
+      we need information like the following table:
+    </p>
+    <tabular>
+      <row>
+        <cell>Latitude</cell>
+        <cell><m>36^\circ</m>N</cell>
+        <cell><m>38^\circ</m>N</cell>
+        <cell><m>40^\circ</m>N</cell>
+        <cell><term>42<m>^\circ</m>N</term></cell>
+        <cell><m>44^\circ</m>N</cell>
+        <cell><m>46^\circ</m>N</cell>
+        <cell><m>48^\circ</m>N</cell>
+        <cell><m>50^\circ</m>N</cell>
+      </row>
+      <row bottom="minor">
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+      </row>
+      <row>
+        <cell>Mar   3</cell>
+        <cell>6:24</cell>
+        <cell>6:27</cell>
+        <cell>6:31</cell>
+        <cell><term>6:33</term></cell>
+        <cell>6:34</cell>
+        <cell>6:36</cell>
+        <cell>6:38</cell>
+        <cell>6:40</cell>
+      </row>
+      <row>
+        <cell>7</cell>
+        <cell>6:20</cell>
+        <cell>6:22</cell>
+        <cell>6:25</cell>
+        <cell><term>6:26</term></cell>
+        <cell>6:27</cell>
+        <cell>6:29</cell>
+        <cell>6:30</cell>
+        <cell>6:32</cell>
+      </row>
+      <row>
+        <cell>11</cell>
+        <cell>6:15</cell>
+        <cell>6:17</cell>
+        <cell>6:19</cell>
+        <cell><term>6:19</term></cell>
+        <cell>6:20</cell>
+        <cell>6:21</cell>
+        <cell>6:22</cell>
+        <cell>6:23</cell>
+      </row>
+      <row>
+        <cell><term>15</term></cell>
+        <cell><term>6:10</term></cell>
+        <cell><term>6:11</term></cell>
+        <cell><term>6:12</term></cell>
+        <cell><term>6:13</term></cell>
+        <cell><term>6:13</term></cell>
+        <cell><term>6:13</term></cell>
+        <cell><term>6:14</term></cell>
+        <cell><term>6:14</term></cell>
+      </row>
+      <row>
+        <cell>19</cell>
+        <cell>6:06</cell>
+        <cell>6:06</cell>
+        <cell>6:06</cell>
+        <cell><term>6:06</term></cell>
+        <cell>6:06</cell>
+        <cell>6:06</cell>
+        <cell>6:06</cell>
+        <cell>6:06</cell>
+      </row>
+      <row>
+        <cell>23</cell>
+        <cell>6:01</cell>
+        <cell>6:00</cell>
+        <cell>5:59</cell>
+        <cell><term>5:59</term></cell>
+        <cell>5:58</cell>
+        <cell>5:58</cell>
+        <cell>5:58</cell>
+        <cell>5:57</cell>
+      </row>
+      <row>
+        <cell>27</cell>
+        <cell>5:56</cell>
+        <cell>5:54</cell>
+        <cell>5:53</cell>
+        <cell><term>5:52</term></cell>
+        <cell>5:51</cell>
+        <cell>5:50</cell>
+        <cell>5:49</cell>
+        <cell>5:48</cell>
+      </row>
+    </tabular>
+    <p>
+      Thus we can say <m>T(74, 42^\circ\mbox{N} )</m> = 6:13 (March 15 is the 74-th day of the year).
+      Note, though,
+      that at this date and place the time of sunrise is changing in two very different senses:
+      <ul>
+        <li>
+          <title>First:</title>
+          <p>
+            At <m>42^\circ</m>N, during the eight days between March 11 and March 19,
+            the time of sunrise gets 13 minutes earlier.
+            We thus would say that on March 15 at
+            <m>42^\circ</m>N, sunrise is changing at <ndash/>1.63 minutes/day.
+          </p>
+        </li>
+        <li>
+          <title>Second:</title>
+          <p>
+            On the other hand,
+            on March 15 we see that the time of sunrise varies by 1 minute as we go from <m>40^\circ</m>N to
+            <m>44^\circ</m>N. We would thus say that at
+            <m>42^\circ</m>N the rate of change of sunrise as the latitude varies is approximately 1 minute/<m>4^\circ</m> = +.25 minutes/degree of latitude.
+          </p>
+        </li>
+      </ul>
+    </p>
+    <p>
+      Two quite different rates are at work here,
+      one with respect to time, the other with respect to latitude.
+      We need a notation which allows us to talk about the different rates at which a function can change,
+    </p>
+    <aside>
+      <p>
+        A function of several variables has several rates of change
+      </p>
+    </aside>
+    <p>
+      when that function depends on more than one variable.
+      A rate of change is, of course, a derivative.
+      But since a change in one input produces only part of the change that a function of several variables can experience,
+      we call the rate of change with respect to any one of the inputs a
+      <term>partial derivative</term>.
+          <idx><h>partial derivative</h></idx>
+          <idx><h>derivative</h><h>partial</h></idx>
+      If the value of <m>z</m> depends on the variables <m>x</m> and <m>y</m> according to the rule <m>z = F(x,y)</m>, then we denote the rate at which <m>z</m> is changing with respect to <m>x</m> when <m>x = a</m> and <m>y = b</m> by
+      <me>
+        F_x(a,b) \qquad \mbox{or by}  \qquad \frac{\partial z}{\partial x}(a,b)
+      </me>.
+    </p>
+    <p>
+      We call this rate the
+    </p>
+    <aside>
+      <p>
+        Partial derivatives
+      </p>
+    </aside>
+    <p>
+      <term>partial derivative of  <m>F</m> with respect to  <m>x</m></term>.
+      Similarly, we define the partial derivative of <m>F</m> with respect to <m>y</m> to be the rate at which <m>z</m> is changing when <m>y</m> is varied.
+      It is denoted
+      <me>
+        F_y(a,b) \qquad \mbox{or}  \qquad \frac{\partial z}{\partial y}(a,b)
+      </me>.
+    </p>
+    <p>
+      There is nothing conceptually new involved here;
+      to calculate either of these partial derivatives you simply hold one variable constant and go through the same limiting process as before for the input variable of interest.
+      Note that, to call attention to the fact that there is more than one input variable present, we write
+      <me>
+        \frac{\partial z}{\partial x} \qquad \mbox{rather than} \qquad \frac{dz}{dx}
+      </me>,
+      as we did when <m>x</m> was the only input variable.
+      To calculate the partial derivative of <m>F</m> with respect to <m>x</m> at the point <m>(a,b)</m>,
+      we can use
+      <me>
+        F_x(a,b) = \frac{\partial z}{\partial x}(a,b) = \lim_{\Delta x \rightarrow 0} \frac{F(a + \Delta x,b) - F(a,b)}{\Delta x}
+      </me>.
+    </p>
+    <p>
+      Similarly,
+      <me>
+        F_y(a,b) = \frac{\partial z}{\partial y}(a,b) = \lim_{\Delta y \rightarrow 0} \frac{F(a,b+\Delta y) - F(a,b)}{\Delta y}
+      </me>.
+    </p>
+    <p>
+      By using this notation for partial derivatives,
+      we can cast some of our earlier statements about the sunrise function
+      <m>T = T(d, \lambda)</m> in the following form:
+      <md>
+        <mrow>T_d(74, 42^\circ\mbox{N} ) \amp \approx -1.63 \ \mbox{minutes per day} ;</mrow>
+        <mrow>T_\lambda(74,42^\circ\mbox{N} ) \amp \approx +.25 \ \mbox{minutes per degree} </mrow>
+      </md>.
+    </p>
+  </introduction>
+  <subsection xml:id="subsec_partial-derivatives-as-multipliers">
+    <title>Partial Derivatives as Multipliers</title>
+    <p>
+          <idx><h>multiplier</h></idx>
+      For any given date <m>d</m> and latitude <m>\lambda</m> we can write down two microscope equations
+          <idx><h>microscope equation</h></idx>
+      for the sunrise function <m>T(d, \lambda)</m>.
+      One describes how the time of sunrise responds to changes in the date,
+      the other to changes in the latitude.
+      Let's consider variations in the time of sunrise in the vicinity of March 15 and
+      <m>42^\circ</m>N. The partial derivative
+      <m>T_d(74,42^\circ\mbox{N} )</m> of <m>T</m> with respect to <m>d</m> is the multiplier in the first of these microscope equations:
+    </p>
+    <aside>
+      <p>
+        The microscope equation for dates
+      </p>
+    </aside>
+    <me>
+      \Delta T \approx T_d(74,42^\circ\mbox{N} ) \cdot \Delta d
+    </me>.
+    <p>
+      For example,
+      from March 15 to March 17 (<m>\Delta d</m> = 2 days),
+      we would expect the time of sunrise to change by
+      <me>
+        \Delta T \approx -1.63 \ \frac{\mbox{min} }{\mbox{day} }     \times 2 \ \mbox{days}  = - 3.3 \ \mbox{minutes}
+      </me>.
+    </p>
+    <p>
+      Thus, we would expect the time of sunrise on March 17 at <m>42^\circ</m>N to be approximately
+      <me>
+        T(76,42^\circ\mbox{N} ) \approx \mbox{6:09.7}
+      </me>.
+    </p>
+    <p>
+      The partial derivative <m>T_{\lambda}(74,42^\circ\mbox{N} )</m> of <m>T</m> with respect to <m>\lambda</m> is the multiplier in the second microscope equation:
+    </p>
+    <aside>
+      <p>
+        The microscope equation for latitudes
+      </p>
+    </aside>
+    <me>
+      \Delta T \approx T_\lambda(74,42^\circ\mbox{N} ) \cdot
+      \Delta \lambda
+    </me>.
+    <p>
+      If, say, we moved <m>1^\circ</m> north,
+      to <m>43^\circ</m>N, we would expect the time of sunrise on March 7 to change by
+      <me>
+        \Delta T \approx 0.25 \ \frac{\mbox{min} }{\mbox{deg} } \times 1 \ \mbox{degree} = 0.25 \ \mbox{minute}
+      </me>.
+    </p>
+    <p>
+      The time of sunrise on March 15 at <m>43^\circ</m>N would therefore be
+      <me>
+        T(74,43^\circ\mbox{N} ) \approx \mbox{6:13.25}
+      </me>.
+    </p>
+    <p>
+      We have seen what happens to the time of sunrise from March 15 to March 17 if we stay at
+      <m>42^\circ</m>N, and we have seen what happens to the time on March 15 if we move from <m>42^\circ</m>N to
+      <m>43^\circ</m>N. Can we put these two pieces of information together?
+      That is, can we determine the time of sunrise on March 17 at
+      <m>43^\circ</m>N? This involves changing <em>both</em>
+      the date and the latitude.
+      To determine the total change we shall just
+    </p>
+    <aside>
+      <p>
+        The total change
+      </p>
+    </aside>
+    <p>
+      combine the two changes <m>\Delta T</m> we have already calculated.
+      Making the date two days later moves the time of sunrise 3.3 minutes <em>earlier</em>,
+      and travelling one degree north makes the time of sunrise 0.25 minutes <em>later</em>,
+      so the net effect would be to change the time of sunrise by
+      <me>
+        \Delta T \approx - 3.3 \ \mbox{min}  + 0.25 \ \mbox{min} \approx  - 3 \ \mbox{minutes}
+      </me>.
+    </p>
+    <p>
+      This puts the time of sunrise at <m>T(76,43^\circ\mbox{N} ) \approx</m> 6:10.
+      We can formulate this idea more generally in the following way:
+      partial derivatives are not only multipliers for gauging the separate effects that changes in each input have on the output,
+      but they also serve as multipliers for gauging the <em>cumulative</em>
+      effect that changes in all inputs have on the output.
+      In general, if <m>z=F(x,y)</m> is a function of two variables,
+      then near the point <m>(a,b)</m>,
+      the combined change in <m>z</m> caused by small changes in <m>x</m> and <m>y</m> can be stated by the
+      <em>full</em> microscope equation:
+    </p>
+    <image source=""/>
+    <p>
+      As was the case for the functions of one variable,
+      there is an important class of functions for which we may write
+      <q>=</q>
+      instead of
+      <q><m>\approx</m></q>
+      in this relation, the linear functions.
+      The most general form of a <term>linear function of two variables</term>
+          <idx><h>linear function</h></idx>
+      is <m>z=F(x,y)= mx + ny + c</m>,
+      for constants <m>m</m>, <m>n</m>, and <m>c</m>.
+      In the exercises you will have an opportunity to verify that for a linear function
+      <m>z = F(x,y) = mx + ny + c</m> and for all <m>(a,b)</m>,
+      we know that <m>F_x(a,b) = m</m> and <m>F_y(a,b) = n</m>,
+      and the full microscope equation
+      <m>\Delta z = F_x(a,b) \cdot \Delta x + F_y(a,b) \cdot \Delta y</m> is true for all values of <m>\Delta x</m> and <m>\Delta y</m>.
+    </p>
+  </subsection>
+  <subsection xml:id="subsec_formulas-for-partial-derivatives">
+    <title>Formulas for Partial Derivatives</title>
+    <p>
+          <idx><h>formula</h></idx>
+      No new rules are needed to find the formulas for the partial derivatives of a function of two variables that is given by a formula.
+    </p>
+    <aside>
+      <p>
+        To find a partial derivative,
+        treat the other variable as a constant
+      </p>
+    </aside>
+    <p>
+      To find the partial derivative with respect to one of the variables,
+      just treat the other variable as a constant and follow the rules for functions of a single variable.
+      (The basic rules are described in section<nbsp/>5 and the chain rule in section<nbsp/>6.)
+      We give two examples to illustrate the method.
+      <term>Example 1</term>.
+      For <m>z = F(x,y) = 3x^2y + 5y^2 \sqrt{x}</m>, we have
+      <md>
+        <mrow>F_x(x,y) \amp =  3y (2x) + 5y^2 \frac{1}{2 \sqrt{x}} = 6xy + \frac{5y^2}{2 \sqrt{x}}</mrow>
+        <mrow>F_y(x,y) \amp =  3x^2 + 10y \sqrt{x}</mrow>
+      </md>
+    </p>
+    <p>
+      <term>Example 2</term>.
+      For <m>w = G(u,v) = 3 u^5 \sin{v}  - \cos{v} + u</m>, we have
+      <md>
+        <mrow>\dfrac{\partial w}{\partial u} \amp =   15 u^4 \sin{v} + 1</mrow>
+        <mrow>\dfrac{\partial w}{\partial v} \amp = 3u^5 \cos{v} + \sin{v}</mrow>
+      </md>
+    </p>
+    <p>
+      The formulas for derivatives and the combined multiplier effect of partial derivatives allow us to determine the effect of changes in length and in width on the area of a rectangle.
+      The area <m>A</m> of the rectangle is a simple function of its dimensions <m>l</m> and <m>w</m>,
+      <m>A = F(l,w) = lw\/</m>.
+      The partial derivatives of the area are then
+      <me>
+        F_l(l,w) = w \hspace{.25in} \mbox{and}  \hspace{.25in} F_w(l,w) = l
+      </me>.
+    </p>
+    <image source="images/61f87b50f0a350fc2ea27363bc493ec2dc7bd568.png"/>
+    <p>
+      Changes <m>\Delta l</m> and
+      <m>\Delta w</m> in the dimensions produce a change
+    </p>
+    <aside>
+      <p>
+        The full microscope equation for rectangular area
+      </p>
+    </aside>
+    <me>
+      \Delta A \approx w \cdot \Delta l + l \cdot \Delta w
+    </me>
+    <p>
+      in the area.
+      The picture below shows that the <em>exact</em>
+      value of <m>\Delta A</m> includes an additional term<mdash/>namely
+      <m>\Delta l \cdot \Delta w</m><mdash/>that is not in the approximation <m>w \cdot \Delta l + l \cdot \Delta w</m>.
+      The difference, <m>\Delta l \cdot \Delta w</m>,
+      is <em>very</em> small when the changes
+      <m>\Delta l</m> and <m>\Delta w</m> are small.
+      In chapter 5 we will have a further look at the nature of this approximation.
+    </p>
+  </subsection>
+  <subsection xml:id="subsec_exercises">
+    <title>Exercises</title>
+    <ol>
+      <li>
+        <p>
+          Use differentiation formulas to find the partial derivatives of the following functions.
+          <ol>
+            <li>
+              <p>
+                <m>x^2 y</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\sqrt{x + y}</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>x^2y + 5x^3 - \sqrt{x + y}</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>10^{xy}</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\dfrac{y}{x}</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\sin{\dfrac{y}{x}}</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>17 \dfrac{x^2}{y^3} - x^2 \sin{y} + \pi</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\dfrac{uv}{5} + \dfrac{5}{uv}</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>2 \sqrt{x} \, \sqrt[3]{y} - 7 \cos{x}</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>x\tan{y}</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </li>
+      <li>
+        <p>
+          On March 7 in the Northern Hemisphere,
+          the farther south you are the earlier the sun rises.
+          The sun rises at 6:25 on this date at
+          <m>40^\circ</m>N. If we had been far enough south,
+          we could have experienced a 6:25 sunrise on March 5.
+          Near what latitude did this happen?
+        </p>
+      </li>
+      <li>
+        <p>
+          The volume <m>V</m> of a given quantity of gas is a function of the temperature <m>T</m>
+          (in degrees Kelvin)
+          and the pressure <m>P</m>.
+          In a so-called ideal gas the functional relationship between volume and pressure is given by a particularly simple rule called the
+          <term>ideal gas law</term>:
+            <idx><h>ideal gas law</h></idx>
+          <me>
+            V(T,P) = R \, \frac{T}{P}
+          </me>,
+          where <m>R</m> is a constant.
+          <ol>
+            <li>
+              <p>
+                Find formulas for the partial derivatives <m>V_T(T,P)</m> and <m>V_P(T,P)</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                For a particular quantity of an ideal gas called a <em>mole</em>,
+                the value of <m>R</m> can be expressed as
+                <m>8.3 \times 10^3</m> newton-meters per degree Kelvin. (The <em>newton</em>
+                is the unit of force in the meter-kilogram-second
+                (or MKS)
+                system of units.
+            <idx><h>MKS units</h></idx>
+        Check that the units in the ideal gas law are consistent if <m>V</m> is measured in cubic meters,
+                <m>T</m> in degrees Kelvin, and <m>P</m> in newtons per square meter.
+            <idx><h>units</h></idx>
+        </p>
+            </li>
+            <li>
+              <p>
+                Suppose a mole of gas at 350 degrees Kelvin is under a pressure of 20 newtons per square meter.
+                If the temperature of the gas increases by 10 degrees Kelvin and the volume increases by 1 cubic meter,
+                will the pressure increase or decrease?
+                By about how much?
+              </p>
+            </li>
+          </ol>
+        </p>
+      </li>
+      <li>
+        <p>
+          Write the formula for a linear function <m>F(x, y)</m> with the following properties:
+          <md>
+            <mrow>F_x(x, y) \amp = .15 \qquad \mbox{for all \(x\) and \(y\)}</mrow>
+            <mrow>F_y(x, y) \amp = 2.31 \qquad \mbox{for all \(x\) and \(y\)}</mrow>
+            <mrow>F(4, 1)   \amp = 8</mrow>
+          </md>
+        </p>
+      </li>
+      <li>
+        <p>
+          The purpose of this exercise is to verify the claims made in the text for the linear function <m>z=F(x,y) = mx + ny + c\/</m>,
+          where <m>m</m>, <m>n</m> and <m>c</m> are constants.
+          <ol>
+            <li>
+              <p>
+                Use the differentiation rules to find the partial derivatives of <m>F</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Use the <em>definition</em> of the partial derivative <m>F_x(a,b)</m> to show that
+                <m>F_x(a,b)= m</m> for any input <m>(a,b)</m>.
+                That is, show that the value of
+                <me>
+                  \frac{F(a+\Delta x, b) - F(a,b)}{\Delta x}
+                </me>
+                exactly equals <m>m</m>, no matter what <m>a</m> and <m>b</m> are.
+              </p>
+            </li>
+            <li>
+              <p>
+                Compute the exact value of the change
+                <me>
+                  \Delta z = F(a+\Delta x,b+\Delta y) - F(a,b)
+                </me>
+                corresponding to changing <m>a</m> by
+                <m>\Delta x</m> and <m>b</m> by <m>\Delta y</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </li>
+      <li>
+        <p>
+          Suppose <m>w=G(u,v) = {\displaystyle \frac{uv}{3+v}}</m>.
+          <ol>
+            <li>
+              <p>
+                Approximate the value of the partial derivative <m>G_u(1,2)</m> by computing
+                <m>\Delta w/\Delta u</m> for <m>\Delta u = \pm 0.1</m>,
+                <m>\pm 0.01</m>,
+                <ellipsis/>, <m>\pm 0.00001</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Approximate the value of <m>G_v(1,2)</m> by computing
+                <m>\Delta w/\Delta v</m> for <m>\Delta v = \pm 0.1</m>,
+                <m>\pm 0.01</m>,
+                <ellipsis/>, <m>\pm 0.00001</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Write the full microscope equation for <m>G(u, v)</m> at <m>(u, v) = (1, 2)</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Use the full microscope equation to approximate <m>G(.8,2.1)</m>.
+                How close is your approximation to the true value of <m>G(.8,2.1)</m>?
+              </p>
+            </li>
+          </ol>
+        </p>
+      </li>
+      <li>
+        <p>
+          A rectangular piece of land has been measured to be 51 feet by 2034 feet.
+          What is its area?
+          <ol>
+            <li>
+              <p>
+                The narrow dimension has been measured with an accuracy of 4 inches,
+                but the long dimension is accurate only to 10 feet.
+                What is the error, or uncertainty, in the calculated area?
+                What is the percentage error?
+              </p>
+            </li>
+          </ol>
+        </p>
+      </li>
+      <li>
+        <p>
+          Suppose <m>z = f(x, y)</m> and
+          <me>
+            f(3, 12) = 240, \qquad f_x(3, 12) = 7, \qquad f_y(3, 12) = 4
+          </me>.
+          <ol>
+            <li>
+              <p>
+                Estimate <m>f(4, 12)</m>, <m>f(3, 13)</m>,
+                <m>f(4, 13)</m>, <m>f(4, 10)</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                When <m>x = 3</m> and <m>y = 12</m>,
+                how much does a 1% increase in <m>x</m> cause <m>z</m> to change?
+                How much does a 1% increase in <m>y</m> cause <m>z</m> to change?
+                Which has the larger effect:
+                a 1% increase in <m>x</m> or a 1\increase in <m>y</m>?
+              </p>
+            </li>
+          </ol>
+        </p>
+      </li>
+      <li>
+        <p>
+          Let <m>P(K, L)</m> represent the monthly profit, in thousands of dollars,
+          of a company that produces a product using capital whose monthly cost is <m>K</m> thousand dollars and labor whose monthly cost is <m>L</m> thousand dollars.
+          The current levels of expense for capital and labor are <m>K = 23.5</m> and <m>L = 39.0</m>.
+          Suppose now that company managers have determined
+          <me>
+            \dfrac{\partial P}{\partial K}(23.5, 39.0) = -0.12, \qquad \dfrac{\partial P}{\partial L}(23.5, 39.0) = -0.20
+          </me>.
+          <ol>
+            <li>
+              <p>
+                Estimate what happens to the monthly profit if monthly capital expenses increase to $24,000.
+              </p>
+            </li>
+            <li>
+              <p>
+                Each typical person added to the work force increases the monthly labor expense by $1,500.
+                Estimate what happens to the monthly profit if one more person is added to the work force.
+                What, therefore, is the rate of change of profit,
+                in thousands of dollars per person?
+                Is the rate positive or negative?
+              </p>
+            </li>
+            <li xml:id="trade_off">
+              <p>
+                Suppose managers respond to increased demand for the product by adding three workers to the labor force.
+                What does that do to monthly profit?
+                If the managers want to keep the profit level unchanged,
+                they could try to alter capital expenses.
+                What change in <m>K</m> would leave profit unchanged after the three workers are added? (This is called a <term>trade-off</term>.)
+    <idx><h>trade-off</h></idx>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </li>
+      <li>
+        <p>
+          A forester who wants to know the height of a tree walks 100 feet from its base,
+          sights to the top of the tree,
+          and finds the resulting angle to be 57 degrees.
+          <ol>
+            <li>
+              <p>
+                What height does this give for the tree?
+              </p>
+            </li>
+            <li>
+              <p>
+                If the 100-foot measurement is certain only to 1 foot and the angle measurement is certain only to 5 degrees,
+                what can you say about the uncertainty of the height measured in part (a)? (Note:
+                you need to express angles in <em>radians</em> to use calculus:
+                <m>\pi</m> radians = 180 degrees.)
+              </p>
+            </li>
+            <li>
+              <p>
+                Which would be more effective:
+                improving the accuracy of the angle measurement,
+                or improving the accuracy of the distance measurement?
+                Explain.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </li>
+    </ol>
+  </subsection>
+</section>

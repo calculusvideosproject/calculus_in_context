@@ -1,0 +1,963 @@
+<section xml:id="sec_a-global-view">
+  <title>A Global View</title>
+  <introduction>
+    <p>
+          <idx><h>global</h></idx>
+    </p>
+  </introduction>
+  <subsection xml:id="subsec_derivative-as-function">
+    <title>Derivative as Function</title>
+    <p>
+          <idx><h>derivative</h></idx>
+      Up to now we have looked upon the derivative as a <em>number</em>.
+      It gives us information about a function at a
+      <em>point</em><mdash/>the rate at which the function is changing,
+      the slope of its graph,
+      the value of the multiplier in the microscope equation.
+    </p>
+    <aside>
+      <p>
+        The derivative is a function in its own right
+      </p>
+    </aside>
+    <p>
+          <idx><h>function</h><h>derivative</h></idx>
+      But the numerical value of the derivative varies from point to point, and these values can also be considered as the values of a new function<mdash/>the derivative function<mdash/>with its own graph.
+      Viewed this way the derivative is a <em>global</em> object.
+      The connection between a function and its derivative can be seen very clearly if we look at their graphs.
+          <idx><h>graph</h></idx>
+      To illustrate,
+      we'll use the function <m>I(t)</m> that describes how the size of an infected population varies over time,
+      from the <m>S</m>-<m>I</m>-<m>R</m> problem we analyzed in chapter 1.
+      The graph of <m>I</m> appears below,
+      and directly beneath it is the graph of <m>I'</m>,
+      the derivative of <m>I</m>.
+      The graphs are lined-up vertically:
+      the values of <m>I(a)</m> and <m>I'(a)</m> are recorded on the same vertical line that passes through the point <m>t = a</m> on the <m>t</m>-axis.
+      <image width="73%" source="images/iiprime.png"/> To understand the connection between the graphs,
+      keep in mind that the derivative represents a slope.
+    </p>
+    <aside>
+      <p>
+        The height of <m>I'</m> is the slope of <m>I</m>
+      </p>
+    </aside>
+    <p>
+      Thus, at any point <m>t</m>,
+      the <em>height</em> of the lower graph (<m>I'</m>) tells us the
+      <em>slope</em> of the upper graph
+      (<m>I</m>).
+      At the points where <m>I</m> is increasing,
+      <m>I'</m> is positive<mdash/>that is,
+      <m>I'</m> lies <em>above</em> its <m>t</m>-axis.
+      At the point where <m>I</m> is increasing most rapidly,
+      <m>I'</m> reaches its highest value.
+      In other words, where the graph of <m>I</m> is steepest,
+      the graph of <m>I'</m> is highest.
+      At the point where <m>I</m> is decreasing most rapidly,
+      <m>I'</m> has its lowest value.
+      Next, consider what happens when <m>I</m> itself reaches its maximum value.
+      Since <m>I</m> is about to switch from increasing to decreasing,
+      the derivative must be about to switch from positive to negative.
+      Thus, at the moment when <m>I</m> is largest, <m>I'</m> must be zero.
+      Note that the highest point on the graph of <m>I</m> lines up with the point where <m>I'</m> crosses the <m>t</m>-axis.
+      Furthermore,
+      if we zoomed in on the graph of <m>I</m> at its highest point,
+      we would find a horizontal line<mdash/>in other words,
+      one whose slope is zero.
+      All functions and their derivatives are related the same way that <m>I</m> and <m>I'</m> are.
+      In the following table we list the various features of the graph of a function;
+      alongside each is the corresponding feature of the graph of the derivative.
+    </p>
+    <tabular>
+    <row>
+      <cell>function</cell>
+      <cell>derivative</cell>
+    </row>
+    <row bottom="minor">
+      <cell></cell>
+      <cell></cell>
+    </row>
+    <row>
+    <cell><tabular>
+      <row>
+        <cell>increasing</cell>
+      </row>
+      <row>
+        <cell>decreasing</cell>
+      </row>
+      <row>
+        <cell>horizontal</cell>
+      </row>
+      <row>
+        <cell>steep (rising or falling)</cell>
+      </row>
+      <row>
+        <cell>gradual (rising or falling)</cell>
+      </row>
+      <row>
+        <cell>straight</cell>
+      </row>
+    </tabular></cell>
+    <cell><tabular>
+      <row>
+        <cell>positive</cell>
+      </row>
+      <row>
+        <cell>negative</cell>
+      </row>
+      <row>
+        <cell>zero</cell>
+      </row>
+      <row>
+        <cell>large (positive or negative)</cell>
+      </row>
+      <row>
+        <cell>small (positive or negative)</cell>
+      </row>
+      <row>
+        <cell>horizontal</cell>
+      </row>
+    </tabular></cell>
+    </row>
+    </tabular>
+    <p>
+      By using this table,
+      you should be able to make a rough sketch of the graph of the derivative,
+      when you are given the graph of a function.
+      You can also read the table from right to left,
+      to see how the graph of a function is influenced by the graph of its derivative.
+      For instance,
+      suppose the graph of the function <m>L(x)</m> is <image width="73%" source="images/funny.png"/> Then we know that its derivative <m>L'</m> must be 0 at points <m>a</m>,
+      <m>b</m>, <m>c</m>, and <m>d</m>;
+    </p>
+    <aside>
+      <p>
+        Finding a derivative
+        <q>by eye</q>
+      </p>
+    </aside>
+    <p>
+      that the derivative must be positive between <m>a</m> and <m>b</m> and between <m>c</m> and <m>d</m>,
+      negative otherwise;
+      that the derivative takes on relatively large values at <m>e</m> and <m>g</m> (positive) and at <m>f</m> and <m>h</m> (negative);
+      that the derivative must approach 0 at the right endpoint and be large and negative at the left endpoint.
+      Putting all this together we conclude that the graph of the derivative <m>L'</m> must look something like following:
+      <image width="73%" source="images/funnyslope.png"/> Conversely,
+      suppose all we are told about a certain function <m>G</m> is that the graph of its derivative <m>G'</m> looks like this:
+      <image width="73%" source="images/funny3.png"/> Then we can infer that the function <m>G</m> itself is decreasing between <m>a</m> and <m>b</m> and is increasing everywhere else;
+      that the graph of <m>G</m> is horizontal at <m>a</m>, <m>b</m>,
+      and <m>c</m>;
+      that both ends of the graph of <m>G</m> slope upward from left to right<mdash/>the left end more or less straight,
+      the right getting steeper and steeper.
+    </p>
+  </subsection>
+  <subsection xml:id="subsec_formulas-for-derivatives">
+    <title>Formulas for Derivatives</title>
+    <introduction>
+      <p>
+            <idx><h>derivative</h></idx>
+            <idx><h>formula</h></idx>
+      </p>
+    </introduction>
+    <subsubsection xml:id="subsubsec_basic-functions">
+      <title>Basic Functions</title>
+      <p>
+            <idx><h>basic function</h></idx>
+            <idx><h>function</h><h>basic</h></idx>
+      </p>
+      <p>
+        If a function is given by a formula,
+        then its derivative also has a formula,
+        defined for the points where the function is locally linear.
+        The formula is produced by a definite process,
+        called <em> differentiation</em>.
+            <idx><h>differentiation</h></idx>
+        In this section we look at some of the basic aspects,
+        and in the next we will take up the chain rule,
+        which is the key to the whole process.
+        Then in chapter 5 we will review differentiation systematically.
+        Most formulas are constructed
+      </p>
+      <aside>
+        <p>
+          Formulas are combinations of basic functions
+        </p>
+      </aside>
+      <p>
+        by combining only a few basic functions in various ways.
+        For instance, the formula
+        <me>
+          3\;x^7 - \dfrac{\sin{x}}{8\sqrt{x}}
+        </me>,
+        uses the basic functions <m>x^7</m>,
+        <m>\sin{x}</m>, and <m>\sqrt{x}</m>.
+        In fact, since <m>\sqrt{x} = x^{1/2}</m>,
+        we can think of <m>x^7</m> and
+        <m>\sqrt{x}</m> as two different instances of a single basic
+        <q>power of <m>x</m></q>
+        <mdash/>which we can write as <m>x^p</m>.
+        The following table lists some of the more common basic functions with their derivatives.
+        The number <m>c</m> is an arbitrary constant,
+        and so is the power <m>p</m>.
+        The last function in the table is the exponential function with base <m>b</m>.
+        Its derivative involves a parameter <m>k_b</m> that varies with the base <m>b</m>.
+        For instance,
+        exercise<nbsp/>6 in section<nbsp/>3 established that,
+        when <m>b = 2</m>, then <m>k_2 \approx 0.69</m>.
+        Exercise<nbsp/>7 established, for any base <m>b</m>,
+        that <m>k_b</m> is the value of the derivative of <m>b^x</m> when <m>x = 0</m>.
+        We will have more to say about the parameter <m>k_b</m> in the next chapter.
+      </p>
+      <tabular>
+        <row>
+          <cell>function</cell>
+          <cell></cell>
+          <cell>derivative</cell>
+        </row>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell><m>c</m></cell>
+          <cell></cell>
+          <cell>0</cell>
+        </row>
+        <row>
+          <cell><m>x^p</m></cell>
+          <cell></cell>
+          <cell><m>px^{p-1}</m></cell>
+        </row>
+        <row>
+          <cell><m>\sin{x}</m></cell>
+          <cell></cell>
+          <cell><m>\cos{x}</m></cell>
+        </row>
+        <row>
+          <cell><m>\cos{x}</m></cell>
+          <cell></cell>
+          <cell><m>\makebox[0pt][r]{--}\sin{x}
+            \makebox[0pt][l]{}</m></cell>
+        </row>
+        <row>
+          <cell><m>\tan{x}</m></cell>
+          <cell></cell>
+          <cell><m>\sec^2{x}</m></cell>
+        </row>
+        <row>
+          <cell><m>b^x</m></cell>
+          <cell></cell>
+          <cell><m>k_b \cdot b^x</m></cell>
+        </row>
+      </tabular>
+      <aside>
+        <p>
+          Remember that the input to the trigonometric functions is always measured in radians;
+          the above formulas are not correct if <m>x</m> is measured in degrees.
+          There are similar formulas if you insist on using degrees,
+          but they are more complicated.
+          This is the principal reasons we work in radians<mdash/>the formulas are nice!
+        </p>
+      </aside>
+      <p>
+        For example,
+        <ul>
+          <li>
+            <p>
+              the derivative of <m>1/x = x^{-1}</m> is <m>-x^{-2}=-1/x^{2}</m>;
+            </p>
+          </li>
+          <li>
+            <p>
+              the derivative of <m>\sqrt{w} = w^{1/2}</m> is <m>\tfrac{1}{2}w^{-1/2} = \dfrac{1}{\displaystyle 2 \sqrt{w}}</m>;
+            </p>
+          </li>
+          <li>
+            <p>
+              the derivative of <m>x^{\pi}</m> is <m>\pi x^{\pi - 1}</m>; and
+            </p>
+          </li>
+          <li>
+            <p>
+              the derivative of <m>\pi^x</m> is <m>k_{\pi}\cdot\pi^x \approx 1.14\,\pi^x</m>.
+            </p>
+          </li>
+        </ul>
+      </p>
+      <p>
+        Compare the last two functions.
+        The first, <m>x^{\pi}\!</m>, is a
+            <idx><h>power function</h></idx>
+            <idx><h>function</h><h>power</h></idx>
+        <term>power function</term><mdash/>it is a power of the input <m>x</m>.
+        The second, <m>\pi^x\!</m>, is an
+            <idx><h>exponential function</h></idx>
+            <idx><h>function</h><h>exponential</h></idx>
+        <term>exponential function</term><mdash/>the input <m>x</m> appears in the exponent.
+        When you differentiate a power function, the exponent drops by 1;
+        when you differentiate an exponential function,
+        the exponent doesn't change.
+      </p>
+    </subsubsection>
+    <subsubsection xml:id="subsubsec_basic-rules">
+      <title>Basic Rules</title>
+      <p>
+        Since basic functions are combined in various ways to make formulas,
+        we need to know how to differentiate <em>combinations</em>.
+        For example,
+        suppose we add the basic functions <m>g(x)</m> and <m>h(x)</m>,
+        to get <m>f(x) = g(x) + h(x)</m>.
+      </p>
+      <aside>
+        <p>
+          The addition rule
+        </p>
+      </aside>
+      <p>
+            <idx><h>addition rule</h></idx>
+        Then <m>f</m> is differentiable, and <m>f'(x) = g'(x) + h'(x)</m>.
+        Actually, this is true for <em>all</em>
+        differentiable functions <m>g</m> and <m>h</m>, not just basic functions.
+        It says:
+        <q>The rate at which <m>f</m> changes is the sum of the separate rates at which <m>g</m> and <m>h</m> change.</q>
+        Here are some examples that illustrate the point.
+        <md>
+          <mrow>\mbox{If}   f(x) = \tan{x} + x^{-6}, \mbox{then}   f'(x) = {\displaystyle \sec^2{x} - 6x^{-7}}.</mrow>
+          <mrow>\mbox{If}   f(w) =  2^w + \sqrt{w}, \mbox{then}   f'(w) = k_2\,  2^w + \dfrac{1}{2 \sqrt{w}} \ \mbox{(and \(k_2 \approx 0.69\))} </mrow>
+        </md>.
+      </p>
+      <p>
+            <idx><h>differentiation</h></idx>
+            <idx><h>differentiation</h><h>addition rule</h></idx>
+            <idx><h>differentiation</h><h>constant multiple rule</h></idx>
+        Likewise, if we multiply any differentiable function <m>g</m> by a constant <m>c</m>, then the product <m>f(x) = cg(x)</m> is also differentiable and
+      </p>
+      <aside>
+        <p>
+          The constant multiple rule
+        </p>
+      </aside>
+      <p>
+        <m>f'(x) = cg'(x)</m>.
+        This says:
+        <q>If <m>f</m> is <m>c</m> times as large as <m>g</m>,
+        then <m>f</m> changes at <m>c</m> times the rate of <m>g</m>.</q>
+        Thus the derivative of <m>5\sin{x}</m> is <m>5\cos{x}</m>.
+        Likewise, the derivative of <m>(5x)^2</m> is <m>50\,x</m>.
+        (This took an extra calculation.)
+        However, the rule does <em>not</em>
+        tell us how to find the derivative of
+        <m>\sin(5x)</m> , because <m>\sin(5x) \neq 5\sin(x)</m>.
+        We will need the chain rule to work this one out.
+        The rules about sums and constant multiples of functions are just the first of several basic rules for differentiating combinations of functions.
+        We will describe how to handle products and quotients of functions in chapter<nbsp/>5.
+        For the moment we summarize in the following table the rules we have already covered.
+      </p>
+      <tabular>
+        <row>
+          <cell>function</cell>
+          <cell></cell>
+          <cell>derivative</cell>
+        </row>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell><m>f(x)+g(x)</m></cell>
+          <cell></cell>
+          <cell><m>f'(x)+g'(x)</m></cell>
+        </row>
+        <row>
+          <cell><m>c \cdot f(x)</m></cell>
+          <cell></cell>
+          <cell><m>c \cdot f'(x)</m></cell>
+        </row>
+      </tabular>
+      <p>
+        With just the few facts already laid out we can differentiate a variety of functions given by formulas.
+        In particular, we can differentiate any <term>polynomial</term>
+            <idx><h>polynomial</h></idx>
+        function:
+        <me>
+          P(x) = a_nx^n + a_{n-1}x^{n-1} + \cdots + a_2x^2 + a_1x + a_0
+        </me>.
+      </p>
+      <p>
+        Here <m>a_n</m>, <m>a_{n-1}</m>, <ellipsis/>,
+        <m>a_2</m>, <m>a_1</m>, <m>a_0</m> are various constants,
+        and <m>n</m> is a positive integer,
+        called the <em> degree</em>
+            <idx><h>degree of a polynomial</h></idx>
+        of the polynomial.
+        A polynomial is a sum of constant multiples of integer powers of the input variable.
+        A polynomial of degree 1 is just a linear function.
+        The derivative is
+        <me>
+          P'(x) = na_nx^{n-1} + (n-1)a_{n-1}x^{n-2} + \cdots + 2a_2x + a_1
+        </me>.
+      </p>
+      <p>
+        All the rules presented up to this point are illustrated in the following examples;
+        note that the first three involve polynomials.
+      </p>
+      <tabular xml:id="deriv_table">
+        <row>
+          <cell>function</cell>
+          <cell></cell>
+          <cell>derivative</cell>
+        </row>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell><m>7x + 2</m></cell>
+          <cell></cell>
+          <cell><m>7</m></cell>
+        </row>
+        <row>
+          <cell><m>5x^4 - 2x^3</m></cell>
+          <cell></cell>
+          <cell><m>20x^3 - 6x^2</m></cell>
+        </row>
+        <row>
+          <cell><m>5x^4 - 2x^3 + 17</m></cell>
+          <cell></cell>
+          <cell><m>20x^3 - 6x^2</m></cell>
+        </row>
+        <row>
+          <cell><m>3u^{15} + 0.5u^8 - \pi u^3 + u - \sqrt{2}</m></cell>
+          <cell></cell>
+          <cell><m>45u^{14} + 4u^7 - 3 \pi u^2 + 1</m></cell>
+        </row>
+        <row>
+          <cell><m>6\cdot10^z + 17/z^5</m></cell>
+          <cell></cell>
+          <cell><m>6\!\cdot\!k_{10}\,10^z - 85/z^6</m></cell>
+        </row>
+        <row>
+          <cell><m>3\sin{t} -2t^3</m></cell>
+          <cell></cell>
+          <cell><m>3\cos{t} -6t^2</m></cell>
+        </row>
+        <row>
+          <cell><m>\pi \cos{x} - \sqrt{3} \tan{x} + \pi^2</m></cell>
+          <cell></cell>
+          <cell><m>- \pi \sin{x} - \sqrt{3} \sec^2{x}</m></cell>
+        </row>
+      </tabular>
+      <p>
+        The first two functions have the same derivative because they differ only by a constant,
+        and the derivative of a constant is zero.
+        The constant <m>k_{10}</m> that appears in the fourth example is approximately 2.30.
+      </p>
+    </subsubsection>
+  </subsection>
+  <subsection>
+    <title>Exercises</title>
+    <subsubsection xml:id="subsubsec_sketching-the-graph-of-the-derivative">
+      <title>Sketching the graph of the derivative</title>
+      <p>
+            <idx><h>graph</h></idx>
+            <idx><h>derivative</h></idx>
+      </p>
+      <ol>
+        <li>
+          <p>
+            Sketch the graphs of two different functions that have the same derivative. (For example,
+            can you find two <em>linear</em>
+              <idx><h>linear function</h></idx>
+            functions that have the same derivative?)
+          </p>
+        </li>
+        <li>
+          <p>
+            Here are the graphs of four related functions:
+            <m>s</m>, its derivative <m>s'</m>,
+            another function <m>c(t) = s(2t)</m>,
+            and <em>its</em> derivative <m>c'(t)</m>.
+            The graphs are out of order.
+            Label them with the correct names <m>s</m>,
+            <m>s'</m>, <m>c</m>, and <m>c'</m>.
+            <image width="73%" source="images/sinprob.png"/>
+          </p>
+        </li>
+        <li>
+          <p>
+            Suppose a function <m>y = g(x)</m> satisfies <m>g(0) = 0</m> and
+            <m>0 \leq g'(x) \leq 1</m> for all values of <m>x</m> in the interval <m>0 \leq x \leq 3</m>.
+            Explain carefully why the graph of <m>g</m> must lie entirely in the triangular region shaded below:
+            <image width="73%" source="images/shaded.png"/>
+          </p>
+          <ol>
+            <li>
+              <p>
+                Suppose you learn that <m>g(1) = 0.5</m> and <m>g(2) = 1</m>.
+                Draw the smallest shaded region in which you can guarantee that the graph of <m>g</m> must lie.
+              </p>
+            </li>
+          </ol>
+        </li>
+        <li>
+          <p>
+            Suppose <m>h</m> is differentiable over the interval <m>0 \leq x \leq 3\/</m>.
+            Suppose <m>h(0) = 0</m>, and that
+            <md>
+              <mrow>{2} .5 \amp \leq h'(x) \leq 1  \amp \text{ for }    0 \amp \leq x \leq 1</mrow>
+              <mrow>0 \amp \leq h'(x) \leq 0.5      \amp \text{ for }    1 \amp \leq x \leq 2</mrow>
+              <mrow>-1 \amp \leq h'(x) \leq 0       \amp \text{ for }    2 \amp \leq x \leq 3</mrow>
+            </md>
+            Draw the smallest shaded region in the
+            <m>x,
+            y</m>-plane in which you can guarantee that the graph of <m>y = h(x)</m> must lie.
+          </p>
+        </li>
+        <li>
+          <p>
+            For each of the functions graphed below,
+            sketch the graph of its derivative.
+            <image width="73%" source="images/qualsketch.png"/>
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection xml:id="subsubsec_differentiation">
+      <title>Differentiation</title>
+      <p>
+            <idx><h>differentiation</h></idx>
+      </p>
+      <ol>
+        <li>
+          <p>
+            Find formulas for the derivatives of the following functions;
+            that is, <em>differentiate</em> them.
+          </p>
+          <ol>
+            <li>
+              <p>
+                <m>f(x) = 3x^7 - 0.3 x^4 + \pi x^3 - 17</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>g(x) = \sqrt{3}\,\sqrt{x} + \dfrac{7}{x^5}</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>h(w) = 2w^8 - \sin{w} + \dfrac{1}{3 w^2}</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>R(u) = 4\cos{u} - 3\tan{u} + \sqrt[3]{u}</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>V(s) = \sqrt[4]{16} - \sqrt[4]{s}</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>F(z) = \sqrt{7} \cdot 2^z + (1/2)^z</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>P(t) = -\dfrac{a}{2} t^2 + v_0 t + d_0</m> (<m>a</m>,
+                <m>v_0</m>, and <m>d_0</m> are constants)
+              </p>
+            </li>
+          </ol>
+        </li>
+        <li>
+          <p>
+            Use a computer graphing utility for this exercise.
+            Graph on the same screen the following three functions:
+            <ol cols="2">
+              <li>
+                <p>
+                  the function <m>f</m> given below,
+                  on the indicated interval;
+                </p>
+              </li>
+              <li>
+                <p>
+                  the function <m>g(x) = \left(f(x+.01) - f(x-0.01)\right)/.02</m> that estimates the slope of the graph of <m>f</m> at <m>x</m>;
+                </p>
+              </li>
+              <li>
+                <p>
+                  the function <m>h(x) = f'(x)</m>,
+                  where you use the differentiation rules to find <m>f'</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>f(x) = x^4</m> on <m>-1 \leq x \leq 1</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>f(x) = x^{-1}</m> on <m>1 \leq x \leq 8</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>f(x) = \sqrt{x}</m> on <m>.25 \leq x \leq 9</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>f(x) = \sin{x}</m> on <m>0 \leq x \leq 2\pi</m>.
+                  The graphs of <m>g</m> and <m>h</m> should coincide<mdash/>or
+                  <q>share phosphor</q>
+                  <mdash/>in each case.
+                  Do they?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            In each case below,
+            find a function <m>f(x)</m> whose derivative <m>f'(x)</m> is:
+            <ol>
+              <li>
+                <p>
+                  <m>f'(x) = 12\,x^{11}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>f'(x) = 5x^7</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>f'(x) = \cos{x} + \sin{x}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>f'(x) = ax^2 + bx +c</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>f'(x) = 0</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>f'(x) = \dfrac{5}{\sqrt{x}}</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            What is the slope of the graph of <m>y = x - \sqrt{x}</m> at <m>x = 4</m>?
+            At <m>x = 100</m>?
+            At <m>x = 10000</m>?
+          </p>
+        </li>
+        <li>
+          <p>
+            For which values of <m>x</m> is the function <m>x - x^3</m> increasing?
+            <ol>
+              <li>
+                <p>
+                  Where is the graph of <m>y = x - x^3</m> rising most steeply?
+                </p>
+              </li>
+              <li>
+                <p>
+                  At what points is the graph of <m>y = x - x^3</m> horizontal?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Make a sketch of the graph of
+                  <m>y = x - x^3</m> that reflects all these results.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Sketch the graph of the function
+            <m>y = 2x + \dfrac{5}{x}</m> on the interval <m>.2 \leq x \leq 4</m>.
+            <ol>
+              <li>
+                <p>
+                  Where is the lowest point on that graph?
+                  Give the value of the <m>x</m>-coordinate
+                  <em>exactly</em>. [Answer:
+                  <m>x = \sqrt{5/2}</m>.]
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            What is the slope of the graph of <m>y = \sin{x} + \cos{x}</m> at <m>x = \pi/4</m>?
+          </p>
+        </li>
+        <li>
+          <p>
+            Write the microscope equation
+              <idx><h>microscope equation</h></idx>
+            for <m>y = \sin{x}</m> at <m>x = 0</m>.
+            <ol>
+              <li>
+                <p>
+                  Using the microscope equation,
+                  estimate the following values:
+                  <m>\sin{.3}</m>, <m>\sin{.007}</m>, <m>\sin(-0.02)</m>.
+                  Check these values with a calculator. (Remember to set your calculator to radian mode!)
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Write the microscope equation for <m>y = \tan{x}</m> at <m>x = 0</m>.
+            <ol>
+              <li>
+                <p>
+                  Estimate the following values:
+                  <m>\tan{.007}</m>, <m>\tan{.3}</m>, <m>\tan(-0.02)</m>.
+                  Check these values with a calculator.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Write the microscope equation for <m>y = \sqrt{x}</m> at <m>x = 3600</m>.
+            <ol>
+              <li>
+                <p>
+                  Use the microscope equation to estimate
+                  <m>\sqrt{3628}</m> and <m>\sqrt{3592}</m>.
+                  How far are these estimates from the values given by a calculator?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            If the radius of a spherical balloon is <m>r</m> inches,
+            its volume is <m>\tfrac{4}{3}\pi r^3</m> cubic inches.
+            <ol>
+              <li>
+                <p>
+                  At what rate does the volume increase,
+                  in cubic inches per inch, when the radius is 4 inches?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Write the microscope equation for the volume when <m>r = 4</m> inches.
+                </p>
+              </li>
+              <li>
+                <p>
+                  When the radius is 4 inches,
+                  approximately how much does it increase if the volume is increased by 50 cubic inches?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Suppose someone is inflating the balloon at the rate of 10 cubic inches of air per second.
+                  If the radius is 4 inches,
+                  at what rate is it increasing, in inches per second?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            A ball is held motionless and then dropped from the top of a 200 foot tall building.
+              <idx><h>falling object</h></idx>
+          After <m>t</m> seconds have passed,
+            the distance from the ground to the ball is <m>d=f(t) = -16t^2 + 200</m> feet.
+            <ol>
+              <li>
+                <p>
+                  Find a formula for the velocity <m>v=f'(t)</m> of the ball after <m>t</m> seconds.
+                  Check that your formula agrees with the given information that the initial velocity of the ball is 0 feet/second.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Draw graphs of both the velocity and the distance as functions of time.
+                  What time interval makes physical sense in this situation? (For example,
+                  does <m>t\lt 0</m> make sense?
+                  Does the distance formula make sense after the ball hits the ground?)
+                </p>
+              </li>
+              <li>
+                <p>
+                  At what time does the ball hit the ground?
+                  What is its velocity then?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            A second ball is tossed straight up from the top of the same building with a velocity of 10 feet per second.
+            After <m>t</m> seconds have passed,
+            the distance from the ground to the ball is <m>d=f(t) = -16t^2 + 10t + 200</m> feet.
+            <ol>
+              <li>
+                <p>
+                  Find a formula for the velocity of the second ball.
+                  Does the formula agree with given information that the initial velocity is <m>+10</m> feet per second?
+                  Compare the velocity formulas for the two balls;
+                  how are they similar, and how are they different?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Draw graphs of both the velocity and the distance as functions of time.
+                  What time interval makes physical sense in this situation?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Use your graph to answer the following questions.
+                  During what period of time is the ball rising?
+                  During what period of time is it falling?
+                  When does it reach the highest point of its flight?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How high does the ball rise?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            What is the velocity formula for a third ball that is thrown <em>downward</em>
+            from the top of the building with a velocity of 40 feet per second?
+            Check that your formula gives the correct initial velocity.
+            <ol>
+              <li>
+                <p>
+                  What is the distance formula for the third ball?
+                  Check that it satisfies the initial condition
+                  (namely, that the ball starts at the top of the building).
+                </p>
+              </li>
+              <li>
+                <p>
+                  When does this ball hit the ground?
+                  How fast is it going then?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            A steel ball is rolling along a 20-inch long straight track so that its distance from the midpoint of the track
+            (which is 10 inches from either end)
+            is <m>d=3 \sin{t}</m> inches after <m>t</m> seconds have passed.
+            (Think of the track as aligned from left to right.
+            Positive distances mean the ball is to the right of the center;
+            negative distances mean it is to the left.)
+            <ol>
+              <li>
+                <p>
+                  Find a formula for the velocity of the ball after <m>t</m> seconds.
+                  What is happening when the velocity is positive;
+                  when it is negative; when it equals zero?
+                  Write a sentence or two describing the motion of the ball.
+                </p>
+              </li>
+              <li>
+                <p>
+                  How far from the midpoint of the track does the ball get?
+                  How can you tell?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How fast is the ball going when it is at the midpoint of the track?
+                  Does it ever go faster than this?
+                  How can you tell?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            A forester who wants to know the height of a tree walks 100 feet from its base,
+            sights to the top of the tree,
+            and finds the resulting angle to be 57 degrees.
+            <ol>
+              <li>
+                <p>
+                  What height does this give for the tree?
+                </p>
+              </li>
+              <li>
+                <p>
+                  If the measurement of the angle is certain only to 5 degrees,
+                  what can you say about the uncertainty
+              <idx><h>uncertainty</h></idx>
+                  of the height found in part (a)? (Note:
+                  you need to express angles in <em>radians</em>
+                  to use the formulas from calculus:
+                  <m>\pi</m> radians = 180 degrees.)
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            In the preceding problem,
+            what percentage error in the height of the tree is produced by a 1 degree error in measuring the angle?
+            <ol>
+              <li>
+                <p>
+                  What would the percentage error have been if the angle had been 75 degrees instead of 57 degrees? 40 degrees?
+                </p>
+              </li>
+              <li>
+                <p>
+                  If you can measure angles to within 1 degree accuracy and you want to measure the height of a tree that's roughly 150 feet tall by means of the technique in the preceding problem,
+                  how far away from the tree should you stand to get your best estimate of the tree's height?
+                  How accurate would your answer be?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+  </subsection>
+</section>

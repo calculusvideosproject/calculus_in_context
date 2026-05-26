@@ -1,0 +1,636 @@
+<section xml:id="sec_the-equation-y-ft">
+  <title>The Equation <m>y' = f(t)</m></title>
+  <introduction>
+    <p>
+      Most differential equations we have encountered express the rate of growth of a quantity
+      <em>in terms of the quantity itself</em>.
+      The simplest models for biological growth had this form:
+      <m>y' = ky</m> and <m>y' = ky^p</m>.
+      Even when several variables were present<mdash/>as in the <m>S</m>-<m>I</m>-<m>R</m> model and the predator-prey models<mdash/>it was most natural to express the rates at which those variables change in terms of the variables themselves.
+      Even the motion of a spring
+      (<xref ref="spring-begin">pages</xref><ndash/> <xref ref="spring-end"></xref>)
+      was described that way:
+      the rate of change of position equalled the velocity,
+      and the rate of change of velocity was proportional to the position.
+      Sometimes, though, a differential equation
+          <idx><h>falling body</h></idx>
+    </p>
+    <aside>
+      <p>
+        The motion of a falling body <ellipsis/>
+      </p>
+    </aside>
+    <p>
+      will express the rate of change of a variable
+      <em>directly in terms of the input variable</em>.
+      For example, <xref ref="falling_body0">on</xref>
+      we saw that the velocity <m>dx/dt</m> of a body falling under the sole influence of gravity is a linear function of the time:
+      <me>
+        \dfrac{dx}{dt} = -gt + v_0
+      </me>.
+    </p>
+    <p>
+      Here <m>x</m> is the height of the body above the ground,
+      <m>g</m> is the acceleration due to gravity,
+      and <m>v_0</m> is the velocity at time <m>t = 0</m>.
+      This equation has the general form
+      <me>
+        \dfrac{dx}{dt} = f(t)
+      </me>,
+      where <m>f(t)</m> is a given function of <m>t</m>.
+      We will now consider special methods that can be used to study differential equations of this special form.
+    </p>
+  </introduction>
+  <subsection xml:id="subsec_antiderivatives">
+    <title>Antiderivatives</title>
+    <p>
+      To solve the equation of motion of a body
+    </p>
+    <aside>
+      <p>
+        <ellipsis/> and its solution
+      </p>
+    </aside>
+    <p>
+      falling under gravity,
+      we must find a function <m>x(t)</m> whose derivative is given as
+      <me>
+        x' = -gt + v_0
+      </me>.
+    </p>
+    <p>
+      We can call upon our knowledge of the rules of differentiation to find <m>x</m>.
+      Consider <m>-gt</m> first.
+    </p>
+    <aside>
+      <p>
+        <m>-gt</m> is the derivative of <m>-gt^2/2</m>
+      </p>
+    </aside>
+    <p>
+      What function has <m>-gt</m> as its derivative?
+      We can start with <m>t^2</m>,
+      whose derivative is <m>2t</m>.
+      Since we want the derivative to turn out to be <m>-gt</m>,
+      we can reason this way:
+      <me>
+        -gt = -\dfrac{g}{2} \cdot 2t = -\dfrac{g}{2} \times \mbox{the derivative of \(t^2\)}
+      </me>.
+    </p>
+    <p>
+      This leads us to identify <m>-gt^2/2</m> as a function whose derivative is <m>-gt</m>.
+      Check for yourself that this is correct by differentiating <m>-gt^2/2</m>.
+      Now consider <m>v_0</m>, the other part of <m>dx/dt</m>.
+      What function has the constant <m>v_0</m> as its derivative?
+    </p>
+    <aside>
+      <p>
+        <m>v_0</m> is the derivative of <m>v_0t</m> and of <m>v_0t + b</m>
+      </p>
+    </aside>
+    <p>
+      A derivative is a rate of growth,
+      and we know that the linear functions are precisely the ones that have constant growth rates.
+      Furthermore, the rate is the multiplier for a linear function,
+      so we conclude that any linear function of the form
+      <m>v_0 t + b</m> has derivative <m>v_0</m>.
+      If we put the two pieces together, we find that
+      <me>
+        x(t) = -\dfrac{g}{2} \, t^2 + v_0 t + b
+      </me>
+      is a solution to the differential equation,
+      for any value of <m>b</m>.
+      (Recall from section<nbsp/>2 that a differential equation can have many solutions.)
+      We constructed this formula for <m>x(t)</m> by
+      <q>undoing</q>
+    </p>
+    <aside>
+      <p>
+        The antiderivative of a function
+      </p>
+    </aside>
+    <p>
+      the process of differentiation,
+      a process sometimes called <em> antidifferentiation</em>.
+          <idx><h>antidifferentiation</h></idx>
+      The function produced is called an
+      <term>antiderivative</term>.
+          <idx><h>antiderivative</h></idx>
+      Thus:
+      <md>
+        <mrow>-\dfrac{g}{2} t^2 + v_0 t + b \text{ is an \emph{antiderivative} of}  -gt + v_0</mrow>
+        <mrow>\text{ because } -gt + v_0 \text{ is the \emph{derivative} of }  -\dfrac{g}{2} t^2 + v_0 t + b</mrow>
+      </md>.
+    </p>
+    <p>
+      Note that a function
+    </p>
+    <aside>
+      <p>
+        All the functions <m>F(x) +C</m> are antiderivatives of <m>F'(x)</m>
+      </p>
+    </aside>
+    <p>
+      has only one derivative, but it has many antiderivatives.
+      If <m>F(t)</m> is an antiderivative of <m>f(t)</m>,
+      then so is <m>F(t) + C</m>, where <m>C</m> is any constant.
+    </p>
+    <p>
+      The list of functions and their derivatives that we compiled in chapter<nbsp/>3
+      (<xref ref="basic_derivs">see</xref>)
+      can be
+      <q>turned around</q>
+      to become a list of functions and their antiderivatives.
+      Note that the antiderivative column should really be labelled
+      <q>an antiderivative</q>
+      since we could add a constant to any of the listed functions and still have an antiderivative for the function in the first column.
+      <me>
+        \begin{array}{cc} \mbox{function}  \amp  \mbox{antiderivative}  \\ \hline 0  \amp  c \\ x^p \amp  \hspace{.6in} \frac{1}{p+1} \, x^{p+1} \mbox{ (if \(p\neq -1\))} \\ x^{-1} \amp  \ln{x} \\ \sin{x} \amp  -\cos{x} \\ \cos{x} \amp  \sin{x} \\ \exp{x} = e^x \amp  \exp{x} = e^x \\ b^x \amp  \frac{1}{\ln{b}}\, b^x \end{array}
+      </me>
+    </p>
+    <p>
+      Notice the formula for the antiderivative of <m>x^p</m>
+    </p>
+    <aside>
+      <p>
+        Every power of <m>x</m> has an antiderivative
+      </p>
+    </aside>
+    <p>
+      requires <m>p+1 \neq 0</m>, that is, <m>p \neq -1</m>.
+      This leaves out <m>x^{-1}</m>.
+      However, the antiderivative of <m>x^{-1}</m> is <m>\ln{x}</m>,
+      so no power of <m>x</m> is excluded from the table.
+    </p>
+    <p>
+      We also had differentiation rules that told us how to deal with different
+      <em>combinations</em> of functions.
+      Each of these rules has an analogue in antidifferentiation.
+      The simplest combinations are a sum and a constant multiple.
+      <me>
+        \begin{array}{cc} \mbox{function}  \amp  \mbox{antiderivative}  \\ \hline f(x)  \amp  F(x) \\ g(x) \amp  G(x) \\ c \cdot f(x) \amp  c \cdot F(x) \\ f(x) + g(x) \amp  F(x) + G(x) \end{array}
+      </me>
+    </p>
+    <p>
+      We defer a discussion of the analogue of the chain rule to chapter<nbsp/>11.
+      With just these rules we can find the antiderivative of any polynomial,
+      for instance.
+      (Recall that a polynomial is a sum of constant multiples of powers of the input variable.)
+      Here is a collection of sample antiderivatives that illustrate the various rules.
+      To emphasize the fact that antiderivatives are determined only up to an additive constant,
+      various constants have been tacked on<mdash/>any other constant would work just as well.
+      You should compare this table with the one <xref ref="deriv_table">on</xref>.
+      <me>
+        \begin{array}{cc} \mbox{function}  \amp  \mbox{antiderivative}  \\ \hline 5x^4 - 2x^3 \amp x^5 - \frac{1}{2}x^4 +17 \\ 5x^4 - 2x^3 + 17x \amp x^5 - \frac{1}{2}x^4 + \frac{17}{2}x^2 -243.77 \\ 6 \cdot 10^z + 17/z^7 \amp 6 \cdot 10^z/\ln{10} -  17/6z^6 +.002 \\ 3\sin{t} - 2t^3 \amp  -3\cos{t} - \frac{1}{2}t^4 +5\ln{7} \\ \pi\cos{x} + \pi^2 \amp  \pi\sin{x} + \pi^2 x  - 12e^{7.21} \end{array}
+      </me>
+    </p>
+  </subsection>
+  <subsection xml:id="subsec_eulers-method-revisited">
+    <title>Euler's Method Revisited</title>
+    <p>
+          <idx><h>Euler's method</h></idx>
+      If we know the formula for an antiderivative of <m>f(t)</m>, then we can write down a solution to the differential equation <m>dy/dt = f(t)</m>.
+      For example, the general solution to
+      <me>
+        \dfrac{dy}{dt} = 12t^2 + \sin{t}
+      </me>
+      is <m>y = 4t^3 - \cos{t} + C</m>.
+      In such a case we have a shortcut to solving the differential equation without needing to use Euler's method.
+      Often, though,
+      there is no formula for an antiderivative of <m>f(t)</m><mdash/>even when <m>f(t)</m> itself has a simple formula.
+      There is no formula for the antiderivative of <m>\cos(t^2)</m>,
+      or <m>\sin{t}/t</m>, or <m>\sqrt{1 + t^3}</m>, for instance.
+      In other cases, <m>f(t)</m> may not even be given by a formula.
+      It may be a data function,
+      given as a graph made by a pen tracing on a moving sheet of graph paper.
+      Whether we can find a formula for an antiderivative of <m>f(t)</m> or not,
+      we can still solve the differential equation <m>dy/dt = f(t)</m> by Euler's method.
+      It turns out that Euler's method takes on a relatively simple form in such cases.
+      Let's investigate this in the following context.
+      Let <m>V</m> be the volume of water in a reservoir
+          <idx><h>reservoir</h></idx>
+    </p>
+    <aside>
+      <p>
+        The volume of a reservoir varies over time
+      </p>
+    </aside>
+    <p>
+      serving a small town, measured in millions of gallons.
+      Then <m>V</m> is a function of the time <m>t</m>, measured in days.
+      Rainfall adds water to the reservoir,
+      while evaporation and consumption by the townspeople take it away.
+      Let <m>f</m> be the <em>net rate</em>
+      at which water is flowing into the reservoir,
+      in millions of gallons per day.
+      Sometimes <m>f</m> will be positive<mdash/>when rainfall exceeds evaporation and consumption<mdash/>and sometimes <m>f</m> will be negative.
+      The net inflow rate varies from day to day;
+      that is, <m>f</m> is a function of time: <m>f~=~f(t)</m>.
+      Our model of the reservoir is the differential equation
+      <me>
+        \dfrac{dV}{dt} = f(t) \ \mbox{millions of gallons per day}
+      </me>.
+    </p>
+    <p>
+      Suppose <m>f(t)</m> is measured every two days,
+    </p>
+    <aside>
+      <p>
+        The net inflow rate
+      </p>
+    </aside>
+    <p>
+      and those measurements are recorded in the following table.  {
+      <me>
+        \begin{array}{cc} \mbox{time \(t\)}  \amp  \mbox{rate \(f(t)\)}  \\ [-2pt] \mbox{(days)}  \amp  (10^6 \times \ \mbox{gals. per day} ) \\ \hline \begin{array}{r} 0 \\ 2 \\ 4 \\ 6 \\ 8 \\ 10 \\ 12 \end{array} \amp \begin{array}{r} 0.34 \\ 0.11 \\ -0.07 \\ -0.23 \\ -0.14 \\ 0.03 \\ 0.08 \end{array} \end{array}
+      </me>
+    </p>
+    <p>
+      }Note that in this table we are able to write down the rate for all values of <m>t</m> immediately,
+      without having to calculate the intermediate values of the dependent variable <m>V</m>.
+      This is in marked contrast with most of the examples we've looked at in this course where we had to know the values of all the variables for any time <m>t</m> before we could calculate the new rate value at that time.
+      It is this simplification that gives differential equations of the form
+      <m>y' = f(t)</m> their special structure.
+      If we assume the value of <m>f(t)</m> remains constant for the two days after each measurement is made,
+      we can approximate the total change in <m>V</m> over these 14 days.
+      The following table does this;
+      it tells us how much <m>V</m> changes over each two-day period,
+      and also<idx><h>change</h><h>accumulated</h></idx>
+    </p>
+    <aside>
+      <p>
+        The accumulated change in <m>V</m>
+      </p>
+    </aside>
+    <p>
+      the total <em>accumulated</em> change in <m>V</m> by the end that period.
+      Since <m>\Delta t = 2</m> days,
+      we calculate <m>\Delta V</m> by
+      <me>
+        \Delta V = V' \cdot \Delta t = f(t) \cdot \Delta t = 2 \cdot f(t)
+      </me>.
+      <me>
+        \begin{array}{cccc} \mbox{starting}  \amp  \mbox{current}  \amp  \mbox{accumulated}  \amp \mbox{ending}  \\ [-2pt] t \amp  \Delta V \amp   \Delta V \amp  t \\ \hline \begin{array}{r} 0 \\ 2 \\ 4 \\ 6 \\ 8 \\ 10 \\ 12 \end{array} \amp \begin{array}{r} 0.68 \\ 0.22 \\ -0.14 \\ -0.46 \\ -0.28 \\ 0.06 \\ 0.16 \end{array} \amp \begin{array}{r} 0.68 \\ 0.90 \\ 0.76 \\ 0.30 \\ 0.02 \\ 0.08 \\ 0.24 \end{array} \amp \begin{array}{r} 2 \\ 4 \\ 6 \\ 8 \\ 10 \\ 12 \\ 14 \end{array} \end{array}
+      </me>
+    </p>
+    <p>
+      } At the end of the 14 days,
+      <m>V</m> has accumulated a total change of 0.24 million gallons.
+      Notice this does not depend on the initial size of <m>V</m>.
+      If <m>V</m> had been 92.64 million gallons at the start,
+      it would be 92.64 + 0.24 = 92.88 million gallons at the end.
+      If it had been only 2 million gallons at the start,
+      it would be 2 + 0.24 = 2.24 million gallons at the end.
+      Other models do not behave this way:
+      in two weeks,
+      a rabbit population of 900 will change much more than a population of 90.
+      The total change in <m>V</m> is independent of <m>V</m> because the <em>rate</em>
+      at which <m>V</m> changes is independent of <m>V</m>.
+    </p>
+    <p>
+      We can therefore use Euler's method
+    </p>
+    <aside>
+      <p>
+        Calculating just the accumulated change in<nbsp/><m>y</m>
+      </p>
+    </aside>
+    <p>
+      to solve any differential equation of the form
+      <m>dy/dt = f(t)</m> <em>independently</em>
+      of an initial value for <m>y</m>.
+      We just calculate the total accumulated change in <m>y</m>,
+      and add that total to any given initial <m>y</m>.
+      Here is how it works when the initial value of <m>t</m> is <m>a</m>,
+      and the time step is <m>\Delta t</m>. {
+      <me>
+        \begin{array}{cccc} \mbox{starting}  \amp  \mbox{current}  \amp  \mbox{accumulated}  \amp \mbox{ending}  \\ [-2pt] t \amp  \Delta y \amp   \Delta y \amp  t \\ \hline \begin{array}{c} a  \\ a + \Delta t \\ a + 2\Delta t \\ a + 3\Delta t \\ \vdots \\ a + (n-1)\Delta t \end{array} \amp \begin{array}{c} f(a) \cdot \Delta t \\ f(a + \Delta t) \cdot \Delta t  \\ f(a + 2\Delta t) \cdot \Delta t  \\ f(a + 3\Delta t) \cdot \Delta t  \\ \vdots \\ f(a + (n-1)\Delta t) \cdot \Delta t \end{array} \amp \begin{array}{c} \mbox{previously} \\ \mbox{accumulated}  \\ \Delta y \\ +  \\ \mbox{current}  \\ \Delta y \end{array} \amp \begin{array}{c} a + \Delta t  \\ a + 2\Delta t \\ a + 3\Delta t \\ a + 4\Delta t \\ \vdots \\ a + n\,\Delta t \end{array} \end{array}
+      </me>
+    </p>
+    <p>
+      } The third column is too small to hold the
+    </p>
+    <aside>
+      <p>
+        The accumulated change in <m>y</m>
+      </p>
+    </aside>
+    <p>
+      values of
+      <q>accumulated <m>\Delta y</m>.</q>
+      Instead, it contains the instructions for obtaining those values.
+      It says: to get the current value of
+      <q>accumulated <m>\Delta y</m>,</q>
+      add the
+      <q>current <m>\Delta y</m></q>
+      to the previous value of
+      <q>accumulated <m>\Delta y</m>.</q>
+      Let's use Euler's method to find the accumulated
+      <m>\Delta y</m> when <m>t = 4</m>, given that
+      <me>
+        \dfrac{dy}{dt} = \cos(t^2)
+      </me>
+      and <m>t</m> is initially 0.
+      If we use 8 steps,
+      then <m>\Delta t = 0.5</m> and we obtain the following: {
+      <me>
+        \begin{array}{cccc} \mbox{starting}  \amp  \mbox{current}  \amp  \mbox{accumulated}  \amp \mbox{ending}  \\ [-2pt] t \amp  \Delta y \amp   \Delta y \amp  t \\ \hline \begin{array}{r} 0 \\ 0.5 \\ 1.0 \\ 1.5 \\ 2.0 \\ 2.5 \\ 3.0 \\ 3.5 \end{array} \amp \begin{array}{r} 0.5000\\ 0.4845 \\ 0.2702 \\ -0.3141 \\ -0.3268 \\ 0.4997 \\ -0.4556 \\ 0.4752 \end{array} \amp \begin{array}{r} 0.5000 \\ 0.9845 \\ 1.2546 \\ 0.9405 \\ 0.6137 \\ 1.1134 \\ 0.6579 \\ 1.1330 \end{array} \amp \begin{array}{r} 0.5 \\ 1.0 \\ 1.5 \\ 2.0 \\ 2.5 \\ 3.0 \\ 3.5 \\ 4.0 \end{array} \end{array}
+      </me>
+    </p>
+    <p>
+      }The following program generated the last three columns of this table.
+          <idx><h>program</h><h>TABLE</h></idx>
+      <term>Program: TABLE</term>
+    </p>
+<pre>
+DEF fnf (t) = COS(t ^ 2)
+tinitial = 0
+tfinal = 4
+numberofsteps = 2 ^ 3
+deltat = (tfinal - tinitial) / numberofsteps
+t = tinitial
+accumulation = 0
+FOR k = 1 TO numberofsteps
+deltay = fnf(t) * deltat
+accumulation = accumulation + deltay
+t = t + deltat
+PRINT deltay, accumulation, t
+NEXT k
+</pre>
+    <p>
+      TABLE is a modification of the program SIRVALUE ( <xref ref="sirvalue"></xref>).
+      To emphasize the fact that it is the accumulated change that matters rather than the actual value of <m>y</m>,
+      we have modified the program accordingly.
+      Note that <c> accumulation</c> always starts at 0, no matter what the initial value of <m>y</m> is.
+      The first line of the program takes advantage of a capacity most programming languages have to define functions which can then be referred to elsewhere in the program.
+      As usual, to find the exact value of the accumulated <m>\Delta y</m>,
+      it is necessary to recalculate,
+      using more steps and smaller step sizes <m>\Delta t</m>.
+      If we use TABLE to do this, we find
+      <me>
+        \begin{array}{cc} \mbox{number}  \amp  \mbox{accumulated}  \\[-2pt] \mbox{of steps}  \amp  \Delta y \\ \hline 2^{3} \amp  1.13304 \\ 2^{6} \amp  .65639 \\ 2^{9} \amp  .60212 \\ 2^{12} \amp  .59542 \\ 2^{15} \amp  .59458 \\ 2^{18} \amp  .59448 \end{array}
+      </me>
+    </p>
+    <p>
+      Thus we can say that if <m>dy/dt = \cos(t^2)</m>,
+      then <m>y</m> increases by .594<ellipsis/> when <m>t</m> increases from 0 to 4.
+      In the same way we changed SIRVALUE to produce the program SIRPLOT ( <xref ref="sirplot"></xref>),
+      we can change the program TABLE into one that will
+      <em>plot</em> the values of <m>y</m>.
+      In the following program all those changes are made, and one more besides:
+      we have increased the number of steps to 400 to get a closer approximation to the true values of <m>y</m>.
+          <idx><h>program</h><h>PLOT</h></idx>
+      The output of PLOT is shown immediately below.
+      <image width="73%" source="images/pic260.png"/> The accumulated <m>\Delta y</m> when
+      <m>dy/dt = \cos(t^2)</m> <term>Program: PLOT</term>
+      <em>Set up GRAPHICS</em>
+    </p>
+<pre>
+DEF fnf (t) = COS(t ^ 2)
+tinitial = 0
+tfinal = 4
+numberofsteps = 400
+deltat = (tfinal - tinitial) / numberofsteps
+t = tinitial
+accumulation = 0
+FOR k = 1 TO numberofsteps
+deltay = fnf(t) * deltat
+</pre>
+    <p>
+      <em>Plot the line from <c>(t, accumulation)</c></em>
+    </p>
+    <p>
+      <em>to <c>(t + deltat, accumulation + deltay)</c></em>
+    </p>
+<pre>
+accumulation = accumulation + deltay
+t = t + deltat
+NEXT k
+</pre>
+    <p>
+      Let's compare our reservoir model with population growth.
+      The rate at which a population grows depends,
+      in an obvious way, on the size of the population.
+      By contrast,
+      the rate at which the reservoir fills does <em>not</em>
+      depend on how much water there is in the reservoir.
+    </p>
+    <aside>
+      <p>
+        Exogenous and endogenous factors
+      </p>
+    </aside>
+    <p>
+      It depends on factors <em>outside</em> the reservoir:
+      rainfall and consumption.
+      These factors are said to be <term>exogenous</term>
+      (from the Greek <em>exo-</em>,
+      <q>outside</q>
+      and <em>-gen</em>,
+      <q>produced,</q>
+      or
+      <q>born</q>).
+          <idx><h>exogenous factor</h></idx>
+      The opposite is called an <em> endogenous</em> factor
+      (from the Greek <em>endo-</em>,
+      <q>within</q>).
+          <idx><h>endogenous factor</h></idx>
+      Evaporation is an endogenous factor for the reservoir model;
+      population size is certainly an endogenous factor for a population model.
+      Precisely because exogenous factors are
+      <q>outside the system,</q>
+      we need to be <em>given</em> the information on how they vary over time.
+      In the reservoir model,
+      this information appears in the function <m>f(t)</m> that describes the rate at which <m>V</m> changes.
+      In general, if <m>y</m> depends on exogenous factors that vary over time,
+      we can expect the differential equation for <m>y</m> to involve a function of time:
+      <me>
+        \dfrac{dy}{dt} = f(t)
+      </me>
+    </p>
+    <p>
+      Thus, we can view this section as dealing with models that involve exogenous factors.
+    </p>
+    <aside>
+      <p>
+        The differential equation of motion for a falling body,
+        <m>dx/dt = -gt + v_0</m>, indicates that gravity is an exogenous factor.
+        In Greek and medieval European science,
+        the reason an object fell to the ground was assumed to lie within the object itself<mdash/>it was the object's
+        <q>heaviness.</q>
+        By making the cause of motion exogenous,
+        rather than endogenous, Galileo and Newton started a scientific revolution.
+      </p>
+    </aside>
+  </subsection>
+  <subsection xml:id="subsec_exercises">
+    <title>Exercises</title>
+    <ol>
+      <li>
+        <p>
+          Find a formula <m>y = F(t)</m> for a solution to the differential equation <m>dy/dt = f(t)</m> when <m>f(t)</m> is
+          <ol>
+            <li>
+              <p>
+                <m>5t - 3</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>t^6 - 8t^5 + 22\pi^3</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>5e^t - 3\sin{t}</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>12\sqrt{t}</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>2^t + 7/t^9</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>5e^{4t}-1/t</m>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </li>
+      <li>
+        <p>
+          Find <m>G(5)</m> if <m>y = G(x)</m> is the solution to the initial value problem
+          <me>
+            \dfrac{dy}{dx} = \dfrac{1}{x^2} \qquad y(2) = 3
+          </me>.
+        </p>
+      </li>
+      <li>
+        <p>
+          Find <m>F(2)</m> if <m>y = F(x)</m> is the solution to the initial value problem
+          <me>
+            \dfrac{dy}{dx} = \dfrac{1}{x} \qquad y(1) = 5
+          </me>.
+        </p>
+      </li>
+      <li>
+        <p>
+          Find <m>H(3)</m> if <m>y = H(x)</m> is the solution to the initial value problem
+          <me>
+            \dfrac{dy}{dx} = x^3-7x^2+19 \qquad y(-1) = 5
+          </me>.
+        </p>
+      </li>
+      <li>
+        <p>
+          Find <m>L(-2)</m> if <m>y = L(x)</m> is the solution to the initial value problem
+          <me>
+            \dfrac{dy}{dx} = e^{3x} \qquad y(1) = 6
+          </me>.
+        </p>
+      </li>
+      <li>
+        <p>
+          Sketch the graph of the solution to the initial value problem
+          <me>
+            \dfrac{dy}{dx} = \sin{x} \qquad y(0) = 1
+          </me>
+          over the interval <m>0 \leq x \leq 4\pi</m>.
+          <ol>
+            <li>
+              <p>
+                By finding a suitable antiderivative, evaluate <m>y(2)</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </li>
+      <li>
+        <p>
+          Sketch the graph of the solution to the initial value problem
+          <me>
+            \dfrac{dy}{dx} = \sin(x^2) \qquad y(0) = 0
+          </me>
+          over the interval <m>0 \leq x \leq 5</m>.
+          (This one can't be done by finding a formula for the antiderivative.)
+          <ol>
+            <li>
+              <p>
+                What is the slope of the solution graph at <m>x = 0</m>?
+                Does your graph show this?
+              </p>
+            </li>
+            <li>
+              <p>
+                How many peaks
+                (local maxima)
+                does the solution have on the interval <m>0 \leq x \leq 5</m>?
+              </p>
+            </li>
+            <li>
+              <p>
+                What is the maximum value that the solution achieves on the interval <m>0 \leq x \leq 5</m>?
+                For which value of <m>x</m> does this happen?
+              </p>
+            </li>
+            <li>
+              <p>
+                What is <m>y(6)</m>?
+              </p>
+            </li>
+          </ol>
+        </p>
+      </li>
+      <li>
+        <p>
+          What is the accumulated change in <m>y</m> if
+          <m>dy/dt = 3t^2 - 2t</m> and <m>t</m> increases from 0 to 1?
+          What if <m>t</m> increases from 1 to 2?
+          What if <m>t</m> increases from 0 to 2?
+          <ol>
+            <li>
+              <p>
+                Sketch the graph of the accumulated change in <m>y</m> as a function of <m>t</m>.
+                Let <m>0 \leq t \leq 2</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </li>
+      <li>
+        <p>
+          Here's another problem for which there is no formula for an antiderivative.
+          Sketch the graph of the solution to the initial value problem
+          <me>
+            \dfrac{dy}{dx} = \dfrac{\sin{x}}{x} \qquad y(0) = 0
+          </me>
+          on the interval <m>0 \leq x \leq 40</m>.  [Note:
+          <m>\sin{x}/x</m> is not defined when <m>x = 0</m>,
+          so take the initial value of <m>x</m> to be 0.00001.
+          That is, use <m>y(.00001) = 0</m>.]
+          <ol>
+            <li>
+              <p>
+                How many peaks
+                (local maxima)
+                does the solution have on the interval <m>0 \leq x \leq 40</m>?
+              </p>
+            </li>
+            <li>
+              <p>
+                What is the maximum value of the solution on the interval <m>0 \leq x \leq 40</m>?
+                For which <m>x</m> is this maximum achieved?
+              </p>
+            </li>
+          </ol>
+        </p>
+      </li>
+    </ol>
+  </subsection>
+</section>

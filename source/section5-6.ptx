@@ -1,0 +1,223 @@
+<section>
+  <title>Chapter Summary</title>
+  <subsection xml:id="subsec_the-mainmain-ideas">
+    <title>The Main Ideas</title>
+    <ul>
+      <li>
+        <p>
+          <term>Formulas</term> for <term>derivatives</term>
+          can be calculated for functions given by formulas using the definition of the derivative as the limit of difference quotients
+          <me>
+            \lim_{\Delta x \rightarrow 0} \frac{f(x+\Delta x)-f(x)}{\Delta x}
+          </me>.
+        </p>
+      </li>
+      <li>
+        <p>
+          Each particular difference quotient is an
+          <term>approximation</term> to the derivative.
+          Successive approximations,
+          for smaller and smaller <m>\Delta x\/</m>,
+          approach the derivative as a limit.
+          The formula for the derivative gives its <em>exact</em> value.
+        </p>
+      </li>
+      <li>
+        <p>
+          Formulas for <term>partial derivatives</term>
+          are obtained using the formulas for derivatives of functions of a single variable by simply treating all variables other than the one of interest as if they were constants.
+        </p>
+      </li>
+      <li>
+        <p>
+          <term>Optimization</term> problems occur in many different contexts.
+          For instance, we seek to maximize benefits,
+          minimize energy, and minimize error.
+        </p>
+      </li>
+      <li>
+        <p>
+          The <term>sign</term> of the derivative indicates where a graph rises and where it falls.
+        </p>
+      </li>
+      <li>
+        <p>
+          Functions which are <term>continuous</term>
+          on a <term>finite closed interval</term>
+          have <term>global extremes</term>.
+        </p>
+      </li>
+      <li>
+        <p>
+          For a function continuous on an interval,
+          its <term>local extremes</term> occur at
+          <term>critical points</term><mdash/>points where the derivative equals zero or fails to exist<mdash/>or at endpoints.
+        </p>
+      </li>
+      <li>
+        <p>
+          Local linearity permits us to replace the graph of a function <m>y=g(x)</m> by its <term>tangent line</term>
+          at a point near a root of <m>g(x)=0\/</m>,
+          and then the <m>x</m>-intercept of the tangent line is a better approximation to the root.
+          Successive approximations, obtained by iterating this procedure,
+          yield <term>Newton's method</term>
+          for solving the equation <m>g(x)=0\/</m>.
+        </p>
+      </li>
+    </ul>
+  </subsection>
+  <subsection xml:id="subsec_expectations">
+    <title>Expectations</title>
+    <ul>
+      <li>
+        <p>
+          You should be able to <term>differentiate</term>
+          a function given by a formula.
+        </p>
+      </li>
+      <li>
+        <p>
+          You should be able to use differentiation formulas to
+          <em> calculate</em> partial derivatives.
+        </p>
+      </li>
+      <li>
+        <p>
+          In most cases,
+          you should be able to determine from a graph of a function on an interval whether that function is <term>continuous</term>
+          and/or <term>differentiable</term> on that interval.
+        </p>
+      </li>
+      <li>
+        <p>
+          You should be able to find <term>critical points</term>
+          for a function of one or several variables given by a formula.
+        </p>
+      </li>
+      <li>
+        <p>
+          You should be able to use the formula for the derivative of a function of a single variable to find
+          <term>local and global extremes</term>.
+        </p>
+      </li>
+      <li>
+        <p>
+          You should be able to use <term>Newton's method</term>
+          to solve an equation of the form <m>g(x)=0</m>.
+        </p>
+      </li>
+    </ul>
+  </subsection>
+  <subsection xml:id="subsec_chapter-exercises">
+    <title>Chapter Exercises</title>
+    <subsubsection xml:id="subsubsec_prices-demand-and-profit">
+      <title>Prices, demand and profit</title>
+      <p>
+        Suppose the demand
+            <idx><h>demand</h></idx>
+        <m>D</m> (in units sold) for a particular product is determined by its price <m>p</m>
+        (in dollars),
+        <m>D=f(p)</m>.
+        It is reasonable to assume that when the price is low,
+        the demand will be high, but as the price rises, the demand will fall.
+        In other words,
+        we assume that the slope of the demand function is negative.
+        If the manufacturing cost for each unit of the product is <m>c</m> dollars,
+        then the profit per unit at price <m>p</m> is <m>p-c</m>.
+        Finally the total profit <m>T</m> gained at the unit price <m>p</m> will be the number of units sold at the price <m>p</m> (that is,
+        the demand <m>D(p)</m>) multiplied by the profit per unit <m>p-c</m>.
+        <me>
+          T = g(p) = D(p)\, \mbox{units}  \times (p-c) \, \frac{\mbox{dollars} }{\mbox{unit} }
+        </me>
+      </p>
+      <p>
+        In this series of problems we will determine the effect of the demand function and of the unit manufacturing cost on the maximum total profit.
+      </p>
+      <ol>
+        <li>
+          <p>
+            Suppose the demand function is linear
+            <me>
+              D = f(p) = 1000 - 500p \  \mbox{units}
+            </me>,
+            and the unit manufacturing cost is 0.20, so the total profit is
+            <me>
+              T = g(p) = (1000 - 500p)(p-0.20) \  \mbox{dollars}
+            </me>.
+            Find the
+            <q>best</q>
+            price <mdash/> that is,
+            find the price that yields the maximum total profit.
+          </p>
+        </li>
+        <li>
+          <p>
+            Suppose the demand function is the same as in problem 1, but the unit manufacturing cost rises to 0.30.
+            What is the
+            <q>best</q>
+            price now?
+            How much of the rise in the unit manufacturing cost is passed on to the consumer if the manufacturer charges this best price?
+          </p>
+        </li>
+        <li>
+          <p>
+            Suppose the demand function for a particular product is <m>D(p)= 2000-500p</m>,
+            and that the unit manufacturing cost is 0.30.
+            What price should the manufacturer charge to maximize her profit?
+            Suppose the unit manufacturing cost rises to 0.50.
+            What price should she charge to maximize her profit now?
+            How much of the rise in the unit manufacturing cost should she pass on to the consumer?
+          </p>
+        </li>
+        <li>
+          <p>
+            If the demand function for a product is <m>D(p)=1500-100p</m>,
+            compare the
+            <q>best</q>
+            price for unit manufacturing costs of 0.30 and 0.50.
+            How much of the rise in cost should the manufacturer pass on to the consumer?
+          </p>
+        </li>
+        <li>
+          <p>
+            As you may have noticed,
+            problems 2<ndash/>4 illustrate an interesting phenomenon.
+            In each case,
+            exactly half of the rise in the unit manufacturing cost should be passed on to the consumer.
+            Is this a coincidence?
+          </p>
+          <ol>
+            <li>
+              <p>
+                Consider the most general case of a linear demand function
+                <me>
+                  D=f(p) = a-mp
+                </me>.
+                and unit cost <m>c</m>.
+                What is the
+                <q>best</q>
+                price?
+                Is exactly half the unit manufacturing cost passed on to the consumer?
+                Explain your answer.
+              </p>
+            </li>
+            <li>
+              <p>
+                Now consider a non-linear demand function
+                <me>
+                  D = f(p) = \frac{1000}{1+p^2}
+                </me>.
+                Find the
+                <q>best</q>
+                price for unit costs i) 0.50 dollar per unit;
+                ii) 1.00 dollar per unit;
+                iii) 1.50 dollars per unit.
+                How much of the price increase is passed on to the consumer in cases (ii) and<nbsp/>(iii)?
+              </p>
+            </li>
+          </ol>
+        </li>
+      </ol>
+    </subsubsection>
+  </subsection>
+</section>
