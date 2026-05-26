@@ -1,0 +1,1059 @@
+<section xml:id="sec_trigonometric-integrals">
+  <title>Trigonometric Integrals</title>
+  <introduction>
+    <p>
+      The preceding sections have covered the main integration techniques and concepts likely to be needed by most users of calculus.
+      These techniques,
+      together with the numerical methods discussed in chapter<nbsp/>11.6, should be part of the basic tool kit of every practitioner of calculus.
+      For those going on in physics or mathematics,
+      there are additional methods,
+      largely involving trigonometric functions in various ways,
+      that are sometimes useful.
+      The purpose of this section is to develop the most commonly used of these techniques.
+      Recall that there are only a few simple antiderivatives we can write down immediately by inspection.
+      All non-numerical integration techniques consist of finding transformations that will reduce some new class of integration problems to a class we already know how to solve.
+      Once we have a new class of solvable problems,
+      then we look for other classes of problems that can be reduced to this new class,
+      and so on.
+      The techniques we will be developing in this section involve ways of making such transformations through the use of basic trigonometric identities,
+      typically in conjunction with integration by parts or by substitution.
+      Before we proceed with the integration techniques,
+      it will be helpful to list the trigonometric identities used. \subsubsection{Review of trigonometric identities} The most frequently used identity is
+      <me>
+        \sin^2{x} + \cos^2{x} =1
+      </me>,
+      and the equivalent form obtained by dividing through by <m>\cos^2{x}</m>:
+      <me>
+        \tan^2{x}+1=\sec^2{x}
+      </me>,
+      and by <m>\sin^2{x}</m>:
+      <me>
+        1+\cot^2{x}=\csc^2{x}
+      </me>.
+    </p>
+    <p>
+      The only other identities you will need have already been encountered:
+      <me>
+        \sin{2x}=2\sin{x}\cos{x} \mbox{and} \cos{2x}=\cos^2{x}-\sin^2{x}
+      </me>,
+      plus the two other forms of the second of these identities,
+      <me>
+        \cos^2{x}=\dfrac{1}{2}(1+\cos{2x}) \mbox{and} \sin^2{x} =\dfrac{1}{2}(1-\cos{2x})
+      </me>.
+    </p>
+  </introduction>
+  <subsection xml:id="subsec_inverse-substitution">
+    <title>Inverse Substitution</title>
+    <p>
+          <idx><h>inverse substitution</h><h>integration by</h></idx>
+          <idx><h>integration by inverse substitution</h></idx>
+      The method of substitution outlined in chapter<nbsp/>11.2 worked by taking a complicated integrand and breaking it down into simpler components, reducing the problem
+    </p>
+    <aside>
+      <p>
+        Success sometimes comes by making things more complicated
+      </p>
+    </aside>
+    <p>
+      of finding an antiderivative for something in the form
+      <m>f(G(x))g(x)</m> to the problem of finding an antiderivative for <m>f</m>.
+      In some cases, though, we go in the opposite direction:
+      we have an integral <m>\int f(x)\,dx</m> we want to find but can't evaluate directly.
+      Instead, we can find a function <m>G(u)</m> with derivative <m>g(u)</m> such that we can find an antiderivative for <m>f(G(u))g(u)</m>.
+      Since we know this integral is <m>F(G(u))</m>,
+      we can now figure out what the desired function <m>F</m> must be.
+      As with the earlier substitution techniques,
+      this <term>inverse substitution</term>
+      is conveniently expressed using differential notation.
+      <term>Example 1</term>Suppose we want to evaluate
+      <me>
+        \int \sqrt{4-x^2}\,dx
+      </me>.
+      If we substitute <m>x=2\sin{u}</m>,
+      so that <m>dx=2\cos{u}\,du</m>, look what happens:
+      <md>
+        <mrow>\int \sqrt{4-x^2}\,dx \amp = \int \sqrt{4-(2\sin{u})^2}\,2\cos{u}\,du</mrow>
+        <mrow>\amp = \int \sqrt{4-4\sin^2{u}}\,2\cos{u}\,du</mrow>
+        <mrow>\amp = \int 2\sqrt{1-\sin^2{u}}\,2\cos{u}\,du</mrow>
+        <mrow>\amp = \int 2\cos{u}\,2\cos{u}\,du</mrow>
+        <mrow>\amp = 4\int \cos^2{u}\,du</mrow>
+      </md>.
+    </p>
+    <p>
+      But this is just an antiderivative we have already found in the exercises in chapter<nbsp/>11.3, namely
+      <md>
+        <mrow>\int \cos^2{u}\,du \amp = \dfrac{u}{2} + \dfrac{1}{4} \sin 2u + C</mrow>
+        <mrow>\amp = \dfrac{u}{2} + \dfrac{1}{4}\cdot 2\sin u \cos u+ C</mrow>
+        <mrow>\amp =  \dfrac{1}{2}(u +\sin u \cos u)+ C</mrow>
+      </md>.
+    </p>
+    <p>
+      To find the desired antiderivative for the original function of <m>x</m>,
+      we now replace <m>u</m> by its expression in terms of <m>x</m> by inverting the relationship: If <m>x=2\sin{u}</m>,
+      then <m>\sin{u}=x/2</m>, and <m>u=\arcsin(x/2)</m>.
+      As we found in chapter<nbsp/>11.1, drawing a picture expressing the relationship between <m>x</m> and <m>u</m> makes it easy to visualize the other trigonometric functions:
+    </p>
+    <image source="images/5440221fd3ad6183b8a69b26fc3e954ac25cfdd4.png"/>
+    <p>
+      From the picture we see that
+      <me>
+        \cos{u} = \dfrac{\sqrt{4-x^2}}{2} \qquad \mbox{and}  \qquad \tan{u}=\dfrac{x}{\sqrt{4-x^2}}
+      </me>.
+    </p>
+    <p>
+      We can now find an expression for the desired antiderivative in terms of<nbsp/><m>x</m>:
+      <md>
+        <mrow>\int \sqrt{4-x^2}\,dx \amp = 2(u +\sin u \cos u)+ C</mrow>
+        <mrow>\amp = 2\left(\arcsin\dfrac{x}{2} +\dfrac{x}{2}\dfrac{\sqrt{4-x^2}}{2}\right) + C</mrow>
+        <mrow>\amp = 2\arcsin\dfrac{x}{2}+\dfrac{x\sqrt{4-x^2}}{2}+ C</mrow>
+      </md>.
+    </p>
+    <p>
+      As usual, you should check this result by differentiating the right-hand side to see that you do obtain the integrand on the left.
+      Similar substitutions
+    </p>
+    <aside>
+      <p>
+        Some useful substitutions
+      </p>
+    </aside>
+    <p>
+      allow us to evaluate other integrals involving square roots of quadratic expressions.
+      Here is a summary of useful substitutions.
+      In each case, <m>a</m> is a positive real number.
+    </p>
+    <image source="images/331c5b599645ab885316e889d0e3f024ae0ab43b.png"/>
+    <p>
+      <term>Example 2</term>Integrate
+      <me>
+        \int \dfrac{dx}{\sqrt{x^2+9}}
+      </me>.
+    </p>
+    <p>
+      If we set <m>x=3\tan{u}</m>,
+      then <m>dx=3\,\sec^2{u}\,du</m>, and the integral becomes
+      <md>
+        <mrow>\dint \dfrac{dx}{\sqrt{x^2+9}} \amp = \dint \dfrac{3\,\sec^2{u}\,du}{\sqrt{9\,\sec^2{u}}}</mrow>
+        <mrow>\amp = \dint \sec{u}\,du</mrow>
+        <mrow>\amp = \ln{|\sec{u} + \tan{u}|}+C</mrow>
+      </md>,
+    </p>
+    <p>
+      (as we saw in chapter 11.4).
+      To express this in terms of <m>x</m>,
+      we again draw a picture showing the relation between <m>u</m> and <m>x</m>:
+    </p>
+    <image source="images/df37962291791359d0a9c893c57f79a46ad6a4f4.png"/>
+    <p>
+      From this picture we see that <m>\sec{u}=\sqrt{9+x^2}/3</m>.
+      Therefore
+      <md>
+        <mrow>\dint \dfrac{dx}{\sqrt{x^2+9}} \amp = \ln\left|\dfrac{\sqrt{9+x^2}}{3} +\dfrac{x}{3}\right|+C</mrow>
+        <mrow>\amp = \ln\left|\dfrac{\sqrt{9+x^2} +x}{3}\right|+C = \ln\left|\sqrt{9+x^2} +x \right|+C'</mrow>
+      </md>,
+      where <m>C'=C-\ln{3}</m> is a new constant.
+      As usual, you should differentiate to check that this really is the claimed antiderivative
+      <term>Example 3</term>Evaluate
+      <me>
+        \int \dfrac{dx}{\sqrt{9x^2-16}}
+      </me>.
+    </p>
+    <p>
+      We first write <m>\sqrt{9x^2-16}</m> as <m>\sqrt{9}\sqrt{x^2-(16/9)}=3\sqrt{x^2-(16/9)}</m>.
+      Using the substitution <m>x=(4/3)\sec{u}</m>,
+      with <m>dx=(4/3)\sec{u}\tan{u}\,du</m> gives
+      <md>
+        <mrow>\dint \dfrac{dx}{\sqrt{9x^2-16}} \amp = \dint \dfrac{(4/3)\sec{u}\,\tan{u}\,du}{3\sqrt{(16/9) \sec^2{u}-(16/9)}}</mrow>
+        <mrow>\amp = \dint \dfrac{(4/3)\sec{u}\,\tan{u}\,du}{3\cdot (4/3)\tan{u}} =\dfrac{1}{3}\dint \sec{u}\,du</mrow>
+        <mrow>\amp = \dfrac{1}{3}\ln{| \sec{u}+\tan{u}|}+C</mrow>
+      </md>.
+    </p>
+    <p>
+      Again we need a picture to relate <m>x</m> and <m>u</m>:
+    </p>
+    <image source="images/3b40400002e5b8160d04ea4b1fd3023eb75371ab.png"/>
+    <p>
+      Thus <m>\tan{u}=\sqrt{9x^2-16}/4</m>, which gives
+      <md>
+        <mrow>\dint \dfrac{dx}{\sqrt{9x^2-16}} \amp = \dfrac{1}{3}\ln{| \sec{u}+\tan{u}|}+C</mrow>
+        <mrow>\amp = \dfrac{1}{3}\ln\left|\dfrac{3x}{4} + \dfrac{\sqrt{9x^2-16}}{4}\right|+C</mrow>
+        <mrow>\amp = \dfrac{1}{3}\ln{\left|3x +\sqrt{9x^2-16}\right|} +C'</mrow>
+      </md>,
+      where <m>C'=C-(\ln{4})/3</m>.
+      As usual, you should differentiate this final expression to confirm that it really is the desired antiderivative.
+    </p>
+  </subsection>
+  <subsection xml:id="subsec_inverse-substitution-and-definite-integrals">
+    <title>Inverse Substitution and Definite Integrals</title>
+    <p>
+      We saw <xref ref="defint">on</xref>
+      in chapter<nbsp/>11.2 how to use substitution to evaluate a definite integral.
+      When we transformed an integral originally expressed in terms of a variable <m>x</m> into one expressed in terms of a variable <m>u</m>,
+      the two integrals had the same numerical value.
+      The same can be done with the inverse substitution technique we have just been considering.
+      Let's see how this works.
+      Suppose we start with a function <m>f(x)</m> to be integrated over an interval <m>[a, b]</m>.
+      If we only knew an antiderivative <m>F</m> for <m>f</m>,
+      we could easily write
+      <me>
+        \int_a^b f(x)\,dx=F(b)-F(a)
+      </me>,
+      as usual.
+      In the examples we've just been considering,
+      we found the antiderivative for <m>f</m> by making a substitution <m>x=G(u)</m> for some function <m>G</m> and then finding an antiderivative for <m>f(G(u))g(u)</m>,
+      where <m>G'=g</m>.
+      This antiderivative we know is <m>F(G(u))</m>,
+      where <m>F</m> is the function we are trying to find.
+      We were able to obtain <m>F</m> by replacing <m>u</m> by its expression in <m>x</m>.
+      To do this we needed to find the inverse function <m>G^{-1}</m> for <m>G</m>,
+      so that <m>x=G(u)</m> was equivalent to <m>u=G^{-1}(x)</m>,
+      and <m>F(x)=F(G(G^{-1}(x)))</m>.
+      It is this last step we can eliminate in calculating definite integrals.
+      If we want <m>x</m> to go from <m>a</m> to <m>b</m>, what must <m>u</m> do?
+      What interval of <m>u</m> values will get transformed to this interval of <m>x</m> values by <m>G</m>.
+      The value of <m>u</m> such that <m>G(u)=a</m> is <m>A=G^{-1}(a)</m>.
+      Similarly the <m>u</m> value that gets transformed to <m>b</m> is <m>B=G^{-1}(b)</m>.
+      Thus under the substitution <m>x=G(u)</m>,
+      as <m>u</m> goes from <m>A</m> to <m>B</m>,
+      <m>x</m> will go from <m>a</m> to <m>b</m>.
+      Now look at the corresponding definite integral:
+      <md>
+        <mrow>\dint_A^B f(G(u))\,g(u)\,du \amp = \left.F(G(u))\,\right|_A^B</mrow>
+        <mrow>\amp = F(G(B))-F(G(A))</mrow>
+        <mrow>\amp = F(G(G^{-1}(b)))-F(G(G^{-1}(a)))</mrow>
+        <mrow>\amp = F(b)-F(a)</mrow>
+      </md>,
+      which is just the desired value of the original definite integral.
+      To summarize,
+    </p>
+    <image source=""/>
+    <p>
+      Let's look back at a couple of the preceding examples to see how this works.
+      <term>Example 4</term>Evaluate
+      <me>
+        \int_{-2}^2 \sqrt{4-x^2}\,dx
+      </me>.
+    </p>
+    <p>
+      In Example 1 we found an antiderivative for this function by making the substitution <m>x= 2\sin{u}=G(u)</m>.
+      The inverse function is then <m>G^{-1}(x)=\arcsin(x/2)</m>.
+      To get <m>x</m> to go from <m>-2</m> to 2, <m>u</m> must go from
+      <m>G^{-1}(-2)=\arcsin(-1)=-\pi/2=A</m> to <m>G^{-1}(2)=\arcsin{1}=\pi/2=B</m>.
+      Then to evaluate the integral from <m>x=-2</m> to <m>x=2</m>,
+      we only need to evaluate the antiderivative we found for the <m>u</m> integral between <m>u=-\pi/2</m> and <m>u=\pi/2</m>.
+      <me>
+        \int_{-2}^2 \sqrt{4-x^2}\,dx = \left.2(u+\sin{u}\,\cos{u})\,\right|_{-\pi/2}^{\pi/2} = \pi-(-\pi)=2\pi
+      </me>.
+    </p>
+    <p>
+      (Note that this is just half the area of a circle of radius 2.
+      How could we have foreseen this result from the form of the problem?)
+      <term>Example 5</term>Suppose we wanted the integral
+      <me>
+        \int_0^3 \dfrac{dx}{\sqrt{x^2+9}}
+      </me>.
+    </p>
+    <p>
+      In Example 2 we found an antiderivative by letting <m>x=3\tan{u}</m>.
+      Here <m>G^{-1}(x)=\arctan(x/3)</m>.
+      For <m>x</m> to go from 0 to <m>3</m>,
+      <m>u</m> must go from 0 to <m>\arctan{1}=\pi/4</m>.
+      Using the <m>u</m>-antiderivative we found in Example 2, we have
+      <md>
+        <mrow>\dint_0^3 \dfrac{dx}{\sqrt{x^2+9}} \amp = \left.\ln|\sec{u}+\tan{u}|\,\right|_0^{\pi/4}</mrow>
+        <mrow>\amp = \ln{|\sqrt{2}+1|}-\ln{|1+0|}=\ln(\sqrt{2}+1)</mrow>
+      </md>.
+    </p>
+  </subsection>
+  <subsection xml:id="subsec_completing-the-square">
+    <title>Completing The Square</title>
+    <p>
+      Integrands involving terms of the form
+      <m>Ax^2+Bx+C</m> can always be put in the form
+      <m>A( u^2\pm b^2)</m> for a suitable variable <m>u</m> and constant <m>b</m>.
+      The technique for doing this is the standard method of
+      <em> completing the square</em>:
+          <idx><h>completing the square</h></idx>
+      <md>
+        <mrow>Ax^2+Bx+C \amp = A\left(x^2 + \dfrac{B}{A}x\right)+C</mrow>
+        <mrow>\amp = A\left(x^2 + \dfrac{B}{A}x + \dfrac{B^2}{4A^2}\right)+C - \dfrac{B^2}{4A}</mrow>
+        <mrow>\amp = A\left(x + \dfrac{B}{2A}\right)^{\!2} + \dfrac{4AC-B^2}{4A}</mrow>
+      </md>.
+    </p>
+    <p>
+      The substitutions
+      <me>
+        u = x+ \dfrac{B}{2A} \qquad \mbox{and}  \qquad b = \dfrac{\sqrt{|4AC-B^2|}}{2A}
+      </me>
+      then transform the problem to a form where we can use the techniques already developed.
+      The following examples should make this clear.
+      <term>Example 6</term>Consider the integral
+      <me>
+        \int \dfrac{dx}{x^2+4x+5}
+      </me>.
+    </p>
+    <p>
+      This may not immediately remind us of anything we've seen before.
+      But if we rewrite it in the form
+      <me>
+        \int \dfrac{dx}{(x^2+4x+4)+1}=\int \dfrac{dx}{(x+2)^2+1}
+      </me>,
+      it now begins to resemble something involving an arctangent.
+      In fact, if we make the substitution <m>u=x+2</m>,
+      so <m>du=dx</m>, we can write
+      <md>
+        <mrow>\dint \dfrac{dx}{x^2+4x+5} \amp = \dint \dfrac{du}{u^2+1}</mrow>
+        <mrow>\amp = \arctan{u}+C</mrow>
+        <mrow>\amp = \arctan(x+2) +C</mrow>
+      </md>.
+    </p>
+    <p>
+      <term>Example 7</term>The technique of completing the square even works for expressions we could have factored directly,
+      if we had noticed:
+      <md>
+        <mrow>\dint \dfrac{dx}{x^2+4x+3} \amp = \dint \dfrac{dx}{(x+2)^2-1}</mrow>
+        <mrow>\amp = \dint \dfrac{dx}{(x+2 -1)(x+2+1)}</mrow>
+        <mrow>\amp = \dint \dfrac{dx}{(x+1)(x+3)}</mrow>
+        <mrow>\amp = \dfrac{1}{2}\dint \dfrac{dx}{x+1} - \dfrac{1}{2}\dint \dfrac{dx}{x+3}</mrow>
+        <mrow>\amp = \dfrac{1}{2}\ln\left|\dfrac{x+1}{x+3}\right| +C</mrow>
+      </md>.
+    </p>
+    <p>
+      <term>Example 8</term>Evaluate
+      <me>
+        \int \dfrac{dx}{\sqrt{6x-x^2}}
+      </me>.
+    </p>
+    <p>
+      Note that <m>6x-x^2=-(x^2-6x)=-(x-3)^2+9=9-(x-3)^2</m>.
+      If we now substitute <m>x-3 =3u</m>,
+      with <m>dx=3du</m>, we get
+      <md>
+        <mrow>\dint \dfrac{dx}{\sqrt{6x-x^2}} \amp = \dint \dfrac{dx}{\sqrt{9-(x-3)^2}}</mrow>
+        <mrow>\amp = \dint \dfrac{3 \, du}{\sqrt{9-9u^2}} = \dint \dfrac{du}{\sqrt{1-u^2}}</mrow>
+        <mrow>\amp = \arcsin{u}+C</mrow>
+        <mrow>\amp = \arcsin \dfrac{x-3}{3} +C</mrow>
+      </md>.
+    </p>
+  </subsection>
+  <subsection xml:id="subsec_trigonometric-polynomials">
+    <title>Trigonometric Polynomials</title>
+    <introduction>
+      <p>
+        A <term>trigonometric polynomial</term><idx><h>polynomial</h><h>trigonometric</h></idx> is any sum of constant multiples of products of trigonometric functions.
+        The preceding techniques have shown some cases where such trigonometric polynomials can arise,
+        even though the original problem had no apparent reference to trigonometric functions.
+        There are many different ways of breaking trigonometric polynomials down into special cases which can then be integrated.
+        We will develop one way which has the virtue of using few special cases,
+        so that it can be used fairly automatically.
+        It also introduces a powerful tool<mdash/>that of
+        <em> reduction formula</em><mdash/>which can be used to generate mathematical results interesting in their own right.
+        One example is the striking representation of <m>\pi</m> derived in chapter<nbsp/>12.1.
+        Other examples are developed in the exercises at the end of this section.
+        Since every trigonometric function is expressible in terms of sines and cosines,
+        any trigonometric polynomial can be written as a sum of terms of the form
+        <m>c\,\sin^m{x}\,\cos^n{x}</m> where <m>c</m> is a constant and <m>m</m> and <m>n</m> are integers<mdash/>positive,
+        negative, or 0.
+        For instance,
+        <m>5\,\sec^2{x}\,\tan^5{x}</m> can be rewritten as <m>5\,\sin^5{x}\,\cos^{-7}{x}</m>.
+        To find antiderivatives for trigonometric polynomials,
+        it therefore suffices to be able to evaluate integrals of the form
+        <me>
+          \int \sin^m{x}\cos^n{x}\,dx
+        </me>.
+      </p>
+      <p>
+        We will see how to find antiderivatives for functions of this sort by breaking the problem into a series of special cases:
+      </p>
+      <tabular>
+        <row>
+          <cell>Category I</cell>
+          <cell>either <m>m\geq 0</m> or <m>n\geq 0</m> (or both)</cell>
+        </row>
+        <row>
+          <cell>Case 1</cell>
+          <cell><m>m=1</m> or <m>n=1</m></cell>
+        </row>
+        <row>
+          <cell>Case 2</cell>
+          <cell><m>m=0</m> or <m>n=0</m></cell>
+        </row>
+        <row>
+          <cell>Category II</cell>
+          <cell><m>m</m> and <m>n</m> both negative</cell>
+        </row>
+      </tabular>
+    </introduction>
+    <subsubsection xml:id="subsubsec_category-i-either-boldmath-mgeq-0-or-ngeq-0-or-both">
+      <title>Category I: Either  <m>m\geq 0</m> or <m>n\geq 0</m> (or both)</title>
+      <p>
+        Assume for the sake of explicitness that <m>m\geq 0</m>.
+        We can then use the identity <m>\sin^2{x}=1-\cos^2{x}</m> to replace
+        <m>\sin^m{x}</m> entirely by cosine terms if <m>m</m> is even,
+        or to replace all but one of the sine terms by cosines if <m>m</m> is odd.
+        A similar replacement can be made if <m>n\geq 0</m>.
+        <term>Example 9</term>
+        <md>
+          <mrow>\sin^4{x}\,\cos^6{x} \amp = (1-\cos^2{x})^2\cdot\cos^6{x}</mrow>
+          <mrow>\amp = (1-2\,\cos^2{x}+\cos^4{x})\cdot\cos^6{x}</mrow>
+          <mrow>\amp = \cos^6{x}-2\,\cos^8{x}+\cos^{10}{x}</mrow>
+        </md>.
+      </p>
+      <p>
+        (Note that in this example we could just as well have expressed
+        <m>\cos^6{x}</m> entirely in terms of <m>\sin{x}</m>.) <term>Example 10</term>
+        <md>
+          <mrow>\sin^3{x}\,\cos^{-8}{x} \amp = \sin{x}\cdot (1-\cos^2{x})\cdot\cos^{-8}{x}</mrow>
+          <mrow>\amp = \sin{x}\,\cos^{-8}{x}-\sin{x}\,\cos^{-6}{x}</mrow>
+        </md>.
+      </p>
+      <p>
+        <term>Example 11</term>
+        <md>
+          <mrow>\sin^{-7}{x}\,\cos^{7}{x} \amp = \sin^{-7}{x}\cdot (1-\sin^2{x})^3\cdot\cos{x}</mrow>
+          <mrow>\amp = \sin^{-7}{x}\,\cos{x}-3\,\sin^{-5}{x}\,\cos{x}+3\,\sin^{-3}{x}\,\cos{x}</mrow>
+          <mrow>\amp -\sin^{-1}{x}\,\cos{x}</mrow>
+        </md>.
+      </p>
+      <p>
+        We can thus reduce any problem in Category I to one of two special cases:
+      </p>
+      <tabular>
+        <row>
+          <cell>Case 1</cell>
+          <cell><m>m=1</m> or <m>n=1</m></cell>
+        </row>
+        <row>
+          <cell>Case 2</cell>
+          <cell><m>m=0</m> or <m>n=0</m></cell>
+        </row>
+      </tabular>
+      <p>
+        We will now see how to find antiderivatives for these cases.
+        <term>Case 1:  <m>m=1</m> or <m>n=1</m></term>Since the two possibilities are analogous,
+        we will consider the case with <m>n=1</m>.
+        Then <m>m</m> can be any real number at all,
+        not necessarily an integer.
+        We make the substitution <m>u=\sin{x}</m>,
+        so that <m>du=\cos{x}\,dx</m>, and
+        <me>
+          \int \sin^m{x}\cos{x}\,dx = \int u^m\,du = \begin{cases}\dfrac{1}{m+1} \,u^{m+1} + C \amp  \mbox{if \(m\neq -1\)} , \\ \ln{|u|} + C \amp  \mbox{if \(m=-1\)} . \end{cases}
+        </me>
+      </p>
+      <p>
+        Replacing <m>u</m> by its expression in <m>x</m> we have the antiderivative:
+      </p>
+      <image source="images/6c32d6cb37058a4d75ec46f1774c8c93a5ce4019.png"/>
+      <p>
+        <term>Remark:</term> The instance <m>m=-1</m> in this
+      </p>
+      <aside>
+        <p>
+          The antiderivative of the cotangent
+        </p>
+      </aside>
+      <p>
+            <idx><h>cotangent</h><h>antiderivative of</h></idx>
+        case is worth singling out,
+        as it gives us an antiderivative for <m>\cot{x}</m>:
+        <me>
+          \int \cot{x}\,dx=\int \dfrac{\cos{x}}{\sin{x}}\,dx =  \ln|\sin{x}|+C
+        </me>.
+      </p>
+      <p>
+        Integrals where <m>m=1</m> are handled in a completely analogous fashion.
+        You should check that
+      </p>
+      <image source="images/71fad527cce9364e8720dfff4f3d22d8d2cce940.png"/>
+      <p>
+        <term>Remark:</term> Notice that <m>n=-1</m> gives us
+      </p>
+      <aside>
+        <p>
+          The antiderivative of the tangent
+        </p>
+      </aside>
+      <p>
+            <idx><h>tangent</h><h>antiderivative of</h></idx>
+        an antiderivative for <m>\tan{x}</m>:
+        <me>
+          \int \tan{x}\,dx=\int \dfrac{\sin{x}}{\cos{x}}\,dx = -\ln|\cos{x}|+C
+        </me>.
+      </p>
+      <p>
+        <term>Case II:  <m>m=0</m> or <m>n=0</m></term>Again the two possibilities are analogous,
+        so we will look at instances where <m>n=0</m>.
+        There are a number of clever ways for dealing with antiderivatives of functions of this form,
+        many of them depending on special subcases according to whether <m>m</m> is even or odd,
+        positive or negative, etc.
+        We will develop a single method which deals with all cases in the same way.
+        Think of <m>\sin^n{x}</m> as
+        <m>\sin^{n-1}{x}\cdot\sin{x}</m> and use integration by parts with
+        <me>
+          F(x)=\sin^{n-1}{x}\qquad\mbox{ and } \qquad g(x)=\sin{x};
+        </me>
+        then
+        <me>
+          f(x)=(n-1)\sin^{n-2}{x}\,\cos{x}\qquad\mbox{ and } \qquad G(x)=-\cos{x}
+        </me>.
+      </p>
+      <p>
+        Therefore
+        <me>
+          \int \sin^n{x}\,dx =-\sin^{n-1}{x}\,\cos{x}+(n-1)\int \sin^{n-2}{x}\,\cos^2{x}\,dx
+        </me>.
+      </p>
+      <p>
+        Now since <m>\cos^2{x}=1-\sin^2{x}</m>,
+        we can rewrite the integral on the right-hand side as
+        <me>
+          \int \sin^{n-2}{x}\,\cos^2{x}\,dx.=\int \sin^{n-2}{x}\,dx-\int \sin^n{x}\,dx
+        </me>
+      </p>
+      <p>
+        <ndash/>-an expression involving the original integral we are trying to evaluate!
+        If we now substitute this expression in our original equation and bring all the terms involving
+        <m>\sin^n{x}</m> over to the left-hand side, we have
+        <me>
+          n\int  \sin^n{x}\,dx = -\sin^{n-1}{x}\,\cos{x}+(n-1)\int \sin^{n-2}{x}\,dx
+        </me>,
+        so that
+      </p>
+      <image source="images/1dede6c53700e769232c766fa31698f2f9b44eee.png"/>
+      <p>
+        We thus have
+      </p>
+      <aside>
+        <p>
+          A reduction formula
+        </p>
+      </aside>
+      <p>
+        a <term>reduction formula</term><idx><h>reduction formula</h><h>for integrating
+        <m>\sin^n{x}</m></h></idx> which reduces the problem of finding an antiderivative for
+        <m>\sin^n{x}</m> to the problem of finding an antiderivative for <m>\sin^{n-2}{x}</m>.
+        This in turn can be reduced to finding an antiderivative for <m>\sin^{n-4}{x}</m>,
+        and so on,
+        until we get down to having to find an antiderivative for <m>\sin{x}</m>
+        (if <m>n</m> is odd),
+        or for 1
+        (if <m>n</m> is even).
+        <term>Example 12</term>
+        <md>
+          <mrow>\dint \sin^5{x}\,dx \amp = \dfrac{-1}{5}\sin^4{x}\cos{x}+\dfrac{4}{5}\dint \sin^3{x}\,dx</mrow>
+          <mrow>\amp = \dfrac{-1}{5}\sin^4{x}\cos{x} +\dfrac{4}{5}\left(\dfrac{-1}{3}\sin^2{x}\cos{x} +\dfrac{2}{3}\dint \sin{x}\,dx \,\right)</mrow>
+          <mrow>\amp = \dfrac{-1}{5}\sin^4{x}\cos{x}-\dfrac{4}{15}\sin^2{x}\cos{x} -\dfrac{8}{15} \cos{x}+C</mrow>
+        </md>.
+      </p>
+      <p>
+        Check this answer by taking the derivative of the right-hand side.
+        To show that this derivative really is equal to the integrand on the left,
+        you will need to express all the cosines in terms of sines.
+        <term>Example 13</term>If we let <m>n=2</m>,
+        we quickly get the antiderivative for
+        <m>\sin^2{x}</m> that we've needed at several points already:
+        <md>
+          <mrow>\dint \sin^2{x}\,dx \amp = \dfrac{-1}{2}\sin{x}\cos{x}+\dfrac{1}{2}\dint 1\,dx</mrow>
+          <mrow>\amp = \dfrac{x}{2}- \dfrac{1}{2}\sin{x}\cos{x}</mrow>
+        </md>.
+      </p>
+      <p>
+        The reduction formula as stated is
+      </p>
+      <aside>
+        <p>
+          In its current form, the reduction formula works best for <m>n>0</m>
+        </p>
+      </aside>
+      <p>
+        most convenient for <m>n>0</m>,
+        although it is true for any number <m>n\neq 0</m>.
+        For if <m>n\lt 0</m>, though,
+        we want to <em>increase</em> the exponent,
+        replacing a problem of finding an antiderivative for
+        <m>\sin^n{x}</m> by a problem where the exponent is less negative.
+        We can do this by rearranging the formula as
+        <me>
+          \int \sin^{n-2}{x}\,dx = \dfrac{n}{n-1}\int \sin^n{x}\,dx+ \dfrac{1}{n-1}\sin^{n-1}{x}\cos{x}
+        </me>.
+      </p>
+      <p>
+        Since we are interested in negative exponents,
+      </p>
+      <aside>
+        <p>
+          The reduction formula for negative exponents
+        </p>
+      </aside>
+      <p>
+        call <m>n-2</m> by a new name, <m>-k</m>.
+        But if <m>n-2=-k</m>, then <m>n=-k+2</m>,
+        and we can rewrite our formula as
+      </p>
+      <image source="images/563b35a99d3a5d61e88a0803ebba59d69f308750.png"/>
+      <p>
+        With this formula we can reduce the problem of finding an antiderivative for
+        <m>\sin^{-k}{x}</m> to the problem of finding an antiderivative for <m>\sin^{-k+2}{x}</m>.
+        This in turn can be reduced to finding an antiderivative for <m>\sin^{-k+4}{x}</m>,
+        and so on,
+        until we get up to having to find an antiderivative for <m>\sin^{-1}{x}</m>
+        (if <m>k</m> is odd),
+        or for 1
+        (if <m>k</m> is even).
+        All we need,
+        then, is an antiderivative for <m>\sin^{-1}{x}</m>.
+        But <m>\sin^{-1}{x}=\csc{x}</m>,
+        and in chapter<nbsp/>11.4 ( <xref ref="trick"></xref>) we found that
+        <me>
+          \int \csc{x}\,dx=\int \sin^{-1}{x}\,dx=-\ln{|\csc{x}+\cot{x}|}+C
+        </me>.
+      </p>
+      <p>
+        We can now handle antiderivatives for any negative integer exponent of the sine function.
+        <term>Example 14</term> We can check this formula by trying <m>k=2</m>,
+        which will give us the antiderivative of <m>\csc^2{x}</m>:
+        <md>
+          <mrow>\dint \csc^2{x} \amp = \dint \sin^{-2}{x}\,dx</mrow>
+          <mrow>\amp = -\dfrac{1}{1}\sin^{-1}{x}\,\cos{x}+\dfrac{0}{1}\int \sin^0{x}\,dx</mrow>
+          <mrow>\amp = -\sin^{-1}{x}\,\cos{x}+C=-\cot{x}+C</mrow>
+        </md>,
+        as it should.
+        <term>Example 15</term>
+        <md>
+          <mrow>\dint \sin^{-3}{x}\,dx \amp = -\dfrac{1}{2}\sin^{-2}{x}\,\cos{x}+\dfrac{1}{2}\int \sin^{-1}{x}\,dx</mrow>
+          <mrow>\amp = \dfrac{1}{2}\left(-\sin^{-2}{x}\cos{x}-\ln{|\csc{x}+\cot{x}|}\right)+C</mrow>
+        </md>.
+      </p>
+      <p>
+        In the exercises you are asked to derive the following reduction formulas for the cosine function:
+            <idx><h>reduction formula</h><h>for cosine</h></idx>
+      </p>
+      <image source=""/>
+    </subsubsection>
+    <subsubsection xml:id="subsubsec_category-ii-both-boldmath-m0-and-n0">
+      <title>Category II: Both  <m>m\lt 0</m> and <m>n\lt 0</m></title>
+      <p>
+        If we divide the identity <m>\cos^2{x}+\sin^2{x}=1</m> by <m>\sin^2{x}\,\cos^2{x}</m>,
+        we get the identity
+        <me>
+          \sin^{-2}{x}+\cos^{-2}{x}=\sin^{-2}{x}\,\cos^{-2}{x}
+        </me>.
+      </p>
+      <p>
+        We will now use this identity to express anything of the form <m>\cos^{-r}{x}\,\sin^{-s}{x}</m>
+        (where <m>r>0</m> and <m>s>0</m>)
+        as a sum of terms of the form
+        <m>\sin^{-h}{x}</m>, or <m>\cos^{-i}{x}</m>,
+        or <m>\sin{x}\,\cos^{-j}{x}</m>,
+        or <m>\sin^{-k}{x}\,\cos{x}</m>.
+        Since we learned how to find antiderivatives for expressions like these in the previous cases,
+        we will then be done.
+        The trick in transforming <m>cos^{-r}{x}\,\sin^{-s}{x}</m> to the desired form is to multiply by <m>(\cos{x}\,\cos^{-1}{x})</m> or
+        <m>(\sin{x}\,\sin^{-1}{x})</m> as needed so that both the sine and the cosine terms appear to
+        <em>even</em> negative exponents.
+        Then simply keep using the identity above until there's nothing left to use it on.
+        The following three examples should make clear how the reduction then works.
+        <term>Example 16</term> (<m>r</m> and <m>s</m> both even already)
+        <md>
+          <mrow>\sin^{-4}{x}\,\cos^{-6}{x} \amp = \left( \sin^{-2}{x}\,\cos^{-2}{x}\right)^2\,\cos^{-2}{x}</mrow>
+          <mrow>\amp = \left( \sin^{-2}{x}+\cos^{-2}{x}\right)^2\,\cos^{-2}{x}</mrow>
+          <mrow>\amp = (\sin^{-4}{x}+2\sin^{-2}{x}\,\cos^{-2}{x}+\cos^{-4}{x})\,\cos^{-2}{x}</mrow>
+          <mrow>\amp = (\sin^{-4}{x}+2(\sin^{-2}{x}+\cos^{-2}{x})+\cos^{-4}{x})\,\cos^{-2}{x}</mrow>
+          <mrow>\amp = \sin^{-4}{x}\,\cos^{-2}{x}+2\sin^{-2}{x}\,\cos^{-2}{x}+2\cos^{-4}{x}</mrow>
+          <mrow>\amp\qquad +\cos^{-6}{x}</mrow>
+          <mrow>\amp = \sin^{-2}{x}\,(\sin^{-2}{x}+\cos^{-2}{x})+2(\sin^{-2}{x}+\cos^{-2}{x})</mrow>
+          <mrow>\amp\qquad +2\cos^{-4}{x}+\cos^{-6}{x}</mrow>
+          <mrow>\amp = \sin^{-4}{x}+\sin^{-2}{x}\,\cos^{-2}{x}+2\sin^{-2}{x}+2\cos^{-2}{x}</mrow>
+          <mrow>\amp\qquad +2\cos^{-4}{x}+\cos^{-6}{x}</mrow>
+          <mrow>\amp = \sin^{-4}{x}+( \sin^{-2}{x}+\cos^{-2}{x}) +2\sin^{-2}{x}</mrow>
+          <mrow>\amp\qquad + 2\cos^{-2}{x}+ 2\cos^{-4}{x}+ \cos^{-6}{x}</mrow>
+          <mrow>\amp = \sin^{-4}{x}+3\sin^{-2}{x}+ 3\cos^{-2}{x}+2\cos^{-4}{x}+ \cos^{-6}{x}</mrow>
+        </md>.
+      </p>
+      <p>
+        While this process is tedious,
+        it requires little thought<mdash/>you simply replace <m>\sin^{-2}{x}\,\cos^{-2}{x}</m> with
+        <m>\sin^{-2}{x}+\cos^{-2}{x}</m> at every opportunity until there is no negative-exponent sine term multiplying any negative-exponent cosine term.
+        We will use this result to demonstrate how to deal with cases where either <m>r</m> or <m>s</m>
+        (or both)
+        is odd.
+        <term>Example 17</term> (<m>r</m> even and <m>s</m> odd)
+        <md>
+          <mrow>\sin^{-4}{x}\,\cos^{-5}{x} \amp = \sin^{-4}{x}\,\cos^{-6}{x}\,\cos{x}</mrow>
+          <mrow>\amp = \sin^{-4}{x}\,\cos{x}+3\sin^{-2}{x}\,\cos{x}+ 3\cos^{-1}{x}</mrow>
+          <mrow>\amp\qquad +2\cos^{-3}{x}+ \cos^{-5}{x}</mrow>
+        </md>
+      </p>
+      <p>
+        <term>Example 18</term> (both <m>r</m> and <m>s</m> odd)
+        <md>
+          <mrow>\sin^{-3}{x}\,\cos^{-5}{x} \amp = \sin{x}\,\sin^{-4}{x}\,\cos^{-6}{x}\,\cos{x}</mrow>
+          <mrow>\amp = \sin^{-3}{x}\,\cos{x}+3\sin^{-1}{x}\,\cos{x}+ 3\sin{x}\,\cos^{-1}{x}</mrow>
+          <mrow>\amp\qquad +2\sin{x}\,\cos^{-3}{x}+ \sin{x}\,\cos^{-5}{x}</mrow>
+        </md>
+      </p>
+    </subsubsection>
+  </subsection>
+  <subsection xml:id="subsec_exercises">
+    <title>Exercises</title>
+    <introduction>
+      <ol>
+        <li>
+          <p>
+            Find the following antiderivatives (<m>a</m> is a positive constant):
+            <ol>
+              <li>
+                <p>
+                  <m>\dint \dfrac{dx}{\sqrt{1-4x^2}}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\dint \dfrac{dx}{\sqrt{1-4x^2}}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\dint \dfrac{dx}{\sqrt{4+x^2}}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\dint \dfrac{x\,dx}{\sqrt{4+x^2}}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\dint \dfrac{dx}{(a^2-x^2)^{3/2}}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\dint \dfrac{dx}{4+x^2}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\dint \dfrac{x\,dx}{4+x^2}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\dint \dfrac{dx}{x\sqrt{4+x^2}}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\dint \dfrac{x\,dx}{\sqrt{x^2-a^2}}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\dint \dfrac{dx}{(a^2+x^2)^2}</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Evaluate the following integrals:
+            <ol>
+              <li>
+                <p>
+                  <m>\dint_1^{-1} \dfrac{dx}{4-x^2}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\dint_1^2 \sqrt{x^2-1}\,dx</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\dint_0^{\pi/3} x\,\sec^2{x}\,dx</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\dint_0^1 \dfrac{dx}{(2-x^2)^{3/2}}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\dint_0^\infty \dfrac{dx}{9+x^2}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\dint_a^{2a} x^3\sqrt{x^2-a^2}\,dx</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Sketch the ellipse <m>\dfrac{x^2}{a^2}+ \dfrac{y^2}{b^2} = 1</m>,
+            labelling the coordinates of the points where it crosses the <m>x</m>-axis and the <m>y</m>-axis.
+            Prove that the area of this ellipse is <m>\pi ab</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Find the following antiderivatives:
+            <ol>
+              <li>
+                <p>
+                  <m>\dint \dfrac{dx}{\sqrt{x^2-2x-8}}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\dint \dfrac{dx}{x^2+6x+10}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\dint \dfrac{dx}{\sqrt{x^2+6x+8}}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\dint \dfrac{x\,dx}{x^2+4x+5}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\dint \dfrac{x\,dx}{\sqrt{5+4x-x^2}}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\dint \dfrac{(2x+7)\,dx}{4x^2+4x+5}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\dint \dfrac{(4x-3)\,dx}{\sqrt{-x^2-2x}}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\dint \dfrac{dx}{(a^2-x^2-2x)^2}</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            If <m>x= a\,\sec{u}</m>, where <m>a</m> is a constant,
+            draw a right triangle containing an angle <m>u</m> with lengths of sides specified to reflect this relation between <m>x</m>,
+            <m>a</m>,
+            and <m>u</m>.
+            <ol>
+              <li>
+                <p>
+                  In terms of <m>x</m> and<nbsp/><m>a</m>, what is <m>\sin{u}</m>?
+                  What is <m>\cos{u}</m>?
+                  What is <m>\tan{u}</m>?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Evaluate the following:
+            <ol>
+              <li>
+                <p>
+                  <m>\dint \dfrac{dx}{\sin{x}\,\cos{x}}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\dint \cos^3{x}\,\sin^{-4}{x}\,dx</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\dint \csc^4{x}\,\cot^2{x}\,dx</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\dint \sin{3x}\,\cot{3x}\,dx</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\dint_0^{\pi/2} \sin^n{x}\,\cos^3{x}\,dx</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\dint \tan^5{x}\,dx</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\dint \dfrac{\sin^3{5x}\,dx}{\sqrt[3]{\cos{5x}}}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\dint \dfrac{\cos^3(\ln{x})\,dx}{x}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\dint \sec^4{x}\,\ln(\tan{x})\,dx</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\dint_0^{a/2} \dfrac{dx}{(a^2-x^2)^{3/2}}</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Use the analysis of Example 17 ( <xref ref="ex17"></xref>) to find an antiderivative for <m>\sin^{-4}{x}\,\cos^{-5}{x}</m>.
+          </p>
+        </li>
+      </ol>
+    </introduction>
+    <subsubsection xml:id="subsubsec_reduction-formulas">
+      <title>Reduction formulas</title>
+      <ol>
+        <li>
+          <p>
+            Derive the reduction formulas for the cosine function given <xref ref="cosred">on</xref>.
+          </p>
+        </li>
+        <li>
+          <p>
+            By writing <m>\tan^n{x}=\tan^{n-2}{x}(\sec^2{x}-1)</m>,
+            get a reduction formula which expresses
+            <m>\dint \tan^n{x}\,dx</m> in terms of <m>\dint \tan^{n-2}{x}\,dx</m>.
+            <ol>
+              <li>
+                <p>
+                  Use this evaluation formula to find <m>\dint \tan^6{x}\,dx</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Show that
+                  <me>
+                    \int_0^{\pi/4}\tan^n{x}\,dx = \begin{cases}\dfrac{1}{n-1}- \dfrac{1}{n-3}+\cdots\pm \dfrac{1}{3}\mp 1\pm {\pi/4} \amp \text{ if \(n\) is even } , \\ \dfrac{1}{n-1}- \dfrac{1}{n-3}+\cdots \pm \dfrac{1}{4}\mp \dfrac{1}{2} \pm \dfrac{1}{2}\ln{2} \amp \text{ if \(n\) is odd } . \end{cases}
+                  </me>
+                </p>
+              </li>
+              <li>
+                <p>
+                  Give a clear argument why <nbsp/><nbsp/> <m>\displaystyle \lim_{n\rightarrow\infty}\int_0^{\pi/4} \tan^n{x}\,dx=0</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Prove that
+                  <me>
+                    \lim_{k\rightarrow\infty}\left(1-\dfrac{1}{3}+\dfrac{1}{5} -\cdots\pm \dfrac{1}{2k+1}\right)=\dfrac{\pi}{4}
+                  </me>,
+                  and
+                  <me>
+                    \lim_{k\rightarrow\infty}\left(1-\dfrac{1}{2}+\dfrac{1}{3} -\cdots\pm \dfrac{1}{k}\right)=\ln{2}
+                  </me>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            By writing <m>\sec^n{x}</m> as
+            <m>\sec^{n-2}{x}\,\sec^2{x}</m> and using integration by parts,
+            get a reduction formula which expresses
+            <m>\dint \sec^n{x}\,dx</m> in terms of <m>\dint \sec^{n-2}{x}\,dx</m>.
+            <ol>
+              <li>
+                <p>
+                  Since <m>\sec{x}=\cos^{-1}{x}</m>,
+                  the formula you got in part (a) could also have been obtained from the reduction formula for cosines <xref ref="cosred">on</xref>.
+                  Try it and see if the formulas are in fact the same.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Find a reduction formula that expresses
+            <me>
+              \dint x^n\,e^x\,dx \  \text{ in terms of }   \dint x^{n-1}\,e^x\,dx
+            </me>.
+            <ol>
+              <li>
+                <p>
+                  Using the results of part (a), show that
+                  <me>
+                    \dfrac{1}{n!}\int_0^t x^n\,e^x\,dx = e^t\left(\dfrac{t^n}{n!} - \dfrac{t^{n-1}}{(n-1)!} +\dfrac{t^{n-2}}{(n-2)!} - \cdots \pm \dfrac{t^2}{2!} \mp t\pm 1\right)\mp 1
+                  </me>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Explain why, for a fixed value of <m>t</m>,
+                  <me>
+                    \lim_{n\rightarrow\infty} \dfrac{1}{n!}\int_0^t x^n\,e^x\,dx =0
+                  </me>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Prove that
+                  <me>
+                    \lim_{n\rightarrow\infty}\left(1-t+\dfrac{t^2}{2!} -\dfrac{t^3}{3!}+\dfrac{t^4}{4!} -\cdots \pm \dfrac{t^n}{n!}\right)=e^{-t}
+                  </me>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li xml:id="x1plusx2">
+          <p>
+            Find a reduction formula expressing
+            <me>
+              \dint \dfrac{dx}{(1+x^2)^n}  \text{ in terms of } \dint \dfrac{dx}{(1+x^2)^{n-1}};
+            </me>
+            you can do this using integration by parts,
+            or you can use a trigonometric substitution.
+            <ol>
+              <li>
+                <p>
+                  What is the exact value of <m>\dint_0^1 \dfrac{dx}{(1+x^2)^5}</m>?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Our approach to integrating trigonometric polynomials was to express everything in the form <m>\sin^m{x}\,\cos^n{x}</m>.
+            We can just as readily express everything in the form
+            <m>\sec^j{x}\tan^k{x}</m> (<m>j</m> and <m>k</m> integers<mdash/>positive,
+            negative, or 0),
+            and develop our technique by dealing with various cases of this.
+            See if you can work out the details,
+            trying to parallel the approach developed in the text using sines and cosines as our basic functions.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+  </subsection>
+</section>

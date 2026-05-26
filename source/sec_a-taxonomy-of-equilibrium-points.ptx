@@ -1,0 +1,444 @@
+<section xml:id="sec_a-taxonomy-of-equilibrium-points">
+  <title>A Taxonomy of Equilibrium Points</title>
+  <introduction>
+    <p>
+      In the exercises and examples we have seen so far in this chapter,
+    </p>
+    <aside>
+      <p>
+        An intuitive classification of equilibrium points
+      </p>
+    </aside>
+    <p>
+      there have been several kinds of trajectories near equilibrium points:
+      spirals towards and spirals away from the equilibrium,
+      closed loops about the equilibrium,
+      trajectories that looked vaguely like hyperbolas,
+      and trajectories that seemed to arc more or less directly into or away from the equilibrium.
+      It turns out that this rough classification covers virtually all the equilibrium behaviors we might encounter in a two-dimensional state space.
+      There are many ways to demonstrate this,
+      but we can accomplish almost everything with a couple of simple insights.
+      We begin with a summary of the different kinds of equilibrium points,
+      then turn to the question of devising ways to figure out from the equations what kind we are dealing with.
+      Suppose, then,
+      that we are studying a two-dimensional dynamical system and that we have linearized the system at an equilibrium point.
+      The point is either an attractor, repellor,
+      saddle point, or neutral point.
+      Attractors and repellors can be further subdivided according to whether they have one or two straight line trajectories,
+      or whether their trajectories are spirals.
+      Note that any attractor can be converted into a repellor simply by reversing the arrows,
+      and vice versa
+      (how do you accomplish this arrow reversal at the level of the defining differential equations?).
+      If you reverse all the arrows at a saddle point,
+      you get another saddle point.
+      If you reverse the arrows at a neutral point,
+      you get the same closed loops,
+      but they are traversed in the opposite direction.
+      Here, then, is a listing of all the kinds of equilibrium points.
+      There are five generic types.
+      (<em>Generic</em> here means
+      <q>general</q>; if you generate a random equilibrium point,
+      it will almost certainly be one of these.)
+      They are most easily categorized by whether or not they have <term>fixed line</term>
+          <idx><h>fixed line</h></idx>
+      trajectories<mdash/>that is,
+      trajectories which are straight lines going directly toward or directly away from the equilibrium point.
+    </p>
+    <aside>
+      <p>
+        The existence or not of straight line trajectories and how to find them when they do exist is an instance of the so-called
+        <em>eigenvector</em> problem.
+        Analogous problems occur elsewhere in many parts of mathematics,
+        physics, and even population biology.
+        Being able to find such eigenvectors efficiently is an important problem in computational mathematics.
+      </p>
+    </aside>
+    <p>
+      <term>Nodes</term>.
+          <idx><h>node</h></idx>
+          <idx><h>equilibrium point</h><h>node</h></idx>
+      Two pairs of fixed lines, all trajectories flowing toward the equilibrium (attractors) or away from it (repellors).
+      <image width="73%" source="images/classeq1.png"/> <term>Spirals</term>.
+          <idx><h>spiral</h></idx>
+          <idx><h>equilibrium point</h><h>spiral</h></idx>
+      No fixed lines, all trajectories spiraling toward the equilibrium (attractors) or away from it (repellors).
+      <image width="73%" source="images/classeq2.png"/>
+      <term>Saddle Point</term>.
+          <idx><h>saddle point</h></idx>
+          <idx><h>equilibrium point</h><h>saddle point</h></idx>
+      Two pairs of fixed lines, with the flow along one pair being toward the equilibrium, and the flow along the other pair away from it.
+      All other trajectories are asymptotic to these lines.
+      <image width="73%" source="images/classeq3.png"/> In addition to these five generic cases,
+      there are three more types which arise under more specialized conditions:
+      <term>Special Nodes</term>.
+      One pair of fixed lines,
+      all trajectories flowing toward the equilibrium (attractors) or away from it
+      (repellors).
+      <image width="73%" source="images/classeq4.png"/> <term>Center</term>.
+      No fixed lines,
+      all trajectories flowing around the equilibrium in closed loops.
+          <idx><h>neutral point</h></idx>
+          <idx><h>equilibrium point</h><h>neutral</h></idx> <image width="73%" source="images/classeq5.png"/> Except for a variety of highly specialized (or <em>degenerate</em>, in mathematical terminology) cases, examples of which are given in the exercises, the region near every equilibrium point will look like one of the above (although the exact shape may vary).
+      Clearly, it would be helpful to have an efficient way to determine whether or not fixed lines exist,
+      and what their equations are if they do.
+    </p>
+  </introduction>
+  <subsection xml:id="subsec_straight-line-trajectories">
+    <title>Straight-Line Trajectories</title>
+    <introduction>
+      <p>
+        Given a dynamical system
+        <md>
+          <mrow>r' \amp = ar +bs,</mrow>
+          <mrow>s' \amp = cr + ds</mrow>
+        </md>,
+        how can we tell whether or not it has any straight-line trajectories?
+        If <m>b = 0</m>,
+        then the (vertical) line <m>r = 0</m> is a trajectory.
+        Otherwise, note that the line <m>s=mr</m> will be a trajectory for this system provided the slope of the line<mdash/>namely <m>m</m><mdash/>equals the slope of the vector field at every point <m>(r,s)</m> on the line.
+        But the slope of the vector field at any point <m>(r,s)</m> is just <m>s'/r'</m>,
+        which in turn is equal to <m>(cr + ds)/(ar +bs)</m>.
+        Since every point on the line of slope <m>m</m> is of the form <m>(r, mr)</m>,
+        what we are really asking, then, is whether there are any
+      </p>
+      <aside>
+        <p>
+          The condition for a fixed-line trajectory
+        </p>
+      </aside>
+      <p>
+        values of <m>m</m> which satisfy the equation
+        <me>
+          m=\frac{cr+dmr}{ar+bmr}=\frac{c+dm}{a+bm}
+        </me>
+      </p>
+      <p>
+        To see how this works,
+        let's return to the example of two competing species which we last looked at <xref ref="x_saddle_">on</xref>.
+        There we zoomed in on the saddle point
+        <m>R=(1000/7, 200/7)</m> and found that the local linear approximation was
+        <md>
+          <mrow>r' \amp = -0.1071r -0.2143s,</mrow>
+          <mrow>s' \amp = -0.0051r - 0.0043s</mrow>
+        </md>.
+      </p>
+      <p>
+        If this system has a straight-line trajectory of slope <m>m</m>,
+        then <m>m</m> must satisfy
+        <me>
+          m= \dfrac{ -0.0051 - 0.0043m}{ -0.1071 -0.2143m}
+        </me>,
+        which leads to the quadratic equation
+        <me>
+          0.2143m^2+.1028m-0.0051=0
+        </me>,
+        which has roots
+        <me>
+          m=.0454  \mbox{and}   m = -0.5250
+        </me>.
+      </p>
+      <p>
+        Thus the lines <m>s=.0454r</m> and
+        <m>s=-0.5250r</m> are trajectories of the linear system.
+        To be more exact,
+        each of these lines is made up of three distinct trajectories:
+        the portion of the line consisting of all points with <m>r>0</m>,
+        the portion with <m>r\lt 0</m>, and the origin
+        (which is the saddle point <m>R</m>)
+        by itself, which is always a trajectory in any linear system.
+        To see whether flow along these trajectories is towards the origin or away from it,
+        we could look to see where the lines lie in the state plane.
+        It is just as simple, though, to try a test point.
+        For instance, a typical point on the line
+        <m>s=.0454r</m> is <m>(1, 0.0454)</m>.
+        When we substitute these values into the original rate equations,
+        we find that
+        <md>
+          <mrow>r' \amp = -0.1071\times 1-0.2143\times 0.0454,</mrow>
+          <mrow>s' \amp = -0.0051\times 1 - 0.0043 \times 0.0454</mrow>
+        </md>.
+      </p>
+      <p>
+        We don't even need to do the arithmetic to be able to tell that both <m>r'</m> and <m>s'</m> are negative at this point,
+        hence both <m>r</m> and <m>s</m> are decreasing,
+        which means that on the line of slope 0.0454 movement is towards the origin.
+        Similarly, on the line of slope <m>-0.5250</m> the flow is away from the origin.
+        Finally, it turns out
+        (as is the case with every linear system with straight-line trajectories)
+        that every other trajectory is asymptotic to these lines.
+        The crux of this approach was the use of the quadratic formula.
+        Of course, it may happen<mdash/>and we will see examples in the exercises<mdash/>that when we try the same approach on another system we find there are no real roots to the equation.
+        This means that there are no fixed lines,
+        so that trajectories must be spirals or closed loops.
+      </p>
+    </introduction>
+    <subsubsection xml:id="x_boundary_">
+      <title>Attractors and Basins of Attraction</title>
+      <p>
+        One byproduct of the analysis in the previous section is that it gives us a technique for sketching the boundary separating two basins of attraction.
+        Let's continue with the previous example to illustrate how this is done.
+        We observed that the boundary between the two basins was formed by the two trajectories coming directly into the saddle point <m>R</m> between the two attractors <m>P</m> and <m>S</m>.
+        We have just seen that near <m>R</m> these two trajectories looked like the straight line of slope .0454.
+        We can therefore take a point on this line on each side of <m>R</m> and run the system backward
+        (if we go forward, we simply approach <m>R</m>)
+        in time to reconstruct the trajectories,
+        and hence get the boundary of the basins of attraction.
+      </p>
+    </subsubsection>
+  </subsection>
+  <subsection xml:id="subsec_exercises">
+    <title>Exercises</title>
+    <introduction>
+      <ol>
+        <li>
+          <p>
+            In this exercise we look at a number of different linear systems to see what kinds of trajectories we get.
+            In each case you should sketch the trajectories.
+            Do this as before by first identifying the regions in the plane where <m>r'=0, r'>0</m>,
+            and <m>r'\lt 0</m>, and similarly for <m>s'</m>.
+            Then sketch trajectories consistent with this information.
+            You might want to use a graphing program to check any answer you're unsure of.
+            <ol>
+              <li>
+                <p>
+                  <m>r' = 4r + s</m>, <m>s' = 2r + 3s</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>r' = 4r + s</m>, <m>s' = -2r + 3s</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>r' = 2r + 3s</m>, <m>s' = 4r + s</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>r' = -4r + 4s</m>, <m>s' = 2r + s</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>r' = -0.4r - 4s</m>, <m>s' = 2r - 0.5s</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>r' = -0.4r - 4s</m>, <m>s' = 2r + 0.4s</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Make up and analyze four more linear systems.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            If you start with a given linear system and consider the related system in which all the coefficients are four times as big,
+            how do the trajectories change?
+          </p>
+        </li>
+        <li>
+          <p>
+            If you start with a given linear system and consider the related system in which all the coefficients have their signs reversed,
+            how do the trajectories change?
+          </p>
+        </li>
+        <li>
+          <p>
+            Use the quadratic formula to find the general solution to the equation
+            <me>
+              m=\frac{c+dm}{a+bm}
+            </me>.
+            <ol>
+              <li>
+                <p>
+                  In exercises 1, 3, and 4 in the previous section you found local linearizations at the equilibrium points of a number of examples discussed earlier.
+                  Determine which of these have straight-line trajectories and which do not.
+                  For those that do,
+                  find the equations of the lines and determine for each line whether the flow is towards the origin or away from it.
+                </p>
+              </li>
+              <li>
+                <p>
+                  What is the general condition for a linear dynamical system to have straight-line trajectories?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Make up a system that has the lines of slope <m>\pm 1</m> as trajectories.
+          </p>
+        </li>
+        <li>
+          <p>
+            What is the condition for a system to have exactly one fixed line?
+            Construct a couple of systems that have only one fixed line and sketch their phase portraits.
+          </p>
+        </li>
+        <li>
+          <p>
+            <term>Degeneracy</term><nbsp/><nbsp/> The analysis developed in this section implicitly assumed that in the local linearization,
+            at least one of the coefficients in each of the expressions for <m>r'</m> and <m>s'</m> was non-zero.
+            If this is not true, then many more possibilities open up.
+            The following two systems have the origin as their only equilibrium point.
+            In each case,
+            write down the local linearization and draw in the trajectory pattern for the linearized system.
+            Notice that the linearized systems have more than one equilibrium point.
+            Then do the standard phase plane analysis for the original system<mdash/>identify the regions in the plane where <m>r'=0</m>and where <m>s'=0</m>,
+            and specify what the direction field is doing in the rest of the plane,
+            as usual.
+            Sketch in some typical trajectories.
+            Comment on the connections between the linearized and unlinearized forms.
+            <ol>
+              <li>
+                <p>
+                  <m>r' = r^2</m>, <m>s' = -s</m>.
+                  You should see sort of a hybrid between a saddle point and an attractor here.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>r' = r^2+s^2</m>, <m>s' = r</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Use the technique presented at the end of this section ( <xref ref="x_boundary_"></xref>
+            to graph the boundary between the two basins of attraction.
+            <ol>
+              <li>
+                <p>
+                  In the same way,
+                  construct the boundary between the two basins in the competing species model we've been discussing<mdash/>problem 4 <xref ref="x_basins_">on</xref>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+      </ol>
+    </introduction>
+    <subsubsection xml:id="subsubsec_distance-from-the-origin">
+      <title>Distance from the Origin</title>
+      <p>
+        Another way to distinguish between different kinds of trajectories is to see how their distance from the origin varies over time.
+        For saddle points the distance will first decrease and then increase.
+        For spiral attractors and nodal attractors the distance may be always decreasing,
+        or it may fluctuate, depending on how flat the trajectory is.
+        Again, let's look at a general linear system
+        <md>
+          <mrow>r' \amp =  ar +bs,</mrow>
+          <mrow>s' \amp =  cr + ds</mrow>
+        </md>.
+        onsider the system moving along some trajectory in <m>r</m>-<m>s</m> space.
+        At time <m>t</m> it will be at a point <m>(r(t), s(t)</m>,
+        situated at a distance <m>d(t) = \sqrt{r(t)^2 + s(t)^2}</m>.
+        We would like to know how the function <m>d(t)</m> behaves.
+        Is it always increasing?
+        Always decreasing?
+        Or does it have local maxima and minima?
+        To answer this we need to know if <m>d'(t)</m> is ever <m>=0</m>,
+        or if it is always positive or always negative.
+        We can simplify our calculations if we look at the square of the distance:
+        <m>D(t) = d(t)^2 =r(t)^2 + s(t)^2</m>.
+        The function <m>D</m> will be increasing and decreasing at exactly the same points as the function <m>d</m>,
+        and it's easier to work with.
+      </p>
+      <ol>
+        <li>
+          <p>
+            Show that
+            <md>
+              <mrow>D'(t) \amp = 2 r(t)r'(t) + 2 s(t)s'(t)</mrow>
+              <mrow>\amp = 2[r(ar+bs)+s(cr+ds)]</mrow>
+              <mrow>\amp = 2[ar^2+(b+c)rs+ds^2]</mrow>
+            </md>.
+          </p>
+          <ol>
+            <li>
+              <p>
+                Show that if we look at points on the line of slope <m>m</m>,
+                so that <m>s=mr</m>, we will have <m>D'(t)=0</m> there if and only if
+                <me>
+                  a+(b+c)m+dm^2=0\,
+                </me>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Use the quadratic formula to conclude that this happens precisely where
+                <me>
+                  m=\frac{-(b+c) \pm \sqrt{(b+c)^2-4ad}}{2d}\,
+                </me>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Show in particular, if <m>(b+c)^2-4ad\lt 0</m>,
+                there are no solutions to <m>D'(t)=0</m>,
+                and the distance must always be strictly increasing along all trajectories,
+                or strictly decreasing along all trajectories.
+              </p>
+            </li>
+            <li>
+              <p>
+                Return to the example
+                <md>
+                  <mrow>r' \amp =  -0.1071r -0.2143s,</mrow>
+                  <mrow>s' \amp =  -0.0051r - 0.0043s</mrow>
+                </md>,
+                and find the equations of the two lines where trajectories pass closest to the origin.
+                These lines will not be trajectories themselves.
+                Their significance is that the <sq>vertices</sq> of all the trajectories will lie along them.
+              </p>
+            </li>
+          </ol>
+        </li>
+        <li>
+          <p>
+            Choose four of the exercise in the first part of this section and analyze them to see where
+            (and whether)
+            trajectories have a closest approach to the origin.
+          </p>
+        </li>
+        <li>
+          <p>
+            Use the results of this section to construct a dynamical system whose trajectories are spirals that are always moving away from the origin.
+            <ol>
+              <li>
+                <p>
+                  Use the results to construct a dynamical system whose trajectories are flattened spirals,
+                  so that the distance from the origin,
+                  while increasing overall, has local maxima and minima.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            It turns out that trajectories which form closed loops should really be considered as a special kind of spiral.
+            In fact, a flattened spiral will close up precisely when the two directions in which the distance is a maximum or minimum are perpendicular to each other.
+            Express this as a condition on the coefficients <m>a, b, c</m>,
+            and <m>d</m> in the dynamical system.
+          </p>
+        </li>
+        <li>
+          <p>
+            Write down the equations of some dynamical systems that will have closed orbits.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+  </subsection>
+</section>

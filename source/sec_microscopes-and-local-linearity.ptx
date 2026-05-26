@@ -1,0 +1,781 @@
+<section xml:id="sec_microscopes-and-local-linearity">
+  <title>Microscopes and Local Linearity</title>
+  <introduction>
+    <p>
+          <idx><h>microscope</h></idx>
+          <idx><h>local linearity</h></idx>
+    </p>
+  </introduction>
+  <subsection xml:id="subsec_the-graph-of-data">
+    <title>The Graph of Data</title>
+    <p>
+          <idx><h>graph</h><h>data</h></idx> <image width="73%" source="images/sunrise1.png"/>
+    </p>
+    <sidebyside>
+      This section is about seeing rates geometrically.  We know from
+      chapter<nbsp/>1 that we can visualize the rate of change of a <em>linear</em>
+      function as the slope of its graph.  Can we say the same thing about
+      the sunrise function?  The graph of this function appears at the
+      right; it plots the time of sunrise (over the
+    </sidebyside>
+    <p>
+      course of a year at <m>40^\circ</m> N latitude),
+      as a function of the date.
+      The graph is curved, so the sunrise function is not linear.
+      There is no immediately obvious connection between rate and slope.
+      In fact, it isn't even clear what we might mean by the
+      <em>slope</em> of this graph!
+      We can make it clear by using a <term>microscope</term>.
+      Imagine we have a microscope
+    </p>
+    <aside>
+      <p>
+        Zoom in on the graph with a microscope
+      </p>
+    </aside>
+    <p>
+      that allows us to
+      <q>zoom in</q>
+          <idx><h>zooming</h></idx>
+      on the graph near each of the the three dates we considered in section<nbsp/>1.
+      If we put each magnified image in a window,
+      then we get the following:
+      <image width="73%" source="images/sunrise2a.png"/> Notice how different the graph looks under the microscope.
+      First of all,
+      it now shows up clearly as a collection of separate points<mdash/>one for each day of the year.
+    </p>
+    <aside>
+      <p>
+        The graph looks straight under a microscope
+      </p>
+    </aside>
+    <p>
+      Second, the points in a particular window lie on a line that is essentially straight.
+      The straight lines in the three windows have very different slopes,
+      but that is only to be expected.
+      What is the connection between these slopes and the rates of change we calculated in the last section?
+      To decide, we should calculate the slope in each window.
+      This involves choosing a pair of points <m>(d_1, T_1)</m> and
+      <m>(d_2, T_2)</m> on the graph and calculating the ratio
+      <me>
+        \dfrac{\Delta T}{\Delta d} = \dfrac{T_2 - T_1}{d_2 - d_1}
+      </me>.
+    </p>
+    <p>
+      In window <term>a</term> we'll take the two points that lie three days on either side of the central date, January 23.
+      These points have coordinates
+      <m>(20, \mbox{7:18} )</m> and <m>(26, \mbox{7:14} )</m>
+      (table, <xref ref="x_table_"></xref>).
+      The slope is thus
+      <me>
+        \dfrac{\Delta T}{\Delta d} = \frac{\mbox{7:14}  - \mbox{7:18} }{26 - 20} = \frac{-4 \; \mbox{minutes} }{6 \; \mbox{days} } = -0.67 \; \frac{\mbox{minutes} }{\mbox{day} }
+      </me>.
+    </p>
+    <p>
+      If we use the same approach in the other two windows we find that the line in window <term>b</term> has slope
+          <idx><h>slope</h></idx>
+          <idx><h>rate of change</h></idx> <m>-1.5</m> min/day,
+    </p>
+    <aside>
+      <p>
+        Slope and rate calculations are the same
+      </p>
+    </aside>
+    <p>
+      while the line in window <term>c</term> has slope +.8 min/day.
+      These are exactly the same calculations we did in section<nbsp/>1 to determine the rate of change of the time of sunrise around January 23, March 24, and July 25,
+      and they produce the same values we obtained there:
+      <me>
+        T'(23) \approx -0.67 \ \frac{\mbox{min} }{\mbox{day} }, \qquad T'(83) \approx -1.5 \ \frac{\mbox{min} }{\mbox{day} },  \qquad T'(206) \approx 0.8 \ \frac{\mbox{min} }{\mbox{day} }
+      </me>.
+    </p>
+    <p>
+      This is a crucial observation which we use repeatedly in other contexts;
+      let's pause and state it in general terms:
+    </p>
+    <image source="images/64afd88c5c36c521997c1ce87c1316ba5cf5d490.png"/>
+  </subsection>
+  <subsection xml:id="subsec_the-graph-of-a-formula">
+    <title>The Graph of a Formula</title>
+    <p>
+          <idx><h>graph</h><h>formula</h></idx>
+          <idx><h>formula</h></idx>
+          <idx><h>formula</h><h>graph</h></idx>
+      Rates and slopes are really the same thing<mdash/>that's what we learn by using a microscope to view the graph of the sunrise function.
+      But the sunrise graph consists of a finite number of disconnected points<mdash/>a very common situation when we deal with data.
+      In such cases it doesn't make sense to magnify the graph too much.
+      For instance,
+      we would get no useful information from a window that was narrower than the space between the data points.
+    </p>
+    <aside>
+      <p>
+        High-power magnification is possible with a formula
+      </p>
+    </aside>
+    <p>
+      There is no such limitation if we use a microscope to look at the graph of a function given by a formula, though.
+      We can zoom in as close as we wish and still see a continuous curve or line.
+      By using a high-power microscope,
+      we can learn even more about rates and slopes.
+      Consider this rather complicated-looking function:
+      <me>
+        f(x) = \dfrac{{2 + x^3\cos{x} + 1.5^x}}{2 + x^2}
+      </me>.
+    </p>
+    <p>
+      Let's find <m>f'(27)</m>, the rate of change of <m>f</m> when <m>x = 27</m>.
+      We need to zoom
+          <idx><h>zooming</h></idx>
+      in on the graph of <m>f</m> at the point <m>(27, f(27)) = (27, 69.859043)</m>.
+      We do this in stages,
+      producing a succession of windows that run clockwise from the upper left.
+      Notice how the graph gets straighter with each magnification.
+      <image width="73%" source="images/mag1.png"/> <image width="73%" source="images/mag2.png"/> <image width="73%" source="images/mag3.png"/> <image width="73%" source="images/mag4.png"/> <image width="73%" source="images/mag5.png"/> <image width="73%" source="images/mag6.png"/> We will need a way to describe the part of the graph that we see in a window.
+      Let's call it the <term>field of view</term>.
+          <idx><h>field of view</h></idx>
+    </p>
+    <aside>
+      <p>
+        The field of view of a window
+      </p>
+    </aside>
+    <p>
+      The field of view of each window is only one-tenth as wide as the previous one,
+      and the field of view of the last window is only one-millionth of the first!
+      The last window shows what we would see if we looked at the original graph with a million-power microscope.
+    </p>
+    <aside>
+      <p>
+        The microscope used to study functions is real,
+        but it is different from the one a biologist uses to study micro-organisms.
+        Our microscope is a computer graphing program that can
+        <q>zoom in</q>
+        on any point on a graph.
+        The computer screen is the window you look through,
+        and you determine the field of view when you set the size of the interval over which the graph is plotted.
+      </p>
+    </aside>
+    <p>
+      Here is our point of departure:
+      <em>the rate <m>f'(27)</m> is the slope of the graph of <m>f(x)</m> at <m>x = 27</m> when we magnify the graph enough to make it look straight</em>.
+      But how much is enough?
+      Which window should we use?
+      The following table gives the slope
+      <m>\Delta y/\Delta x</m> of the line that appears in each of the last four windows in the sequence.
+      For <m>\Delta x</m> we take the difference between the <m>x</m>-coordinates of the points at the ends of the line,
+      and for <m>\Delta y</m> we take the difference between the <m>y</m>-coordinates.
+      In particular,
+      the width of the field of view in each case is <m>\Delta x</m>.
+      <me>
+        \begin{array}{ccc} \Delta x \amp  \Delta y \amp  \Delta y/\Delta x \\ \hline \amp   \amp   \\[-8pt] \begin{array}{l} 0.04 \\ 0.004 \\ 0.0004 \\ 0.00004 \end{array} \amp \begin{array}{c} -1.081\,508\,24 \times 10^{-2} \\ -1.089\,338\,27 \times 10^{-3} \\ -1.089\,416\,49 \times 10^{-4} \\ -1.089\,417\,28 \times 10^{-5} \end{array} \amp \begin{array}{c} -0.270\,377\,066  \\ -0.272\,334\,556  \\ -0.272\,354\,131  \\ -0.272\,354\,327 \end{array} \end{array}
+      </me>
+    </p>
+    <p>
+      As you can see, it <em>does</em>
+      matter how much we magnify.
+      The slopes <m>\Delta y/\Delta x</m> in the table are not quite the same,
+      so we don't yet have a definite value for <m>f'(27)</m>.
+      The table gives us an idea how we <em>can</em>
+      get a definite value, though.
+      Notice that the slopes get more and more alike, the more we magnify.
+      In fact, under successive magnifications the first five digits of
+      <m>\Delta y/\Delta x</m> have <term>stabilized</term>.
+          <idx><h>stabilize</h></idx>
+      We saw in chapter 2 how to think about a sequence of numbers whose digits stabilize one by one.
+      We should treat the values of <m>\Delta y/\Delta x</m> as
+    </p>
+    <aside>
+      <p>
+        The slope is a limit
+      </p>
+    </aside>
+    <p>
+      <term>successive approximations</term><idx><h>successive approximation</h></idx> to the slope of the graph.
+      The exact value of the slope is then the <term>limit</term>
+          <idx><h>limit</h></idx>
+      of these approximations as the width of the field of view shrinks to zero:
+      <me>
+        f'(27) = \mbox{the slope of the graph}  = \lim_{\Delta x \to 0}\dfrac{\Delta y}{\Delta x}
+      </me>.
+    </p>
+    <p>
+      In the limit process we take <m>\Delta x \to 0</m> because
+      <m>\Delta x</m> is the width of the field of view.
+      Since five digits of <m>\Delta y/\Delta x</m> have stabilized,
+      we can write
+      <me>
+        f'(27) = -0.27235\ldots
+      </me>.
+    </p>
+    <p>
+      To find <m>f'(x)</m> at some other point <m>x</m>, proceed the same way.
+      Magnify the graph at that point repeatedly,
+      until the value of the slope stabilizes.
+      The method is very powerful.
+      In the exercises you will have an opportunity to use it with other functions.
+      By using a microscope of arbitrarily high power,
+      we have obtained further insights about rates and slopes.
+      In fact, with these insights we can now state definitively what we mean by the slope of a curved graph and the rate of change of a function.
+    </p>
+    <image source=""/>
+    <p>
+      To calculate the value of the slope of the graph of <m>f(x)</m> when <m>x = a</m>,
+      we have to carry out a limit process.
+      We can break down the process into these four steps:
+    </p>
+    <p>
+      1. Magnify the graph at the point
+      <m>(a, f(a))</m> until it appears straight.
+    </p>
+    <p>
+      2. Calculate the slope of the magnified segment.
+    </p>
+    <p>
+      3. Repeat steps 1 and 2 with successively higher magnifications.
+    </p>
+    <p>
+      4. Take the limit of the succession of slopes produced in step<nbsp/>3.
+    </p>
+  </subsection>
+  <subsection xml:id="subsec_local-linearity">
+    <title>Local Linearity</title>
+    <p>
+          <idx><h>local linearity</h></idx>
+      The crucial property of a microscope
+          <idx><h>microscope</h></idx>
+    </p>
+    <aside>
+      <p>
+        A microscope gives a local view
+      </p>
+    </aside>
+    <p>
+      is that it allows us to look at a graph <term>locally</term>,
+      that is, in a small neighborhood of a particular point.
+      The two functions we have been studying in this section have curved graphs<mdash/>like most functions.
+      But <em>locally</em>, their graphs are straight<mdash/>or nearly so.
+      This is a remarkable property, and we give it a name.
+      We say these functions are <term>locally linear</term>.
+          <idx><h>function</h><h>locally linear</h></idx>
+      In other words,
+      a locally linear function looks like a linear function, locally.
+      The graph of a linear function has a definite slope at every point,
+      and so does a <em>locally</em> linear function.
+      For a linear function, the slope is easy to calculate,
+      and it has the same value at every point.
+      For a locally linear function,
+      the slope is harder to calculate;
+      it involves a limit process.
+      The slope also varies from point to point.
+      How common is local linearity?
+    </p>
+    <aside>
+      <p>
+        All the standard functions are locally linear at almost all points
+      </p>
+    </aside>
+    <p>
+      All the standard functions you already deal with are locally linear almost everywhere.
+      To see why we use the qualifying phrase
+      <q>almost everywhere,</q>
+      look at what happens when we view the graph of <m>y = f(x) = x^{2/3}</m> with a microscope.
+      At any point other than the origin,
+      the graph is locally linear.
+      For instance,
+      if we view this graph over the interval from 0 to 2 and then zoom in on the point <m>(1, 1)</m> by two successive powers of 10, here's what we see:
+      <image width="73%" source="images/cusp1.png"/>
+    </p>
+    <p>
+      As the field of view shrinks,
+      the graph looks more and more like a straight line.
+      Using the highest magnification given,
+      we estimate the slope of the graph<mdash/>and hence the rate of change of the function<mdash/>to be
+      <me>
+        f'(1) \approx \dfrac{\Delta y}{\Delta x} = \frac{1.006656 - 0.993322}{1.01 - 0.99} = \frac{.013334}{.02} = 0.6667
+      </me>.
+    </p>
+    <p>
+      Similarly, if we zoom in on the point <m>(.001, 0.01)</m> we get:
+      <image width="73%" source="images/cusp2.png"/> In the last window the graph looks like a line of slope
+      <me>
+        f'(.001) \approx \frac{.0118 - 0.0082}{.00128181 - 0.00074254} = \frac{.0036}{.00053937} = 6.674
+      </me>.
+    </p>
+    <p>
+      At the origin, though, something quite different happens:
+      <image width="73%" source="images/cusp3.png"/> The graph simply looks more and more sharply pointed the closer we zoom in to the origin<mdash/>it never looks like a straight line.
+      However, the origin turns out to be the only point where the graph does not eventually look like a straight line.
+      In spite of these examples,
+      it is important to realize that local linearity is a very special property.
+      There are some functions that fail to be locally linear anywhere!
+      Such functions are called <em> fractals</em>.
+          <idx><h>fractal</h></idx>
+    </p>
+    <aside>
+      <p>
+        Fractals are locally <em>non</em>-linear objects
+      </p>
+    </aside>
+    <p>
+      No matter how much you magnify the graph of a fractal at any point,
+      it continues to look non-linear<mdash/>bent and
+      <q>pointy</q>
+      in various ways.
+      In recent years fractals have been used in problems where the more common
+      (locally linear)
+      functions are inadequate.
+      For instance,
+      they describe irregular shapes like coastlines and clouds,
+      and they model the way molecules are knocked about in a fluid
+      (this is called <em>Brownian motion</em>\/).
+          <idx><h>Brownian motion</h></idx>
+      However, calculus does not deal with such functions.
+      On the contrary:
+    </p>
+    <image source=""/>
+  </subsection>
+  <subsection>
+    <title>Exercises</title>
+    <subsubsection xml:id="subsubsec_using-a-microscope">
+      <title>Using a microscope</title>
+      <p>
+            <idx><h>microscope</h></idx>
+      </p>
+      <ol>
+        <li>
+          <p>
+            Use a computer microscope to do the following. (A suggestion:
+            first look at each graph over a fairly large interval.)
+          </p>
+          <ol>
+            <li>
+              <p>
+                With a window of size <m>\Delta x = 0.002</m>,
+                estimate the rate <m>f'(1)</m> where <m>f(x) = x^4 - 8x</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                With a window of size <m>\Delta x = 0.0002</m>,
+                estimate the rate <m>g'(0)</m> where <m>g(x) = 10^x</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                With a window of size <m>\Delta t = 0.05</m>,
+                estimate the slope of the graph of <m>y = t + 2^{-t}</m> at <m>t = 7</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                With a window of size <m>\Delta z = 0.0004</m>,
+                estimate the slope of the graph of <m>w = \sin{z}</m> at <m>z = 0</m>.
+              </p>
+            </li>
+          </ol>
+        </li>
+        <li>
+          <p>
+            Use a computer microscope to determine the following values,
+            correct to one decimal place.
+            Obtain estimates using a <em>sequence</em> of windows,
+            and shrink the field of view until the first two decimal places stabilize.
+            Show <em>all</em> the estimates you constructed in each sequence.
+            <ol>
+              <li>
+                <p>
+                  <m>f'(1)</m> where <m>f(x) = x^4 - 8x</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>h'(0)</m> where <m>h(s) = 3^s</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The slope of the graph of <m>w = \sin{z}</m> at <m>z = \pi/4</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The slope of the graph of <m>y = t + 2^{-t}</m> at <m>t = 7</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The slope of the graph of <m>y = x^{2/3}</m> at <m>x = -5</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            For each of the following functions,
+            magnify its graph at the indicated point until the graph appears straight.
+            Determine the equation of that straight line.
+            Then verify that your equation is correct by plotting it as a second function in the same window you are viewing the given function. (The two graphs should
+            <q>share phosphor</q>!)
+            <ol>
+              <li>
+                <p>
+                  <m>f(x) = \sin{x}</m> at <m>x = 0</m>;
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\varphi(t) = t + 2^{-t}</m> at <m>t = 7</m>;
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>H(x) = x^{2/3}</m> at <m>x = -5</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Consider the function that we investigated in the text:
+            <me>
+              f(x) = \dfrac{2 + x^3\cos{x} + 1.5^x}{2 + x^2}
+            </me>.
+            <ol>
+              <li>
+                <p>
+                  Determine <m>f(0)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Make a sketch of the graph of <m>f</m> on the interval <m>-1 \leq x \leq 1</m>.
+                  Use the same scale on the horizontal and vertical axes so your graph shows slopes accurately.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Sketch what happens when you magnify the previous graph so the field of view is only <m>-0.001 \leq x \leq 0.001</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Estimate the slope of the line you drew in the part (c).
+                </p>
+              </li>
+              <li>
+                <p>
+                  Estimate <m>f'(0)</m>.
+                  How many decimal places of accuracy does your estimate have?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What is the equation of the line in part (c)?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            A function that occurs in several different contexts in physical problems is
+            <me>
+              g(x) = \frac{\sin{x}}{x}
+            </me>.
+            Use a graphing program to answer the following questions.
+            <ol>
+              <li>
+                <p>
+                  Estimate the rate of change of <m>g</m> at the following points to two decimal place accuracy:
+                  <me>
+                    g'(1), \qquad g'(2.79), \qquad g'(\pi), \qquad g'(3.1)
+                  </me>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Find three values of <m>x</m> where <m>g'(x) = 0</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  In the interval from 0 to 2<m>\pi</m>,
+                  where is <m>g</m> decreasing the most rapidly?
+                  At what rate is it decreasing there?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Find a value of <m>x</m> for which <m>g'(x)</m> = <mdash/> 0.25.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Although <m>g(0)</m> is not defined,
+                  the function <m>g(x)</m> seems to behave nicely in a neighborhood of 0.
+                  What seems to be true about <m>g(x)</m> and <m>g'(x)</m> when <m>x</m> is near 0?
+                </p>
+              </li>
+              <li>
+                <p>
+                  According to your graphs,
+                  what value does <m>g(x)</m> approach as <m>x \to 0</m>?
+                  What value does <m>g'(x)</m> approach as <m>x \to 0</m>?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection xml:id="subsubsec_rates-from-graphs-graphs-from-rates">
+      <title>Rates from graphs; graphs from rates</title>
+      <p>
+            <idx><h>rate</h></idx>
+            <idx><h>graph</h></idx>
+      </p>
+      <ol>
+        <li>
+          <p>
+            \stepcounter{exercisepart}\alph{exercisepart}) Sketch the graph of a function <m>f</m> that has <m>f(1) =1</m> and <m>f'(1)~=~2</m>.
+          </p>
+          <ol>
+            <li>
+              <p>
+                Sketch the graph of a function <m>f</m> that has <m>f(1) =1</m>,
+                <m>f'(1) = 2</m>, and <m>f(1.1) = -5</m>.
+              </p>
+            </li>
+          </ol>
+        </li>
+        <li>
+          <p>
+            A and B start off at the same time,
+            run to a point 50 feet away, and return, all in 10 seconds.
+            A graph of distance from the starting point as a function of time for each runner appears below.
+            It tells where each runner is during this time interval.
+            <ol>
+              <li>
+                <p>
+                  Who is in the lead during the race?
+                </p>
+              </li>
+              <li>
+                <p>
+                  At what time(s) is A farthest ahead of B? At what time(s) is B farthest ahead of A?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Estimate how fast A and B are going after one second.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Estimate the velocities of A and B during each of the ten seconds.
+                  Be sure to assign <em>negative</em>
+                  velocities to times when the distance to the starting point is <em>shrinking</em>.
+                  Use these estimates to sketch graphs of the velocities of A and B versus time.
+                  (Although the velocity of B changes rapidly around <m>t = 5</m>,
+                  assume that the graph of B's distance <em>is</em>
+                  locally linear at <m>t = 5</m>.)
+                </p>
+              </li>
+              <li>
+                <p>
+                  Use your graphs in (d) to answer the following questions.
+                  When is A going faster than B? When is B going faster than A? Around what time is A running at <m>-5</m> feet/second (i.e., running 5 feet/second
+                  <em>toward</em> the starting point)?
+                  <image width="73%" source="images/prob114.png"/>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            For each of the following functions draw a graph that reflects the given information.
+            Restate the given information in the language and notation of rate of change,
+            paying particular attention to the units in which any rate of change is expressed.
+            <ol>
+              <li>
+                <p>
+                  A woman's height <m>h</m>
+                  (in inches)
+                  depends on her age <m>t</m>
+                  (in years).
+                  Babies grow very rapidly for the first two years,
+                  then more slowly until the adolescent growth spurt;
+                  much later, many women actually become shorter because of loss of cartilage and bone mass in the spinal column.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The number <m>R</m> of rabbits in a meadow varies with time <m>t</m>
+                  (in years).
+                  In the early years food is abundant and the rabbit population grows rapidly.
+                  However, as the population of rabbits approaches the
+                  <q>carrying capacity</q>
+              <idx><h>carrying capacity</h></idx>
+                  of the meadow environment, the growth rate slows,
+                  and the population never exceeds the carrying capacity.
+                  Each year, during the harsh conditions of winter,
+                  the population dies back slightly,
+                  although it never gets quite as low as its value the previous year.
+                </p>
+              </li>
+              <li>
+                <p>
+                  In a fixed population of couples who use a contraceptive,
+                  the average number <m>N</m> of children per couple depends on the effectiveness <m>E</m>
+                  (in percent)
+                  of the contraceptive.
+                  If the couples are using a contraceptive of low effectiveness,
+                  a small increase in effectiveness has a small effect on the value of <m>N</m>.
+                  As we look at contraceptives of greater and greater effectiveness,
+                  small additional increases in effectiveness have larger and larger effects on <m>N</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            If we graph the distance travelled by a parachutist in freefall
+              <idx><h>freefall</h></idx>
+            as a function of the length of time spent falling,
+            we would get a picture something like the following:
+            <image width="73%" source="images/prob115.png"/>
+            <ol>
+              <li>
+                <p>
+                  Use this graph to make estimates of the parachutist's velocity at the end of each second.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Describe what happens to the velocity as time passes.
+                </p>
+              </li>
+              <li>
+                <p>
+                  How far do you think the parachutist would have fallen by the end of 15 seconds?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            True or false.
+            If you think a statement is true, give your reason;
+            if you think a statement is false,
+            give a counterexample<mdash/>i.e., an example that shows why it must be false.
+            <ol>
+              <li>
+                <p>
+                  If <m>g'(t)</m> is positive for all <m>t</m>,
+                  we can conclude that <m>g(214)</m> is positive.
+                </p>
+              </li>
+              <li>
+                <p>
+                  If <m>g'(t)</m> is positive for all <m>t</m>,
+                  we can conclude that <m>g(214) >g(17)\/</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Bill and Samantha are driving separate cars in the same direction along the same road.
+                  At the start Samantha is 1 mile in front of Bill.
+                  If their speeds are the same at every moment thereafter,
+                  at the end of 20 minutes Samantha will be 1 mile in front of Bill.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Bill and Samantha are driving separate cars in the same direction along the same road.
+                  They start from the same point at 10 am and arrive at the same destination at 2 pm the same afternoon.
+                  At some time during the four hours their speeds must have been exactly the same.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection xml:id="subsubsec_when-local-linearity-fails">
+      <title>When local linearity fails</title>
+      <p>
+            <idx><h>local linearity</h></idx>
+      </p>
+      <ol>
+        <li>
+          <p>
+            The absolute value function <m>f(x) = |x|</m> is <em>not</em>
+            locally linear at <m>x=0</m>.
+            Explore this fact by zooming in on the graph at <m>(0, 0)</m>.
+            Describe what you see in successively smaller windows.
+            Is there any change?
+          </p>
+        </li>
+        <li>
+          <p>
+            Find three points where the function
+            <m>f(x) = |\cos{x}|</m> fails to be locally linear.
+            Sketch the graph of <m>f</m> to demonstrate what is happening.
+          </p>
+        </li>
+        <li>
+          <p>
+            Zoom in on the graph of <m>y = x^{4/5}</m> at <m>(0, 0)</m>.
+            In order to get an accurate picture,
+            be sure that you use the same scales on the horizontal and vertical axes.
+            Sketch what you see happening in successive windows.
+            Is the function <m>x^{4/5}</m> locally linear at <m>x = 0</m>?
+          </p>
+        </li>
+        <li>
+          <p>
+            Is the function <m>x^{4/5}</m> locally linear at <m>x = 1</m>?
+            Explain your answer.
+          </p>
+        </li>
+        <li>
+          <p>
+            This question concerns the function <m>K(x) = x^{10/9}</m>.
+          </p>
+          <ol>
+            <li>
+              <p>
+                Sketch the graph of <m>K</m> on the interval <m>-1 \leq x \leq 1</m>.
+                Compare <m>K</m> to the absolute value function <m>|x|</m>.
+                Are they similar or dissimilar?
+                In what ways?
+                Would you say <m>K</m> is locally linear at the origin, or not?
+              </p>
+            </li>
+            <li>
+              <p>
+                Magnify the graph of <m>K</m> at the origin repeatedly,
+                until the field of view is no bigger than <m>\Delta x \leq 10^{-10}</m>.
+                As you magnify,
+                be sure the scales on the horizontal and vertical axes remain the same,
+                so you get a true picture of the slopes.
+                Sketch what you see in the final window.
+              </p>
+            </li>
+            <li>
+              <p>
+                After using the microscope do you change your opinion about the local linearity of <m>K</m> at the origin?
+                Explain your response.
+              </p>
+            </li>
+          </ol>
+        </li>
+      </ol>
+    </subsubsection>
+  </subsection>
+</section>

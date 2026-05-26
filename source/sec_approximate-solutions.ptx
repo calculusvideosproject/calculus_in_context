@@ -1,0 +1,751 @@
+<section xml:id="sec_approximate-solutions">
+  <title>Approximate Solutions</title>
+  <introduction>
+    <p>
+          <idx><h>solution</h><h>approximate</h></idx>
+      Our efforts to find the functions that were determined by the rate equations for the <m>S</m>-<m>I</m>-<m>R</m> model have brought to light several important issues:
+      <ul>
+        <li>
+          <p>
+            We often have to deal with a question that does not have a simple,
+            straightforward answer;
+            perhaps we are trying to determine a quantity (like the square root of<nbsp/>2,
+            or <m>S(3)</m> in the <m>S</m>-<m>I</m>-<m>R</m> model),
+            to find some function (like <m>S(t)</m>),
+            or to understand a process
+            (like an epidemic, or buying and selling in a market).
+            An <term>approximation</term> can get us started.
+          </p>
+        </li>
+        <li>
+          <p>
+            In many instances,
+            we can make repeated improvements in the approximation.
+            If these <term>successive approximations</term>
+            get arbitrarily close to the unknown,
+            and they do it quickly enough,
+            that may answer the question for all practical purposes.
+            In many cases, there is no alternative.
+          </p>
+        </li>
+        <li>
+          <p>
+            The information that successive approximations give us is conveyed in the form of a <term>limit</term>.
+          </p>
+        </li>
+        <li>
+          <p>
+            The method of successive approximations can be used to evaluate many kinds of mathematical objects,
+            including numbers, graphs, and functions.
+          </p>
+        </li>
+        <li>
+          <p>
+            <term>Limit processes</term> give us a valuable tool to probe difficult questions.
+            They lie at the heart of calculus.
+          </p>
+        </li>
+      </ul>
+    </p>
+    <aside>
+      <p>
+        Even the process of building a mathematical model for a physical system can be seen as an instance of successive approximations.
+        We typically start with a simple model
+        (such as the <m>S</m>-<m>I</m>-<m>R</m> model)
+        and then add more and more features to it (e.g., in the case of the <m>S</m>-<m>I</m>-<m>R</m> model we might divide the population into different subgroups,
+        have the parameters in the model depend on the season of the year,
+        make immunity of limited duration, etc.).
+        Is it always possible, at least in theory,
+        to get a sequence of approximating mathematical models that approaches reality in the limit?
+      </p>
+    </aside>
+    <p>
+      In the following chapters we will apply the process of successive approximation to many different kinds of problems.
+      For example,
+      in chapter 3 the problem will be to get a better understanding of the notion of a rate of change of one quantity with respect to another.
+      Then, in chapter 4, we will return to the task of solving rate equations using Euler's method.
+      Chapter 6 introduces the integral,
+      defining it through a sequence of successive approximations.
+      As you study each chapter,
+      pause to identify the places where the method of successive approximations is being used.
+      This can give you insight into the special role that calculus plays within the broader subject of mathematics.
+      To illustrate the general utility of the method,
+      we end this chapter by returning to the problem raised in section<nbsp/>1 of constructing the values of
+      <m>\sqrt{2}</m> and <m>\pi</m> to an arbitrary number of decimal places.
+    </p>
+  </introduction>
+  <subsection xml:id="subsec_calculating-pi---the-length-of-a-curve">
+    <title>Calculating <m>\pi</m><mdash/>The Length of a Curve</title>
+    <p>
+          <idx><h>length of a curve</h></idx>
+      Humans were grappling with the problem of calculating <m>\pi</m> at least 3000 years ago.
+      In his work <em>Measurement of the Circle</em>, Archimedes (287<ndash/>212 <sc>b.c.</sc>) used the method of successive approximations to calculate <m>\pi = 3.14 \ldots </m>.
+      He did this by starting with a circle of diameter 1, constructing an inscribed and a circumscribed hexagon,
+      and calculating the lengths of their perimeters.
+      The perimeter of the circumscribed hexagon was clearly an overestimate for <m>\pi</m>,
+      while the perimeter of the inscribed hexagon was an underestimate.
+      He then improved these estimates by going from hexagons to inscribed and circumscribed 12-sided polygons and again calculating the perimeters.
+      He repeated this process of doubling the number of sides until he had inscribed and circumscribed polygons with 96 sides.
+      These left him with his final estimate
+      <me>
+        3.1409\ldots = 3\frac{284\frac{1}{4}}{2017\frac{1}{4}} \lt  \pi \lt  3\frac{667\frac{1}{2}}{4673\frac{1}{2}} = 3.1428\ldots
+      </me>
+    </p>
+    <p>
+      In grade school we learned a nice simple formula for the length of a circle,
+      but that was about it.
+      We were never taught formulas for the lengths of other simple curves like elliptic or parabolic arcs,
+      for a very good reason<mdash/>there are no such formulas.
+      There are various physical approaches we might take.
+      For example,
+      we could get a rough approximation by laying a piece of string along the curve,
+      then picking up the string and measuring it with a ruler.
+      Instead of a physical solution,
+      we can use the essence of Archimedes' insight of approximating a circle by an inscribed
+      <q>polygon</q>
+      <mdash/>what we have earlier called a piecewise linear graph<mdash/>to determine the length of any curve.
+      The basic idea is reminiscent of the way we made successive approximations to the functions <m>S(t)</m>,
+      <m>I(t)</m>,
+      and <m>R(t)</m> in the first section of this chapter.
+      Here is how we will approach the problem:
+      <ul>
+        <li>
+          <p>
+            approximate the curve by a chain of straight line segments;
+          </p>
+        </li>
+        <li>
+          <p>
+            measure the lengths of the segments;
+          </p>
+        </li>
+        <li>
+          <p>
+            use the sum of the lengths as an approximation to the true length of the curve.
+          </p>
+        </li>
+      </ul>
+    </p>
+    <p>
+      Repeat this process over and over,
+      each time using a chain that has shorter segments
+      (and therefore more of them)
+      than the last one.
+      The length of the curve emerges as the limit of the sums of the lengths of the successive chains. \fbox{ \rule[-2.1in]{0in}{2.3in}
+      <term>Distance Formula</term>
+          <idx><h>distance formula</h></idx>
+      If weare given two points <m>P_{1}(x_{1},y_{1})</m> and <m>P_{2}(x_{2},y_{2})</m> in the plane,
+      then the distance between them is just
+      <md>
+        <mrow>d\amp =\sqrt{{\Delta x}^2 + {\Delta y}^2}</mrow>
+        <mrow>\amp =\sqrt{(x_{2}-x_{1})^2+(y_{2}-y_{1})^2}</mrow>
+      </md>
+    </p>
+    <p>
+      That this follows directly from the Pythagorean theorem
+          <idx><h>Pythagorean theorem</h></idx>
+      can be seen from the picture below:}
+    </p>
+    <image source="images/50908b40f351753ea0d1d5d39ee3bd2aeabe926b.png"/>
+    <sidebyside>
+      <nbsp/><nbsp/> We'll demonstrate how this process works on a parabola.
+      Specifically, consider the graph of <m>y = x^2</m> on the interval <m>0
+      \leq x \leq 1</m>.  At the right we have sketched the graph and our
+      initial approximation.  It is a piecewise linear approximation with
+      two segments whose end points have equally spaced <m>x</m>-coordinates.
+    </sidebyside>
+    <image source=""/>
+    <p>
+      We can use the distance formula to find the lengths of the two segments.
+      <md>
+        <mrow>\mbox{first segment} : \amp \sqrt{(.5 - 0)^2 + (.25 - 0)^2} = 0.559016994</mrow>
+        <mrow>\mbox{second segment} : \amp \sqrt{(1 - 0.5)^2 + (1 - 0.25)^2} = 0.901387819</mrow>
+      </md>
+    </p>
+    <p>
+      Their total length is the sum
+      <me>
+        0.559016994 + 0.901387819 = 1.460404813
+      </me>.
+    </p>
+    <p>
+      The following program prints out the lengths of the two <term>segments</term>
+      and their <term>total</term> length.
+          <idx><h>program</h><h>LENGTH</h></idx>
+      \knownterminologyProgram: LENGTH
+    </p>
+    <p>
+      Estimating the length of <m>y = x^2</m> over <m>0 \leq x \leq 1</m>}
+    </p>
+<pre>
+DEF fnf (x) = x ^ 2
+xinitial = 0
+xfinal = 1
+numberofsteps = 2
+deltax = (xfinal - xinitial) / numberofsteps
+total = 0
+FOR k = 1 TO numberofsteps
+xl = xinitial + (k - 1) * deltax
+xr = xinitial + k * deltax
+yl = fnf(xl)
+yr = fnf(xr)
+segment = SQR((xr - xl) ^ 2 + (yr - yl) ^ 2)
+total = total + segment
+PRINT k, segment
+NEXT k
+PRINT numberofsteps, total
+</pre>
+  </subsection>
+  <subsection xml:id="subsec_finding-roots-with-a-computer">
+    <title>Finding Roots with a Computer</title>
+    <introduction>
+      <p>
+            <idx><h>root</h></idx>
+        When we casually turn to our calculator
+      </p>
+      <aside>
+        <p>
+          Calculators and computers really work by making approximations
+        </p>
+      </aside>
+      <p>
+        and ask it for the value of
+        <m>\sqrt{2}</m>, what does it really do?
+        Like us, the calculator can only add,
+        subtract, multiply, and divide.
+        Anything else we ask it to do must be reducible to these operations.
+        In particular, the calculator doesn't really
+        <q>know</q>
+        the value of <m>\sqrt{2}</m>.
+        What it does know is how to approximate <m>\sqrt{2}</m> to,
+        say, 12 significant figures using only elementary arithmetic.
+        In this section we will look at two ways we might do this.
+        Apart from the fact that both approaches use successive approximations,
+        they are remarkably different in flavor.
+        One works graphically, using a computer graphing package,
+        and the other is a numerical algorithm that is about 4000 years old.
+      </p>
+    </introduction>
+    <subsubsection xml:id="subsubsec_a-geometric-approach">
+      <title>A geometric approach</title>
+      <p>
+        Exercise 9 <xref ref="roots">on</xref>
+        considered the problem of finding the roots of <m>f(x) = 1 - 2x^2</m>.
+        A bit of algebra confirms that
+        <m>\sqrt{2}/2</m> is a root<mdash/>i.e., <m>f(\sqrt{2}/2) = 0</m>.
+        The question is:
+        what is the <em>numerical value</em> of <m>\sqrt{2}/2</m>?
+        We'll answer this question by constructing a sequence of approximations that add digits,
+        one at a time, to an estimate for <m>\sqrt{2}/2</m>.
+        Since the root lies at the point where the graph of <m>f</m> crosses the <m>x</m>-axis,
+        we just magnify the graph at this point over and over again,
+        <q>trapping</q>
+        the point between <m>x</m> values that can be made arbitrarily close together.
+      </p>
+      <image source=""/>
+      <p>
+        If we make each stage a ten-fold magnification over the previous one, then,
+        as we zoom in on the next smaller interval that contains the root,
+        one more digit in our estimate will be stabilized.
+            <idx><h>stabilize</h></idx>
+        The first six stages are described in the table below.
+        They tell us <m>\sqrt{2}/2 = 0.707106\ldots</m> to six decimal places accuracy.
+      </p>
+      <p>
+        Since this method of finding roots requires only that we be able to plot successive magnifications of the graph of <m>f</m> on a computer screen,
+        the method can be applied to any function that can be entered into a computer.
+        The positive root of <m>1 - 2x^2</m>
+      </p>
+      <tabular>
+      <row>
+      <cell>when the root lies between:</cell>
+      <cell>the decimal expansion
+      <tabular>
+      <row>
+        <cell>lower value</cell>
+        <cell>upper value</cell>
+      </row>
+      <row bottom="minor">
+        <cell></cell>
+        <cell></cell>
+      </row>
+      <row>
+      <cell><tabular>
+        <row>
+          <cell>0.70</cell>
+        </row>
+        <row>
+          <cell>0.700</cell>
+        </row>
+        <row>
+          <cell>0.7070</cell>
+        </row>
+        <row>
+          <cell>0.70710</cell>
+        </row>
+        <row>
+          <cell>0.707100</cell>
+        </row>
+        <row>
+          <cell>0.7071060</cell>
+        </row>
+        <row>
+          <cell>\vdots</cell>
+        </row>
+      </tabular></cell>
+      <cell><tabular>
+        <row>
+          <cell>0.80</cell>
+        </row>
+        <row>
+          <cell>0.710</cell>
+        </row>
+        <row>
+          <cell>0.7080</cell>
+        </row>
+        <row>
+          <cell>0.70720</cell>
+        </row>
+        <row>
+          <cell>0.707110</cell>
+        </row>
+        <row>
+          <cell>0.7071070</cell>
+        </row>
+        <row>
+          <cell>\vdots</cell>
+        </row>
+      </tabular></cell>
+      </row>
+      </tabular></cell>
+      <cell><tabular>
+      <row>
+        <cell>of the root begins with</cell>
+      </row>
+      <row bottom="minor">
+        <cell></cell>
+      </row>
+      <row>
+      <cell><tabular>
+        <row>
+          <cell>0.7</cell>
+        </row>
+        <row>
+          <cell>0.70</cell>
+        </row>
+        <row>
+          <cell>0.707</cell>
+        </row>
+        <row>
+          <cell>0.7071</cell>
+        </row>
+        <row>
+          <cell>0.70710</cell>
+        </row>
+        <row>
+          <cell>0.707106</cell>
+        </row>
+        <row>
+          <cell>\vdots</cell>
+        </row>
+      </tabular></cell>
+      </row>
+      </tabular></cell>
+      </row>
+      </tabular>
+    </subsubsection>
+    <subsubsection xml:id="subsubsec_an-algebraic-approach----the-babylonian-algorithm">
+      <title>An algebraic approach <mdash/> the Babylonian algorithm</title>
+      <p>
+            <idx><h>root</h></idx>
+        About 4000 years ago Babylonian builders had a method for constructing the square root of a number from a sequence of successive approximations.
+        To demonstrate the method, we'll construct <m>\sqrt{5}</m>.
+        We want to find <m>x</m> so that
+        <me>
+          x^2 = 5 \qquad \mbox{or}  \qquad x = \dfrac{5}{x}
+        </me>.
+      </p>
+      <p>
+        The second expression may seem a peculiar way to characterize <m>x</m>,
+        but it is at least equivalent to the first.
+        The advantage of the second expression is that it gives us
+        <em>two</em> numbers to consider:
+        <m>x</m> and 5/<m>x</m>.
+        For example, suppose we guess that <m>x = 2</m>.
+        Of course this is incorrect, because <m>2^2 = 4</m>, not 5.
+        The two numbers we get from the second expression are 2 and 5/2 = 2.5.
+        One is smaller than <m>\sqrt{5}</m>, the other is larger
+        (because <m>2.5^2 = 6.25</m>).
+        Perhaps their <em>average</em> is a better estimate.
+        The average is 2.25, and <m>2.25^2 = 5.0625</m>.
+        Although 2.25 is not <m>\sqrt{5}</m>,
+        it is a better estimate than either 2.5 or 2.
+        If we change <m>x</m> to 2.25, then
+        <me>
+          x = 2.25 \, ,  \dfrac{5}{x} = 2.222 \, , \mbox{and their average is }  \  2.236 \,
+        </me>.
+      </p>
+      <p>
+        Is 2.236 a better estimate than 2.5 or 2.222?
+        Indeed it is: <m>2.236^2 = 4.999696</m>.
+        If we now change <m>x</m> to 2.236, a remarkable thing happens:
+        <me>
+          x = 2.236 \, ,  \dfrac{5}{x} = 2.236 \, , \mbox{and their average is }  \  2.236 \, !
+        </me>
+      </p>
+      <p>
+        In other words, if we want accuracy to three decimal places,
+        we have already found <m>\sqrt{5}</m>.
+        All the digits have stabilized.
+        Suppose we want <em>greater</em> accuracy?
+        Our routine readily obliges.
+        If we set <m>x</m> = 2.236000, then
+        <me>
+          x = 2.236000 \, ,  \dfrac{5}{x} = 2.236136 \, , \mbox{and their average is }  \  2.236068\,
+        </me>.
+      </p>
+      <p>
+        In fact, <m>\sqrt{5} = 2.236068\ldots</m> is accurate to six decimal places.
+        Here is a summary of the argument we have just developed,
+        expressed in terms of <m>\sqrt{a}</m> for an arbitrary positive number <m>a</m>.
+      </p>
+      <image source=""/>
+      <p>
+        Once we choose an <em>initial</em> estimate,
+        this argument constructs a sequence of successive approximations to <m>\sqrt{a}</m>.
+        The process of constructing the sequence is called the
+        <term>Babylonian algorithm</term>
+            <idx><h>Babylonian algorithm</h></idx>
+        for square roots.
+        A procedure that tells us how to carry out a sequence of steps,
+        one at a time,
+        to reach a specific goal is called an <em> algorithm</em>.
+            <idx><h>algorithm</h></idx>
+        Many algebraic processes are algorithms.
+        The word is a Latinization of the name of the Persian astronomer Muhammad al-Khw<m>\overline{\mbox{a} }</m>rizm<m>\overline{\mbox{\i} }</m> (c.780<nbsp/><sc> a.d.</sc><ndash/>c.850<nbsp/><sc>a.d.</sc>),
+        who lived and worked in Baghdad.
+        The title of his seminal book <em>His</em><m>\overline{\textit{ a}}</m><em>b al-jabr wal-muq</em><m>\overline{\textit{ a}}</m> <em>bala</em>
+        (830<nbsp/><sc> a.d.</sc>)<mdash/>usually referred to simply as
+        <em>al-Jabr</em><mdash/>has a Latin form that is even more familiar to mathematics students.
+        The Babylonian algorithm takes the current estimate <m>x</m> for
+        <m>\sqrt{a}</m> that we have at each stage and says
+        <q>replace <m>x</m> by the average of <m>x</m> and <m>a/x</m>.</q>
+        This kind of instruction is ideally suited to a computer,
+        because <c>A = B</c> in a computer program means
+        <q>replace the current value of <c>A</c> by the current value of <c>B</c>.</q>
+        In the program BABYLON printed below,
+        the algorithm is realized by a <c>FOR - NEXT</c> loop with a single line that reads
+        <q><c>x = (x + a / x) / 2</c></q>. The three-step procedure that we used in chapter 1 to obtain values of <m>S</m>,
+        <m>I</m>, and <m>R</m> in the epidemic problem is also an algorithm,
+        and for that reason it was a straightforward matter to express it as the computer program SIRVALUE. \knownterminologyProgram: BABYLON
+            <idx><h>program</h><h>BABYLON</h></idx>
+      </p>
+      <p>
+        An algorithm to find <m>\sqrt{a}</m>}
+      </p>
+      <sidebyside>
+        <pre>
+a = 5
+x = 2
+n = 6
+FOR k = 1 TO n
+x = (x + a / x) / 2
+PRINT x
+NEXT k
+</pre>
+        Output:
+<pre>
+2.25
+2.236111
+2.236068
+2.236068
+2.236068
+2.236068
+</pre>
+      </sidebyside>
+    </subsubsection>
+  </subsection>
+  <subsection xml:id="subsec_exercises">
+    <title>Exercises</title>
+    <introduction>
+      <p>
+        In many of the questions below you are asked to do things like divide an arc into 2,000,000 segments or find a certain number to 8 decimal places.
+        This assumes you have fast computers
+      </p>
+      <aside>
+        <p>
+          Use common sense in deciding how close an approximation to make
+        </p>
+      </aside>
+      <p>
+        available.
+        If you are using slower machines or programmable calculators,
+        you should certainly feel free to scale back what is called for<mdash/>perhaps to 200,000 segments or 6 decimal places.
+        Use your own common sense;
+        there's no value in sitting in front of a screen for an hour waiting for an answer to emerge.
+        To approximate a length by 200,000 segments will take 10 times as long as to approximate it by 20,000 segments,
+        which in turn will take 10 times as long as the 2,000 segment approximation.
+        If you start with the cruder approximations,
+        you should be able to get a good sense of what is reasonable to attempt with the facilities you have available,
+        and modify what the problems call for accordingly.
+        <ol>
+          <li>
+            <p>
+              By using a computer to graph <m>y = x^2 - 2^x</m>,
+              find the solutions of the equation
+              <m>x^2 = 2^x</m> to four decimal place accuracy.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </introduction>
+    <subsubsection xml:id="subsubsec_the-program-length">
+      <title>The program LENGTH</title>
+      <ol>
+        <li>
+          <p>
+            Run the program LENGTH to verify that it gives the lengths of the individual segments and their total length.
+          </p>
+        </li>
+        <li>
+          <p>
+            What line in the program gives the instruction to work with the function <m>f(x) = x^2</m>?
+            What line indicates the number of segments to be measured?
+          </p>
+        </li>
+        <li>
+          <p>
+            Each segment has a left and a right endpoint.
+            What lines in the program designate the <m>x</m>- and <m>y</m>-coordinates of the left endpoint;
+            the right endpoint?
+          </p>
+        </li>
+        <li>
+          <p>
+            Where in the program is the length of the <m>k</m>-th segment calculated?
+            The segment is treated as the hypotenuse of a triangle whose length is measured by the Pythagorean theorem.
+            How is the base of that triangle denoted in the program?
+            How is the altitude of that triangle denoted?
+          </p>
+        </li>
+        <li>
+          <p>
+            Modify the program so that it uses 20 segments to estimate the length of the parabola.
+            What is the estimated value?
+          </p>
+        </li>
+        <li>
+          <p>
+            Modify the program so that it estimates the length of the parabola using <m>200,\; 2,000,\; 20,000,\; 200,000,\; \mbox{ and } 2,000,000</m> segments.
+            Compare your results with those tabulated below. [To speed the process up,
+            you will certainly want to delete the <c> PRINT k, segment</c> statement that appears inside the loop.
+            Do you see why?]
+            <tabular xml:id="successive_lengths">
+            <row>
+              <cell>Number</cell>
+              <cell>Sum</cell>
+            </row>
+            <row>
+              <cell>of line segments</cell>
+              <cell>of their lengths</cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+            <cell><tabular>
+              <row>
+                <cell>2</cell>
+              </row>
+              <row>
+                <cell>20</cell>
+              </row>
+              <row>
+                <cell>200</cell>
+              </row>
+              <row>
+                <cell>2<nbsp/>000</cell>
+              </row>
+              <row>
+                <cell>20<nbsp/>000</cell>
+              </row>
+              <row>
+                <cell>200<nbsp/>000</cell>
+              </row>
+              <row>
+                <cell>2<nbsp/>000<nbsp/>000</cell>
+              </row>
+            </tabular></cell>
+            <cell><tabular>
+              <row>
+                <cell>1.460<nbsp/>404<nbsp/>813</cell>
+              </row>
+              <row>
+                <cell>1.478<nbsp/>756<nbsp/>512</cell>
+              </row>
+              <row>
+                <cell>1.478<nbsp/>940<nbsp/>994</cell>
+              </row>
+              <row>
+                <cell>1.478<nbsp/>942<nbsp/>839</cell>
+              </row>
+              <row>
+                <cell>1.478<nbsp/>942<nbsp/>857</cell>
+              </row>
+              <row>
+                <cell>1.478<nbsp/>942<nbsp/>857</cell>
+              </row>
+              <row>
+                <cell>1.478<nbsp/>942<nbsp/>857</cell>
+              </row>
+            </tabular></cell>
+            </row>
+            </tabular>
+          </p>
+        </li>
+        <li>
+          <p>
+            What is the length of the parabola <m>y = x^2</m> over the interval <m>0 \leq x \leq 1</m>,
+            correct to 8 decimal places?
+            What is the length, correct to 12 decimal places?
+          </p>
+        </li>
+        <li>
+          <p>
+            Starting at the origin, and moving along the parabola <m>y=x^2</m>,
+            where are you when you've gone a total distance of 10?
+          </p>
+        </li>
+        <li>
+          <p>
+            Modify the program to find the length of the curve <m>y = x^3</m> over the interval <m>0 \leq x \leq 1</m>.
+            Find a value that is correct to 8 decimal places.
+          </p>
+        </li>
+        <li>
+          <p>
+            <term>Back to the circle.</term>  Consider the unit circle centered at the origin.
+            Pythagoras' Theorem shows that a point <m>(x, y)</m> is on the circle if and only if <m>x^2 + y^2 = 1</m>.
+            If we solve this for <m>y</m> in terms of <m>x</m>,
+            we get <m>y=\pm \sqrt{1 - x^2}</m>,
+            where the plus sign gives us the upper half of the circle and the minus sign gives the lower half.
+            This suggests that we look at the function <m>g(x) = \sqrt{1 - x^2}</m>.
+            The arclength of <m>g(x)</m> over the interval
+            <m>-1 \leq x \leq 1</m> should then be exactly <m>\pi</m>.
+            <ol>
+              <li>
+                <p>
+                  Divide the interval into 100 pieces<mdash/>what is the corresponding length?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How many pieces do you have to divide the interval into to get an accuracy equal to that of Archimedes?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Find the length of the curve
+                  <m>y = g(x)</m> over the interval <m>-1 \leq x \leq 1</m>,
+                  correct to eight decimal places accuracy.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            This question concerns the function <m>h(x) = \dfrac{4}{1 + x^2}</m>.
+            <ol>
+              <li>
+                <p>
+                  Sketch the graph of <m>y = h(x)</m> over the interval <m>-2 \leq x \leq 2</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Find the length of the curve
+                  <m>y = h(x)</m> over the interval <m>-2 \leq x \leq 2</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Find the length of the curve
+            <m>y=\sin x</m> over the interval <m>0 \leq x \leq \pi</m>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection xml:id="subsubsec_the-program-babylon">
+      <title>The program BABYLON</title>
+      <ol>
+        <li>
+          <p>
+            Run the program BABYLON on a computer to verify the tabulated estimates for <m>\sqrt{5}</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            In whatever computer language you are using,
+            it should be possible to tell the computer to print out more decimals.
+            Your teacher can tell you how this is handled on your computers.
+            Modify BABYLON to run with at least 14-digit precision in this and the following problems.
+            Also modify the program so it prints out the square of the estimate each time as well.
+            What is the estimated value of
+            <m>\sqrt{5}</m> in this circumstance?
+            How many steps were needed to get this value?
+            Use the square of this estimate as a measure of its accuracy.
+            What is the square?
+          </p>
+        </li>
+        <li>
+          <p>
+            Use the Babylonian algorithm to find <m>\sqrt{80}</m>.
+            <ol>
+              <li>
+                <p>
+                  First use 2 as your initial estimate.
+                  How many steps are needed for the calculations to stabilize<mdash/>that is,
+                  to reach a value that doesn't change from one step to the next?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Since <m>9^2 = 81</m>, a good first estimate for <m>\sqrt{80}</m> is 9.
+                  How many steps are needed this time for the calculations to stabilize?
+                  Are the final values in (a) and (b) the same?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Use the Babylonian algorithm to find
+            <m>\sqrt{250}</m> and <m>\sqrt{1990}</m>.
+            If you use 2 as the initial estimate in each case,
+            how many steps are needed for the calculations to stabilize?
+            If you use the integer nearest to the final answer as your initial estimate,
+            then how many steps are needed?
+            Square your answers to measure their accuracy.
+          </p>
+        </li>
+        <li>
+          <p>
+            The Babylonian algorithm is considered to be <term>very fast</term>,
+            in the sense that each stage roughly doubles the number of digits that stabilize.
+            Does your work on the preceding exercises confirm this observation?
+            By comparison,
+            is the routine that got the estimates for <m>S(3)</m>
+            (computed with the program SIRVALUE)
+            faster or slower than the Babylonian algorithm?
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+  </subsection>
+</section>

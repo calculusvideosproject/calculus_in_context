@@ -1,0 +1,264 @@
+<section>
+  <title>Chapter Summary</title>
+  <subsection xml:id="subsec_the-mainmain-ideas">
+    <title>The Main Ideas</title>
+    <ul>
+      <li>
+        <p>
+          Natural processes like the spread of disease can often be described by
+          <term>mathematical models</term>.
+          Initially, this involves identifying
+          <term>numerical quantities</term>
+          and relations between them.
+        </p>
+      </li>
+      <li>
+        <p>
+          A relation between quantities often takes the form of a <em> function</em>.
+          A function can be described in many different ways;
+          <em> graphs</em>, <term>tables</term>,
+          and <term>formulas</term> are among the most common.
+        </p>
+      </li>
+      <li>
+        <p>
+          <term>Linear functions</term> make up a special but important class.
+          If <m>y</m> is a linear function of <m>x</m>,
+          then <term> <m>\Delta y = m\cdot\Delta x</m></term>,
+          for some constant <m>m</m>.
+          The constant <m>m</m> is a <term>multiplier</term>,
+          <term>slope</term>, and <term>rate of change</term>.
+        </p>
+      </li>
+      <li>
+        <p>
+          If <m>y = f(x)</m>, then we can consider the
+          <term>rate of change <m>y'</m></term>
+          of <m>y</m> with respect to <m>x</m>.
+          A mathematical model whose variables are connected by
+          <term>rate equations</term>
+          can be analyzed to predict how those variables will change.
+        </p>
+      </li>
+      <li>
+        <p>
+          Predicted changes are <term>estimates</term>
+          of the form <term> <m>\Delta y = y'\cdot\Delta x</m></term>.
+        </p>
+      </li>
+      <li>
+        <p>
+          The computations that produce estimates from rate equations can be put into a <term>loop</term>,
+          and they are readily carried out on a <em> computer</em>.
+        </p>
+      </li>
+      <li>
+        <p>
+          A computer increases the <term>scope</term>
+          and <term>complexity</term>
+          of the problems we can consider.
+        </p>
+      </li>
+    </ul>
+  </subsection>
+  <subsection xml:id="subsec_expectations">
+    <title>Expectations</title>
+    <ul>
+      <li>
+        <p>
+          You should be able to work with functions given in various forms,
+          to find the output for any given input.
+        </p>
+      </li>
+      <li>
+        <p>
+          You should be able to read a graph.
+          You should also be able to construct the graph of a linear function directly,
+          and the graph of a more complicated function using a computer graphing package.
+        </p>
+      </li>
+      <li>
+        <p>
+          You should be able to determine the natural domain of a function given by a formula.
+        </p>
+      </li>
+      <li>
+        <p>
+          You should be able to express proportional quantities by a linear function,
+          and interpret the constant of proportionality as a multiplier.
+        </p>
+      </li>
+      <li>
+        <p>
+          Given any two of these quantities for a linear function<mdash/>multiplier,
+          change in input,
+          change in output<mdash/>you should be able to determine the third.
+        </p>
+      </li>
+      <li>
+        <p>
+          You should be able to model a situation in which one variable is proportional to its rate of change.
+        </p>
+      </li>
+      <li>
+        <p>
+          Given the value of a quantity that depends on time and given its rate of change,
+          you should be able to estimate values of the quantity at other times.
+        </p>
+      </li>
+      <li>
+        <p>
+          For a set of quantities determined by rate equations and initial conditions,
+          you should be able to estimate how the quantities change.
+        </p>
+      </li>
+      <li>
+        <p>
+          Given a set of rate equations,
+          you should be able to determine what happens when one of the quantities reaches a maximum or minimum,
+          or remains unchanged over time.
+        </p>
+      </li>
+      <li>
+        <p>
+          You should be able to understand how a computer program with a FOR<ndash/>NEXT loop works.
+        </p>
+      </li>
+    </ul>
+  </subsection>
+  <subsection>
+    <title>Chapter Exercises</title>
+    <subsubsection xml:id="subsubsec_a-model-of-an-orchard">
+      <title>A Model of an Orchard</title>
+      <p>
+            <idx><h>orchard</h></idx>
+            <idx><h>model</h></idx>
+        If an apple orchard occupies one acre of land, how many trees should it contain so as to produce the largest apple crop?
+        This is an example of an <term>optimization</term>
+            <idx><h>optimization</h></idx>
+        problem.
+        The word <em>optimum</em>
+            <idx><h>optimum</h></idx>
+        means
+        <q>best possible</q>
+        <mdash/>especially, the best under a given set of conditions.
+        These exercises seek an optimum by analyzing a simple mathematical model of the orchard.
+        The model is the function that describes how the total yield depends on the number of trees.
+        An immediate impulse is just to plant a lot of trees, on the principle:
+        more trees, more apples.
+        But there is a catch:
+        if there are too many trees in a single acre, they crowd together.
+        Each tree then gets less sunlight and nutrients,
+        so it produces fewer apples.
+        For example, the relation between the
+        <em>yield per tree</em>,
+        <m>Y</m>, and the <em>number of trees</em>, <m>N</m>,
+        may be like that shown in the graph drawn on the left, below. {
+      </p>
+      <image source=""/>
+      <p>
+        } When there are only a few trees,
+        they don't get in each other's way,
+        and they produce at the maximum level<mdash/>say, 750 pounds per tree.
+        Hence the graph starts off level.
+        At some point,
+        the trees become too crowded to produce <em>anything</em>!
+        In between, the yield per tree drops off as shown by the curved middle part of the graph.
+        We want to choose <m>N</m> so that the <em>total yield</em>,
+        <m>T</m>, will be as large as possible.
+        We have <m>T(N) = Y(N) \cdot N</m>,
+        but since we don't know <m>Y(N)</m> very precisely,
+        it is difficult to analyze <m>T(N)</m>.
+        To help, let's replace <m>Y(N)</m> by the approximation shown in the graph on the right.
+        Now carry out an analysis using this graph to represent <m>Y(N)</m>.
+        <ol>
+          <li>
+            <p>
+              Find a formula for the straight segment of the new graph of <m>Y(N)</m> on the interval <m>40 \leq N \leq 180</m>.
+              What is the formula for <m>T(N)</m> on the same interval?
+            </p>
+          </li>
+          <li>
+            <p>
+              What are the formulas for <m>T(N)</m> when
+              <m>0 \leq N \leq 40</m> and when <m>180 \leq N</m>?
+              Graph <m>T</m> as a function of <m>N</m>.
+              Describe the graph in words.
+            </p>
+          </li>
+          <li>
+            <p>
+              What is the maximum possible total yield <m>T</m>?
+              For which <m>N</m> is this maximum attained?
+            </p>
+          </li>
+          <li>
+            <p>
+              Suppose the endpoints of the sloping segment were <m>P</m> and <m>Q</m>,
+              instead of 40 and 180, respectively.
+              Now what is the formula for <m>T(N)</m>? (Note that <m>P</m> and <m>Q</m> are
+              <em>parameters</em> here.
+              Different values of <m>P</m> and <m>Q</m> will give different models for the behavior of the total output.) How many trees would then produce the maximum total output?
+              Expect the maximum to depend on the parameters <m>P</m> and <m>Q</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </subsubsection>
+    <subsubsection xml:id="subsubsec_rate-equations">
+      <title>Rate Equations</title>
+      <p>
+            <idx><h>rate equation</h></idx>
+        Do the following exercises by hand.
+        You may wish to check your answers by using suitable modifications of the program SIR.
+        <ol>
+          <li>
+            <p>
+              <term>Radioactivity</term>.
+                <idx><h>radioactivity</h></idx>
+            From exercise<nbsp/>25 of section<nbsp/>2 we know a sample of <m>R</m> grams of radium decays into lead at the rate
+              <me>
+                R' = \dfrac{-1}{2337} R  \mbox{grams per year}
+              </me>.
+              Using a step size of 10 years,
+              estimate how much radium remains in a 0.072 gram sample after 40 years.
+            </p>
+          </li>
+          <li>
+            <p>
+              <term>Poland and Afghanistan</term>.
+                <idx><h>Poland</h></idx>
+                <idx><h>Afghanistan</h></idx>
+            If <m>P</m> and <m>A</m> denote the populations of Poland and Afghanistan, respectively, then their net per capita growth rates imply the following equations:
+              <md>
+                <mrow>P' \amp = 0.009 \, P  \mbox{persons per year;}</mrow>
+                <mrow>A' \amp = 0.0216 \, A  \mbox{persons per year.}</mrow>
+              </md>
+              (See exercise<nbsp/>23 of section<nbsp/>2.)  In 1985,
+              <m>P = 37.5</m> million, <m>A = 15</m> million.
+              Using a step size of 1 year, estimate <m>P</m> and <m>A</m> in 1990.
+            </p>
+          </li>
+          <li>
+            <p>
+              <term>Falling bodies.</term>  If <m>d</m> and <m>v</m> denote the distance fallen
+              (in feet)
+              and the velocity
+              (in feet per second)
+              of a falling body,
+              then the motion can be described by the following equations:
+              <md>
+                <mrow>d' \amp = v   \mbox{feet per second} ;</mrow>
+                <mrow>v' \amp = 32  \mbox{feet per second per second} </mrow>
+              </md>.
+              (See exercise<nbsp/>21 of section<nbsp/>2.)  Assume that when <m>t=0</m>,
+              <m>d=0</m> feet and <m>v=10</m> feet/sec.
+              Using a step size of 1<nbsp/>second,
+              estimate <m>d</m> and <m>v</m> after 3<nbsp/>seconds have passed. \cleardoublepage
+            </p>
+          </li>
+        </ol>
+      </p>
+    </subsubsection>
+  </subsection>
+</section>

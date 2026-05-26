@@ -1,0 +1,626 @@
+<section xml:id="sec_integration-by-substitution">
+  <title>Integration by Substitution</title>
+  <introduction>
+    <p>
+      In the preceding section we converted a couple of general rules for differentiation<mdash/>the rule for the derivative of a constant times a function and the rule for the derivative of the sum of two functions<mdash/>into equivalent rules in integral form.
+      In this section we will develop the integral form of the chain rule and see some of the ways this can be used to find antiderivatives.
+      Suppose we have functions <m>F</m> and <m>G</m>,
+      with corresponding derivatives <m>f</m> and <m>g</m>.
+      Then the chain rule says
+      <me>
+        \left(F(G(x))\right)'=F'(G(x))\,G'(x)=f(G(x))\,g(x)
+      </me>.
+    </p>
+    <p>
+      If we now take the indefinite integral of these equations, we get
+      <me>
+        F(G(x))+C=\int (F(G(x)))'\,dx=\int f(G(x))\,g(x)\,dx
+      </me>,
+      where <m>C</m> can be any constant.
+      Reversing these equalities
+    </p>
+    <aside>
+      <p>
+        The integral form of the chain rule
+      </p>
+    </aside>
+    <p>
+      to get a statement about integrals, we obtain:
+    </p>
+    <image source=""/>
+    <p>
+      This somewhat unpromising expression turns out to be surprisingly useful.
+      Here's how: Suppose we want to find an indefinite integral,
+      and see in the integrand a <em>pair</em>
+      of functions <m>G</m> and <m>g</m>,
+      where <m>G'=g</m> and where <m>g(x)</m> can be factored out of the integrand.
+    </p>
+    <aside>
+      <p>
+        Reduction methods transform problems into equivalent, simpler, problems
+      </p>
+    </aside>
+    <p>
+      We then find a function <m>f</m> so that the integrand can be written in the form <m>f(G(x))g(x)</m>.
+      Now we only have to find an antiderivative for <m>f</m>.
+      Once we have such an antiderivative, call it <m>F</m>,
+      then the solution to our original problem will be <m>F(G(x))</m>.
+      Thus, while our original antiderivative problem is not yet solved,
+      it has been reduced to a different,
+      simpler antiderivative problem that, when all goes well,
+      will be easier to evaluate.
+      Such <term>reduction methods</term>
+      are typical of many integration techniques.
+      We will see other examples in the remainder of this chapter.
+      <term>Example 1</term>Suppose we try to find a formula for the integral
+      <me>
+        \int 3x^2 \left(1 + x^3\right)^7 dx
+      </me>.
+    </p>
+    <p>
+      One way would be to multiply out the expression <m>\left(1 + x^3\right)^7</m>,
+      making the integrand a polynomial with many separate terms of different degrees. (The highest degree would be 23;
+      do you see why?) We could then carry out the integration
+      <q>term-by-term,</q>
+      using the rules for sums and constant multiples of powers of <m>x</m> that were given in the previous section.
+      But this is tedious<mdash/>even excruciating.
+      Instead, notice that the expression <m>3x^2</m> is the derivative of <m>1+x^3</m>.
+      If we let <m>G(x)=1+x^3</m> and <m>g(x)=3x^2</m>,
+      we can then write the integrand as
+      <me>
+        3x^2 \left(1 + x^3\right)^7=(G(x))^7g(x)
+      </me>.
+    </p>
+    <p>
+      Now <m>(G(x))^7</m> is clearly just <m>f(G(x))</m> where <m>f</m> is the function which raises its input to the 7th power<mdash/><m>f(x)=x^7</m> for any input <m>x</m>.
+      But we recognize <m>f</m> as an elementary function whose antiderivative we can write down immediately as <m>F(x)=\tfrac{1}{8}x^8</m>.
+      Thus the solution to our original problem will be
+      <me>
+        \int 3x^2 \left(1 + x^3\right)^7 dx = F(G(x))+C = \dfrac{1}{8}\left(1 + x^3\right)^8+C
+      </me>.
+    </p>
+    <p>
+      As with any integration problem,
+      we can check our answer by taking the derivative of the right-hand side to see if it agrees with the integrand on the left.
+      You should do this whenever you aren't quite sure of your technique
+      (or your arithmetic!).
+      Note that the term <m>3x^2</m> that appeared in the integrand above was essential for the procedure to work.
+      The integral
+      <me>
+        \int \left(1 + x^3 \right)^7 dx
+      </me>
+    </p>
+    <p>
+      <em>cannot</em> be found by substitution,
+      even though it appears to have a simpler form.
+      (Of course, the integral <em>can</em>
+      be found by multiplying out the integrand.)
+      <term>Using differential notation</term>
+          <idx><h>differential notation</h></idx>
+    </p>
+    <aside>
+      <p>
+        A compact notation for expressing the integral form of the chain rule
+      </p>
+    </aside>
+    <p>
+      So far the symbol <m>dx</m>
+      (the <term>differential</term> of<nbsp/><m>x</m>)
+      under the integral sign has simply been an appendage,
+      tagging along to suggest the
+      <m>\Delta x</m> portion of the Riemann sums approximating definite integrals.
+      It turns out we can take advantage of this notation to use the integral form of the chain rule more compactly.
+      Instead of naming the functions <m>G</m> and <m>g</m> as above,
+      we introduce a new variable <m>u=G(x)</m>.
+      Then
+      <me>
+        \dfrac{du}{dx} = G'(x)=g(x)
+      </me>,
+      and it is suggestive to multiply out this
+      <q>quotient</q>
+      to get
+      <me>
+        du=g(x)\,dx
+      </me>.
+    </p>
+    <p>
+      While this is reminiscent of the microscope equation we met in chapter<nbsp/>3,
+      and 18th century mathematicians took this equation seriously as a relation between two
+      <q>infinitesimally small</q>
+      quantities <m>dx</m> and <m>du</m>,
+      we will view it only as a convenient mnemonic device.
+      To see how this simplifies computations,
+      reconsider the previous example.
+      If we let <m>u=1+x^3</m>, then <m>du=3x^2\,dx</m>, so we can write
+      <me>
+        3x^2 (1 + x^3)^7 \, dx = (\underbrace{1 + \rule[-3pt]{0pt}{6pt}x^3}_ {\displaystyle u})^7 \underbrace{3x^2 \rule[-3pt]{0pt}{6pt}\, dx}_ {\displaystyle du} = u^7 \, du
+      </me>.
+    </p>
+    <p>
+      It follows that
+      <md>
+        <mrow>\int 3x^2 \left(1 + x^3 \right)^7 dx \amp = \int u^7 \, du</mrow>
+        <mrow>\amp = \tfrac{1}{8} u^8 + C</mrow>
+        <mrow>\amp = \tfrac{1}{8} \left(1 + x^3\right)^8 + C</mrow>
+      </md>,
+      as before.
+      We have arrived at the same answer without having to introduce the cumbersome language of all the auxiliary functions<mdash/>we simply <term>substituted</term>
+      the variable <m>u</m> for a certain expression in <m>x</m> (which we called <m>G(x)</m> before),
+      and replaced <m>G'(x)dx</m> by <m>du</m>.
+      For this reason this technique is called
+      <term>integration by substitution</term>.
+      You should always be clear, though,
+      that integration by substitution is just the integral form of the chain rule,
+      a relationship that becomes clear whenever you check the answer substitution gives you.
+      <term>Example 2</term>Can we use the method of substitution to find
+      <me>
+        \int \dfrac{e^{5x}}{6 + e^{5x}} \, dx?
+      </me>
+    </p>
+    <p>
+      The numerator is almost the derivative of the denominator.
+      This suggests we let <m>G(x) = 6+e^{5x}</m>,
+      giving <m>g(x)=G'(x)= 5e^{5x}</m>.
+      Since we need to be able to factor <m>g(x)</m> out of the integrand,
+      we multiply numerator and denominator by 5 to get
+      <md>
+        <mrow>\int \dfrac{e^{5x}}{6 + e^{5x}} \, dx \amp = \int \dfrac{1}{5} \cdot \dfrac{1}{6+e^{5x}}5e^{5x}\,dx</mrow>
+        <mrow>\amp = \int \dfrac{1}{5} \cdot \dfrac{1}{G(x)}g(x)\,dx</mrow>
+        <mrow>\amp = \dfrac{1}{5}\int f(G(x))g(x)\, dx</mrow>
+      </md>,
+      where <m>f</m> is just the reciprocal function<mdash/><m>f(x)=1/x</m>.
+      But an antiderivative for <m>f</m> is just <m>\ln{x}</m>,
+      so the desired antiderivative is just
+      <me>
+        \dfrac{1}{5}F(G(x))+C= \dfrac{1}{5}\ln(6+e^{5x})+C
+      </me>.
+    </p>
+    <p>
+      As usual, you should check this answer by differentiating to see that you really do get the original function.
+      Now let's see how this works using differential notation.
+      If we set <m>u = 6 + e^{5x}</m>, then
+      <me>
+        \dfrac{du}{dx} = 5e^{5x} \qquad \mbox{and}  \qquad du = 5e^{5x} \, dx
+      </me>.
+    </p>
+    <p>
+      Again we insert a factor of 5 in the numerator and an identical one in the denominator to balance it.
+      Substitutions for <m>u</m> and <m>du</m> then yield the following:
+      <md>
+        <mrow>\int \dfrac{1}{5}\cdot \dfrac{5e^{5x}}{6 + e^{5x}} \, dx \amp = \dfrac{1}{5} \int \dfrac{5e^{5x} \, dx}{6 + e^{5x}}</mrow>
+        <mrow>\amp = \dfrac{1}{5} \int \dfrac{du}{u}</mrow>
+        <mrow>\amp = \dfrac{1}{5} \ln(u) + C</mrow>
+        <mrow>\amp = \dfrac{1}{5} \ln(6+e^{5x}) + C</mrow>
+      </md>,
+      as before.
+      The two examples above have the same structure.
+    </p>
+    <aside>
+      <p>
+        The basic structure
+      </p>
+    </aside>
+    <p>
+      In both, a certain function of <m>x</m> is selected and called <m>u</m>;
+      part of the integrand, namely <m>u'\,dx</m>, becomes <m>du</m>,
+      the rest becomes one of the basic functions of <m>u</m>.
+      Specifically:
+      <me>
+        \begin{array}{ccccccc} \mbox{integrand}  \amp \amp  u \amp \amp  du \amp \amp  \mbox{function of \(u\)}  \\ \hline 3x^2 \left(1 + x^3\right)^7 dx \amp \amp  1 + x^3 \amp \amp  3x^2 \, dx  \amp \amp  u^7 \\ \dfrac{e^{5x}}{6 + e^{5x}} \, dx \amp \amp  6 + e^{5x} \amp \amp  5e^{5x} \, dx \amp \amp  \dfrac{1}{5} \cdot \dfrac{1}{u} \end{array}
+      </me>
+    </p>
+    <p>
+      Note that you may have to do a bit of algebraic reshaping of the integrand
+          <idx><h>integrand</h></idx>
+      to cast it in the proper form.
+      For example,
+      we had to insert a factor of 5 to the numerator of the second example to make the numerator be the derivative of the denominator.
+      There is no set routine to be followed to find an antiderivative most efficiently,
+      or even any way to know whether a particular method will work until you try it.
+      Success comes with experience and a certain amount of intelligent fiddling until something works out.
+      <term>Example 3</term>The method of substitution is useful in simple problems, too.
+      Consider
+      <me>
+        \int \cos(3t) \, dt
+      </me>.
+    </p>
+    <p>
+      If we set <m>u = 3t</m>, then <m>du = 3 \, dt</m> and
+      <md>
+        <mrow>\int \cos(3t) \, dt \amp = \int \cos(u) \cdot \tfrac{1}{3} \, du</mrow>
+        <mrow>\amp = \tfrac{1}{3} \int \cos(u) \, du</mrow>
+        <mrow>\amp = \tfrac{1}{3} \sin(u) + C</mrow>
+        <mrow>\amp = \tfrac{1}{3} \sin(3t) + C</mrow>
+      </md>.
+    </p>
+  </introduction>
+  <subsection xml:id="subsec_substitution-in-definite-integrals">
+    <title>Substitution in Definite Integrals</title>
+    <p>
+      Until now we have been using the technique of substitution to find antiderivatives<mdash/>that is,
+      to evaluate <em>indefinite integrals</em>.
+      Refer back to the integral form of the chain rule given in the box <xref ref="subrule">on</xref>,
+      and see what happens when we use this equation to evaluate a
+      <em>definite integral</em>.
+      Suppose we want to evaluate
+      <me>
+        \int_a^bf(G(x))\,g(x)\,dx
+      </me>.
+    </p>
+    <p>
+      We know that <m>F(G(x))</m> is an antiderivative,
+      so by the fundamental theorem we have
+      <me>
+        \int_a^bf(G(x))\,g(x)\,dx=\left. F(G(x))\right|_a^b=F(G(b))-F(G(a))
+      </me>.
+    </p>
+    <p>
+      Now suppose we make the substitution <m>u=G(x)</m> and <m>du=g(x)\,dx</m>.
+      Then as <m>x</m> goes from <m>a</m> to <m>b</m>,
+      <m>u</m> will go from <m>G(a)</m> to <m>G(b)</m>.
+      Moreover, we have
+      <me>
+        \int_{G(a)}^{G(b)} f(u)\,du=\left. F(u)\right|_{G(a)}^{G(b)} = F(G(b))-F(G(a))
+      </me>,
+      so the two definite integrals have the same value.
+      In other words, \framebox[380pt] {
+      <em>If we make the substitution  <m>u=G(x)</m>, then</em>
+    </p>
+    <p>
+      <m>\dint_a^b f(G(x))\,g(x)\,dx = F(G(b))-F(G(a))=\dint_{G(a)}^{G(b)} f(u)\,du</m>. } }} This means that to evaluate a definite integral by substitution,
+      we can do everything in terms of <m>u</m>.
+      We don't ever need to find an antiderivative for the original integrand in terms of <m>x</m> or use the original limits of integration.
+      <term>Example 4</term>Consider the definite integral
+      <me>
+        \int_0^{\pi/2} \dfrac{\cos{x}\,dx}{1+\sin{x}}
+      </me>.
+    </p>
+    <p>
+      We can evaluate this integral by making the substitution <m>u=1+\sin{x}</m>,
+      and <m>du=\cos{x}\,dx</m>.
+      Moreover, as <m>x</m> goes from 0 to <m>\pi/2</m>,
+      <m>u</m> goes from 1 to 2.
+      Therefore
+      <me>
+        \int_0^{\pi/2} \dfrac{\cos{x}\,dx}{1+\sin{x}} = \int_1^2 \dfrac{du}{u}=\left.\ln{u}\right|_1^2=\ln{2}
+      </me>.
+    </p>
+    <p>
+      Check that this is the same answer you would have gotten if you had expressed the antiderivative <m>\ln{u}</m> in terms of <m>x</m> and evaluated the result at the limits on the original integral.
+      <term>Example 5</term>Evaluate
+      <me>
+        \int_0^1 6 x^2(1+x^3)^4\,dx
+      </me>.
+    </p>
+    <p>
+      With the substitution <m>u=1+x^3</m> and <m>du=3x^2\,dx</m>,
+      as <m>x</m> goes from 0 to 1, <m>u</m><nbsp/>goes from 1 to 2.
+      Our integral thus becomes
+      <me>
+        \int_0^1 6 x^2(1+x^3)^4\,dx=\int_0^2 2 u^4\,du =\left. \dfrac{2}{5}u^5 \, \right|_1^2 =\dfrac{64}{5}
+      </me>.
+    </p>
+  </subsection>
+  <subsection xml:id="subsec_exercises">
+    <title>Exercises</title>
+    <ol>
+      <li>
+        <p>
+          Evaluate the following using substitution.
+          Do parts (a) through (e) in two ways: { i.} by writing the integrand in the form <m>f(G(x))g(x)</m>
+          (or <m>y</m> or <m>t</m> or whatever the variable is)
+          for appropriate functions <m>f</m>, <m>G</m>, and <m>g</m>,
+          with <m>G'=g</m>, and then finding <m>F = \int f</m>;
+          and { ii.} using differential notation.
+          Do the remaining parts in the way you feel most confident.
+          <ol>
+            <li>
+              <p>
+                <m>{\dint 2y(y^2+1)^{50}\,dy}</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>{\dint \sin(5z)\,dz}</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>{\dint \dfrac{e^{\sqrt x}}{\sqrt x}\,dx}</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>{\dint (5t+7)^{50}\,dt}</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>{\dint 3u^2 \, \root 3 \of {u^3+8}\,du}</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>{\dint \dfrac{1}{2v+1}\,dv}</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>{\dint \tan{x}\,dx}</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>{\dint \tan^2(x)\sec^2(x)\,dx}</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>{\dint \sec(x/2)\tan(x/2)\,dx}</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>{\dint \sin(w)\,\sqrt{\cos(w)}\,dw}</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>{\dint \dfrac{\sin(\sqrt{s})}{\sqrt{s}}\,ds}</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>{\dint \sqrt{3-x}\,dx}</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>{\dint \dfrac{dr}{r\ln{r}}}</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>{\dint e^x\sin(1+e^x)\,dx}</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>{\dint \dfrac{y}{1+y^2}\,dy}</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>{\dint \dfrac{w}{\sqrt{1-w^2}}\, dw}</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>{\dint \dfrac{1}{1+4y^2}\,dy}</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>{\dint \dfrac{1}{\sqrt{1-9w^2}}\, dw}</m>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </li>
+      <li>
+        <p>
+          Use integration by substitution to find the numerical value of the following.
+          In four of these you should get your answer in two ways:
+          i) by finding an antiderivative for the given integrand,
+          and ii) by using the observation in the box <xref ref="defint">on</xref>,
+          comparing the results.
+          You should also check your results for three of the problems by finding numerical estimates for the integrals using RIEMANN.
+            <idx><h>program</h><h>RIEMANN</h></idx>
+        <ol>
+            <li>
+              <p>
+                <m>{\dint_0^1 \dfrac{e^s}{e^s+1}\,ds}</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>{\displaystyle \int_0^{\ln{e}} \dfrac{e^s}{e^s+1}\,ds}</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>{\displaystyle \int_1^3 \dfrac{1}{2x+1}\,dx}</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>{\displaystyle \int_{-3}^{-1} \dfrac{1}{2x+1}\,dx}</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>{\displaystyle \int_0^1 \dfrac{t}{\sqrt{1 + t^2}}\,dt}</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>{\displaystyle \int_0^1 \dfrac{\sin(\pi\sqrt{t})}{\sqrt{t}}\,dt}</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>{\displaystyle \int_0^2 \dfrac{1}{1+ (x^2/4)}\,dx}</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>{\displaystyle \int_0^{\tfrac{1}{3}} \dfrac{1}{\sqrt{1-9y^2}}\,dy}</m>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </li>
+      <li>
+        <p>
+          This question concerns the integral <m>I = \dint \sin{x} \, \cos{x} \, dx</m>.
+          <ol>
+            <li>
+              <p>
+                Find <m>I</m> by using the substitution <m>u = \sin{x}</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Find <m>I</m> by using the substitution <m>u = \cos{x}</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Compare your answers to (a) and (b).
+                Are they the same?
+                If not, how do they differ?
+                Since both answers are antiderivatives of <m>\sin{x} \, \cos{x}</m>,
+                they should differ only by a constant.
+                Is that true here?
+                If so, what is the constant?
+              </p>
+            </li>
+            <li>
+              <p>
+                Now calculate the value of the <em>definite</em> integral
+                <me>
+                  \int_0^{\pi/2} \sin{x}\,\cos{x} \,dx
+                </me>
+                twice, using the two <em>indefinite</em>
+                integrals you found in (a) and (b).
+                Do the two values agree, or disagree?
+                Is your result consistent with what you expect?
+              </p>
+            </li>
+          </ol>
+        </p>
+      </li>
+      <li>
+        <p>
+          Find all functions <m>y = F(x)</m> that satisfy the differential equation
+          <me>
+            \dfrac{dy}{dx} = x^2 \left( 1 + x^3 \right)^{13}
+          </me>.
+          <ol>
+            <li>
+              <p>
+                From among the functions <m>F(x)</m> you found in part (a),
+                select the one that satisfies <m>F(0) = 4</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                From among the functions <m>F(x)</m> you found in part (a),
+                select the one that satisfies <m>F(-1) = 4</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </li>
+      <li>
+        <p>
+          Find a function <m>y = G(t)</m> that solves the initial value problem
+          <me>
+            \dfrac{dy}{dt} = t e^{-t^2} \qquad y(0) = 3
+          </me>.
+        </p>
+      </li>
+      <li>
+        <p>
+          What is the average value of the function
+          <m>f(x) = x/\sqrt{1+x^2}</m> on the interval <m>[0, 2]</m>?
+          <ol>
+            <li>
+              <p>
+                Show that the average value of the <m>f(x)</m> on the interval <m>[-2, 2]</m> is 0.
+                Sketch a graph of <m>y = f(x)</m> on this interval,
+                and explain how the graph also shows that the average is 0.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </li>
+      <li>
+        <p>
+          Sketch the graph of the function
+          <m>y = x e^{-x^2}</m> on the interval <m>[0, 5]</m>.
+          <ol>
+            <li>
+              <p>
+                Find the area between the graph of
+                <m>y = x e^{-x^2}</m> and the <m>x</m>-axis for <m>0 \leq x \leq 5</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Find the area between the graph of
+                <m>y = x e^{-x^2}</m> and the <m>x</m>-axis for <m>0 \leq x \leq b</m>.
+                Express your answer in terms of the quantity <m>b</m>,
+                and denote it <m>A(b)</m>.
+                Is <m>A(5)</m> the same number you found in part(b)?
+                What are the values of <m>A(10)</m>,
+                <m>A(100)</m>, <m>A(1000)</m>?
+              </p>
+            </li>
+            <li>
+              <p>
+                It is possible to argue that the area between the graph of
+                <m>y = x e^{-x^2}</m> and the <em>entire</em>
+                positive <m>x</m>-axis is 1/2.
+                Can you develop such an argument?
+              </p>
+            </li>
+          </ol>
+        </p>
+      </li>
+      <li>
+        <p>
+          Use a computer graphing utility to establish that
+          <me>
+            \sin^2{x} = \dfrac{1 - \cos(2x)}{2}
+          </me>.
+          Sketch these graphs.
+          <ol>
+            <li>
+              <p>
+                Find a formula for <m>\dint \sin^2{x} \, dx</m>. (Suggestion:
+                replace <m>\sin^2{x}</m> by the expression involving <m>\cos(2x)</m>, above,
+                and integrate by substitution.)
+              </p>
+            </li>
+            <li>
+              <p>
+                What is the average value of
+                <m>\sin^2{x}</m> on the interval <m>[0, \pi]</m>?
+                What is its average value on any interval of the form <m>[0, k \pi]</m>,
+                where <m>k</m> is a whole number?
+              </p>
+            </li>
+            <li>
+              <p>
+                Explain your results in part (c) in terms of the graph of
+                <m>\sin^2{x}</m> you drew in part (a).
+              </p>
+            </li>
+            <li>
+              <p>
+                Here's a differential equations proof of the identity in part (a).
+                Let <m>f(x)=\sin^2{x}</m>, and let <m>g(x)=(1 - \cos(2x))/2</m>.
+                Show that both of these functions satisfy the initial value problem
+                <me>
+                  y''=2-4y \mbox{with}  y(0)=0\mbox{and}  y'(0)=0
+                </me>.
+                Hence conclude the two functions must be the same.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </li>
+    </ol>
+  </subsection>
+</section>

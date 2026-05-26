@@ -1,0 +1,357 @@
+<section xml:id="sec_finding-partial-derivatives">
+  <title>Finding Partial Derivatives</title>
+  <introduction>
+    <p>
+      We know from Chapter 3 that no additional formulas are needed to calculate
+      <em>partial</em> derivatives.
+      We simply use the usual differentiation formulas,
+      treating all the variables except one<mdash/>the one with respect to which the partial derivative is formed<mdash/>as if they were constants.
+      If we do this we get new techniques for analyzing rates of change in problems that involve functions of several variables.
+    </p>
+  </introduction>
+  <subsection xml:id="subsec_some-examples">
+    <title>Some Examples</title>
+    <p>
+      Here are two examples to illustrate the technique for calculating partial derivatives:
+    </p>
+    <aside>
+      <p>
+        Finding formulas for partial derivatives
+      </p>
+    </aside>
+    <ol>
+      <li>
+        <p>
+          Suppose <m>f(x,y) = x^2y + 5x^3 - \sqrt{x+y}</m>.
+          Then
+          <md>
+            <mrow>f_x(x,y) \amp = 2xy + 15x^2 - \frac{1}{2\sqrt{x+y}}, \mbox{and}</mrow>
+            <mrow>f_y(x,y) \amp = x^2  - \frac{1}{2\sqrt{x+y}}</mrow>
+          </md>.
+        </p>
+      </li>
+      <li>
+        <p>
+          Suppose <m>g(u,v) = e^{\displaystyle uv} + \displaystyle{\frac{u}{v}}</m>.
+          Then
+          <md>
+            <mrow>g_u(u,v) \amp = ve^{\displaystyle uv} + \frac{1}{v}, \mbox{and}</mrow>
+            <mrow>g_v(u,v) \amp = ue^{\displaystyle uv} - \frac{u}{v^2}</mrow>
+          </md>.
+        </p>
+      </li>
+    </ol>
+  </subsection>
+  <subsection xml:id="subsec_eradication-of-disease">
+    <title>Eradication of Disease</title>
+    <p>
+      Controlling<mdash/>or, better still,
+      eradicating<mdash/>a communicable disease depends first on the development of a vaccine.
+      But even after this step has been accomplished,
+      public health officials must still answer important questions,
+      including:
+      <ul>
+        <li>
+          <p>
+            What proportion of the population must be vaccinated in order to eliminate the disease?
+          </p>
+        </li>
+        <li>
+          <p>
+            At what age should people be vaccinated?
+          </p>
+        </li>
+      </ul>
+    </p>
+    <p>
+      In their 1982 article,
+      <q>Directly Transmitted Infectious Diseases: Control by Vaccination,</q>
+      (<em>Science</em>, Vol. 215, 1053<ndash/>1060), Roy Anderson
+          <idx><h>Anderson, R.</h></idx>
+      and Robert May
+          <idx><h>May, R.</h></idx>
+      formulate a model for the spread of disease that permits them to answer these and other questions.
+      For a particular disease in a particular environment,
+      the important variables in their model are
+      <ol>
+        <li>
+          <p>
+            The average human life expectancy <m>L</m>, in years;
+          </p>
+        </li>
+        <li>
+          <p>
+            The average age <m>A</m> at which individuals catch the disease,
+            in years;
+          </p>
+        </li>
+        <li>
+          <p>
+            The average age <m>V</m> at which individuals are vaccinated against the disease,
+            in years.
+          </p>
+        </li>
+      </ol>
+    </p>
+    <p>
+      Anderson and May deduce from their model that in order to eradicate the disease,
+      the proportion of the population that is vaccinated must exceed <m>p</m>,
+      where <m>p</m> is given by
+      <me>
+        p = \frac{L + V}{L + A}
+      </me>.
+    </p>
+    <p>
+      For a disease like measles,
+      public health officials can directly affect the variable <m>V</m>,
+    </p>
+    <aside>
+      <p>
+        Partial derivatives can tell us which variables are most significant
+      </p>
+    </aside>
+    <p>
+      for example by the recommendations they make to physicians about immunization schedules for children.
+      They may also indirectly affect the variables <m>A</m> and <m>L</m>,
+      because public health policy influences factors which can modify the age at which children catch the disease or the overall life expectancy of the population.
+      (Many other factors affect these variables as well.)
+      Which of these three variables has the greatest effect on the proportion of the population that must be vaccinated?
+      In other words, which is largest:
+      <m>\partial p/\partial L</m>,
+      <m>\partial p/\partial A</m>,
+      or <m>\partial p/\partial V</m>?
+      Using the rules, we compute:
+      <md>
+        <mrow>\frac{\partial p}{\partial L} \amp = \frac{1\cdot (L+A)-1\cdot (L+V)}{(L+A)^2} = \frac{A-V}{(L+A)^2},</mrow>
+        <mrow>\frac{\partial p}{\partial A} \amp = \frac{-(L+V)}{(L+A)^2}, \mbox{and}</mrow>
+        <mrow>\frac{\partial p}{\partial V} \amp = \frac{1}{L+A}</mrow>
+      </md>.
+    </p>
+    <p>
+      For measles in the United States,
+      reasonable values of the variables are <m>L</m> = 70 years,
+      <m>A</m> = 5 years and <m>V</m> = 1 year.
+      Using these values,
+      the crucial proportion of the population needing to be vaccinated is <m>p=71/75 = 0.947</m>,
+      and the partial derivatives are
+      <md>
+        <mrow>{2} \dfrac{\partial p}{\partial L} \amp = \dfrac{4}{(75)^2}   \amp \amp = 0.0007,</mrow>
+        <mrow>\dfrac{\partial p}{\partial A} \amp = \dfrac{-71}{(75)^2} \amp \amp = -0.0126,</mrow>
+        <mrow>\dfrac{\partial p}{\partial V} \amp = \dfrac{1}{75} \amp \amp = 0.0133</mrow>
+      </md>.
+    </p>
+    <p>
+      A comment is in order here on units.
+    </p>
+    <aside>
+      <p>
+        Determining units
+      </p>
+    </aside>
+    <p>
+      While the input variables <m>L\/</m>,
+      <m>A\/</m> and <m>V</m> are all measured in years<mdash/>so the rates are <em>per year</em>,
+      the output variable <m>p</m> is dimensionless:
+      it is the ratio of persons vaccinated to persons not vaccinated.
+      It would be reasonable to write <m>p</m> as a percentage.
+      Then we can attach the units <em>percent per year</em>
+      to each of the three partial derivatives.
+      Thus we have:
+      <md>
+        <mrow>{2} \frac{\partial p}{\partial L} \amp = 0.07\% \hspace{.25in} \amp \mbox{per year}</mrow>
+        <mrow>\frac{\partial p}{\partial A} \amp = -1.26\% \hspace{.25in} \amp \mbox{per year}</mrow>
+        <mrow>\frac{\partial p}{\partial V} \amp = 1.33\%  \hspace{.25in} \amp \mbox{per year.}</mrow>
+      </md>
+    </p>
+    <p>
+      It is not surprising that a change in average life expectancy has a negligible effect on the proportion <m>p</m> of the population that must be vaccinated in order to eradicate measles.
+      Nor is it surprising that changing the age of vaccination has the greatest effect on <m>p</m>.
+      But it is not obvious ahead of time that changing the age at which children catch the disease has nearly as large an effect on <m>p</m>:
+      <ul>
+        <li>
+          <p>
+            Decreasing the age of vaccination decreases the proportion <m>p</m> by 1.33% per year of decrease.
+          </p>
+        </li>
+        <li>
+          <p>
+            Increasing the age at which children catch measles decreases the proportion <m>p</m> by 1.26% per year of increase.
+          </p>
+        </li>
+      </ul>
+    </p>
+    <p>
+      Changes can also go the
+      <q>wrong</q>
+      way.
+      For example,
+      in an area where use of communal child care facilities is growing,
+      contact among very young children increases,
+      and the age at which children are exposed to<mdash/>and can catch<mdash/>communicable diseases like measles falls.
+      The Anderson<ndash/>May model tells us that immunization practices must change to compensate:
+      either the age of vaccination must drop a like amount,
+      or the fraction of the population that is vaccinated must grow by 1.26\per year of decrease in the average age at infection.
+    </p>
+  </subsection>
+  <subsection>
+    <title>Exercises</title>
+    <subsubsection xml:id="subsubsec_finding-partial-derivatives">
+      <title>Finding Partial Derivatives</title>
+      <ol>
+        <li>
+          <p>
+            Find the partial derivatives of the following functions.
+            <ol>
+              <li>
+                <p>
+                  <m>x^2 y</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\sqrt{x + y}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>e^{xy}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\displaystyle{\frac{y}{x}}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\dfrac{x + y}{y + z}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\sin{\displaystyle{\frac{y}{x}}}</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Suppose <m>f(x,y) = \displaystyle{e^{-(x+2y)}(2x - 5y)}</m>.
+            Find <m>f_x(x,y)</m> and <m>f_y(x,y)</m>.
+            <ol>
+              <li>
+                <p>
+                  Find a point <m>(a, b)</m> at which <m>f_x(a,b)=0</m>.
+                  At such a point a small change in <m>x</m> leaves the value of <m>f</m> virtually unchanged.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Find a point <m>(a, b)</m> at which a small <em>increase</em>
+                  in the <m>x</m>-value would produce the same change in <m>f(a,b)</m> as would the same-sized
+                  <em>decrease</em> in the <m>y</m>-value.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Suppose <m>g(u,v) = \dfrac{\sin{u+v^2}+7uv}{1+u^2+v^4}</m>.
+            Find <m>g_u(u,v)</m> and <m>g_v(u,v)</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            The <term>second partial derivatives</term><idx><h>derivative</h><h>second partial</h></idx> of
+            <m>z = f(x, y)</m> are the partial derivatives of
+            <m>\partial f/\partial x</m> and <m>\partial f/\partial y</m>, namely:
+            <md>
+              <mrow>\dfrac{\partial ^2 f}{\partial x ^2} \amp  = \dfrac{\partial}{\partial x} \left( \dfrac{\partial f}{\partial x} \right)</mrow>
+              <mrow>\dfrac{\partial ^2 f}{\partial x \partial y} \amp  = \dfrac{\partial}{\partial x} \left( \dfrac{\partial f}{\partial y} \right)</mrow>
+              <mrow>\dfrac{\partial ^2 f}{\partial y ^2} \amp  = \dfrac{\partial}{\partial y} \left( \dfrac{\partial f}{\partial y} \right)</mrow>
+            </md>
+            Find the three second partial derivatives of the following functions.
+            <ol>
+              <li>
+                <p>
+                  <m>x^2 y</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\sqrt{x + y}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>e^{xy}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\displaystyle{\frac{y}{x}}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\sin{\displaystyle{\frac{y}{x}}}</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection xml:id="subsubsec_eradication-of-disease">
+      <title>Eradication of Disease</title>
+      <ol>
+        <li>
+          <p>
+            Suppose you were dealing with measles in a developing country where <m>L = 50</m> years,
+            <m>A = 4</m> years, and <m>L=2</m> years.
+            Discuss the impact on measles control if increased public health efforts increase <m>L</m> to 55 years,
+            <m>A</m> to 5 years, and decrease <m>V</m> to 1.5 years.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection xml:id="subsubsec_partial-differential-equations">
+      <title>Partial differential equations</title>
+      <p>
+            <idx><h>partial differential equations</h></idx>
+            <idx><h>differential equation</h><h>partial</h></idx>
+        <ol>
+          <li>
+            <p>
+              Show that the function <m>z = \dfrac{1}{\sqrt{t}} \exp{\dfrac{-x^2}{4t}}</m> satisfies the
+              <term>partial differential equation</term>
+              <me>
+                \dfrac{\partial ^2 z}{\partial x^2} = \dfrac{\partial z}{\partial t}
+              </me>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Show that <em>every</em> linear function of the form
+              <m>z = px + qy + c</m> satisfies the partial differential equation
+              <me>
+                \dfrac{\partial ^2 z}{\partial x^2} + \dfrac{\partial ^2 z}{\partial y^2} = 0
+              </me>.
+              Here <m>p</m>, <m>q</m>, and <m>c</m> are arbitrary constants.
+            </p>
+          </li>
+          <li>
+            <p>
+              Show that the function <m>z = e^x\sin{y}</m> also satisfies the partial differential equation
+              <me>
+                \dfrac{\partial ^2 z}{\partial x^2} + \dfrac{\partial ^2 z}{\partial y^2} = 0
+              </me>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </subsubsection>
+  </subsection>
+</section>

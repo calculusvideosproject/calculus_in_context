@@ -1,0 +1,832 @@
+<section xml:id="sec_the-shape-of-the-graph-of-a-mboxfunction">
+  <title>The Shape of the Graph of a  Function</title>
+  <introduction>
+    <p>
+      We know from chapter 3 that the derivative gives us qualitative information about the shape of the graph of a differentiable function.
+    </p>
+    <tabular>
+      <row>
+        <cell>function</cell>
+        <cell>derivative</cell>
+      </row>
+      <row bottom="minor">
+        <cell></cell>
+        <cell></cell>
+      </row>
+      <row>
+        <cell>increasing</cell>
+        <cell>positive</cell>
+      </row>
+      <row>
+        <cell>decreasing</cell>
+        <cell>negative</cell>
+      </row>
+      <row>
+        <cell>level</cell>
+        <cell>zero</cell>
+      </row>
+      <row>
+        <cell>steep (rising or falling)</cell>
+        <cell>large (positive or negative)</cell>
+      </row>
+      <row>
+        <cell>gradual (rising or falling)</cell>
+        <cell>small (positive or negative)</cell>
+      </row>
+      <row>
+        <cell>straight</cell>
+        <cell>constant</cell>
+      </row>
+    </tabular>
+    <p>
+      Having a formula for the derivative of a function will thus give us a great deal of information about the behavior of the function itself.
+      In particular we will be interested in using the derivative to solve
+    </p>
+    <aside>
+      <p>
+        Contexts for optimization problems
+      </p>
+    </aside>
+    <p>
+      <term>optimization problems</term>
+          <idx><h>optimization</h></idx>
+      <mdash/>finding maximum or minimum values of a function.
+      Such problems occur frequently in many fields.
+      <ul>
+        <li>
+          <p>
+            Economists actually define human rationality in terms of optimization.
+            Each person is assumed to have a
+            <em>utility function</em>,
+            a function that assigns to each of many possible outcomes its <em>utility</em>,
+            a numerical measure of its value to her.
+            (Different people may have different utility functions,
+            depending on their personal value systems.)
+            A rational person is one who acts to maximize her utility.
+            Some utilities are expressed in terms of money.
+            For example,
+            a rational manufacturer will seek to maximize her profit
+            (in dollars).
+            Her profit will depend on<mdash/>that is,
+            be a function of<mdash/>such variables as the cost of her raw materials and the unit price she charges for her product.
+          </p>
+        </li>
+        <li>
+          <p>
+            Many physical laws are expressed as minimum principles.
+            Ordinary soap bubbles exhibit one of these principles.
+            A soap film has a <em>surface energy</em>
+            which is proportional to its surface area.
+            For almost any physical system,
+            its stable state is one which minimizes its energy.
+            Stable soap films are thus examples of
+            <em>minimal surfaces</em>.
+            Interfaces involving crystals also have surface energies,
+            leading to the study of crystalline minimal surfaces.
+          </p>
+        </li>
+        <li>
+          <p>
+            Statisticians develop mathematical summaries for data<mdash/>in other words,
+            mathematical models.
+            For example,
+            a relationship between two numerical variables may be summarized by a linear function,
+            say <m>y=mx+b</m>,
+            where <m>x</m> and <m>y</m> are the variables of interest.
+            It would be very rare to find data that were exactly linear.
+            In a particular case,
+            the statistician chooses the linear model that minimizes the <em>discrepancy</em>
+            between the actual values of <m>y</m> and the theoretical values obtained from the linear function.
+            Statisticians frequently measure this discrepancy by summing the squares of the differences between the actual and the theoretical values of <m>y</m> for each data point.
+            The <em>best-fitting line</em> or
+            <em>regression line</em>
+            is the graph of the linear function which is optimal in this sense.
+          </p>
+        </li>
+        <li>
+          <p>
+            Psychologists who study decision-making have found that some people are
+            <q>risk-averse</q>; they make their decisions primarily to avoid risks.
+            If we regard risk as a function of the various outcomes under consideration (a bit like a utility function),
+            such a person acts to minimize this function.
+          </p>
+        </li>
+      </ul>
+    </p>
+    <p>
+      The derivative is the key tool here.
+      We will develop a general procedure for using the derivative of a function to locate its extremes.
+    </p>
+  </introduction>
+  <subsection xml:id="subsec_language">
+    <title>Language</title>
+    <p>
+      Here is a graph of what we might consider a
+      <q>generic</q>
+      differentiable function.
+      <image width="73%" source="images/pic244a.png"/> The most distinctive features are the hill tops and valley bottoms,
+      points where the graph levels and the derivative is zero.
+    </p>
+    <aside>
+      <p>
+        Local extremes and global extremes
+      </p>
+    </aside>
+    <p>
+      We distinguish between <term>local</term> extremes,
+          <idx><h>extreme</h><h>local</h></idx>
+      like those occurring at the points <m>x=b</m>,
+      <m>x=c</m>, and <m>x=d</m> and a
+      <term>global</term> extreme,
+          <idx><h>extreme</h><h>global</h></idx>
+      like the global maximum at the point <m>x=a</m>.
+      The function has a <term>local</term> <term>minimum</term>
+      at <m>x=b</m> because <m>f(x) \geq f(b)</m> for all <m>x</m>
+      <em>sufficiently near</em> <m>b</m>.
+      The function has a <term>global</term> <term>maximum</term>
+      at <m>x=a</m> because <m>f(x) \leq f(a)</m> for <em>all</em> <m>x</m>.
+      Notice that this particular function does not have a global minimum.
+      What kinds of local extremes does the function have at <m>x=c</m> and <m>x=d</m>?
+      The convention is to say that <em>all</em>
+      extremes are local extremes,
+      and a local extreme may or may not also be a global extreme.
+      Examining the graph of as simple a function
+    </p>
+    <aside>
+      <p>
+        A function may have no extreme at a point where its derivative equals zero
+      </p>
+    </aside>
+    <p>
+      as <m>f(x)=x^3</m> shows us that a function need not have any extremes at all.
+      Moreover, since <m>f'(0)=0</m> for this function,
+      a zero derivative doesn't necessarily identify a point where an extreme occurs.
+      <image width="73%" source="images/pic244b.png"/> Can a function have an extreme at a point
+    </p>
+    <aside>
+      <p>
+        An extreme can occur at a cusp
+      </p>
+    </aside>
+    <p>
+      <em>other</em> than where the derivative is zero?
+      Consider the graph of <m>f(x)=x^{2/3}</m> below.
+      <image width="73%" source="images/pic245.png"/> This function is differentiable everywhere except at the point <m>x=0</m>.
+      And it is at this very point, where
+      <me>
+        f'(x) = \frac{2}{3}x^{-1/3} = \frac{2}{3 \, \sqrt[3]{x}}
+      </me>
+      is undefined, that the function has its global minimum.
+      For this reason, points where the derivative fails to exist
+      (or is infinite)
+      are as important as points where the derivative equals zero.
+      All of these kinds of points are called
+      <term>critical points</term>
+          <idx><h>critical point</h></idx>
+      for the function.
+    </p>
+    <image source=""/>
+    <p>
+      How can we recognize, from looking at its graph,
+      that a function fails to be differentiable at a point?
+      We know that when the graph has a sharp corner or <term>cusp</term>
+          <idx><h>cusp</h></idx>
+      it isn't locally linear at that point,
+      and so has no derivative there.
+      Thus critical points occur at these places.
+      When the graph is locally linear but vertical,
+      the slope cannot be given a finite numerical value.
+      Critical points also occur at these vertical places where the slope is infinite.
+      The graph below is an example of such a curve.
+      <image width="73%" source="images/pic246.png"/> A weaker condition than differentiability,
+    </p>
+    <aside>
+      <p>
+        Continuous functions
+      </p>
+    </aside>
+    <p>
+      but one that is useful,
+      especially in this context, is <em> continuity</em>.
+          <idx><h>continuity</h></idx>
+      We say that a function <m>f</m> is
+      <em> continuous at a point</em><idx><h>function</h><h>continuous</h></idx> <m>x=a</m> if
+      <ul>
+        <li>
+          <p>
+            it is defined at the point, and
+          </p>
+        </li>
+        <li>
+          <p>
+            we can achieve changes in the output that are arbitrarily small by restricting changes in the input to be sufficiently small.
+          </p>
+        </li>
+      </ul>
+    </p>
+    <p>
+      This second condition can also be expressed in the following form:
+    </p>
+    <blockquote>
+      Given any positive number <m>\epsilon</m> (the proposed limit on the change
+      in the output is traditionally designated by the Greek letter
+      <m>\epsilon</m>, pronounced <sq>epsilon</sq>), there is always a positive number
+      <m>\delta</m> (the Greek letter <sq>delta</sq>), such that whenever the change in
+      the input is less than <m>\delta</m>, then the corresponding change in the
+      output will be less than <m>\epsilon</m>.
+    </blockquote>
+    <p>
+      A function is continuous on a set of real numbers if it is continuous at each point of the set.
+    </p>
+    <aside>
+      <p>
+        Graphs of continuous functions have no gaps or jumps
+      </p>
+    </aside>
+    <p>
+      A natural way to think of
+      (and recognize)
+      a function which is continuous on an interval is by its graph on that interval,
+      which is continuous in the usual sense:
+      it has no gaps or jumps in it.
+      You can draw it without picking up your pencil.
+      Of the four functions whose graphs appear on the next page,
+      <m>f</m> is continuous (and differentiable);
+      <m>g</m> is continuous,
+      but not differentiable (because of the cusp at <m>x=a</m>);
+      <m>h</m> is not continuous, because <m>h</m> is undefined at <m>x=b</m>;
+      and <m>k</m> is not continuous, because of the
+      <q>jump</q>
+      at <m>x=c</m>.
+      Luckily, the functions that we are likely to encounter are continuous on their natural domains.
+    </p>
+    <aside>
+      <p>
+        A quotient isn't continuous where its denominator is zero
+      </p>
+    </aside>
+    <p>
+      Among functions given by formulas,
+      the only exceptions we have to worry about are quotients,
+      like <m>f(x)=1/x\/</m>,
+      which have gaps in their natural domains at points where the denominator vanishes (at <m>x=0</m> in the case of <m>f(x)=1/x\/</m>),
+      so their domains are not single intervals.
+      For convenience,
+      we usually confine our attention to functions continuous on an interval.
+      <image width="73%" source="images/pic247a.png"/> <image width="73%" source="images/pic247b.png"/>
+    </p>
+  </subsection>
+  <subsection xml:id="subsec_the-existence-of-extremes">
+    <title>The Existence of Extremes</title>
+    <p>
+      Not every function has extremes,
+      as the example of <m>f(x)=x^3</m> shows.
+      We are, however, guaranteed
+          <idx><h>existence of extremes</h></idx>
+      extremes for certain functions.
+      <term>Principle I.</term> We are guaranteed that a function
+    </p>
+    <aside>
+      <p>
+        A continuous function on a finite closed interval has extremes
+      </p>
+    </aside>
+    <p>
+      has a global maximum and a global minimum if we know:
+      <ul>
+        <li>
+          <p>
+            the domain of the function is a
+            <em>finite closed interval</em>, and
+          </p>
+        </li>
+        <li>
+          <p>
+            the function is <em>continuous</em> on this interval.
+          </p>
+        </li>
+      </ul>
+    </p>
+    <p>
+      The domain restriction in most optimization problems is likely to come from the physical constraints of the problem,
+      not the mathematics.
+      A <term>finite closed interval</term>,
+          <idx><h>interval</h><h>finite closed</h></idx>
+      written <m>[a,b]</m>,
+      is the set of all real numbers between <m>a</m> and <m>b</m>,
+      including the endpoints <m>a</m> and <m>b</m>.
+      Other kinds of finite intervals are <m>(a,b]</m>,
+      (this excludes the endpoint <m>a</m>),
+      <m>[a,b)</m>, and <m>(a,b)</m>.
+      Infinite intervals include open and closed
+      <q>rays</q>
+      like <m>(a,+\infty)</m>, <m>[a, +\infty)</m>,
+      <m>(-\infty,
+      b)</m> and <m>(-\infty,b]</m>, and the entire real line.
+      To illustrate Principle<nbsp/>I, we note first that it does not apply to
+      <m>f(x)=1/x</m> on the finite closed interval <m>[-1,2]</m>,
+      because this function isn't continuous at every point on this interval<mdash/>in fact,
+      the function isn't even defined for <m>x=0</m>.
+      <image width="73%" source="images/pic248a.png"/> <image width="73%" source="images/pic248b.png"/> By contrast, Principle I <em>does</em>
+      apply to the same function if we change its domain to a finite closed interval that does not include <m>x=0</m>.
+      In the figure above we use <m>[1,3]</m>.
+      A function hat fails to satisfy the first condition of Principle<nbsp/>I can still have global extremes.
+      For any function continuous on an interval we can apply the following principle.
+      <term>Principle II.</term> If a function <m>f</m> is continuous
+    </p>
+    <aside>
+      <p>
+        Continuous functions have extremes only at endpoints or critical points
+      </p>
+    </aside>
+    <p>
+      on an interval and has a local extreme at a point <m>x=c</m> of the interval,
+      then either <m>x=c</m> is a critical point for the function,
+      or <m>x=c</m> is an endpoint of the interval.
+      In other words,
+      we are guaranteed that one of the following three conditions holds:
+      <ul>
+        <li>
+          <p>
+            <m>f'(c)=0</m>,
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>f'(c)</m> is undefined,
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>x=c</m> is an endpoint of the interval.
+          </p>
+        </li>
+      </ul>
+    </p>
+    <p>
+      The following graphs illustrate three local maxima,
+      each satisfying one of these three conditions.
+      <image width="73%" source="images/pic249.png"/> When we apply Principle II to optimization problems,
+      an important part of the task will be ascertaining which, if any,
+      of the critical points or endpoints we find actually gives the extreme we're looking for.
+      We'll examine a variety of techniques, graphical and analytical,
+      for locating critical points and determining what kind of extreme point
+      (if any)
+      they are.
+    </p>
+  </subsection>
+  <subsection xml:id="subsec_finding-extremes">
+    <title>Finding Extremes</title>
+    <subsubsection xml:id="subsubsec_using-a-graphical-approach">
+      <title>Using a graphical approach</title>
+      <p>
+        If we can use a computer
+      </p>
+      <aside>
+        <p>
+          Computer graphing can be easy if the general location of the extremes is known
+        </p>
+      </aside>
+      <p>
+        to examine the graph of the function of interest,
+        we can determine the existence and location of extremes by inspection.
+        However, every graphing utility requires the user to specify the interval on which the function will be graphed,
+        and careful analysis may be required in order to choose an interval that contains all the extremes of interest.
+        For functions given by data, whose graphs have only finitely many points,
+        we can zoom in to find the exact coordinates of the extreme datapoints.
+        For a function given by a formula,
+        we can estimate the coordinates of an extreme to arbitrary accuracy by zooming in on the point as closely as desired.
+        This is the method we used in some of the exercises of Chapter 1, and it is quite satisfactory in many situations.
+      </p>
+    </subsubsection>
+    <subsubsection xml:id="subsubsec_using-the-formula-for-the-derivative">
+      <title>Using the formula for the derivative</title>
+      <p>
+        In this chapter we are concentrating
+      </p>
+      <aside>
+        <p>
+          Formulas can give exact answers and can handle parameters
+        </p>
+      </aside>
+      <p>
+        on functions given by formulas.
+        For these functions we may want a method other than the approximation using a graphing utility described above.
+        <ul>
+          <li>
+            <p>
+              For some functions,
+              the determination of extremes using a formula for the derivative is at least as easy as using the computer.
+            </p>
+          </li>
+          <li>
+            <p>
+              Some functions are described in terms of a <em>parameter</em>,
+              a constant whose value may vary from one problem to another.
+              For example,
+              the rate equation from the S-I-R model for change in the number of infected,
+              <m>I' = aSI-bI\/</m>,
+              involves two parameters <m>a</m> and <m>b\/</m>,
+              the transmission and recovery coefficients.
+              For such a function,
+              we cannot use the computer unless we specify a numerical value for each parameter,
+              thus limiting the generality of our results.
+            </p>
+          </li>
+          <li>
+            <p>
+              The computer gives only an approximation,
+              while a precise answer may convey important additional information.
+            </p>
+          </li>
+        </ul>
+      </p>
+      <p>
+        We will assume that the function we are studying is continuous on the domain of interest and that its domain is an interval.
+        Our procedure for finding extremes of a function given by a formula <m>y=f(x)</m> is thus a direct application of \mbox{Principle II.}
+      </p>
+    </subsubsection>
+    <subsubsection xml:id="subsubsec_the-search-for-local-extremes">
+      <title>The search for local extremes</title>
+      <ol>
+        <li>
+          <p>
+            Determine the domain of the function and identify its endpoints, if any.
+            Keep in mind that in an applied context,
+            the domain may be determined by physical or other restrictions.
+          </p>
+        </li>
+        <li>
+          <p>
+            Find a formula for <m>f'(x)</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Find any roots of <m>f'(x) = 0</m> in the domain.
+            An estimation procedure, for example Newton's Method
+            (see the end of this chapter),
+            may be used for complicated equations.
+          </p>
+        </li>
+        <li>
+          <p>
+            Find any points in the domain where <m>f'(x)</m> is undefined.
+          </p>
+        </li>
+        <li>
+          <p>
+            Determine the shape of the graph to locate any local extremes.
+            Find the shape either by looking directly at the graph of
+            <m>y = f(x)</m> or by analyzing the sign of <m>f'(x)</m> on either side of each critical point <m>x=c</m>. (Sometimes the second derivative <m>f''(c)</m> aids the analysis;
+            see the exercises for details.)
+          </p>
+        </li>
+      </ol>
+      <p>
+        <term>The search for global extremes</term>
+        <ol>
+          <li>
+            <p>
+              Find the local extremes, as above.
+            </p>
+          </li>
+          <li>
+            <p>
+              If the domain is a finite closed interval,
+              it is only necessary to compare the values of <m>f</m> at each of the critical points and at the endpoints to determine which is the global maximum and which is the global minimum.
+            </p>
+          </li>
+          <li>
+            <p>
+              More generally,
+              use the shape of the graph to ascertain whether the desired global extreme exists and to identify it.
+            </p>
+          </li>
+        </ol>
+      </p>
+      <p>
+        In the succeeding sections and in the exercises we will carry out these search procedures in a variety of situations.
+        Since there are often substantial algebraic difficulties in analyzing the sign of the derivative,
+        or even determining when it is equal to zero, in realistic problems,
+        in section<nbsp/>5 we will develop some numerical methods for handling such complications.
+      </p>
+    </subsubsection>
+  </subsection>
+  <subsection>
+    <title>Exercises</title>
+    <subsubsection xml:id="subsubsec_describing-functions">
+      <title>Describing functions</title>
+      <ol>
+        <li>
+          <p>
+            For each of the following graphs,
+            is the function continuous?
+            Is the function differentiable?
+            <image width="73%" source="images/pic252a.png"/> <image width="73%" source="images/pic252c.png"/> <image width="73%" source="images/pic252b.png"/> <image width="73%" source="images/pic252d.png"/>
+          </p>
+        </li>
+        <li>
+          <p>
+            For each of the following graphs of a function <m>y=f(x)</m>,
+            is <m>f'</m> increasing or decreasing?
+            At the indicated point, what is the sign of <m>f'</m>?
+            Is <m>f'</m> (<em>not</em> <m>f</m>) increasing or decreasing at the point?
+            What does this then say about the sign of <m>f''</m>
+            (the derivative of <m>f'</m>)
+            at the point?
+            <image width="73%" source="images/pic253a.png"/> <image width="73%" source="images/pic253c.png"/>
+          </p>
+        </li>
+        <li>
+          <p>
+            For each of the following,
+            sketch a graph of <m>y=f(x)</m> that is consistent with the given information.
+            On each graph, mark any critical points or extremes.
+            <ol>
+              <li>
+                <p>
+                  <m>f'(x) > 0</m> for <m>x\lt 1\/</m>; <m>f'(1)=0\/</m>;
+                  <m>f'(x) \lt 0</m> for <m>1\lt x\lt 2\/</m>; <m>f'(2)=0\/</m>;
+                  <m>f'(x)>0</m> for <m>x>2\/</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>f'(x) > 0</m> for <m>x\lt 2\/</m>; <m>f'(2)=0\/</m>;
+                  <m>f'(x)>0</m> for <m>x>2\/</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>f'(x) > 0</m> for <m>x\lt 2\/</m>; <m>f'(2)=0\/</m>;
+                  <m>f'(x)\lt 0</m> for <m>x>2\/</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>f'(3)=0\/</m>; <m>f''(3) > 0\/</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            <term>The geometric meaning of the second derivative</term>
+            If <m>f</m> is any function and if <m>f''(x)</m> is positive over some interval,
+            then <m>f'</m> is increasing over that interval,
+            and we say the curve is <term>concave upward</term>
+              <idx><h>concave upward</h></idx>
+            over that interval.
+            If <m>f''(x)</m> is negative over some interval,
+            then <m>f'</m> is decreasing over that interval,
+            and we say the curve is <term>concave downward</term>
+              <idx><h>concave downward</h></idx>
+            over that interval.
+            You should study the graphs in problem 2 until you are clear what this means geometrically.
+            <ol>
+              <li>
+                <p>
+                  Suppose there were four functions <m>f</m>,
+                  <m>g</m>, <m>h</m>, and <m>k</m>,
+                  and that <m>f(0)=g(0)=h(0)=k(0)=0</m>,
+                  and <m>f'(0)=g'(0)=h'(0)=k'(0)=1</m>.
+                  Suppose, moreover, that <m>f''(0)=1</m>,
+                  <m>g''(0)=5</m>, <m>h''(0)=-1</m>, and <m>k''(0)=-5</m>.
+                  Sketch possible graphs of these functions near the origin.
+                </p>
+              </li>
+              <li>
+                <p>
+                  We know that the magnitude of the first derivative tells us how steep the curve is<mdash/>the greater the value of <m>f'</m>,
+                  positive or negative, the steeper the curve.
+                  What does the magnitude of the second derivative tell us geometrically about the shape of the curve?
+                  Complete the sentence:
+                  <q>The greater the value of <m>f''</m>,
+                  the \rule[-2pt]{1.25in}{.2pt}.</q>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Here is the graph you saw back <xref ref="x_concave_">on</xref>:
+            <image width="73%" source="images/pic244a.png"/> At which point is the second derivative greater,
+            <m>b</m> or <m>d</m>, and why?
+            <ol>
+              <li>
+                <p>
+                  Reproduce a sketch of this curve and indicate where the curve is concave up and where it is concave down.
+                </p>
+              </li>
+              <li>
+                <p>
+                  What must be true about the second derivative at the points where the curve changes concavity from up to down,
+                  or vice versa?
+                  Give a clear justification for your answer.
+                </p>
+              </li>
+              <li>
+                <p>
+                  What must be true about the second derivative near the right-hand end of the graph, and why?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Put all this together to sketch the graph of the second derivative of this function.
+                  Label the values <m>a</m> <mdash/> <m>d</m> on your sketch.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            <term>Second derivative test for maxima and minima</term>
+              <idx><h>second derivative test</h></idx>
+            Explain why the following test works.
+            <ul>
+              <li>
+                <p>
+                  If <m>f'(c)=0</m> and <m>f''(c) > 0\/</m>,
+                  then <m>f</m> has a <em>local minimum</em> at <m>x=c\/</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  If <m>f'(c)=0</m> and <m>f''(c)\lt 0\/</m>,
+                  then <m>f</m> has a <em>local maximum</em> at <m>x=c\/</m>.
+                </p>
+              </li>
+            </ul>
+          </p>
+          (Hint: If <m>f'(c)=0</m> and <m>f''(c) > 0\/</m>,
+          what can you say about the value of <m>f'(x)</m><mdash/>and hence the geometry of the graph of <m>f</m><mdash/>on either side of <m>c</m>?)
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection xml:id="subsubsec_finding-critical-points">
+      <title>Finding critical points</title>
+      <ol>
+        <li>
+          <p>
+            For each of the following functions,
+            find the critical points, if any,
+            without using a computer or calculator.
+            Can you sketch the graph of the function near the critical point?
+            Use the second derivative test if you can't figure the behavior out from a simpler inspection.
+            <ol>
+              <li>
+                <p>
+                  <m>f(x) = x^{1/3}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>f(x) = x^3 + \displaystyle{\frac{3}{2}}x^2 - 6x + 5</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>f(x) = \displaystyle{\frac{2x+1}{x-1}}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>f(x)=\sin{x}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>f(x) = \sqrt{1-x^2}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>f(x) = \displaystyle{\frac{e^x}{x}}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>f(x) = x\ln x</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>f(x)=\displaystyle{x^c +\frac{1}{x^c}}</m> where c is some constant
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            For each of the following graphs,
+            mark any critical points or extremes.
+            Indicate which extremes are local and which are global.
+            (Assume that at their ends the curves continue in the direction they are headed.)
+            <image width="73%" source="images/pic254a.png"/> <image width="73%" source="images/pic254b.png"/> <image width="73%" source="images/pic254c.png"/>
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection xml:id="subsubsec_finding-extremes">
+      <title>Finding extremes</title>
+      <p>
+        Except where indicated,
+        you should not use a computer or calculator to solve the following problems.
+        <ol>
+          <li>
+            <p>
+              For what positive value of <m>x</m> does
+              <m>f(x) = x + \dfrac{7}{x}</m> attain its minimum value?
+              Explain how you found this value.
+            </p>
+          </li>
+          <li>
+            <p>
+              For what value of <m>x</m> in the interval <m>[1,2]</m> does
+              <m>f(x) = x + \dfrac{7}{x}</m> attain its minimum value?
+              Explain how you found this value.
+            </p>
+          </li>
+          <li>
+            <p>
+              Use a graphing program to make a sketch of the function
+              <m>y = f(x) = x^{2} 2^{-x}</m> on the interval <m>0 \leq x \leq 10</m>.
+              From the graph,
+              estimate the value of <m>x</m> which makes <m>y</m> largest,
+              accurately to four decimal places.
+              Then find where <m>y</m> takes on its maximum by setting the derivative <m>f'(x)</m> equal to 0.
+              You should find that the maximum occurs at <m>x = 2/\ln{2}</m>.
+              Finally, what is the numerical value of this estimate of <m>2/\ln{2}</m>,
+              accurate to seven decimal places?
+            </p>
+          </li>
+          <li>
+            <p>
+              Use a graphing program to sketch the graph of <m>y = \dfrac{1}{x^2} + x</m> on the interval
+              <m>0 \lt x \lt 4</m> and estimate the value of <m>x</m> that makes <m>y</m> smallest on this interval.
+              Then use the derivative of <m>y</m> to find the exact value of <m>x</m> that makes <m>y</m> smallest on the same interval.
+              Compare the estimated and exact values.
+            </p>
+          </li>
+          <li>
+            <p>
+              What is the smallest value
+              <m>y = \dfrac{4}{x^2} + x</m> takes on when <m>x</m> is a positive number?
+              Explain how you found this value.
+            </p>
+          </li>
+          <li>
+            <p>
+              The function <m>y = x^4 - 42 x^2 -80x</m> has two local minima.
+              Where are they
+              (that is, what are their <m>x</m> coordinates),
+              and what are their values?
+              Which is the lower of the two minima?
+              In this problem you will have to solve a cubic equation.
+              You can use an estimation procedure,
+              but it is also possible to solve by factoring the cubic.
+              (The roots are integers.)
+            </p>
+          </li>
+          <li>
+            <p>
+              The function <m>y = x^4 - 6x^2 + 7</m> has two local minima.
+              Where are they, and which of the two is lower?
+              In this problem you will have to solve a cubic equation.
+              Do this by factoring and then approximating the <m>x</m> values to 4 decimal places.
+            </p>
+          </li>
+          <li>
+            <p>
+              Sketch the graph of <m>y = x \ln{x}</m> on the interval <m>0 \lt x \lt 1</m>.
+              Where does this function have its minimum,
+              and what is the minimum value?
+            </p>
+          </li>
+          <li>
+            <p>
+              Let <m>x</m> be a positive number;
+              if <m>x > 1</m> then the cube of <m>x</m> is larger than its square.
+              However, if <m>0 \lt x \lt 1</m> then the square is larger than the cube.
+              How <em>much</em> larger can it be;
+              that is, what is the greatest amount by which <m>x^2</m> can exceed <m>x^3</m>?
+              For which <m>x</m> does this happen?
+            </p>
+          </li>
+          <li>
+            <p>
+              By how much can <m>x^p</m> exceed <m>x^q</m>,
+              when <m>0 \lt p \lt q</m> and <m>0 \lt x</m>?
+              For which <m>x</m> does this happen?
+            </p>
+          </li>
+        </ol>
+      </p>
+    </subsubsection>
+  </subsection>
+</section>

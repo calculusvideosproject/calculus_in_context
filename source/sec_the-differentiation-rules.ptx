@@ -1,0 +1,1336 @@
+<section xml:id="sec_the-differentiation-rules">
+  <title>The Differentiation Rules</title>
+  <introduction>
+    <p>
+      There are three kinds of differentiation rules.
+      First, any basic function has a specific rule giving its derivative.
+      Second, the <em>chain rule</em>
+      will find the derivative of a <em>chain</em> of functions.
+      Third, there are general rules that allow us to calculate the derivatives of algebraic combinations<mdash/>e.g., sums,
+      products,
+      and quotients<mdash/>of any functions provided we know the derivatives of each of the component functions.
+      To obtain all three kinds of rules we will typically start with the analytic definition of the derivative as the limit of a quotient of differences:
+    </p>
+    <image source=""/>
+    <p>
+      In this chapter we will look at the cases where this limit can be evaluated exactly.
+      Although using this definition of derivative usually leads to many algebraic manipulations,
+      the other interpretations of derivatives as slopes, rates,
+      and multipliers will still be helpful in visualizing what's going on.
+      The process of calculating the derivative of a function is called \mathbf{ differentiation}.
+          <idx><h>differentiation</h></idx>
+      For this reason,
+      functions which are locally linear and not locally vertical
+      (so they do have slopes, and hence derivatives at every point)
+      are called <em> differentiable</em>
+          <idx><h>differentiable</h></idx>
+      functions.
+      Our goal in this chapter is to differentiate functions given by formulas.
+    </p>
+  </introduction>
+  <subsection xml:id="subsec_derivatives-of-basic-functions">
+    <title>Derivatives of Basic Functions</title>
+    <introduction>
+      <p>
+        When a function is given by a <em>formula</em>,
+      </p>
+      <aside>
+        <p>
+          Functions given by formulas have derivatives given by formulas
+        </p>
+      </aside>
+      <p>
+        there is in fact a formula for its derivative.
+        We have already seen several examples in chapters 3 and 4.
+        These examples include all of what we may consider the
+        <term>basic functions</term>.
+        We collect these formulas in the following table.
+        <term>Rules for Derivatives of Basic Functions</term>
+        <me>
+          \begin{array}{cccc} \mbox{function}     \amp \qquad \amp         \amp \mbox{derivative}  \\ \hline \\ [-9pt] mx+b            \amp  \amp       \amp m \\ x^{r}           \amp  \amp               \amp rx^{r-1} \\ \sin{x}         \amp  \amp               \amp \cos{x} \\ \cos{x}         \amp  \amp               \amp -\sin{x}  \\ e^{x}           \amp  \amp               \amp e^{x} \\ \ln{x}          \amp  \amp               \amp 1/x \end{array}
+        </me>
+      </p>
+      <p>
+        In the case of the linear function <m>mx+b</m>,
+        we obtained the derivative by using its geometric description as the <em>slope</em>
+        of the graph of the function.
+        The derivatives of the exponential and logarithm functions came from the definition of the exponential function as the solution of an initial value problem.
+        To find the derivatives of the other functions we will need to start from the definition.
+      </p>
+    </introduction>
+    <subsubsection xml:id="subsubsec_an-example-fxx3">
+      <title>An example: <m>f(x)=x^3</m></title>
+      <p>
+        We begin by examining the calculation of the derivative of
+        <m>f(x) = x^3</m> using the definition.
+        The change <m>\Delta y</m> in
+        <m>y = f(x)</m> corresponding to a change
+        <m>\Delta x</m> in <m>x</m> is given by
+        <md>
+          <mrow>\Delta y \amp = f(x + \Delta x) - f(x)</mrow>
+          <mrow>\amp = (x + \Delta x)^{3} - x^{3}</mrow>
+          <mrow>\amp = 3x^{2}\cdot\Delta x + 3x(\Delta x)^{2} + (\Delta x)^{3}</mrow>
+        </md>.
+      </p>
+      <p>
+        From this we get
+        <md>
+          <mrow>f'(x) \amp = \lim_{\Delta x \rightarrow 0} \frac{\Delta y}{\Delta x}</mrow>
+          <mrow>\amp = \lim_{\Delta x \rightarrow 0} 3x^{2} + 3x\cdot\Delta x + (\Delta x)^{2}</mrow>
+        </md>.
+      </p>
+      <p>
+        To see what's happening with this expression,
+        let's consider the specific value <m>x=2</m> and evaluate the corresponding values of
+        <m>\Delta y/ \Delta x\/</m> for successively smaller
+      </p>
+      <aside>
+        <p>
+          The value of <m>\Delta y/ \Delta x</m> gets closer and closer to 12 as
+          <m>\Delta x</m> gets smaller and smaller
+        </p>
+      </aside>
+      <p>
+        <m>\Delta x\/</m>.
+      </p>
+      <tabular>
+        <row>
+          <cell><m>\Delta x</m></cell>
+          <cell><m>2^2 + 6\Delta x + (\Delta x)^2</m></cell>
+          <cell><m>\Delta y/\Delta x</m></cell>
+        </row>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell>[-8pt]
+            .1</cell>
+          <cell>12 + 0.6 + 0.01</cell>
+          <cell>12.61</cell>
+        </row>
+        <row>
+          <cell>.01</cell>
+          <cell>12 + 0.06 + 0.0001</cell>
+          <cell>12.0601</cell>
+        </row>
+        <row>
+          <cell>.001</cell>
+          <cell>12 + 0.006 + 0.000001</cell>
+          <cell>12.006001</cell>
+        </row>
+        <row>
+          <cell>.0001</cell>
+          <cell>12 + 0.0006 + 0.00000001</cell>
+          <cell>12.00060001</cell>
+        </row>
+        <row>
+          <cell>.00001</cell>
+          <cell>12 + 0.00006 + 0.0000000001</cell>
+          <cell>12.0000600001</cell>
+        </row>
+      </tabular>
+      <p>
+        It is clear from this table that we can make
+        <m>\Delta y</m>/<m>\Delta x</m> as close to 12 as we like by making <m>\Delta x</m> small enough.
+        Therefore <m>f'(2)=12</m>.
+        Note that in the table above we have used positive values of <m>\Delta x</m>.
+        You should check to convince yourself that if we had used negative values of
+        <m>\Delta x</m> we would have come up with a different set of approximations <m>\Delta y</m>/<m>\Delta x</m>,
+        but that the limit would still be the same,
+        namely 12<mdash/>it doesn't matter whether we use positive or negative values for <m>\Delta x</m>,
+        or a mixture of the two, so long as <m>\Delta x \rightarrow 0</m>.
+        In general, for any given <m>x</m>,
+        the second and third terms in the expansion for
+        <m>\Delta y</m>/<m>\Delta x</m> become vanishingly small as <m>\Delta x \rightarrow 0</m>,
+        so that <m>\Delta y</m>/<m>\Delta x</m> can be made as close to <m>3x^{2}</m> as we like by making <m>\Delta x</m> small enough.
+        For this reason, we say that the derivative <m>f'(x)</m> is
+        <em>exactly</em> <m>3x^{2}</m> :
+        <me>
+          f'(x) = \lim_{\Delta x \rightarrow 0} 3x^2 + 3x\cdot\Delta x + (\Delta x)^2 = 3x^2
+        </me>.
+      </p>
+      <p>
+        In other words,
+        given the function <m>f</m> specified by the formula
+        <m>f(x)=x^3</m> we have found the formula for its derivative function <m>f'</m>:
+        <m>f'(x) = 3 x^2</m>.
+        Note that this general formula agrees with the specific value
+        <m>f'(2)=12</m> we have already obtained.
+        Notice the difference between the statements
+        <me>
+          f'(x) \approx \Delta y/\Delta x \qquad \mbox{and}  \qquad f'(x) = 3x^2
+        </me>.
+      </p>
+      <p>
+        For a particular value of <m>\Delta x\/</m>,
+        the corresponding value of
+        <m>\Delta y/\Delta x</m> is an approximation of <m>f'(x)\/</m>.
+        We can obtain another, better approximation by computing
+        <m>\Delta y/\Delta x</m> for a smaller <m>\Delta x\/</m>.
+        The successively better approximations differ from one another by less and less.
+        In particular, they differ less and less from the
+        <em>limit value</em> <m>3x^2</m>.
+        The value of the derivative <m>f'(x)</m> is
+        <em>exactly</em> <m>3x^2\/</m>.
+        More generally, for any function <m>y=f(x)</m>,
+        a particular difference quotient
+        <m>\Delta y/\Delta x</m> is an approximation of <m>f'(x)\/</m>.
+        Successively smaller values of
+        <m>\Delta x</m> give successively better approximations of <m>f'(x)\/</m>.
+        Again <m>f'(x)</m> <em>exactly</em>
+        equals the limiting value of these successive approximations.
+        In some cases, however,
+        we are only able to approximate that limiting value,
+        as we often did in chapter 3, and for many purposes the approximation is entirely satisfactory.
+        In this chapter we will concentrate on the exact statements that are possible for functions given by formulas.
+      </p>
+    </subsubsection>
+    <subsubsection xml:id="subsubsec_the-other-basic-functions">
+      <title>The other basic functions</title>
+      <p>
+        Our formula for the derivative of the function
+        <m>f(x) = x^{3}</m> is one instance of the general rule for the derivative
+      </p>
+      <aside>
+        <p>
+          The rule for the derivative of a power function
+        </p>
+      </aside>
+      <p>
+        of <m>f(x) = x^r\/</m>.
+      </p>
+      <image source="images/7383b30c1bf725f1f2555184945a2b6e4e9229f8.png"/>
+      <p>
+        We can prove this rule for the case when <m>r</m> is a positive integer using algebraic manipulations very like the ones carried out for <m>x^{3}</m>;
+        see the exercises for verifications of this and the other differentiation rules in this section.
+        Using a rule for quotients of functions
+        (coming later in this section),
+        we can show that this rule also holds for
+        <em>negative</em> integer exponents.
+        Further arguments using the chain rule show that the pattern still holds for
+        <em>rational</em> exponents.
+        We can eliminate this case-by-case approach,
+        though, by recalling the approach developed in chapter 4.
+        We saw that we can give meaning to <m>b^{r}</m> for any positive base <m>b</m> and any real number <m>r</m> by defining
+        <me>
+          b^{\textstyle r} = e^{\textstyle r \ln(b)}
+        </me>.
+      </p>
+      <p>
+        Using the formulas for the derivatives of
+        <m>e^{\displaystyle x}</m> and ln <m>x</m> together with the chain rule,
+        we can prove the rule for <m>x>0</m> and for arbitrary real exponent <m>r</m> directly,
+        without first proving the special cases for integer or rational exponents.
+        See the exercises for details.
+        Arguments justifying the formulas for the derivatives of the trigonometric functions are also in the exercises.
+      </p>
+    </subsubsection>
+  </subsection>
+  <subsection xml:id="subsec_combining-functions">
+    <title>Combining Functions</title>
+    <p>
+      We can form new functions by combining functions.
+      We have already studied one of the most useful ways of doing this in chapter 3 when we looked at forming
+      <q>chains</q>
+      of functions and
+    </p>
+    <aside>
+      <p>
+        Functions combined by chains<ellipsis/>
+      </p>
+    </aside>
+    <p>
+      developed the <term>chain rule</term>
+      for taking the derivative of such a chain.
+      Suppose <m>u=f(x)</m> and <m>y=g(u)</m>.
+      Chaining these two functions together we have <m>y</m> as a function of <m>x</m>:
+      <me>
+        y = h(x) = g(f(x))
+      </me>.
+    </p>
+    <p>
+      The chain rule tells us how to find the derivative of <m>y</m> with respect to <m>x</m>.
+      In function notation it takes the form
+      <me>
+        h'(x) = g'(f(x)) \cdot f'(x)
+      </me>.
+    </p>
+    <p>
+      In Leibniz notation, using
+      <m>f(x) = u</m> we can write the chain rule
+    </p>
+    <aside>
+      <p>
+        The chain rule
+      </p>
+    </aside>
+    <p>
+      as
+      <me>
+        \frac{dy}{dx} = \frac{dy}{du} \cdot \frac{du}{dx}
+      </me>.
+    </p>
+    <p>
+      We also saw in chapter 3 that the polynomial
+      <m>5x^{3}-7x^2 +3</m> can be thought of as an <em>algebraic</em>
+      combination of simple functions.
+    </p>
+    <aside>
+      <p>
+        <ellipsis/> and algebraically
+      </p>
+    </aside>
+    <p>
+      We can build an even more complicated function by forming a quotient with this polynomial in the numerator and the difference of the functions <m>\sin{x}</m> and <m>e^x</m> in the denominator.
+      The result is
+      <me>
+        \frac{5x^{3}-7x^2 +3}{\sin{x} - e^x}
+      </me>.
+    </p>
+    <p>
+      The derivative of this function,
+      as well as of other functions formed by adding,
+      subtracting, multiplying and dividing simpler functions,
+      is obtained by use of the following rules for the derivatives of algebraic combinations of differentiable functions.
+      <term>Rules for Algebraic Combinations of Functions</term>
+    </p>
+    <aside>
+      <p>
+        Combining functions by adding,
+        subtracting, multiplying and dividing
+      </p>
+    </aside>
+    <me>
+      \begin{array}{cccc}
+      \mbox{function}     \amp  \amp         \amp \mbox{derivative}  \\[.05in]  \hline
+      \mbox{\(f(x) + g(x)\)}            \amp  \amp  \amp \mbox{\(f'(x) + g'(x)\)}        \\[.1in]
+      f(x) - g(x)     \amp  \amp       \amp f'(x) - g'(x)  \\[.1in]
+      cf(x)           \amp  \amp       \amp cf'(x)  \\[.1in]
+      f(x)\cdot g(x)     \amp   \amp        \amp f'(x)\cdot g(x) + f(x)\cdot g'(x)  \\[.1in]
+      \displaystyle{\frac{f(x)}{g(x)}}   \amp  \amp
+      \amp \displaystyle{ \frac{g(x)\cdot f'(x)-f(x)\cdot g'(x)}{[g(x)]^2} }
+      \end{array}
+    </me>
+    <p>
+      Notice carefully that the product rule has a plus sign but the quotient rule has a <em>minus</em> sign.
+    </p>
+    <aside>
+      <p>
+        Notice the signs in the rules
+      </p>
+    </aside>
+    <p>
+      You can remember these formulas better if you think about where these signs come from.
+      Increasing <em>either</em> factor increases a (positive) product,
+      so the derivative of <em>each</em>
+      factor appears with a plus sign in the formula for the derivative of a product.
+      Similarly, increasing the numerator increases a positive quotient,
+      so the derivative of the numerator appears with a plus sign in the formula for the derivative of a quotient.
+      However, increasing the denominator
+      <em>decreases</em> a positive quotient,
+      so the derivative of the denominator appears with a minus sign.
+      Let's now use the rules to differentiate the quotient
+      <me>
+        \dfrac{5x^3-7x^2+3}{\sin{x} -e^x}
+      </me>.
+    </p>
+    <p>
+      First, the derivative of the numerator <m>5x^{3}-7x^{2}+3</m> is
+      <me>
+        5(3x^{2}) - 7(2x) + 0 = 15x^{2} - 14x
+      </me>.
+    </p>
+    <p>
+      Similarly the derivative of
+      <m>\sin{x} - e^x</m> is <m>\cos{x} - e^x</m>.
+      Finally, the derivative of the quotient function is obtained by using the rule for quotients:
+      <me>
+        \frac{(\sin{x} - e^x)(15x^{2} - 14x) - (5x^{3} - 7x^{2} + 3)(\cos{x} - e^x)} {(\sin{x} - e^x)^{2}}
+      </me>.
+    </p>
+    <p>
+      The following examples further illustrate the use of the rules for algebraic combinations of functions.
+      <me>
+        \begin{array}{cccc} \mbox{function}     \amp   \amp         \amp \mbox{derivative}  \\[.05in]  \hline \mbox{\(-3e^{t} + \sqrt[3]{t}\)}     \amp   \amp         \amp \mbox{\(-3e^{t} + (1/3)t^{-2/3}\)}   \\[.1in] \displaystyle{\frac{5}{x^3}} -7x^4+\ln x \amp  \amp  \amp 5(-3)x^{-4} - 7(4x^3) + 1/x  \\[.1in] \displaystyle{7 \sqrt{x} \cos x}     \amp  \amp       \amp 7 \displaystyle{(\frac{1}{2\sqrt{x}})} \cos x +7\sqrt{x}(-\sin x) \\[.1in] \displaystyle{\left(\frac43\right)} \pi r^3  \amp      \amp    \amp \displaystyle{\left(\frac43\right) \pi 3r^2} \\[.22in] \displaystyle{ \frac{3s^6}{s^2 - s} }   \amp    \amp      \amp \displaystyle{ \frac{(s^2-s)3(6s^5) -3s^6(2s-1)}{(s^{2} - s)^2} } \end{array}
+      </me>
+    </p>
+    <p>
+      For another kind of example,
+      suppose the per capita daily energy consumption in a country is currently 800,000 BTU, and,
+      due to energy conservation efforts,
+      it is falling at the rate of 1,000 BTU per year.
+      Suppose too that the population of the country is currently 200,000,000 people and is rising at the rate of 1,000,000 people per year.
+      Is the total daily energy consumption of this country rising or falling?
+      By how much?
+      Three different quantities vary with time in this example:
+      daily per capita energy consumption,
+      population and total daily energy consumption.
+      We can model this situation with three functions <m>C(t)</m>,
+      <m>P(t)</m> and <m>E(t)</m>.
+      <md>
+        <mrow>C(t) \amp : \text{ per capita consumption at time \(t\) }</mrow>
+        <mrow>P(t) \amp : \text{ population at time \(t\) }</mrow>
+        <mrow>E(t) \amp : \text{ total energy consumption at time \(t\) }</mrow>
+      </md>
+    </p>
+    <p>
+      Since the per capita consumption times the number of people in the population gives the total energy consumption,
+      these three functions are related algebraically:
+      <me>
+        E(t) = C(t) \cdot P(t)
+      </me>.
+    </p>
+    <p>
+      If <m>t=0</m> represents today,
+      then we are given the two rates of change
+      <md>
+        <mrow>C'(0) \amp  =  -1,000 = - 10^{3} \, \mbox{BTU per person per year, and}</mrow>
+        <mrow>P'(0) \amp  =  1,000,000 = 10^{6} \, \mbox{persons per year.}</mrow>
+      </md>
+    </p>
+    <p>
+      Using the product rule we can compute the current rate of change of the total daily energy consumption:
+      <md>
+        <mrow>E'(0) \amp = C(0) \cdot P'(0) + C'(0) \cdot P(0)</mrow>
+        <mrow>\amp = (8 \times 10^{5})\cdot (10^{6}) + (-10^{3})\cdot(2 \times 10^{8})</mrow>
+        <mrow>\amp = (8 \times 10^{11}) - (2 \times 10^{11})</mrow>
+        <mrow>\amp = 6 \times 10^{11} \, \mbox{BTU per year} </mrow>
+      </md>.
+    </p>
+    <p>
+      So the total daily energy consumption is currently rising at the rate of <m>6 \times 10^{11}</m> BTU per year.
+      Thus the growth in the population more than offsets the efforts to conserve energy.
+      Finally, it is a useful exercise to check that the units make sense in this computation.
+    </p>
+    <aside>
+      <p>
+        Checking units
+      </p>
+    </aside>
+    <p>
+      Recall that <m>C(t)</m> represents <em>per capita</em>
+      daily energy consumption,
+      so the units for <m>C(0) \cdot P'(0)</m> are
+      <me>
+        \frac{\mbox {BTU}}{\mbox {person}} \cdot \frac{\mbox{persons} }{\mbox{year} } = \frac{\mbox{BTU} }{\mbox{year} }
+      </me>,
+      and, similarly, the units for <m>C'(0) \cdot P(0)</m> are
+      <me>
+        \frac{\mbox{BTU} }{\mbox{person} } \cdot \frac{1}{\mbox{year} } \cdot {\mbox {persons}} = \frac{\mbox{BTU} }{\mbox{year} }
+      </me>.
+    </p>
+  </subsection>
+  <subsection xml:id="subsec_informal-arguments">
+    <title>Informal Arguments</title>
+    <p>
+      All of the rules for differentiating algebraic combinations of functions can be proved by using the algebraic definition of the derivative as a limit of a difference quotient.
+      In fact, we will examine such a formal proof below.
+      However, informal arguments based on geometric ideas or other intuitive insights are also valuable aids to understanding.
+      Here are three examples of such arguments.
+      <ul>
+        <li>
+          <p>
+            If a new function <m>g</m> is obtained from <m>f</m> by multiplying by a positive constant <m>c</m>,
+            so <m>g(x)=cf(x)</m>,
+            what is the relationship between the graphs of <m>y=f(x)</m> and of <m>y=g(x)</m>?
+            <aside>
+              <p>
+                Stretching <m>y</m>-coordinates
+              </p>
+            </aside>
+            Stretching (or compressing,
+            if <m>c</m> is less than 1) the <m>y</m>-coordinates of the points of the graph of <m>f</m> by a factor of <m>c</m> yields the graph of <m>g</m>.
+            <image width="73%" source="images/pic200a.png"/> What then is the relationship between the slopes <m>f'(x)</m> and <m>g'(x)</m>?
+            If the <m>y</m>-coordinates are tripled,
+            the slope will be three times as great.
+            If they are halved, the slope will also be half as much.
+            More generally, the elongated
+            (or compressed)
+            graph of <m>g</m> has a slope equal to <m>c</m> times the slope of the original graph of <m>f</m>.
+            In other words, <m>g(x)=cf(x)</m> implies <m>g'(x)=cf'(x)</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Now suppose instead that <m>g</m> is obtained from <m>f</m> by adding a constant <m>b</m>,
+            so <m>g(x) = f(x) + b</m>.
+            <aside>
+              <p>
+                Shifting <m>y</m>-coordinates
+              </p>
+            </aside>
+            This time the graph of <m>y=g(x)</m> is obtained from the graph of <m>y=f(x)</m> by shifting up or down
+            (according to the sign of <m>c</m>)
+            by <m>|c|</m> units.
+            What is the relationship between the slopes <m>f'(x)</m> and <m>g'(x)</m>?
+            The shifted graph has exactly the same slope as the original graph,
+            so in this case, <m>g(x)=f(x)+b</m> implies <m>g'(x)=f'(x)</m>.
+            <image width="73%" source="images/pic200b.png"/>
+          </p>
+        </li>
+      </ul>
+    </p>
+    <p>
+      There is a similar pattern when the coordinates of the input variable are stretched or shifted<mdash/>that is when <m>y=f(u)</m> and <m>u</m> is <em>rescaled</em>
+      by the linear relation <m>u=mx+b</m>.
+      These results depend on the chain rule and appear in the exercises.
+      The fact that the derivative of <m>f(x)+b</m> is the same as the derivative of <m>f(x)</m> is a special case of the general <em>addition rule</em>,
+      which says <em>the derivative of a sum is the sum of the derivatives</em>.
+      In the special case,
+      the derivative of the constant function <m>b</m> is zero,
+      so adding a constant leaves the derivative unchanged.
+      To see that how natural it is to add rates in the general case,
+      consider the following example: Suppose we are diluting concentrated orange juice
+    </p>
+    <aside>
+      <p>
+        Adding flows
+      </p>
+    </aside>
+    <p>
+      by mixing it with water in a big tub.
+      We may let <m>f(t)</m> be the amount
+      (in gallons)
+      of concentrate in the tub and <m>g(t)</m> be the amount of water in the tub at time <m>t</m>.
+      Then <m>f'(t)</m> is the rate at which concentrate is being added at time <m>t</m>
+      (measured in gallons per minute),
+      and <m>g'(t)</m> is the rate at which water is flowing into the tub.
+      The formula <m>F(t) = f(t) + g(t)</m> then gives the total amount of liquid in the tub at time <m>t</m>,
+      and <m>F'(t)</m> is the rate by which that total amount of liquid is changing at time <m>t</m>.
+      Clearly that rate is the sum of the rates of flow of concentrate and water into the tank.
+      If at some particular moment we are adding concentrate at the rate of 3.2 gal/min and water at the rate of 1.1 gal/min,
+      the liquid in the tub is increasing by 4.3 gal/min at that moment.
+    </p>
+  </subsection>
+  <subsection xml:id="subsec_a-formal-proof-the-product-rule">
+    <title>A Formal Proof: the Product Rule</title>
+    <p>
+      We include here the algebraic calculations yielding the rule for the derivative of the product of two arbitrary functions<mdash/>just to give the flavor of these arguments.
+      Algebraic arguments for the rest of these rules may be found in the exercises.
+      <term>The Product Rule:</term>
+      <me>
+        F(x) = f(x) \cdot g(x) \textit{ implies}\ F'(x) = f'(x)\cdot g(x) + f(x)\cdot g'(x)
+      </me>
+    </p>
+    <p>
+      To save some writing, let
+      <md>
+        <mrow>\Delta F \amp = F(x + \Delta x) - F(x),</mrow>
+        <mrow>\Delta f \amp = f(x + \Delta x) - f(x),</mrow>
+        <mrow>\mbox{and}  \qquad \Delta g \amp = g(x + \Delta x) - g(x)</mrow>
+      </md>.
+    </p>
+    <p>
+      Rewrite the last two equations as
+      <md>
+        <mrow>f(x + \Delta x) \amp = f(x) + \Delta f</mrow>
+        <mrow>g(x + \Delta x) \amp = g(x) + \Delta g</mrow>
+      </md>.
+    </p>
+    <p>
+      Now we can write
+      <md>
+        <mrow>F(x + \Delta x) \amp = f(x + \Delta x)\cdot g(x + \Delta x)</mrow>
+        <mrow>\amp = (f(x) + \Delta f) \cdot (g(x) + \Delta g)</mrow>
+        <mrow>\amp = f(x) \cdot g(x) + f(x) \cdot \Delta g + \Delta f \cdot g(x) + \Delta f \cdot \Delta g</mrow>
+      </md>
+    </p>
+    <aside>
+      <p>
+        Simplifying <m>\Delta F</m>
+      </p>
+    </aside>
+    <p>
+      This gives us a simple expression for
+      <me>
+        \Delta F = F(x + \Delta x) - F(x)
+      </me>
+      namely,
+      <me>
+        \Delta F = f(x) \cdot \Delta g + \Delta f\cdot g(x) + \Delta f\cdot \Delta g
+      </me>
+    </p>
+    <p>
+      These quantities all have nice geometric interpretations.
+    </p>
+    <aside>
+      <p>
+        Interpret <m>\Delta f</m> and <m>\Delta g</m> as lengths
+      </p>
+    </aside>
+    <p>
+      First, think of the numbers <m>f(x)</m> and <m>g(x)</m> as lengths that depend on <m>x</m>;
+      then <m>F(x)</m> naturally stands for the area of the rectangle whose sides are <m>f(x)</m> and <m>g(x)</m>.
+      If the sides of the rectangle grow by the amounts <m>\Delta f</m> and <m>\Delta g</m>,
+      then the area <m>F</m> grows by <m>\Delta F</m>.
+      As the following diagram shows,
+      <m>\Delta F</m> has three parts,
+      corresponding to the three terms in the expression we derived algebraically for <m>\Delta F</m>.
+    </p>
+    <image source="images/721e772ea640bd86ea05eeaf2339e4a4a223564a.png"/>
+    <p>
+      Now we divide <m>\Delta F</m> by
+      <m>\Delta x</m> and finish the argument:
+      <md>
+        <mrow>\frac{\Delta F}{\Delta x} \amp = \frac{f(x)\cdot \Delta g + \Delta f\cdot g(x) + \Delta f \cdot \Delta g}{\Delta x}</mrow>
+        <mrow>\amp = f(x) \cdot\frac{\Delta g}{\Delta x}  + \frac{\Delta f}{\Delta x} \cdot g(x) + \frac{\Delta f \cdot \Delta g}{\Delta x}</mrow>
+      </md>
+    </p>
+    <p>
+      Consider what happens to each of the three terms as
+      <m>\Delta x</m> gets smaller and smaller.
+      In the first term, the second factor
+      <m>\Delta g/ \Delta x</m> approaches <m>g'(x)</m><mdash/>by the
+      <em>definition</em> of the derivative.
+      The first factor,
+      <m>f(x)</m> doesn't change at all as <m>\Delta x</m> shrinks.
+      So the first term approaches <m>f(x) \cdot g'(x)</m>.
+      Similarly, in the second term,
+      the quotient <m>\Delta f/ \Delta x</m> approaches <m>f'(x)</m>,
+      and the second term approaches <m>f'(x) \cdot g(x)</m>.
+      Finally, look at the third term.
+      We would know what to expect if we had another factor of <m>\Delta x</m> in the denominator.
+      We can put ourselves in familiar territory by the
+      <q>trick</q>
+      of multiplying the third term by <m>\Delta x/ \Delta x</m>:
+      <me>
+        \frac{\Delta f \cdot \Delta g}{\Delta x} = \frac{\Delta f}{\Delta x} \cdot \frac{\Delta g}{\Delta x} \cdot \Delta x
+      </me>
+    </p>
+    <p>
+      Thus we can see that as <m>\Delta x</m> approaches zero,
+      the third term itself approaches <m>f'(x) \cdot g'(x) \cdot 0 = 0</m>.
+      We may summarize our calculation by writing
+      <md>
+        <mrow>\lim_{\Delta x \rightarrow 0} \frac{\Delta F}{\Delta x} \amp = f(x)\cdot\left(\lim_{\Delta x \rightarrow 0} \frac{\Delta g}{\Delta x}\right)  + \left(\lim_{\Delta x \rightarrow 0} \frac{\Delta f}{\Delta x}\right) \cdot g(x)</mrow>
+        <mrow>\amp      + \left(\lim_{\Delta x \rightarrow 0} \frac{\Delta f}{\Delta x}\right)\cdot \left(\lim_{\Delta x \rightarrow 0} \frac{\Delta g}{\Delta x}\right) \cdot \left(\lim_{\Delta x \rightarrow 0} \Delta x\right)</mrow>
+      </md>
+      from which we have
+      <md>
+        <mrow>\lim_{\Delta x \rightarrow 0} \frac{\Delta F}{\Delta x} \amp = f(x) \cdot g'(x) + f'(x) \cdot g(x) + f'(x) \cdot g'(x) \cdot 0</mrow>
+        <mrow>\amp = f(x) \cdot g'(x) + f'(x) \cdot g(x)</mrow>
+      </md>.
+    </p>
+    <p>
+      This completes the proof of the product rule.
+      Other formal arguments are left to the exercises.
+    </p>
+  </subsection>
+  <subsection>
+    <title>Exercises</title>
+    <subsubsection xml:id="subsubsec_finding-derivatives">
+      <title>Finding Derivatives</title>
+      <ol>
+        <li>
+          <p>
+            Find the derivative of each of the following functions.
+            <tabular>
+              <row>
+                <cell>a) <m>\;\; 3x^5 - 10x^2 + 8</m></cell>
+                <cell>j) <m>\;\; x^2e^x</m></cell>
+              </row>
+              <row>
+                <cell>b) <m>\;\; (5x^{12} + 2)(\pi - {\pi}^2 x^4)</m></cell>
+                <cell>k) <m>\;\; \cos{x} + e^x</m></cell>
+              </row>
+              <row>
+                <cell>c) <m>\;\; \sqrt{u} - 3/u^3 + 2u^7</m></cell>
+                <cell>l) <m>\;\;\sin{x}/ \cos{x}</m></cell>
+              </row>
+              <row>
+                <cell>d) <m>\;\; mx + b \;\; (m,b \; \mbox{constant} )</m></cell>
+                <cell>m) <m>\;\;e^x \ln{x}</m></cell>
+              </row>
+              <row>
+                <cell>e) <m>\;\; 0.5 \sin x + \sqrt[3]{x} + \pi^2</m></cell>
+                <cell>n) <m>\;\; \dfrac{2^x}{10 + \sin{x}}</m></cell>
+              </row>
+              <row>
+                <cell>f) <m>\;\; \dfrac{{\pi - {\pi}^2 x^4}}{5x^{12} + 2}</m></cell>
+                <cell>o) <m>\;\; \sin(e^x \cos x)</m></cell>
+              </row>
+              <row>
+                <cell>g) <m>\;\;2\sqrt{x} - \dfrac{1}{\sqrt{x}}</m></cell>
+                <cell>p) <m>\;\; 6 e^{\cos t } / \, 5 \sqrt[3]{t}</m></cell>
+              </row>
+              <row>
+                <cell>h) <m>\;\; \tan z \, (\sin z - 5)</m></cell>
+                <cell>q) <m>\;\; \mbox{ln} (x^2 + x e^x)</m></cell>
+              </row>
+              <row>
+                <cell>i) <m>\;\; \dfrac{\sin x}{x^2}</m></cell>
+                <cell>r) <m>\;\; \dfrac{5x^2 + \mbox{ln} x}{7 \sqrt{x} + 5}</m></cell>
+              </row>
+            </tabular>
+          </p>
+        </li>
+        <li>
+          <p>
+            Suppose <m>f</m> and <m>g</m> are functions and that we are given \begin{xalignat*}{3} f(2) &amp;= 3, &amp;
+            g(2) &amp;= 4, &amp;
+            g(3) &amp;= 2, f'(2) &amp;= 2, &amp;
+            g'(2) &amp;= -1, &amp;
+            g'(3) &amp;= 17. \end{xalignat*} Evaluate the derivative of each of the following functions at <m>t=2</m>:
+            <tabular>
+              <row>
+                <cell>a) <m>\;\; f(t) + g(t)</m></cell>
+                <cell>f) <m>\;\; {\displaystyle \sqrt{g(t)}}</m></cell>
+              </row>
+              <row>
+                <cell>b) <m>\;\; 5f(t)-2g(t)</m></cell>
+                <cell>g) <m>\;\; t^2f(t)</m></cell>
+              </row>
+              <row>
+                <cell>c) <m>\;\; f(t)g(t)</m></cell>
+                <cell>h) <m>\;\;(f(t))^2+(g(t))^2</m></cell>
+              </row>
+              <row>
+                <cell>d) <m>\;\; \dfrac{f(t)}{g(t)}</m></cell>
+                <cell>i) <m>\;\;\dfrac{1}{f(t)}</m></cell>
+              </row>
+              <row>
+                <cell>e) <m>\;\; g(f(t)</m></cell>
+                <cell>j) <m>\;\;f(3t-(g(1+t))^2)</m></cell>
+              </row>
+            </tabular>
+            k) <nbsp/> What additional piece of information would you need to calculate the derivative of <m>f(g(t))</m> at <m>t=2</m>? l) <nbsp/> Estimate the value of <m>f(t)/g(t)</m> at <m>t=1.95</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            Extend the product rule to express
+            <m>(f(t)g(t)h(t))'</m> in terms of <m>f</m>, <m>g</m>,
+            and <m>h</m>.
+            <ol>
+              <li>
+                <p>
+                  If the length, width,
+                  and height of a rectangular box are changing at the rates of 3, 6, and <m>-5</m> inches/minute at the moment when all three dimensions happen to be 10 inches,
+                  at what rate is the volume of the box changing then?
+                </p>
+              </li>
+              <li>
+                <p>
+                  If the length,
+                  width, and height of a box are 10 inches, 12 inches,
+                  and 8 inches, respectively,
+                  and if the length and height of the box are changing at the rates of 3 inches/minute and <m>-2</m> inches/minute,
+                  respectively,
+                  at what rate must the width be changing to keep the volume of the box constant?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            In this problem we examine the effect of stretching or shifting the coordinates of the input variable of a function.
+            Your answers should address both the
+            <em>algebra</em> and the <em>geometry</em>
+            of the problem to show how the algebraic relations between the functions are manifested in their graphs.
+            <ol>
+              <li>
+                <p>
+                  Suppose <m>f(x)=\sin(x)</m> and <m>g(x)= \sin(mx)</m>,
+                  where <m>m</m> is a constant stretching factor.
+                  What is the relation between <m>f'(x)</m> and <m>g'(x)</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  As in (a), suppose <m>f(x) = \sin(x)</m>,
+                  but this time <m>g(x) = \sin(x+b)</m> where <m>b</m> is the size of a (constant) shift.
+                  What is the relation between <m>f'(x)</m> and <m>g'(x)</m> this time?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Now consider the general case:
+                  <m>f(x)</m> in an unspecified differentiable function and <m>g(x) = f(mx+b)</m>,
+                  where the input variable is stretched by the constant factor <m>m</m> and shifted by the constant amount <m>b</m>.
+                  What is the relation between <m>f'(x)</m> and <m>g'(x)</m> in this general case?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Which of the following functions has a derivative which is always positive (except at <m>x=0</m>,
+            where neither the function nor its derivative is defined)?
+            <me>
+              1/x \qquad    -1/x   \qquad   1/{x^2}  \qquad -1/{x^2}
+            </me>
+          </p>
+        </li>
+        <li>
+          <p>
+            As a function of its radius <m>r</m>,
+            the volume of a sphere is given by the formula <m>V(r) = \frac43 \pi r^3</m>.
+            If <m>r</m> is measured in centimeters,
+            what are the units for <m>V'(r)\/</m>?
+            <ol>
+              <li>
+                <p>
+                  Explain why square<nbsp/>cm are <em>not</em>
+                  the appropriate units for <m>V'(r)\/</m>,
+                  even though dimensionally correct.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Do the following.
+            <ol>
+              <li>
+                <p>
+                  Show that <m>\dfrac{1}{{1 - x^2}}</m> and
+                  <m>\dfrac{x^2}{{1 - x^2}}</m> have the same derivative.
+                </p>
+              </li>
+              <li>
+                <p>
+                  If <m>f'(x) = g'(x)</m> for every <m>x</m>,
+                  what can be concluded about the relationship between <m>f</m> and <m>g</m>? (Hint: What is <m>(f(x) - g(x))'</m> ?)
+                </p>
+              </li>
+              <li>
+                <p>
+                  Show that <m>\dfrac{1}{1 - x^2} = \dfrac{x^2}{{1 - x^2}} + C</m> by finding <m>C</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Suppose that the current total daily energy consumption in a particular country is
+            <m>16 \times 10^{13}</m> BTU and is rising at the rate of <m>6 \times 10^{11}</m> BTU per year.
+            Suppose that the current population is
+            <m>2 \times 10^{8}</m> people and is rising at the rate of <m>10^6</m> people per year.
+            What is the current daily per capita energy consumption?
+            Is it rising or falling?
+            By how much?
+          </p>
+        </li>
+        <li>
+          <p>
+            The population of a particular country is 15,000,000 people and is growing at the rate of 10,000 people per year.
+            In the same country the per capita yearly expenditure for energy is $1,000 per person and is growing at the rate of $8 per year.
+            What is the country's current total yearly energy expenditure?
+            How fast is the country's total yearly energy expenditure growing?
+          </p>
+        </li>
+        <li>
+          <p>
+            The population of a particular country is 30 million and is rising at the rate of 4,000 people per year.
+            The total yearly personal income in the country is 20 billion dollars,
+            and it is rising at the rate of 500 million dollars per year.
+            What is the current per capita personal income?
+            Is it rising or falling?
+            By how much?
+          </p>
+        </li>
+        <li>
+          <p>
+            An explorer is marooned on an iceberg.
+            The top of the iceberg is shaped like a square with sides of length 100 feet.
+            The length of the sides is shrinking at the rate of two feet per day.
+            How fast is the area of the top of the iceberg shrinking?
+            Assuming the sides continue to shrink at the rate of two feet per day,
+            what will be the dimensions of the top of the iceberg in five days?
+            How fast will the area of the top of the iceberg be shrinking then?
+          </p>
+        </li>
+        <li>
+          <p>
+            Suppose the iceberg of problem 9 is shaped like a cube.
+            How fast is the volume of the cube shrinking when the sides have length 100 feet?
+            How fast after five days?
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection xml:id="subsubsec_deriving-differentiation-rules">
+      <title>Deriving Differentiation Rules</title>
+      <ol>
+        <li>
+          <p>
+            In this problem we calculate the derivative of <m>f(x) = x^4</m>.
+            <ol>
+              <li>
+                <p>
+                  Expand <m>f(x + \Delta x) = (x + \Delta x)^4 =</m>
+                  <m>(x + \Delta x)(x + \Delta x)(x + \Delta x)(x + \Delta x)</m> as a sum of 16 terms.
+                  (Don't collect
+                  <q>like</q>
+                  terms yet.)
+                </p>
+              </li>
+              <li>
+                <p>
+                  How many terms in part a involve
+                  <em>no</em> <m>\Delta x</m>'s?
+                  What form do such terms have?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How many terms in part a involve exactly
+                  <em>one</em> <m>\Delta x</m>?
+                  What form do such terms have?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Group the terms in  part a  so that  <m>f(x + \Delta x)</m>  has the form
+                  <me>
+                    Ax^4 + B \Delta x + R (\Delta x)^2 \
+                  </me>,
+                  where there are no  <m>\Delta x</m>'s  among the terms in  <m>A</m>  or  <m>B</m>,
+                  but  <m>R</m>  has several terms,
+                  some involving  <m>\Delta x</m>.
+                  Use part b to check your value of  <m>A</m>;
+                  use part c to check your value of  <m>B</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Compute the quotient <m>\dfrac{f(x + \Delta x) - f(x)}{\Delta x}</m>,
+                  taking advantage of part d.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Now find
+                  <me>
+                    \lim_{\Delta x \rightarrow 0} \dfrac{f(x + \Delta x) - f(x)}{\Delta x};
+                  </me>
+                  this is the derivative of <m>x^4</m>.
+                  Is your result here compatible with the rule for the derivative of <m>x^n</m> ?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            In this problem we calculate the derivative of <m>f(x) = x^n</m>,
+            where <m>n</m> is any positive integer.
+            <ol>
+              <li>
+                <p>
+                  First show that you can write
+                  <me>
+                    f(x + \Delta x) = x^n + nx^{n-1} \Delta x + R (\Delta x)^2
+                  </me>
+                  by developing the following line of argument.
+                  Write  <m>(x + \Delta x)^n</m>  as a product of  <m>n</m>  identical factors:
+                  <me>
+                    (x + \Delta x)^n = \underbrace{(x + \Delta x)}_{1\mbox{-st} } \underbrace{(x + \Delta x)}_{2\mbox{-nd} } \underbrace{(x + \Delta x)}_{3\mbox{-rd} } \ldots \underbrace{(x + \Delta x)}_{n\mbox{-th} }
+                  </me>
+                  But now, before tackling this general case,
+                  look at the following examples.
+                  In the examples we use notation to help us keep track of which factors are contributing to the final result. i) Consider the product <m>(a + b)(\underline{a} + \underline{b}) = a\underline{a} + a\underline{b} + b\underline{a} + b\underline{b}</m>.
+                  There are four individual terms.
+                  Each term contains one of the entries in the first factor
+                  (namely <m>a</m> or <m>b</m>)
+                  and one of the entries in the second factor
+                  (namely <m>\underline{a}</m> or <m>\underline{b}</m>).
+                  The four terms represent thereby all possible ways of choosing one entry in the first factor and one entry in the second factor. ii) Multiply out the product <m>(a + b)(\underline{a}+ \underline{b})(A + B)</m>.
+                  (Don't combine like terms yet.)
+                  Does each term contain one entry from the first factor,
+                  one from the second, and one from the third?
+                  How many terms did you get?
+                  In fact there are two ways to choose an entry from the first factor,
+                  two ways to choose an entry from the second factor,
+                  and two ways to choose an entry from the third factor.
+                  Therefore, how many ways can you make a choice consisting of one entry from the first,
+                  one from the second, and one from the third?
+                  Now return to the general case:
+                  <me>
+                    (x + \Delta x)^n = \underbrace{(x + \Delta x)}_{1\mbox{-st} } \underbrace{(x + \Delta x)}_{2\mbox{-nd} } \underbrace{(x + \Delta x)}_{3\mbox{-rd} } \ldots \underbrace{(x + \Delta x)}_{n\mbox{-th} }
+                  </me>
+                  How many ways can you choose an entry from each factor and <em>not</em>
+                  get any <m>\Delta x</m>'s?
+                  Multiply these chosen entries together;
+                  what does the product look like (apart from having no <m>\Delta x</m>'s in it)?
+                  How many ways can you choose an entry from each factor in such a way that the resulting product has
+                  <em>precisely one</em> <m>\Delta x</m>?
+                  Describe all the various choices which give that result.
+                  What does a product that contains precisely one <m>\Delta x</m> factor look like?
+                  What do you obtain for the sum of <em>all</em>
+                  such terms with precisely one <m>\Delta x</m> factor?
+                  What is the minimum number of
+                  <m>\Delta x</m> factors in any of the remaining terms in the full expansion of
+                  <m>(x + \Delta x)^n</m> ? Do your calculations agree with this summary:
+                  <me>
+                    (x + \Delta x)^n = x^n + nx^{n-1} \Delta x + R(\Delta x)^2 \ ?
+                  </me>
+                </p>
+              </li>
+              <li>
+                <p>
+                  Now find the value of <m>\dfrac{f(x + \Delta x) - f(x)}{\Delta x}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Finally, find
+                  <me>
+                    \lim_{\Delta x \rightarrow 0} \dfrac{f(x + \Delta x) - f(x)}{\Delta x}
+                  </me>.
+                  Do you get <m>n x^{n-1}</m>?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            In this problem we give another derivation of the power rule based on writing
+            <me>
+              x^{\textstyle r} = e^{\textstyle r \ln(x)}
+            </me>.
+            Use the chain rule to differentiate <m>e^{\textstyle r \ln(x)}</m>.
+            Explain why your answer equals <m>rx^{r-1}</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Does the rule for the derivative of <m>x^r</m> hold for <m>r=0</m>?
+            Why or why not?
+          </p>
+        </li>
+        <li>
+          <p>
+            In this exercise we prove the Addition Rule:
+            <m>F(x) = f(x) + g(x)</m> implies <m>F'(x) = f'(x) + g'(x)</m>.
+            <ol>
+              <li>
+                <p>
+                  Show <m>F(x + \Delta x) - F(x) = f(x + \Delta x) - f(x) + g(x + \Delta x) - g(x)</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  Divide by <m>\Delta x</m> and finish the argument.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            In this exercise we prove the Quotient Rule:
+            <m>F(x) = f(x) / g(x)</m> implies
+            <me>
+              F'(x) = \frac{g(x)f'(x) - f(x)g'(x)}{(g(x))^2}
+            </me>
+            <ol>
+              <li>
+                <p>
+                  Rewrite <m>F(x) = f(x) / g(x)</m> as <m>f(x) = g(x) F(x)</m>.
+                  Pretend for the moment that you know what <m>F'(x)</m> is and apply the Product Rule to find <m>f'(x)</m> in terms of <m>F(x)</m>,
+                  <m>g(x)</m>, <m>F'(x)</m>, <m>g'(x)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Replace <m>F(x)</m> by <m>f(x) / g(x)</m> in your expression for <m>f'(x)</m> in part a.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Solve the equation in part b for <m>F'(x)</m> in terms of <m>f(x)</m>,
+                  <m>g(x)</m>, <m>f'(x)</m> and <m>g'(x)</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            In this problem we calculate the derivative of
+            <m>f(x) = x^n</m> when <m>n</m> is a negative integer.
+            First write <m>n = -m</m>, so <m>m</m> is a positive integer.
+            Then <m>f(x) = x^{-m} = 1 / {x^m}</m>.
+            <ol>
+              <li>
+                <p>
+                  Use the Quotient Rule and this new expression for <m>f</m> to find <m>f'(x)</m> .
+                </p>
+              </li>
+              <li>
+                <p>
+                  Do the algebra to re-express <m>f'(x)</m> as <m>nx^{n-1}</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            In this problem we calculate the derivatives of <m>\sin{x}</m> and <m>\cos{x}</m>.
+            We will need the <term>addition formulas</term>:
+            <md>
+              <mrow>\sin(A + B) \amp = \sin{A}\cos{B} + \cos{A}\sin{B}</mrow>
+              <mrow>\cos(A + B) \amp = \cos{A}\cos{B} - \sin{A}\sin{B}</mrow>
+            </md>
+            First tackle  <m>f(x) = \sin{x}</m>:
+            <ol>
+              <li>
+                <p>
+                  Use the addition formula for <m>\sin(A + B)</m> to rewrite
+                  <m>f(x + \Delta x)</m> in terms of <m>\sin(x)</m>,
+                  <m>\cos(x)</m>, <m>\sin(\Delta x)</m>,
+                  and <m>\cos(\Delta x)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The quotient <m>\dfrac{f(x + \Delta x) - f(x)}{\Delta x}</m> can now be written in the form
+                  <me>
+                    P(\Delta x) \cdot \sin{x} + Q(\Delta x) \cdot \cos{x} \,
+                  </me>,
+                  where <m>P</m> and <m>Q</m> are specific functions of <m>\Delta x</m>.
+                  What are the formulas for those functions?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Use a calculator or computer to estimate the limits
+                  <me>
+                    \lim_{\Delta x \to 0}P(\Delta x) \qquad \mbox{and}  \qquad \lim_{\Delta x \to 0}Q(\Delta x) \
+                  </me>.
+                  (Try  <m>\Delta x =</m> 0.1, 0.01, 0.001, 0.0001.
+                  Be sure your calculator is set on radians,
+                  not degrees.)  Using part b you should now be able to determine the limit
+                  <me>
+                    \lim_{\Delta x \rightarrow 0} \frac{f(x + \Delta x) - f(x)}{\Delta x} \
+                  </me>
+                  by writing it in the form
+                  <me>
+                    \left( \lim_{\Delta x \rightarrow 0} P(\Delta x) \right) \cdot \sin{x} + \left( \lim_{\Delta x \rightarrow 0} Q(\Delta x) \right) \cdot \cos{x} \
+                  </me>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  What is <m>f'(x)</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Proceed similarly to find the derivative of <m>g(x) = \cos{x}</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            In this problem we calculate the derivatives of the other circular functions.
+            Use the quotient rule together with the derivatives of <m>\sin{x}</m> and <m>\cos{x}</m> to verify that the derivatives of the other four circular functions are as given in the table below:
+            <me>
+              \begin{array}{ccc} \mbox{function}   \amp  \amp  \mbox{derivative}  \\ \hline \\ [-9pt] \tan{x} = \dfrac{\sin{x}}{\cos{x}} \amp  \amp        \sec^2{x} \\ [.15in] \csc{x} = \dfrac{1}{\sin{x}} \amp  \amp  -\cot{x}\csc{x}  \\ [.15in] \sec{x} = \dfrac{1}{\cos{x}} \amp    \amp     \sec{x}\tan{x} \\ [.15in] \cot{x} = \dfrac{1}{\tan{x}} \amp     \amp      -\csc^2{x} \end{array}
+            </me>
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection xml:id="subsubsec_differential-equations">
+      <title>Differential Equations</title>
+      <ol>
+        <li>
+          <p>
+            If <m>y = f(x)</m> then the <term>second derivative</term>
+              <idx><h>second derivative</h></idx>
+              <idx><h>derivate</h><h>second</h></idx>
+            of <m>f</m> is just the derivative of the derivative of <m>f</m>;
+            it is denoted <m>f''(x)</m> or <m>d^2y/dx^2</m>.
+            Find the second derivative of each of the following functions.
+            <ol>
+              <li>
+                <p>
+                  <m>f(x) = e^{3x-2}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>f(x) = \sin{\omega x}</m>,
+                  where <m>\omega</m> is a constant
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>f(x) = x^2e^x</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Show that <m>e^{3x}</m> and <m>e^{-3x}</m> both satisfy the (<em>second order</em>) differential equation
+            <me>
+              f''(x) = 9 f(x)
+            </me>.
+            Furthermore, show that <em>any</em>
+            function of the form <m>g(x) = \alpha e^{3x} + \beta e^{-3x}</m> satisfies this differential equation.
+            Here <m>\alpha</m> and <m>\beta</m> are arbitrary constants.
+            Finally, choose <m>\alpha</m> and <m>\beta</m> so that <m>g(x)</m> also satisfies the two conditions
+            <m>g(0) = 12</m> and <m>g'(0) = 15</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Show that <m>y = \sin{x}</m> satisfies the differential equation <m>y'' + y = 0</m>.
+            Show that <m>y = \cos{x}</m> also satisfies the differential equation.
+            Show that, in fact,
+            <m>y=a \sin{x} + b \cos{x}</m> satisfies the differential equation for any choice of constants <m>a</m> and <m>b</m>.
+            Can you find a function <m>g(x)</m> that satisfies these three conditions:
+            <md>
+              <mrow>g''(x) + g(x) \amp  =  0</mrow>
+              <mrow>g(0)  \amp  =  1</mrow>
+              <mrow>g'(0) \amp  =  4 ?</mrow>
+            </md>
+          </p>
+        </li>
+        <li>
+          <p>
+            Show that <m>\sin{\omega x}</m> satisfies the differential equation <m>y'' + {\omega}^2 y = 0</m>.
+            What other solutions can you find to this differential equation?
+            Can you find a function <m>L(x)</m> that satisfies these three conditions:
+            <md>
+              <mrow>L''(x) + 4L(x) \amp  =  0</mrow>
+              <mrow>L(0)   \amp  =  36</mrow>
+              <mrow>L'(0)  \amp  =  64 ?</mrow>
+            </md>
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection xml:id="subsubsec_the-colorado-river-problem">
+      <title>The Colorado River Problem</title>
+      <p>.
+        Make your answer to this sequence of questions an essay.
+        Identify all the variables you consider (e.g.,
+        <q><m>A</m> stands for the area of the lake</q>),
+        and indicate the functional relationships between them (
+        <q><m>A</m> depends on time <m>t</m>,
+        measured in weeks from the present</q>).
+        Identify the derivatives of those functions, as necessary.
+        The Colorado River<mdash/>which excavated the Grand Canyon,
+        among others<mdash/>used to empty into the Gulf of California.
+        It no longer does.
+        Instead, it runs into a marshy area some miles from the Gulf and stops.
+        One of the major reasons for this change is the construction of dams<mdash/>notably the Hoover Dam.
+        Every dam creates a lake behind it,
+        and every lake increases the total surface area of the river.
+        Since the rate at which water evaporates is proportional to the area of the water surface exposed to air,
+        the lakes along the Colorado have increased the loss of river water through evaporation.
+        Over the years, these losses
+        (in conjunction with other factors,
+        like increased usage by a rapidly growing population)
+        have been significant enough to dry up the river at its mouth.
+      </p>
+      <ol>
+        <li>
+          <p>
+            Let us analyze the evaporation rate along a river that was recently dammed.
+            Suppose the lake is currently 50 yards wide,
+            and getting wider at a rate of 3 yards per week.
+            As the lake fills, it gets longer, too.
+            Suppose it is currently 950 yards long,
+            and it is extending upstream at a rate of 15 yards per week.
+            Assuming the lake remains approximately rectangular as it grows, find
+            <sidebyside>
+              \special{psfile=../ps/calc1/lake.ps}
+            </sidebyside>
+          </p>
+          <ol>
+            <li>
+              <p>
+                the current area of the lake, in square yards;
+              </p>
+            </li>
+            <li>
+              <p>
+                the rate at which the surface of the lake is currently growing,
+                in square yards per week.
+              </p>
+            </li>
+          </ol>
+        </li>
+        <li>
+          <p>
+            Suppose the lake continues to spread sideways at the rate of 3 yards per week,
+            and it continues to extend upstream at the rate of 15 yards per week.
+            <ol>
+              <li>
+                <p>
+                  Express the area of the lake as a (quadratic!) function of time,
+                  where time is measured from the present, in weeks,
+                  and where the lake's area is as given in problem 25.
+                </p>
+              </li>
+              <li>
+                <p>
+                  How many weeks will it take for the lake to cover 30 acres (= 145,200 square yards)?
+                </p>
+              </li>
+              <li>
+                <p>
+                  At what rate is the lake surface growing when it covers 30 acres?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Compare the rates at which the surface of the lake is growing in problem 25
+            (which is the
+            <q>current</q>
+            rate)
+            and in problem 26
+            (which is the rate when the lake covers 30 acres).
+            Are these rates the same?
+            If they are not, how do you account for the difference?
+            In particular,
+            the width and length grow at fixed rates, so why doesn't the area?
+            Use what you know about derivatives to answer the question.
+          </p>
+        </li>
+        <li>
+          <p>
+            Suppose the local climate causes water to evaporate from the surface of the lake at the rate of 0.22 cubic yards per week,
+            for each square yard of surface.
+            Write a formula that expresses total evaporation per week in terms of area.
+            Use <m>E</m> to denote total evaporation.
+          </p>
+        </li>
+        <li>
+          <p>
+            The lake is fed by the river,
+            and that in turn is fed by rainwater and groundwater from its watershed.
+            (The <term>watershed</term>, or basin,
+            of a river is that part of the countryside containing the ponds and streams which drain into the river.)
+            Suppose the watershed provides the lake,
+            on average, with 25,000 cubic yards of new water each week.
+            Assuming, as we did in problem 25,
+            that the lake widens at the constant rate of 3 yards per week,
+            and lengthens at the rate of 15 yards per week,
+            will the time ever come that the water being added to the lake from its watershed balances the water being removed by evaporation?
+            In other words, will the lake ever stop filling?
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+  </subsection>
+</section>

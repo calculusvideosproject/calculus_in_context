@@ -1,0 +1,1715 @@
+<section xml:id="sec_the-mathematical-ideas">
+  <title>The Mathematical Ideas</title>
+  <introduction>
+    <p>
+      A number of important mathematical ideas have already emerged in our study of an epidemic.
+      In this section we pause to consider them, because they have a
+      <q>universal</q>
+      character.
+      Our aim is to get a fuller understanding of what we have done so we can use the ideas in other contexts.
+    </p>
+    <aside>
+      <p>
+        We often draw out of a few particular experiences a lesson that can be put to good use in new settings.
+        This process is the essence of mathematics,
+        and it has been given a name<mdash/>abstraction<mdash/>which means literally
+        <q>drawing from.</q>
+            <idx><h>abstraction</h></idx>
+        Of course abstraction is not unique to mathematics; it is a basic part of the human psyche.
+      </p>
+    </aside>
+  </introduction>
+  <subsection xml:id="subsec_functions">
+    <title>Functions</title>
+    <p>
+          <idx><h>function</h></idx>
+      A <term>function</term>
+          <idx><h>function</h></idx>
+      describes how one quantity depends on another.
+      In our study of a measles epidemic,
+    </p>
+    <aside>
+      <p>
+        Functions and their notation
+      </p>
+    </aside>
+    <p>
+      the relation between the number of susceptibles <m>S</m> and the time <m>t</m> is a function.
+      We write <m>S(t)</m> to denote that <m>S</m> is a function of <m>t</m>.
+      We can also write <m>I(t)</m> and <m>R(t)</m> because <m>I</m> and <m>R</m> are functions of <m>t</m>, too.
+      We can even write <m>S'(t)</m> to indicate that the rate <m>S'</m> at which <m>S</m> changes over time is a function of <m>t</m>.
+      In speaking, we express <m>S(t)</m> as
+      <q><m>S</m> of <m>t</m></q>
+      and <m>S'(t)</m> as
+      <q><m>S</m> prime of <m>t</m>.</q>
+      You can find functions everywhere.
+      The amount of postage you pay for a letter is a function of the weight of the letter.
+      The time of sunrise is a function of what day of the year it is.
+      The crop yield from an acre of land is a function of the amount of fertilizer used.
+      The position of a car's gasoline gauge
+      (measured in centimeters from the left edge of the gauge)
+      is a function of the amount of gasoline in the fuel tank.
+      On a polygraph (
+      <q>lie detector</q>
+      ) there is a pen that records breathing;
+      its position is a function of the amount of expansion of the lungs.
+      The volume of a cubical box is a function of the length of a side.
+      The last is a rather special kind of function because it can be described by an algebraic formula:
+      if <m>V</m> is the volume of the box and <m>s</m> is the length of a side,
+      then <m>V(s) = s^3</m>.
+      Most functions are <em>not</em>
+      described by algebraic formulas, however.
+          <idx><h>formula</h></idx>
+      For instance,
+      the postage function is given by a set of verbal instructions and the time of sunrise is given by a table in an almanac.
+      The relation between a gas gauge and the amount of fuel in the tank is determined simply by making measurements.
+      There is no algebraic formula that tells us how the number of susceptibles,
+      <m>S</m>, depends upon <m>t</m>, either.
+      Instead, we find <m>S(t)</m> by carrying out the steps in the flow chart <xref ref="x_flowchart_">on</xref>
+      until we reach <m>t</m> days into the future.
+      In the function <m>S(t)</m> the variable <m>t</m> is called the <em> input</em>
+          <idx><h>input</h></idx>
+    </p>
+    <aside>
+      <p>
+        A function has input and output
+      </p>
+    </aside>
+    <p>
+      and the variable <m>S</m> is called the <term>output</term>.
+          <idx><h>output</h></idx>
+      In the sunrise function,
+      the day of the year is the input and the time of sunrise is the output.
+      In the function <m>S(t)</m> we think of <m>S</m> as
+      <em>depending on</em> <m>t</m>,
+      so <m>t</m> is also called the independent variable and <m>S</m> the dependent variable.
+      The set of values that the input takes is called the <term>domain</term>
+          <idx><h>domain</h></idx>
+      of the function.
+      The set of values that the output takes is called the <em> range</em>.
+          <idx><h>range</h></idx>
+      The idea of a function is one of the central notions of mathematics.
+      It is worth highlighting:
+    </p>
+    <image source=""/>
+    <p>
+      Notice that we say <em>rule</em>
+      here, and not <em>formula</em>.
+      This is deliberate.
+      We want the study of functions to be as broad as possible,
+      to include all the ways one quantity is likely to be related to another in a scientific question.
+      <term>Some technical details</term>.
+      It is important not to confuse an expression like <m>S(t)</m> with a product;
+      <m>S(t)</m> does <em>not</em> mean <m>S \times t</m>.
+      On the contrary, the expression <m>S(1.4)</m>, for example,
+      stands for the output of the function <m>S</m> when 1.4 is the input.
+      In the epidemic model we then interpret it as the number of susceptibles that remain 1.4 days after today.
+      We have followed the standard practice in science by letting the single letter <m>S</m> designate both the
+      <em>function</em><mdash/>that is,
+      the <em>rule</em><mdash/>and the
+      <em>output</em> of that function.
+      Sometimes, though, we will want to make the distinction.
+      In that case we will use two different symbols.
+      For instance, we might write <m>S = f(t)</m>.
+      Then we are still using <m>S</m> to denote the output,
+      but the new symbol <m>f</m> stands for the function rule.
+      The symbols we use to denote the input and the output of a function are just names;
+      if we change them, we don't change the function.
+      For example,
+      here are three ways to describe the same function <m>g</m>:
+      <md>
+        <mrow>g \amp : \mbox{multiply the input by 5, then subtract 3}</mrow>
+        <mrow>g(x) \amp = 5x - 3</mrow>
+        <mrow>g(u) \amp = 5u - 3 \, </mrow>
+      </md>.
+    </p>
+    <p>
+      It is important to realize that the <em>formulas</em>
+      we just wrote in the last two lines are merely shorthand for the instructions stated in the first line.
+      If you keep this in mind,
+      then absurd-looking combinations like <m>g(g(2))</m> can be decoded easily by remembering <m>g</m> of <em>anything</em>
+      is just 5 times that thing, minus 3.
+      We could thus evaluate <m>g(g(2))</m> from the inside out
+      (which is usually easier)
+      as
+      <me>
+        g(g(2))=g(5\cdot 2-3)=g(7)=5\cdot 7 -3=32
+      </me>,
+      or we could evaluate it from the outside in as
+      <me>
+        g(g(2))=5g(2)-3=5(5\cdot 2 -3)-3=5\cdot 7-3=32
+      </me>,
+      as before.
+      Suppose <m>f</m> is some other rule, say <m>f(t)=t^2+4t-1</m>.
+      Remember that this is just shorthand for
+      <q>Take the input
+      (whatever it is),
+      square it, add four times the input, and subtract 1.</q>
+      We could then evaluate
+      <me>
+        f(g(3))=f(5\cdot 3 -3)=f(12)= 12^2+4\cdot 12 - 1 = 144+48-1=191
+      </me>,
+      while
+      <me>
+        g(f(3))=g(20)=97
+      </me>.
+    </p>
+    <p>
+      This process of <term>chaining</term>
+      functions together by using the output of one function as the input for another turns out to be very
+    </p>
+    <aside>
+      <p>
+        Part of math is simply learning the language
+      </p>
+    </aside>
+    <p>
+      important later in this course,
+      and will be taken up again in chapter 3.
+      For now, though,
+      you should treat it simply as part of the formal language of mathematics,
+      requiring a knowledge of the rules but no cleverness.
+      It is analogous to learning how to conjugate verbs in French class<mdash/>it's not very exciting for its own sake,
+      but it allows us to read the interesting stuff later on!
+      A particularly important class of functions is composed of the
+      <em> constant functions</em>
+      which give the same output for every input.
+      If <m>h</m> is the constant function that always gives back 17,
+      then in formula form we would express this as <m>h(x) = 17</m>.
+      Constant functions are so simple you might feel you are missing the point,
+      but that's all there is to it!
+    </p>
+  </subsection>
+  <subsection xml:id="subsec_graphs">
+    <title>Graphs</title>
+    <p>
+          <idx><h>graph</h></idx>
+      A graph describes a function in a visual form.
+      Sometimes<mdash/>as with a seismograph or a lie detector,
+    </p>
+    <aside>
+      <p>
+        A graph is a function rule given visually
+      </p>
+    </aside>
+    <p>
+      for instance<mdash/>this is the <em>only</em>
+      description we have of a particular function.
+      The usual arrangement is to put the input variable on the horizontal axis and the output on the vertical<mdash/>but it is a good idea when you are looking at a particular graph to take a moment to check;
+      sometimes, the opposite convention is used!
+      This is often the case in geology and economics, for instance.
+    </p>
+    <image source="images/b4a43e63251f4ed5037ae8cbde001a96f545d317.png"/>
+    <p>
+      Sketched above is the graph of a function <m>S(t)</m> that tells how many susceptibles there are after <m>t</m> days.
+      Given any <m>t_0</m>, we
+      <q>read</q>
+      the graph to find <m>S(t_0)</m>, as follows:
+      from the point <m>t_0</m> on the <m>t</m>-axis,
+      go vertically until you reach the graph;
+      then go horizontally until you reach the <m>S</m>-axis.
+      The value <m>S_0</m> at that point is the output <m>S(t_0)</m>.
+      Here <m>t_0</m> is about 13 and <m>S_0</m> is about 27,000;
+      thus, the graph says that <m>S(13) \approx 27000</m>,
+      or about 27,000 susceptibles are left after 13 days.
+    </p>
+  </subsection>
+  <subsection xml:id="subsec_linear-functions">
+    <title>Linear Functions</title>
+    <p>
+          <idx><h>linear function</h></idx> <term>Changes in input and output</term>.
+    </p>
+    <aside>
+      <p>
+        If <m>y</m> depends on <m>x</m>,
+        then <m>\Delta y</m> depends on <m>\Delta x</m>
+      </p>
+    </aside>
+    <p>
+      Suppose <m>y</m> is a function of <m>x</m>.
+      Then there is some rule that answers the question: What is the value of <m>y</m> for any given <m>x</m>?
+      Often, however,
+      we start by knowing the value of <m>y</m> for a particular <m>x</m>,
+      and the question we really want to ask is: How does <m>y</m> respond to
+      <em>changes</em> in <m>x</m>?
+      We are still dealing with the same function<mdash/>just looking at it from a different point of view.
+      This point of view is important;
+      we use it to analyze functions (like <m>S(t)</m>, <m>I(t)</m>,
+      and <m>R(t)</m>) that are defined by rate equations.
+      The way <m>\Delta y</m> depends on
+      <m>\Delta x</m> can be simple or it can be complex,
+      depending on the function involved.
+      The simplest possibility is that <m>\Delta y</m> and
+      <m>\Delta x</m> are <em> proportional</em>:
+          <idx><h>proportional</h></idx>
+      <me>
+        \Delta y = m\cdot\Delta x, \mbox{for some constant \(m\).}
+      </me>
+    </p>
+    <p>
+      Thus, if <m>\Delta x</m> is doubled, so is <m>\Delta y</m>;
+      if <m>\Delta x</m> is tripled, so is <m>\Delta y</m>.
+    </p>
+    <aside>
+      <p>
+        The defining property of a linear function
+      </p>
+    </aside>
+    <p>
+      A function whose input and output are related in this simple way is called a
+      <term>linear function</term>,
+      because the graph is a straight line.
+      Let's take a moment to see why this is so.
+    </p>
+    <sidebyside>
+      <term>The graph of a linear function</term>.<idx><h>linear function</h><h>graph</h></idx>
+      The graph consists of certain points <m>(x, y)</m> in the <m>x, y</m>-plane.
+      Our job is to see how those points are arranged.  Fix one of them, and
+      call it <m>(x_0, y_0)</m>.  Let <m>(x, y)</m> be any other point on the graph.
+      Draw the line that connects this point to <m>(x_0, y_0)</m>, as we have
+      done in the figure at the right.  Now set
+      <me>
+        \Delta x = x - x_0, \qquad \Delta y = y - y_0
+      </me>.
+      <image source="images/1d051255975b55fa9fc17b37a99f456d414386a6.png"/>
+    </sidebyside>
+    <p>
+      By definition of a linear function,
+      <m>\Delta y=m\cdot\Delta x</m>, as the figure shows,
+      so the slope of this line is <m>\Delta y/\Delta x = m</m>.
+      Recall that <m>m</m> is a constant;
+      thus, if we pick a new point <m>(x, y)</m>,
+      the slope of the connecting line won't change.
+      Since <m>(x, y)</m> is an arbitrary point on the graph,
+      what we have shown is that <term>every point on the graph lies on a line of slope <m>m</m> through the point  <m>(x_0, y_0)</m></term>.
+      But there is only one such line<mdash/>and all the points lie on it!
+      That line must be the graph of the linear function.
+    </p>
+    <image source=""/>
+    <p>
+      <term>Rates, slopes, and multipliers</term>.
+          <idx><h>rate</h></idx>
+          <idx><h>slope</h></idx>
+          <idx><h>multiplier</h></idx>
+      The interpretation of <m>m</m> as a slope is just one possibility; there are two other interpretations that are equally important.
+      To illustrate them we'll use Mark Twain's vivid description of the shortening of the Lower Mississippi River
+      (<xref ref="x_twain_">see</xref>).
+      This will also give us the chance to see how a linear function emerges in context.
+    </p>
+    <p>
+      Twain says
+      <q>the Lower Mississippi has shortened itself <ellipsis/><nbsp/>an average of a trifle over a mile and a third per year.</q>
+      Suppose we let <m>L</m> denote the length of the river,
+      in miles,
+      and <m>t</m> the time, in years.
+      Then <m>L</m> depends on <m>t</m>,
+      and Twain's statement implies that <m>L</m> is a <em>linear</em>
+      function of <m>t</m><mdash/>in the sense in which we have just defined a linear function.
+      Here is why.
+      According to our definition,
+      there must be some number <m>m</m> which makes <m>\Delta L = m\cdot\Delta t</m>.
+      But notice that Twain's statement has exactly this form if we translate it into mathematical language.
+      Convince yourself that it
+    </p>
+    <aside>
+      <p>
+        Stop and do the translation
+      </p>
+    </aside>
+    <p>
+      says
+      <me>
+        \Delta L \ \mbox{miles}  = -1 \tfrac{1}{3} \ \dfrac{\text{ miles } }{\text{ year } } \times \Delta t \ \mbox{years}
+      </me>.
+    </p>
+    <p>
+      Thus we should take <m>m</m> to be <m>-1\tfrac{1}{3}</m> miles per year.
+      The role of <m>m</m> here is to convert one quantity (<m>\Delta t</m> years) into another (<m>\Delta L</m> miles) by multiplication.
+      All linear functions work this way.
+      In the defining equation <m>\Delta y = m\cdot\Delta x</m>,
+      multiplication by <m>m</m> converts
+      <m>\Delta x</m> into <m>\Delta y</m>.
+      Any change in <m>x</m> produces a change in <m>y</m> that is <m>m</m> times as large.
+      For this reason we give <m>m</m> its second interpretation as a <term>multiplier</term>.
+    </p>
+    <aside>
+      <p>
+        It is easier to understand why the usual symbol for <em>slope</em>
+        is <m>m</m><mdash/>instead of <m>s</m><mdash/>when you see that a slope can be interpreted as a multiplier.
+      </p>
+    </aside>
+    <p>
+      It is important to note that,
+      in our example, <m>m</m> is not simply <m>-1\tfrac{1}{3}</m>;
+      it is <m>-1\tfrac{1}{3}</m> <em>miles per year</em>.
+      In other words, <m>m</m> is the <term>rate</term>
+      at which the river is getting shorter.
+      All linear functions work this way, too.
+      We can rewrite the equation <m>\Delta y = m\cdot\Delta x</m> as a ratio
+      <me>
+        m = \dfrac{\Delta y}{\Delta x} = \mbox{the rate of change of \(y\) with respect to \(x\)}
+      </me>.
+    </p>
+    <p>
+      For these reasons we give <m>m</m> its third interpretation as a
+      <term>rate of change</term>.
+    </p>
+    <image source=""/>
+    <p>
+      We already use <m>y'</m> to denote the rate of change of <m>y</m>,
+      so we can now write <m>m = y'</m> when <m>y</m> is a linear function of <m>x</m>.
+      In that case we can also write
+      <me>
+        \Delta y = y' \cdot \Delta x
+      </me>.
+    </p>
+    <p>
+      This expression should recall a pattern very familiar to you. (If not,
+      change <m>y</m> to <m>S</m> and <m>x</m> to <m>t</m>!) It is the fundamental formula we have been using to calculate future values of <m>S</m>,
+      <m>I</m>,
+      and <m>R</m>.
+      We can approach the relation between <m>y</m> and <m>x</m> the same way.
+      That is, if <m>y_0</m> is an
+      <q>initial value</q>
+      of <m>y</m>, when <m>x = x_0</m>,
+      then <em>any</em> value of <m>y</m> can be calculated from
+      <me>
+        y = y_0 + y' \cdot \Delta x  \mbox{or} y = y_0 + m \cdot \Delta x
+      </me>.
+    </p>
+    <p>
+      <term>Units</term>.
+          <idx><h>units</h></idx>
+      Suppose <m>x</m> and <m>y</m> are quantities that are
+    </p>
+    <aside>
+      <p>
+        If <m>x</m> and <m>y</m> have units, so does <m>m</m>
+      </p>
+    </aside>
+    <p>
+      measured in specific units.
+      If <m>y</m> is a linear function of <m>x</m>,
+      with <m>\Delta y = m\cdot\Delta x</m>,
+      then <m>m</m> must have units too.
+      Since <m>m</m> is the multiplier that
+      <q>converts</q>
+      <m>x</m> into <m>y</m>,
+      the units for <m>m</m> must be chosen so they will convert <m>x</m>'s units into <m>y</m>'s units.
+      In other words,
+      <me>
+        \mbox{units for \(y\)}  = \mbox{units for \(m\)}  \times \mbox{units for \(x\)}
+      </me>.
+    </p>
+    <p>
+      This implies
+      <me>
+        \mbox{units for \(m\)} = \dfrac{\mbox{units for \(y\)} }{\mbox{units for \(x\)} }
+      </me>.
+    </p>
+    <p>
+      For example,
+      the multiplier in the Mississippi River problem converts years to miles,
+      so it must have units of miles per year.
+      The rate equation <m>R' = bI</m> in the <m>S</m>-<m>I</m>-<m>R</m> model is a more subtle example.
+      It says that <m>R'</m> is a linear function of <m>I</m>.
+      Since <m>R'</m> is measured in persons per day and <m>I</m> is measured in persons,
+      we must have
+      <me>
+        \mbox{units for \(b\)} = \dfrac{\text{ units for \(R'\) } }{\text{ units for \(I\) } } = \dfrac{ \dfrac{\text{ persons } }{\text{ days } }} {\text{ persons } }
+      </me>
+    </p>
+    <p>
+      <term>Formulas for linear functions</term>.
+          <idx><h>linear function</h><h>formulas</h></idx>
+      The expression <m>\Delta y = m\cdot\Delta x</m> declares that <m>y</m> is a linear function of <m>x</m>,
+      but it doesn't quite tell us what <m>y</m> itself <em>looks like</em>
+      directly in terms of <m>x</m>.
+      In fact, there are several equivalent ways to write the relation <m>y = f(x)</m> in a formula,
+      depending on what information we are given about the function.
+    </p>
+    <sidebyside>
+      {<m>\bullet</m>  The initial-value form}.<idx><h>initial-value form</h></idx> Here
+      is a very common situation: we know the value of <m>y</m> at an
+      <q>initial</q>
+      point<mdash/>let's say <m>y_0 = f(x_0)</m><mdash/>and we know the rate of
+      change<mdash/>let's say it is <m>m</m>.  Then the graph is the straight line of
+      slope <m>m</m> that passes through the point <m>(x_0, y_0)</m>.  The formula for
+      <m>f</m> is
+      <image source="images/7c05149d6e8ca4729c8b1303bef4b66306b6fa41.png"/>
+    </sidebyside>
+    <me>
+      y = y_0 + \Delta y = y_0 + m\cdot\Delta x =
+      y_0 + m(x - x_0) = f(x)
+    </me>.
+    <p>
+      What you should note particularly about this formula is that it expresses <m>y</m> in terms of the initial data <m>x_0</m>,
+      <m>y_0</m>, and <m>m</m><mdash/>as well as <m>x</m>.
+      Since that data consists of a point
+      <m>(x_0, y_0)</m> and a slope <m>m</m>,
+      the initial-value formula is also referred to as the
+      <em> point-slope form</em>
+          <idx><h>point-slope form</h></idx>
+      of the equation of a line.
+      It may be more familiar to you with that name.
+    </p>
+    <sidebyside>
+      <image source="images/dfce2eabb18d4452954edeb03bb7d54f338aaa89.png"/>
+      {<m>\bullet</m>  The interpolation form}.<idx><h>interpolation form</h></idx> This
+      time we are given the value of <m>y</m> at <em>two</em> points<mdash/>let's say
+      <m>y_1 = f(x_1)</m> and <m>y_2 = f(x_2)</m>.  The graph is the line that passes
+      through <m>(x_1, y_1)</m> and <m>(x_2, y_2)</m>, and its slope is therefore
+      <me>
+        m = \dfrac{y_2 - y_1}{x_2 - x_1}
+      </me>.
+    </sidebyside>
+    <p>
+      Now that we know the slope of the graph we can use the point-slope form (taking <m>(x_1, y_1)</m> as the
+      <q>point</q>, for example) to get the equation.
+      We have
+      <me>
+        y = y_1 + m(x - x_1) = y_1 + \dfrac{y_2 - y_1}{x_2 - x_1}(x - x_1) = f(x)
+      </me>.
+    </p>
+    <p>
+      Notice how, once again,
+      <m>y</m> is expressed in terms of the initial data<mdash/>which consists of the two points
+      <m>(x_1, y_1)</m> and <m>(x_2, y_2)</m>.
+      The process of finding values of a quantity between two given values is called
+      <term>interpolation</term>.
+          <idx><h>interpolation</h></idx>
+      Since our new expression does precisely that,
+      it is called the interpolation formula.
+      (Of course, it also finds values outside the given interval.)
+      Since the initial data is a pair of points,
+      the interpolation formula is also called the
+      <term>two-point formula</term>
+      for the equation of a line.
+    </p>
+    <sidebyside>
+      <image source="images/3de7f2480732e37d8579929765df712db571879c.png"/>
+      {<m>\bullet</m>  The slope-intercept form}.<idx><h>slope-intercept form</h></idx>
+      This is a special case of the initial-value form that occurs when the
+      initial <m>x_0 = 0</m>.  Then the point <m>(x_0, y_0)</m> lies on the <m>y</m>-axis,
+      and it is frequently written in the alternate form <m>(0, b)</m>.  The
+      number <m>b</m> is called the <term>
+      <m>y</m>-intercept</term>.<idx><h><m>y</m>-intercept</h></idx> The equation is
+      <me>
+        y = mx + b = f(x)
+      </me>.
+    </sidebyside>
+    <p>
+      In the past you may have thought of this as <em>the</em>
+      formula for a linear function,
+      but for us it is only one of several.
+      You will find that we will use the other forms more often.
+    </p>
+  </subsection>
+  <subsection xml:id="subsec_functions-of-several-variables">
+    <title>Functions of Several Variables</title>
+    <p>
+          <idx><h>function</h><h>of several variables</h></idx> <term>Language and notation</term>.
+      Many functions depend on more than one variable.
+      For example,
+      sunrise depends on the day of the year but it also depends on the latitude
+    </p>
+    <aside>
+      <p>
+        A function can have several input variables
+      </p>
+    </aside>
+    <p>
+      (position north or south of the equator) of the observer.
+      Likewise, the crop yield from an acre of land depends on the amount of fertilizer used,
+      but it also depends on the amount of rainfall,
+      on the composition of the soil,
+      on the amount of weeding done<mdash/>to mention just a few of the other variables that a farmer has to contend with.
+      The rate equations in the <m>S</m>-<m>I</m>-<m>R</m> model also provide examples of functions with more than one input variable.
+      The equation
+      <me>
+        I' = 0.00001\,SI - I/14
+      </me>
+      says that we need to specify both <m>S</m> and <m>I</m> to find <m>I'</m>.
+      We can say that
+      <me>
+        F(S, I) = 0.00001\,SI - I/14
+      </me>
+      is a function whose input is the <term>ordered pair</term>
+          <idx><h>ordered pair</h></idx>
+      of variables <m>(S, I)</m>.
+      In this case <m>F</m> is given by an algebraic formula.
+      While many other functions of several variables also have formulas<mdash/>and they are extremely useful<mdash/>not all functions do.
+      The sunrise function, for example,
+      is given by a two-way table
+      (<xref ref="sunrise_table">see</xref>)
+      that shows the time of sunrise for different days of the year and different latitudes.
+      As a technical matter it is important to note that the input variables <m>S</m> and <m>I</m> of the function <m>F(S, I)</m> above appear in a particular <em>order</em>,
+      and that order is part of the definition of the function.
+      For example, <m>F(1, 0) = 0</m>,
+      but <m>F(0, 1) = -1/14</m>.
+      (Do you see why?
+      Work out the calculations yourself.)
+      <term>Parameters</term>.
+          <idx><h>parameter</h></idx>
+      Suppose we rewrite the rate equation for <m>I'</m>,
+      replacing 0.00001 and 1/14 with the general values <m>a</m> and <m>b</m>:
+      <me>
+        I' = aSI - bI
+      </me>.
+    </p>
+    <p>
+      This makes it clear that <m>I'</m> depends on <m>a</m> and <m>b</m>, too.
+      But note that <m>a</m> and <m>b</m> are not variables in quite the same way that <m>S</m> and <m>I</m> are.
+      For example,
+      <m>a</m> and <m>b</m> will vary if we switch from one disease to another or from one population to another.
+      However, they will stay fixed while we consider a particular disease in a particular population.
+      By contrast, <m>S</m> and <m>I</m> will
+      <em>always</em> be treated as variables.
+      We call a quantity like <m>a</m> or <m>b</m> a <term>parameter</term>.
+      To emphasize that <m>I'</m> depends on the parameters as well as <m>S</m> and <m>I</m>,
+      we can write <m>I'</m> as the output of a new function
+      <me>
+        I'= I'(S, I, a, b) = aSI - bI
+      </me>
+      whose input is the set of <em>four</em> variables
+    </p>
+    <aside>
+      <p>
+        Some functions depend on parameters
+      </p>
+    </aside>
+    <p>
+      <m>(S, I, a, b)</m>, in that order.
+      The variables <m>S</m>, <m>I</m>,
+      and <m>R</m> must also depend on the parameters,
+      too, and not just on <m>t</m>.
+      Thus, we should write <m>S(t, a, b)</m>,
+      for example, instead of simply <m>S(t)</m>.
+      We implicitly used the fact that <m>S</m>, <m>I</m>,
+      and <m>R</m> depend on <m>a</m> and <m>b</m> when we discovered there was a threshold for an epidemic ( <xref ref="x_threshold_"></xref>).
+      In exercise<nbsp/>22 of section<nbsp/>1 ( <xref ref="x_setthresh_"></xref>),
+      you made the relation explicit.
+      In that problem you show <m>I</m> will simply decrease over time (i.e., there will be no
+      <q>burst</q>
+      of infection) if
+      <me>
+        S \lt  \dfrac{b}{a}
+      </me>.
+    </p>
+    <p>
+      There are even more parameters lurking in the <m>S</m>-<m>I</m>-<m>R</m> problem.
+      To uncover them, recall that we needed <em>two</em>
+      pieces of information to estimate <m>S</m>, <m>I</m>,
+      and <m>R</m> over time: 1)the rate equations; 2)the initial values <m>S_0</m>,
+      <m>I_0</m>, and <m>R_0</m>.
+      We used <m>S_0 = 45400</m>,
+      <m>I_0 = 2100</m>, and <m>R_0 = 2500</m> in the text,
+      but if we had started with other values then <m>S</m>,
+      <m>I</m>,
+      and <m>R</m> would have ended up being different functions of <m>t</m>.
+      Thus, we should really write
+      <me>
+        S = S(t, a, b, S_0, I_0, R_0)
+      </me>
+      to tell a more complete story about the inputs that determine the output <m>S</m>.
+      Most of the time, though,
+      we do <em>not</em> want to draw attention to the parameters;
+      we usually write just <m>S(t)</m>.
+      <term>Further possibilities</term>.
+      Steps I, II, and III <xref ref="x_flowchart_">on</xref> are also functions,
+      because they have well-defined input and output.
+      They are unlike the other examples we have discussed up to this point because they have more than one output variable.
+      You should see, though,
+      that there is nothing more difficult going on here.
+      In our study of the <m>S</m>-<m>I</m>-<m>R</m> model it was natural not to separate functions that have one input variable from those that have several.
+      This is the pattern we shall follow in the rest of the course.
+      In particular, we will want to deal with parameters,
+      and we will want to understand how the quantities we are studying depend on those parameters.
+    </p>
+  </subsection>
+  <subsection xml:id="subsec_the-beginnings-of-calculus">
+    <title>The Beginnings of Calculus</title>
+    <p>
+      While functions, graphs,
+      and computers are part of the general fabric of mathematics,
+      we can also abstract from the <m>S</m>-<m>I</m>-<m>R</m> model some important aspects of the calculus itself.
+      The first of these is the idea of a
+      <term>rate of change</term>.
+          <idx><h>rate of change</h></idx>
+      In this chapter we just assumed the idea was intuitively clear.
+      However, there are some important questions not yet answered;
+      for example,
+      how do you deal with a quantity whose rate of change is itself always changing?
+      These questions,
+      which lead to the fundamental idea of a <em> derivative</em>,
+          <idx><h>derivative</h></idx>
+      are taken up in chapter 3.
+      Rate equations<mdash/>more
+          <idx><h>rate equation</h></idx>
+      commonly called <em> differential equations</em><mdash/>lie at the very heart of calculus.
+          <idx><h>differential equation</h></idx>
+      We will have much more to say about them,
+      because many processes in the physical, biological,
+      and social realms can be modelled by rate equations.
+      In our analysis of the <m>S</m>-<m>I</m>-<m>R</m> model,
+      we used rate equations to estimate future values by assuming that rates stay fixed
+    </p>
+    <aside>
+      <p>
+        How the next three chapters are connected
+      </p>
+    </aside>
+    <p>
+      for a whole day at a time.
+      The discussion called
+      <q>there and back again</q>
+      <xref ref="x_thereback_">on</xref>
+      points up the shortcomings of this assumption.
+      In chapter 2 we will develop a procedure,
+      called Euler's method, to address this problem.
+      In chapter 4 we will return to differential equations in a general way,
+      equipped with Euler's method and the concept of the derivative.
+    </p>
+  </subsection>
+  <subsection>
+    <title>Exercises</title>
+    <subsubsection xml:id="subsubsec_functions-and-graphs">
+      <title>Functions and Graphs</title>
+      <ol>
+        <li>
+          <p>
+            Sketch the graph of each of the following functions.
+            Label each axis, and mark a scale of units on it.
+            For each line that you draw, indicate i) its slope;
+            ii) its <m>y</m>-intercept;
+            iii) its <m>x</m>-intercept
+            (where it crosses the <m>x</m>-axis).
+              <idx><h><m>x</m>-intercept</h></idx>
+          <ol>
+              <li>
+                <p>
+                  <m>y = -\tfrac{1}{2} x + 3</m> c) <m>5x + 3y = 12</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>y = (2 x - 7)/3</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Graph the following functions.
+            Put labels and scales on the axes.
+            <ol>
+              <li>
+                <p>
+                  <m>V = 0.3Z -1</m>; b) <m>W = 600 - P^2</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Sketch the graph of each of the following functions.
+            Put labels and scales on the axes.
+            For each graph that you draw,
+            indicate i) its <m>y</m>-intercept;
+            ii) its <m>x</m>-intercept(s).
+            For part (d) you will need the <term>quadratic formula</term>
+              <idx><h>quadratic formula</h></idx>
+            <me>
+              x = \frac{- b \pm \sqrt{b^2 - 4ac}}{2a}
+            </me>
+            for the roots of the <term>quadratic equation</term>
+            <m>ax^2 + bx + c = 0</m>.
+            <sidebyside>
+              a) <m>y = x^2</m>  b) <m>y = x^2 + 1</m> c) <m>y = (x+1)^2</m>  d) <m>y = 3x^2 +x -1</m>
+            </sidebyside>
+            The next four questions refer to these functions:
+            <md>
+              <mrow>{2} c(x, y) \amp =  17 \amp  \amp \mbox{a constant function}</mrow>
+              <mrow>j(z) \amp = z  \amp   \amp \mbox{the identity function}</mrow>
+              <mrow>r(u) \amp = 1/u \amp  \amp  \mbox{the reciprocal function}</mrow>
+              <mrow>D(p,q) \amp = p - q \amp  \amp \mbox{the difference function}</mrow>
+              <mrow>s(y) \amp = y^2 \amp  \amp \mbox{the squaring function}</mrow>
+              <mrow>Q(v) \amp = \dfrac{2v+1}{3v-6} \amp  \amp \mbox{a rational function}</mrow>
+              <mrow>H(x) \amp = \begin{cases}5 \amp  \text{ if \(x \lt  0\) }  \\ x^2 + 2 \amp  \text{ if \(0 \leq x \lt  6\) }  \\ 29 - x \amp  \text{ if \(6 \leq x\) } \end{cases}   \amp  \amp</mrow>
+              <mrow>T(x, y) \amp = r(x) + Q(y) \amp  \amp</mrow>
+            </md>
+          </p>
+        </li>
+        <li>
+          <p>
+            Determine the following values:
+            <tabular>
+              <row>
+                <cell><m>c(5,-3)</m></cell>
+                <cell><m>j(17)</m></cell>
+                <cell><m>c(a,b)</m></cell>
+                <cell><m>j(u^2+1)</m></cell>
+              </row>
+              <row>
+                <cell>[.05in] <m>j(c(3,-5))</m></cell>
+                <cell><m>s(1.1)</m></cell>
+                <cell><m>r(1/17)</m></cell>
+                <cell><m>Q(0)</m></cell>
+              </row>
+              <row>
+                <cell>[.05in] <m>Q(2)</m></cell>
+                <cell><m>Q(3/7)</m></cell>
+                <cell><m>D(5,-3)</m></cell>
+                <cell><m>D(-3,5)</m></cell>
+              </row>
+              <row>
+                <cell>[.05in] <m>H(1)</m></cell>
+                <cell><m>H(7)</m></cell>
+                <cell><m>H(4)</m></cell>
+                <cell><m>H(H(H(-3)))</m></cell>
+              </row>
+              <row>
+                <cell>[.05in] <m>r(s(-4))</m></cell>
+                <cell><m>r(Q(3))</m></cell>
+                <cell><m>Q(r(3))</m></cell>
+                <cell><m>T(3, 7)</m></cell>
+              </row>
+            </tabular>
+          </p>
+        </li>
+        <li>
+          <p>
+            True or false.
+            Give reasons for your answers:
+            if you say true, explain why;
+            if you say false, give an example that shows why it is false.
+            <ol>
+              <li>
+                <p>
+                  For every non-zero number <m>x</m>, <m>r(r(x)) = j(x)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  If <m>a > 1</m>, then <m>s(a) > 1</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  If <m>a > b</m>, then <m>s(a) > s(b)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  For all real numbers <m>a</m> and <m>b</m>,
+                  <m>s(a+b) = s(a) + s(b)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  For all real numbers <m>a</m>,
+                  <m>b</m>, and <m>c</m>, <m>D(D(a,b),c)) = D(a,D(b,c))</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Find all numbers <m>x</m> for which <m>Q(x) = r(Q(x))</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            The <term>natural domain</term>
+              <idx><h>domain</h></idx>
+              <idx><h>domain</h><h>natural</h></idx>
+              <idx><h>natural domain</h></idx>
+            of a function <m>f</m> is the largest possible set of real numbers <m>x</m> for which <m>f(x)</m> is defined.
+            For example, the natural domain of
+            <m>r(x) = 1/x</m> is the set of all non-zero real numbers.
+            <ol>
+              <li>
+                <p>
+                  Find the natural domains of <m>Q</m> and <m>H</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Find the natural domains of <m>P(z) = Q(r(z))</m>;
+                  <m>R(v) = r(Q(v))</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  What is the natural domain of the function <m>W(t) = \sqrt{\dfrac{1 - t^2}{t^2 - 4}}</m>?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection xml:id="subsubsec_computer-graphing">
+      <title>Computer Graphing</title>
+      <p>
+            <idx><h>computer graphing</h></idx>
+            <idx><h>graph</h><h>computer</h></idx>
+        The purpose of these exercises is to give you some experience using a
+        <q>graphing package</q>
+        on a computer.
+        This is a program that will draw the graph of a function
+        <m>y = f(x)</m> whose formula you know.
+        You must type in the formula,
+        using the following symbols to represent the basic arithmetic operations:
+      </p>
+      <tabular>
+        <row>
+          <cell>to indicate</cell>
+          <cell></cell>
+          <cell>type</cell>
+        </row>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell>addition</cell>
+          <cell></cell>
+          <cell><c>+</c></cell>
+        </row>
+        <row>
+          <cell>subtraction</cell>
+          <cell></cell>
+          <cell><c>-</c></cell>
+        </row>
+        <row>
+          <cell>multiplication</cell>
+          <cell></cell>
+          <cell><c>*</c></cell>
+        </row>
+        <row>
+          <cell>division</cell>
+          <cell></cell>
+          <cell><c>/</c></cell>
+        </row>
+        <row>
+          <cell>an exponent</cell>
+          <cell></cell>
+          <cell><c>^</c></cell>
+        </row>
+      </tabular>
+      <p>
+        The caret
+        <q> <c>^</c> </q>
+        appears above the
+        <q><c>6</c></q>
+        on a keyboard (Shift-6).
+        Here is an example:
+      </p>
+      <tabular>
+        <row>
+          <cell>to enter:</cell>
+          <cell></cell>
+          <cell>type:</cell>
+        </row>
+        <row>
+          <cell><m>\dfrac{7 x^5 - 9 x^2}{x^3 + 1}</m></cell>
+          <cell></cell>
+          <cell><c>(7*x^5 - 9*x^2)/(x^3 + 1)</c></cell>
+        </row>
+      </tabular>
+      <p>
+        The parentheses you see here are important.
+        If you do not include them, the computer will interpret your entry as
+        <me>
+          7 x^5 - \dfrac{9 x^2}{x^3} + 1 = 7 x^5 - \dfrac{9}{x} + 1 \neq \dfrac{7 x^5 - 9 x^2}{x^3 + 1}
+        </me>.
+      </p>
+      <p>
+        In some graphing packages,
+        you do not need to use <c>*</c> to indicate a multiplication.
+        If this is true for the package you use,
+        then you can enter the fractional expression above in the somewhat simpler form <c>(7x^5 - 9x^2)/(x^3 + 1).</c> To do the following exercises,
+        follow the specific instructions for the graphing package you are using.
+      </p>
+      <ol>
+        <li>
+          <p>
+            Graph the function <m>f(x) = 0.6 x + 2</m> on the interval <m>-4 \leq x \leq 4</m>.
+          </p>
+          <ol>
+            <li>
+              <p>
+                What is the <m>y</m>-intercept of this graph?
+                What is the <m>x</m>-intercept?
+              </p>
+            </li>
+            <li>
+              <p>
+                Read from the graph the value of <m>f(x)</m> when <m>x = -1</m> and when <m>x = 2</m>.
+                What is the difference between these <m>y</m> values?
+                What is the difference between the <m>x</m> values?
+                According to these differences,
+                what is the slope of the graph?
+                According to the <em>formula</em>, what is the slope?
+              </p>
+            </li>
+          </ol>
+        </li>
+        <li xml:id="roots">
+          <p>
+            Graph the function <m>f(x) = 1 - 2 x^2</m> on the interval <m>-1 \leq x \leq 1</m>.
+            <ol>
+              <li>
+                <p>
+                  What is the <m>y</m>-intercept of this graph?
+                  The graph has two <m>x</m>-intercepts;
+                  use algebra to find them.
+                  You can also find an <m>x</m>-intercept using the computer.
+                  The idea is to <term>magnify</term>
+    <idx><h>magnify</h></idx>
+                  the graph near the intercept until you can determine as many decimal places in the <m>x</m> coordinate as you want.
+                  For a start,
+                  graph the function on the interval <m>0\leq x\leq1</m>.
+                  You should be able to see that the graph on your computer monitor crosses the <m>x</m>-axis somewhere around 0.7.
+                  Regraph <m>f(x)</m> on the interval <m>.6 \leq x \leq 0.8</m>.
+                  You should then be able to determine that the <m>x</m>-intercept lies between 0.70 and 0.71.
+                  This means <m>x =</m> 0.7<ellipsis/> ; that is,
+                  you know the location of the <m>x</m>-intercept to one decimal place of accuracy.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Regraph <m>f(x)</m> on the interval
+                  <m>.70 \leq x \leq 0.71</m> to get two decimal places of accuracy in the location of the <m>x</m>-intercept.
+                  Continue this process until you have at least 7 places of accuracy.
+                  What is the <m>x</m>-intercept?
+                  <term>The circular functions</term> Graphing packages
+                  <q>know</q>
+                  the familiar functions of trigonometry.
+                  Trigonometric functions are qualitatively different from the functions in the preceding problems.
+                  Those functions are defined by algebraic formulas,
+                  so they are called <em>  algebraic functions</em>.
+    <idx><h>function</h><h>algebraic</h></idx>
+    <idx><h>algebraic function</h></idx> The trigonometric functions are defined by explicit
+                  <q>recipes,</q>
+                  but <em>not</em> by algebraic formulas;
+                  they are called <term>transcendental functions</term>.
+    <idx><h>transcendental function</h></idx>
+    <idx><h>function</h><h>transcendental</h></idx> For calculus, we usually use the definition of the trigonometric functions
+    <idx><h>trigonometric functions</h></idx>
+    <idx><h>function</h><h>trigonometric</h></idx>
+                  as <term>circular functions</term>.
+    <idx><h>circular functions</h></idx>
+    <idx><h>function</h><h>circular</h></idx> This definition begins with a unit circle centered at the origin.
+                  Given the input number <m>t</m>,
+                  locate a point <m>P</m> on the circle by tracing an arc of length <m>t</m> along the circle from the point <m>(1,0)</m>.
+                  If <m>t</m> is positive, trace the arc counterclockwise;
+                  if <m>t</m> is negative, trace it clockwise.
+                  Because the circle has radius <m>1</m>,
+                  the arc of length <m>t</m> subtends a central angle of
+                  <term>radian</term> measure <m>t</m>.
+    <idx><h>radian</h></idx>
+<image width="73%" source="images/trig1.png"/> The circular
+                  (or trigonometric)
+                  functions <m>\cos t</m> and <m>\sin t</m> are defined as the coordinates of the point <m>P</m>,
+                  <me>
+                    P = (\cos{t}, \sin{t})
+                  </me>.
+                  The other trigonometric functions are defined in terms of the sine and cosine:
+                  <md>
+                    <mrow>{2} \tan{t} \amp = \sin{t}/\cos{t}, \amp  \qquad \sec{t} \amp = 1/\cos{t},</mrow>
+                    <mrow>\cot{t} \amp = \cos{t}/\sin{t}, \amp         \csc{t} \amp = 1/\sin{t}</mrow>
+                  </md>.
+                  <image width="73%" source="images/trig2.png"/> Notice that when <m>t</m> is a positive acute angle,
+                  the circle definition agrees with the right triangle definitions of the sine and cosine:
+                  <me>
+                    \sin t = \frac{\mbox{opposite} }{\mbox{hypotenuse} } \qquad \mbox{and}  \qquad \cos t = \frac{\mbox{adjacent} }{\mbox{hypotenuse} }
+                  </me>.
+                  However, the circle definitions of the sine and cosine have the important advantage that they produce functions whose domains are the set of <em>all</em>
+                  real numbers. (What are the domains of the tangent, secant,
+                  cotangent and cosecant functions?)  In calculus,
+                  angles are also always measured in radians.
+                  To convert between radians and degrees,
+                  notice that the circumference of a unit circle is <m>2\pi</m>,
+                  so the radian measure of a semi-circular arc is half of this,
+                  and thus we have
+                  <me>
+                    \pi \  \mbox{radians}  \; = 180 \  \mbox{degrees}
+                  </me>.
+                  As the course progresses, you
+                  <aside>
+                    <p>
+                      Simplicity determines the choice of radians for measuring angles
+                    </p>
+                  </aside>
+                  will see why radians are used rather than degrees (or mils or any other unit for measuring angles)<mdash/>it turns out that the formulas important to calculus take their simplest form when angles are expressed in radians.
+                  Graphing packages
+                  <q>know</q>
+                  the trigonometric functions in exactly this form:
+                  circular functions with the input variable given in radians.
+                  You might wonder, though, how a computer or calculator
+                  <q>knows</q>
+                  that <m>\sin(1) = 0.017452406\ldots</m>.
+                  It certainly isn't drawing a very accurate circle somewhere and measuring the <m>y</m> coordinate of some point.
+                  While the circular function approach is
+                  <aside>
+                    <p>
+                      How do we get values for the circular functions?
+                    </p>
+                  </aside>
+                  a useful way to think about the trigonometric functions conceptually,
+                  it isn't very helpful if we actually want values of the functions.
+                  One of the achievements of calculus,
+                  as you will see later in this course,
+                  is that it provides effective methods for computing values of functions like the circular functions that aren't given by algebraic formulas.
+                  The following exercises let you review the trigonometric functions and explore some of the possibilities using computer graphing.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Graph the function <m>f(x) = \sin(x)</m> on the interval <m>-2 \leq x \leq 10</m>.
+            <ol>
+              <li>
+                <p>
+                  What are the <m>x</m>-intercepts of <m>\sin(x)</m> on the interval <m>-2 \leq x \leq 10</m>?
+                  Determine them to two decimal places accuracy.
+                </p>
+              </li>
+              <li>
+                <p>
+                  What is the largest value of <m>f(x)</m> on the interval <m>-2 \leq x \leq 10</m>?
+                  Which value of <m>x</m> makes <m>f(x)</m> largest?
+                  Determine <m>x</m> to two decimal places accuracy.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Regraph <m>f(x)</m> on the very small interval <m>-0.001 \leq x \leq .001</m>.
+                  Describe what you see.
+                  Can you determine the slope of this graph?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Graph the function <m>f(x) = \cos(x)</m> on the interval <m>0 \leq x \leq 14</m>.
+            On the same screen graph the <em>second</em>
+            function <m>g(x) = \cos(2x)</m>.
+            <ol>
+              <li>
+                <p>
+                  How far apart are the <m>x</m>-intercepts of <m>f(x)</m>?
+                  How far apart are the <m>x</m>-intercepts of <m>g(x)</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  The graph of <m>g(x)</m> has a pattern that repeats.
+                  How wide is this pattern?
+                  The graph of <m>f(x)</m> also has a repeating pattern;
+                  how wide is <em>it</em>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Compare the graphs of <m>f(x)</m> and <m>g(x)</m> to one another.
+                  In particular,
+                  can you say that one of them is a stretched or compressed version of the other?
+                  Is the compression
+                  (or stretching)
+                  in the vertical or the horizontal direction?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Construct a <em>new</em> function <m>f(x)</m> whose graph is the same shape as the graph of <m>g(x) = \cos(2x)</m>,
+                  but make the graph of <m>f(x)</m> twice as tall as the graph of <m>g(x)</m>. [A suggestion:
+                  either deduce what <m>f(x)</m> should be, or make a guess.
+                  Then test your choice on the computer.
+                  If your choice doesn't work,
+                  think how you might modify it,
+                  and then test your modifications the same way.]
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            The aim here is to find a solution to the equation <m>\sin x = \cos(3x)</m>.
+            There is no purely <em>algebraic</em>
+            procedure to solve this equation.
+            Because the sine and cosine are not defined by
+            <em>algebraic</em> formulas,
+            this should not be particularly surprising.
+            (Even for algebraic equations,
+            there are only a few very special cases for which there are formulas like the quadratic formula.
+            In chapter 5 we will look at a method for solving equations when formulas can't help us.)
+            <ol>
+              <li>
+                <p>
+                  Graph the two functions <m>f(x) = \sin(x)</m> and
+                  <m>g(x) = \cos(3x)</m> on the interval <m>0 \leq x \leq 1</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Find a solution of the equation
+                  <m>\sin(x) = \cos(3x)</m> that is accurate to six decimal places.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Find <em>another</em> solution of the equation <m>\sin(x) = \cos(3x)</m>,
+                  accurate to four decimal places.
+                  Explain how you found it.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Use a graphing program to make a sketch of the graph of each of the following functions.
+            In each case,
+            make clear the domain and the range of the function,
+            where the graph crosses the axes,
+            and where the function has a maximum or a minimum. \begin{xalignat*}{2} &amp;\text{ a) } F(w) = (w-1)(w-2)(w-3) &amp; &amp;\text{ b) } Q(a) = \dfrac{1}{a^2+5} &amp;\text{ c) } E(x) = x + \dfrac{1}{x} &amp; &amp;\text{ d) } e(x) = x - \dfrac{1}{x} &amp;\text{ e) } g(u) = \sqrt{\dfrac{u-1}{u+1}} &amp; &amp;\text{ f) } M(u) = \dfrac{u^2-2}{u^2+2} \end{xalignat*}
+          </p>
+        </li>
+        <li>
+          <p>
+            Graph on the same screen the following three functions:
+            <me>
+              f(x) = 2^x, \qquad g(x) = 3^x, \qquad h(x) = 10^x
+            </me>.
+            Use the interval <m>-2 \leq x \leq 1.2</m>.
+            <ol>
+              <li>
+                <p>
+                  Which function has the largest value when <m>x = -2</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Which is climbing most rapidly when <m>x = 0</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Magnify the picture at <m>x = 0</m> by resetting the size of the interval to <m>-0.0001 \leq x \leq 0.0001</m>.
+                  Describe what you see.
+                  Estimate the slopes of the three graphs.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection xml:id="subsubsec_proportions-linear-functions-and-models">
+      <title>Proportions, Linear Functions, and Models</title>
+      <p>
+            <idx><h>model</h></idx>
+            <idx><h>linear function</h></idx>
+      </p>
+      <ol>
+        <li>
+          <p>
+            Go back to the three functions given in problem 1.
+            For each function, choose an initial value <m>x_0</m> for <m>x</m>,
+            find the corresponding value <m>y_0</m> for <m>y</m>,
+            and express the function in the form <m>y-y_0=m\cdot(x-x_0)</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            You should be able to answer all parts of this problem without ever finding the equations of the functions involved.
+          </p>
+          <ol>
+            <li>
+              <p>
+                Suppose <m>y=f(x)</m> is a linear function with multiplier <m>m=3</m>.
+                If <m>f(2)=-5</m>, what is <m>f(2.1)</m>?
+                <m>f(2.0013)</m>?
+                <m>f(1.87)</m>? <m>f(922)</m>?
+              </p>
+            </li>
+            <li>
+              <p>
+                Suppose <m>y=G(x)</m> is a linear function with multiplier <m>m=-2</m>.
+                If <m>G(-1)=6</m>, for what value of <m>x</m> is <m>G(x)=8</m>?
+                <m>G(x)=0</m>?
+                <m>G(x)=5</m>? <m>G(x)=491</m>?
+              </p>
+            </li>
+            <li>
+              <p>
+                Suppose <m>y=h(x)</m> is a linear function with <m>h(2)=7</m> and <m>h(6)=9</m>.
+                What is <m>h(2.046)</m>?
+                <m>h(2+a)</m>?
+              </p>
+            </li>
+          </ol>
+        </li>
+        <li>
+          <p>
+            In Massachusetts there is a sales tax of 5%.
+              <idx><h>sales tax</h></idx>
+          The tax <m>T</m>, in dollars,
+            is proportional to the price <m>P</m> of an object, also in dollars.
+            The constant of proportionality is <m>k = 5\= 0.05</m>.
+            Write a formula that expresses the sales tax as a linear function of the price,
+            and use your formula to compute the tax on a television set that costs $289.00 and a toaster that costs $37.50.
+          </p>
+        </li>
+        <li>
+          <p>
+            Suppose <m>W = 213 - 17\, Z</m>.
+            How does <m>W</m> change when <m>Z</m> changes from 3 to 7;
+            from 3 to 3.4; from 3 to 3.02?
+            Let <m>\Delta Z</m> denote a change in <m>Z</m> and
+            <m>\Delta W</m> the change thereby produced in <m>W</m>.
+            Is <m>\Delta W = m\,\Delta Z</m> for some constant <m>m</m>?
+            If so, what is <m>m</m>?
+          </p>
+        </li>
+        <li>
+          <p>
+            In the following table, <m>q</m> is a linear function of <m>p</m>.
+            Fill in the blanks in the table.
+            <tabular>
+              <row>
+                <cell>\makebox[18pt]{<m>p</m>}</cell>
+                <cell>\makebox[18pt]{<ndash/>3}</cell>
+                <cell>\makebox[18pt]{0}</cell>
+                <cell>\makebox[18pt]</cell>
+                <cell>\makebox[18pt]{7}</cell>
+                <cell>\makebox[18pt]{13}</cell>
+                <cell>\makebox[18pt]</cell>
+                <cell>\makebox[18pt]{<m>\pi</m>}</cell>
+              </row>
+              <row bottom="minor">
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+              </row>
+              <row>
+                <cell>\makebox[18pt]{<m>q</m>}</cell>
+                <cell>\makebox[18pt]{7}</cell>
+                <cell></cell>
+                <cell>\makebox[18pt]{4}</cell>
+                <cell>\makebox[18pt]{1}</cell>
+                <cell>\makebox[18pt]</cell>
+                <cell>\makebox[18pt]{0}</cell>
+                <cell>\makebox[18pt]</cell>
+              </row>
+            </tabular>
+            <ol>
+              <li>
+                <p>
+                  Find a formula to express <m>\Delta q</m> as a function of <m>\Delta p</m>,
+                  and another to express <m>q</m> as a function of <m>p</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            <term>Thermometers</term>.
+              <idx><h>thermometer</h></idx>
+          There are two scales in common use to measure the temperature,
+            called <term>Fahrenheit degrees</term>
+            and the <term>Celsius degrees</term>.
+              <idx><h>Fahrenheit</h></idx>
+              <idx><h>Celsius</h></idx>
+          Let <m>F</m> and <m>C</m>, respectively, be the temperature on each of these scales.
+            Each of these quantities is a linear function of the other;
+            the relation between them in determined by the following table:
+            <tabular>
+              <row>
+                <cell>physical measurement</cell>
+                <cell><m>C</m></cell>
+                <cell><m>F</m></cell>
+              </row>
+              <row bottom="minor">
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+              </row>
+              <row>
+                <cell>freezing point of water</cell>
+                <cell>0</cell>
+                <cell>32</cell>
+              </row>
+              <row>
+                <cell>boiling point of water</cell>
+                <cell>100</cell>
+                <cell>212</cell>
+              </row>
+            </tabular>
+            <ol>
+              <li>
+                <p>
+                  Which represents a larger change in temperature,
+                  a Celsius degree or a Fahrenheit degree?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How many Fahrenheit degrees does it take to make the temperature go up one Celsius degree?
+                  How many Celsius degrees does it take to make it go up one Fahrenheit degree?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What is the multiplier <m>m</m> in the equation <m>\Delta F = m \cdot \Delta C</m>?
+                  What is the multiplier <m>\mu</m> in the equation
+                  <m>\Delta C = \mu \cdot \Delta F</m>? (The symbol <m>\mu</m> is the Greek letter
+                  <em>mu</em>.) What is the relation between <m>\mu</m> and <m>m</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Express <m>F</m> as a linear function of <m>C</m>.
+                  Graph this function.
+                  Put scales and labels on the axes.
+                  Indicate clearly the slope of the graph and its vertical intercept.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Express <m>C</m> as a linear function of <m>F</m> and graph this function.
+                  How are the graphs in parts (d) and (e) related?
+                  Give a clear and detailed explanation.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Is there any temperature that has the same reading on the two temperature scales?
+                  What is it?
+                  Does the temperature of the air ever reach this value?
+                  Where?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            <term>The Greenhouse Effect</term>.
+              <idx><h>greenhouse effect</h></idx>
+          The concentration of carbon dioxide
+              <idx><h>carbon dioxide</h></idx>
+            (CO<m>_2</m>) in the atmosphere is increasing.
+            The concentration is measured in parts per million (PPM).
+            Records kept at the South Pole show an increase of 0.8 PPM per year during the 1960s.
+            <ol>
+              <li>
+                <p>
+                  At that rate,
+                  how many years does it take for the concentration to increase by 5 PPM; by 15 PPM?
+                </p>
+              </li>
+              <li>
+                <p>
+                  At the beginning of 1960 the concentration was about 316 PPM. What would it be at the beginning of 1970;
+                  at the beginning of 1980?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Draw a graph that shows CO<m>_2</m> concentration as a function of the time since 1960.
+                  Put scales on the axes and label everything clearly.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The <em>actual</em> CO<m>_2</m> concentration at the South Pole was 324 PPM at the beginning of 1970 and 338 PPM at the beginning of 1980.
+                  Plot these values on your graph,
+                  and compare them to your calculated values.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Using the actual concentrations in 1970 and 1980,
+                  calculate a new rate of increase in concentration.
+                  Using that rate,
+                  estimate what the increase in CO<m>_2</m> concentration was between 1970 and 1990.
+                  Estimate the CO<m>_2</m> concentration at the beginning of 1990.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Using the rate of 0.8 PPM per year that held during the 1960s,
+                  determine how many years before 1960 there would have been <em>no</em>
+                  carbon dioxide at all in the atmosphere.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            <term>Thermal Expansion</term>.
+              <idx><h>thermal expansion</h></idx>
+          Measurements show that the length of a metal bar increases in proportion to the increase in temperature.
+            An aluminum bar that is exactly 100 inches long when the temperature is 40<m>^\circ</m>F becomes 100.0052 inches long when the temperature increases to 80<m>^\circ</m>F.
+            <ol>
+              <li>
+                <p>
+                  How long is the bar when the temperature is 60<m>^\circ</m>F? 100<m>^\circ</m>F?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What is the multiplier that connects an increase in length
+                  <m>\Delta L</m> to an increase in temperature <m>\Delta T</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Express <m>\Delta L</m> as a linear function of <m>\Delta T</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  How long will the bar be when <m>T = 0^\circ</m>F?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Express <m>L</m> as a linear function of <m>T</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  What temperature change would make <m>L</m> = 100.01 inches?
+                </p>
+              </li>
+              <li>
+                <p>
+                  For a <em>steel</em> bar that is also 100 inches long when the temperature is 40<m>^\circ</m> F, the relation between <m>\Delta L</m> and
+                  <m>\Delta T</m> is <m>\Delta L = 0.00067 \, \Delta T</m>.
+                  Which expands more when the temperature is increased; aluminum or steel?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How long will this steel bar be when <m>T = 80^\circ</m>F?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li xml:id="x_falling_">
+          <p>
+            <term>Falling Bodies</term> .  In the simplest model of the motion of a falling body,
+            the velocity increases in proportion to the increase in the time that the body has been falling.
+            If the velocity is given in feet per second,
+            measurements show the constant of proportionality is approximately<nbsp/>32.
+            <ol>
+              <li>
+                <p>
+                  A ball is falling at a velocity of 40 feet/sec after 1 second.
+                  How fast is it falling after 3 seconds?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Express the change in the ball's velocity
+                  <m>\Delta v</m> as a linear function of the change in time <m>\Delta t</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Express <m>v</m> as a linear function of <m>t</m>.
+                  The model can be expanded to keep track of the <em>distance</em>
+                  that the body has fallen.
+                  If the distance <m>d</m> is measured in feet,
+                  the units of <m>d'</m> are feet per second;
+                  in fact, <m>d'=v</m>.
+                  So the model describing the motion of the body is given by the rate equations
+                  <md>
+                    <mrow>d' \amp = v   \mbox{feet per second} ;</mrow>
+                    <mrow>v' \amp = 32  \mbox{feet per second per second} </mrow>
+                  </md>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  At what rate is the distance increasing after 1 second?
+                  After 2 seconds?
+                  After 3 seconds?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Is <m>d</m> a linear function of <m>t</m>?
+                  Explain your answer.
+                  In many cases,
+                  the rate of change of a variable quantity is proportional to the quantity itself.
+                  Consider a human population as an example.
+                  If a city of 100,000 is increasing at the rate of 1500 persons per year,
+                  we would expect a similar city of 200,000 to be increasing at the rate of 3000 persons per year.
+                  That is, if <m>P</m> is the population at time <m>t</m>,
+                  then the <term>net growth rate</term>
+    <idx><h>growth rate</h><h>net</h></idx>
+                  <m>P'</m> is proportional to <m>P</m>:
+                  <me>
+                    P' = k\, P
+                  </me>.
+                  In the case of the two cities, we have
+                  <me>
+                    P' = 1500 = k\, P = k \times 100000 \mbox{so}   k = \dfrac{1500}{100000} = 0.015
+                  </me>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            In the equation <m>P' = k\, P</m>, above,
+            explain why the units for <m>k</m> are
+            <me>
+              \dfrac{\text{ persons per year } }{\text{ person } }
+            </me>.
+            The number <m>k</m> is called the
+            <term>per capita growth rate</term>.
+              <idx><h>growth rate</h><h>per capita</h></idx>
+          (
+            <q>Per capita</q>
+            means
+            <q>per person</q>
+            <mdash/>
+            <q>per <em>head</em></q>, literally.)
+          </p>
+        </li>
+        <li xml:id="Poland">
+          <p>
+            <term>Poland and Afghanistan</term>.
+    <idx><h>Poland</h></idx>
+    <idx><h>Afghanistan</h></idx> In 1985 the per capita growth rate in Poland was 9 persons per year per thousand persons. (That is, <m>k = 9/1000 = 0.009</m>.) In Afghanistan it was 21.6 persons per year per thousand.
+            <ol>
+              <li>
+                <p>
+                  Let <m>P</m> denote the population of Poland and <m>A</m> the population of Afghanistan.
+                  Write the equations that govern the growth rates of these populations.
+                </p>
+              </li>
+              <li>
+                <p>
+                  In 1985 the population of Poland was estimated to be 37.5 million persons,
+                  that of Afghanistan 15 million.
+                  What are the net growth rates <m>P'</m> and <m>A'</m> (as distinct from the
+                  <em>per capita</em> growth rates)?
+                  Comment on the following assertion: When comparing two countries,
+                  the one with the larger per capita growth rate will have the larger net growth rate.
+                </p>
+              </li>
+              <li>
+                <p>
+                  On the average,
+                  how long did it take the population to increase by one person in Poland in 1985?
+                  What was the corresponding time interval in Afghanistan?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            <term>Bacterial Growth</term>.
+              <idx><h>growth</h><h>bacterial</h></idx>
+          A colony of bacteria on a culture medium grows at a rate proportional to the present size of the colony.
+            When the colony weighed 32 grams it was growing at the rate of 0.79 grams per hour.
+            Write an equation that links the growth rate to the size of the population.
+            <ol>
+              <li>
+                <p>
+                  What is <m>\Delta P</m> if <m>\Delta t</m> = 1<nbsp/>minute?
+                  Estimate how long it would take to make <m>\Delta P</m> = 0.5<nbsp/>grams.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            <term>Radioactivity</term>.
+              <idx><h>radioactivity</h></idx>
+          In radioactive decay, radium slowly changes into lead.
+            If one sample of radium is twice the size of a second lump,
+            then the larger sample will produce twice as much lead as the second in any given time.
+            In other words,
+            the rate of decay is proportional to the amount of radium present.
+            Measurements show that 1 gram of radium decays into lead at the rate of 1/2337 grams per year.
+            Write an equation that links the decay rate to the size of the radium sample.
+            How does your equation indicate that the process involves <em>decay</em>
+            rather than <em>growth</em>?
+          </p>
+        </li>
+        <li xml:id="x_cooling_">
+          <p>
+            <term>Cooling</term>.
+    <idx><h>cooling</h></idx>
+Suppose a cup of hot coffee is brought into a room at 70<m>^{\circ}</m>F. It will cool off,
+            and it will cool off <em>faster</em>
+            when the temperature difference between the coffee and the room is greater.
+            The simplest assumption we can make is that the rate of cooling is proportional to this temperature difference
+            (this is called Newton's law of cooling).
+    <idx><h>Newton, I.</h></idx>
+    <idx><h>Newton's law of cooling</h></idx> Let <m>C</m> denote the temperature of the coffee, in <m>^{\circ}</m>F, and <m>C'</m> the rate at which it is cooling, in <m>^{\circ}</m>F per minute.
+            The new element here is that <m>C'</m> is proportional,
+            not to <m>C</m>,
+            but to the <em>difference</em> between <m>C</m> and the room temperature of 70<m>^{\circ}</m>F.
+            <ol>
+              <li>
+                <p>
+                  Write an equation that relates <m>C'</m> and <m>C</m>.
+                  It will contain a proportionality constant <m>k</m>.
+                  How did you indicate that the coffee is <em>cooling</em>
+                  and not <em>heating up</em>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  When the coffee is at 180<m>^{\circ}</m>F it is cooling at the rate of 9<m>^{\circ}</m>F per minute.
+                  What is <m>k</m>\/?
+                </p>
+              </li>
+              <li>
+                <p>
+                  At what rate is the coffee cooling when its temperature is 120<m>^{\circ}</m>F?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Estimate how long it takes the temperature to fall from 180<m>^{\circ}</m>F to 120<m>^{\circ}</m>F. Then make a better estimate,
+                  and explain why it is better.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+  </subsection>
+</section>

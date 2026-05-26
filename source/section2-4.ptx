@@ -1,0 +1,183 @@
+<section>
+  <title>Chapter Summary</title>
+  <subsection xml:id="subsec_the-mainmain-ideas">
+    <title>The Main Ideas</title>
+    <ul>
+      <li>
+        <p>
+          The exact numerical value of a quantity may not be known;
+          the value is often given by an <term>approximation</term>.
+        </p>
+      </li>
+      <li>
+        <p>
+          A numerical quantity is often given as the <term>limit</term>
+          of a sequence of <term>successive approximations</term>.
+        </p>
+      </li>
+      <li>
+        <p>
+          When a particular digit in a sequence of successive approximations <term>stabilizes</term>,
+          that digit is assumed to appear in the limit.
+        </p>
+      </li>
+      <li>
+        <p>
+          <term>Euler's method</term> is a procedure to construct a sequence of increasingly better
+          <term>approximations</term>
+          of a function defined by a set of rate equations and initial conditions.
+          Each approximation is a piecewise linear function.
+        </p>
+      </li>
+      <li>
+        <p>
+          The exact function defined by a set of rate equations and initial conditions can be expressed as the <term>limit</term>
+          of a sequence of <term>successive Euler approximations</term>
+          with smaller and smaller step sizes.
+        </p>
+      </li>
+    </ul>
+  </subsection>
+  <subsection xml:id="subsec_expectations">
+    <title>Expectations</title>
+    <ul>
+      <li>
+        <p>
+          You should be able to use a program to
+          <term>construct a sequence</term>
+          of estimates for <m>S</m>, <m>I</m>, and <m>R</m>,
+          given a specific <m>S</m>-<m>I</m>-<m>R</m> model with initial conditions.
+        </p>
+      </li>
+      <li>
+        <p>
+          You should be able to <term>modify</term>
+          the SIRVALUE and SIRPLOT programs to construct a sequence of estimates for the values of functions defined by other rate equations and initial conditions.
+        </p>
+      </li>
+      <li>
+        <p>
+          You should be able to use programs that construct a sequence of
+          <term>Euler approximations</term>
+          for the function defined by a rate equation with an initial condition.
+          The programs should provide both tabular and graphical output.
+        </p>
+      </li>
+      <li>
+        <p>
+          You should be able to estimate the values of the roots of an equation <m>f(x) = 0</m> using a
+          <term>computer graphing package</term>.
+        </p>
+      </li>
+      <li>
+        <p>
+          You should be able to find a square root using the
+          <em> Babylonian algorithm</em>.
+        </p>
+      </li>
+      <li>
+        <p>
+          You should be able to find the length of any piece of any curve.
+        </p>
+      </li>
+    </ul>
+  </subsection>
+  <subsection xml:id="subsec_chapter-exercises">
+    <title>Chapter Exercises</title>
+    <introduction>
+      <ol>
+        <li>
+          <p>
+            We have considered the logistic equation
+            <me>
+              y' = {\displaystyle 0.1y \left( 1-\frac{y}{1000} \right)}
+            </me>
+            <xref ref="x_logistic_">On</xref>
+            we looked at the resulting graph of <m>y</m> vs.
+            <m>t</m>, using the starting value <m>y(0)=100</m>.
+            There is another graphical interpretation,
+            though, that is also instructive.
+            Note that the logistic equation specifies <m>y'</m> as a function of<nbsp/><m>y</m>.
+            Sketch the graph of this function.
+            That is, plot <m>y</m> values on the horizontal axis and <m>y'</m> values on the vertical axis;
+            points on the graph will thus be of the form <m>(y, y')</m>,
+            where the <m>y'</m>-coordinate is the value given by the logistic equation for the given <m>y</m> value.
+            What shape does the graph have?
+            <ol>
+              <li>
+                <p>
+                  For what value of <m>y</m> does this graph take on its largest value?
+                  Where does this <m>y</m> value appear in the graph of <m>y(t)</m> versus <m>t</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  For what values of <m>y</m> does the graph of <m>y'</m> versus <m>y</m> cross the <m>y</m>-axis?
+                  Where do these <m>y</m> values appear in the graph of <m>y(t)</m> versus <m>t</m>?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+      </ol>
+    </introduction>
+    <subsubsection xml:id="subsubsec_grids-on-graphs">
+      <title>Grids on Graphs</title>
+      <p>
+        When writing a graphing program it is often useful to have the computer draw a grid on the screen.
+        This makes it easier to estimate numerical values, for instance.
+        We can use a simple FOR<ndash/>NEXT loop inside a program to do this.
+        For instance,
+        suppose we had written a program (SIRPLOT or SEQUENCE, for instance) with the graphics already in place.
+        Suppose the screen window covered values from 0 to 100 horizontally,
+        and 0 to 50,000 vertically.
+        If we wanted to draw 21 vertical lines
+        (including both ends)
+        spaced 5 units apart and 11 horizontal lines spaced 5,000 units apart,
+        the following two loops inserted in the program would work:
+      </p>
+<pre>
+FOR k = 0 TO 20
+</pre>
+      <p>
+        <em>Plot the line from <c>(5 * k, 0)</c></em>
+        <em>to <c>(5 * k, 50000)</c></em>
+      </p>
+<pre>
+NEXT k
+FOR k = 0 TO 10
+</pre>
+      <p>
+        <em>Plot the line from <c>(0, 5000 * k)</c></em>
+        <em>to <c>(100, 5000 * k)</c></em>
+      </p>
+<pre>
+NEXT k
+</pre>
+      <p>
+        You should make sure you see how these loops work and that you can modify them as needed.
+        <ol>
+          <li>
+            <p>
+              If the screen window runs from <m>-20</m> to 120 horizontally,
+              and 250 to 750 vertically,
+              how would you modify the loops above to create a vertical grid spaced 10 units apart and a horizontal grid spaced 25 units apart?
+            </p>
+          </li>
+          <li>
+            <p>
+              Go back to our basic <m>S</m>-<m>I</m>-<m>R</m> model.
+              Modify SIRPLOT to calculate and plot on the same graph the values of <m>S(t)</m>,
+              <m>I(t)</m>,
+              and <m>R(t)</m> for <m>t</m> going from 0 to 120,
+              using a stepsize of <m>\Delta t = 0.1</m>.
+              Include a grid with a horizontal spacing of 5 days,
+              and a vertical spacing of 2000 people.
+              You should get something that looks like this: \special{psfile =../ps/calc1/sir.ps}
+            </p>
+          </li>
+        </ol>
+      </p>
+    </subsubsection>
+  </subsection>
+</section>

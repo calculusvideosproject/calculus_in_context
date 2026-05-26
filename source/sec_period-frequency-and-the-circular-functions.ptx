@@ -1,0 +1,846 @@
+<section xml:id="sec_period-frequency-and-the-circular-functions">
+  <title>Period, Frequency, and
+  the Circular Functions</title>
+  <introduction>
+    <p>
+      We are familiar with the notions of period
+          <idx><h>period</h></idx>
+      and frequency
+          <idx><h>frequency</h></idx>
+      from everyday experience.
+      For example, a full moon occurs every 28 days,
+      which means that a lunar cycle
+          <idx><h>lunar cycle</h></idx>
+      has a <em>period</em> of 28 days and a
+      <em>frequency</em> of once per 28 days.
+      Moreover, whatever phase the moon is in today,
+      it will be in the same phase 28 days from now.
+      Let's see how to extend these notions to functions.
+      The function <m>y = g(x)</m> whose graph is
+    </p>
+    <aside>
+      <p>
+        Defining a periodic function
+      </p>
+    </aside>
+    <p>
+          <idx><h>periodic function</h></idx>
+          <idx><h>function</h><h>periodic</h></idx>
+      sketched below has a pattern that repeats.
+      The space <m>T</m> between one high point and the next tells us the period of this repeating pattern.
+      There is nothing special about the high point, though.
+      If we take <em>any</em> two points <m>x</m> and <m>x + T</m> that are spaced one period apart,
+      we find that <m>g</m> has the same value at those point.
+      <image width="73%" source="images/period1.png"/> (This is analogous to saying that the moon is in the same phase on any two days that are 28 days apart.) The condition
+      <m>g(x + T) = g(x)</m> for every <m>x</m> guarantees that <m>g</m> will be periodic.
+      We make it the basis of our definition.
+    </p>
+    <image source=""/>
+    <p>
+      Since the graph of <m>g</m> repeats after <m>x</m> increases by <m>T</m>,
+    </p>
+    <aside>
+      <p>
+        A periodic function has many periods<ellipsis/>
+      </p>
+    </aside>
+    <p>
+      it also repeats after <m>x</m> increases by <m>2T</m>,
+      or <m>-3T</m>, or any integer multiple
+      (positive or negative)
+      of <m>T</m>.
+      This means that a periodic function always has many periods. (That's why the definition refers to
+      <q><em>a</em> period</q>
+      rather than
+      <q><em>the</em> period.</q>
+      ) The same is true of the moon;
+      its phases also repeat
+    </p>
+    <aside>
+      <p>
+        <ellipsis/> but we call the smallest positive one <em>the</em> period
+      </p>
+    </aside>
+    <p>
+      after <m>2 \times 28</m> days,
+      or <m>3 \times 28</m>, days.
+      Nevertheless, we think of 28 days as <em>the</em>
+      period of the lunar cycle,
+      because we see the entire pattern precisely once.
+      We can say the same for any periodic function:
+    </p>
+    <image source=""/>
+    <p>
+      Another measure of a periodic function is its
+    </p>
+    <aside>
+      <p>
+        Frequency
+      </p>
+    </aside>
+    <p>
+      frequency.
+      Consider first the lunar cycle.
+      Its frequency is the number of cycles<mdash/>or fractions of a cycle<mdash/>that occur in unit time.
+      If we measure time in days, then the frequency is 1/28-th of a cycle per day.
+      If we measure time in <em>years</em>,
+      though, then the frequency is about 13 cycles per year.
+      Here is the calculation:
+      <me>
+        \dfrac{365 \ \mbox{days/year} }{28 \ \mbox{days/cycle} } \approx 13 \ \mbox{cycles/year}
+      </me>.
+    </p>
+    <p>
+      Using this example as a pattern,
+      we make the following definition.
+    </p>
+    <image source=""/>
+    <p>
+      Notice that the period and the frequency of the lunar cycle
+    </p>
+    <aside>
+      <p>
+        The frequency of a cycle is the reciprocal of its period
+      </p>
+    </aside>
+    <p>
+      are reciprocals:
+      the period is 28 days<mdash/>the time needed to complete one cycle<mdash/>while the frequency is \mbox{1/28-th} of a cycle per day.
+      In the example below,
+      <m>t</m> is measured in seconds and <m>g</m> has a period of 0.2 seconds.
+      Its frequency is therefore 5 cycles per second.
+      <image width="73%" source="images/period2.png"/> In general,
+      if <m>f</m> is the frequency of a periodic function <m>g(x)</m> and <m>T</m> is its period,
+      then we have
+      <me>
+        f = \dfrac{1}{T} \qquad \mbox{and}  \qquad T = \dfrac{1}{f}
+      </me>.
+    </p>
+    <p>
+      The units are also related in a reciprocal fashion:
+      if the period is measured in seconds,
+      then the frequency is measured in cycles per second.
+      Because many quantities fluctuate periodically over time,
+      the input variable of a periodic function will often be <em>time</em>.
+    </p>
+    <aside>
+      <p>
+        The units for measuring frequency over time
+      </p>
+    </aside>
+    <p>
+      If time is measured in seconds,
+      then frequency is measured in
+      <q>cycles per second.</q>
+      The term <term>Hertz</term>
+          <idx><h>Hertz</h></idx>
+      is a special unit used to measure time frequencies;
+      it equals one cycle per second.
+      Hertz is abbreviated Hz; thus a <term>kilohertz</term>
+          <idx><h>kilohertz</h></idx>
+      (kHz) and a <term>megahertz</term>
+          <idx><h>megahertz</h></idx>
+      (MHz) are 1,000 and 1,000,000 cycles per second, respectively.
+      This unit is commonly used to describe sound,
+      light, radio, and television waves.
+      For example, an orchestra tunes to an A at 440 Hz.
+      If an FM radio station broadcasts at 88.5 MHz, this means its carrier frequency is 88,500,000 cycles per second.
+      Quantities may also be periodic in other dimensions.
+      For instance, a scientist studying the
+    </p>
+    <aside>
+      <p>
+        Functions can be periodic over other units as well
+      </p>
+    </aside>
+    <p>
+      phenomenon of ripple formation in a river bed might be interested in the function <m>h(x)</m> measuring the height of a ripple as a function of its distance <m>x</m> along the river bed.
+      This would lead to a function of period,
+      say, 10 inches and corresponding frequency of 0.1 cycle per inch.
+    </p>
+    <sidebyside>
+      \special{psfile=../ps/calc2/circle.ps}
+      <term>Circular functions</term>.<idx><h>function</h><h>circular</h></idx> While there are
+      innumerable examples of periodic functions, two in particular are
+      considered basic: the sine<idx><h>sine</h></idx> and the cosine<idx><h>cosine</h></idx>.
+      They are called circular functions because they are defined by means
+      of a circle.  To be specific, take the circle of radius 1 centered at
+      the origin in the <m>x, y</m>-plane.  Given any real number <m>t</m>, measure a
+      distance of <m>t</m> units around the circumference of the circle.  Start
+      on the positive <m>x</m>-axis, and measure
+    </sidebyside>
+    <p>
+      counterclockwise if <m>t</m> is positive,
+      clockwise if <m>t</m> is negative.
+      The coordinates of the point you reach this way are, by definition,
+      the cosine and the sine functions of <m>t</m>, respectively:
+      <md>
+        <mrow>x \amp =  \cos(t),</mrow>
+        <mrow>y \amp =  \sin(t)</mrow>
+      </md>.
+    </p>
+    <p>
+      The whole circumference of the circle measures <m>2\pi</m> units.
+    </p>
+    <aside>
+      <p>
+        Why <m>\cos{t}</m> and <m>\sin{t}</m>
+      </p>
+      <p>
+        are periodic
+      </p>
+    </aside>
+    <p>
+      Therefore, if we add <m>2\pi</m> units to the <m>t</m> units we have already measured,
+      we will arrive back at the same point on the circle.
+      That is, we get to the same point on the circle by measuring either <m>t</m> or
+      <m>t + 2\pi</m> units around the circumference.
+      We can describe the coordinates of this point two ways:
+      <me>
+        (\cos(t), \sin(t)) \qquad \mbox{or}  \qquad (\cos(t + 2\pi), \sin(t + 2\pi))
+      </me>.
+    </p>
+    <p>
+      Thus
+      <me>
+        \cos(t + 2\pi) = \cos(t) \qquad  \sin(t + 2\pi) = \sin(t)
+      </me>,
+      so <m>\cos(t)</m> and <m>\sin(t)</m> are both periodic,
+      and they have the same period, <m>2\pi</m>.
+      Here are their graphs.
+      By reading their slopes we can see
+      <m>(\sin{t})' =  \cos{t}</m> and <m>(\cos{t})' = -\sin{t}</m>.
+      <image width="73%" source="images/sincos.png"/> <image width="73%" source="images/circle2.png"/> The circular functions are constructed
+    </p>
+    <aside>
+      <p>
+        Radian measure
+      </p>
+    </aside>
+    <p>
+          <idx><h>radian</h></idx>
+          <idx><h>radian measure</h></idx>
+          <idx><h>angle</h></idx>
+      without reference to angles;
+      the variable <m>t</m> is measured around the circumference of a circle
+      (of radius<nbsp/>1).
+      Nevertheless,
+      we <em>can</em> think of <m>t</m> as measuring an angle,
+      as shown at the right.
+      In this case, <m>t</m> is called the
+      <term>radian measure</term>
+          <idx><h>radian measure</h></idx>
+      of the angle.
+      The units are very different from the degree measurement of an angle:
+      an angle of 1 radian is much larger than an angle of 1 degree.
+      The radian measure of a 90<m>^\circ</m> angle is <m>\pi/2 \approx 1.57</m>,
+      for instance.
+      If we thought of <m>t</m> as an angle measured in degrees,
+      the slope of <m>\sin(t)</m> would equal
+      <m>.017\cos{t}</m>! (See the exercises.) Only when we measure <m>t</m> in radians do we get a simple result:
+      <m>(\sin{t})' = \cos{t}</m>.
+      This is why we always measure angles in radians in calculus.
+      Compare the graph of <m>y = \sin(t)</m> above
+    </p>
+    <aside>
+      <p>
+        Changing the frequency
+      </p>
+    </aside>
+    <p>
+      with that of <m>y = \sin(4t)</m>, below.
+      <image width="73%" source="images/sin4t.png"/> Their scales are identical,
+      so it is clear that the frequency of
+      <m>\sin(4t)</m> is four times the frequency of <m>\sin(t)</m>.
+      The general pattern is described in the following table.
+      <me>
+        \begin{array}{ccc} \mbox{function}   \amp  \mbox{period}  \amp  \mbox{frequency}  \\ \hline \\ [-9pt] \sin(t)   \ \cos(t)  \amp  2\pi    \amp  1/2\pi\\ \sin(4t) \cos(4t)  \amp  2\pi/4   \amp  4/2\pi\\ \sin(bt) \cos(bt)  \amp  2\pi/b  \amp  b/2\pi \end{array}
+      </me>
+    </p>
+    <p>
+      Notice that it is the <em>frequency</em><mdash/>not the period<mdash/>that is increased by a factor of <m>b</m> when we multiply the input variable by <m>b</m>.
+      By using the information in the table,
+    </p>
+    <aside>
+      <p>
+        Constructing a circular function with a given frequency
+      </p>
+    </aside>
+    <p>
+      we can construct circular functions with any period or frequency whatsoever.
+      For instance, suppose we wanted a cosine function
+      <m>x = \cos(bt)</m> with a frequency of 5 cycles per unit <m>t</m>.
+      This means
+      <me>
+        5 = \mbox{frequency}  = \dfrac{b}{2\pi}
+      </me>,
+      which implies that we should set
+      <m>b = 10\pi</m> and <m>x = \cos(10\pi t)</m>.
+      In order to see the high-frequency behavior of this function better,
+      we magnify the graph a bit.
+      In the figure below, you can compare the graphs of
+      <m>x = \cos(10 \pi t)</m> and <m>x = \cos(t)</m> directly.
+      We still have equal scales on the horizontal and vertical axes.
+      Finally, notice that <m>\cos(10 \pi t)</m> has exactly 5 cycles on the interval <m>0 \leq t \leq 1</m>.
+      <image width="73%" source="images/cos10pit.png"/> We will denote the frequency by <m>\omega</m>,
+    </p>
+    <aside>
+      <p>
+        Frequency <m>\omega</m>
+      </p>
+    </aside>
+    <p>
+      the lower case letter <em>omega</em> from the Greek alphabet.
+      If
+      <me>
+        \omega = \mbox{frequency}  = \dfrac{b}{2\pi}
+      </me>,
+      then <m>b = 2 \pi \omega</m>.
+      Therefore, the basic circular functions of frequency <m>\omega</m> are
+      <m>\cos(2 \pi \omega t)</m> and <m>\sin(2 \pi \omega t)</m>.
+      Suppose we take the basic sine function
+    </p>
+    <aside>
+      <p>
+        Amplitude
+      </p>
+    </aside>
+    <p>
+          <idx><h>amplitude</h></idx> <m>\sin(2 \pi \omega t)</m> of frequency <m>\omega</m> and multiply it by a factor <m>A</m>:
+      <me>
+        y = A \sin(2 \pi \omega t)
+      </me>.
+    </p>
+    <p>
+      The graph of this function oscillates between <m>y = -A</m> and <m>y = +A</m>.
+      The number <m>A</m> is called the <term>amplitude</term>
+          <idx><h>amplitude</h></idx>
+      of the function.
+      <image width="73%" source="images/ampli.png"/>
+      <term>Physical interpretations</term>.
+      Sounds are transmitted to our ears as fluctuations in air pressure.
+      Light is transmitted to our eyes as fluctuations in a more abstract medium<mdash/>the electromagnetic field.
+      Both kinds of fluctuations can be described using circular functions of time <m>t</m>.
+      The amplitude and the frequency of these functions have the physical interpretations given in the following table.
+          <idx><h>light</h></idx>
+          <idx><h>sound</h></idx>
+          <idx><h>color</h></idx>
+          <idx><h>pitch</h></idx>
+    </p>
+    <tabular>
+      <row>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell>frequency</cell>
+      </row>
+      <row>
+        <cell>[-3pt]</cell>
+        <cell></cell>
+        <cell>amplitude</cell>
+        <cell><nbsp/><nbsp/></cell>
+        <cell>frequency</cell>
+        <cell>range</cell>
+      </row>
+      <row bottom="minor">
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+      </row>
+      <row>
+        <cell>[-8pt]
+          {sound}</cell>
+        <cell></cell>
+        <cell>loudness</cell>
+        <cell></cell>
+        <cell>pitch</cell>
+        <cell>10<ndash/>15000 Hz</cell>
+      </row>
+      <row>
+        <cell>{light}</cell>
+        <cell></cell>
+        <cell>intensity</cell>
+        <cell></cell>
+        <cell>color</cell>
+        <cell><m>4 \times 10^{14}</m> <mdash/> <m>7.5 \times 10^{14}</m> Hz</cell>
+      </row>
+    </tabular>
+  </introduction>
+  <subsection>
+    <title>Exercises</title>
+    <subsubsection xml:id="subsubsec_circular-functions">
+      <title>Circular functions</title>
+      <ol>
+        <li>
+          <p>
+            Choose <m>\omega</m> so that the function
+            <m>\cos(2 \pi \omega t)</m> has each of the following periods.
+            <ol>
+              <li>
+                <p>
+                  1 b) 5 c) <m>2\pi</m> d) <m>\pi</m> e) 1/3
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Determine the period and the frequency of the following functions.
+            <ol>
+              <li>
+                <p>
+                  <m>\sin(x)</m>, <m>\sin(2x)</m>, <m>\sin(x) + \sin(2x)</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\sin(2x)</m>, <m>\sin(3x)</m>,
+                  <m>\sin(2x) + \sin(3x)</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\sin(6x)</m>, <m>\sin(9x)</m>,
+                  <m>\sin(6x) + \sin(9x)</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Suppose <m>a</m> and <m>b</m> are positive integers.
+            Describe how the periods of <m>\sin(ax)</m>,
+            <m>\sin(bx)</m>, <m>\sin(ax) + \sin(bx)</m> are related.
+            (As the previous exercise shows,
+            the relation between the periods depends on the relation between <m>a</m> and <m>b</m>.
+            Make this clear in your explanation.)
+          </p>
+        </li>
+        <li>
+          <p>
+            What are the amplitude and frequency of <m>g(x) = 5 \cos(3x)</m>?
+            <ol>
+              <li>
+                <p>
+                  What are the amplitude and frequency of <m>g'(x)</m>?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Is the antiderivative <m>\dint_0^x 5 \cos(3t) \, dt</m> periodic?
+            <ol>
+              <li>
+                <p>
+                  If so, what are its amplitude and frequency?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Use the definition of the circular functions to explain why
+            <md>
+              <mrow>{2} \sin(-t) \amp = -\sin(t), \amp  \qquad \sin\!\left(\dfrac{\pi}{2} - t\right) \amp = \cos(t),</mrow>
+              <mrow>\cos(-t) \amp = +\cos(t), \amp  \sin(\pi - t) \amp = \sin(t)</mrow>
+            </md>,
+            hold for all values of <m>t</m>.
+            Describe how these properties are reflected in the graphs of the sine and cosine functions.
+          </p>
+        </li>
+        <li>
+          <p>
+            What is the average value of the function <m>\sin(s)</m> over the interval
+            <m>0 \leq s \leq \pi</m>? (This is a half-period.)
+            <ol>
+              <li>
+                <p>
+                  What is the average value of <m>\sin(s)</m> over
+                  <m>\pi/2 \leq s \leq 3\pi/2</m>? (This is also a half-period.)
+                </p>
+              </li>
+              <li>
+                <p>
+                  What is the average value of <m>\sin(s)</m> over
+                  <m>0 \leq s \leq 2\pi</m>? (This is a full period.)
+                </p>
+              </li>
+              <li>
+                <p>
+                  Let <m>c</m> be any number.
+                  Find the average value of <m>\sin(s)</m> over the full period <m>c \leq s \leq c + 2\pi</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Your work should demonstrate that the average value of <m>\sin(s)</m> over a full period does not depend on the point <m>c</m> where you begin the period.
+                  Does it?
+                  Is the same true for the average value over a <em>half</em> period?
+                  Explain.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            What is the period <m>T</m> of <m>P(t) = A\sin(bt)</m>?
+            <ol>
+              <li>
+                <p>
+                  Let <m>c</m> be any number.
+                  Find the average value of <m>P(t)</m> over the full period <m>c \leq t \leq c + T</m>.
+                  Does this value depend on the choice of <m>c</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What is the average value of <m>P(t)</m> over the half-period <m>0 \leq t \leq T/2</m>?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection xml:id="subsubsec_phase">
+      <title>Phase</title>
+      <p>
+            <idx><h>phase</h></idx>
+        There is still another aspect of circular functions to consider besides amplitude and frequency.
+        It is called <em>phase difference</em>.
+            <idx><h>phase</h><h>difference</h></idx>
+        We can illustrate this with the two functions graphed below.
+        They have the same amplitude and frequency, but differ in phase.
+        <image width="73%" source="images/phase1.png"/> Specifically,
+        the variable <m>u</m> in the expression <m>\sin(u)</m> is called the <term>phase</term>.
+        In the dotted graph the phase is <m>u = bt</m>,
+        while in the solid graph it is <m>u = bt - \varphi</m>.
+        They differ in phase by <m>bt - (bt - \varphi) = \varphi</m>.
+        In the exercises you will see why a
+        <em> phase difference</em>
+        of <m>\varphi</m> produces a shift<mdash/>which we call a
+        <term>phase shift</term><mdash/>of <m>\varphi/b</m> in the graphs.
+            <idx><h>phase</h><h>shift</h></idx>
+        (<m>\varphi</m> is the Greek letter <em>phi</em>.)
+      </p>
+      <ol>
+        <li>
+          <p>
+            The functions <m>\sin(x)</m> and <m>\cos(x)</m> have the same amplitude and frequency;
+            they differ only in phase.
+            In other words,
+            <me>
+              \cos(x) = \sin(x - \varphi)
+            </me>
+            for an appropriately chosen phase difference <m>\varphi</m>.
+            What is the value of<nbsp/><m>\varphi</m>?
+          </p>
+        </li>
+        <li>
+          <p>
+            The functions <m>\sin(x)</m> and <m>-\sin(x)</m>
+            <em>also</em> differ only in phase.
+            What is their phase difference?
+            In other words, find <m>\varphi</m> so that
+            <me>
+              \sin(x - \varphi) = -\sin(x)
+            </me>.
+            [Note: A circular function and its negative are sometimes said to be
+            <q>180 degrees out of phase.</q>
+            The value of <m>\varphi</m> you found here should explain this phrase.]
+          </p>
+        </li>
+        <li>
+          <p>
+            What is the phase difference between <m>\sin(x)</m> and <m>-\cos(x)</m>?
+          </p>
+        </li>
+        <li>
+          <p>
+            Graph <m>y = \sin(t)</m> and <m>y = \sin(t - \pi/3)</m> on the same plane.
+          </p>
+          <ol>
+            <li>
+              <p>
+                What is the phase difference between these two functions?
+              </p>
+            </li>
+            <li>
+              <p>
+                What is the phase shift between their graphs?
+              </p>
+            </li>
+          </ol>
+        </li>
+        <li>
+          <p>
+            Graph together on the same coordinate plane
+            <m>y = \cos(t)</m> and <m>y = \cos(t + \pi/4)</m>.
+            <ol>
+              <li>
+                <p>
+                  What is the phase difference between these two functions?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What is the phase shift between their graphs?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            We know <m>y = \cos(t)</m> has a maximum at the origin.
+            Determine the point closest to the origin where
+            <m>y = \cos(t + \pi/4)</m> has <em>its</em> maximum.
+            Is the second maximum shifted from the first by the amount of the phase shift you identified in the previous question?
+          </p>
+        </li>
+        <li>
+          <p>
+            Repeat the last two exercises for the pair of functions
+            <m>y = \cos(2t)</m> and <m>\cos(2t + \pi/4)</m>.
+            Is the phase difference equal to the phase shift in this case?
+          </p>
+        </li>
+        <li>
+          <p>
+            Verify that the graph of <m>y = A\sin(bt - \varphi)</m> crosses the <m>t</m>-axis at the point <m>t = \varphi/b</m>.
+            This shows that <m>A\sin(bt - \varphi)</m> is
+            <q>phase-shifted</q>
+            by the amount <m>\varphi/b</m> in relation to <m>A\sin(bt)</m>.
+            (Refer to the graph <xref ref="phase_graph">on</xref>.)
+          </p>
+        </li>
+        <li>
+          <p>
+            At what point nearest the origin does the function
+            <m>A\cos(bt - \varphi)</m> reach its maximum value?
+            <ol>
+              <li>
+                <p>
+                  Explain why this shows <m>A\cos(bt - \varphi)</m> is
+                  <q>phase-shifted</q>
+                  by the amount <m>\varphi/b</m> in relation to <m>A\cos(bt)</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Let <m>f(x) = \sin(x) - 0.7\cos(x)</m>.
+            Using a graphing utility, sketch the graph of <m>f(x)</m>.
+            <ol>
+              <li>
+                <p>
+                  The function <m>f(x)</m> is periodic.
+                  What is its period?
+                  From your graph, estimate its amplitude.
+                </p>
+              </li>
+              <li>
+                <p>
+                  In fact, <m>f(x)</m> can be viewed as a
+                  <q>phase-shifted</q>
+                  sine function:
+                  <me>
+                    f(x) = A\sin(bx - \varphi)
+                  </me>.
+                  From your graph,
+                  estimate the phase difference <m>\varphi</m> and the amplitude<nbsp/><m>A</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            For each of the values <m>\varphi = 0</m>,
+            <m>\pi/4</m>, <m>\pi/2</m>, <m>3\pi/4</m>, <m>\pi</m>,
+            sketch the graph <m>y = \sin(x) \cdot \sin(x - \varphi)</m> over the interval <m>0 \leq x \leq 2\pi</m>.
+            Put the five graphs on the same coordinate plane.
+            <ol>
+              <li>
+                <p>
+                  For which graphs is the average value positive,
+                  for which is it negative, and for which is it 0?
+                  Estimate by eye.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            The purpose of this exercise is to determine the average value
+            <me>
+              F(\varphi) = \dfrac{1}{2\pi} \int_0^{2\pi} \sin(x)\sin(x - \varphi)\,dx
+            </me>
+            for an <em>arbitrary</em> value of the parameter <m>\varphi</m>.
+            To stress that the average value is actually a function of <m>\varphi</m>,
+            we have written it as <m>F(\varphi)</m>.
+            Here is one way to determine a formula for
+            <m>F(\varphi)</m> in terms of <m>\varphi</m>.
+            First, using a
+            <q>sum of two angles</q>
+            formula and exercise 6, above, write
+            <me>
+              \sin(x - \varphi) = \cos(\varphi)\sin(x) - \sin(\varphi)\cos(x)
+            </me>
+            Then consider
+            <me>
+              \dfrac{1}{2\pi} \left[\cos(\varphi)\int_0^{2\pi} (\sin(x))^2 dx - \sin(\varphi)\int_0^{2\pi} \sin(x)\cos(x) \, dx \right]
+            </me>,
+            and determine the values of the two integrals separately.
+          </p>
+        </li>
+        <li>
+          <p>
+            Sketch the graph of the <em>average value function</em>
+            <m>F(\varphi)</m> you found in the previous exercise.
+            Use the interval <m>0 \leq \varphi \leq \pi</m>.
+            <ol>
+              <li>
+                <p>
+                  In exercise 19 you estimated the value of
+                  <m>F(\varphi)</m> for five specific values of <m>\varphi</m>.
+                  Compare your estimates with the exact values that you can now calculate using the formula for <m>F(\varphi)</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Sketch the graph of <m>y = \cos(x)\sin(x - \varphi)</m> for each of the following values of <m>\varphi</m>: 0, <m>\pi/2</m>,
+            <m>2\pi/3</m>, <m>\pi</m>.
+            Use the interval <m>0 \leq x \leq 2\pi</m>.
+            Estimate by eye the average value of each function over that interval.
+          </p>
+        </li>
+        <li>
+          <p>
+            Obtain a formula for the average value function
+            <me>
+              G(\varphi) = \dfrac{1}{2\pi} \int_0^{2\pi} \cos(x)\sin(x - \varphi)\,dx
+            </me>.
+            and sketch the graph of <m>G(\varphi)</m> over the interval <m>0 \leq \varphi \leq \pi</m>.
+            <ol>
+              <li>
+                <p>
+                  Use your formula for <m>G(\varphi)</m> to compute the average value of the function
+                  <m>\cos(x)\sin(x - \varphi)</m> exactly for <m>\varphi = 0</m>,
+                  <m>\pi/2</m>, <m>2\pi/3</m>, <m>\pi</m>.
+                  Compare these values with your estimates in the previous exercise.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            How large a phase difference <m>\varphi</m> is needed to make the graphs of
+            <m>y = \sin(3x)</m> and <m>y = \sin(3x - \varphi)</m> coincide?
+          </p>
+        </li>
+        <li>
+          <p>
+            Sketch the graphs of the following functions.
+            <ol>
+              <li>
+                <p>
+                  <m>y = 3\sin(2x - \pi/6) - 1</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>y = 4\sin(2x - \pi) + 2</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>y = 4\sin(2x + \pi) + 2</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            The function whose graph is sketched at the right has the form
+            <me>
+              G(x) = A \sin(bx - \varphi) + C
+            </me>.
+            Determine the values of <m>A</m>,
+            <m>b</m>, <m>C</m>, and <m>\varphi</m>.
+            <image width="73%" source="images/phase2.png"/>
+          </p>
+        </li>
+        <li>
+          <p>
+            Write equations for three different functions that all have amplitude<nbsp/>4, period<nbsp/>5,
+            and whose graphs pass through the point <m>(6, 7)</m>.
+            Be sure the functions are really different<mdash/>if <m>g(t)</m> is one solution,
+            then <m>h(t)=g(t+5)</m> would really be just the same solution.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection xml:id="subsubsec_derivatives-with-degrees">
+      <title>Derivatives with degrees</title>
+      <ol>
+        <li>
+          <p>
+            In this exercise measure the angle <m>\theta</m> in degrees.
+            Estimate the derivative of
+            <m>\sin(\theta)</m> at <m>\theta = 0^{\circ}</m> by calculating
+            <m>\sin(\theta)/\theta</m> for <m>\theta = 2^{\circ}</m>,
+            <m>1^{\circ}</m>, <m>.5^{\circ}</m>.
+            <ol>
+              <li>
+                <p>
+                  Estimate the derivative of
+                  <m>\sin(\theta)</m> at <m>\theta = 60^{\circ}</m> in a similar way.
+                  Is <m>(\sin(30^{\circ}))' = \cos(30^{\circ})</m>?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Your calculations in the previous exercise should support the claim that
+            <m>(\sin(\theta))' = k\cos(\theta)</m> for a particular value of <m>k</m>,
+            when <m>\theta</m> is measured in degrees.
+            What is <m>k</m>, approximately?
+            <ol>
+              <li>
+                <p>
+                  If <m>t</m> is the radian measure of an angle,
+                  and if <m>\theta</m> is its degree measure,
+                  then <m>\theta</m> will be a function of <m>t</m>.
+                  What is it?
+                  Now use the chain rule to get a precise expression for the constant <m>k</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+  </subsection>
+</section>
