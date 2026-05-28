@@ -6,12 +6,10 @@
 \newcommand{\mar}[1]{\marginpar[\raggedright\footnotesize\sf #1]{\raggedleft\footnotesize\sf #1}}
 \newcommand{\asideleft}[1]{\medskip\noindent%
         \rule{321pt}{0pt}\makebox[0pt][r]{%
-        \begin{minipage}[t]{400pt}\footnotesize\sf{#1}%
-        \end{minipage}}\bigskip}
+        \footnotesize\sf{#1}%}\bigskip}
 \newcommand{\asideright}[1]{\medskip\noindent%
         \rule{40pt}{0pt}\makebox[0pt][l]{%
-        \begin{minipage}[t]{400pt}\footnotesize\sf{#1}%
-        \end{minipage}}\bigskip}
+        \footnotesize\sf{#1}%}\bigskip}
 \newcommand{\aside}[1]{\ifodd \value{page}%
         {\asideright{#1}}\else{\asideleft{#1}}\fi}
 \newcounter{exercisenumber}[subsection]
@@ -47,6 +45,7 @@ approximating periodic functions by {\bf trigonometric polynomials}.
 
 \subsection{Approximation by polynomials}
 
+
 {\bf Example}.  Let's return to the problem introduced at the beginning of this chapter: find the second degree polynomial which best fits the function $\sin(x)$ over the interval $[0, \pi]$.  
 \mar{Two possible criteria for best fit}
 Just as we did with the Taylor polynomials, though, before we can start we need to agree on our criterion for the best fit. Here are two obvious candidates for such a criterion:
@@ -57,9 +56,13 @@ Just as we did with the Taylor polynomials, though, before we can start we need 
 \begin{enumerate}
 \item The second degree polynomial $Q(x)$ is the best fit to $\sin(x)$ over the interval $[0, \pi]$ if the {\em maximum} separation between $Q(x)$ and 
 $\sin(x)$ is smaller than the maximum separation between $\sin(x)$ and any other second degree polynomial:
-$$\max_{0\le x\le \pi}|\sin(x)-Q(x)| \hspace{.25in} \mbox{ is the smallest possible.}$$
+\[
+\max_{0\le x\le \pi}|\sin(x)-Q(x)| \hspace{.25in} \mbox{ is the smallest possible.}
+\]
 \item The second degree polynomial $Q(x)$ is the best fit to $\sin(x)$ over the interval $[0, \pi]$ if the {\em average} separation between $Q(x)$ and $\sin(x)$ is smaller than the average separation between $\sin(x)$ and any other second degree polynomial:
-$${1 \over \pi }\int_0^{\pi} |\sin(x)-Q(x)|\, dx \hspace{.25in} \mbox{ is the smallest possible.}$$
+\[
+{1 \over \pi }\int_0^{\pi} |\sin(x)-Q(x)|\, dx \hspace{.25in} \mbox{ is the smallest possible.}
+\]
 \end {enumerate}
 
 Unfortunately, even though their clear meanings make these two criteria very attractive, they turn out to be largely 
@@ -75,7 +78,9 @@ which, while slightly less obvious than either of the two we've already articula
 \framebox[4.8in]
 {\parbox{4.45in}{\vspace{8pt}
 Given two functions $g$ and $h$ defined over an interval $[a, b]$, we define the {\bf mean square separation} between $g$ and $h$ over this interval to be
-    $${1 \over (b-a)}\int_a^b \left(g(x) -h(x)\right)^2 \, dx \, .$$}
+    \[
+{1 \over (b-a)}\int_a^b \left(g(x) -h(x)\right)^2 \, dx \, .
+\]}
 }
 \end{center}\index{mean square separation}
 Note:  In this setting the word {\bf mean}\index{mean} is synonymous with what we have called ``average''. It turns out that there is often more than one way to define the term ``average''---the concepts of median and mode are two other natural ways of capturing ``averageness'', for instance---so we use the more technical term to avoid ambiguity.
@@ -83,7 +88,9 @@ Note:  In this setting the word {\bf mean}\index{mean} is synonymous with what w
 We can now rephrase our original 
 \mar{The criterion we will use}
 problem as: find the second degree polynomial $Q(x)$ whose mean squared separation from $\sin(x)$ over the interval $[0, \pi]$ is as small as possible.  In mathematical terms, we want to find coefficients $a_0$, $a_1$, and $a_2$ which such that the integral
-$$\int_0^{\pi} \left( \sin(x) - (a_0 + a_1\,x + a_2\,x^2)\right)^2 \, dx $$
+\[
+\int_0^{\pi} \left( \sin(x) - (a_0 + a_1\,x + a_2\,x^2)\right)^2 \, dx
+\]
 is minimized. The solution $Q(x)$ is called the quadratic {\bf least squares approximation}\index{least squares approximation} to $\sin(x)$ over $[0,\pi]$.
 
 The key to solving this problem is to observe that $a_0$, $a_1$, and $a_2$ can take on any values we like and that this integral can thus be considered a function of these three variables. For instance, if we couldn't think of anything cleverer to do, we might simply try various combinations of $a_0$, $a_1$, and $a_2$ to see how small we could make the given integral.  Therefore another way to phrase our problem is
@@ -94,7 +101,9 @@ The key to solving this problem is to observe that $a_0$, $a_1$, and $a_2$ can t
 \framebox[4.8in]
 {\parbox{4.45in}{\vspace{8pt}
 Find values for $a_0$, $a_1$, and $a_2$ which minimize the function
-$$F(a_0, a_1, a_2) = \int_0^{\pi} \left( \sin(x) - (a_0 + a_1\,x + a_2\,x^2)\right)^2 \, dx \, .$$}
+\[
+F(a_0, a_1, a_2) = \int_0^{\pi} \left( \sin(x) - (a_0 + a_1\,x + a_2\,x^2)\right)^2 \, dx \, .
+\]}
 }
 \end{center}
 
@@ -143,13 +152,19 @@ $\begin{array}{rcrcrcr}
 But this is simply a set of three linear equations in the unknowns $a_0$, $a_1$, and $a_2$, and they can be solved in the usual ways.  We could either replace each expression in $\pi$ by a corresponding decimal approximation, or we could keep everything in terms of $\pi$.  Let's do the latter;  after a bit of tedious arithmetic we find 
 
 \smallskip
+
+
 \begin{tabular}{rclcl}
 $a_0 $&=& ${\displaystyle {12 \over \pi}-{120 \over \pi^3}}$&=& $-.050465\ldots$ \\ [.15in]
 $a_1 $&=& ${\displaystyle {-60 \over \pi^2}+{720 \over \pi^4}}$&=& $1.312236\ldots$ \\ [.15in]
 $a_2 $&=& ${\displaystyle {60 \over \pi^3}-{720 \over \pi^5}}$&=& $-.417697\ldots$ \, ,\\ [.15in]
-\end{tabular} \\
+\end{tabular}
+
+\\
 and we have
-$$Q(x) = -.050465 +1.312236\,x-.417698\,x^2 \, ,$$
+\[
+Q(x) = -.050465 +1.312236\,x-.417698\,x^2 \, ,
+\]
 which is the equation given in \S1 at the beginning of the chapter.
 
 The analysis 
@@ -163,7 +178,9 @@ we gave for this particular case can clearly be generalized to apply to any func
 {\vspace{8pt}
 \parbox{4.55in}{\vspace{8pt}
 Given a function $g$ over an interval $[a, b]$, then the $n$-th degree polynomial
-$$P(x) = c_0 +c_1\,x+c_2\,x^2 + \cdots +c_n\,x^n$$
+\[
+P(x) = c_0 +c_1\,x+c_2\,x^2 + \cdots +c_n\,x^n
+\]
 whose mean square distance from $g$ is a minimum has coefficients that are determined by the following $n+1$ equations in the $n+1$ unknowns $c_0$, $c_1$, $c_2$, \ldots , $c_n$:
 \begin{eqnarray*}
 \int_a^b g(x)\,dx &=& c_0\int_a^b dx +c_1\int_a^b x\,dx  + \cdots + c_n\int_a^b x^n\,dx \\ [.15in]
@@ -182,7 +199,9 @@ The real catch, though, is not in obtaining the
 equations---it is that solving systems of equations by hand is excruciatingly boring and subject to frequent arithmetic mistakes if there are more than two or three unknowns involved.  Fortunately, there are now a number of computer packages available which do all of this for us.  Here are a couple of examples, where the details are left to the exercises.
 
 \medskip
-\noindent
+
+
+
 {\bf Example}.  Let's find polynomial approximation for \mbox{$1/(1+x^2)$} over the interval $[0, 2]$.  We saw earlier that the Taylor series for  this function converges only for $|x|<1$, so it will be no help.  Yet with the above technique we can derive the following approximations of various degrees (see the exercises for details):
 
 \vspace*{3in}
@@ -201,7 +220,9 @@ degree & \hspace{1in} polynomial \\ \hline
 \end{tabular}
 
 \medskip
-\noindent
+
+
+
 {\bf Example}.  We can even use this new technique to find 
         \mar{The technique even works when differentiability fails}
 polynomial approximations for functions that aren't differentiable at some points.  For instance, let's approximate the function $h(x) = |x|$ over the interval $[-1,1]$.  Since this function is symmetric about the $y$--axis, and we are approximating it over an interval that is symmetric about the $y$--axis, only even powers of $x$ will appear.  (See the exercises for details.)  We get the following approximations of degrees 2, 4, 6, and 8:
@@ -223,7 +244,9 @@ degree & \hspace{1in} polynomial \\ \hline
 \end{tabular}
 
 \medskip
-\noindent
+
+
+
 {\bf A Numerical Example}.  If we have some function 
         \mar{The technique is useful for data functions}
 which exists only as a set of data points---a numerical solution to a differential equation, perhaps, or the output of some laboratory instrument---it can often be quite useful to replace the function by an approximating polynomial.  The polynomial takes up much less storage space and is easier to manipulate.  To see how this works, let's return to the $S$-$I$-$R$ model we've studied before
@@ -235,7 +258,9 @@ R'&=& I/14 \, ,
 with initial values $S(0)=45400$ and $I(0)=2100$.
 
 Let's find an 8th degree polynomial $Q(t)=i_0+i_1t+i_2t^2+\cdots +i_8t^8$ approximating $I$ over the time interval $0\le t\le 40$.  We can do this by a minor modification of the Euler's method programs we've been using all along.  Now, in addition to keeping track of the current values for $S$ and $I$ as we go along, we will also need to be calculating Riemann sums for the integrals
-$$\int_0^{40} t^k\,I(t)\,dt \hspace{1.0in} \mbox{ for } k=0,\,1,\,2,\,\ldots\,,8 $$
+\[
+\int_0^{40} t^k\,I(t)\,dt \hspace{1.0in} \mbox{ for } k=0,\,1,\,2,\,\ldots\,,8
+\]
 as we go through each iteration of Euler's method.  
 
 Since the numbers involved become enormous very quickly, we open ourselves to various sorts of computer 
@@ -249,7 +274,9 @@ I'&=& S\, I -  I/1.4 \\
 R'&=& I/1.4 \, ,
 \end{eqnarray*}
 with initial values $S(0)=4.54$ and $I(0)=0.21$.  The integrals we want are now of the form
-$$\int_0^{4} t^k\,I(t)\,dt \hspace{1.0in} \mbox{ for } k=0,\,1,\,2,\,\ldots\,,8 $$
+\[
+\int_0^{4} t^k\,I(t)\,dt \hspace{1.0in} \mbox{ for } k=0,\,1,\,2,\,\ldots\,,8
+\]
 
 The use of Simpson's rule\index{Simpson's rule} (see chapter 11, \S 3) will also reduce errors.  
         \mar{Using Simpson's rule helps reduce errors}
@@ -269,7 +296,9 @@ When we graph $Q$ and $I$ together over the interval $[0, 4]$ (decadays), we get
 ---a reasonably good fit.
 
 \medskip
-\noindent
+
+
+
 {\bf A Caution}.  Numerical least-squares fitting of the sort performed in this last example fairly quickly pushes into regions where the cumulative effects of the inaccuracies of the original data, the inaccuracies of the estimates for the integrals, and the immense range in the magnitude of the numbers involved all combine to produce answers that are obviously wrong. Rescaling the equations and using good approximations for the integrals can help put off the point at which this begins to happen.
 
 
@@ -277,37 +306,49 @@ When we graph $Q$ and $I$ together over the interval $[0, 4]$ (decadays), we get
 
 
 \num  To find polynomial approximations for $\sin(x)$ over the interval $[0,\pi]$, we needed to be able to evaluate integrals of the form
-$$\int_0^{\pi} x^n\,\sin(x)\,dx \,.$$
+\[
+\int_0^{\pi} x^n\,\sin(x)\,dx \,.
+\]
 The value of this integral clearly depends on the value of $n$, so denote it by $I_n$\,.
 \sub Evaluate $I_0$ and $I_1$ \,.  (Suggestion: use integration by parts to evaluate $I_1$\,.)
 \ans{$I_0=2$\,, and $I_1=\pi$\,.}
 \sub Use integration by parts twice to prove the general {\bf reduction formula}\index{reduction formula}:
-$$I_{n+2} = \pi^{n+2}-(n+2)(n+1)\,I_n \qquad \mbox{ for all $n \ge 0$\,.}$$
+\[
+I_{n+2} = \pi^{n+2}-(n+2)(n+1)\,I_n \qquad \mbox{ for all $n \ge 0$\,.}
+\]
 \sub Evaluate $I_2$, $I_3$, and $I_4$\,.
 \ans{$I_2=\pi^2-4$,\quad $I_3=\pi^3-6\pi$,\quad and $I_4=\pi^4-12\pi^2+48$\,.}
 \sub If you have access to a computer package that will solve a system of equations, find the 4-th degree polynomial that best fits the sine function over the interval $[0,\pi]$.  What is the maximum difference between this polynomial and the sine function over this interval?
 \ans{$.00131 +.98260\,x+ .05447\,x^2-.23379\,x^3+.03721\,x^4$\, with maximum difference occuring at the endpoints.}
 
 \num To find polynomial approximations for $|x|$ over the interval $[-1,1]$, we needed to be able to evaluate integrals of the form
-$$\int_{-1}^{1} x^n\,|x|\,dx \,.$$
+\[
+\int_{-1}^{1} x^n\,|x|\,dx \,.
+\]
 As before, let's denote this integral by $I_n$\,.
 \sub Show that
-$$I_n  = \left\{ \begin{array}{ll}
+\[
+I_n  = \left\{ \begin{array}{ll}
                                                 {\displaystyle {2 \over n+2}} & \mbox{ if $n$ is even} \\ [.15in]
                                                 0   & \mbox { if $n$ is odd}
                                                 \end{array}
-                                        \right. \, .$$
+                                        \right. \, .
+\]
 
 \sub Derive the quadratic least squares approximation to $|x|$ over $[-1,1]$\,.
 \sub If you have access to a computer package that will solve a system of equations, find the 10-th degree polynomial that best fits $|x|$ over the interval $[-1,1]$.  What is the maximum difference between this polynomial and $|x|$ over this interval?
 
 \num  To find polynomial approximations for $1/(1+x^2)$ over the interval $[0,2]$, we needed to be able to evaluate integrals of the form
-$$\int_0^2 {x^n \over 1+x^2}\,dx \,.$$
+\[
+\int_0^2 {x^n \over 1+x^2}\,dx \,.
+\]
 Call this integral $I_n$\,.
 \sub Evaluate $I_0$ and $I_1$ \,.  (Suggestion: use integration by parts to evaluate $I_1$\,.)
 \ans{$I_0=\arctan(1)=\pi/4$\,, and $I_1=(\ln{2})/2=.3465736$\,.}
 \sub Prove the general reduction formula:
-$$I_{n+2} = {2^{n+1} \over n+1} -I_n \qquad \mbox{ for all $n \ge 0$\,.}$$
+\[
+I_{n+2} = {2^{n+1} \over n+1} -I_n \qquad \mbox{ for all $n \ge 0$\,.}
+\]
 \sub Evaluate $I_2$, $I_3$, and $I_4$\,.
 \ans{$I_2=2-{\pi \over 4},\quad I_3=2-{\ln{2} \over 2},\quad I_4={2 \over 3} +{\pi \over 4}\,.$}
 \sub If you have access to a computer package that will solve a system of equations, find the 4-th degree polynomial that best fits the sine function over the interval $[0,\pi]$.  What is the maximum difference between this polynomial and the sine function over this interval?
@@ -357,9 +398,9 @@ If the solution of a differential equation can be represented by a power series,
 \item  A convergent power series converges on an {\bf interval of convergence} of width $2R$; $R$ is called the {\bf radius of convergence}.  The {\bf ratio test} can be used to find the radius of convergence of a power series:  $\sum_{m=0}^{\infty} b_m$ converges if $\lim_{m \to \infty} |b_{m+1}|/|b_m| < 1$.
 
 \item  A polynomial $P(x)=a_0+a_1 x+a_2 x^2 + \cdots + a_n x^n$  is the {\bf best fitting} approximation to a function $f(x)$ on an interval $[a,b]$ if $a_0, a_1, \cdots, a_n$ are chosen so that the {\bf mean squared separation} between $P$ and $f$ 
-$$
+\[
 \frac{1}{b-a} \int_a^b (P(x)-f(x))^2 \, dx
-$$
+\]
 is as small as possible.  $P$ is also called the {\bf least squares approximation} to $f$ on $[a,b]$.
 
 

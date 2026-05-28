@@ -3,12 +3,10 @@
 \newcommand{\mar}[1]{\marginpar[\raggedright\footnotesize\sf #1]{\raggedleft\footnotesize\sf #1}}
 \newcommand{\asideleft}[1]{\medskip\noindent%
         \rule{321pt}{0pt}\makebox[0pt][r]{%
-        \begin{minipage}[t]{400pt}\footnotesize\sf{#1}%
-        \end{minipage}}\bigskip}
+        \footnotesize\sf{#1}%}\bigskip}
 \newcommand{\asideright}[1]{\medskip\noindent%
         \rule{40pt}{0pt}\makebox[0pt][l]{%
-        \begin{minipage}[t]{400pt}\footnotesize\sf{#1}%
-        \end{minipage}}\bigskip}
+        \footnotesize\sf{#1}%}\bigskip}
 \newcommand{\aside}[1]{\ifodd \value{page}%
         {\asideright{#1}}\else{\asideleft{#1}}\fi}
 \newcounter{exercisenumber}[subsection]
@@ -55,7 +53,6 @@ is the process of finding the minimum\index{minimum} or maximum\index{maximum} v
 \special{psfile=../../ps/931/opt1.ps}
 
 \noindent
-\begin{minipage}[t]{3.5in}
 The maximum value of a function is the highest point on its graph; the minimum value is the lowest.  Shown at the right is the graph of $z = x^3 - 4x - y^2$ on the domain
 
 \vspace{-7pt}
@@ -65,7 +62,6 @@ The maximum value of a function is the highest point on its graph; the minimum v
 \vspace{-7pt}
 
 The maximum occurs where $(x, y) = (3, 0)$, and it has the value $z = 15$.  The minimum is $z \approx -12.1$, when $(x, y) \approx (1.2, 3)$.  Confirm this yourself by inspecting the graph and then calculating $z$.
-\end{minipage}
 
         We'll use the term {\bf extreme}\index{extreme}\index{local extreme}\index{extreme, local} 
         \mar{Extremes, and local extremes}      
@@ -106,30 +102,21 @@ is called a {\bf catastrophe}.\index{catastrophe}  The figures explain what happ
 \special{psfile=../../ps/931/opt7.ps}
 
 \noindent
-\begin{minipage}[t]{3.75in}
 We can also solve optimization problems by inspecting density plots.\index{density plot}  
 \label{density1}
 Suppose $z$ is the yield from a process that is controlled by two inputs $x$ and $y$, and 
-        $$
-        z = 3xy - 2 y^2.
-        $$
+        \[
+z = 3xy - 2 y^2.
+\]
 Initially we take $0 \leq x \leq 4$, $0 \leq y \leq 4$.  The maximum yield is at the darkest spot in the upper density plot.  It occurs on the right boundary, near $y = 3$.
 
-\quad \ The position of the maximum \index{maximum}is subject to change if we have to impose further constraints.\index{constraint}  For instance, suppose the resource $y$ is more limited than we first assumed, requiring us to set $y \leq 2.3$.  With this added constraint we see that the maximum shifts to the corner $(x, y) = (4, 2.3)$.  (The points shown in a lighter gray are the ones that have been removed from consideration by the new constraint.)      
-\end{minipage}
+\quad \ The position of the maximum \index{maximum}is subject to change if we have to impose further constraints.\index{constraint}  For instance, suppose the resource $y$ is more limited than we first assumed, requiring us to set $y \leq 2.3$.  With this added constraint we see that the maximum shifts to the corner $(x, y) = (4, 2.3)$.  (The points shown in a lighter gray are the ones that have been removed from consideration by the new constraint.)
 
-\newpage
-
-\special{psfile=../../ps/931/opt8.ps}
-\special{psfile=../../ps/931/opt9.ps}
-\hfill
-\begin{minipage}[t]{3.6in}
 \quad \ Besides limits on individual resources, we are often faced with a limit on {\em total\/} resources.  In our case, let's suppose the limit has the form
-        $$
-        x + y \leq 4.
-        $$
+        \[
+x + y \leq 4.
+\]
 That means all points above the line $x + y = 4$ must be removed from consideration.  (They are shown in lighter gray.)  This new constraint causes the maximum to shift yet again.  It now appears near the point $(x, y) = (3, 1)$.
-\end{minipage}
 \vspace{2pt}
 
         As we add constraints that force the maximum to move, the density at each new maximum is less than it was at the previous one.  Thus, the value of the maximum itself decreases.  
@@ -163,18 +150,16 @@ three plots the minimum appears as the bright spot at the top of the rectangle n
 
 
 \noindent
-\begin{minipage}[t]{3.5in}
 \quad \ We'll start with the function $z = 3xy - 2 y^2$ we first considered on page~\pageref{density1} and search for its extremes subject to the constraints\index{constraint}
-        $$
-        \begin{array}{l}
+        \[
+\begin{array}{l}
         0 \leq x        \\ [2pt]
         0 \leq y \leq 2.3       \\ [2pt]
         x + y \leq 4 
         \end{array}
-        $$
+\]
 that we introduced earlier.  From the density plot on page~\pageref{density1} it was obvious that the values of $z$ 
 \linebreak
-\end{minipage}
  
 \vspace{-9pt}
 \noindent
@@ -189,17 +174,15 @@ The contour that just passes through the upper left corner---and meets the regio
 \special{psfile=../../ps/932/opt20.ps}
 
 \noindent
-\begin{minipage}[t]{3.5in}
 \quad \ Suppose the extreme is in the {\em interior\/}\index{interior point} of the constrained region, rather than on the boundary.  For example, the function 
 $z = x^3 - 4x - y^2$ has an interior maximum when
-        $$
-        \begin{array}{l}
+        \[
+\begin{array}{l}
         -2 \leq x \leq 2        \\
         -2 \leq y \leq 3.
         \end{array}
-        $$ 
-Around the maximum there is a nest of concentric ovals.  This pattern is characteristic for an interior extreme.  Notice the local maximum where a contour is tangent to the boundary line $x = 2$.  
-\end{minipage}
+\] 
+Around the maximum there is a nest of concentric ovals.  This pattern is characteristic for an interior extreme.  Notice the local maximum where a contour is tangent to the boundary line $x = 2$.
 
         These examples demonstrate\index{contour plot} 
         \mar{Contour patterns at an extreme}    
@@ -219,6 +202,7 @@ Patterns of contour lines at an extreme point
 \noindent
 extreme point when we discussed the `standard' minimum ($x^2 + y^2$) and maximum ($-x^2 - y^2$) in \S 1 (pages 511--514).  
 % qqq
+
 {\bf Caution}: the patterns you see here are ``typical'', but they do not {\em guarantee\/} the presence of an extreme point.  The exercises give you a chance to explore some of the subtleties.
 
 \subsection{Dimension-reducing Constraints}
@@ -237,9 +221,9 @@ Thus far, however, the constraints we considered have been described by {\em ine
         There is a standard form 
         \mar{A standard form}   
 for any constraint that reduces a two-dimensional optimization problem to a one-dimensional problem.  The form is this:
-        $$
-        \mbox{constraint}: \qquad g(x, y) = 0.
-        $$ 
+        \[
+\mbox{constraint}: \qquad g(x, y) = 0.
+\] 
 For instance, the constraint $x + y = 4$ can be written this way by setting $g(x, y) = x + y - 4$.   We'll look at another example in a moment.  
 
         First, though, notice that $g(x, y) = 0$ is one of the contour lines of the function $g(x, y)$, namely, the contour at level zero.  Since the contours of $g$ are curves, we often call $g(x, y) = 0$ a {\bf constraint curve}.\index{constraint curve}  
@@ -247,7 +231,9 @@ For instance, the constraint $x + y = 4$ can be written this way by setting $g(x
 This curve is {\em one\/}-dimensional, even though it might twist and turn in a two-dimensional plane.  We say the curve is one-dimensional because it looks like a straight line under a microscope.  Likewise, a curved surface is two-dimensional because it looks like a flat plane under a microscope.\index{dimension, of a curve or surface}   
 
 \medskip
-\noindent
+
+
+
 {\bf Example}.  Find the extreme values of $f(x, y) = x^2 + 8 x y + 3 y^2 - 5 x$ subject to the constraint $g(x, y) = x^2 + y^2 - 4 = 0$.  The constraint curve is a circle of radius~2, and the level curves of $z = f(x, y)$ form a set of hyperbolas.  We need to find the highest and the lowest $z$-levels on the constraint curve.  
 
 \vspace{7pt}
@@ -258,17 +244,19 @@ The $z$-levels are labelled around the right and the bottom edges of the figure.
         \mar{Finding the highest and lowest levels on the constraint curve}
 It is in the third quadrant, near the point $(-1.4, -1.5)$, that the constraint curve meets the highest $z$-level. At that point $z$ is slightly more than 30.  The constraint curve is evidently tangent to the contour there.  The lowest $z$-level that the constraint curve meets is about $z = -16$, near the point $(1.6, -1.2)$.  Picture in your mind how the contours between $z = -10$ and $z = -20$ fit together.  Can you see that the constraint curve is tangent\index{tangent} to contour at the minimum?  
 
-\noindent
+
+
+
 {\bf Example, continued}.  
         \mar{Locate points on the constraint circle with a single variable $t$}
 There is still more to say about the way the constraint $x^2 + y^2 - 4 = 0$ reduces the dimension of our problem.  First of all, we can describe the coordinates of any point on the constraint circle by using the circular functions:
-        $$
-        x = 2 \cos{t} \qquad y = 2 \sin{t}.
-        $$
+        \[
+x = 2 \cos{t} \qquad y = 2 \sin{t}.
+\]
 We need the factor 2 because the circle has radius 2.  These equations mean that $x$ and $y$ are now functions of a {\em single\/} variable, $t$.\index{function, of one variable}  Next, consider the function 
-        $$
-        z = f(x, y) = x^2 + 8 x y + 3 y^2 - 5x
-        $$
+        \[
+z = f(x, y) = x^2 + 8 x y + 3 y^2 - 5x
+\]
 that we seek to optimize {\em subject to the constraint}.  
         \mar{$z$ becomes a function of $t$}
 But the constraint makes $x$ and $y$ functions of $t$.  Thus, {\em when we take the constraint into account}, $z$ itself becomes a function of $t$:
@@ -285,10 +273,10 @@ The graph of {\em this\/} function is thus just an ordinary curve in the $t, z$-
 
 \newpage
 
-\noindent
-\begin{minipage}[t]{3.4in}
-{\bf Example, continued}.  Let's look at the graph of $z = x^2 + 8 x y + 3 y^2 - 5x$.   The constraint tells us that we should look {\em only\/} at the points on the graph that lie above the circle $x^2 + y^2 - 4 = 0$.  These are the points where the graph intersects the cylinder\index{cylinder} that you see at the right.  The intersection is a curve that goes up and down around the cylinder.  At some point on the curve $z$ has a maximum, and at some other point it has a minimum.   (In fact, both the maximum and the minimum are visible in this view.)
-\end{minipage} 
+
+
+
+{\bf Example, continued}.  Let's look at the graph of $z = x^2 + 8 x y + 3 y^2 - 5x$.   The constraint tells us that we should look {\em only\/} at the points on the graph that lie above the circle $x^2 + y^2 - 4 = 0$.  These are the points where the graph intersects the cylinder\index{cylinder} that you see at the right.  The intersection is a curve that goes up and down around the cylinder.  At some point on the curve $z$ has a maximum, and at some other point it has a minimum.   (In fact, both the maximum and the minimum are visible in this view.) 
 \special{psfile=../../ps/933/wrap1.ps}
 \vspace{3pt}
 
@@ -330,18 +318,16 @@ This is just a picture of the relation between the function and the constraint. 
 \special{psfile=../../ps/933/sample.ps}
 \hfill
 %\noindent
-\begin{minipage}[t]{3.6in}
 Suppose that a function $f(x, y)$ has a maximum\index{maximum} or a minimum\index{minimum} at an {\em interior\/}\index{interior point} point $(a, b)$.  Suppose also that the function is {\em locally linear\/} at $(a, b)$, so we  have a ``bowl'' rather than a ``spike''\index{spike} or some other irregularity in the graph.  Then we must have
-        $$
-        \mbox{grad} f (a, b) = \left({\partial f \over \partial x}(a, b), 
+        \[
+\mbox{grad} f (a, b) = \left({\partial f \over \partial x}(a, b), 
                 {\partial f \over \partial y}(a, b) \right)  = (0, 0).
-        $$
-\end{minipage}
+\]
 
 \noindent
 Here is why.  The gradient\index{gradient} vector $\mbox{grad} f (a, b)$ 
         \mar{A proof}
-tells us how the graph of $z = f(x, y)$ is tilted at the point $(a, b)$.  (We discuss the geometric meaning of the gradient on page 542.)
+tells us how the graph of $z = f(x, y)$ is tilted at the point $(a, b)$.  (We discuss the geometric meaning of the gradient on [[REF:page542]].)
         % qqq
 At a maximum or a minimum, though, the graph is {\em not\/} tilted; it must be flat.  Therefore, the gradient must be the zero vector.  
 
@@ -349,41 +335,43 @@ At a maximum or a minimum, though, the graph is {\em not\/} tilted; it must be f
         \mar{Moving to an arbitrary number of input variables}  
 that have any number of input variables.  First, we give a name to a point where the gradient is zero.
 \begin{center}
+
+
 \begin{picture}(320,60)(5.2,4)          
 \put(0,0) {
-  \framebox(320,60){
-    \begin{minipage}{290pt}                     
-      {\bf Definition}.  A {\bf critical point}\index{critical point} of a locally linear function is one where the gradient vector is zero.  Equivalently, all the first partial derivatives of the function are zero.\label{critical}
-    \end{minipage}
-  }
+  \framebox(320,60){\parbox{320pt}{%
+{\bf Definition}.  A {\bf critical point}\index{critical point} of a locally linear function is one where the gradient vector is zero.  Equivalently, all the first partial derivatives of the function are zero.\label{critical}
+}}
 }
 \end{picture}
+
 \end{center}
 The observation we just made can now be restated as a theorem that connects extreme points and critical points. 
 \begin{center}
+
+
 \begin{picture}(320,60)(5.2,4)          
 \put(0,0) {
-  \framebox(320,60){
-    \begin{minipage}{290pt}                     
-      {\bf Theorem}.  If a locally linear function has a maximum or a minimum at an interior point of its domain, then that point must be a critical point.
-    \end{minipage}
-  }
+  \framebox(320,60){\parbox{320pt}{%
+{\bf Theorem}.  If a locally linear function has a maximum or a minimum at an interior point of its domain, then that point must be a critical point.
+}}
 }
 \end{picture}
+
 \end{center}
 
         The direction of the implication in this theorem is important.  
         \mar{A statement and its  converse}
 Here is the theorem, written in a very abbreviated form:
-        $$
-        \mbox{\em statement\/}: \qquad 
+        \[
+\mbox{\em statement\/}: \qquad 
                 \mbox{extreme} \Longrightarrow \mbox{critical}.
-        $$
+\]
 When we reverse the direction of the implication, we get a new statement, abbreviated the same way:
-        $$
-        \mbox{  \em converse}: \qquad \quad
+        \[
+\mbox{  \em converse}: \qquad \quad
                 \mbox{critical} \Longrightarrow \mbox{extreme}.
-        $$
+\]
 The converse\index{converse} says that a critical point must be an extreme point.  
         \mar{The converse of {\em this\/} theorem is not true}
 But that is just not true.  For example, an ordinary saddle point (a minimax) is a critical point, but it is not a minimum or a maximum.
@@ -393,19 +381,23 @@ But that is just not true.  For example, an ordinary saddle point (a minimax) is
 they offer us the following guidance:
 
 \medskip
-$\bullet$ Search for the extremes of a function among its critical points.
+
+\noindent$\bullet$ Search for the extremes of a function among its critical points.
 
 \smallskip
-$\bullet$ A critical point may be neither a maximum nor a minimum.
+
+\noindent$\bullet$ A critical point may be neither a maximum nor a minimum.
 
         To see how we can find extremes by searching among the critical points of a function, we'll do a few examples.  All the examples use the same basic idea.  However, as the details get more complicated we bring in more powerful techniques.
 \medskip
 
-\noindent
-{\bf Example 1}.  We'll start with the function
-        $$
-        z = f(x, y) =  x^3 - 4 x - y^2
-        $$
+
+
+
+{\bf [[EX:1]]}.  We'll start with the function
+        \[
+z = f(x, y) =  x^3 - 4 x - y^2
+\]
 we have frequently used as a test case in this chapter.  
 
         The critical points of $f$ are the points that {\em simultaneously\/} satisfy the two equations\index{partial derivative}
@@ -416,86 +408,83 @@ we have frequently used as a test case in this chapter.
         
 \special{psfile=../../ps/934/contour1.ps}
 \hfill
-\begin{minipage}[t]{3.5in}
 It is clear that $y = 0$ and $x = \pm \sqrt{4/3} \approx \pm 1.1547$.  The two critical points are therefore
-        $$
-        \left(+\sqrt{4/3}, 0\right) \qquad \mbox{and} \qquad 
+        \[
+\left(+\sqrt{4/3}, 0\right) \qquad \mbox{and} \qquad 
                 \left(-\sqrt{4/3}, 0\right).
-        $$
+\]
 If you check the contour plot you can see that $(-\sqrt{4/3}, 0)$ is a local maximum\index{local maximum} and $(+\sqrt{4/3}, 0)$ is a saddle point.\index{saddle point}
-\end{minipage}
 \medskip
 
-\noindent
-{\bf Example 2}.  Here is a somewhat more complicated function:
-        $$
-        z = g(x, y) =  2 x^2 y - y^2 - 4 x^2 + 3 y.
-        $$
+
+
+
+{\bf [[EX:2]]}.  Here is a somewhat more complicated function:
+        \[
+z = g(x, y) =  2 x^2 y - y^2 - 4 x^2 + 3 y.
+\]
 The critical points are the solutions of the equations
-        $$
-        {\partial g \over \partial x} =  4 x y - 8 x = 0 \qquad \qquad
+        \[
+{\partial g \over \partial x} =  4 x y - 8 x = 0 \qquad \qquad
         {\partial g \over \partial y} =  2 x^2 - 2 y + 3 = 0.
-        $$
+\]
 Algebraic methods will still work, even though both variables appear in both equations.  For example, we can rewrite ${\partial g/\partial y} = 0$ as
-        $$
-        2y = 2 x^2 + 3 \qquad \mbox{or} \qquad 
+        \[
+2y = 2 x^2 + 3 \qquad \mbox{or} \qquad 
                 y = x^2 + {\textstyle {3 \over 2}}.
-        $$
+\]
 We can then substitute this expression for $y$ into ${\partial g/\partial x} = 0$ and get
-        $$
-        4x \left(x^2 + {\textstyle {3 \over 2}}\right) - 8x =
+        \[
+4x \left(x^2 + {\textstyle {3 \over 2}}\right) - 8x =
         4x \left[ x^2 + {\textstyle {3 \over 2}} - 2 \right] =
         4x \left[ x^2 - {\textstyle {1 \over 2}} \right] = 0.
-        $$
+\]
 This implies $x = 0$ or $x = \pm \sqrt{1/2}$.  For each $x$ we can then find the corresponding $y$ by from the equation $y = x^2 + {\textstyle {3 \over 2}}$.  
 
         Let's work through this a second time using a geometric approach.  The equations ${\partial g/\partial x} = 0$ and ${\partial g/\partial y} = 0$ both define curves in the $x, y$-plane.  The curve ${\partial g/\partial y} = 0$ is a parabola: $y = x^2 + {\textstyle {3 \over 2}}$.  The equation ${\partial g/\partial x} = 0$ factors as
-        $$
-        4 x ( y - 2) = 0 \qquad \mbox{or} \qquad x ( y - 2 ) = 0.
-        $$
-\begin{minipage}[t]{3.5in}
+        \[
+4 x ( y - 2) = 0 \qquad \mbox{or} \qquad x ( y - 2 ) = 0.
+\]
 Now a product equals 0 precisely when one of its factors equals 0, so ${\partial g/\partial x} = 0$ implies that {\em either\/} $x = 0$ {\em or\/} 
 $y - 2 = 0$.  In other words, the ``curve'' ${\partial g/\partial x} = 0$ consists of two lines: 
-        $$
-        \begin{array}{l}
+        \[
+\begin{array}{l}
         x = 0   \quad \mbox{a vertical line} \\
         y = 2   \quad \mbox{a horizontal line}
         \end{array}
-        $$
+\]
 The two curves are shown in the figure at the right.  They intersect in three points.  (The place where the horizontal and vertical lines cross is {\em not\/} one of the intersection points.)
-\end{minipage}
 \special{psfile=../../ps/933/locus1.ps}
 \vspace{3pt}
 
         One of the immediate benefits of the geometric approach is to make it clear that the $y$-coordinate of a critical point is either 2 or ${3 \over 2}$.  The critical points are therefore
 
 \noindent
-\begin{minipage}[t]{3.5in}
-        $$
-        \left(-\sqrt{1/2}, 2 \right), \quad
+\[
+\left(-\sqrt{1/2}, 2 \right), \quad
                 \left(\vphantom{\sqrt{1/2}}
                         0, {\textstyle {3 \over 2}} \right), \quad
                 \left(+\sqrt{1/2}, 2 \right).
-        $$
-A glance at the contour plot of $g$ makes it clear that the first and third of these are saddle points.  The middle point is a local maximum.  There are several ways to determine this.  One is to look at the graph of $g$.  Another is to look at a vertical slice of the graph through the line $x = 0$.  Then $z = g(0, y) = -y^2 + 3y$.  Here $z$ has a maximum when $y = {3 \over 2}$. 
-\end{minipage}
+\]
+A glance at the contour plot of $g$ makes it clear that the first and third of these are saddle points.  The middle point is a local maximum.  There are several ways to determine this.  One is to look at the graph of $g$.  Another is to look at a vertical slice of the graph through the line $x = 0$.  Then $z = g(0, y) = -y^2 + 3y$.  Here $z$ has a maximum when $y = {3 \over 2}$.
 \special{psfile=../../ps/934/contour2.ps}
         
 \aside{We first identified the local maximum of the function $z = x^3 - 4x - y^2$ on page~\pageref{max}.  At the time, though, we could only estimate its position by eye.  Now, however, we can specify its location exactly, because we  have analytical tools for finding critical points.  As the next example shows, these tools are useful even when we can't carry out the algebraic manipulations.}
 
-\noindent
-{\bf Example 3}.  Here is a function whose critical points we {\em can't\/} find using just algebraic computations:
-        $$
-        z = h(x, y) = x^2 y^2 - x^4 - y^4 - 2x^2 + 5 xy + y
-        $$
+
+
+
+{\bf [[EX:3]]}.  Here is a function whose critical points we {\em can't\/} find using just algebraic computations:
+        \[
+z = h(x, y) = x^2 y^2 - x^4 - y^4 - 2x^2 + 5 xy + y
+\]
 The equations for the critical points are
 \vspace{-10pt}
 
 \special{psfile=../../ps/934/contour3.ps}
 \special{psfile=../../ps/934/contour4.ps}
 \hfill
-\begin{minipage}[t]{3.8in}
-        \begin{eqnarray*}
+\begin{eqnarray*}
         {\partial h \over \partial x} &=&  
                 2 x y^2 - 4 x^3 - 4 x + 5 y = 0\\[3pt]
         {\partial h \over \partial y} &=&  
@@ -506,7 +495,6 @@ Even though we can't solve the equations algebraically, we can plot the curves t
 \quad \ A contour plot of $z = h(x, y)$ itself reveals that the middle point is a saddle and the outer two are local maxima.  Let's focus on the maximum in the upper right and determine its position more precisely.  
 
 \quad \ We can always use a microscope.  But if we magnify the contour plot, we just get a set of nested ovals.  The maximum would lie somewhere inside the smallest---but we wouldn't know quite where.  By contrast, the curves ${\partial h/\partial x} = 0$ and ${\partial h/\partial y} = 0$ give us a pair of ``crosshairs'' to focus on.  Even with relatively little magnification we can see that the maximum is at $(1.202\ldots, 1.404\ldots)$.
-\end{minipage}
 
 \special{psfile=../../ps/934/contour5.ps}
 \special{psfile=../../ps/934/contour6.ps}
@@ -526,6 +514,7 @@ So you move to higher ground by following the gradient field.
 
         In fact, the gradient field defines a 
         \mar{Trajectories of the gradient dynamical system\ldots}       
+
 {\bf dynamical system}\index{dynamical system} of exactly the sort we studied in chapter~8.  The differential equations are\index{partial derivative}
         \begin{eqnarray*}
         {dx \over dt} &=& {\partial f \over \partial x}(x, y) \\[3pt]
@@ -536,20 +525,19 @@ Because the gradient points uphill,
 the trajectories\index{trajectory} of this dynamical system also go uphill.  Trajectories flow to the attractors\index{attractor} of the system; these are the local maxima of the function.  Furthermore, since the gradient points in the direction $f$ increases {\em most rapidly}, the trajectories follow paths of {\bf steepest ascent} to the maxima.  This explains the name of the method.   
 \medskip
 
-{\bf Example 1}.  Let's see how the method of steepest ascent will find the local maxima of the function 
-        $$
-        z = h(x, y) = x^2 y^2 - x^4 - y^4 - 2x^2 + 5 xy + y
-        $$
+
+{\bf [[EX:1]]}.  Let's see how the method of steepest ascent will find the local maxima of the function 
+        \[
+z = h(x, y) = x^2 y^2 - x^4 - y^4 - 2x^2 + 5 xy + y
+\]
 
 \noindent
-\begin{minipage}[t]{3.8in}
 we considered in the previous example.  The gradient field is
         \begin{eqnarray*}
         {dx \over dt} &=& 2 x y^2 - 4 x^3 - 4 x + 5 y \\[3pt]
         {dy \over dt} &=& 2 x^2 y - 4 y^3 + 5 x + 1.
         \end{eqnarray*}
-As you can see at the right, some of the trajectories flow to a local maximum near $(-1, -1)$, while other flow to the maximum whose position we determine on the opposite page.  Each attractor has its own basin of attraction\index{basin of attraction} (as described in chapter 8).  Therefore, the maximum found by the method of steepest ascent depends on the initial point of the trajectory.  
-\end{minipage}
+As you can see at the right, some of the trajectories flow to a local maximum near $(-1, -1)$, while other flow to the maximum whose position we determine on the opposite page.  Each attractor has its own basin of attraction\index{basin of attraction} (as described in chapter 8).  Therefore, the maximum found by the method of steepest ascent depends on the initial point of the trajectory.
 \special{psfile=../../ps/934/ascent1.ps}
 
         If we replace the gradient vectors by their negatives, 
@@ -559,8 +547,10 @@ the new field will point directly {\em downhill\/}---to the local minima.  Using
 
 \special{psfile=../../ps/934/distrib1.ps}
 
-\noindent 
-{\bf Example 2}.  Manufacturing companies ship their products to regional warehouses from large distribution centers.   Suppose a company has regional warehouses at $A$, $B$, and $C$, as shown on the map at the left.  Where should it put its distribution center $X$ so as to minimize the total cost of supplying the three regional warehouses?
+
+
+
+{\bf [[EX:2]]}.  Manufacturing companies ship their products to regional warehouses from large distribution centers.   Suppose a company has regional warehouses at $A$, $B$, and $C$, as shown on the map at the left.  Where should it put its distribution center $X$ so as to minimize the total cost of supplying the three regional warehouses?
 \label{distribstart} 
 
         This is a complicated problem that depends on many factors.  For example, $X$ probably should be put near major roads.  The managers may also want to choose a location where labor costs are lower.  Certainly, the total distance between the center and the three warehouses is important.  Let's simply get a {\em first approximation\/} to a solution by concentrating on the last factor.  
@@ -568,14 +558,14 @@ the new field will point directly {\em downhill\/}---to the local minima.  Using
 We will find the position for $X$ that minimizes the total straight-line distance (the distance ``as the crow flies'') from $X$ to the three points $A$, $B$, and $C$.  The map shows these distances as three dotted lines.   
 
         To describe the various positions we have introduced a coordinate system in which
-        $$
-        A: \ (0, 0) \qquad B: \  (6, 9) \qquad C: \ (10, 2).
-        $$
+        \[
+A: \ (0, 0) \qquad B: \  (6, 9) \qquad C: \ (10, 2).
+\]
 The coordinates here are arbitrary.  That is, they don't represent miles, or kilometers, or any of the usual units of distance---but they are {\em proportional\/} to the usual units, so we can measure with them.  If we let the unknown position of $X$ be $(x, y)$, then we seek to minimize the function
-        $$
-        S(x, y) = \sqrt{x^2 + y^2} + \sqrt{(x-6)^2 + (y-9)^2} 
+        \[
+S(x, y) = \sqrt{x^2 + y^2} + \sqrt{(x-6)^2 + (y-9)^2} 
                 + \sqrt{(x-10)^2 + (y-2)^2}.
-        $$
+\]
 
         According to the method of steepest descent, we want to find the attractor of this dynamical system:
         \begin{eqnarray*}
@@ -601,15 +591,15 @@ The coordinates here are arbitrary.  That is, they don't represent miles, or kil
 (above left), there is a single attractor, near the point $(6, 4)$.  This implies the total distance function $S(x, y)$ has a single global minimum---which is what our intuition about the problem would lead us to expect.  
         
         To find the position of $X$ more exactly, you can do the following. First, obtain a solution $(x(t), y(t))$ to the system of differential equations with an arbitrary initial condition---for example,
-        $$
-        x(0)  = 1 \qquad y(0) = 1.
-        $$
+        \[
+x(0)  = 1 \qquad y(0) = 1.
+\]
 Then, obtain the coordinates of the 
         \mar{The attractor is the limit point of a solution} 
 attractor by evaluating $(x(t), y(t))$ for larger and larger values of $t$, stopping when the values of $x(t)$ and $y(t)$ stabilize.  You will find that\index{limit}
-        $$
-        X = \lim_{t \to \infty}(x(t), y(t)) = (6.22120\ldots, 3.96577\ldots).
-        $$  
+        \[
+X = \lim_{t \to \infty}(x(t), y(t)) = (6.22120\ldots, 3.96577\ldots).
+\]  
 
         The important point to note here is that it is not necessary to plot the vector field---or any other graphic aid, like a contour plot or graph.  
         \mar{The method needs only a differential equation solver}      
@@ -620,10 +610,10 @@ You simply need to solve a system of differential equations.  For example, the v
 \index{multiplier, Lagrange}
 
         In searching for the interior\index{interior point} extremes of a function $f(x, y)$, we have seen that it is helpful to solve the critical point equations:\index{critical point}
-        $$
-        {\partial f \over \partial x} = 0\quad \quad
+        \[
+{\partial f \over \partial x} = 0\quad \quad
                 {\partial f \over \partial y} = 0.
-        $$
+\]
 There is a similar set of equations 
         \mar{Equations for a constrained extreme}
 we can use in the search for the {\em constrained\/}\index{constraint} extremes\index{extreme}\index{constrained extreme}\index{extreme, constrained} of $f$.  These equations involve a new variable called a Lagrange multiplier.
@@ -640,22 +630,22 @@ we can use in the search for the {\em constrained\/}\index{constraint} extremes\
         Parallel vectors are multiples of each other.  
         \mar{The multiplier equation}\index{multiplier equation}        
 Specifically, at a point $(a, b)$ where $\nabla f$ and $\nabla g$ are parallel, there must be a number $\lambda$\index{$\lambda$} for which
-        $$
-        \nabla g (a, b) = \lambda \cdot \nabla f (a, b).
-        $$
+        \[
+\nabla g (a, b) = \lambda \cdot \nabla f (a, b).
+\]
 The multiplier $\lambda$ is called a {\bf Lagrange multiplier}.   In the figure above, $\lambda \approx 1/2$.  If $\nabla g$ and $\nabla f$ were in {\em opposite\/} directions, then $\lambda$ would be negative.
 
 \aside{Joseph Louis Lagrange\index{Lagrange, J. L.} (1736--1813) was a French mathematician and a younger contemporary of Leonhard Euler.\index{Euler, L.}  Like Euler he played an important role in making calculus the primary analytical tool for study the physical world.  He is particularly noted for his contributions to celestial mechanics,\index{celestial mechanics} the field where Isaac Newton\index{Newton, I.} first applied the calculus.}
 
         If we write out the multiplier equation using the components of $\nabla f$ and $\nabla g$, we get\index{partial derivative}
-        $$
-        \left({\partial g \over \partial x}(a, b), 
+        \[
+\left({\partial g \over \partial x}(a, b), 
                 {\partial g \over \partial y}(a, b) \right) =
                 \lambda \left({\partial f \over \partial x}(a, b), 
                 {\partial f \over \partial y}(a, b) \right) = 
                 \left(\lambda \, {\partial f \over \partial x}(a, b), 
                 \lambda \, {\partial f \over \partial y}(a, b) \right).
-        $$
+\]
 In a vector equation, the vectors are equal component by component.  Thus,
         \begin{eqnarray*}
         {\partial g \over \partial x}(a, b) &=& 
@@ -668,8 +658,8 @@ In a vector equation, the vectors are equal component by component.  Thus,
         Let's return to the main question, 
         \mar{How can we find a constrained maximum or minimum?} 
 which can be stated this way: How do we determine where the function $f(x, y)$ has a maximum or a minimum, subject to the constraint $g(x, y) = 0$?  If we let $(a, b)$ denote the point we seek, then we see that $a$ and $b$ satisfy three equations:\index{constraint equation}
-        $$
-        \begin{array}{rl}
+        \[
+\begin{array}{rl}
         \mbox{the constraint equation}: & \hspace{24pt} g(a, b) = 0     \\[7pt]
         \mbox{the multiplier equations}: &
                 \left\{
@@ -683,18 +673,20 @@ which can be stated this way: How do we determine where the function $f(x, y)$ h
                  \end{array}
                  \right.
         \end{array}
-        $$
+\]
 In fact, there are {\em three\/} unknowns in these equations: $a$, $b$, and $\lambda$.  When we solve the three equations for the three unknowns, we will determine the location of the constrained extreme.  (We'll also have a piece of information we can throw away: the value of $\lambda$.)
 \medskip
 
-\noindent
+
+
+
 {\bf Example}.  Find the maximum of $f(x, y) = x^p y^{1-p}$ subject to the constraint $x + y = c$.  There are two parameters in this problem: $p$ and $c$.  We assume that $0 < p < 1$ and $0 < c$.  We introduce parameters to remind you that analytic methods (such as Lagrange multipliers) are especially valuable in solving problems that depend on parameters.
 
         We let $g(x, y) = x + y - c$.  Then
-        $$
-        \nabla g = (1, 1) \qquad \quad \nabla f = 
+        \[
+\nabla g = (1, 1) \qquad \quad \nabla f = 
                 \left(p x^{p-1} y^{1-p}, (1-p) x^p y^{-p} \right),
-        $$
+\]
 so the three equations we must solve are
         \begin{eqnarray*}
         x + y - c &=& 0 \\
@@ -702,42 +694,42 @@ so the three equations we must solve are
         1 &=& \lambda (1-p) x^p y^{-p}.
         \end{eqnarray*}
 Since the second and third equations both equal 1, we can set them equal to each other:
-        $$
-        \lambda p x^{p-1} y^{1-p} = \lambda (1-p) x^p y^{-p}.
-        $$
+        \[
+\lambda p x^{p-1} y^{1-p} = \lambda (1-p) x^p y^{-p}.
+\]
 We can cancel the two $\lambda$s and combine the powers of $x$ and $y$ to get
-        $$
-        p x^{-1} y = 1 - p \qquad \mbox{or} \qquad 
+        \[
+p x^{-1} y = 1 - p \qquad \mbox{or} \qquad 
                 {y \over x} = { 1 - p \over p}.
-        $$
+\]
 According to the first of the three equations, $y = c - x$.  If we substitution this expression in for $y$ into the last equation, we get
-        $$
-        {c - x \over x} = { 1 - p \over p} \qquad \mbox{or} \qquad 
+        \[
+{c - x \over x} = { 1 - p \over p} \qquad \mbox{or} \qquad 
                 p(c - x) = (1 - p) x.
-        $$
+\]
 This equation reduces to $pc = x$, which gives us the $x$-coordinate of the maximum.  To get the $y$-coordinate, we use $y = c - x = c - pc = c(1 - p)$.  To sum up, the maximum is at
-        $$
-        (x, y) = (cp, c(1-p)) = c(p, 1-p).
-        $$
+        \[
+(x, y) = (cp, c(1-p)) = c(p, 1-p).
+\]
         
 \subsection{Exercises}
 
         When searching for an extreme, be sure to zoom in on the graph or plot you are using as you narrow down the location of the point you seek. 
 
 \num  Inspect the graph of $z = xy$ to find the maximum value of $z$ subject to the constraints
-        $$
-        x \geq 0 \qquad \quad y \geq 0 \qquad \quad 3 x + 8 y \leq 120.
-        $$
+        \[
+x \geq 0 \qquad \quad y \geq 0 \qquad \quad 3 x + 8 y \leq 120.
+\]
 
 \num  Inspect the graph of $z = 5 x + 2 y$ to find the minimum value of $z$ subject to the constraints
-        $$
-        x \geq 0 \qquad \quad y \geq 0 \qquad \quad xy  \leq 10.
-        $$
+        \[
+x \geq 0 \qquad \quad y \geq 0 \qquad \quad xy  \leq 10.
+\]
 
 \num  Inspect a contour plot of $z = 3xy - y^2$ to find the maximum value of $z$ subject to the constraints
-        $$
-        x \geq 0 \qquad \quad y \geq 0 \qquad \quad x + y \leq 5.
-        $$
+        \[
+x \geq 0 \qquad \quad y \geq 0 \qquad \quad x + y \leq 5.
+\]
         
 \num  Continuation.  Add the constraint $x \leq a$ to the preceding three, where $a$ is a parameter that takes values between 0 and 5.  Find the maximum value of $z$ subject to all four constraints.  Describe how the position of the constraint depends on the value of the parameter $a$.
 
@@ -752,24 +744,24 @@ of $z = px + qy$ when $(x, y)$ is exactly 1~unit from the origin.
 \sub  At what point is the maximum achieved; at what point is the minimum achieved?
 
 \num  Use a graph to locate the maximum value of the function 
-        $$
-        z = 2 x y - 5 x^2 - 7 y^2 + 2 x + 3 y.
-        $$
+        \[
+z = 2 x y - 5 x^2 - 7 y^2 + 2 x + 3 y.
+\]
 There are no constraints.
 
 \num  Use a graph to find the maximum value of $z = 6x + 12 y - x^3 - y^3$, subject to the constraints
-        $$
-        x \geq 0 \qquad y \geq 0 \qquad x^2 + y^2 \leq 100.
-        $$
+        \[
+x \geq 0 \qquad y \geq 0 \qquad x^2 + y^2 \leq 100.
+\]
 
 \numa  Locate the position of the minimum of $x^4 - 2 x^2 - \alpha x + y^2$ as a function of the parameter $\alpha$.
 
 \sub  The position of the minimum jumps catastrophically when $\alpha$ passes through a certain value.  At what value of $\alpha$ does this happen, and what jump occurs in the minimum?
 
 \numa  Locate the maximum of $x^3 + y^3 - 3x - 3y$ subject to
-        $$
-        x \leq 3 \qquad \quad y \leq 0 \qquad \quad x + y \leq \beta.
-        $$
+        \[
+x \leq 3 \qquad \quad y \leq 0 \qquad \quad x + y \leq \beta.
+\]
 The position of the maximum depends on the value of the parameter $\beta$, which you can assume lies between 0 and 5.
 
 \sub  The position of the maximum jumps catastrophically when $\beta$ crosses a certain threshold value $\beta_0$.  What is $\beta_0$?
@@ -796,25 +788,25 @@ The position of the maximum depends on the value of the parameter $\beta$, which
 \sub  $x^3 - 3x y^2 - x^2 - y^2$.  [There are four critical points; three are saddles.]
 
 \numa  Find the nine critical points of the function
-        $$
-        C(x, y) = (x^2 + xy + y^2 -1)(x^2 - xy + y^2 - 1).
-        $$
+        \[
+C(x, y) = (x^2 + xy + y^2 -1)(x^2 - xy + y^2 - 1).
+\]
 Four are minima, four are saddles, and one is a maximum.
 
 \sub  Mark the locations of the critical points on a suitable contour plot of $C(x, y)$.
 
 \num  Locate and classify the critical points of the energy integral of a pendulum:
-        $$
-        E(x, v) = 1 - \cos{x} + {\textstyle {1 \over 2}}v^2.
-        $$
+        \[
+E(x, v) = 1 - \cos{x} + {\textstyle {1 \over 2}}v^2.
+\]
         
 \sub  Compare the {\em critical points\/} of $E$ with the {\em equilibrium points\/} of the dynamical system associated with this energy integral.
 
 
 \num  Use the method of steepest descent to find the minimum of the function 
-        $$
-        z = p(x, y) =  e^{2 + y - x^2 - y^2} \sin{x}.
-        $$  
+        \[
+z = p(x, y) =  e^{2 + y - x^2 - y^2} \sin{x}.
+\]  
 
 \subsubsection{The distribution problem}
 
@@ -822,16 +814,16 @@ Four are minima, four are saddles, and one is a maximum.
         
 \num  Suppose that one truck makes deliveries to $A$ 5 times each week, while a second truck is used to make 3 deliveries to $B$ and 2 to $C$ each week.  It makes sense to locate $X$ so that the {\em total weekly travel\/} is minimized, rather than just the total distance to the three warehouses.  To get the total weekly travel, we should:
 
-$\bullet$ multiply the distance from $X$ to $A$ by 5;
+\noindent$\bullet$ multiply the distance from $X$ to $A$ by 5;
 
-$\bullet$ multiply the distance from $X$ to $B$ by 3;
+\noindent$\bullet$ multiply the distance from $X$ to $B$ by 3;
 
-$\bullet$ multiply the distance from $X$ to $C$ by 2.\\ 
+\noindent$\bullet$ multiply the distance from $X$ to $C$ by 2.\\ 
 (Actually, the total {\em round-trip\/} distances are twice these values, but the proportions would remain the same, so we can use these numbers.)  Thus, the function to minimize is
-        $$
-        T(x, y) = 5\sqrt{x^2 + y^2} + 3\sqrt{(x-6)^2 + (y-9)^2} 
+        \[
+T(x, y) = 5\sqrt{x^2 + y^2} + 3\sqrt{(x-6)^2 + (y-9)^2} 
                 + 2\sqrt{(x-10)^2 + (y-2)^2}.
-        $$
+\]
 
 \sub  Use the method of steepest descent to find the minimum of $T$.
 
@@ -844,7 +836,9 @@ $\bullet$ multiply the distance from $X$ to $C$ by 2.\\
 \num  A company which has four offices around the country holds an annual meeting for its top executives.  The location of each office, and the number of executives at that office, are given in the following table.  (The coordinates $x$ and $y$ of the position are given in arbitrary units.) 
 \begin{center}
 \addtolength{\tabcolsep}{6pt}
-        \begin{tabular}{ccrr}
+
+
+\begin{tabular}{ccrr}
         office  & executives    & \multicolumn{1}{c}{$x$} & 
                 \multicolumn{1}{c}{$y$} \\
         \hline \\[-10pt]
@@ -879,28 +873,26 @@ Where should the meeting be held if the location depends {\em solely\/} on the t
 
 \special{psfile=../../ps/934/data2.ps}
 \hfill
-\begin{minipage}[t]{3.5in}
-\quad \ Here is a common approach to the question.  We assume there is a simple underlying relation between $y$ and $x$. However, the measurements that give us the data contain errors or ``noise'' of some sort that obscure the relationship.  The simplest relation is a linear function, so we assume that there is a formula $Y = mx + b$ that describes the connection between $x$ and $y$.  
-\end{minipage}
+\quad \ Here is a common approach to the question.  We assume there is a simple underlying relation between $y$ and $x$. However, the measurements that give us the data contain errors or ``noise'' of some sort that obscure the relationship.  The simplest relation is a linear function, so we assume that there is a formula $Y = mx + b$ that describes the connection between $x$ and $y$.
 \vspace{3pt}
 
 
         Which line should we choose?  In other words, how should we choose $m$ and $b$?  Since the data points don't lie on a line, there is no perfect solution.  For any choices, we must expect a difference $e_j$ between the the $j$-th data value $y_j$ and the value $Y_j = m \, j + b$ predicted by the formula.  These differences are the {\em errors\/} we assume are present.  
 
         A reasonable way to proceed is to {\bf minimize} the total error.  Even this involves choices.  In the figure above, $e_0$ and $e_3$ are negative, so the ordinary total could be zero, or nearly so, even if the individual errors were large.  We need a total that {\em ignores\/} the signs of the errors.  Here is one:
-        $$
-        \mbox{absolute error}: \qquad 
+        \[
+\mbox{absolute error}: \qquad 
                 |e_0| + |e_1| + |e_2| + |e_3| + |e_4| = AE.
-        $$
+\]
 Here is another:
-        $$
-        \mbox{squared error}: \qquad 
+        \[
+\mbox{squared error}: \qquad 
                 e_0^2 + e_1^2 + e_2^2 + e_3^2 + e_4^2 = SE.
-        $$ 
+\] 
 In the following table we compare the data $y_j$ with the calculated values $Y_j$ and the resulting errors $e_j$.
 \addtolength{\arraycolsep}{8pt}
-        $$
-        \begin{array}{cc|cc} 
+        \[
+\begin{array}{cc|cc} 
         x & y & Y & e = y - Y \\ [2pt]
         \hline
         0 & 1 & \rule{0pt}{13pt}b & 1-b    \\
@@ -909,14 +901,14 @@ In the following table we compare the data $y_j$ with the calculated values $Y_j
         3 & 3 & 3m+b & 3-3m-b \\
         4 & 5 & 4m+b & 5-4m-b
         \end{array}
-        $$
+\]
 \addtolength{\arraycolsep}{-8pt}
 To get the values of $AE$ and $SE$, 
         \mar{The total errors are functions of $m$ and $b$}
 we take either the absolute values or the squares of the elements of the rightmost column, and then add.  In particular, the table makes it clear that both total errors are functions of $m$ and~$b$.  The absolute error is
-        $$
-        AE(m, b) = |1-b| + |3-m-b| + |4-2m-b| + |3-3m-b| + |5-4m-b|.
-        $$
+        \[
+AE(m, b) = |1-b| + |3-m-b| + |4-2m-b| + |3-3m-b| + |5-4m-b|.
+\]
         
 \num  Inspect a graph and a contour plot to determine the values of $m$ and $b$ which minimize $AE(m, b)$.
 
@@ -953,10 +945,10 @@ we take either the absolute values or the squares of the elements of the rightmo
 \item  Under a {\bf microscope}, the graph of a function of two variables becomes a flat plane.  A contour plot turns into a set of straight, parallel, and equally-spaced lines.
 
 \item  The multipliers in the {\bf microscope equation} for a function are its {\bf partial derivatives}:
-        $$
-        \Delta z = {\partial f \over \partial x_1}(a, b)\Delta x_1 + \cdots +
+        \[
+\Delta z = {\partial f \over \partial x_1}(a, b)\Delta x_1 + \cdots +
                 {\partial f \over \partial x_n}(a, b)\Delta x_n.
-        $$
+\]
 
 \item  The {\bf gradient} of a function is a vector whose components are the partial derivatives of the function.  Its magnitude and direction give the greatest {\bf rate of increase} of the function at each point.
 

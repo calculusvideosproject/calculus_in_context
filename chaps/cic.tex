@@ -1,25 +1,12 @@
 \documentclass[12pt]{book}
 
-\usepackage{amsmath,amssymb,array,amscd,makeidx,graphics}
+\usepackage{amsmath,amssymb,array,amscd,makeidx,graphicx}
 
 %\input{cicfinal}
 
 \input{copyright}
 
 \renewcommand{\thesubsection}{}
-
-\newcommand{\mar}[1]{\marginpar[\raggedright\footnotesize\sf #1]%
-     {\raggedleft\footnotesize\sf #1}}
-\newcommand{\asideleft}[1]{\medskip\noindent%
-     \rule{321pt}{0pt}\makebox[0pt][r]{%
-     \begin{minipage}[t]{400pt}\footnotesize\sf{#1}% 
-     \end{minipage}}\bigskip}
-\newcommand{\asideright}[1]{\medskip\noindent%
-     \rule{40pt}{0pt}\makebox[0pt][l]{%
-     \begin{minipage}[t]{400pt}\footnotesize\sf{#1}%
-     \end{minipage}}\bigskip}
-\newcommand{\aside}[1]{\ifodd \value{page}%
-     {\asideright{#1}}\else{\asideleft{#1}}\fi}
 \newcounter{exercisenumber}[subsection]
 \newcounter{exercisepart}[exercisenumber]
 \newcommand{\num}{\stepcounter{exercisenumber}\par\bigskip%
@@ -60,6 +47,13 @@
 \renewcommand{\arraystretch}{1.1}
 \renewcommand{\arraystretch}{1}
 % --- End macros ---
+
+
+% --- observation environment (auto-added by stage2) ---
+\newsavebox{\observationbox}
+\newenvironment{observation}
+  {\begin{center}\begin{lrbox}{\observationbox}\begin{minipage}{0.9\textwidth}}
+  {\end{minipage}\end{lrbox}\fbox{\usebox{\observationbox}}\end{center}}
 
 \begin{document}
 

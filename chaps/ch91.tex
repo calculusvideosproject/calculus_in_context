@@ -3,12 +3,10 @@
 \newcommand{\mar}[1]{\marginpar[\raggedright\footnotesize\sf #1]{\raggedleft\footnotesize\sf #1}}
 \newcommand{\asideleft}[1]{\medskip\noindent%
 	\rule{321pt}{0pt}\makebox[0pt][r]{%
-	\begin{minipage}[t]{400pt}\footnotesize\sf{#1}%
-	\end{minipage}}\bigskip}
+	\footnotesize\sf{#1}%}\bigskip}
 \newcommand{\asideright}[1]{\medskip\noindent%
 	\rule{40pt}{0pt}\makebox[0pt][l]{%
-	\begin{minipage}[t]{400pt}\footnotesize\sf{#1}%
-	\end{minipage}}\bigskip}
+	\footnotesize\sf{#1}%}\bigskip}
 \newcommand{\aside}[1]{\ifodd \value{page}%
 	{\asideright{#1}}\else{\asideleft{#1}}\fi}
 \newcounter{exercisenumber}[subsection]
@@ -47,9 +45,7 @@ However, when there are questions of visualization and geometric understanding, 
 
 \special{psfile=../../ps/911/weather1.ps}
 
-\begin{minipage}[t]{3.5in}
-\quad \ The graph\index{graph} at the right comes from a model that describes how the average daily temperature\index{temperature function} at one place varies over the course of a year.  It shows the temperature $A$ in $^\circ$F, and the time $t$ in months from January. \hfill As we would expect, the
-\end{minipage}  
+\quad \ The graph\index{graph} at the right comes from a model that describes how the average daily temperature\index{temperature function} at one place varies over the course of a year.  It shows the temperature $A$ in $^\circ$F, and the time $t$ in months from January. \hfill As we would expect, the  
 
 \noindent
 temperature is a periodic function (which we can write as $A(t)$), and its period is 12 months.  Furthermore, the lowest temperature occurs in February (when $t \approx$ 1 or 13) and the highest in July (when $t \approx$ 7 or 19).  This is about what we would expect.
@@ -98,12 +94,10 @@ Imagine that the box containing the surface graph is a loaf of bread.  If you sl
 
 \special{psfile=../../ps/911/weather6.ps}
 \hfill
-\begin{minipage}[t]{2.7in}
 \quad \ Here is the same graph seen from a different viewpoint.  Now time is measured from the left, while depth is measured from the back.  The temperature is still the height, though.  One advantage of this view is that it shows more clearly how the peak temperature is phase-shifted with the depth.
 
 \quad \ We now have two ways to visualize how the average daily temperature depends on the time of year and the depth below ground.  One is the surface graph itself, and the other is a collection of curves that are slices of the surface.  The surface gives us 
 \linebreak
-\end{minipage}
 \vspace{-9pt}
 
 \noindent
@@ -122,19 +116,9 @@ Check this yourself: what is the temperature 2 feet underground at the beginning
 
 \special{psfile=../../ps/911/min2.ps}
 
-\begin{minipage}[t]{3.7in}
-\quad \	At the origin $(x, y) =(0, 0)$, $z = 0$.  At any other point, either $x$ or $y$ is non-zero. Its square is positive, so $z > 0$.  Consequently, $z$ has a minimum at the origin.  The graph of this function is a parabolic {\bf bowl} whose lowest point sits on the origin.  As always, the grid lines are slices, made by fixing the value of $x$ or $y$.  For example, if $y = c$, then the slice is $z = x^2 + c^2$.  This is an ordinary parabolic curve. 
-\end{minipage}
-		
-		
-\subsubsection{A maximum: $z = -x^2 - y^2$}
-\index{maximum}
+\quad \	At the origin $(x, y) =(0, 0)$, $z = 0$.  At any other point, either $x$ or $y$ is non-zero. Its square is positive, so $z > 0$.  Consequently, $z$ has a minimum at the origin.  The graph of this function is a parabolic {\bf bowl} whose lowest point sits on the origin.  As always, the grid lines are slices, made by fixing the value of $x$ or $y$.  For example, if $y = c$, then the slice is $z = x^2 + c^2$.  This is an ordinary parabolic curve.
 
-\special{psfile=../../ps/911/max2.ps}
-
-\begin{minipage}[t]{3.7in}
-	For any $x$ and $y$, the value of $z$ in this example is the opposite of its value in the previous one.  Thus, $z$ is everywhere negative, except at the origin, where its value is 0.  Thus $z$ has a maximum at the origin.  Its graph is an upside-down bowl, or {\bf peak}, whose highest point reaches up and touches the origin.  Grid lines are the curves $z = -x^2 - c^2$ and $z = -c^2 - y^2$.  These are parabolic curves that open downward.
-\end{minipage}
+For any $x$ and $y$, the value of $z$ in this example is the opposite of its value in the previous one.  Thus, $z$ is everywhere negative, except at the origin, where its value is 0.  Thus $z$ has a maximum at the origin.  Its graph is an upside-down bowl, or {\bf peak}, whose highest point reaches up and touches the origin.  Grid lines are the curves $z = -x^2 - c^2$ and $z = -c^2 - y^2$.  These are parabolic curves that open downward.
 
 \subsubsection{A minimax: $z = x^2 - y^2$}
 \index{minimax}
@@ -142,10 +126,8 @@ Check this yourself: what is the temperature 2 feet underground at the beginning
 \special{psfile=../../ps/911/saddle1.ps}
 
 \label{saddle}
-\begin{minipage}[t]{3.7in}
 \quad \ Suppose we fix $y$ at $y = 0$.  This slice has the equation $z = x^2$, so it is an ordinary parabola (that opens upward).  Thus, as far as the input $x$ is concerned, $z$ has a {\em minimum\/} at the origin.  Suppose, instead, that we fix $x$ at $x = 0$. Then we get a slice whose equation is $z = -y^2$.  It is also an ordinary parabola, but this one opens downward.  As far as $y$ is concerned, $z$ has a {\em maximum\/} at the origin.  It is 
 \linebreak
-\end{minipage}
 \vspace{-9pt}
 
 \noindent
@@ -164,10 +146,8 @@ clear from the  graph how upward-opening slices in the $x$-direction fit togethe
 \vspace{200pt}
 
 \noindent
-\begin{minipage}{3.6in}
 the points of the form $(x, 0, z)$.  These make up the $x, z$-plane.  On this plane the equation $z = x^2 - y^2$ becomes simply $z = x^2$.  The graph of {\em this\/} equation is a curve in the $x, z$-plane---specifically, the parabola shown.  The situation is similar if $y$ is given some other fixed  
-\linebreak 
-\end{minipage}
+\linebreak
 \vspace{-9pt}
 
 \noindent
@@ -212,11 +192,9 @@ As a practical matter, you should look at these surfaces the way you would look 
 
 \special{psfile=../../ps/911/penden2.ps}
 \hfill
-\begin{minipage}[t]{3.5in}
 \quad \ This function first came up in chapter 7, where it was used to demonstrate that a dynamical system describing the motion of a frictionless pendulum had periodic solutions.\index{pendulum}\index{energy}  It was used again in chapter 8 to clarify the phase portrait of that dynamical system.  The function $E$ varies periodically with $\theta$, and you can see this in the graph.  The minimum\index{minimum}\index{energy minimum} at the origin is repeated at $(\theta, v) = (2\pi, 0)$, and so on.  The graph also has a saddle at the point $(\theta, v) = (-\pi, 0)$.  This too repeats with period $2\pi$ in the $\theta$ direction.
 
-\quad \ The figure at the left is the same surface with part cut away by a slice of the form $v = c$.  These slices are sine curves: $E = 1 - \cos{\theta} + {1 \over 2} c^2$.  Slices of the form $\theta = c$ are upward-opening parabolas.  From this viewpoint, the saddle points show up clearly.  
-\end{minipage}
+\quad \ The figure at the left is the same surface with part cut away by a slice of the form $v = c$.  These slices are sine curves: $E = 1 - \cos{\theta} + {1 \over 2} c^2$.  Slices of the form $\theta = c$ are upward-opening parabolas.  From this viewpoint, the saddle points show up clearly.
 
 \aside{One way to describe what happens to a real pendulum---that is, one governed by frictional forces as well as gravity---is to say that its energy ``runs down'' over time.  Now, at any moment the pendulum's energy is a point on this graph. As the energy runs down, that point must work its way down the graph.  Ultimately, it must reach the bottom of the graph---the minimum energy point at the origin $(\theta, v) = (0, 0)$.  This is the stable equilibrium point.  The pendulum hangs straight down ($\theta = 0$) and is motionless ($v = 0$).  The graph gives us an abstract---but still vivid and concrete---way of thinking of the dissipation of energy.\index{dissipation of energy}}    
 	
@@ -226,16 +204,14 @@ As a practical matter, you should look at these surfaces the way you would look 
 \special{psfile=../../ps/912/density2.ps}
 \special{psfile=../../ps/912/density1.ps}
 
-\begin{minipage}[t]{3.5in}
-	There is still another way to picture a function of two variables.  To see how it works we can start with an ordinary graph.  On the right is the graph of 
-	$$
-	z = f(x, y) = x^3 - 4x - y^2,
-	$$
+There is still another way to picture a function of two variables.  To see how it works we can start with an ordinary graph.  On the right is the graph of 
+	\[
+z = f(x, y) = x^3 - 4x - y^2,
+\]
 the cubic function we considered on page~\pageref{cubic}.  This graph looks different, though.  The difference is that points are shaded according to their height.  Points at the bottom are lightest, points at the top are darkest.  
 
 \quad \ Notice that the flat $x, y$-plane is shaded exactly like the graph above it.  For instance, the dark spot centered at the point $(x, y) = (-1, 0)$ is directly under the peak on the graph.  The other 
-\linebreak 
-\end{minipage}
+\linebreak
 \vspace{-9pt}
 
 \noindent
@@ -269,9 +245,9 @@ these with the graphs on page~\pageref{saddle}.  The third density plot is the m
 	Try your hand at reading the density plot on the left below.  
 	\mar{A sample plot}	
 You should see two maxima (directly above and below the origin), a minimum (at the origin itself), and two saddles (to the right and the left of the origin).  The function defining the plot is
-	$$
-	f(x, y) = (x^2 + (y-1)^2 - 3)(3 - x^2 - (y+1)^2).
-	$$
+	\[
+f(x, y) = (x^2 + (y-1)^2 - 3)(3 - x^2 - (y+1)^2).
+\]
 
 \special{psfile=../../ps/912/density4.ps}
 \special{psfile=../../ps/912/density5.ps}
@@ -290,11 +266,9 @@ This makes a sharp boundary between one shade and the next.  The boundary is cal
 \special{psfile=../../ps/913/contour1.ps}  
 
 \noindent
-\begin{minipage}[t]{3.4in}
 \quad \ Once we have contour lines to separate one density level from the next, we can even dispense with the shading.  The figure on the right is just the contour plot from the opposite page, minus the shading.  The contour lines, or level curves, now stand out clearly.  On each contour, the value of the function is constant.  This is also called a {\bf contour plot}.  
 
-\quad \ There is some loss of information here, however.  For example, we can't tell where the value of the function is large and where it is small.  Nevertheless, the nested ovals on the vertical line $x = 0$ {\em do\/} tell us that there is either a maximum or a minimum at the center of each nest. 
-\end{minipage}
+\quad \ There is some loss of information here, however.  For example, we can't tell where the value of the function is large and where it is small.  Nevertheless, the nested ovals on the vertical line $x = 0$ {\em do\/} tell us that there is either a maximum or a minimum at the center of each nest.
 \vspace{5pt}
 
 	For reference purposes, here are the contour plots for the standard minimum,\index{minimum} maximum,\index{maximum} and saddle.\index{saddle}  In the first two cases, the contours are concentric ovals.  
@@ -308,13 +282,22 @@ These look the same, so only one is illustrated.  The other two pictures show a 
  \vspace{160pt}
 
 {\small
+
+
+\begin{center}
+
+
 \begin{picture}(360,10)
 	\put(52,12){\makebox(0,0){two functions but one plot}}
-	\put(52,-2){\makebox(0,0){$z = x^2 + y^2$}}
-	\put(52,-16){\makebox(0,0){$z = -x^2 - y^2$}}
-	\put(283,8){\makebox(0,0){two plots of a single function}}
-	\put(283,-8){\makebox(0,0){$z = x^2 - y^2$}}
+\put(52,-2){\makebox(0,0){$z = x^2 + y^2$}}
+\put(52,-16){\makebox(0,0){$z = -x^2 - y^2$}}
+\put(283,8){\makebox(0,0){two plots of a single function}}
+\put(283,-8){\makebox(0,0){$z = x^2 - y^2$}}
 \end{picture}
+
+\end{center}
+
+
 }
 
 \newpage
@@ -331,9 +314,9 @@ of a function and its graph.\index{graph, slices of a}\index{horizontal slice of
 	To get some more experience with contour plots, we return to 
 	\mar{Energy of the pendulum, \\again}	
 the energy\index{pendulum}\index{energy} function of the pendulum:
-	$$
-	E(\theta, v) = 1 - \cos{\theta} + {\textstyle {1 \over 2}} v^2.
-	$$
+	\[
+E(\theta, v) = 1 - \cos{\theta} + {\textstyle {1 \over 2}} v^2.
+\]
 From the contour plot alone you should be able to see that $E$ has either a minimum or a maximum at $(\theta, v) = (0, 0)$, and another at $(2\pi, 0)$.  The contours also provide evidence that there is a saddle (minimax) near $(\theta, v) = (-\pi, 0)$ and $(\pi, 0)$.  It is also apparent that $E$ is a {\em periodic\/} function of $\theta$.  
 
 \special{psfile=../../ps/913/contour5.ps}
@@ -349,23 +332,10 @@ This is no accident.  We know from chapter 8 that the energy is a first integral
 \special{psfile=../../ps/913/contour6.ps}
 
 \noindent
-\begin{minipage}[t]{3.3in}
 \quad \ We can carry the connection between contours and trajectories even further.  Closed trajectories correspond to {\em oscillations\/}\index{oscillation} of the pendulum.  But the closed trajectories are the closed contours, and these are the ones that surround the minimum.  In particular, they are {\em low\/} energy levels.  By contrast, at higher energies ($E > 2$, in fact), the pendulum will just continue to spin in what ever direction it was moving initially.  Thus, each high energy level is occupied by {\em two\/} trajectories---one for clockwise spinning and one for counter-clockwise.
-\end{minipage}
 
 
-\subsection{Technical Summary}
-
-	The examples we have seen so far were meant to introduce some of the common ways of visualizing a function $z = f(x, y)$.  To use them most effectively, though, you need to know more precisely how each is defined.  We review here the definition of a graph, a density plot, a contour plot, and a terraced density plot.  
-	
-\special{psfile=../../ps/914/sumgraph.ps}
-
-\medskip
-\noindent
-\begin{minipage}[t]{3.3in}
-{\bf Graph}.\index{graph, surface}  The graph of $z = f(x, y)$ lies in the 3-dimensional space with coordinates $(x, y, z)$.  To construct it, take any input $(x, y)$.  Identify this with the point $(x, y, 0)$ in the $x, y$-plane (which is defined by the condition $z = 0$).  The corresponding point on the graph lies at the height $z = f(x, y)$ above the $x, y$-plane.  This point has coordinates $(x, y, f(x, y))$.   {\bf The graph is the set of all points of the form $(x, y, f(x, y))$.}  This is a 2-dimensional surface.     
-
-\end{minipage} 
+{\bf Graph}.\index{graph, surface}  The graph of $z = f(x, y)$ lies in the 3-dimensional space with coordinates $(x, y, z)$.  To construct it, take any input $(x, y)$.  Identify this with the point $(x, y, 0)$ in the $x, y$-plane (which is defined by the condition $z = 0$).  The corresponding point on the graph lies at the height $z = f(x, y)$ above the $x, y$-plane.  This point has coordinates $(x, y, f(x, y))$.   {\bf The graph is the set of all points of the form $(x, y, f(x, y))$.}  This is a 2-dimensional surface. 
 
 \newpage
 
@@ -373,23 +343,24 @@ This is no accident.  We know from chapter 8 that the energy is a first integral
 \special{psfile=../../ps/914/sumcon2.ps}
 \special{psfile=../../ps/914/sumcon4.ps}
 \hfill
-\begin{minipage}[t]{3.7in}
+
 {\bf Density plot}.\index{density plot}  The density plot of $z = f(x, y)$ lies in the 2-dimensional $x, y$-plane.  Choose any rectangle where the function is defined, and let $m$ and $M$ be the minimum and maximum values, respectively, of $f(x, y)$ on the rectangle.  Define
-	$$
-	\rho(x, y) = {f(x, y) - m \over M - m}.
-	$$
+	\[
+\rho(x, y) = {f(x, y) - m \over M - m}.
+\]
 Then $\rho$ satisfies $0 \leq \rho(x, y) \leq 1$ on the rectangle; it is called a {\bf density function} ($\rho$ is the Greek letter {\em rho\/}).  {\bf In the density plot, the density of ink---or darkness---at $(x, y)$ is $\rho(x, y)$.}
 \medskip
 
+
 {\bf Contour plot}.\index{contour plot}\index{contour}  A {\bf contour} of $z = f(x, y)$ is the set of points in the $x, y$-plane where $f$ has some fixed value: 
-	$$
-	f(x, y) = c.
-	$$
+	\[
+f(x, y) = c.
+\]
 That fixed value $c$ is called the {\bf level}\index{level} of the contour.   (The two solid ovals in the figure at the left make up a single contour.)  A contour is also called a level curve.  {\bf A contour plot of $f$ is a collection of curves $f(x, y) = c_j$ in the $x, y$-plane.}  In the plot it is customary to use constants $c_1, c_2, \ldots$ that are equally spaced; that is, the interval between one $c_j$ and the next always has the same value $\Delta c$.
 \medskip
 
+
 {\bf Terraced density plot}.\index{density plot, terraced}\index{terraced density plot}  This is a contour plot in which the region between two adjacent contours is shaded with ink of a single density.  If the contours are at levels $c_1$ and $c_2$, then the density that is typically chosen is the one for the level half-way between these two---that is, for their average $(c_1 + c_2)/2$.    Each region is called a {\bf terrace}.\index{terrace}  Often, a terraced density plot is drawn in color, using different colors for each terrace.  Television weather programs use terraced density plots to describe the temperature forecast for a large region.
-\end{minipage}
 
 	\aside{We find density plots everywhere.  A photograph is a density plot of the light that fell on the film when it was exposed.  A newspaper `half-tone' illustration is also a density plot of an image.}
 
@@ -406,9 +377,9 @@ but there is a cost.  It takes three dimensions to represent the graph of a func
 	We pause here for a brief glimpse of a large subject.  By analogy with the definition for a function of two variables,
 	\mar{Contours and levels}	
  we say that a {\bf contour}\index{contour} of the function $f(x, y, z)$\index{function, of three variables} is the set of points $(x, y, z)$ that satisfy the equation      
-	$$
-	f(x, y, z) = c,
-	$$
+	\[
+f(x, y, z) = c,
+\]
 for some fixed number $c$.  We call $c$ the {\bf level}\index{level} of the contour. 
 
 	Let's find the contours of $w = x^2 + y^2 + z^2$.  
@@ -420,7 +391,9 @@ This is completely analogous to the function $x^2 + y^2$ with two inputs.  (What
 \vspace{15pt}
 	   
 	\hspace{180pt}
-	\begin{tabular}{rcl}
+
+
+\begin{tabular}{rcl}
 	$p^2$ &=& $x^2 + y^2$ \\ [3pt]
 	$q^2$ &=& $p^2 + z^2$ \\
 	      &=& $x^2 + y^2 + z^2$ \\
@@ -447,9 +420,9 @@ a nest of concentric spheres, as shown in the illustration below.\index{level su
 	Below is the contour plot of another standard function 
 	\mar{A standard minimax}	
 with three input variables:
-	$$
-	w = f(x, y, z) = x^2 + y^2 - z^2.
-	$$
+	\[
+w = f(x, y, z) = x^2 + y^2 - z^2.
+\]
 A quarter of each surface has been cut away so you can see how the surfaces nest together.  Note that $w = 0$ is a cone, and every surface with $w < 0$ consists of two disconnected (but congruent) pieces---an upper half and a lower half.\index{minimax}
 
 	You should compare this function to the standard minimax $x^2 - y^2$ in two variables.  The three-variable function $w$ has a minimum with respect to {\em both\/} of the variables $x$ and $y$, while it has a maximum with respect to $z$.  (Do you see why?  The arguments are exactly the same as they were for two input variables on page~\pageref{saddle}.)  
@@ -562,15 +535,15 @@ Where does the graph intercept the $z$-axis?
 \index{first integral}
 
 \num  A hard spring\index{hard spring}\index{spring, hard} described by the dynamical system
-	$$
-	{dx \over dt} = v \qquad \quad {dv \over dt} = - cx - \beta x^3
-	$$
+	\[
+{dx \over dt} = v \qquad \quad {dv \over dt} = - cx - \beta x^3
+\]
 has a first integral of the form
-	$$
-	E(x, v) = {\textstyle {1 \over 2}}c x^2 + 
+	\[
+E(x, v) = {\textstyle {1 \over 2}}c x^2 + 
 		{\textstyle {1 \over 2}} \beta x^4 + 
 		{\textstyle {1 \over 2}}v^2.
-	$$
+\]
 This is the {\bf energy}\index{energy} of the spring.  (See chapter~7, \S 3, especially exercise~13, page~447.)
 
 \sub  Let $c = 16$ and $\beta = 1$.  Obtain the graph of $E(x, v)$ on a domain that has the origin at its center.  Locate all the minimum, maximum, and saddle points in this domain.  
@@ -578,14 +551,14 @@ This is the {\bf energy}\index{energy} of the spring.  (See chapter~7, \S 3, esp
 \sub  What is the state of the spring (that is, its position $x$ and its velocity $v$) when it has minimum energy?  
 
 \num  A soft spring\index{soft spring}\index{spring, soft} described by the dynamical system
-	$$
-	{dx \over dt} = v \qquad \quad {dv \over dt} = - {25x \over 1 + x^2}
-	$$
+	\[
+{dx \over dt} = v \qquad \quad {dv \over dt} = - {25x \over 1 + x^2}
+\]
 has an energy integral of the form
-	$$
-	E(x, v) = {\textstyle {25 \over 2}} \ln(1 + x^2) + 
+	\[
+E(x, v) = {\textstyle {25 \over 2}} \ln(1 + x^2) + 
 		{\textstyle {1 \over 2}}v^2.
-	$$
+\]
 (See exercise~16, page~448.)  
 
 \sub  Obtain the graph of $E(x, v)$.  Experiment with different possibilities for the domain until you get a good representation.
@@ -597,9 +570,9 @@ has an energy integral of the form
 \sub  Does the spring have a state of {\em maximum\/} energy?  Explain your answer.
 
 \numa  {\bf The Lotka-Volterra equations}.\index{Lotka-Volterra equations}  According to exercise~33 of chapter~7, \S 3 (page~451), the function
-	$$
-	E(x, y) = .1 \ln{y} + .04 \ln{x} - .005 \, y -.004 \, x
-	$$
+	\[
+E(x, y) = .1 \ln{y} + .04 \ln{x} - .005 \, y -.004 \, x
+\]
 is a first integral of the dynamical system
 	\begin{eqnarray*}
 	x' &=& .1 \, x - .005 \, xy	\\
@@ -612,9 +585,9 @@ Obtain the graph of $E$ on the domain $1\leq x \leq 50$, $1 \leq y \leq 50$.  (W
 \sub  Obtain a contour plot of $E$ on the same domain as in part (a).  Compare the contours of $E$ and the trajectories of the dynamical system.  (This reveals a {\em conservation of ``energy''\/} for the solutions of the Lotka-Volterra equations.)
 
 \numa  Continuation.  Here is another first integral of the same dynamical system as in the previous exercise:
-	$$
-	H(x, y) = x^{.04} y^{.1} / \exp(.005 \, y + .004 \, x).
-	$$
+	\[
+H(x, y) = x^{.04} y^{.1} / \exp(.005 \, y + .004 \, x).
+\]
 Obtain the graph of $H$ and compare it to the graph of $E$ in the previous exercise.
 
 \sub  Obtain a contour plot of $H$, and compare the contours to the trajectories of the dynamical system.

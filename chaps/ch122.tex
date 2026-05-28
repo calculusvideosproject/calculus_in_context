@@ -4,12 +4,10 @@
 \newcommand{\mar}[1]{\marginpar[\raggedright\footnotesize\sf #1]{\raggedleft\footnotesize\sf #1}}
 \newcommand{\asideleft}[1]{\medskip\noindent%
 	\rule{321pt}{0pt}\makebox[0pt][r]{%
-	\begin{minipage}[t]{400pt}\footnotesize\sf{#1}%
-	\end{minipage}}\bigskip}
+	\footnotesize\sf{#1}%}\bigskip}
 \newcommand{\asideright}[1]{\medskip\noindent%
 	\rule{40pt}{0pt}\makebox[0pt][l]{%
-	\begin{minipage}[t]{400pt}\footnotesize\sf{#1}%
-	\end{minipage}}\bigskip}
+	\footnotesize\sf{#1}%}\bigskip}
 \newcommand{\aside}[1]{\ifodd \value{page}%
 	{\asideright{#1}}\else{\asideleft{#1}}\fi}
 \newcounter{exercisenumber}[subsection]
@@ -40,20 +38,32 @@
 \index{alpha ray}
 
         When a radioactive element decays, we know from the study of differential equations in chapter 4 that the amount $A(t)$ of radioactive material present at time $t$ satisfies the differential equation
-$$A' = -kA,$$
+\[
+A' = -kA,
+\]
 where $k > 0$ is the decay constant.  If $A_0$ is the amount present at time $t = 0$, then the solution is
-$$A(t) = A_0e^{-kt}\ .$$
+\[
+A(t) = A_0e^{-kt}\ .
+\]
 
 The time $T$ it takes for a given amount of radioactive material to decay to half the starting quantity is known as the {\bf half life}\index{half life} of the element.  Since, by definition, $A(T)=.5\,A(0)=.5\,A_0$, we must have
-$$e^{-kT}={1 \over 2},$$
+\[
+e^{-kT}={1 \over 2},
+\]
 which leads to
-$$kT=\ln{2}$$
+\[
+kT=\ln{2}
+\]
 and therefore
 \mar{The relation between the half-life and the decay constant}
-$$T={\ln{2} \over k}.$$
+\[
+T={\ln{2} \over k}.
+\]
 
 Suppose, for example, that we have a sample of polonium,\index{polonium} which is a radioactive isotope of radium.\index{radium}  The decay constant of polonium is $k = .500865$ \% per day, and thus its half life is 
-$$T = {{\ln2}\over k} = {{\ln2}\over.00500865} = 138.39\ \hbox{days}\ .$$
+\[
+T = {{\ln2}\over k} = {{\ln2}\over.00500865} = 138.39\ \hbox{days}\ .
+\]
 By local linearity, $A(t)$ is closely approximated by a linear function for short intervals of time.  Because polonium has a half-life of 138.39 days, a ``short time'' means several hours in this case.  Thus, if we spend an afternoon in a laboratory studying the decay of polonium, we can assume that $A(t)$ is linear.
 
         When polonium decays, it produces various sorts of radiation,\index{radiation} including $\alpha$-rays (``alpha rays'').  Using a scintillation counter, one can determine the number of rays emitted in given directions:
@@ -67,9 +77,13 @@ By local linearity, $A(t)$ is closely approximated by a linear function for shor
 
 
         In the early 20th century, researchers like Marie Curie\index{Curie, M.} and Ernest Rutherford\index{Rutherford, E.} did numerous studies of the $\alpha$-rays emitted by polonium.  For example, in 1911, Rutherford, Geiger\index{Geiger} and Bateman\index{Bateman} counted the number of $\alpha$-rays detected in a 7.5-second time period.  They repeated their experiment 2608 times and detected a total of 10,097 $\alpha$-rays.  This is an average of
-$${10097\over2608} = 3.8715\ \hbox{$\alpha$-rays per 7.5-second period},$$
+\[
+{10097\over2608} = 3.8715\ \hbox{$\alpha$-rays per 7.5-second period},
+\]
 so the number of $\alpha$-rays per second is 
-$${3.8715\over7.5} = .5162\ \hbox{$\alpha$-rays per second\ .}$$
+\[
+{3.8715\over7.5} = .5162\ \hbox{$\alpha$-rays per second\ .}
+\]
 Thus the straight line in the above graph has slope .5162\ .
 
         This model of $\alpha$-ray production has several problems. First, it predicts the existence of fractional $\alpha$-rays, which makes no sense---the number detected is always a nonnegative integer. To remedy this, we can modify our model as follows:
@@ -84,11 +98,15 @@ Thus the straight line in the above graph has slope .5162\ .
 
 \noindent As the picture indicates, whether we get 3 or 4 depends on where the interval starts.  Now comes the serious problem: this prediction is {\em inconsistent\/} with the experimental data collected by Rutherford\index{Rutherford, E.} and the others in 1911.  For example, in 57 of the 2608 times they ran the experiment, {\em no\/} $\alpha$-rays were observed, while in 139 cases, 7 $\alpha$-rays were observed.  Here are the complete data of the experiment:
 \begin{center}
-	\begin{tabular}{cc}\label{data}
+
+
+\begin{tabular}{cc}\label{data}
 	number of & number of \\
 	$\alpha$-rays observed & occurrences \\
 	$n$ & $N_n$ \\ [2pt] \hline
-		\begin{tabular}{r}
+
+
+\begin{tabular}{r}
 		\rule{0pt}{14pt} 0 \\
 		1 \\
 		2 \\
@@ -106,7 +124,9 @@ Thus the straight line in the above graph has slope .5162\ .
 		14 
 		\end{tabular}
 		&
-		\begin{tabular}{r}
+
+
+\begin{tabular}{r}
 		\rule{0pt}{14pt} 57\\
 		203\\
 		383\\
@@ -168,6 +188,7 @@ Knowing the probabilities $p_0,p_1,\ldots$ of the possible outcomes allows us to
 In general, an {\bf event}\index{event, in probability} is a subcollection of the possible outcomes.
 \mar{\vspace*{12pt} The addition rule for probabilities}
 \begin{quote}  
+
 {\bf Rule 1\quad The {\bf probability of an event}\index{probability, of an event} is simply the sum of the probabilities of its component outcomes.}\label{rule1}
 \end{quote}
 Thus, for the events just described, we have:
@@ -185,6 +206,7 @@ or 7 etc.~have been detected).
 
 Another important property of probabilities follows directly from Rule 1:
 \begin{quote}
+
 {\bf Rule 2\quad The sum of the probabilities of all possible outcomes is 1:
 \[
  \sum_{k=0}^\infty p_k=1.
@@ -202,6 +224,7 @@ A third rule we will need relates the probabilities of {\bf independent} events.
 We would expect the first and second events to be independent, and also the second and third, but not the first and third. 
 \mar{\vspace*{12pt} The product rule for probabilities}
 \begin{quote}
+
 {\bf Rule 3\quad The probability that two or more independent events all occur is the product of their separate probabilities.}\label{rule3}
 \end{quote}
 Thus, for example, suppose that in our hypothetical group of people ${1 \over 2}$ are female, ${1 \over 8}$ are green-eyed, and ${1 \over 3}$ are taller than 5'7".  We might then expect roughly ${1 \over 24}$ of them to be green-eyed {\em and} over 5'7", but we would have no particular reason to expect that  ${1 \over 6}$ of them are females taller than 5'7".
@@ -209,6 +232,7 @@ Thus, for example, suppose that in our hypothetical group of people ${1 \over 2}
 A final rule that is often useful is
 \mar{\vspace*{12pt} The probability that something doesn't happen}
 \begin{quote}
+
 {\bf Rule 4\quad If a certain event has a probability $p$ of happening, then the probability that the event doesn't take place is $1-p$.}\label{rule4}
 \end{quote}
 For example, in our group of people, we would expect ${2 \over 3}$ of them to be less than 5'7" tall, ${7 \over 8}$ of them to have eyes colored something other than green, etc.    
@@ -283,9 +307,9 @@ E & = &0\cdot e^{-\lambda} + 1\cdot \lambda e^{-\lambda} +
   & = &\lambda e^{-\lambda}\sum_{n=1}^\infty {\lambda ^{n-1}\over (n-1)!},
 \end{eqnarray*}
 where we pulled the common factor  $\lambda e^{-\lambda}$ outside the  summation, noted that the term in the summation corresponding to $n=0$  is 0, and observed that 
-$$
+\[
 {n\over n!} = {n\over n(n-1)\cdot\cdots\cdot2\cdot 1} = {1\over (n-1)!}\ .
-$$ 
+\] 
 Letting  $k=n-1$, we have
 \begin{eqnarray*}
 E & = & \lambda e^{-\lambda}\sum_{k=0}^\infty {\lambda ^k\over k!}\\
@@ -297,7 +321,9 @@ E & = & \lambda e^{-\lambda}\sum_{k=0}^\infty {\lambda ^k\over k!}\\
 This proves that the expected value is $\lambda$ as claimed.
 
      Now that we know how to interpret $\lambda$, it is easy to determine what it should be for the $\alpha$-ray experiment.  The data given on page~\pageref{data} covered $N = 2608$ repetitions of the experiment, with
-$$0\cdot N_0 + 1\cdot N_1 + \cdots = 10097$$
+\[
+0\cdot N_0 + 1\cdot N_1 + \cdots = 10097
+\]
  in this case. Thus
 \[
 {0\cdot N_0 + 1\cdot N_1 + \cdots\over N} = {10097\over2608}
@@ -305,6 +331,8 @@ $$0\cdot N_0 + 1\cdot N_1 + \cdots = 10097$$
 \]
 is an approximation of the expected value $\lambda$. However, since this is the only information about $\lambda$ we have, we will let $\lambda = 3.8715$. Using this value of $\lambda$, we can then compare the frequencies predicted by the Poisson distribution to the actual data from on page~\pageref{data}:
 \begin{center}
+
+
 \begin{tabular}{ccccc}
 	number of & number of & probability  & 
 		Poisson & Poisson \\
@@ -438,46 +466,48 @@ $\alpha$-ray that is detected by our scintillation counter in a 7.5-second perio
 Now suppose that we see an average of $\lambda = 3.8715$ $\alpha$-rays in a 7.5-second period.   Because the number of atoms $M$ is large  (in the  Rutherford-Geiger-Bateman experiment  $M > 10^{18}$), then the probability that a single fixed atom emits an $\alpha$-ray detected by our scintillation counter in a given  time period is very close to $\lambda/M$.  The probability that the single atom does not emit a detected $\alpha$-ray in the period is  then $1-\lambda/M$ (by Rule 4, page~\pageref{rule4}). Thus, the probability $p_0$  that none of the $M$  atoms emits an  $\alpha$-ray in the 7.5-second period is $(1-\lambda/M)^M$ (by Rule 3, page~\pageref{rule3}).  
 
 The fact that $M$ is so large allows us to make a simplifying approximation.  Recall that for any value of $x$, positive or negative,
-$$
+\[
 e^x = \lim_{n\rightarrow\infty}\left(1+{x\over n}\right)^n.
-$$
+\]
 Therefore  
-$$
+\[
 p_0 = \left(1-{\lambda\over M}\right)^M \approx 
 	e^{-\lambda}.
-$$
+\]
 You might calculate some sample values for various values of $M$ to see how good this approximation is.
 
 To derive the values of $p_k$ for $k>1$, we need a slight improvement on the estimate we just made.  Let $k$ be a relatively small (compared to the size of $M$) number. Then
-$$
+\[
 \left( 1-{\lambda\over M}\right)^{M-k}=\left(\left( 1-{\lambda\over M}\right)^M\right)^{{M-k\over M}}\ .
-$$
+\]
 Now if $M$ is very large compared to $k$---we will be thinking of values of $M$ on the order of magnitude of $10^{18}$ and $k<100$---then $(M-k)/M$
 \mar{$(M-k)/M$ is essentially equal to 1}
  will essentially equal 1, Hence
-$$\left( 1-{\lambda\over M}\right)^{M-k}\approx \left(e^{-\lambda}\right)^1=e^{-\lambda}.$$
+\[
+\left( 1-{\lambda\over M}\right)^{M-k}\approx \left(e^{-\lambda}\right)^1=e^{-\lambda}.
+\]
 
 We can now work out  $p_1$. Fix your attention first on a particular atom.  The probability that {\em that\/} atom does emit
 an $\alpha$-ray detected by the scintillation counter while the other $M-1$ atoms do not is (again by Rule 3)
-$$
+\[
 \left({\lambda\over M}\right)^1\left( 1-{\lambda\over M}\right)^{M-1}\approx {\lambda \over M}\,e^{-\lambda},
-$$
+\]
 by the preceding approximation.
 
 Since there are altogether $M$ atoms which might have been responsible for the single $\alpha$-ray emission, the probability that some {\em unspecified\/}
 atom emits an $\alpha$-ray while the others do not is (Rule 1, page~\pageref{rule1}) the sum of the probability we just calculated for each of the $M$ atoms, which is equal to $M$ times that probability.  The total probability is $p_1$:
-$$
+\[
 p_1 \approx M\,{\lambda \over M}\,e^{-\lambda} 
 = \lambda \,e^{-\lambda}.
-$$
+\]
 
 To work out $p_2$, note that the probability that each atom of some fixed 
 pair of atoms emits an $\alpha$-ray detected by the counter, and no other 
 atoms does, is 
-$$
+\[
 \left( \lambda\over M\right) \left( \lambda\over M\right)
 \left(1-{\lambda\over M}\right)^{M-2}\approx {\lambda ^2\over M^2}\, e^{-\lambda},
-$$
+\]
 using our usual approximation.  Since there are ${1\over 2}M(M-1)$  different pairs of atoms (we can  choose the first  $M$ different ways and the second $(M-1)$ ways, but  each pair gets counted twice in this scheme, so we have to divide by 2),  we obtain
 \begin{eqnarray*}
 	p_2 & \approx & {M(M-1)\over 2}
@@ -487,7 +517,7 @@ using our usual approximation.  Since there are ${1\over 2}M(M-1)$  different pa
 	&\approx & {\lambda ^2\over 2}e^{-\lambda}.
 \end{eqnarray*}
 
-As one can easily imagine, the computations for $p_3$, $p_4$, $\ldots$  are similar.  The observant reader will note that the exact values we got for $p_0$, $p_1$ and  $p_2$  are not the values given by  the Poisson distribution.  We only got the Poisson probabilities by making various approximations which were justified by the large value of $M$.  The assumptions we have made actually lead  to what is called the {\bf binomial distribution} (see section 12.1), a distribution which tends to the Poisson distribution in the limit $M\rightarrow\infty$.  In this case, where  $M$ is large and $\lambda$ relatively small, the binomial distribution is extremely close to the Poisson distribution.
+As one can easily imagine, the computations for $p_3$, $p_4$, $\ldots$  are similar.  The observant reader will note that the exact values we got for $p_0$, $p_1$ and  $p_2$  are not the values given by  the Poisson distribution.  We only got the Poisson probabilities by making various approximations which were justified by the large value of $M$.  The assumptions we have made actually lead  to what is called the {\bf binomial distribution} (see [[SEC:12.1]]), a distribution which tends to the Poisson distribution in the limit $M\rightarrow\infty$.  In this case, where  $M$ is large and $\lambda$ relatively small, the binomial distribution is extremely close to the Poisson distribution.
  
 \subsubsection{Other applications of the Poisson distribution}
 
@@ -521,9 +551,13 @@ table.  Construct a probability model for this experiment.
 
 \num  In the disintegration of large numbers of particles  $Ra$, it is noted
 that 29\% of the disintegrations result in
-$$Ra \longrightarrow P + A$$ 
+\[
+Ra \longrightarrow P + A
+\] 
 and the remainder in 
-$$Ra \longrightarrow He^+ + B.$$
+\[
+Ra \longrightarrow He^+ + B.
+\]
 What is a model for the disintegration of a single particle of $Ra$?
 
 \num  In problem 3 above, construct a probability model for the disintegration

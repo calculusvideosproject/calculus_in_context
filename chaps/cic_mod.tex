@@ -12,12 +12,10 @@
      {\raggedleft\footnotesize\sf #1}}
 \newcommand{\asideleft}[1]{\medskip\noindent%
      \rule{321pt}{0pt}\makebox[0pt][r]{%
-     \begin{minipage}[t]{400pt}\footnotesize\sf{#1}% 
-     \end{minipage}}\bigskip}
+     \footnotesize\sf{#1}%}\bigskip}
 \newcommand{\asideright}[1]{\medskip\noindent%
      \rule{40pt}{0pt}\makebox[0pt][l]{%
-     \begin{minipage}[t]{400pt}\footnotesize\sf{#1}%
-     \end{minipage}}\bigskip}
+     \footnotesize\sf{#1}%}\bigskip}
 \newcommand{\aside}[1]{\ifodd \value{page}%
      {\asideright{#1}}\else{\asideleft{#1}}\fi}
 \newcounter{exercisenumber}[subsection]
@@ -56,7 +54,9 @@
 
 %%%%%%  TITLE PAGE %%%%%%%
 
-  \newpage \thispagestyle{empty} \mbox{} \includegraphics{../ps/calc1/cusp3.pdf}
+  \newpage \thispagestyle{empty} \mbox{}
+
+\noindent \includegraphics[width=\linewidth]{../ps/calc1/cusp3.pdf}
   \newpage \include{board}
 
 
