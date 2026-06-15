@@ -1,8 +1,10 @@
-<section xml:id="sec_approximate-solutions_sec_approximate-solutions">
+<section xml:id="sec_approximate-solutions">
   <title>Approximate Solutions</title>
   <introduction>
     <p>
           <idx><h>solution</h><h>approximate</h></idx>
+    </p>
+    <p>
       Our efforts to find the functions that were determined by the rate equations for the <m>S</m>-<m>I</m>-<m>R</m> model have brought to light several important issues:
       <ul>
         <li>
@@ -47,18 +49,16 @@
         </li>
       </ul>
     </p>
-    <aside>
-      <p>
-        Even the process of building a mathematical model for a physical system can be seen as an instance of successive approximations.
-        We typically start with a simple model
-        (such as the <m>S</m>-<m>I</m>-<m>R</m> model)
-        and then add more and more features to it (e.g., in the case of the <m>S</m>-<m>I</m>-<m>R</m> model we might divide the population into different subgroups,
-        have the parameters in the model depend on the season of the year,
-        make immunity of limited duration, etc.).
-        Is it always possible, at least in theory,
-        to get a sequence of approximating mathematical models that approaches reality in the limit?
-      </p>
-    </aside>
+    <p>
+      [[NOTE:Even the process of building a mathematical model for a physical system can be seen as an instance of successive approximations.
+      We typically start with a simple model
+      (such as the <m>S</m>-<m>I</m>-<m>R</m> model)
+      and then add more and more features to it (e.g., in the case of the <m>S</m>-<m>I</m>-<m>R</m> model we might divide the population into different subgroups,
+      have the parameters in the model depend on the season of the year,
+      make immunity of limited duration, etc.).
+      Is it always possible, at least in theory,
+      to get a sequence of approximating mathematical models that approaches reality in the limit?]]
+    </p>
     <p>
       In the following chapters we will apply the process of successive approximation to many different kinds of problems.
       For example,
@@ -69,12 +69,14 @@
       As you study each chapter,
       pause to identify the places where the method of successive approximations is being used.
       This can give you insight into the special role that calculus plays within the broader subject of mathematics.
+    </p>
+    <p>
       To illustrate the general utility of the method,
       we end this chapter by returning to the problem raised in section<nbsp/>1 of constructing the values of
       <m>\sqrt{2}</m> and <m>\pi</m> to an arbitrary number of decimal places.
     </p>
   </introduction>
-  <subsection xml:id="sec_approximate-solutions_subsec_calculating-pi---the-length-of-a-curve">
+  <subsection xml:id="subsec_calculating-pi---the-length-of-a-curve">
     <title>Calculating <m>\pi</m><mdash/>The Length of a Curve</title>
     <p>
           <idx><h>length of a curve</h></idx>
@@ -131,7 +133,10 @@
       each time using a chain that has shorter segments
       (and therefore more of them)
       than the last one.
-      The length of the curve emerges as the limit of the sums of the lengths of the successive chains. \fbox{ \rule[-2.1in]{0in}{2.3in}
+      The length of the curve emerges as the limit of the sums of the lengths of the successive chains.
+    </p>
+    <p>
+      \fbox{ \rule[-2.1in]{0in}{2.3in}
       <term>Distance Formula</term>
           <idx><h>distance formula</h></idx>
       If weare given two points <m>P_{1}(x_{1},y_{1})</m> and <m>P_{2}(x_{2},y_{2})</m> in the plane,
@@ -146,14 +151,14 @@
           <idx><h>Pythagorean theorem</h></idx>
       can be seen from the picture below:}
     </p>
-    <image source="images/50908b40f351753ea0d1d5d39ee3bd2aeabe926b.png"/>
-    <sidebyside>
-      <nbsp/><nbsp/> We'll demonstrate how this process works on a parabola.
-      Specifically, consider the graph of <m>y = x^2</m> on the interval <m>0
-      \leq x \leq 1</m>.  At the right we have sketched the graph and our
-      initial approximation.  It is a piecewise linear approximation with
-      two segments whose end points have equally spaced <m>x</m>-coordinates.
-    </sidebyside>
+    <image source=""/>
+    <p>
+      We'll demonstrate how this process works on a parabola.
+      Specifically,
+      consider the graph of <m>y = x^2</m> on the interval <m>0 \leq x \leq 1</m>.
+      At the right we have sketched the graph and our initial approximation.
+      It is a piecewise linear approximation with two segments whose end points have equally spaced <m>x</m>-coordinates.
+    </p>
     <image source=""/>
     <p>
       We can use the distance formula to find the lengths of the two segments.
@@ -165,13 +170,15 @@
     <p>
       Their total length is the sum
       <me>
-        0.559016994 + 0.901387819 = 1.460404813
+        .559016994 + 0.901387819 = 1.460404813
       </me>.
     </p>
     <p>
       The following program prints out the lengths of the two <term>segments</term>
       and their <term>total</term> length.
           <idx><h>program</h><h>LENGTH</h></idx>
+    </p>
+    <p>
       \knownterminologyProgram: LENGTH
     </p>
     <p>
@@ -196,20 +203,14 @@ NEXT k
 PRINT numberofsteps, total
 </pre>
   </subsection>
-  <subsection xml:id="sec_approximate-solutions_subsec_finding-roots-with-a-computer">
+  <subsection xml:id="subsec_finding-roots-with-a-computer">
     <title>Finding Roots with a Computer</title>
     <introduction>
       <p>
             <idx><h>root</h></idx>
-        When we casually turn to our calculator
       </p>
-      <aside>
-        <p>
-          Calculators and computers really work by making approximations
-        </p>
-      </aside>
       <p>
-        and ask it for the value of
+        When we casually turn to our calculator [[NOTE:Calculators and computers really work by making approximations]] and ask it for the value of
         <m>\sqrt{2}</m>, what does it really do?
         Like us, the calculator can only add,
         subtract, multiply, and divide.
@@ -226,15 +227,17 @@ PRINT numberofsteps, total
         and the other is a numerical algorithm that is about 4000 years old.
       </p>
     </introduction>
-    <subsubsection xml:id="sec_approximate-solutions_subsubsec_a-geometric-approach">
+    <subsubsection xml:id="subsubsec_a-geometric-approach">
       <title>A geometric approach</title>
       <p>
-        Exercise 9 <xref ref="sec_the-mathematical-ideas_roots">on</xref>
+        Exercise 9 <xref ref="roots">on</xref>
         considered the problem of finding the roots of <m>f(x) = 1 - 2x^2</m>.
         A bit of algebra confirms that
         <m>\sqrt{2}/2</m> is a root<mdash/>i.e., <m>f(\sqrt{2}/2) = 0</m>.
         The question is:
         what is the <em>numerical value</em> of <m>\sqrt{2}/2</m>?
+      </p>
+      <p>
         We'll answer this question by constructing a sequence of approximations that add digits,
         one at a time, to an estimate for <m>\sqrt{2}/2</m>.
         Since the root lies at the point where the graph of <m>f</m> crosses the <m>x</m>-axis,
@@ -354,10 +357,12 @@ PRINT numberofsteps, total
       </row>
       </tabular>
     </subsubsection>
-    <subsubsection xml:id="sec_approximate-solutions_subsubsec_an-algebraic-approach----the-babylonian-algorithm">
+    <subsubsection xml:id="subsubsec_an-algebraic-approach----the-babylonian-algorithm">
       <title>An algebraic approach <mdash/> the Babylonian algorithm</title>
       <p>
             <idx><h>root</h></idx>
+      </p>
+      <p>
         About 4000 years ago Babylonian builders had a method for constructing the square root of a number from a sequence of successive approximations.
         To demonstrate the method, we'll construct <m>\sqrt{5}</m>.
         We want to find <m>x</m> so that
@@ -371,6 +376,8 @@ PRINT numberofsteps, total
         The advantage of the second expression is that it gives us
         <em>two</em> numbers to consider:
         <m>x</m> and 5/<m>x</m>.
+      </p>
+      <p>
         For example, suppose we guess that <m>x = 2</m>.
         Of course this is incorrect, because <m>2^2 = 4</m>, not 5.
         The two numbers we get from the second expression are 2 and 5/2 = 2.5.
@@ -378,6 +385,8 @@ PRINT numberofsteps, total
         (because <m>2.5^2 = 6.25</m>).
         Perhaps their <em>average</em> is a better estimate.
         The average is 2.25, and <m>2.25^2 = 5.0625</m>.
+      </p>
+      <p>
         Although 2.25 is not <m>\sqrt{5}</m>,
         it is a better estimate than either 2.5 or 2.
         If we change <m>x</m> to 2.25, then
@@ -397,6 +406,8 @@ PRINT numberofsteps, total
         In other words, if we want accuracy to three decimal places,
         we have already found <m>\sqrt{5}</m>.
         All the digits have stabilized.
+      </p>
+      <p>
         Suppose we want <em>greater</em> accuracy?
         Our routine readily obliges.
         If we set <m>x</m> = 2.236000, then
@@ -406,10 +417,22 @@ PRINT numberofsteps, total
       </p>
       <p>
         In fact, <m>\sqrt{5} = 2.236068\ldots</m> is accurate to six decimal places.
+      </p>
+      <p>
         Here is a summary of the argument we have just developed,
         expressed in terms of <m>\sqrt{a}</m> for an arbitrary positive number <m>a</m>.
       </p>
-      <image source=""/>
+      <observation>
+      <p>
+        If <m>x</m> is an estimate for <m>\sqrt{a}</m>,
+      </p>
+      <p>
+        then the average of <m>x</m> and <m>a/x</m>
+      </p>
+      <p>
+        is a better estimate.
+      </p>
+      </observation>
       <p>
         Once we choose an <em>initial</em> estimate,
         this argument constructs a sequence of successive approximations to <m>\sqrt{a}</m>.
@@ -417,6 +440,8 @@ PRINT numberofsteps, total
         <term>Babylonian algorithm</term>
             <idx><h>Babylonian algorithm</h></idx>
         for square roots.
+      </p>
+      <p>
         A procedure that tells us how to carry out a sequence of steps,
         one at a time,
         to reach a specific goal is called an <em> algorithm</em>.
@@ -427,6 +452,8 @@ PRINT numberofsteps, total
         The title of his seminal book <em>His</em><m>\overline{\textit{ a}}</m><em>b al-jabr wal-muq</em><m>\overline{\textit{ a}}</m> <em>bala</em>
         (830<nbsp/><sc> a.d.</sc>)<mdash/>usually referred to simply as
         <em>al-Jabr</em><mdash/>has a Latin form that is even more familiar to mathematics students.
+      </p>
+      <p>
         The Babylonian algorithm takes the current estimate <m>x</m> for
         <m>\sqrt{a}</m> that we have at each stage and says
         <q>replace <m>x</m> by the average of <m>x</m> and <m>a/x</m>.</q>
@@ -435,16 +462,21 @@ PRINT numberofsteps, total
         <q>replace the current value of <c>A</c> by the current value of <c>B</c>.</q>
         In the program BABYLON printed below,
         the algorithm is realized by a <c>FOR - NEXT</c> loop with a single line that reads
-        <q><c>x = (x + a / x) / 2</c></q>. The three-step procedure that we used in chapter 1 to obtain values of <m>S</m>,
+        <q><c>x = (x + a / x) / 2</c></q>.
+      </p>
+      <p>
+        The three-step procedure that we used in chapter 1 to obtain values of <m>S</m>,
         <m>I</m>, and <m>R</m> in the epidemic problem is also an algorithm,
-        and for that reason it was a straightforward matter to express it as the computer program SIRVALUE. \knownterminologyProgram: BABYLON
+        and for that reason it was a straightforward matter to express it as the computer program SIRVALUE.
+      </p>
+      <p>
+        \knownterminologyProgram: BABYLON
             <idx><h>program</h><h>BABYLON</h></idx>
       </p>
       <p>
         An algorithm to find <m>\sqrt{a}</m>}
       </p>
-      <sidebyside>
-        <pre>
+<pre>
 a = 5
 x = 2
 n = 6
@@ -453,7 +485,9 @@ x = (x + a / x) / 2
 PRINT x
 NEXT k
 </pre>
+      <p>
         Output:
+      </p>
 <pre>
 2.25
 2.236111
@@ -462,23 +496,14 @@ NEXT k
 2.236068
 2.236068
 </pre>
-      </sidebyside>
     </subsubsection>
   </subsection>
-  <subsection xml:id="sec_approximate-solutions_subsec_exercises">
+  <subsection xml:id="subsec_exercises">
     <title>Exercises</title>
     <introduction>
       <p>
         In many of the questions below you are asked to do things like divide an arc into 2,000,000 segments or find a certain number to 8 decimal places.
-        This assumes you have fast computers
-      </p>
-      <aside>
-        <p>
-          Use common sense in deciding how close an approximation to make
-        </p>
-      </aside>
-      <p>
-        available.
+        This assumes you have fast computers [[NOTE:Use common sense in deciding how close an approximation to make]] available.
         If you are using slower machines or programmable calculators,
         you should certainly feel free to scale back what is called for<mdash/>perhaps to 200,000 segments or 6 decimal places.
         Use your own common sense;
@@ -499,7 +524,7 @@ NEXT k
         </ol>
       </p>
     </introduction>
-    <subsubsection xml:id="sec_approximate-solutions_subsubsec_the-program-length">
+    <subsubsection xml:id="subsubsec_the-program-length">
       <title>The program LENGTH</title>
       <ol>
         <li>
@@ -540,7 +565,7 @@ NEXT k
             Compare your results with those tabulated below. [To speed the process up,
             you will certainly want to delete the <c> PRINT k, segment</c> statement that appears inside the loop.
             Do you see why?]
-            <tabular xml:id="sec_approximate-solutions_successive_lengths">
+            <tabular xml:id="successive_lengths">
             <row>
               <cell>Number</cell>
               <cell>Sum</cell>
@@ -680,7 +705,7 @@ NEXT k
         </li>
       </ol>
     </subsubsection>
-    <subsubsection xml:id="sec_approximate-solutions_subsubsec_the-program-babylon">
+    <subsubsection xml:id="subsubsec_the-program-babylon">
       <title>The program BABYLON</title>
       <ol>
         <li>

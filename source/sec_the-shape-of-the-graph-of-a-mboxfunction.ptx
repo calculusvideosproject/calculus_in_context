@@ -1,4 +1,4 @@
-<section xml:id="sec_the-shape-of-the-graph-of-a-mboxfunction_sec_the-shape-of-the-graph-of-a-mboxfunction">
+<section xml:id="sec_the-shape-of-the-graph-of-a-mboxfunction">
   <title>The Shape of the Graph of a  Function</title>
   <introduction>
     <p>
@@ -40,13 +40,8 @@
     </tabular>
     <p>
       Having a formula for the derivative of a function will thus give us a great deal of information about the behavior of the function itself.
-      In particular we will be interested in using the derivative to solve
+      In particular we will be interested in using the derivative to solve [[NOTE:Contexts for optimization problems]]
     </p>
-    <aside>
-      <p>
-        Contexts for optimization problems
-      </p>
-    </aside>
     <p>
       <term>optimization problems</term>
           <idx><h>optimization</h></idx>
@@ -118,22 +113,18 @@
       We will develop a general procedure for using the derivative of a function to locate its extremes.
     </p>
   </introduction>
-  <subsection xml:id="sec_the-shape-of-the-graph-of-a-mboxfunction_subsec_language">
+  <subsection xml:id="subsec_language">
     <title>Language</title>
     <p>
       Here is a graph of what we might consider a
       <q>generic</q>
       differentiable function.
-      <image width="73%" source="images/pic244a.png"/> The most distinctive features are the hill tops and valley bottoms,
-      points where the graph levels and the derivative is zero.
+      <image width="73%" source="images/pic244a.png"/>
     </p>
-    <aside>
-      <p>
-        Local extremes and global extremes
-      </p>
-    </aside>
     <p>
-      We distinguish between <term>local</term> extremes,
+      The most distinctive features are the hill tops and valley bottoms,
+      points where the graph levels and the derivative is zero. [[NOTE:Local extremes and global extremes]] We distinguish between
+      <term>local</term> extremes,
           <idx><h>extreme</h><h>local</h></idx>
       like those occurring at the points <m>x=b</m>,
       <m>x=c</m>, and <m>x=d</m> and a
@@ -150,28 +141,26 @@
       The convention is to say that <em>all</em>
       extremes are local extremes,
       and a local extreme may or may not also be a global extreme.
-      Examining the graph of as simple a function
     </p>
-    <aside>
-      <p>
-        A function may have no extreme at a point where its derivative equals zero
-      </p>
-    </aside>
     <p>
-      as <m>f(x)=x^3</m> shows us that a function need not have any extremes at all.
+      Examining the graph of as simple a function [[NOTE:A function may have no extreme at a point where its derivative equals zero]] as
+      <m>f(x)=x^3</m> shows us that a function need not have any extremes at all.
       Moreover, since <m>f'(0)=0</m> for this function,
       a zero derivative doesn't necessarily identify a point where an extreme occurs.
-      <image width="73%" source="images/pic244b.png"/> Can a function have an extreme at a point
     </p>
-    <aside>
-      <p>
-        An extreme can occur at a cusp
-      </p>
-    </aside>
     <p>
-      <em>other</em> than where the derivative is zero?
+      <image width="73%" source="images/pic244b.png"/>
+    </p>
+    <p>
+      Can a function have an extreme at a point [[NOTE:An extreme can occur at a cusp]] <em>other</em>
+      than where the derivative is zero?
       Consider the graph of <m>f(x)=x^{2/3}</m> below.
-      <image width="73%" source="images/pic245.png"/> This function is differentiable everywhere except at the point <m>x=0</m>.
+    </p>
+    <p>
+      <image width="73%" source="images/pic245.png"/>
+    </p>
+    <p>
+      This function is differentiable everywhere except at the point <m>x=0</m>.
       And it is at this very point, where
       <me>
         f'(x) = \frac{2}{3}x^{-1/3} = \frac{2}{3 \, \sqrt[3]{x}}
@@ -185,7 +174,14 @@
           <idx><h>critical point</h></idx>
       for the function.
     </p>
-    <image source=""/>
+    <observation>
+    <p>
+      A <term>critical point</term> for a function <m>f</m> is a point on the
+    </p>
+    <p>
+      graph of <m>f</m> where <m>f'</m> equals zero or infinity or fails to exist.
+    </p>
+    </observation>
     <p>
       How can we recognize, from looking at its graph,
       that a function fails to be differentiable at a point?
@@ -198,15 +194,9 @@
       the slope cannot be given a finite numerical value.
       Critical points also occur at these vertical places where the slope is infinite.
       The graph below is an example of such a curve.
-      <image width="73%" source="images/pic246.png"/> A weaker condition than differentiability,
     </p>
-    <aside>
-      <p>
-        Continuous functions
-      </p>
-    </aside>
     <p>
-      but one that is useful,
+      <image width="73%" source="images/pic246.png"/> A weaker condition than differentiability, [[NOTE:Continuous functions]] but one that is useful,
       especially in this context, is <em> continuity</em>.
           <idx><h>continuity</h></idx>
       We say that a function <m>f</m> is
@@ -236,15 +226,7 @@
       output will be less than <m>\epsilon</m>.
     </blockquote>
     <p>
-      A function is continuous on a set of real numbers if it is continuous at each point of the set.
-    </p>
-    <aside>
-      <p>
-        Graphs of continuous functions have no gaps or jumps
-      </p>
-    </aside>
-    <p>
-      A natural way to think of
+      A function is continuous on a set of real numbers if it is continuous at each point of the set. [[NOTE:Graphs of continuous functions have no gaps or jumps]] A natural way to think of
       (and recognize)
       a function which is continuous on an interval is by its graph on that interval,
       which is continuous in the usual sense:
@@ -258,140 +240,146 @@
       and <m>k</m> is not continuous, because of the
       <q>jump</q>
       at <m>x=c</m>.
-      Luckily, the functions that we are likely to encounter are continuous on their natural domains.
     </p>
-    <aside>
-      <p>
-        A quotient isn't continuous where its denominator is zero
-      </p>
-    </aside>
     <p>
-      Among functions given by formulas,
+      Luckily, the functions that we are likely to encounter are continuous on their natural domains. [[NOTE:A quotient isn't continuous where its denominator is zero]] Among functions given by formulas,
       the only exceptions we have to worry about are quotients,
       like <m>f(x)=1/x\/</m>,
       which have gaps in their natural domains at points where the denominator vanishes (at <m>x=0</m> in the case of <m>f(x)=1/x\/</m>),
       so their domains are not single intervals.
       For convenience,
       we usually confine our attention to functions continuous on an interval.
-      <image width="73%" source="images/pic247a.png"/> <image width="73%" source="images/pic247b.png"/>
+    </p>
+    <p>
+      <image width="73%" source="images/pic247a.png"/>
+    </p>
+    <p>
+      <image width="73%" source="images/pic247b.png"/>
     </p>
   </subsection>
-  <subsection xml:id="sec_the-shape-of-the-graph-of-a-mboxfunction_subsec_the-existence-of-extremes">
+  <subsection xml:id="subsec_the-existence-of-extremes">
     <title>The Existence of Extremes</title>
-    <p>
-      Not every function has extremes,
-      as the example of <m>f(x)=x^3</m> shows.
-      We are, however, guaranteed
-          <idx><h>existence of extremes</h></idx>
-      extremes for certain functions.
-      <term>Principle I.</term> We are guaranteed that a function
-    </p>
-    <aside>
+    <introduction>
       <p>
-        A continuous function on a finite closed interval has extremes
+        Not every function has extremes,
+        as the example of <m>f(x)=x^3</m> shows.
+        We are, however, guaranteed
+            <idx><h>existence of extremes</h></idx>
+        extremes for certain functions.
       </p>
-    </aside>
-    <p>
-      has a global maximum and a global minimum if we know:
-      <ul>
-        <li>
-          <p>
-            the domain of the function is a
-            <em>finite closed interval</em>, and
-          </p>
-        </li>
-        <li>
-          <p>
-            the function is <em>continuous</em> on this interval.
-          </p>
-        </li>
-      </ul>
-    </p>
-    <p>
-      The domain restriction in most optimization problems is likely to come from the physical constraints of the problem,
-      not the mathematics.
-      A <term>finite closed interval</term>,
-          <idx><h>interval</h><h>finite closed</h></idx>
-      written <m>[a,b]</m>,
-      is the set of all real numbers between <m>a</m> and <m>b</m>,
-      including the endpoints <m>a</m> and <m>b</m>.
-      Other kinds of finite intervals are <m>(a,b]</m>,
-      (this excludes the endpoint <m>a</m>),
-      <m>[a,b)</m>, and <m>(a,b)</m>.
-      Infinite intervals include open and closed
-      <q>rays</q>
-      like <m>(a,+\infty)</m>, <m>[a, +\infty)</m>,
-      <m>(-\infty,
-      b)</m> and <m>(-\infty,b]</m>, and the entire real line.
-      To illustrate Principle<nbsp/>I, we note first that it does not apply to
-      <m>f(x)=1/x</m> on the finite closed interval <m>[-1,2]</m>,
-      because this function isn't continuous at every point on this interval<mdash/>in fact,
-      the function isn't even defined for <m>x=0</m>.
-      <image width="73%" source="images/pic248a.png"/> <image width="73%" source="images/pic248b.png"/> By contrast, Principle I <em>does</em>
-      apply to the same function if we change its domain to a finite closed interval that does not include <m>x=0</m>.
-      In the figure above we use <m>[1,3]</m>.
-      A function hat fails to satisfy the first condition of Principle<nbsp/>I can still have global extremes.
-      For any function continuous on an interval we can apply the following principle.
-      <term>Principle II.</term> If a function <m>f</m> is continuous
-    </p>
-    <aside>
       <p>
-        Continuous functions have extremes only at endpoints or critical points
+        <term>Principle I.</term> We are guaranteed that a function [[NOTE:A continuous function on a finite closed interval has extremes]] has a global maximum and a global minimum if we know:
+        <ul>
+          <li>
+            <p>
+              the domain of the function is a
+              <em>finite closed interval</em>, and
+            </p>
+          </li>
+          <li>
+            <p>
+              the function is <em>continuous</em> on this interval.
+            </p>
+          </li>
+        </ul>
       </p>
-    </aside>
-    <p>
-      on an interval and has a local extreme at a point <m>x=c</m> of the interval,
-      then either <m>x=c</m> is a critical point for the function,
-      or <m>x=c</m> is an endpoint of the interval.
-      In other words,
-      we are guaranteed that one of the following three conditions holds:
-      <ul>
-        <li>
-          <p>
-            <m>f'(c)=0</m>,
-          </p>
-        </li>
-        <li>
-          <p>
-            <m>f'(c)</m> is undefined,
-          </p>
-        </li>
-        <li>
-          <p>
-            <m>x=c</m> is an endpoint of the interval.
-          </p>
-        </li>
-      </ul>
-    </p>
-    <p>
-      The following graphs illustrate three local maxima,
-      each satisfying one of these three conditions.
-      <image width="73%" source="images/pic249.png"/> When we apply Principle II to optimization problems,
-      an important part of the task will be ascertaining which, if any,
-      of the critical points or endpoints we find actually gives the extreme we're looking for.
-      We'll examine a variety of techniques, graphical and analytical,
-      for locating critical points and determining what kind of extreme point
-      (if any)
-      they are.
-    </p>
+      <p>
+        The domain restriction in most optimization problems is likely to come from the physical constraints of the problem,
+        not the mathematics.
+        A
+      </p>
+      <p>
+        <term>finite closed interval</term>,
+            <idx><h>interval</h><h>finite closed</h></idx>
+        written <m>[a,b]</m>,
+        is the set of all real numbers between <m>a</m> and <m>b</m>,
+        including the endpoints <m>a</m> and <m>b</m>.
+        Other kinds of finite intervals are <m>(a,b]</m>,
+        (this excludes the endpoint <m>a</m>),
+        <m>[a,b)</m>, and <m>(a,b)</m>.
+        Infinite intervals include open and closed
+        <q>rays</q>
+        like <m>(a,+\infty)</m>, <m>[a, +\infty)</m>,
+        <m>(-\infty,
+        b)</m> and <m>(-\infty,b]</m>, and the entire real line.
+      </p>
+      <p>
+        To illustrate Principle<nbsp/>I, we note first that it does not apply to
+        <m>f(x)=1/x</m> on the finite closed interval <m>[-1,2]</m>,
+        because this function isn't continuous at every point on this interval<mdash/>in fact,
+        the function isn't even defined for <m>x=0</m>.
+      </p>
+      <p>
+        <image width="73%" source="images/pic248a.png"/>
+      </p>
+      <p>
+        <image width="73%" source="images/pic248b.png"/>
+      </p>
+      <p>
+        By contrast, Principle I <em>does</em>
+        apply to the same function if we change its domain to a finite closed interval that does not include <m>x=0</m>.
+        In the figure above we use <m>[1,3]</m>.
+      </p>
+      <p>
+        A function hat fails to satisfy the first condition of Principle<nbsp/>I can still have global extremes.
+        For any function continuous on an interval we can apply the following principle.
+      </p>
+    </introduction>
+    <subsubsection xml:id="continuous-end">
+      <title>Principle II</title>
+      <p>
+        If a function <m>f</m> is continuous [[NOTE:Continuous functions have extremes only at endpoints or critical points]] on an interval and has a local extreme at a point <m>x=c</m> of the interval,
+        then either <m>x=c</m> is a critical point for the function,
+        or <m>x=c</m> is an endpoint of the interval.
+        In other words,
+        we are guaranteed that one of the following three conditions holds:
+        <ul>
+          <li>
+            <p>
+              <m>f'(c)=0</m>,
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>f'(c)</m> is undefined,
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>x=c</m> is an endpoint of the interval.
+            </p>
+          </li>
+        </ul>
+      </p>
+      <p>
+        The following graphs illustrate three local maxima,
+        each satisfying one of these three conditions.
+      </p>
+      <p>
+        <image width="73%" source="images/pic249.png"/>
+      </p>
+      <p>
+        When we apply Principle II to optimization problems,
+        an important part of the task will be ascertaining which, if any,
+        of the critical points or endpoints we find actually gives the extreme we're looking for.
+        We'll examine a variety of techniques, graphical and analytical,
+        for locating critical points and determining what kind of extreme point
+        (if any)
+        they are.
+      </p>
+    </subsubsection>
   </subsection>
-  <subsection xml:id="sec_the-shape-of-the-graph-of-a-mboxfunction_subsec_finding-extremes">
+  <subsection xml:id="subsec_finding-extremes">
     <title>Finding Extremes</title>
-    <subsubsection xml:id="sec_the-shape-of-the-graph-of-a-mboxfunction_subsubsec_using-a-graphical-approach">
+    <subsubsection xml:id="subsubsec_using-a-graphical-approach">
       <title>Using a graphical approach</title>
       <p>
-        If we can use a computer
-      </p>
-      <aside>
-        <p>
-          Computer graphing can be easy if the general location of the extremes is known
-        </p>
-      </aside>
-      <p>
-        to examine the graph of the function of interest,
+        If we can use a computer [[NOTE:Computer graphing can be easy if the general location of the extremes is known]] to examine the graph of the function of interest,
         we can determine the existence and location of extremes by inspection.
         However, every graphing utility requires the user to specify the interval on which the function will be graphed,
         and careful analysis may be required in order to choose an interval that contains all the extremes of interest.
+      </p>
+      <p>
         For functions given by data, whose graphs have only finitely many points,
         we can zoom in to find the exact coordinates of the extreme datapoints.
         For a function given by a formula,
@@ -399,18 +387,10 @@
         This is the method we used in some of the exercises of Chapter 1, and it is quite satisfactory in many situations.
       </p>
     </subsubsection>
-    <subsubsection xml:id="sec_the-shape-of-the-graph-of-a-mboxfunction_subsubsec_using-the-formula-for-the-derivative">
+    <subsubsection xml:id="subsubsec_using-the-formula-for-the-derivative">
       <title>Using the formula for the derivative</title>
       <p>
-        In this chapter we are concentrating
-      </p>
-      <aside>
-        <p>
-          Formulas can give exact answers and can handle parameters
-        </p>
-      </aside>
-      <p>
-        on functions given by formulas.
+        In this chapter we are concentrating [[NOTE:Formulas can give exact answers and can handle parameters]] on functions given by formulas.
         For these functions we may want a method other than the approximation using a graphing utility described above.
         <ul>
           <li>
@@ -446,7 +426,7 @@
         Our procedure for finding extremes of a function given by a formula <m>y=f(x)</m> is thus a direct application of \mbox{Principle II.}
       </p>
     </subsubsection>
-    <subsubsection xml:id="sec_the-shape-of-the-graph-of-a-mboxfunction_subsubsec_the-search-for-local-extremes">
+    <subsubsection xml:id="subsubsec_the-search-for-local-extremes">
       <title>The search for local extremes</title>
       <ol>
         <li>
@@ -515,7 +495,7 @@
   </subsection>
   <subsection>
     <title>Exercises</title>
-    <subsubsection xml:id="sec_the-shape-of-the-graph-of-a-mboxfunction_subsubsec_describing-functions">
+    <subsubsection xml:id="subsubsec_describing-functions">
       <title>Describing functions</title>
       <ol>
         <li>
@@ -613,7 +593,7 @@
         <li>
           <p>
             Here is the graph you saw back <xref ref="x_concave_">on</xref>:
-            <image width="73%" source="images/pic244a.png"/> At which point is the second derivative greater,
+            <image width="73%" source="images/pic244a.png"/>   At which point is the second derivative greater,
             <m>b</m> or <m>d</m>, and why?
             <ol>
               <li>
@@ -667,7 +647,7 @@
         </li>
       </ol>
     </subsubsection>
-    <subsubsection xml:id="sec_the-shape-of-the-graph-of-a-mboxfunction_subsubsec_finding-critical-points">
+    <subsubsection xml:id="subsubsec_finding-critical-points">
       <title>Finding critical points</title>
       <ol>
         <li>
@@ -732,7 +712,7 @@
         </li>
       </ol>
     </subsubsection>
-    <subsubsection xml:id="sec_the-shape-of-the-graph-of-a-mboxfunction_subsubsec_finding-extremes">
+    <subsubsection xml:id="subsubsec_finding-extremes">
       <title>Finding extremes</title>
       <p>
         Except where indicated,

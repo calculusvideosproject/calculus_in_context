@@ -1,16 +1,8 @@
-<section xml:id="sec_a-taxonomy-of-equilibrium-points_sec_a-taxonomy-of-equilibrium-points">
+<section xml:id="sec_a-taxonomy-of-equilibrium-points">
   <title>A Taxonomy of Equilibrium Points</title>
   <introduction>
     <p>
-      In the exercises and examples we have seen so far in this chapter,
-    </p>
-    <aside>
-      <p>
-        An intuitive classification of equilibrium points
-      </p>
-    </aside>
-    <p>
-      there have been several kinds of trajectories near equilibrium points:
+      In the exercises and examples we have seen so far in this chapter, [[NOTE:An intuitive classification of equilibrium points]] there have been several kinds of trajectories near equilibrium points:
       spirals towards and spirals away from the equilibrium,
       closed loops about the equilibrium,
       trajectories that looked vaguely like hyperbolas,
@@ -20,6 +12,8 @@
       but we can accomplish almost everything with a couple of simple insights.
       We begin with a summary of the different kinds of equilibrium points,
       then turn to the question of devising ways to figure out from the equations what kind we are dealing with.
+    </p>
+    <p>
       Suppose, then,
       that we are studying a two-dimensional dynamical system and that we have linearized the system at an equilibrium point.
       The point is either an attractor, repellor,
@@ -34,6 +28,8 @@
       If you reverse the arrows at a neutral point,
       you get the same closed loops,
       but they are traversed in the opposite direction.
+    </p>
+    <p>
       Here, then, is a listing of all the kinds of equilibrium points.
       There are five generic types.
       (<em>Generic</em> here means
@@ -44,46 +40,75 @@
       trajectories<mdash/>that is,
       trajectories which are straight lines going directly toward or directly away from the equilibrium point.
     </p>
-    <aside>
-      <p>
-        The existence or not of straight line trajectories and how to find them when they do exist is an instance of the so-called
-        <em>eigenvector</em> problem.
-        Analogous problems occur elsewhere in many parts of mathematics,
-        physics, and even population biology.
-        Being able to find such eigenvectors efficiently is an important problem in computational mathematics.
-      </p>
-    </aside>
+    <p>
+      [[NOTE:The existence or not of straight line trajectories and how to find them when they do exist is an instance of the so-called
+      <em>eigenvector</em> problem.
+      Analogous problems occur elsewhere in many parts of mathematics,
+      physics, and even population biology.
+      Being able to find such eigenvectors efficiently is an important problem in computational mathematics.]]
+    </p>
     <p>
       <term>Nodes</term>.
           <idx><h>node</h></idx>
           <idx><h>equilibrium point</h><h>node</h></idx>
       Two pairs of fixed lines, all trajectories flowing toward the equilibrium (attractors) or away from it (repellors).
-      <image width="73%" source="images/classeq1.png"/> <term>Spirals</term>.
+    </p>
+    <p>
+      <image width="73%" source="images/classeq1.png"/>
+    </p>
+    <p>
+      <term>Spirals</term>.
           <idx><h>spiral</h></idx>
           <idx><h>equilibrium point</h><h>spiral</h></idx>
       No fixed lines, all trajectories spiraling toward the equilibrium (attractors) or away from it (repellors).
+    </p>
+    <p>
       <image width="73%" source="images/classeq2.png"/>
+    </p>
+    <p>
       <term>Saddle Point</term>.
           <idx><h>saddle point</h></idx>
           <idx><h>equilibrium point</h><h>saddle point</h></idx>
       Two pairs of fixed lines, with the flow along one pair being toward the equilibrium, and the flow along the other pair away from it.
       All other trajectories are asymptotic to these lines.
-      <image width="73%" source="images/classeq3.png"/> In addition to these five generic cases,
+    </p>
+    <p>
+      <image width="73%" source="images/classeq3.png"/>
+    </p>
+    <p>
+      In addition to these five generic cases,
       there are three more types which arise under more specialized conditions:
-      <term>Special Nodes</term>.
-      One pair of fixed lines,
+    </p>
+    <p>
+      \subsubsection{Special Nodes.} One pair of fixed lines,
       all trajectories flowing toward the equilibrium (attractors) or away from it
       (repellors).
-      <image width="73%" source="images/classeq4.png"/> <term>Center</term>.
-      No fixed lines,
+    </p>
+    <p>
+      <image width="73%" source="images/classeq4.png"/>
+    </p>
+    <p>
+      \subsubsection{Center.} No fixed lines,
       all trajectories flowing around the equilibrium in closed loops.
           <idx><h>neutral point</h></idx>
-          <idx><h>equilibrium point</h><h>neutral</h></idx> <image width="73%" source="images/classeq5.png"/> Except for a variety of highly specialized (or <em>degenerate</em>, in mathematical terminology) cases, examples of which are given in the exercises, the region near every equilibrium point will look like one of the above (although the exact shape may vary).
+          <idx><h>equilibrium point</h><h>neutral</h></idx>
+    </p>
+    <p>
+      <image width="73%" source="images/classeq5.png"/>
+    </p>
+    <p>
+      Except for a variety of highly specialized
+      (or <em>degenerate</em>, in mathematical terminology)
+      cases, examples of which are given in the exercises,
+      the region near every equilibrium point will look like one of the above
+      (although the exact shape may vary).
+    </p>
+    <p>
       Clearly, it would be helpful to have an efficient way to determine whether or not fixed lines exist,
       and what their equations are if they do.
     </p>
   </introduction>
-  <subsection xml:id="sec_a-taxonomy-of-equilibrium-points_subsec_straight-line-trajectories">
+  <subsection xml:id="subsec_straight-line-trajectories">
     <title>Straight-Line Trajectories</title>
     <introduction>
       <p>
@@ -99,15 +124,8 @@
         But the slope of the vector field at any point <m>(r,s)</m> is just <m>s'/r'</m>,
         which in turn is equal to <m>(cr + ds)/(ar +bs)</m>.
         Since every point on the line of slope <m>m</m> is of the form <m>(r, mr)</m>,
-        what we are really asking, then, is whether there are any
-      </p>
-      <aside>
-        <p>
-          The condition for a fixed-line trajectory
-        </p>
-      </aside>
-      <p>
-        values of <m>m</m> which satisfy the equation
+        what we are really asking, then,
+        is whether there are any [[NOTE:The condition for a fixed-line trajectory]] values of <m>m</m> which satisfy the equation
         <me>
           m=\frac{cr+dmr}{ar+bmr}=\frac{c+dm}{a+bm}
         </me>
@@ -130,7 +148,7 @@
         </me>,
         which leads to the quadratic equation
         <me>
-          0.2143m^2+.1028m-0.0051=0
+          .2143m^2+.1028m-0.0051=0
         </me>,
         which has roots
         <me>
@@ -166,13 +184,15 @@
         Finally, it turns out
         (as is the case with every linear system with straight-line trajectories)
         that every other trajectory is asymptotic to these lines.
+      </p>
+      <p>
         The crux of this approach was the use of the quadratic formula.
         Of course, it may happen<mdash/>and we will see examples in the exercises<mdash/>that when we try the same approach on another system we find there are no real roots to the equation.
         This means that there are no fixed lines,
         so that trajectories must be spirals or closed loops.
       </p>
     </introduction>
-    <subsubsection xml:id="sec_a-taxonomy-of-equilibrium-points_x_boundary_">
+    <subsubsection xml:id="x_boundary_">
       <title>Attractors and Basins of Attraction</title>
       <p>
         One byproduct of the analysis in the previous section is that it gives us a technique for sketching the boundary separating two basins of attraction.
@@ -186,7 +206,7 @@
       </p>
     </subsubsection>
   </subsection>
-  <subsection xml:id="sec_a-taxonomy-of-equilibrium-points_subsec_exercises">
+  <subsection xml:id="subsec_exercises">
     <title>Exercises</title>
     <introduction>
       <ol>
@@ -314,13 +334,13 @@
         </li>
         <li>
           <p>
-            Use the technique presented at the end of this section ( <xref ref="sec_a-taxonomy-of-equilibrium-points_x_boundary_"></xref>
+            Use the technique presented at the end of this section ( <xref ref="x_boundary_"></xref>
             to graph the boundary between the two basins of attraction.
             <ol>
               <li>
                 <p>
                   In the same way,
-                  construct the boundary between the two basins in the competing species model we've been discussing<mdash/>problem 4 <xref ref="sec_state-spaces-and-vector-fields_x_basins_">on</xref>.
+                  construct the boundary between the two basins in the competing species model we've been discussing<mdash/>problem 4 <xref ref="x_basins_">on</xref>.
                 </p>
               </li>
             </ol>
@@ -328,13 +348,15 @@
         </li>
       </ol>
     </introduction>
-    <subsubsection xml:id="sec_a-taxonomy-of-equilibrium-points_subsubsec_distance-from-the-origin">
+    <subsubsection xml:id="subsubsec_distance-from-the-origin">
       <title>Distance from the Origin</title>
       <p>
         Another way to distinguish between different kinds of trajectories is to see how their distance from the origin varies over time.
         For saddle points the distance will first decrease and then increase.
         For spiral attractors and nodal attractors the distance may be always decreasing,
         or it may fluctuate, depending on how flat the trajectory is.
+      </p>
+      <p>
         Again, let's look at a general linear system
         <md>
           <mrow>r' \amp =  ar +bs,</mrow>

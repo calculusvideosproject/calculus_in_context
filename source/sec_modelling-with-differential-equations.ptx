@@ -1,9 +1,13 @@
-<section xml:id="sec_modelling-with-differential-equations_sec_modelling-with-differential-equations">
+<section xml:id="sec_modelling-with-differential-equations">
   <title>Modelling with Differential Equations</title>
   <introduction>
     <p>
           <idx><h>model</h></idx>
-      To analyze the way an infectious disease spreads through a population, we asked how three quantities <m>S</m>, <m>I</m>, and <m>R</m> would vary over time.
+    </p>
+    <p>
+      To analyze the way an infectious disease spreads through a population,
+      we asked how three quantities <m>S</m>, <m>I</m>,
+      and <m>R</m> would vary over time.
       This was difficult to answer;
       we found no simple, direct relation between <m>S</m>
       (or <m>I</m> or <m>R</m>)
@@ -19,21 +23,17 @@
       we used Euler's method to estimate the values at any time in the future.
       By constructing a sequence of successive approximations,
       we were able to make these estimates as accurate as we wished.
+    </p>
+    <p>
       There are two ideas here.
       The first is that we could write down equations for the rates of change that reflected important features of the process we sought to model.
       The second is that these equations <em>determined</em>
       the variables as functions of time,
       so we could make predictions about the real process we were modelling.
       Can we apply these ideas to other processes?
-      To answer this question,
     </p>
-    <aside>
-      <p>
-        Differential equations and initial value problems
-      </p>
-    </aside>
     <p>
-      it will be helpful to introduce some new terms.
+      To answer this question, [[NOTE:Differential equations and initial value problems]] it will be helpful to introduce some new terms.
       What we have been calling rate equations are more commonly called
       <term>differential equations</term>.
       (The name is something of an historical accident.
@@ -45,27 +45,26 @@
       We call this specification an <term>initial condition</term>.
           <idx><h>initial condition</h></idx>
       The differential equations together with an initial condition is called an
+    </p>
+    <p>
       <term>initial value problem</term>.
           <idx><h>initial value problem</h></idx>
       Each initial value problem determines a set of functions which we find by using Euler's method.
     </p>
-    <aside>
-      <p>
-        If we use Leibniz's notation for derivatives,
-        a differential equation like
-        <m>S' = -aSI</m> takes the form <m>dS/dt = -aSI</m>.
-        If we then treat <m>dS/dt</m> as a quotient of the individual <em>differentials</em>
-            <idx><h>differential</h></idx>
-        <m>dS</m> and <m>dt</m>
-        (<xref ref="differential">see</xref>),
-        we can even write the equation as <m>dS = -aSI\,dt</m>.
-        Since this expresses the differential <m>dS</m> in terms of the differential <m>dt</m>,
-        it was natural to call it a differential equation.
-        Our approach is similar to Leibniz's, except that we don't need to introduce infinitesimally small quantities,
-        which differentials were for Leibniz.
-        Instead, we write <m>\Delta S \approx -aSI\,\Delta t</m> and rely on the fact that the accumulated error of the resulting approximations can be made as small as we<nbsp/>like.
-      </p>
-    </aside>
+    <p>
+      [[NOTE:If we use Leibniz's notation for derivatives,
+      a differential equation like
+      <m>S' = -aSI</m> takes the form <m>dS/dt = -aSI</m>.
+      If we then treat <m>dS/dt</m> as a quotient of the individual
+      <em>differentials</em> <m>dS</m> and <m>dt</m>
+      (<xref ref="differential">see</xref>),
+      we can even write the equation as <m>dS = -aSI\,dt</m>.
+      Since this expresses the differential <m>dS</m> in terms of the differential <m>dt</m>,
+      it was natural to call it a differential equation.
+      Our approach is similar to Leibniz's, except that we don't need to introduce infinitesimally small quantities,
+      which differentials were for Leibniz.
+      Instead, we write <m>\Delta S \approx -aSI\,\Delta t</m> and rely on the fact that the accumulated error of the resulting approximations can be made as small as we<nbsp/>like.]]
+    </p>
     <p>
       To illustrate how differential equations can be used to describe a wide range of processes in the physical,
       biological, and social sciences,
@@ -74,6 +73,8 @@
       but the ideas can be adapted to the population dynamics of virtually all living things
       (and many non-living systems as well,
       such as chemical reactions).
+    </p>
+    <p>
       In each model,
       we will begin by identifying variables that describe what is happening.
       Then, we will try to establish how those variables change over time.
@@ -81,266 +82,246 @@
       so we begin simply.
       We choose just one or two elements that seem particularly important.
       After examining the predictions of our simple model and checking how well they correspond to reality,
-      we make modifications.
-    </p>
-    <aside>
-      <p>
-        Models can provide successive approximations to reality
-      </p>
-    </aside>
-    <p>
-          <idx><h>successive approximation</h></idx>
-      We might include more features of the population dynamics, or we might describe the same features in different ways.
+      we make modifications. [[NOTE:Models can provide successive approximations to reality]]<idx><h>successive approximation</h></idx> We might include more features of the population dynamics,
+      or we might describe the same features in different ways.
       Gradually, through a succession of refinements of our original simple model,
       we hope for descriptions that come closer and closer to the real situation we are studying.
     </p>
   </introduction>
-  <subsection xml:id="sec_modelling-with-differential-equations_subsec_single-species-models-rabbits">
+  <subsection xml:id="subsec_single-species-models-rabbits">
     <title>Single-species Models: Rabbits</title>
-    <p>
-          <idx><h>population model</h><h>single-species</h></idx> <term>The problem</term>.
-      If we turn 2000 rabbits
-          <idx><h>rabbits</h></idx>
-      loose on a large,
-      unpopulated island that has plenty of food for the rabbits,
-      how might the number of rabbits vary over time?
-      If we let <m>R=R(t)</m> be the number of rabbits at time <m>t</m>
-      (measured in months, let us say),
-      we would like to be able to make some predictions about the function <m>R(t)</m>.
-      It would be ideal to have a formula for <m>R(t)</m><mdash/>but this is not usually possible.
-      Nevertheless,
-      there may still be a great deal we can say about the behavior of <m>R</m>.
-      To begin our explorations we will construct a model of the rabbit population that is obviously too simple.
-      After we analyze the predictions it makes,
-      we'll look at various ways to modify the model so that it approximates reality more closely.
-      <term>The first model</term>.
-      Let's assume that, at any time <m>t</m>,
-    </p>
-    <aside>
+    <introduction>
       <p>
-        Constant per capita growth
+            <idx><h>population model</h><h>single-species</h></idx>
       </p>
-    </aside>
-    <p>
-      the rate at which the rabbit population changes is simply proportional to the number of rabbits present at that time.
-      For instance, if there were twice as many rabbits,
-      then the <em>rate</em> at which new rabbits appear will also double.
-      In mathematical terms,
-      our assumption takes the form of the differential equation
-      <me>
-        \dfrac{dR}{dt} = k\,R \ \frac{\mbox{rabbits} }{\mbox{month} }. \tag*{(1)}
-      </me>
-    </p>
-    <p>
-      The multiplier <m>k</m> is called the
-      <term>per capita growth rate</term><idx><h>growth rate</h><h>per capita</h></idx>
-      (or the <em> reproductive
-          <idx><h>reproductive rate</h></idx>
-      rate</em>),
-      and its units are rabbits per month per rabbit.
-      Per capita growth is discussed in exercise<nbsp/>22 in chapter<nbsp/>1, section<nbsp/>2.
-      For the sake of discussion,
-      let's suppose that <m>k = 0.1</m> rabbits per month per rabbit.
-      This assumption means that,
-      on the average,
-      one rabbit will produce 0.1 new rabbits every month.
-      In the <m>S</m>-<m>I</m>-<m>R</m> model of chapter 1, the reciprocals of the coefficients in the differential equations had natural interpretations.
-      The same is true here for the per capita growth rate.
-      Specifically, we can say that
-      <m>1/k = 10</m> months is the average length of time required for a rabbit to produce one new rabbit.
-      Since there are 2000 rabbits at the start,
-      we can now state a clearly defined initial value problem for the function <m>R(t)</m>:
-      <me>
-        \dfrac{dR}{dt} = 0.1\,R \qquad \qquad R(0) = 2000
-      </me>.
-    </p>
-    <p>
-      By modifying the program SIRPLOT,
-    </p>
-    <aside>
+    </introduction>
+    <subsubsection xml:id="logistic-start">
+      <title>The problem</title>
       <p>
-        Use Euler's method to find <m>R(t)</m>
+        If we turn 2000 rabbits
+            <idx><h>rabbits</h></idx>
+        loose on a large,
+        unpopulated island that has plenty of food for the rabbits,
+        how might the number of rabbits vary over time?
+        If we let <m>R=R(t)</m> be the number of rabbits at time <m>t</m>
+        (measured in months, let us say),
+        we would like to be able to make some predictions about the function <m>R(t)</m>.
+        It would be ideal to have a formula for <m>R(t)</m><mdash/>but this is not usually possible.
+        Nevertheless,
+        there may still be a great deal we can say about the behavior of <m>R</m>.
+        To begin our explorations we will construct a model of the rabbit population that is obviously too simple.
+        After we analyze the predictions it makes,
+        we'll look at various ways to modify the model so that it approximates reality more closely.
       </p>
-    </aside>
-    <p>
-          <idx><h>Euler's method</h></idx>
-      we can readily produce the graph of the function that is determined by this problem.
-      Before we do that, though,
-      let's first consider some of the implications that we can draw out of the problem without the graph.
-      Since <m>R'(t) = 0.1\, R(t)</m> rabbits per month and <m>R(0)=2000</m> rabbits,
-      we see that the initial rate of growth is <m>R'(0)=200</m> rabbits per month.
-      If this rate were to persist for 20 years (= 240 months),
-      <m>R</m> would have increased by
-      <me>
-        \Delta R = 240 \ \hbox{months} \times  200 \ \frac{\mbox{rabbits} }{\mbox{month} }  = 48000 \ \mbox{rabbits}
-      </me>,
-      yielding altogether
-      <me>
-        R(240) = R(0) + \Delta R = 2000 + 48000 = 50000 \ \mbox{rabbits}
-      </me>
-      at the end of the 20 years.
-      However, since the population <m>R</m> is always getting larger,
-      the differential equation tells us that the growth rate <m>R'</m> will <em>also</em>
-      always be getting larger.
-      Consequently, 50,000 is actually an underestimate of the number of rabbits predicted by this model.
-      Let's restate our conclusions in a graphical form.
-      If <m>R'</m> were always 200 rabbits per month,
-      the graph of <m>R</m> plotted against <m>t</m> would just be a straight line whose slope is 200 rabbits/month.
-      But <m>R'</m> is always getting bigger,
-    </p>
-    <aside>
       <p>
-        The graph of <m>R</m> curves up
+        <term>The first model</term>.
+        Let's assume that,
+        at any time <m>t</m>, [[NOTE:Constant per capita growth]] the rate at which the rabbit population changes is simply proportional to the number of rabbits present at that time.
+        For instance, if there were twice as many rabbits,
+        then the <em>rate</em> at which new rabbits appear will also double.
+        In mathematical terms,
+        our assumption takes the form of the differential equation
+        <me>
+          \dfrac{dR}{dt} = k\,R \ \frac{\mbox{rabbits} }{\mbox{month} }. \tag*{(1)}
+        </me>
       </p>
-    </aside>
-    <p>
-      so the slope of the graph should increase from left to right.
-      This will make the graph curve upward.
-      In fact, SIRPLOT will produce the following graph of <m>R(t)</m>:
-      <image width="73%" source="images/pic178.png"/> Later,
-      we will see that the function <m>R(t)</m> determined by this initial value problem is actually an exponential function<idx><h>function</h><h>exponential</h></idx> of <m>t</m>,
-      and we will even be able to write down a formula for <m>R(t)</m>, namely
-      <me>
-        R(t) = 2000 \, (1.10517)^{\displaystyle t}
-      </me>.
-    </p>
-    <p>
-      This model is too simple to be able to describe what happens to a rabbit population very well.
-      One of the obvious difficulties is that it predicts the rabbit population just keeps growing<mdash/>forever.
-      For example,
-      if we used the formula for <m>R(t)</m> given above,
-      our model would predict that after 20 years (<m>t = 240</m>) there will be more than 50
-      <em>trillion</em> rabbits!
-      While rabbit populations can, under good conditions,
-      grow at a nearly constant per capita rate for a surprisingly long time
-      (this happened in Australia during the 19th century),
-      our model is ultimately unrealistic.
-    </p>
-    <aside>
       <p>
-        It is a good idea to think qualitatively about the functions determined by a differential equation and make some rough estimates before doing extensive calculations.
+        The multiplier <m>k</m> is called the
+        <term>per capita growth rate</term><idx><h>growth rate</h><h>per capita</h></idx>
+        (or the <em> reproductive
+            <idx><h>reproductive rate</h></idx>
+        rate</em>),
+        and its units are rabbits per month per rabbit.
+        Per capita growth is discussed in exercise<nbsp/>22 in chapter<nbsp/>1, section<nbsp/>2.
+      </p>
+      <p>
+        For the sake of discussion,
+        let's suppose that <m>k = 0.1</m> rabbits per month per rabbit.
+        This assumption means that,
+        on the average,
+        one rabbit will produce 0.1 new rabbits every month.
+        In the <m>S</m>-<m>I</m>-<m>R</m> model of chapter 1, the reciprocals of the coefficients in the differential equations had natural interpretations.
+        The same is true here for the per capita growth rate.
+        Specifically, we can say that
+        <m>1/k = 10</m> months is the average length of time required for a rabbit to produce one new rabbit.
+      </p>
+      <p>
+        Since there are 2000 rabbits at the start,
+        we can now state a clearly defined initial value problem for the function <m>R(t)</m>:
+        <me>
+          \dfrac{dR}{dt} = 0.1\,R \qquad \qquad R(0) = 2000
+        </me>.
+      </p>
+      <p>
+        By modifying the program SIRPLOT, [[NOTE:Use Euler's method to find <m>R(t)</m>]]
+            <idx><h>Euler's method</h></idx>
+        we can readily produce the graph of the function that is determined by this problem.
+        Before we do that, though,
+        let's first consider some of the implications that we can draw out of the problem without the graph.
+      </p>
+      <p>
+        Since <m>R'(t) = 0.1\, R(t)</m> rabbits per month and <m>R(0)=2000</m> rabbits,
+        we see that the initial rate of growth is <m>R'(0)=200</m> rabbits per month.
+        If this rate were to persist for 20 years (= 240 months),
+        <m>R</m> would have increased by
+        <me>
+          \Delta R = 240 \ \hbox{months} \times  200 \ \frac{\mbox{rabbits} }{\mbox{month} }  = 48000 \ \mbox{rabbits}
+        </me>,
+        yielding altogether
+        <me>
+          R(240) = R(0) + \Delta R = 2000 + 48000 = 50000 \ \mbox{rabbits}
+        </me>
+        at the end of the 20 years.
+        However, since the population <m>R</m> is always getting larger,
+        the differential equation tells us that the growth rate <m>R'</m> will <em>also</em>
+        always be getting larger.
+        Consequently, 50,000 is actually an underestimate of the number of rabbits predicted by this model.
+      </p>
+      <p>
+        Let's restate our conclusions in a graphical form.
+        If <m>R'</m> were always 200 rabbits per month,
+        the graph of <m>R</m> plotted against <m>t</m> would just be a straight line whose slope is 200 rabbits/month.
+        But <m>R'</m> is always getting bigger, [[NOTE:The graph of <m>R</m> curves up]] so the slope of the graph should increase from left to right.
+        This will make the graph curve upward.
+        In fact, SIRPLOT will produce the following graph of <m>R(t)</m>:
+      </p>
+      <p>
+        <image width="73%" source="images/pic178.png"/>
+      </p>
+      <p>
+        Later, we will see that the function <m>R(t)</m> determined by this initial value problem is actually an exponential function<idx><h>function</h><h>exponential</h></idx> of <m>t</m>,
+        and we will even be able to write down a formula for <m>R(t)</m>, namely
+        <me>
+          R(t) = 2000 \, (1.10517)^{\displaystyle t}
+        </me>.
+      </p>
+      <p>
+        This model is too simple to be able to describe what happens to a rabbit population very well.
+        One of the obvious difficulties is that it predicts the rabbit population just keeps growing<mdash/>forever.
+        For example,
+        if we used the formula for <m>R(t)</m> given above,
+        our model would predict that after 20 years (<m>t = 240</m>) there will be more than 50
+        <em>trillion</em> rabbits!
+        While rabbit populations can, under good conditions,
+        grow at a nearly constant per capita rate for a surprisingly long time
+        (this happened in Australia during the 19th century),
+        our model is ultimately unrealistic.
+      </p>
+      <p>
+        [[NOTE:It is a good idea to think qualitatively about the functions determined by a differential equation and make some rough estimates before doing extensive calculations.
         Your sketches may help you see ways in which the model doesn't correspond to reality.
-        Or, you may be able to catch errors in your computations if they differ noticeably from what your estimates led you to expect.
+        Or, you may be able to catch errors in your computations if they differ noticeably from what your estimates led you to expect.]]
       </p>
-    </aside>
-    <p>
-      <term>The second model</term>.
-      One way out of the problem of unlimited growth is to modify equation (1) to take into account the fact that any given ecological system
-    </p>
-    <aside>
+    </subsubsection>
+    <subsubsection xml:id="logistic-finish">
+      <title>The second model</title>
       <p>
-        The carrying capacity of the environment
+        One way out of the problem of unlimited growth is to modify equation (1) to take into account the fact that any given ecological system [[NOTE:The carrying capacity of the environment]] can support only some finite number of creatures over the long term.
+        This number is called the <term>carrying capacity</term>
+            <idx><h>carrying capacity</h></idx>
+        of the system.
+        We expect that when a population has reached the carrying capacity of the system,
+        the population should neither grow nor shrink.
+        At carrying capacity,
+        a population should hold steady<mdash/>its rate of change should be zero.
+        For the sake of specificity,
+        let's suppose that in our example the carrying capacity of the island is 25,000 rabbits.
       </p>
-    </aside>
-    <p>
-      can support only some finite number of creatures over the long term.
-      This number is called the <term>carrying capacity</term>
-          <idx><h>carrying capacity</h></idx>
-      of the system.
-      We expect that when a population has reached the carrying capacity of the system,
-      the population should neither grow nor shrink.
-      At carrying capacity,
-      a population should hold steady<mdash/>its rate of change should be zero.
-      For the sake of specificity,
-      let's suppose that in our example the carrying capacity of the island is 25,000 rabbits.
-      What we would like to do, then,
-      is to find an expression for <m>R'</m> which is similar to equation (1) when the number of rabbits <m>R</m> is near 2000,
-      but which approaches 0 as <m>R</m> approaches 25,000.
-      One model which captures these features is the
-      <term>logistic equation</term>,
-          <idx><h>logistic equation</h></idx>
-      first proposed by the Belgian mathematician Otto Verhulst
-          <idx><h>Verhulst, O.</h></idx>
-      in
-    </p>
-    <aside>
       <p>
-        Logistic growth
+        What we would like to do, then,
+        is to find an expression for <m>R'</m> which is similar to equation (1) when the number of rabbits <m>R</m> is near 2000,
+        but which approaches 0 as <m>R</m> approaches 25,000.
+        One model which captures these features is the
+        <term>logistic equation</term>,
+            <idx><h>logistic equation</h></idx>
+        first proposed by the Belgian mathematician Otto Verhulst
+            <idx><h>Verhulst, O.</h></idx>
+        in [[NOTE:Logistic growth]] 1845:
+        <me>
+          R' = k\,R \left(1-\frac{R}{b} \right) \ \dfrac{\mbox{rabbits} }{\mbox{month} }. \tag*{(2)}
+        </me>
       </p>
-    </aside>
-    <me>
-      R' = k\,R \left(1-\frac{R}{b} \right)
-      \ \dfrac{\mbox{rabbits} }{\mbox{month} }. \tag*{(2)}
-    </me>
-    <p>
-      In this equation, the coefficient <m>k</m> is called the
-      <term>natural growth rate</term>.
-          <idx><h>growth rate</h><h>natural</h></idx>
-      It plays the same role as the per capita growth rate in equation (1),
-      and it has the same units<mdash/>rabbits per month per rabbit.
-      The number <m>b</m> is the <em> carrying capacity</em>;
-          <idx><h>carrying capacity</h></idx>
-      it is measured in rabbits.
-      (We first saw the logistic equation on <xref ref="logistic-begin">pages</xref><ndash/> <xref ref="sec_the-mathematical-implications---eulers-method_logistic-end"></xref>.)
-      Notice also that we have written the derivative of <m>R</m> in the simpler form <m>R'</m>,
-      a practice we will continue for the rest of the section.
-      If the carrying capacity of the island is 25,000 rabbits,
-      and if we keep the natural growth rate at 0.1 rabbits per month per rabbit,
-      then the logistic equation for the rabbit population is
-      <me>
-        R' = 0.1\,R \left(1-\frac{R}{25000} \right) \ \dfrac{\mbox{rabbits} }{\mbox{month} }
-      </me>.
-    </p>
-    <p>
-      Check to see that this equation really does have the behavior claimed for it<mdash/>namely,
-      that a population of 25,000 rabbits neither grows or declines.
-      Notice also that <m>R'</m> is positive as long as <m>R</m> is less than 25000, so the population increases.
-      However, as <m>R</m> approaches 25000,
-    </p>
-    <aside>
       <p>
-        The graph of <m>R(t)</m> levels off near <m>R = 25000</m>
+        In this equation, the coefficient <m>k</m> is called the
+        <term>natural growth rate</term>.
+            <idx><h>growth rate</h><h>natural</h></idx>
+        It plays the same role as the per capita growth rate in equation (1),
+        and it has the same units<mdash/>rabbits per month per rabbit.
+        The number <m>b</m> is the <em> carrying capacity</em>;
+            <idx><h>carrying capacity</h></idx>
+        it is measured in rabbits.
+        (We first saw the logistic equation on <xref ref="logistic-begin">pages</xref><ndash/> <xref ref="logistic-end"></xref>.)
+        Notice also that we have written the derivative of <m>R</m> in the simpler form <m>R'</m>,
+        a practice we will continue for the rest of the section.
       </p>
-    </aside>
-    <p>
-      <m>R'</m> will get closer and closer to 0, so the graph will become nearly horizontal. (What would happen if the island ever had more than 25,000 rabbits?) These observations about the qualitative behavior of <m>R(t)</m> are consistent with the following graph,
-      produced by a modified version of the program SIRPLOT. For comparison,
-      we have also graphed the exponential function produced by the first model.
-      Notice that the two graphs
-      <q>share ink</q>
-      when <m>R</m> near 2000, but diverge later on.
-      <image width="73%" source="images/pic180.png"/> By modifying the program SIRVALUE, we can even get numerical answers to specific questions about the two models.
-      For example, after 30 months under constant per capita growth,
-      the rabbit population will be more than 40,000<mdash/>well beyond the carrying capacity of the island.
-      Under logistic growth, though,
-      the population will be only about 16,000.
-      In the following figure we display several functions that are determined by the logistic equation
-      <me>
-        R' = 0.1\,R \left(1-\frac{R}{25000} \right)
-      </me>
-      when different initial conditions are given.
-      Each graph therefore predicts the future for a different initial population <m>R(0)</m>.
-      One of the graphs is just the <m>t</m>-axis itself.
-      What does this graph predict about the rabbit population?
-      What other graph is just a straight line,
-      and what initial population will lead to this line?
-    </p>
-    <aside>
       <p>
-        While the logistic equation above was developed to model a physical problem in which only values of <m>R</m> with <m>R\geq 0</m> have any meaning,
+        If the carrying capacity of the island is 25,000 rabbits,
+        and if we keep the natural growth rate at 0.1 rabbits per month per rabbit,
+        then the logistic equation for the rabbit population is
+        <me>
+          R' = 0.1\,R \left(1-\frac{R}{25000} \right) \ \dfrac{\mbox{rabbits} }{\mbox{month} }
+        </me>.
+      </p>
+      <p>
+        Check to see that this equation really does have the behavior claimed for it<mdash/>namely,
+        that a population of 25,000 rabbits neither grows or declines.
+        Notice also that <m>R'</m> is positive as long as <m>R</m> is less than 25000, so the population increases.
+        However, as <m>R</m> approaches 25000, [[NOTE:The graph of <m>R(t)</m> levels off near
+        <m>R = 25000</m>]] <m>R'</m> will get closer and closer to 0, so the graph will become nearly horizontal. (What would happen if the island ever had more than 25,000 rabbits?)
+      </p>
+      <p>
+        These observations about the qualitative behavior of <m>R(t)</m> are consistent with the following graph,
+        produced by a modified version of the program SIRPLOT. For comparison,
+        we have also graphed the exponential function produced by the first model.
+        Notice that the two graphs
+        <q>share ink</q>
+        when <m>R</m> near 2000, but diverge later on.
+      </p>
+      <p>
+        <image width="73%" source="images/pic180.png"/>
+      </p>
+      <p>
+        By modifying the program SIRVALUE, we can even get numerical answers to specific questions about the two models.
+        For example, after 30 months under constant per capita growth,
+        the rabbit population will be more than 40,000<mdash/>well beyond the carrying capacity of the island.
+        Under logistic growth, though,
+        the population will be only about 16,000.
+      </p>
+      <p>
+        In the following figure we display several functions that are determined by the logistic equation
+        <me>
+          R' = 0.1\,R \left(1-\frac{R}{25000} \right)
+        </me>
+        when different initial conditions are given.
+        Each graph therefore predicts the future for a different initial population <m>R(0)</m>.
+        One of the graphs is just the <m>t</m>-axis itself.
+        What does this graph predict about the rabbit population?
+        What other graph is just a straight line,
+        and what initial population will lead to this line?
+      </p>
+      <p>
+        [[NOTE:While the logistic equation above was developed to model a physical problem in which only values of <m>R</m> with <m>R\geq 0</m> have any meaning,
         the mathematical problem of finding solutions for the resulting differential equation makes sense for all values of <m>R</m>.
         We have drawn three graphs resulting from initial values <m>R(0) \lt 0</m>.
         While this growth behavior of <sq>anti-rabbits</sq> is of little practical interest in this case,
         there may well be other physical problems of an entirely different sort which lead to the same mathematical model,
-        and in which the solutions below the <m>t</m><ndash/>axis are crucial.
+        and in which the solutions below the <m>t</m><ndash/>axis are crucial.]]
       </p>
-    </aside>
-    <p>
-      <image width="73%" source="images/pic181.png"/> Solutions to the logistic equation <m>R'=.1R\,(1-R/25000)</m>
-    </p>
+      <p>
+        <image width="73%" source="images/pic181.png"/>
+      </p>
+      <p>
+        Solutions to the logistic equation <m>R'=.1R\,(1-R/25000)</m>
+      </p>
+    </subsubsection>
   </subsection>
-  <subsection xml:id="sec_modelling-with-differential-equations_subsec_two-species-models-rabbits-and-foxes">
+  <subsection xml:id="subsec_two-species-models-rabbits-and-foxes">
     <title>Two-species Models: Rabbits and Foxes</title>
     <p>
           <idx><h>population model</h><h>two-species</h></idx>
-      No species lives alone in an environment,
     </p>
-    <aside>
-      <p>
-        Introduce predators
-      </p>
-    </aside>
     <p>
+      No species lives alone in an environment, [[NOTE:Introduce predators]]
           <idx><h>predator</h></idx>
       and the same is true of the rabbits on our island.
       The rabbit population will probably have to deal with predators of various sorts.
@@ -355,6 +336,8 @@
       <q>steady state</q>
       where their numbers don't vary?
       Or will one species perhaps become extinct?
+    </p>
+    <p>
       Let <m>F</m> denote the number of foxes,
       and <m>R</m> the number of rabbits.
       As before, measure the time <m>t</m> in months.
@@ -405,20 +388,15 @@
       </md>
     </p>
     <p>
-      These are
-    </p>
-    <aside>
-      <p>
-        Lotka<ndash/>Volterra equations with bounded growth
-      </p>
-    </aside>
-    <p>
-      the <term>Lotka<ndash/>Volterra equations with bounded growth</term>.
+      These are [[NOTE:Lotka<ndash/>Volterra equations with bounded growth]] the
+      <term>Lotka<ndash/>Volterra equations with bounded growth</term>.
           <idx><h>Lotka<ndash/>Volterra equations</h></idx>
       The coefficients <m>a</m>, <m>b</m>,
       <m>c</m>, <m>d</m>, and <m>e</m> are <term>parameters</term>
           <idx><h>parameter</h></idx>
       <mdash/>constants that have to be determined through field observations in particular circumstances.
+    </p>
+    <p>
       <term>An example</term>.
       To see what kind of predictions the Lotka<ndash/>Volterra equations make,
       we'll work through an example with specific values for the parameters.
@@ -437,20 +415,19 @@
     <p>
       To use this model to follow <m>R</m> and <m>F</m> into the future,
       we need to know the initial sizes of the two populations.
-      Let's suppose that there are 2000 rabbits and 10 foxes at time <m>t = 0</m>.
+      Let's suppose that there are 2000 rabbits and 10 foxes at time <m>t = 0</m>. [[NOTE:The graphs of <m>R</m> and <m>F</m>]] Then the two populations will vary in the following way over the next 250 months.
     </p>
-    <aside>
-      <p>
-        The graphs of <m>R</m> and <m>F</m>
-      </p>
-    </aside>
     <p>
-      Then the two populations will vary in the following way over the next 250 months.
-      <image width="73%" source="images/rf1.png"/> A variant of the program SIRPLOT was used to produce these graphs.
+      <image width="73%" source="images/rf1.png"/>
+    </p>
+    <p>
+      A variant of the program SIRPLOT was used to produce these graphs.
       Notice that it plots <m>100F</m> rather than <m>F</m> itself.
       This is because the number of foxes is about 100 times smaller than the number of rabbits.
       Consequently, <m>100F</m> and <m>R</m> are about the same size,
       so their graphs fit nicely together on the same screen.
+    </p>
+    <p>
       The graphs have several interesting features.
       There are different scales for the <m>R</m> and the <m>F</m> values,
       because the program plots <m>100F</m> instead of <m>F</m>.
@@ -459,19 +436,21 @@
       The rabbit and fox populations rise and fall in a regular manner.
       They rise and fall less with each repeat, though,
       and if the graphs were continued far enough into the future we would see <m>R</m> and <m>F</m> level off to nearly constant values.
-      The illustration below shows what happens
     </p>
-    <aside>
-      <p>
-        How rabbits respond to changes in the initial fox population
-      </p>
-    </aside>
     <p>
-      to an initial rabbit population of 2000 in the presence of three different initial fox populations <m>F(0)</m>.
+      The illustration below shows what happens [[NOTE:How rabbits respond to changes in the initial fox population]] to an initial rabbit population of 2000 in the presence of three different initial fox populations <m>F(0)</m>.
       Note that the peak rabbit populations are different,
       and they occur at different times.
       The size of the intervals between peaks also depends on <m>F(0)</m>.
-      <image width="73%" source="images/rf2.png"/> Rabbit populations for different initial fox populations We have looked at three models,
+    </p>
+    <p>
+      <image width="73%" source="images/rf2.png"/>
+    </p>
+    <p>
+      Rabbit populations for different initial fox populations
+    </p>
+    <p>
+      We have looked at three models,
       each a refinement of the preceding one.
       The first was the simplest.
       It accounted only for the rabbits,
@@ -487,7 +466,7 @@
   </subsection>
   <subsection>
     <title>Exercises</title>
-    <subsubsection xml:id="sec_modelling-with-differential-equations_subsubsec_single-species-models">
+    <subsubsection xml:id="subsubsec_single-species-models">
       <title>Single-species models</title>
       <ol>
         <li>
@@ -660,13 +639,13 @@
         </li>
       </ol>
     </subsubsection>
-    <subsubsection xml:id="sec_modelling-with-differential-equations_subsubsec_two-species-models">
+    <subsubsection xml:id="subsubsec_two-species-models">
       <title>Two-species models</title>
       <p>
         Here are some other differential equations that model a predator-prey interaction between two species.
       </p>
       <ol>
-        <li xml:id="sec_modelling-with-differential-equations_May_model">
+        <li xml:id="May_model">
           <p>
             <term>The May Model</term>.
             This model has been proposed by the contemporary ecologist, R.M. May,
@@ -677,19 +656,13 @@
             (and therefore plot them on the same graph),
             let <m>y</m> be the number of foxes and let <m>x</m> be the number of rabbits <em>divided by</em>
             100<mdash/>we are thus measuring rabbits in units of
-            <q>hectorabbits</q>.
-            <aside>
-              <p>
-                While a term like
-                <q>hectorabbits</q>
-                is deliberately whimsical,
-                it echoes the common and sensible practice of choosing units that allow us to measure things with numbers that are neither too small nor too large.
-                For example,
-                we wouldn't describe the distance from the earth to the moon in millimeters,
-                and we wouldn't describe the mass of a raindrop in kilograms.
-              </p>
-            </aside>
-            In his model, May makes the following assumptions.
+            <q>hectorabbits</q>.  [[NOTE:While a term like
+            <q>hectorabbits</q>
+            is deliberately whimsical,
+            it echoes the common and sensible practice of choosing units that allow us to measure things with numbers that are neither too small nor too large.
+            For example,
+            we wouldn't describe the distance from the earth to the moon in millimeters,
+            and we wouldn't describe the mass of a raindrop in kilograms.]]    In his model, May makes the following assumptions.
           </p>
           <ul>
             <li>
@@ -778,7 +751,7 @@
             </li>
           </ol>
         </li>
-        <li xml:id="sec_modelling-with-differential-equations_L-V">
+        <li xml:id="L-V">
           <p>
             <term>The Lotka<ndash/>Volterra Equations</term>.
     <idx><h>Lotka<ndash/>Volterra equations</h></idx>
@@ -868,7 +841,7 @@ Let  <m>H(t)</m> denote the number of hares
                   The goal of this part is to analyze this periodic behavior.
                   You can do this with your program in part (c),
                   but you may prefer to replace the FOR-NEXT loop in your program by a variety of DO-WHILE loops
-                  (<xref ref="sec_making-approximations_DO-WHILE">see</xref>).
+                  (<xref ref="DO-WHILE">see</xref>).
                   First find the maximum number of hares.
                   What is the length of one <term>period</term> for the hare population?
                   That is, how long does it take the hare population to complete one cycle (e.g., to go from one maximum to the next)?
@@ -890,7 +863,7 @@ Let  <m>H(t)</m> denote the number of hares
         </li>
       </ol>
     </subsubsection>
-    <subsubsection xml:id="sec_modelling-with-differential-equations_subsubsec_fermentation">
+    <subsubsection xml:id="subsubsec_fermentation">
       <title>Fermentation</title>
       <p>
             <idx><h>fermentation</h></idx>
@@ -905,6 +878,8 @@ Let  <m>H(t)</m> denote the number of hares
         This stops fermentation,
         and the liquid has become wine,
         with about 8<ndash/>12% alcohol.
+      </p>
+      <p>
         Although alcohol isn't a
         <q>species,</q>
         it acts like a predator on yeast.
@@ -1025,7 +1000,7 @@ Let  <m>H(t)</m> denote the number of hares
                   Retain the term you developed in 9.b to reflect the toxic impact of alcohol on the yeast.
                 </p>
               </li>
-              <li xml:id="sec_modelling-with-differential-equations_ferment-end">
+              <li xml:id="ferment-end">
                 <p>
                   There are now three differential equations.
                   Using them, describe what happens to 0.5 lbs of yeast that is put into a vat of grape juice that contains 25 lbs of sugar at the start.
@@ -1041,16 +1016,21 @@ Let  <m>H(t)</m> denote the number of hares
         </li>
       </ol>
     </subsubsection>
-    <subsubsection xml:id="sec_modelling-with-differential-equations_subsubsec_newtons-law-of-cooling">
+    <subsubsection xml:id="subsubsec_newtons-law-of-cooling">
       <title>Newton's law of cooling</title>
       <p>
             <idx><h>Newton's law of cooling</h></idx>
         Suppose that we start off with a freshly brewed cup of coffee at \mbox{<m>90^{\circ}</m>C} and set it down in a room where the temperature is \mbox{<m>20^{\circ}</m>C} . What will the temperature of the coffee be in 20 minutes?
-        How long will it take the coffee to cool to \mbox{<m>30^{\circ}</m>C} ? If we let the temperature of the coffee be <m>Q</m>
+        How long will it take the coffee to cool to \mbox{<m>30^{\circ}</m>C} ?
+      </p>
+      <p>
+        If we let the temperature of the coffee be <m>Q</m>
         (in <m>^{\circ}</m>C),
         then <m>Q</m> is a function of the time <m>t</m>, measured in minutes.
-        We have <m>Q(0) = 90^{\circ}</m>C, and we would like to find the value <m>t_1</m> for which
-        <m>Q(t_1) = 30^{\circ}</m>C. It is not immediately apparent how to give <m>Q</m> as a function of <m>t</m>.
+        We have <m>Q(0) = 90^{\circ}</m>C, and we would like to find the value <m>t_1</m> for which <m>Q(t_1) = 30^{\circ}</m>C.
+      </p>
+      <p>
+        It is not immediately apparent how to give <m>Q</m> as a function of <m>t</m>.
         However, we can describe the <em>rate</em>
         at which a liquid cools off,
         using <term>Newton's law of cooling</term>:
@@ -1087,14 +1067,14 @@ Let  <m>H(t)</m> denote the number of hares
                 </me>.
               </p>
             </li>
-            <li xml:id="sec_modelling-with-differential-equations_ex_coffee1">
+            <li xml:id="ex_coffee1">
               <p>
                 Use Euler's method to determine the temperature <m>Q</m> after 20 minutes.
                 Write a table of successive approximations with smaller and smaller step sizes.
                 The values in your table should stabilize to the second decimal place.
               </p>
             </li>
-            <li xml:id="sec_modelling-with-differential-equations_ex_coffee2">
+            <li xml:id="ex_coffee2">
               <p>
                 How long does it take for the temperature <m>Q</m> to drop to \mbox{<m>30^{\circ}</m>C} ? Use a DO-WHILE loop
     <idx><h>loop</h><h>DO-WHILE</h></idx>
@@ -1103,7 +1083,7 @@ Let  <m>H(t)</m> denote the number of hares
             </li>
           </ol>
         </li>
-        <li xml:id="sec_modelling-with-differential-equations_ex_cold_drink">
+        <li xml:id="ex_cold_drink">
           <p>
             On a hot day,
             a cold drink warms up at a rate approximately proportional to the difference in temperature between the drink and its surroundings.
@@ -1166,7 +1146,7 @@ Let  <m>H(t)</m> denote the number of hares
         </li>
       </ol>
     </subsubsection>
-    <subsubsection xml:id="sec_modelling-with-differential-equations_subsubsec_s-i-r-revisited">
+    <subsubsection xml:id="subsubsec_s-i-r-revisited">
       <title><m>S</m>-<m>I</m>-<m>R</m> revisited</title>
       <p>
         Consider the spread of an infectious disease that is modelled by the <m>S</m>-<m>I</m>-<m>R</m> differential equations
@@ -1239,11 +1219,15 @@ Let  <m>H(t)</m> denote the number of hares
         </ol>
       </p>
     </subsubsection>
-    <subsubsection xml:id="sec_modelling-with-differential-equations_subsubsec_constructing-models">
+    <subsubsection xml:id="subsubsec_constructing-models">
       <title>Constructing models</title>
       <p>
             <idx><h>model</h></idx>
-        Systems in which we know a number of quantities at a given time and would like to know their values at a future time (or know at what future time they will attain given values) occur in many different contexts.
+      </p>
+      <p>
+        Systems in which we know a number of quantities at a given time and would like to know their values at a future time
+        (or know at what future time they will attain given values)
+        occur in many different contexts.
         The following are some systems for discussion.
         Can any of these be modelled as initial value problems?
         What information would you need to resolve the question?

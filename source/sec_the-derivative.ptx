@@ -1,150 +1,150 @@
-<section xml:id="sec_the-derivative_sec_the-derivative">
+<section xml:id="sec_the-derivative">
   <title>The Derivative</title>
   <introduction>
     <p>
           <idx><h>derivative</h></idx>
     </p>
   </introduction>
-  <subsection xml:id="sec_the-derivative_subsec_definition">
+  <subsection xml:id="subsec_definition">
     <title>Definition</title>
-    <p>
-      One of our main goals in this chapter is to make precise the notion of the rate of change of a function.
-      In fact, we have already done that in the last section.
-      We defined the rate of change of a function at a point to be the slope of its graph at that point;
-      we defined the slope, in turn,
-      by a four-step limit process.
-      Thus, the precise definition of a rate of change involves a limit,
-      and it involves geometric visualization<mdash/>we think of a rate as a slope.
-      We introduce a new word<mdash/><em>derivative</em><mdash/>to embrace both of these concepts as we now understand them.
-    </p>
-    <image source=""/>
-    <p>
-      Later in this section we will extend our interpretation of the derivative to include the idea of a <em>multiplier</em>,
-      as well as a rate and a slope.
-      Besides providing us with a single word to describe rates,
-      slopes, and multipliers, the term
-      <q>derivative</q>
-      also reminds us that the quantity <m>f'(a)</m> is <em>derived</em>
-      from information about the function <m>f</m> in a particular way.
-      It is worth repeating here the four steps by which we derive <m>f'(a)</m>:
-    </p>
-    <p>
-      1. Magnify the graph at the point
-      <m>(a, f(a))</m> until it appears straight.
-    </p>
-    <p>
-      2. Calculate the slope of the magnified segment.
-    </p>
-    <p>
-      3. Repeat steps 1 and 2 with successively higher magnifications.
-    </p>
-    <p>
-      4. Take the limit of the succession of slopes produced in step<nbsp/>3.
-    </p>
-    <p>
-      We can express this limit in analytic form in the following way:
-      <me>
-        f'(a) = \lim_{\Delta x \to 0} \dfrac{\Delta y}{\Delta x} = \lim_{h \to 0} \dfrac{f(a + h) - f(a - h)}{2h}
-      </me>.
-    </p>
-    <p>
-      The <term>difference quotient</term>
-          <idx><h>difference quotient</h></idx>
-      <me>
-        \dfrac{\Delta y}{\Delta x} = \dfrac{f(a + h) - f(a - h)}{2h}
-      </me>
-      is the usual way we estimate the slope of the magnified graph of <m>f</m> at the point <m>(a, f(a))</m>.
-      As the following figure shows,
-      the calculation involves two points equally spaced on either side of <m>(a, f(a))</m>.
-    </p>
-    <image source=""/>
-    <p>
-      Estimating the value of the derivative <m>f'(a)</m>
-    </p>
-    <sidebyside>
-      <term>Choosing points in a window</term>.<idx><h>window</h></idx> To
-      estimate the slope in the window above, we chose two particular
-      points, <m>(a - h, f(a - h))</m> and <m>(a + h, f(a + h))</m>.  However, <em>any</em> two points in the window would give us a valid estimate.  Our
-      choice depends on the situation.  For example, if we are working with
-      formulas, we want simple expressions. In that case we would probably
-      replace <m>(a - h, f(a - h))</m> by <m>(a, f(a))</m>.  We do that in the window
-      on the left.  The resulting slope is
-    </sidebyside>
-    <image source=""/>
-    <me>
-      \dfrac{\Delta y}{\Delta x} = \dfrac{f(a+h)-f(a)}{h}
-    </me>.
-    <p>
-      While the limiting value of
-      <m>\Delta y/\Delta x</m> doesn't depend on the choices you make,
-      the <em>estimates</em> you produce with a fixed
-      <m>\Delta x</m> can be closer to or farther from the true value.
-      The exercises will explore this.
-      <term>Data versus formulas</term>.
-          <idx><h>data</h></idx>
-          <idx><h>formula</h></idx>
-      The derivative is a limit.
-      To find that limit we have to be able to zoom in arbitrarily close,
-      to make <m>\Delta x</m> arbitrarily small.
-      For functions given by data, that is usually impossible;
-      we can't use any <m>\Delta x</m> smaller than the spacing between the data points.
-    </p>
-    <aside>
+    <introduction>
       <p>
-        A data function might not have a derivative
+        One of our main goals in this chapter is to make precise the notion of the rate of change of a function.
+        In fact, we have already done that in the last section.
+        We defined the rate of change of a function at a point to be the slope of its graph at that point;
+        we defined the slope, in turn,
+        by a four-step limit process.
+        Thus, the precise definition of a rate of change involves a limit,
+        and it involves geometric visualization<mdash/>we think of a rate as a slope.
+        We introduce a new word<mdash/><em>derivative</em><mdash/>to embrace both of these concepts as we now understand them.
       </p>
-    </aside>
-    <p>
-      Thus, a data function of this sort does not have a derivative,
-      strictly speaking.
-      However, by zooming in as much as the data allow,
-      we get the most precise description possible for the rate of change of the function.
-      In these circumstances it makes a difference which points we choose in a window to calculate <m>\Delta y/\Delta x</m>.
-      In the exercises you will have a chance to see how the precision of your estimate depends on which points you choose to calculate the slope.
-      For a function given by a formula,
-      it is possible to find the value of the derivative exactly.
-      In fact, the derivative of a function given by a formula is itself given by a formula.
-    </p>
-    <aside>
+      <image source=""/>
       <p>
-        There are rules for finding derivatives
+        Later in this section we will extend our interpretation of the derivative to include the idea of a <em>multiplier</em>,
+        as well as a rate and a slope.
+        Besides providing us with a single word to describe rates,
+        slopes, and multipliers, the term
+        <q>derivative</q>
+        also reminds us that the quantity <m>f'(a)</m> is <em>derived</em>
+        from information about the function <m>f</m> in a particular way.
+        It is worth repeating here the four steps by which we derive <m>f'(a)</m>:
       </p>
-    </aside>
-    <p>
-      Later in this chapter we will describe some general rules which will allow us to produce the formula for the derivative without going through the successive approximation process each time.
-      In chapter 5 we will discuss these rules more fully.
-      <term>Practical considerations</term>.
-      The derivative is a limit,
-      and there are always practical considerations to raise when we discuss limits.
-      As we saw in chapter 2, we cannot expect to construct the entire decimal expansion of a limit.
-      In most cases all we can get are a specified number of digits.
-      For example, in section<nbsp/>2 we found that
+      <p>
+        1. Magnify the graph at the point
+        <m>(a, f(a))</m> until it appears straight.
+      </p>
+      <p>
+        2. Calculate the slope of the magnified segment.
+      </p>
+      <p>
+        3. Repeat steps 1 and 2 with successively higher magnifications.
+      </p>
+      <p>
+        4. Take the limit of the succession of slopes produced in step<nbsp/>3.
+      </p>
+      <p>
+        We can express this limit in analytic form in the following way:
+        <me>
+          f'(a) = \lim_{\Delta x \to 0} \dfrac{\Delta y}{\Delta x} = \lim_{h \to 0} \dfrac{f(a + h) - f(a - h)}{2h}
+        </me>.
+      </p>
+      <p>
+        The <term>difference quotient</term>
+            <idx><h>difference quotient</h></idx>
+        <me>
+          \dfrac{\Delta y}{\Delta x} = \dfrac{f(a + h) - f(a - h)}{2h}
+        </me>
+        is the usual way we estimate the slope of the magnified graph of <m>f</m> at the point <m>(a, f(a))</m>.
+        As the following figure shows,
+        the calculation involves two points equally spaced on either side of <m>(a, f(a))</m>.
+      </p>
+      <image source=""/>
+      <p>
+        Estimating the value of the derivative <m>f'(a)</m>
+      </p>
+      <p>
+        <term>Choosing points in a window</term>.
+            <idx><h>window</h></idx>
+        To estimate the slope in the window above,
+        we chose two particular points,
+        <m>(a - h, f(a - h))</m> and <m>(a + h, f(a + h))</m>.
+        However, <em>any</em> two points in the window would give us a valid estimate.
+        Our choice depends on the situation.
+        For example, if we are working with formulas,
+        we want simple expressions.
+        In that case we would probably replace <m>(a - h, f(a - h))</m> by <m>(a, f(a))</m>.
+        We do that in the window on the left.
+        The resulting slope is
+      </p>
+      <image source=""/>
       <me>
-        \mbox{if}  \ f(x) = \dfrac{2 + x^3\cos{x} + 1.5^x}{2 + x^2}, \ \mbox{then}  \ f'(27) = -0.27235\ldots
+        \dfrac{\Delta y}{\Delta x} = \dfrac{f(a+h)-f(a)}{h}
       </me>.
-    </p>
-    <p>
-      The same digits without the
-      <q><ellipsis/></q>
-      give us <em> approximations</em>.
-          <idx><h>approximation</h></idx>
-      Thus we can write <m>f'(27) \approx -0.27235</m>;
-      we also have <m>f'(27) \approx -0.2723</m> and <m>f'(27) \approx -0.272</m>.
-      Which approximation is the right one to use depends on the context.
-      For example,
-      if <m>f</m> appears in a problem in which all the other quantities are known only to one or two decimal places,
-      we probably don't need a very precise value for <m>f'(27)</m>.
-      In that case we don't have to carry the sequence of slopes <m>\Delta y/\Delta x</m> very far.
-      For instance,
-      if we want to know <m>f'(27)</m> to three decimal places,
-      and so justify writing <m>f'(27) \approx -0.272</m>,
-      we only need to continue the zooming process until the slopes
-      <m>\Delta y/\Delta x</m> all have values that begin
-      <m>-0.2723\ldots</m> . By the table <xref ref="x_zoom_">on</xref>,
-      <m>\Delta x = 0.0004</m> is sufficient.
-    </p>
+      <p>
+        While the limiting value of
+        <m>\Delta y/\Delta x</m> doesn't depend on the choices you make,
+        the <em>estimates</em> you produce with a fixed
+        <m>\Delta x</m> can be closer to or farther from the true value.
+        The exercises will explore this.
+      </p>
+      <p>
+        <term>Data versus formulas</term>.
+            <idx><h>data</h></idx>
+            <idx><h>formula</h></idx>
+        The derivative is a limit.
+        To find that limit we have to be able to zoom in arbitrarily close,
+        to make <m>\Delta x</m> arbitrarily small.
+        For functions given by data, that is usually impossible;
+        we can't use any <m>\Delta x</m> smaller than the spacing between the data points. [[NOTE:A data function might not have a derivative]] Thus,
+        a data function of this sort does not have a derivative,
+        strictly speaking.
+        However, by zooming in as much as the data allow,
+        we get the most precise description possible for the rate of change of the function.
+        In these circumstances it makes a difference which points we choose in a window to calculate <m>\Delta y/\Delta x</m>.
+        In the exercises you will have a chance to see how the precision of your estimate depends on which points you choose to calculate the slope.
+      </p>
+      <p>
+        For a function given by a formula,
+        it is possible to find the value of the derivative exactly.
+        In fact, the derivative of a function given by a formula is itself given by a formula. [[NOTE:There are rules for finding derivatives]] Later in this chapter we will describe some general rules which will allow us to produce the formula for the derivative without going through the successive approximation process each time.
+        In chapter 5 we will discuss these rules more fully.
+      </p>
+    </introduction>
+    <subsubsection>
+      <title>Practical considerations</title>
+      <p>
+        The derivative is a limit,
+        and there are always practical considerations to raise when we discuss limits.
+        As we saw in chapter 2, we cannot expect to construct the entire decimal expansion of a limit.
+        In most cases all we can get are a specified number of digits.
+        For example, in section<nbsp/>2 we found that
+        <me>
+          \mbox{if}  \ f(x) = \dfrac{2 + x^3\cos{x} + 1.5^x}{2 + x^2}, \ \mbox{then}  \ f'(27) = -0.27235\ldots
+        </me>.
+      </p>
+      <p>
+        The same digits without the
+        <q><ellipsis/></q>
+        give us <em> approximations</em>.
+            <idx><h>approximation</h></idx>
+        Thus we can write <m>f'(27) \approx -0.27235</m>;
+        we also have <m>f'(27) \approx -0.2723</m> and <m>f'(27) \approx -0.272</m>.
+        Which approximation is the right one to use depends on the context.
+        For example,
+        if <m>f</m> appears in a problem in which all the other quantities are known only to one or two decimal places,
+        we probably don't need a very precise value for <m>f'(27)</m>.
+        In that case we don't have to carry the sequence of slopes <m>\Delta y/\Delta x</m> very far.
+        For instance,
+        if we want to know <m>f'(27)</m> to three decimal places,
+        and so justify writing <m>f'(27) \approx -0.272</m>,
+        we only need to continue the zooming process until the slopes
+        <m>\Delta y/\Delta x</m> all have values that begin
+        <m>-0.2723\ldots</m> . By the table <xref ref="x_zoom_">on</xref>,
+        <m>\Delta x = 0.0004</m> is sufficient.
+      </p>
+    </subsubsection>
   </subsection>
-  <subsection xml:id="sec_the-derivative_subsec_language-and-notation">
+  <subsection xml:id="subsec_language-and-notation">
     <title>Language and Notation</title>
     <p>
       <m>\bullet</m> If <m>f</m> has a derivative at <m>a</m>,
@@ -152,6 +152,8 @@
       If <m>f</m> is differentiable at every point <m>a</m> in its domain,
       we say <term> <m>f</m> is differentiable</term>.
           <idx><h>differentiable</h></idx>
+    </p>
+    <p>
       <m>\bullet</m> Do <em>locally linear</em>
       and <em>differentiable</em> mean the same thing?
       The awkward case is a function whose graph is vertical at a point
@@ -163,6 +165,8 @@
       because the line is vertical.
       So the function is locally linear,
       but not differentiable, at that point.
+    </p>
+    <p>
       There is another way to view the matter.
       We can say, instead, that a vertical line
       <em>does</em> have a slope,
@@ -174,18 +178,13 @@
       In other words, <m>f</m> <em>does</em>
       have a derivative at <m>x = a</m>;
       its value just happens to be <m>\infty</m>.
+    </p>
+    <p>
       Which view is
       <q>right</q>? Neither; we can choose either.
-      Our choice is a matter of convention.
-    </p>
-    <aside>
-      <p>
-        Convention: if the graph of <m>f</m> is vertical at <m>a</m>,
-        write <m>f'(a) = \infty</m>
-      </p>
-    </aside>
-    <p>
-      (In some countries cars travel on the left;
+      Our choice is a matter of convention. [[NOTE:Convention:
+      if the graph of <m>f</m> is vertical at <m>a</m>,
+      write <m>f'(a) = \infty</m>]] (In some countries cars travel on the left;
       in others, on the right.
       That's a convention, too.) However,
       we will follow the second alternative.
@@ -193,6 +192,8 @@
       Another is that <em>locally linear</em>
       and <em>differentiable</em>
       then mean exactly the same thing.
+    </p>
+    <p>
       <m>\bullet</m> Suppose <m>y = f(x)</m> and the quantities <m>x</m> and <m>y</m> appear in a context in which they have units.
       Then the derivative of <m>f'(x)</m>
       <em>also</em> has units,
@@ -208,17 +209,12 @@
       We have already seen several examples<mdash/>persons per day,
       miles per hour, milligrams per pound,
       dollars of profit per dollar change in price<mdash/>and we will see many more.
+    </p>
+    <p>
       <m>\bullet</m> There are several notations for the derivative.
       You should be aware of them because they are all in common use and because they reflect different ways of viewing the derivative.
-      We have been writing the derivative of <m>y = f(x)</m> as <m>f'(x)</m>.
-    </p>
-    <aside>
-      <p>
-        Leibniz's notation
-      </p>
-    </aside>
-    <p>
-      Leibniz wrote it as <m>dy/dx</m>.
+      We have been writing the derivative of
+      <m>y = f(x)</m> as <m>f'(x)</m>. [[NOTE:Leibniz's notation]] Leibniz wrote it as <m>dy/dx</m>.
       This notation has several advantages.
       It resembles the quotient <m>\Delta y/\Delta x</m> that we use to approximate the derivative.
       Also, because <m>dy/dx</m> looks like a rate,
@@ -228,24 +224,15 @@
           <idx><h>Leibniz, G.</h></idx>
           <idx><h>Leibniz's notation</h></idx>
     </p>
-    <aside>
-      <p>
-        The German philosopher Gottfried Wilhelm Leibniz (1646-1716) developed calculus about the same time Newton did.
-        While Newton dealt with derivatives in more or less the way we do, Leibniz introduced a related idea which he called a <em>differential</em>
-        <mdash/><sq>infinitesimally small</sq> numbers which he would write as <m>dx</m> and <m>dy</m>.
-      </p>
-    </aside>
+    <p>
+      [[NOTE:The German philosopher Gottfried Wilhelm Leibniz (1646-1716) developed calculus about the same time Newton did.
+      While Newton dealt with derivatives in more or less the way we do, Leibniz introduced a related idea which he called a <em>differential</em>
+      <mdash/><sq>infinitesimally small</sq> numbers which he would write as <m>dx</m> and <m>dy</m>.]]
+    </p>
     <p>
       The other notation still encountered is due to Newton.
           <idx><h>Newton, I.</h></idx>
-    </p>
-    <aside>
-      <p>
-        Newton's notation
-      </p>
-    </aside>
-    <p>
-      It occurs primarily in physics and is used to denote rates with respect to time.
+      [[NOTE:Newton's notation]] It occurs primarily in physics and is used to denote rates with respect to time.
       If a quantity <m>y</m> is changing over time,
       then the Newton notation expresses the derivative of <m>y</m> as <m>\dot{y}</m>
       (that's the variable <m>y</m> with a dot over it).
@@ -258,28 +245,22 @@
             <idx><h>microscope equation</h></idx>
       </p>
     </introduction>
-    <subsubsection xml:id="sec_the-derivative_subsubsec_a-context-driving-time">
+    <subsubsection xml:id="subsubsec_a-context-driving-time">
       <title>A Context: Driving Time</title>
       <p>
         If you make a 400 mile trip at an average speed of 50 miles per hour,
         then the trip takes 8 hours.
         Suppose you increase the average speed by 2 miles per hour.
         How much time does that cut off the trip?
+      </p>
+      <p>
         One way to approach this question is to start with the basic formula
         <me>
           \mbox{speed}  \times \mbox{time}  = \mbox{distance}
         </me>.
       </p>
       <p>
-        The distance is known to be 400 miles,
-      </p>
-      <aside>
-        <p>
-          Travel time depends on speed
-        </p>
-      </aside>
-      <p>
-        and we really want to understand how <em>time</em>
+        The distance is known to be 400 miles, [[NOTE:Travel time depends on speed]] and we really want to understand how <em>time</em>
         <m>T</m> depends on <em>speed</em> <m>s</m>.
         We get <m>T</m> as a function of <m>s</m> by rewriting the last equation:
         <me>
@@ -293,6 +274,8 @@
         or about 7 hours, 42 minutes.
         Thus, compared to the original 8 hours,
         the higher speed cuts 18 minutes off your driving time.
+      </p>
+      <p>
         What happens to the driving time if you increase your speed by 4 miles per hour,
         or 5, instead of 2?
         What happens if you go slower,
@@ -301,18 +284,12 @@
         one by one,
         the same way we did the first.
         But taking the questions one at a time misses the point.
-        What we really want to know is the general pattern: If I'm travelling at 50 miles per hour,
-      </p>
-      <aside>
-        <p>
-          How does travel time respond to changes in speed?
-        </p>
-      </aside>
-      <p>
-        how much does any
+        What we really want to know is the general pattern: If I'm travelling at 50 miles per hour, [[NOTE:How does travel time respond to changes in speed?]] how much does any
       </p>
       <p>
         given increase in speed decrease my travel time?
+      </p>
+      <p>
         We already know how <m>T</m> and <m>s</m> are related:
         <m>T = 400/s</m> hours.
         This question, however, is about the connection between a
@@ -330,6 +307,8 @@
         It is not the relation between <m>s</m> and <m>T</m>,
         but between <m>\Delta s</m> and <m>\Delta T</m>,
         that we want to understand.
+      </p>
+      <p>
         Since we are considering speeds <m>s</m> that are only slightly above or below 50 miles per hour,
         <m>\Delta s</m> will be small.
         Consequently,
@@ -341,19 +320,15 @@
       </p>
       <image source=""/>
       <p>
-        How travel time changes with speed around 50 miles per hour In the microscope window
+        How travel time changes with speed around 50 miles per hour
+      </p>
+      <p>
+        In the microscope window
             <idx><h>window</h></idx>
         above we see the graph of <m>T = 400/s</m>,
         magnified at the point <m>(s, T) = (50, 8)</m>.
-        The field of view was chosen so that <m>s</m> can take values about 6 mph above or below 50 mph.
-      </p>
-      <aside>
-        <p>
-          The slope of the graph in the microscope window
-        </p>
-      </aside>
-      <p>
-        The graph looks straight, and its slope is <m>T'(50)</m>.
+        The field of view was chosen so that <m>s</m> can take values about 6 mph above or below 50 mph. [[NOTE:The slope of the graph in the microscope window]] The graph looks straight,
+        and its slope is <m>T'(50)</m>.
         In the exercises you are asked to determine the value of <m>T'(50)</m>;
         you should find <m>T'(50) \approx -0.16</m>. (Later on,
         when we have rules for finding the derivative of a formula,
@@ -373,15 +348,7 @@
         </me>.
       </p>
       <p>
-        This equation answers our question
-      </p>
-      <aside>
-        <p>
-          How travel time changes with speed
-        </p>
-      </aside>
-      <p>
-        about the general pattern relating changes in travel time to changes in speed.
+        This equation answers our question [[NOTE:How travel time changes with speed]] about the general pattern relating changes in travel time to changes in speed.
         It says that the changes are <em>proportional</em>.
         For every mile per hour increase in speed,
         travel time decreases by about 0.16 hours,
@@ -393,15 +360,11 @@
         if the speed is 2 mph over 50 mph,
         travel time is cut by about 19 minutes.
         Compare this with a value of about 18 minutes that we got with the exact equation <m>T = 400/s</m>.
-        Notice that we are using <m>\Delta s</m> and <m>\Delta T</m>
       </p>
-      <aside>
-        <p>
-          <m>\Delta s</m> and <m>\Delta T</m> now have a special meaning
-        </p>
-      </aside>
       <p>
-        in a slightly more restricted way than we have previously.
+        Notice that we are using <m>\Delta s</m> and
+        <m>\Delta T</m> [[NOTE<m>:\Delta s</m> and
+        <m>\Delta T</m> now have a special meaning]] in a slightly more restricted way than we have previously.
         Up to now, <m>\Delta s</m> measured the horizontal distance between
         <em>any</em> two points on a graph.
         Now, however,
@@ -417,14 +380,10 @@
         we have added a <m>\Delta s</m>-axis and a
         <m>\Delta T</m>-axis in the window below.
         Notice that these coordinate axes have their own labels and scales.
-        Every point in the window can therefore
       </p>
-      <aside>
-        <p>
-          <m>\Delta s</m> and <m>\Delta T</m> are coordinates in the window
-        </p>
-      </aside>
       <p>
+        Every point in the window can therefore [[NOTE<m>:\Delta s</m> and
+        <m>\Delta T</m> are coordinates in the window]]
             <idx><h>microscope coordinates</h></idx>
         be described in two different coordinate systems.
         The two different sets of coordinates of the point labelled <m>P</m>,
@@ -447,6 +406,8 @@
             <idx><h>microscope equation</h></idx>
         because it tells us how the microscope coordinates
         <m>\Delta s</m> and <m>\Delta T</m> are related.
+      </p>
+      <p>
         In fact, we now have two different ways to describe how travel time is related to speed.
         They can be compared in the following table.
       </p>
@@ -498,13 +459,7 @@
       </tabular>
       <p>
         We say the microscope equation is <em>local</em>
-      </p>
-      <aside>
-        <p>
-          Global vs. local descriptions
-        </p>
-      </aside>
-      <p>
+        [[NOTE:Global vs. local descriptions]]
             <idx><h>global</h></idx>
         because it is intended to deal only with speeds near 50 miles per hour.
         There is a different microscope equation for speeds near 40 miles per hour,
@@ -524,11 +479,13 @@
       </p>
       <image source=""/>
     </subsubsection>
-    <subsubsection xml:id="sec_the-derivative_subsubsec_local-linearity-and-multipliers">
+    <subsubsection xml:id="subsubsec_local-linearity-and-multipliers">
       <title>Local Linearity and Multipliers</title>
       <p>
             <idx><h>local linearity</h></idx>
             <idx><h>multiplier</h></idx>
+      </p>
+      <p>
         The reasoning that led us to a microscope equation for travel time can be applied to any locally linear function.
         If <m>y = f(x)</m> is locally linear,
         then at <m>x = a</m> we can write
@@ -543,19 +500,16 @@
         In this almost-linear relation,
         the derivative <m>f'(a)</m> plays the role of slope, rate,
         and multiplier.
+      </p>
+      <p>
         The microscope equation
             <idx><h>microscope equation</h></idx>
-      </p>
-      <aside>
-        <p>
-          The microscope equation is the analytic form of local linearity
-        </p>
-      </aside>
-      <p>
-        is just the idea of local linearity expressed analytically rather than geometrically<mdash/>that is,
+        [[NOTE:The microscope equation is the analytic form of local linearity]] is just the idea of local linearity expressed analytically rather than geometrically<mdash/>that is,
         by a formula rather than by a picture.
         Here is a chart that shows how the two descriptions of local linearity fit together.
-        <term> <m>y = f(x)</m> is locally linear at  <m>x = a</m>:</term>
+      </p>
+      <p>
+        <term> <m>y = f(x)</m> is locally linear at <m>x = a</m>:</term>
       </p>
       <tabular>
         <row>
@@ -580,9 +534,9 @@
           <cell>and the multiplier is <m>f'(a)</m>.</cell>
         </row>
         <row>
-          <cell><image source="images/268fa1dc07954e80f9ceff45306f97414a4aeef1.png"/></cell>
+          <cell><image source=""/></cell>
           <cell></cell>
-          <cell><image source="images/97bef9ae73731c66b841e7df2aee459775b8c07e.png"/></cell>
+          <cell><image source=""/></cell>
         </row>
       </tabular>
       <p>
@@ -600,10 +554,14 @@
         Like a laboratory microscope,
         our microscope is most accurate at the center of the field of view,
         with increasing aberration toward the periphery!
+      </p>
+      <p>
         In the microscope equation <m>\Delta y \approx f'(a) \cdot \Delta x</m>,
+      </p>
+      <p>
         <term>the derivative is the multiplier
             <idx><h>multiplier</h></idx>
-        that tells how <m>y</m> responds to changes in  <m>x</m></term>.
+        that tells how <m>y</m> responds to changes in <m>x</m></term>.
         In particular,
         a small increase in <m>x</m> produces a change in <m>y</m> that depends on the sign and magnitude of <m>f'(a)</m> in the following way:
         <ul>
@@ -634,7 +592,10 @@
         </ul>
       </p>
       <p>
-        <image width="73%" source="images/micro1.png"/> For example,
+        <image width="73%" source="images/micro1.png"/>
+      </p>
+      <p>
+        For example,
         suppose we are told the value of the derivative is 2.
         Then any small change in <m>x</m> induces a change in <m>y</m> approximately twice as large.
         If, instead, the derivative is <m>-1/5</m>,
@@ -642,15 +603,9 @@
         and in the opposite direction.
         That is, if <m>x</m> increases,
         then <m>y</m> decreases, and vice-versa.
-        The microscope equation should look familiar to you.
       </p>
-      <aside>
-        <p>
-          The microscope equation is the recipe for building solutions to rate equations
-        </p>
-      </aside>
       <p>
-        It has been with us from the beginning of the course.
+        The microscope equation should look familiar to you. [[NOTE:The microscope equation is the recipe for building solutions to rate equations]] It has been with us from the beginning of the course.
         Our
         <q>recipe</q>
         <m>\Delta S = S'\cdot\Delta t</m> for predicting future values of <m>S</m> in the <m>S</m>-<m>I</m>-<m>R</m> model is just the microscope equation for the function <m>S(t)</m>.
@@ -662,11 +617,15 @@
         <m>\Delta S</m> would provide us only an <em>estimate</em>
         for the new value of <m>S</m>.)
         The success of Euler's method in producing solutions to rate equations depends fundamentally on the fact that the functions we are trying to find are locally linear.
+      </p>
+      <p>
         The derivative is one of the fundamental concepts of the calculus,
         and one of its most important roles is in the microscope equation.
         Besides giving us a tool for building solutions to rate equations,
         the microscope equation helps us do estimation and error analysis,
         the subject of the next section.
+      </p>
+      <p>
         We conclude with a summary that compares linear and locally linear functions.
         Note there are two differences,
         but only two: 1) the equation for local linearity is only an approximation; 2) it holds only locally<mdash/>i.e., near a given point.
@@ -676,7 +635,7 @@
   </subsection>
   <subsection>
     <title>Exercises</title>
-    <subsubsection xml:id="sec_the-derivative_subsubsec_computing-derivatives">
+    <subsubsection xml:id="subsubsec_computing-derivatives">
       <title>Computing Derivatives</title>
       <p>
             <idx><h>derivative</h></idx>
@@ -778,13 +737,20 @@
           <p>
             Repeat all the steps of the last question for the function <m>f(x) = \sqrt{x}</m> at <m>x = 9</m>.
             The exact value of <m>f'(9)</m> is 1/6.
-            <term>Comment</term>: Note that, in section<nbsp/>1,
-            we estimated the rate of change of the sunrise function using an expression like <m>Q_1</m> rather than one like <m>Q_2</m>.
-            The previous exercises should persuade you this was deliberate.
-            We were trying to get the most representative estimates,
-            given the fact that we could not reduce the size of <m>\Delta x</m> arbitrarily.
           </p>
         </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title>Comment:</title>
+      <p>
+        Note that, in section<nbsp/>1,
+        we estimated the rate of change of the sunrise function using an expression like <m>Q_1</m> rather than one like <m>Q_2</m>.
+        The previous exercises should persuade you this was deliberate.
+        We were trying to get the most representative estimates,
+        given the fact that we could not reduce the size of <m>\Delta x</m> arbitrarily.
+      </p>
+      <ol>
         <li>
           <p>
             At this point you will find it convenient to write a more general derivative-finding program.
@@ -815,28 +781,28 @@
           <p>
             In this problem we look again at the exponential function
             <m>f(x)=2^x</m> from the previous problem.
-            <ol>
-              <li>
-                <p>
-                  Use the rules for exponents to put the quotient
-                  <me>
-                    \frac{f(a+ h) - f(a)}{h}
-                  </me>
-                  in the simplest form you can.
-                </p>
-              </li>
-              <li>
-                <p>
-                  We know that
-                  <me>
-                    f'(0) = \lim_{h \rightarrow 0} \frac{f(h) - f(0)}{h}
-                  </me>.
-                  Use this fact, along with the algebraic result of part (a),
-                  to explain why <m>f'(a)=f'(0)\cdot2^a</m>.
-                </p>
-              </li>
-            </ol>
           </p>
+          <ol>
+            <li>
+              <p>
+                Use the rules for exponents to put the quotient
+                <me>
+                  \frac{f(a+ h) - f(a)}{h}
+                </me>
+                in the simplest form you can.
+              </p>
+            </li>
+            <li>
+              <p>
+                We know that
+                <me>
+                  f'(0) = \lim_{h \rightarrow 0} \frac{f(h) - f(0)}{h}
+                </me>.
+                Use this fact, along with the algebraic result of part (a),
+                to explain why <m>f'(a)=f'(0)\cdot2^a</m>.
+              </p>
+            </li>
+          </ol>
         </li>
         <li>
           <p>
@@ -860,7 +826,7 @@
         </li>
       </ol>
     </subsubsection>
-    <subsubsection xml:id="sec_the-derivative_subsubsec_the-microscope-equation">
+    <subsubsection xml:id="subsubsec_the-microscope-equation">
       <title>The microscope equation</title>
       <p>
             <idx><h>microscope equation</h></idx>

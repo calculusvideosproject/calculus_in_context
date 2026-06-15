@@ -1,4 +1,4 @@
-<section xml:id="sec_approximation-near-a-point-or-over-an-interval_sec_approximation-near-a-point-or-over-an-interval">
+<section xml:id="sec_approximation-near-a-point-or-over-an-interval">
   <title>Approximation Near a Point or
   Over an Interval</title>
   <p>
@@ -11,7 +11,10 @@
     </me>.
   </p>
   <p>
-    (You will see in section<nbsp/>2 where <m>P(x)</m> comes from.) If we compare the values of <m>\sin(x)</m> and <m>P(x)</m> over the interval <m>[0, 1]</m> we get the following:
+    (You will see in section<nbsp/>2 where <m>P(x)</m> comes from.)
+  </p>
+  <p>
+    If we compare the values of <m>\sin(x)</m> and <m>P(x)</m> over the interval <m>[0, 1]</m> we get the following:
     <me>
       \begin{array}{cccc} x  \amp  \sin{x} \amp  P(x) \amp \sin{x}-P(x)\\ \hline \begin{array}{r} 0.0\\ 0.2 \\ 0.4 \\ 0.6 \\ 0.8 \\ 1.0 \end{array} \amp \begin{array}{r} 0.0 \\ 0.198669 \\ 0.389418 \\ 0.564642 \\ 0.717356 \\ 0.841471 \end{array} \amp \begin{array}{r} 0.0 \\ 0.198667 \\ 0.389333 \\ 0.564000 \\ 0.714667 \\ 0.833333 \end{array} \amp \begin{array}{r} 0.0 \\ 0.000002 \\ 0.000085 \\ 0.000642 \\ 0.002689 \\ 0.008138 \end{array} \end{array}
     </me>
@@ -20,6 +23,8 @@
     The fit is good,
     with the largest difference occurring at <m>x=1.0</m>,
     where the difference is only slightly greater than <m>.008</m>.
+  </p>
+  <p>
     If we plot <m>\sin(x)</m> and <m>P(x)</m> together over the interval
     <m>[0, \pi]</m> we see the ways in which <m>P(x)</m> is both very good and not so good.
     Over the initial portion of the graph<mdash/>out to around <m>x=1</m><mdash/>the graphs of the two functions seem to coincide.
@@ -29,31 +34,34 @@
     <m>P(x)</m> would be a reasonable choice.
     If we need to approximate <m>\sin(x)</m> over the entire interval,
     <m>P(x)</m> is less useful.
-    <image width="73%" source="images/sin1.png"/> On the other hand,
-    consider the second degree polynomial
+  </p>
+  <p>
+    <image width="73%" source="images/sin1.png"/>
+  </p>
+  <p>
+    On the other hand, consider the second degree polynomial
     <me>
       Q(x) = -0.4176977 x^2 +1.312236205 x - 0.050465497
     </me>
   </p>
   <p>
     (You will see how to compute these coefficients in section<nbsp/>6.) When we graph <m>Q(x)</m> and <m>\sin(x)</m> together we get the following:
-    <image width="73%" source="images/sin2.png"/> While <m>Q(x)</m> does not fits the graph of <m>\sin(x)</m> as well as <m>P(x)</m> does near the origin,
+  </p>
+  <p>
+    <image width="73%" source="images/sin2.png"/>
+  </p>
+  <p>
+    While <m>Q(x)</m> does not fits the graph of <m>\sin(x)</m> as well as <m>P(x)</m> does near the origin,
     it is a good fit overall.
     In fact, <m>Q(x)</m> exactly equals <m>\sin(x)</m> at 4 values of <m>x</m>,
     and the greatest separation between the graphs of <m>Q(x)</m> and <m>\sin(x)</m> over the interval <m>[0,\pi]</m> occurs at the endpoints,
     where the distance between the graphs is 0.0505 units.
+  </p>
+  <p>
     What we have here, then,
     are two kinds of approximation of the sine function by polynomials:
     we have a polynomial <m>P(x)</m> that behaves very much like the sine function near the origin,
-    and we have another
-  </p>
-  <aside>
-    <p>
-      There's more than one way to make the "best fit" to a given curve
-    </p>
-  </aside>
-  <p>
-    polynomial <m>Q(x)</m> that keeps close to the sine function over the entire interval <m>[0, \pi]</m>.
+    and we have another [[NOTE:There's more than one way to make the "best fit" to a given curve]] polynomial <m>Q(x)</m> that keeps close to the sine function over the entire interval <m>[0, \pi]</m>.
     Which one is the
     <q>better</q>
     approximation depends on our needs.

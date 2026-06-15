@@ -1,29 +1,25 @@
-<section xml:id="sec_a-global-view_sec_a-global-view">
+<section xml:id="sec_a-global-view">
   <title>A Global View</title>
   <introduction>
     <p>
           <idx><h>global</h></idx>
     </p>
   </introduction>
-  <subsection xml:id="sec_a-global-view_subsec_derivative-as-function">
+  <subsection xml:id="subsec_derivative-as-function">
     <title>Derivative as Function</title>
     <p>
           <idx><h>derivative</h></idx>
+    </p>
+    <p>
       Up to now we have looked upon the derivative as a <em>number</em>.
       It gives us information about a function at a
       <em>point</em><mdash/>the rate at which the function is changing,
       the slope of its graph,
-      the value of the multiplier in the microscope equation.
-    </p>
-    <aside>
-      <p>
-        The derivative is a function in its own right
-      </p>
-    </aside>
-    <p>
-          <idx><h>function</h><h>derivative</h></idx>
-      But the numerical value of the derivative varies from point to point, and these values can also be considered as the values of a new function<mdash/>the derivative function<mdash/>with its own graph.
+      the value of the multiplier in the microscope equation. [[NOTE:The derivative is a function in its own right]]<idx><h>function</h><h>derivative</h></idx> But the numerical value of the derivative varies from point to point,
+      and these values can also be considered as the values of a new function<mdash/>the derivative function<mdash/>with its own graph.
       Viewed this way the derivative is a <em>global</em> object.
+    </p>
+    <p>
       The connection between a function and its derivative can be seen very clearly if we look at their graphs.
           <idx><h>graph</h></idx>
       To illustrate,
@@ -34,16 +30,14 @@
       the derivative of <m>I</m>.
       The graphs are lined-up vertically:
       the values of <m>I(a)</m> and <m>I'(a)</m> are recorded on the same vertical line that passes through the point <m>t = a</m> on the <m>t</m>-axis.
-      <image width="73%" source="images/iiprime.png"/> To understand the connection between the graphs,
-      keep in mind that the derivative represents a slope.
     </p>
-    <aside>
-      <p>
-        The height of <m>I'</m> is the slope of <m>I</m>
-      </p>
-    </aside>
     <p>
-      Thus, at any point <m>t</m>,
+      <image width="73%" source="images/iiprime.png"/>
+    </p>
+    <p>
+      To understand the connection between the graphs,
+      keep in mind that the derivative represents a slope. [[NOTE:The height of <m>I'</m> is the slope of <m>I</m>]] Thus,
+      at any point <m>t</m>,
       the <em>height</em> of the lower graph (<m>I'</m>) tells us the
       <em>slope</em> of the upper graph
       (<m>I</m>).
@@ -56,6 +50,8 @@
       the graph of <m>I'</m> is highest.
       At the point where <m>I</m> is decreasing most rapidly,
       <m>I'</m> has its lowest value.
+    </p>
+    <p>
       Next, consider what happens when <m>I</m> itself reaches its maximum value.
       Since <m>I</m> is about to switch from increasing to decreasing,
       the derivative must be about to switch from positive to negative.
@@ -65,6 +61,8 @@
       if we zoomed in on the graph of <m>I</m> at its highest point,
       we would find a horizontal line<mdash/>in other words,
       one whose slope is zero.
+    </p>
+    <p>
       All functions and their derivatives are related the same way that <m>I</m> and <m>I'</m> are.
       In the following table we list the various features of the graph of a function;
       alongside each is the corresponding feature of the graph of the derivative.
@@ -127,32 +125,45 @@
       when you are given the graph of a function.
       You can also read the table from right to left,
       to see how the graph of a function is influenced by the graph of its derivative.
-      For instance,
-      suppose the graph of the function <m>L(x)</m> is <image width="73%" source="images/funny.png"/> Then we know that its derivative <m>L'</m> must be 0 at points <m>a</m>,
-      <m>b</m>, <m>c</m>, and <m>d</m>;
     </p>
-    <aside>
-      <p>
-        Finding a derivative
-        <q>by eye</q>
-      </p>
-    </aside>
     <p>
-      that the derivative must be positive between <m>a</m> and <m>b</m> and between <m>c</m> and <m>d</m>,
+      For instance, suppose the graph of the function <m>L(x)</m> is
+    </p>
+    <p>
+      <image width="73%" source="images/funny.png"/>
+    </p>
+    <p>
+      Then we know that its derivative <m>L'</m> must be 0 at points <m>a</m>,
+      <m>b</m>,
+      <m>c</m>, and <m>d</m>; [[NOTE:Finding a derivative
+      <q>by eye</q>
+      ]] that the derivative must be positive between <m>a</m> and <m>b</m> and between <m>c</m> and <m>d</m>,
       negative otherwise;
       that the derivative takes on relatively large values at <m>e</m> and <m>g</m> (positive) and at <m>f</m> and <m>h</m> (negative);
       that the derivative must approach 0 at the right endpoint and be large and negative at the left endpoint.
       Putting all this together we conclude that the graph of the derivative <m>L'</m> must look something like following:
-      <image width="73%" source="images/funnyslope.png"/> Conversely,
-      suppose all we are told about a certain function <m>G</m> is that the graph of its derivative <m>G'</m> looks like this:
-      <image width="73%" source="images/funny3.png"/> Then we can infer that the function <m>G</m> itself is decreasing between <m>a</m> and <m>b</m> and is increasing everywhere else;
+    </p>
+    <p>
+      <image width="73%" source="images/funnyslope.png"/>
+    </p>
+    <p>
+      Conversely, suppose all we are told about a certain function <m>G</m> is
+    </p>
+    <p>
+      that the graph of its derivative <m>G'</m> looks like this:
+    </p>
+    <p>
+      <image width="73%" source="images/funny3.png"/>
+    </p>
+    <p>
+      Then we can infer that the function <m>G</m> itself is decreasing between <m>a</m> and <m>b</m> and is increasing everywhere else;
       that the graph of <m>G</m> is horizontal at <m>a</m>, <m>b</m>,
       and <m>c</m>;
       that both ends of the graph of <m>G</m> slope upward from left to right<mdash/>the left end more or less straight,
       the right getting steeper and steeper.
     </p>
   </subsection>
-  <subsection xml:id="sec_a-global-view_subsec_formulas-for-derivatives">
+  <subsection xml:id="subsec_formulas-for-derivatives">
     <title>Formulas for Derivatives</title>
     <introduction>
       <p>
@@ -160,7 +171,7 @@
             <idx><h>formula</h></idx>
       </p>
     </introduction>
-    <subsubsection xml:id="sec_a-global-view_subsubsec_basic-functions">
+    <subsubsection xml:id="subsubsec_basic-functions">
       <title>Basic Functions</title>
       <p>
             <idx><h>basic function</h></idx>
@@ -177,15 +188,9 @@
         and in the next we will take up the chain rule,
         which is the key to the whole process.
         Then in chapter 5 we will review differentiation systematically.
-        Most formulas are constructed
       </p>
-      <aside>
-        <p>
-          Formulas are combinations of basic functions
-        </p>
-      </aside>
       <p>
-        by combining only a few basic functions in various ways.
+        Most formulas are constructed [[NOTE:Formulas are combinations of basic functions]] by combining only a few basic functions in various ways.
         For instance, the formula
         <me>
           3\;x^7 - \dfrac{\sin{x}}{8\sqrt{x}}
@@ -197,6 +202,8 @@
         <m>\sqrt{x}</m> as two different instances of a single basic
         <q>power of <m>x</m></q>
         <mdash/>which we can write as <m>x^p</m>.
+      </p>
+      <p>
         The following table lists some of the more common basic functions with their derivatives.
         The number <m>c</m> is an arbitrary constant,
         and so is the power <m>p</m>.
@@ -252,15 +259,13 @@
           <cell><m>k_b \cdot b^x</m></cell>
         </row>
       </tabular>
-      <aside>
-        <p>
-          Remember that the input to the trigonometric functions is always measured in radians;
-          the above formulas are not correct if <m>x</m> is measured in degrees.
-          There are similar formulas if you insist on using degrees,
-          but they are more complicated.
-          This is the principal reasons we work in radians<mdash/>the formulas are nice!
-        </p>
-      </aside>
+      <p>
+        [[NOTE:Remember that the input to the trigonometric functions is always measured in radians;
+        the above formulas are not correct if <m>x</m> is measured in degrees.
+        There are similar formulas if you insist on using degrees,
+        but they are more complicated.
+        This is the principal reasons we work in radians<mdash/>the formulas are nice!]]
+      </p>
       <p>
         For example,
         <ul>
@@ -301,23 +306,17 @@
         the exponent doesn't change.
       </p>
     </subsubsection>
-    <subsubsection xml:id="sec_a-global-view_subsubsec_basic-rules">
+    <subsubsection xml:id="subsubsec_basic-rules">
       <title>Basic Rules</title>
       <p>
         Since basic functions are combined in various ways to make formulas,
         we need to know how to differentiate <em>combinations</em>.
         For example,
         suppose we add the basic functions <m>g(x)</m> and <m>h(x)</m>,
-        to get <m>f(x) = g(x) + h(x)</m>.
-      </p>
-      <aside>
-        <p>
-          The addition rule
-        </p>
-      </aside>
-      <p>
+        to get <m>f(x) = g(x) + h(x)</m>. [[NOTE:The addition rule]]
             <idx><h>addition rule</h></idx>
-        Then <m>f</m> is differentiable, and <m>f'(x) = g'(x) + h'(x)</m>.
+        Then <m>f</m> is differentiable,
+        and <m>f'(x) = g'(x) + h'(x)</m>.
         Actually, this is true for <em>all</em>
         differentiable functions <m>g</m> and <m>h</m>, not just basic functions.
         It says:
@@ -332,15 +331,10 @@
             <idx><h>differentiation</h></idx>
             <idx><h>differentiation</h><h>addition rule</h></idx>
             <idx><h>differentiation</h><h>constant multiple rule</h></idx>
-        Likewise, if we multiply any differentiable function <m>g</m> by a constant <m>c</m>, then the product <m>f(x) = cg(x)</m> is also differentiable and
       </p>
-      <aside>
-        <p>
-          The constant multiple rule
-        </p>
-      </aside>
       <p>
-        <m>f'(x) = cg'(x)</m>.
+        Likewise, if we multiply any differentiable function <m>g</m> by a constant <m>c</m>,
+        then the product <m>f(x) = cg(x)</m> is also differentiable and [[NOTE:The constant multiple rule]] <m>f'(x) = cg'(x)</m>.
         This says:
         <q>If <m>f</m> is <m>c</m> times as large as <m>g</m>,
         then <m>f</m> changes at <m>c</m> times the rate of <m>g</m>.</q>
@@ -351,6 +345,8 @@
         tell us how to find the derivative of
         <m>\sin(5x)</m> , because <m>\sin(5x) \neq 5\sin(x)</m>.
         We will need the chain rule to work this one out.
+      </p>
+      <p>
         The rules about sums and constant multiples of functions are just the first of several basic rules for differentiating combinations of functions.
         We will describe how to handle products and quotients of functions in chapter<nbsp/>5.
         For the moment we summarize in the following table the rules we have already covered.
@@ -404,7 +400,7 @@
         All the rules presented up to this point are illustrated in the following examples;
         note that the first three involve polynomials.
       </p>
-      <tabular xml:id="sec_a-global-view_deriv_table">
+      <tabular xml:id="deriv_table">
         <row>
           <cell>function</cell>
           <cell></cell>
@@ -460,7 +456,7 @@
   </subsection>
   <subsection>
     <title>Exercises</title>
-    <subsubsection xml:id="sec_a-global-view_subsubsec_sketching-the-graph-of-the-derivative">
+    <subsubsection xml:id="subsubsec_sketching-the-graph-of-the-derivative">
       <title>Sketching the graph of the derivative</title>
       <p>
             <idx><h>graph</h></idx>
@@ -526,7 +522,7 @@
         </li>
       </ol>
     </subsubsection>
-    <subsubsection xml:id="sec_a-global-view_subsubsec_differentiation">
+    <subsubsection xml:id="subsubsec_differentiation">
       <title>Differentiation</title>
       <p>
             <idx><h>differentiation</h></idx>

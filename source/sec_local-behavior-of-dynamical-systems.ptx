@@ -1,18 +1,10 @@
-<section xml:id="sec_local-behavior-of-dynamical-systems_sec_local-behavior-of-dynamical-systems">
+<section xml:id="sec_local-behavior-of-dynamical-systems">
   <title>Local Behavior of Dynamical Systems</title>
-  <subsection xml:id="sec_local-behavior-of-dynamical-systems_subsec_a-microscopic-view">
+  <subsection xml:id="subsec_a-microscopic-view">
     <title>A Microscopic View</title>
     <p>
       One of the themes of this book has been the concept of the
-      <q>microscope</q>.
-    </p>
-    <aside>
-      <p>
-        Phase portraits under the microscope
-      </p>
-    </aside>
-    <p>
-      When we zoom in on some part of a geometrical object,
+      <q>microscope</q>. [[NOTE:Phase portraits under the microscope]] When we zoom in on some part of a geometrical object,
       the structure typically becomes much simpler.
       In chapter 3 we used this approach to think about the behavior of functions.
       In this section we will use the same idea to analyze the behavior of a vector field and its phase portrait.
@@ -35,7 +27,7 @@
     </p>
     <p>
       To get a feel for how this works,
-      let's go back and look at problem 4 <xref ref="sec_state-spaces-and-vector-fields_x_basins_">on</xref> of the previous section.
+      let's go back and look at problem 4 <xref ref="x_basins_">on</xref> of the previous section.
       There we had two species X and Y competing for the same food source.
       We modeled the dynamics of this system by the equations
       <md>
@@ -45,8 +37,12 @@
     </p>
     <p>
       The phase portrait for this system looks like the following figure.
-      <image width="73%" source="images/locbeha1.png"/> The three equilibrium points<mdash/><m>P=(0,200)</m>,
-      <m>R=(1000/7, 200/7)</m>,
+    </p>
+    <p>
+      <image width="73%" source="images/locbeha1.png"/>
+    </p>
+    <p>
+      The three equilibrium points<mdash/><m>P=(0,200)</m>, <m>R=(1000/7, 200/7)</m>,
       and <m>S=(0, 200)</m><mdash/>are indicated,
       together with a generic point <m>Q=(35, 50)</m>.
       Note that <m>P</m> and <m>S</m> are attractors and that <m>R</m> is a saddle point.
@@ -55,11 +51,18 @@
       There are also two trajectories
       (not shown)
       flowing directly toward <m>R</m> and forming the boundary between the basins of attraction for <m>P</m> and <m>S</m>.
-      We will see how to construct this boundary shortly ( <xref ref="sec_a-taxonomy-of-equilibrium-points_x_boundary_"></xref>).
+      We will see how to construct this boundary shortly ( <xref ref="x_boundary_"></xref>).
+    </p>
+    <p>
       Let's first zoom in on the point <m>Q</m> and see what the phase portrait looks like there.
       If we take the region <m>\pm 1</m> unit on either side of <m>Q</m>,
       we get the following phase portrait:
-      <image width="73%" source="images/locbeha2.png"/> At this level,
+    </p>
+    <p>
+      <image width="73%" source="images/locbeha2.png"/>
+    </p>
+    <p>
+      At this level,
       all the trajectories appear to be parallel straight lines.
       How could we have anticipated this picture?
       The first step in analyzing this phase portrait is to observe that since we are interested in its behavior near <m>Q=(35, 50)</m>,
@@ -71,15 +74,7 @@
       </md>.
     </p>
     <p>
-      The effect of this transformation is simply to shift the origin to the point <m>Q</m><mdash/>the location of every point in the plane is now measured relative to <m>Q</m>
-    </p>
-    <aside>
-      <p>
-        Shifting the origin
-      </p>
-    </aside>
-    <p>
-      rather than to the <m>x</m>-<m>y</m> origin.
+      The effect of this transformation is simply to shift the origin to the point <m>Q</m><mdash/>the location of every point in the plane is now measured relative to <m>Q</m> [[NOTE:Shifting the origin]] rather than to the <m>x</m>-<m>y</m> origin.
       A point is close to the point <m>Q</m> if its <m>r</m>-<m>s</m> coordinates are small.
       Further, if we are given the <m>r</m>-<m>s</m> coordinates of a point,
       we can always recover the <m>x</m>-<m>y</m> coordinates,
@@ -107,18 +102,13 @@
       What we have accomplished by this is to transform a problem about trajectories near the point
       <m>(35, 50) )</m> in the <m>x</m>-<m>y</m> plane into a problem about trajectories near the origin in the <m>r</m>-<m>s</m> plane<mdash/>we have <term>localized</term>
       the problem to the point we are interested in.
+    </p>
+    <p>
       The second step comes in analyzing the <m>r</m>-<m>s</m> system:
       since we are only interested in its behavior near the origin,
       we will be looking at values of <m>r</m> and <m>s</m> that are small.
-      Under these
-    </p>
-    <aside>
-      <p>
-        Near an ordinary point, a vector field is almost constant
-      </p>
-    </aside>
-    <p>
-      circumstances,
+      Under these [[NOTE:Near an ordinary point,
+      a vector field is almost constant]] circumstances,
       the contributions of the constant terms will far outweigh the contributions of any of the terms involving <m>r</m> and <m>s</m>.
       For instance,
       in our current example we are looking at a window that is <m>\pm 1</m> unit wide and <m>\pm 1</m> unit high around <m>Q</m>.
@@ -137,20 +127,16 @@
     </p>
     <p>
       Note that 1.70625 and 0.81 are just the values of <m>x'</m> and <m>y'</m> at <m>Q</m>.
+    </p>
+    <p>
       In this linearized system,
       any change <m>\Delta t</m> in the time produces a change <m>\Delta r =1.70625\Delta t</m> in <m>r</m>,
       and a change <m>\Delta s=.81\Delta t</m> in <m>s</m>.
-      Thus the velocity vectors in the vector field near <m>Q</m> would all have the same length
-    </p>
-    <aside>
-      <p>
-        Near an ordinary point all trajectories look the same
-      </p>
-    </aside>
-    <p>
-      and would be pointing in the same direction,
+      Thus the velocity vectors in the vector field near <m>Q</m> would all have the same length [[NOTE:Near an ordinary point all trajectories look the same]] and would be pointing in the same direction,
       with slope <m>\Delta s/\Delta r =.81/1.70625=.4747</m>.
       This in turn means that near <m>Q</m> all trajectories have the same slope and are traversed at the same speed.
+    </p>
+    <p>
       We would see a similar picture<mdash/>a family of parallel straight lines<mdash/>whenever we zoom in on the phase portrait near any other ordinary (i.e., non-equilibrium) point
       <m>(x_\ast,
       y_\ast)</m> The vector field near such a point can always be approximated by a constant linear system of the form
@@ -161,24 +147,28 @@
       where <m>e</m> and <m>f</m> are the values of <m>x'</m> and <m>y'</m> at <m>(x_\ast,
       y_\ast)</m>.
       The trajectories of this approximating linear system will be lines of slope <m>f/e</m>.
-      Near an
     </p>
-    <aside>
-      <p>
-        Equilibrium points are different
-      </p>
-    </aside>
     <p>
-      equilibrium point, the picture is more complicated.
+      Near an [[NOTE:Equilibrium points are different]] equilibrium point,
+      the picture is more complicated.
       No matter how far in we zoom,
       the phase portrait never looks like a family of straight lines.
       For instance,
       here's what the picture looks like when we zoom in on <m>R=(1000/7, 200/7)\approx (142.857, 28.571)</m><nbsp/>:
-      <image width="73%" source="images/locbeha3.png"/> <mdash/>if we zoomed in to a window 1/100-th the size of this one,
+    </p>
+    <p>
+      <image width="73%" source="images/locbeha3.png"/>
+    </p>
+    <p>
+      <ndash/>-if we zoomed in to a window 1/100-th the size of this one,
       the picture would be indistinguishable from this one.
+    </p>
+    <p>
       Here we see four trajectories that look almost like straight lines<mdash/>two coming directly towards <m>R</m> and two going directly away.
       All the other trajectories appear to be asymptotic to these two sets.
       <xref ref="fixedline">On</xref> in the next section you will see how to find the equations of these asymptotes.
+    </p>
+    <p>
       What happens when we linearize the vector field at <m>R</m>?
       As before, we first shift the origin so that it is centered at <m>R</m> by changing to coordinates <m>r</m> and <m>s</m>, where
       <md>
@@ -197,15 +187,8 @@
       </md>.
     </p>
     <p>
-      This time, though, the constant term
-    </p>
-    <aside>
-      <p>
-        Linear approximation of the vector field
-      </p>
-    </aside>
-    <p>
-      in the expression for both <m>r'</m> and <m>s'</m> is 0.
+      This time, though,
+      the constant term [[NOTE:Linear approximation of the vector field]] in the expression for both <m>r'</m> and <m>s'</m> is 0.
       This is because the point <m>R</m> was an equilibrium point,
       which meant that both <m>x'</m> and <m>y'</m>,
       and hence <m>r'</m> and <m>s'</m>, were 0 there.
@@ -226,8 +209,12 @@
       </md>,
       for suitable constants <m>a</m>,
       <m>b</m>, <m>c</m>, and <m>d</m>.
+    </p>
+    <p>
       We will see in <xref ref="taxonomy">section</xref>
       how to use this linearized form of the vector field to discover many of the properties of equilibrium points.
+    </p>
+    <p>
       How can we find values for the constants <m>a</m>,
       <m>b</m>, <m>c</m>, and <m>d</m>?
       If the differential equations specifying the rates of change of the variables are polynomials,
@@ -261,15 +248,9 @@
         <mrow>dE_2/dt \amp = f_2(E_1,E_2)</mrow>
       </md>,
       where <m>f_1</m> and <m>f_2</m> are the functions given in the text.
-      But <m>f_1</m> and <m>f_2</m> are just
-    </p>
-    <aside>
-      <p>
-        To linearize a vector field, linearize the functions that determine it
-      </p>
-    </aside>
-    <p>
-      functions, and we learned in chapter 3 how to construct locally linear approximations to them.
+      But <m>f_1</m> and <m>f_2</m> are just [[NOTE:To linearize a vector field,
+      linearize the functions that determine it]] functions,
+      and we learned in chapter 3 how to construct locally linear approximations to them.
       This was, in fact, how we defined derivatives in the first place.
       Thus if <m>E_1</m> changes by a small amount <m>\Delta E_1=E_1-92.0869</m>,
       the function <m>f_i</m> will change by approximately <m>\partial f_i/\partial E_1 \times \Delta E_1</m>.
@@ -282,15 +263,7 @@
       </md>.
     </p>
     <p>
-      But since <m>P_2</m> is an equilibrium point,
-    </p>
-    <aside>
-      <p>
-        General form for the local linearization at an equilibrium point<ellipsis/>
-      </p>
-    </aside>
-    <p>
-      we have by definition that <m>f_1</m> and <m>f_2</m> are both zero there,
+      But since <m>P_2</m> is an equilibrium point, [[NOTE:General form for the local linearization at an equilibrium point<ellipsis/>]] we have by definition that <m>f_1</m> and <m>f_2</m> are both zero there,
       so <m>\Delta f_i(E_1,E_2) = f_i(E_1,E_2) - f_i(P_2)</m> is just <m>f_i(E_1,E_2)</m>.
       Further, if you look closely you will see that the quantity
       <m>\Delta E_1=E_1-92.0869</m> is identical with what we have been calling the local coordinate <m>r</m>,
@@ -303,6 +276,8 @@
       where the partial derivatives are evaluated at <m>P_2</m>.
       Notice that there is nothing in this expression which is specific to this particular problem.
       The local linearization of any vector field at any equilibrium point will be in this form.
+    </p>
+    <p>
       Finally, using the values given for the different parameters back <xref ref="x_amprob_">on</xref>,
       we can evaluate all the partial derivatives to get the specific local linearization for the point <m>P_2</m>:
       <md>
@@ -312,15 +287,9 @@
     </p>
     <p>
       We will see in the next section how knowing this form will allow us to find the boundary between the two basins of attraction.
-      For completeness,
     </p>
-    <aside>
-      <p>
-        <ellipsis/> and at a generic point
-      </p>
-    </aside>
     <p>
-      let's remind ourselves of what the local linearization would look like at a nonequilibrium point in the current formulation.
+      For completeness, [[NOTE:<ellipsis/> and at a generic point]] let's remind ourselves of what the local linearization would look like at a nonequilibrium point in the current formulation.
       The result is immediate and simple,
       using the analysis we used before.
       If <m>Q</m> is a generic point,
@@ -332,7 +301,7 @@
       </md>.
     </p>
   </subsection>
-  <subsection xml:id="sec_local-behavior-of-dynamical-systems_subsec_exercises">
+  <subsection xml:id="subsec_exercises">
     <title>Exercises</title>
     <ol>
       <li>
@@ -379,7 +348,7 @@
       </li>
       <li>
         <p>
-          Go back to the second Anderson<ndash/>May model analyzed in problem<nbsp/>8 of the previous section ( <xref ref="sec_state-spaces-and-vector-fields_AMay2"></xref>).
+          Go back to the second Anderson<ndash/>May model analyzed in problem<nbsp/>8 of the previous section ( <xref ref="AMay2"></xref>).
           Using the parameter values given in part<nbsp/>(c) there,
           find the local linearizations at all equilibrium points.
         </p>

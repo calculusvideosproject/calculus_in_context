@@ -1,4 +1,4 @@
-<section xml:id="sec_the-equation-y-ft_sec_the-equation-y-ft">
+<section xml:id="sec_the-equation-y-ft">
   <title>The Equation <m>y' = f(t)</m></title>
   <introduction>
     <p>
@@ -8,22 +8,17 @@
       <m>y' = ky</m> and <m>y' = ky^p</m>.
       Even when several variables were present<mdash/>as in the <m>S</m>-<m>I</m>-<m>R</m> model and the predator-prey models<mdash/>it was most natural to express the rates at which those variables change in terms of the variables themselves.
       Even the motion of a spring
-      (<xref ref="spring-begin">pages</xref><ndash/> <xref ref="sec_solutions-of-differential-equations_spring-end"></xref>)
+      (<xref ref="spring-begin">pages</xref><ndash/> <xref ref="spring-end"></xref>)
       was described that way:
       the rate of change of position equalled the velocity,
       and the rate of change of velocity was proportional to the position.
+    </p>
+    <p>
       Sometimes, though, a differential equation
           <idx><h>falling body</h></idx>
-    </p>
-    <aside>
-      <p>
-        The motion of a falling body <ellipsis/>
-      </p>
-    </aside>
-    <p>
-      will express the rate of change of a variable
+      [[NOTE:The motion of a falling body <ellipsis/>]] will express the rate of change of a variable
       <em>directly in terms of the input variable</em>.
-      For example, <xref ref="sec_solutions-of-differential-equations_falling_body0">on</xref>
+      For example, <xref ref="falling_body0">on</xref>
       we saw that the velocity <m>dx/dt</m> of a body falling under the sole influence of gravity is a linear function of the time:
       <me>
         \dfrac{dx}{dt} = -gt + v_0
@@ -41,18 +36,10 @@
       We will now consider special methods that can be used to study differential equations of this special form.
     </p>
   </introduction>
-  <subsection xml:id="sec_the-equation-y-ft_subsec_antiderivatives">
+  <subsection xml:id="subsec_antiderivatives">
     <title>Antiderivatives</title>
     <p>
-      To solve the equation of motion of a body
-    </p>
-    <aside>
-      <p>
-        <ellipsis/> and its solution
-      </p>
-    </aside>
-    <p>
-      falling under gravity,
+      To solve the equation of motion of a body [[NOTE:<ellipsis/> and its solution]] falling under gravity,
       we must find a function <m>x(t)</m> whose derivative is given as
       <me>
         x' = -gt + v_0
@@ -60,15 +47,7 @@
     </p>
     <p>
       We can call upon our knowledge of the rules of differentiation to find <m>x</m>.
-      Consider <m>-gt</m> first.
-    </p>
-    <aside>
-      <p>
-        <m>-gt</m> is the derivative of <m>-gt^2/2</m>
-      </p>
-    </aside>
-    <p>
-      What function has <m>-gt</m> as its derivative?
+      Consider <m>-gt</m> first. [[NOTE<m>:-gt</m> is the derivative of <m>-gt^2/2</m>]] What function has <m>-gt</m> as its derivative?
       We can start with <m>t^2</m>,
       whose derivative is <m>2t</m>.
       Since we want the derivative to turn out to be <m>-gt</m>,
@@ -80,20 +59,17 @@
     <p>
       This leads us to identify <m>-gt^2/2</m> as a function whose derivative is <m>-gt</m>.
       Check for yourself that this is correct by differentiating <m>-gt^2/2</m>.
-      Now consider <m>v_0</m>, the other part of <m>dx/dt</m>.
-      What function has the constant <m>v_0</m> as its derivative?
     </p>
-    <aside>
-      <p>
-        <m>v_0</m> is the derivative of <m>v_0t</m> and of <m>v_0t + b</m>
-      </p>
-    </aside>
     <p>
-      A derivative is a rate of growth,
+      Now consider <m>v_0</m>, the other part of <m>dx/dt</m>.
+      What function has the constant <m>v_0</m> as its derivative? [[NOTE<m>:v_0</m> is the derivative of <m>v_0t</m> and of
+      <m>v_0t + b</m>]] A derivative is a rate of growth,
       and we know that the linear functions are precisely the ones that have constant growth rates.
       Furthermore, the rate is the multiplier for a linear function,
       so we conclude that any linear function of the form
       <m>v_0 t + b</m> has derivative <m>v_0</m>.
+    </p>
+    <p>
       If we put the two pieces together, we find that
       <me>
         x(t) = -\dfrac{g}{2} \, t^2 + v_0 t + b
@@ -103,14 +79,7 @@
       (Recall from section<nbsp/>2 that a differential equation can have many solutions.)
       We constructed this formula for <m>x(t)</m> by
       <q>undoing</q>
-    </p>
-    <aside>
-      <p>
-        The antiderivative of a function
-      </p>
-    </aside>
-    <p>
-      the process of differentiation,
+      [[NOTE:The antiderivative of a function]] the process of differentiation,
       a process sometimes called <em> antidifferentiation</em>.
           <idx><h>antidifferentiation</h></idx>
       The function produced is called an
@@ -123,15 +92,8 @@
       </md>.
     </p>
     <p>
-      Note that a function
-    </p>
-    <aside>
-      <p>
-        All the functions <m>F(x) +C</m> are antiderivatives of <m>F'(x)</m>
-      </p>
-    </aside>
-    <p>
-      has only one derivative, but it has many antiderivatives.
+      Note that a function [[NOTE:All the functions <m>F(x) +C</m> are antiderivatives of <m>F'(x)</m>]] has only one derivative,
+      but it has many antiderivatives.
       If <m>F(t)</m> is an antiderivative of <m>f(t)</m>,
       then so is <m>F(t) + C</m>, where <m>C</m> is any constant.
     </p>
@@ -149,15 +111,8 @@
       </me>
     </p>
     <p>
-      Notice the formula for the antiderivative of <m>x^p</m>
-    </p>
-    <aside>
-      <p>
-        Every power of <m>x</m> has an antiderivative
-      </p>
-    </aside>
-    <p>
-      requires <m>p+1 \neq 0</m>, that is, <m>p \neq -1</m>.
+      Notice the formula for the antiderivative of <m>x^p</m> [[NOTE:Every power of <m>x</m> has an antiderivative]] requires <m>p+1 \neq 0</m>,
+      that is, <m>p \neq -1</m>.
       This leaves out <m>x^{-1}</m>.
       However, the antiderivative of <m>x^{-1}</m> is <m>\ln{x}</m>,
       so no power of <m>x</m> is excluded from the table.
@@ -173,23 +128,28 @@
     </p>
     <p>
       We defer a discussion of the analogue of the chain rule to chapter<nbsp/>11.
+    </p>
+    <p>
       With just these rules we can find the antiderivative of any polynomial,
       for instance.
       (Recall that a polynomial is a sum of constant multiples of powers of the input variable.)
       Here is a collection of sample antiderivatives that illustrate the various rules.
       To emphasize the fact that antiderivatives are determined only up to an additive constant,
       various constants have been tacked on<mdash/>any other constant would work just as well.
-      You should compare this table with the one <xref ref="sec_a-global-view_deriv_table">on</xref>.
+      You should compare this table with the one <xref ref="deriv_table">on</xref>.
       <me>
         \begin{array}{cc} \mbox{function}  \amp  \mbox{antiderivative}  \\ \hline 5x^4 - 2x^3 \amp x^5 - \frac{1}{2}x^4 +17 \\ 5x^4 - 2x^3 + 17x \amp x^5 - \frac{1}{2}x^4 + \frac{17}{2}x^2 -243.77 \\ 6 \cdot 10^z + 17/z^7 \amp 6 \cdot 10^z/\ln{10} -  17/6z^6 +.002 \\ 3\sin{t} - 2t^3 \amp  -3\cos{t} - \frac{1}{2}t^4 +5\ln{7} \\ \pi\cos{x} + \pi^2 \amp  \pi\sin{x} + \pi^2 x  - 12e^{7.21} \end{array}
       </me>
     </p>
   </subsection>
-  <subsection xml:id="sec_the-equation-y-ft_subsec_eulers-method-revisited">
+  <subsection xml:id="subsec_eulers-method-revisited">
     <title>Euler's Method Revisited</title>
     <p>
           <idx><h>Euler's method</h></idx>
-      If we know the formula for an antiderivative of <m>f(t)</m>, then we can write down a solution to the differential equation <m>dy/dt = f(t)</m>.
+    </p>
+    <p>
+      If we know the formula for an antiderivative of <m>f(t)</m>,
+      then we can write down a solution to the differential equation <m>dy/dt = f(t)</m>.
       For example, the general solution to
       <me>
         \dfrac{dy}{dt} = 12t^2 + \sin{t}
@@ -203,20 +163,18 @@
       In other cases, <m>f(t)</m> may not even be given by a formula.
       It may be a data function,
       given as a graph made by a pen tracing on a moving sheet of graph paper.
+    </p>
+    <p>
       Whether we can find a formula for an antiderivative of <m>f(t)</m> or not,
       we can still solve the differential equation <m>dy/dt = f(t)</m> by Euler's method.
       It turns out that Euler's method takes on a relatively simple form in such cases.
       Let's investigate this in the following context.
+    </p>
+    <p>
       Let <m>V</m> be the volume of water in a reservoir
           <idx><h>reservoir</h></idx>
-    </p>
-    <aside>
-      <p>
-        The volume of a reservoir varies over time
-      </p>
-    </aside>
-    <p>
-      serving a small town, measured in millions of gallons.
+      [[NOTE:The volume of a reservoir varies over time]] serving a small town,
+      measured in millions of gallons.
       Then <m>V</m> is a function of the time <m>t</m>, measured in days.
       Rainfall adds water to the reservoir,
       while evaporation and consumption by the townspeople take it away.
@@ -232,15 +190,7 @@
       </me>.
     </p>
     <p>
-      Suppose <m>f(t)</m> is measured every two days,
-    </p>
-    <aside>
-      <p>
-        The net inflow rate
-      </p>
-    </aside>
-    <p>
-      and those measurements are recorded in the following table.  {
+      Suppose <m>f(t)</m> is measured every two days, [[NOTE:The net inflow rate]] and those measurements are recorded in the following table.  {
       <me>
         \begin{array}{cc} \mbox{time \(t\)}  \amp  \mbox{rate \(f(t)\)}  \\ [-2pt] \mbox{(days)}  \amp  (10^6 \times \ \mbox{gals. per day} ) \\ \hline \begin{array}{r} 0 \\ 2 \\ 4 \\ 6 \\ 8 \\ 10 \\ 12 \end{array} \amp \begin{array}{r} 0.34 \\ 0.11 \\ -0.07 \\ -0.23 \\ -0.14 \\ 0.03 \\ 0.08 \end{array} \end{array}
       </me>
@@ -251,19 +201,14 @@
       This is in marked contrast with most of the examples we've looked at in this course where we had to know the values of all the variables for any time <m>t</m> before we could calculate the new rate value at that time.
       It is this simplification that gives differential equations of the form
       <m>y' = f(t)</m> their special structure.
+    </p>
+    <p>
       If we assume the value of <m>f(t)</m> remains constant for the two days after each measurement is made,
       we can approximate the total change in <m>V</m> over these 14 days.
       The following table does this;
       it tells us how much <m>V</m> changes over each two-day period,
-      and also<idx><h>change</h><h>accumulated</h></idx>
-    </p>
-    <aside>
-      <p>
-        The accumulated change in <m>V</m>
-      </p>
-    </aside>
-    <p>
-      the total <em>accumulated</em> change in <m>V</m> by the end that period.
+      and also<idx><h>change</h><h>accumulated</h></idx> [[NOTE:The accumulated change in <m>V</m>]] the total <em>accumulated</em>
+      change in <m>V</m> by the end that period.
       Since <m>\Delta t = 2</m> days,
       we calculate <m>\Delta V</m> by
       <me>
@@ -274,7 +219,7 @@
       </me>
     </p>
     <p>
-      } At the end of the 14 days,
+      At the end of the 14 days,
       <m>V</m> has accumulated a total change of 0.24 million gallons.
       Notice this does not depend on the initial size of <m>V</m>.
       If <m>V</m> had been 92.64 million gallons at the start,
@@ -288,15 +233,7 @@
       at which <m>V</m> changes is independent of <m>V</m>.
     </p>
     <p>
-      We can therefore use Euler's method
-    </p>
-    <aside>
-      <p>
-        Calculating just the accumulated change in<nbsp/><m>y</m>
-      </p>
-    </aside>
-    <p>
-      to solve any differential equation of the form
+      We can therefore use Euler's method [[NOTE:Calculating just the accumulated change in<nbsp/><m>y</m>]] to solve any differential equation of the form
       <m>dy/dt = f(t)</m> <em>independently</em>
       of an initial value for <m>y</m>.
       We just calculate the total accumulated change in <m>y</m>,
@@ -308,15 +245,7 @@
       </me>
     </p>
     <p>
-      } The third column is too small to hold the
-    </p>
-    <aside>
-      <p>
-        The accumulated change in <m>y</m>
-      </p>
-    </aside>
-    <p>
-      values of
+      The third column is too small to hold the [[NOTE:The accumulated change in <m>y</m>]] values of
       <q>accumulated <m>\Delta y</m>.</q>
       Instead, it contains the instructions for obtaining those values.
       It says: to get the current value of
@@ -325,6 +254,8 @@
       <q>current <m>\Delta y</m></q>
       to the previous value of
       <q>accumulated <m>\Delta y</m>.</q>
+    </p>
+    <p>
       Let's use Euler's method to find the accumulated
       <m>\Delta y</m> when <m>t = 4</m>, given that
       <me>
@@ -363,6 +294,8 @@ NEXT k
       we have modified the program accordingly.
       Note that <c> accumulation</c> always starts at 0, no matter what the initial value of <m>y</m> is.
       The first line of the program takes advantage of a capacity most programming languages have to define functions which can then be referred to elsewhere in the program.
+    </p>
+    <p>
       As usual, to find the exact value of the accumulated <m>\Delta y</m>,
       it is necessary to recalculate,
       using more steps and smaller step sizes <m>\Delta t</m>.
@@ -374,6 +307,8 @@ NEXT k
     <p>
       Thus we can say that if <m>dy/dt = \cos(t^2)</m>,
       then <m>y</m> increases by .594<ellipsis/> when <m>t</m> increases from 0 to 4.
+    </p>
+    <p>
       In the same way we changed SIRVALUE to produce the program SIRPLOT ( <xref ref="sirplot"></xref>),
       we can change the program TABLE into one that will
       <em>plot</em> the values of <m>y</m>.
@@ -381,8 +316,17 @@ NEXT k
       we have increased the number of steps to 400 to get a closer approximation to the true values of <m>y</m>.
           <idx><h>program</h><h>PLOT</h></idx>
       The output of PLOT is shown immediately below.
-      <image width="73%" source="images/pic260.png"/> The accumulated <m>\Delta y</m> when
-      <m>dy/dt = \cos(t^2)</m> <term>Program: PLOT</term>
+    </p>
+    <p>
+      <image width="73%" source="images/pic260.png"/>
+    </p>
+    <p>
+      The accumulated <m>\Delta y</m> when <m>dy/dt = \cos(t^2)</m>
+    </p>
+    <p>
+      <term>Program: PLOT</term>
+    </p>
+    <p>
       <em>Set up GRAPHICS</em>
     </p>
 <pre>
@@ -398,72 +342,24 @@ deltay = fnf(t) * deltat
 </pre>
     <p>
       <em>Plot the line from <c>(t, accumulation)</c></em>
-    </p>
-    <p>
-      <em>to <c>(t + deltat, accumulation + deltay)</c></em>
-    </p>
-<pre>
-accumulation = accumulation + deltay
-t = t + deltat
-NEXT k
-</pre>
-    <p>
-      Let's compare our reservoir model with population growth.
-      The rate at which a population grows depends,
-      in an obvious way, on the size of the population.
-      By contrast,
-      the rate at which the reservoir fills does <em>not</em>
-      depend on how much water there is in the reservoir.
-    </p>
-    <aside>
-      <p>
-        Exogenous and endogenous factors
-      </p>
-    </aside>
-    <p>
-      It depends on factors <em>outside</em> the reservoir:
-      rainfall and consumption.
-      These factors are said to be <term>exogenous</term>
-      (from the Greek <em>exo-</em>,
-      <q>outside</q>
-      and <em>-gen</em>,
-      <q>produced,</q>
-      or
-      <q>born</q>).
-          <idx><h>exogenous factor</h></idx>
-      The opposite is called an <em> endogenous</em> factor
-      (from the Greek <em>endo-</em>,
-      <q>within</q>).
-          <idx><h>endogenous factor</h></idx>
-      Evaporation is an endogenous factor for the reservoir model;
-      population size is certainly an endogenous factor for a population model.
-      Precisely because exogenous factors are
-      <q>outside the system,</q>
-      we need to be <em>given</em> the information on how they vary over time.
-      In the reservoir model,
-      this information appears in the function <m>f(t)</m> that describes the rate at which <m>V</m> changes.
-      In general, if <m>y</m> depends on exogenous factors that vary over time,
-      we can expect the differential equation for <m>y</m> to involve a function of time:
       <me>
-        \dfrac{dy}{dt} = f(t)
+        -1pt] \textsl{to \texttt{(t + deltat, accumulation + deltay)}} <pre> accumulation = accumulation + deltay t = t + deltat NEXT k </pre>Let's compare our reservoir model with population growth.  The rate at which a population grows depends, in an obvious way, on the size of the population.  By contrast, the rate at which the reservoir fills does \emph{not} depend on how much water there is in the reservoir. [[NOTE:Exogenous and endogenous factors]] It depends on factors \emph{outside} the reservoir: rainfall and consumption.  These factors are said to be \knownterminology{exogenous} (from the Greek \emph{exo-}, ``outside'' and \emph{-gen}, ``produced,'' or ``born'').\knownindex{\lt h>exogenous factor\lt /h>} The opposite is called an \textbf{  endogenous} factor (from the Greek \emph{endo-}, ``within'').\knownindex{\lt h>endogenous factor\lt /h>} Evaporation is an endogenous factor for the reservoir model; population size is certainly an endogenous factor for a population model.  Precisely because exogenous factors are ``outside the system,'' we need to be \emph{given} the information on how they vary over time. In the reservoir model, this information appears in the function \(f(t)\) that describes the rate at which \(V\) changes.  In general, if \(y\) depends on exogenous factors that vary over time, we can expect the differential equation for \(y\) to involve a function of time: \[ \dfrac{dy}{dt} = f(t)
       </me>
     </p>
     <p>
       Thus, we can view this section as dealing with models that involve exogenous factors.
     </p>
-    <aside>
-      <p>
-        The differential equation of motion for a falling body,
-        <m>dx/dt = -gt + v_0</m>, indicates that gravity is an exogenous factor.
-        In Greek and medieval European science,
-        the reason an object fell to the ground was assumed to lie within the object itself<mdash/>it was the object's
-        <q>heaviness.</q>
-        By making the cause of motion exogenous,
-        rather than endogenous, Galileo and Newton started a scientific revolution.
-      </p>
-    </aside>
+    <p>
+      [[NOTE:The differential equation of motion for a falling body,
+      <m>dx/dt = -gt + v_0</m>, indicates that gravity is an exogenous factor.
+      In Greek and medieval European science,
+      the reason an object fell to the ground was assumed to lie within the object itself<mdash/>it was the object's
+      <q>heaviness.</q>
+      By making the cause of motion exogenous,
+      rather than endogenous, Galileo and Newton started a scientific revolution.]]
+    </p>
   </subsection>
-  <subsection xml:id="sec_the-equation-y-ft_subsec_exercises">
+  <subsection xml:id="subsec_exercises">
     <title>Exercises</title>
     <ol>
       <li>

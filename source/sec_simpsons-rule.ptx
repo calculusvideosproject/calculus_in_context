@@ -1,16 +1,8 @@
-<section xml:id="sec_simpsons-rule_sec_simpsons-rule">
+<section xml:id="sec_simpsons-rule">
   <title>Simpson's Rule</title>
   <introduction>
     <p>
-      This chapter has concentrated on formulas for antiderivatives,
-    </p>
-    <aside>
-      <p>
-        A return to numerical methods
-      </p>
-    </aside>
-    <p>
-      because a formula conveys compactly a lot of information.
+      This chapter has concentrated on formulas for antiderivatives, [[NOTE:A return to numerical methods]] because a formula conveys compactly a lot of information.
       However, you must not lose sight of the fact that most antiderivatives cannot be found by such analytic methods.
       The integrand may be a data function,
       for instance, and thus have no formula.
@@ -23,6 +15,8 @@
       providing another family of approximating functions for which antiderivatives can be readily obtained.
       Another approach is to find a desired definite integral using approximating rectangles,
       as we did in chapter 6.
+    </p>
+    <p>
       In any case, numerical methods are inescapable,
       but accurate results require many calculations.
       This takes time<mdash/>even on a modern high-speed computer.
@@ -31,64 +25,44 @@
       if it gets accurate results quickly, that is,
       with relatively few calculations.
       In chapter<nbsp/>6 we saw that <em>midpoint</em>
-      Riemann sums are much more efficient than left or right
-      <em>endpoint</em> Riemann sums.
-    </p>
-    <aside>
-      <p>
-        Efficient numerical integration
-      </p>
-    </aside>
-    <p>
-      We will look at these and other methods in detail in this section.
+      Riemann sums are much more efficient than left or right <em>endpoint</em>
+      Riemann sums. [[NOTE:Efficient numerical integration]] We will look at these and other methods in detail in this section.
       The most efficient method we will develop is called Simpson's rule.
     </p>
   </introduction>
-  <subsection xml:id="sec_simpsons-rule_subsec_the-trapezoid-rule">
+  <subsection xml:id="subsec_the-trapezoid-rule">
     <title>The Trapezoid Rule</title>
     <p>
           <idx><h>trapezoid rule</h></idx>
+    </p>
+    <p>
       We interpret the integral
       <me>
         \int_a^b f(x) \, dx
       </me>
       as the area under the graph
       <m>y = f(x)</m> between <m>x = a</m> and <m>x = b</m>.
-      We interpret a Riemann sum as the total area of a collection of rectangles that approximate the area under the graph.
-    </p>
-    <aside>
-      <p>
-        Replace rectangles by trapezoids
-      </p>
-    </aside>
-    <p>
-      The tops of the rectangles are level,
+      We interpret a Riemann sum as the total area of a collection of rectangles that approximate the area under the graph. [[NOTE:Replace rectangles by trapezoids]] The tops of the rectangles are level,
       and they represent the graph of step function.
       Clearly, we get a better approximation to the graph by using slanted lines.
       They form the tops of a sequence of <em> trapezoids</em>
           <idx><h>trapezoid</h></idx>
       that approximate the area under the graph.
-      <image width="73%" source="images/trap1.png"/> Let's figure out the areas of these trapezoids.
     </p>
-    <aside>
-      <p>
-        Each trapezoid is sandwiched between two rectangles<ellipsis/>
-      </p>
-    </aside>
     <p>
-      They are related in a simple way to the rectangles that we would construct at the right and left endpoints to calculate Riemann sums.
+      <image width="73%" source="images/trap1.png"/>
+    </p>
+    <p>
+      Let's figure out the areas of these trapezoids. [[NOTE:Each trapezoid is sandwiched between two rectangles<ellipsis/>]] They are related in a simple way to the rectangles that we would construct at the right and left endpoints to calculate Riemann sums.
       To see the relation,
       let's take a closer look at a single single trapezoid.
-      <image width="73%" source="images/trap2.png"/> It is sandwiched between two rectangles,
-      one taller and one shorter.
     </p>
-    <aside>
-      <p>
-        <ellipsis/> whose average area equals the area of the trapezoid
-      </p>
-    </aside>
     <p>
-      In our picture the height of the taller rectangle is <m>f(\mbox{right endpoint} )</m>.
+      <image width="73%" source="images/trap2.png"/>
+    </p>
+    <p>
+      It is sandwiched between two rectangles,
+      one taller and one shorter. [[NOTE:<ellipsis/> whose average area equals the area of the trapezoid]] In our picture the height of the taller rectangle is <m>f(\mbox{right endpoint} )</m>.
       We will call it the <em>right rectangle</em>.
       The height of the shorter rectangle is <m>f(\mbox{left endpoint} )</m>.
       We will call it the <em>left rectangle</em>.
@@ -102,15 +76,7 @@
       </me>.
     </p>
     <p>
-      If we sum over the areas of all of the trapezoids,
-    </p>
-    <aside>
-      <p>
-        The trapezoidal approximation is the average of left and right Riemann sums
-      </p>
-    </aside>
-    <p>
-      the areas of the right rectangles sum to the right Riemann sum,
+      If we sum over the areas of all of the trapezoids, [[NOTE:The trapezoidal approximation is the average of left and right Riemann sums]] the areas of the right rectangles sum to the right Riemann sum,
       and similarly for the left rectangles.
       In follows that<idx><h>approximation</h><h>trapezoidal</h></idx>
           <idx><h>left Riemann sum</h></idx>
@@ -127,15 +93,9 @@
       </me>.
     </p>
     <p>
-      (The relation between the trapezoid approximation and the left and right Riemann sums holds for any choice <m>\Delta x_k</m> of subintervals.
-    </p>
-    <aside>
-      <p>
-        Comparing approximations
-      </p>
-    </aside>
-    <p>
-      However, we will use equal subintervals to make the calculations simpler.) Here is how our four main estimates compare when we use 100 subintervals.
+      (The relation between the trapezoid approximation and the left and right Riemann sums holds for any choice
+      <m>\Delta x_k</m> of subintervals. [[NOTE:Comparing approximations]] However,
+      we will use equal subintervals to make the calculations simpler.) Here is how our four main estimates compare when we use 100 subintervals.
     </p>
     <tabular>
       <row>
@@ -178,6 +138,8 @@
       </me>,
       so that the error is negative if the approximation is too large.
       The left Riemann sum is too large, for instance.
+    </p>
+    <p>
       Before we comment on the differences between the estimates,
       let's gather more data.
       Here are the calculations for 1000 subintervals.
@@ -217,33 +179,26 @@
       </row>
     </tabular>
     <p>
-      We expected the trapezoidal approximation
-    </p>
-    <aside>
-      <p>
-        A surprise: the midpoint approximation is even better than the trapezoidal
-      </p>
-    </aside>
-    <p>
-      to be better than either the right or left Riemann sum.
+      We expected the trapezoidal approximation [[NOTE:A surprise:
+      the midpoint approximation is even better than the trapezoidal]] to be better than either the right or left Riemann sum.
       The surprising observation is that the midpoint Riemann sum is even better!
       In fact, it appears that the midpoint Riemann sum has only <em>half</em>
       the error of the trapezoidal approximation.
+    </p>
+    <p>
       The figures below explain geometrically why the midpoint approximation is better than the trapezoidal.
       The first step is shown on the left.
       Take a midpoint rectangle (whose height is <m>f(\mbox{midpoint} )</m>),
       and rotate the top edge around the midpoint until it is tangent to the graph of <m>y = f(x)</m>.
       Call this a <term>midpoint trapezoid</term>.
           <idx><h>midpoint trapezoid</h></idx>
-      Notice that the trapezoid has the same area as the rectangle.<image width="73%" source="images/trap3.png"/> The second step is to compare
+      Notice that the trapezoid has the same area as the rectangle.
     </p>
-    <aside>
-      <p>
-        Shading depicts the errors
-      </p>
-    </aside>
     <p>
-      the midpoint trapezoid to the one used in the trapezoidal approximation.
+      <image width="73%" source="images/trap3.png"/>
+    </p>
+    <p>
+      The second step is to compare [[NOTE:Shading depicts the errors]] the midpoint trapezoid to the one used in the trapezoidal approximation.
       This is done on the right.
       The error coming from the midpoint trapezoid is shaded light gray,
       while the error from the trapezoidal approximation is dark gray.
@@ -254,19 +209,13 @@
       which we noticed first in the tables.
     </p>
   </subsection>
-  <subsection xml:id="sec_simpsons-rule_subsec_simpsons-rule">
+  <subsection xml:id="subsec_simpsons-rule">
     <title>Simpson's Rule</title>
     <p>
           <idx><h>Simpson's rule</h></idx>
-      Our goal is a calculation scheme for integrals
     </p>
-    <aside>
-      <p>
-        Combine good approximations<ellipsis/>
-      </p>
-    </aside>
     <p>
-      that gives an error is as small as possible.
+      Our goal is a calculation scheme for integrals [[NOTE:Combine good approximations<ellipsis/>]] that gives an error is as small as possible.
       The trapezoidal and the midpoint approximations are both good<mdash/>but we can combine them to get something even better.
       Here is why.
       The tables and the figure above indicate that the <em>errors</em>
@@ -277,21 +226,15 @@
       <me>
         2 \times \mbox{midpoint approximation} + \mbox{trapezoidal approximation}
       </me>,
-      then most of the error will cancel.
-    </p>
-    <aside>
-      <p>
-        <ellipsis/> so that most of the error cancels
-      </p>
-    </aside>
-    <p>
-      Now this sum is approximately three times the value of the integral,
+      then most of the error will cancel. [[NOTE:<ellipsis/> so that most of the error cancels]] Now this sum is approximately three times the value of the integral,
       because each term in it approximates the integral itself.
       Therefore, if we divide by three, then
       <me>
         \tfrac{2}{3} \times \mbox{midpoint approximation}  + \tfrac{1}{3} \times \mbox{trapezoidal approximation}
       </me>
       should be a superb approximation to the integral.
+    </p>
+    <p>
       Let's try this approximation on our test integral
       <me>
         \int_1^3 \dfrac{1}{x}\,dx
@@ -306,17 +249,12 @@
       This method of approximating integrals is called
       <term>Simpson's rule</term>.
           <idx><h>Simpson's rule</h></idx>
+    </p>
+    <p>
       We can use the program RIEMANN
           <idx><h>program</h><h>RIEMANN</h></idx>
-      to do the calculation.
-    </p>
-    <aside>
-      <p>
-        Using Riemann sums to carry out Simpson's rule
-      </p>
-    </aside>
-    <p>
-      First calculate left and right Riemann sums, and take their average.
+      to do the calculation. [[NOTE:Using Riemann sums to carry out Simpson's rule]] First calculate left and right Riemann sums,
+      and take their average.
       That is the trapezoidal approximation.
       Then calculate the midpoint Riemann sum.
       Since
@@ -337,15 +275,7 @@
     </p>
     <image source=""/>
     <p>
-      You can get even more accuracy
-    </p>
-    <aside>
-      <p>
-        The accuracy of Simpson's rule
-      </p>
-    </aside>
-    <p>
-      if you keep track of more digits in the left,
+      You can get even more accuracy [[NOTE:The accuracy of Simpson's rule]] if you keep track of more digits in the left,
       right, and midpoint Riemann sums.
       For example, if you estimate
       <me>
@@ -372,14 +302,9 @@
       which differs from the true value by less than <m>3.3 \times 10^{-10}</m>.
       In other words,
       the calculation is actually correct to 9 decimal places.
-      It is possible to get a bound on the error
     </p>
-    <aside>
-      <p>
-        An error bound for Simpson's rule
-      </p>
-    </aside>
     <p>
+      It is possible to get a bound on the error [[NOTE:An error bound for Simpson's rule]]
           <idx><h>error bound</h></idx>
       produced by using Simpson's rule to estimate the value of
       <me>
@@ -397,15 +322,7 @@
       </me>
     </p>
     <p>
-      The most important factor in the error bound
-    </p>
-    <aside>
-      <p>
-        The crucial factor <m>n^{-4}</m>
-      </p>
-    </aside>
-    <p>
-      is the <m>n^4</m> that appears in the denominator.
+      The most important factor in the error bound [[NOTE:The crucial factor <m>n^{-4}</m>]] is the <m>n^4</m> that appears in the denominator.
       In our example <m>n = 100 = 10^2</m>,
       and this leads to the factor <m>1/n^4 = 10^{-8}</m> in the error bound.
       As we saw, the actual error was less than <m>10^{-9}</m>.
@@ -416,7 +333,7 @@
       <em>That</em> is why Simpson's method is efficient.
     </p>
   </subsection>
-  <subsection xml:id="sec_simpsons-rule_subsec_exercises">
+  <subsection xml:id="subsec_exercises">
     <title>Exercises</title>
     <p>
       Because Simpson's rule is so efficient,

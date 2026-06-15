@@ -1,4 +1,4 @@
-<section xml:id="sec_riemann-sums_sec_riemann-sums">
+<section xml:id="sec_riemann-sums">
   <title>Riemann Sums</title>
   <introduction>
     <p>
@@ -6,6 +6,8 @@
       Let's pause to describe that process in somewhat more general terms that we can adapt to other contexts.
       The power graph, the approximating step function,
       and the energy estimate are shown below.
+    </p>
+    <p>
       <image width="73%" source="images/power3.png"/>
       <me>
         \hbox{energy} \approx 28.5 \times 6 + 47 \times 3.5 + \cdots + 57 \times 3 = 1447 \ \hbox{mwh}
@@ -15,13 +17,8 @@
       The height of the first step is 28.5 megawatts.
       This is the <em>actual</em> power level at the time <m>t_1</m> indicated on the graph.
       That is, <m>p(t_1) = 28.5</m> megawatts.
-      We found a power level of 28.5 megawatts by
+      We found a power level of 28.5 megawatts by [[NOTE:Sampling the power function]]
     </p>
-    <aside>
-      <p>
-        Sampling the power function
-      </p>
-    </aside>
     <p>
       <term>sampling</term>
           <idx><h>sampling time</h></idx>
@@ -41,6 +38,8 @@
       there is another sampling time
       (near <m>t = 5</m> hours)
       when the power level is again 28.5 megawatts.
+    </p>
+    <p>
       We can describe what happens in the other time intervals the same way.
       If we sample the <m>k</m>-th interval at the point <m>t_k</m>,
       then the height of the <m>k</m>-th power step will be <m>p(t_k)</m> and our estimate for the energy used during that time will be
@@ -49,15 +48,7 @@
       </me>.
     </p>
     <p>
-      We now have a general way
-    </p>
-    <aside>
-      <p>
-        A procedure for approximating power level and energy use
-      </p>
-    </aside>
-    <p>
-      to construct an approximation for the power function and an estimate for the energy consumed over a 24-hour period.
+      We now have a general way [[NOTE:A procedure for approximating power level and energy use]] to construct an approximation for the power function and an estimate for the energy consumed over a 24-hour period.
       It involves these steps.
       <ol>
         <li>
@@ -93,32 +84,22 @@
           <idx><h>Riemann sum</h></idx>
       for the power function <m>p(t)</m> on the interval <m>0 \leq t \leq 24</m> hours.
     </p>
-    <aside>
-      <p>
-        The work of Bernhard Riemann
-            <idx><h>Riemann, B.</h></idx>
-        (1826<ndash/>1866) has had a profound influence on contemporary mathematicians and physicists.
-        His revolutionary ideas about the geometry of space, for example,
-        are the basis for Einstein's theory of general relativity.
-      </p>
-    </aside>
+    <p>
+      [[NOTE:The work of Bernhard Riemann (1826<ndash/>1866) has had a profound influence on contemporary mathematicians and physicists.
+      His revolutionary ideas about the geometry of space, for example,
+      are the basis for Einstein's theory of general relativity.]]
+    </p>
     <p>
       The enormous range of choices in this process means there are innumerable ways to construct a Riemann sum for <m>p(t)</m>.
-      However, we are not really interested in
-      <em>arbitrary</em> Riemanns sums.
-    </p>
-    <aside>
-      <p>
-        Choices that lead to good estimates
-      </p>
-    </aside>
-    <p>
-      On the contrary,
+      However, we are not really interested in <em>arbitrary</em>
+      Riemanns sums. [[NOTE:Choices that lead to good estimates]] On the contrary,
       we want to build Riemann sums that will give us good estimates for energy consumption.
       Therefore, we will choose each subinterval
       <m>\Delta t_k</m> so small that the power demand over that subinterval differs only very little from the sampled value <m>p(t_k)</m>.
       A Riemann sum constructed with <em>these</em>
       choices will then differ only very little from the total energy used during the 24-hour time interval.
+    </p>
+    <p>
       Essentially, we use a Riemann sum to resolve a dilemma.
       We know the basic formula
       <me>
@@ -126,17 +107,11 @@
       </me>
       works when power is constant,
       but in general power <em>isn't</em>
-      constant<mdash/>that's the dilemma.
-    </p>
-    <aside>
-      <p>
-        The dilemma
-      </p>
-    </aside>
-    <p>
-      We resolve the dilemma by using instead a <em>sum</em>
+      constant<mdash/>that's the dilemma. [[NOTE:The dilemma]] We resolve the dilemma by using instead a <em>sum</em>
       of terms of the form <m>\textit{ power} \times \textit{ time}</m>.
       With this sum we get an estimate for the energy.
+    </p>
+    <p>
       In this section we will explore some other problems that present the same dilemma.
       In each case we will start with a basic formula that involves a product of two constant factors,
       and we will need to adapt the formula to the situation where one of the factors varies.
@@ -146,20 +121,12 @@
       you should pause to compare it to the problem of energy consumption.
     </p>
   </introduction>
-  <subsection xml:id="sec_riemann-sums_subsec_calculating-distance-travelled">
+  <subsection xml:id="subsec_calculating-distance-travelled">
     <title>Calculating Distance Travelled</title>
     <p>
       It is easy to tell how far a car has travelled by reading its odometer.
       The problem is more complicated for a ship,
-      particularly a sailing ship in the days before electronic navigation was common.
-    </p>
-    <aside>
-      <p>
-        Estimating velocity and distance
-      </p>
-    </aside>
-    <p>
-      The crew always had instruments that could measure<mdash/>or at least estimate<mdash/>the velocity of the ship at any time.
+      particularly a sailing ship in the days before electronic navigation was common. [[NOTE:Estimating velocity and distance]] The crew always had instruments that could measure<mdash/>or at least estimate<mdash/>the velocity of the ship at any time.
       Then, during any time interval in which the ship's velocity is constant,
       the distance travelled is given by the familiar formula
       <me>
@@ -173,15 +140,7 @@
       Suppose their lengths are <m>\Delta t_1</m>,
       <m>\Delta t_2</m>, <ellipsis/>, <m>\Delta t_n</m>.
       By assumption, the velocity is a function of time <m>t</m>;
-      let's denote it <m>v(t)</m>.
-    </p>
-    <aside>
-      <p>
-        Sampling the velocity function
-      </p>
-    </aside>
-    <p>
-      At some time <m>t_k</m> during each time period
+      let's denote it <m>v(t)</m>. [[NOTE:Sampling the velocity function]] At some time <m>t_k</m> during each time period
       <m>\Delta t_k</m> measure the velocity: <m>v_k = v(t_k)</m>.
       Then the Riemann sum
       <me>
@@ -189,6 +148,8 @@
       </me>
       is an estimate for the total distance travelled.
           <idx><h>distance as a Riemann sum</h></idx>
+    </p>
+    <p>
       For example,
       suppose the velocity is measured five times during a 15 hour trip<mdash/>once every three hours<mdash/>as shown in the table below.
       Then the basic formula
@@ -324,17 +285,11 @@
     </row>
     </tabular>
     <p>
-      Thus we estimate the ship has
-    </p>
-    <aside>
-      <p>
-        The estimated distance is a Riemann sum for the velocity function
-      </p>
-    </aside>
-    <p>
-      travelled 61.65 miles during the fifteen hours.
+      Thus we estimate the ship has [[NOTE:The estimated distance is a Riemann sum for the velocity function]] travelled 61.65 miles during the fifteen hours.
       The number 61.65, obtained by adding the numbers in the right-most column,
       is a Riemann sum for the velocity function.
+    </p>
+    <p>
       Consider the specific choices that we made to construct this Riemann sum:
       <md>
         <mrow>\Delta t_1 = \Delta t_2 = \Delta t_3 = \Delta t_4 = \Delta t_5 = 3</mrow>
@@ -343,15 +298,7 @@
     </p>
     <p>
       These choices differ from the choices we made in the energy example in two notable ways.
-      First, all the subintervals here are the same size.
-    </p>
-    <aside>
-      <p>
-        Intervals and sampling times are chosen in a systematic way
-      </p>
-    </aside>
-    <p>
-      This is because it is natural to take velocity readings at regular time intervals.
+      First, all the subintervals here are the same size. [[NOTE:Intervals and sampling times are chosen in a systematic way]] This is because it is natural to take velocity readings at regular time intervals.
       By contrast,
       in the energy example the subintervals were of different widths.
       Those widths were chosen in order to make a piecewise constont function that followed the power demand graph closely.
@@ -364,17 +311,11 @@
       This means choosing subintervals of equal size and sampling points at the
       <q>same</q>
       place within each interval.
+    </p>
+    <p>
       Let's turn back to our estimate for the total distance.
       Since the velocity of the ship could have fluctuated significantly during each of the three-hour periods we used,
-      our estimate is rather rough.
-    </p>
-    <aside>
-      <p>
-        Improving the distance estimate
-      </p>
-    </aside>
-    <p>
-      To improve the estimate we could measure the velocity more frequently<mdash/>for example,
+      our estimate is rather rough. [[NOTE:Improving the distance estimate]] To improve the estimate we could measure the velocity more frequently<mdash/>for example,
       every 15 minutes.
       If we did, the Riemann sum would have 60 terms
       (four distances per hour for 15 hours).
@@ -394,52 +335,73 @@
       for the distance covered by a ship.
     </p>
   </subsection>
-  <subsection xml:id="sec_riemann-sums_subsec_calculating-areas">
+  <subsection xml:id="subsec_calculating-areas">
     <title>Calculating Areas</title>
-    <sidebyside>
+    <p>
       \special{psfile=../ps/calc1/region1.ps}
-      The area of a rectangle is just the product of its length and its width.  How can we measure the area of a region that has an irregular boundary, like the one at the left?  We would like to use the basic formula
+    </p>
+    <p>
+      The area of a rectangle is just the product of its length and its width.
+      How can we measure the area of a region that has an irregular boundary,
+      like the one at the left?
+      We would like to use the basic formula
       <me>
         \mbox{area}  = \mbox{length}  \times \mbox{width}
       </me>.
-      However, since the region doesn't have straight sides, there is nothing we can call a
+    </p>
+    <p>
+      However, since the region doesn't have straight sides,
+      there is nothing we can call a
       <q>length</q>
       or a
       <q>width</q>
       to work with.
-      <nbsp/><nbsp/>   We can begin to deal with this problem by breaking up the region into smaller regions that <em>do</em> have straight sides<mdash/>with, at most, only one curved side.  This can be done many different ways.  The lower figure shows one possibility.  The sum of the areas of all the little regions will be the area we are looking for.  Although we haven't yet solved the original problem, we have at least <term>reduced</term> it to another problem that looks simpler and may be easier to solve.  Let's now work on the reduced problem for the shaded region.
-      <nbsp/><nbsp/>  Here is the shaded region, turned so that it sits flat on one
-      of its straight sides.  We would like to calculate its area using the
-      formula
-      width <times/> height,
-      but this formula applies only to rectangles.  We can, however,
-      approximate the region by a collection of rectangles, as shown at the
-      right.  The formula <em>does</em> apply to the individual rectangles
-      and the sum of their areas will approximate the area of the whole
-      region.
+    </p>
+    <p>
+      We can begin to deal with this problem by breaking up the region into smaller regions that <em>do</em>
+      have straight sides<mdash/>with,
+      at most, only one curved side.
+      This can be done many different ways.
+      The lower figure shows one possibility.
+      The sum of the areas of all the little regions will be the area we are looking for.
+      Although we haven't yet solved the original problem,
+      we have at least <term>reduced</term>
+      it to another problem that looks simpler and may be easier to solve.
+      Let's now work on the reduced problem for the shaded region.
+    </p>
+    <p>
+      Here is the shaded region,
+      turned so that it sits flat on one of its straight sides.
+      We would like to calculate its area using the formula width <times/> height,
+      but this formula applies only to rectangles.
+      We can, however,
+      approximate the region by a collection of rectangles, as shown at the right.
+      The formula <em>does</em> apply to the individual rectangles and the sum of their areas will approximate the area of the whole region.
+    </p>
+    <p>
       \special{psfile=../ps/calc1/region2a.ps}
-      <nbsp/><nbsp/>  To get the area of a rectangle, we must measure its width and
-      height.  Their heights vary with the height of the curved top of the
-      shaded region.  To describe that height in a systematic way, we have
-      placed the shaded region in a coordinate plane so that it sits on the
-      <m>x</m>-axis.  The other two straight sides lie on the vertical lines <m>x =
-      a</m> and <m>x = b</m>.
+    </p>
+    <p>
+      To get the area of a rectangle,
+      we must measure its width and height.
+      Their heights vary with the height of the curved top of the shaded region.
+      To describe that height in a systematic way,
+      we have placed the shaded region in a coordinate plane so that it sits on the <m>x</m>-axis.
+      The other two straight sides lie on the vertical lines <m>x = a</m> and <m>x = b</m>.
+    </p>
+    <p>
       \special{psfile=../ps/calc1/region2.ps}
-    </sidebyside>
+    </p>
     <p>
       The curved side defines the graph of a function <m>y = f(x)</m>.
       Therefore, at each point <m>x</m>,
       the vertical height from the axis to the curve is <m>f(x)</m>.
       By introducing a coordinate plane we gain access to mathematical tools<mdash/>such as the language of functions<mdash/>to describe the various areas.
-      The <m>k</m>-th rectangle has been singled out on the left, below.
     </p>
-    <aside>
-      <p>
-        Calculating the areas of the rectangles
-      </p>
-    </aside>
     <p>
-      We let <m>\Delta x_k</m> denote the width of its base.
+      The <m>k</m>-th rectangle has been singled out on the left,
+      below. [[NOTE:Calculating the areas of the rectangles]] We let
+      <m>\Delta x_k</m> denote the width of its base.
       By <term>sampling</term> the function <m>f</m> at a properly chosen point <m>x_k</m> in the base,
       we get the height <m>f(x_k)</m> of the rectangle.
       Its area is therefore <m>f(x_k) \cdot \Delta x_k</m>.
@@ -450,15 +412,10 @@
       </me>.
     </p>
     <p>
-      <image width="73%" source="images/region3.png"/> Notice that our estimate for the area has the form of a
+      <image width="73%" source="images/region3.png"/>
     </p>
-    <aside>
-      <p>
-        The area estimate is a Riemann sum
-      </p>
-    </aside>
     <p>
-      Riemann sum for the height function <m>f(x)</m> over the interval <m>a \leq x \leq b</m>.
+      Notice that our estimate for the area has the form of a [[NOTE:The area estimate is a Riemann sum]] Riemann sum for the height function <m>f(x)</m> over the interval <m>a \leq x \leq b</m>.
       To get a better estimate,
       we should use narrower rectangles, and more of them.
       In other words,
@@ -467,6 +424,8 @@
       is larger and the width <m>\Delta x_k</m> of every subinterval is smaller.
       Putting it yet another way, we should
       <em>sample</em> the height more often.
+    </p>
+    <p>
       Consider what happens if we apply this procedure to a region whose area we know already.
       The semicircle of radius <m>r = 1</m> has an area of
       <m>\pi r^2/2 = \pi/2 = 1.5707963\ldots</m> . The semicircle is the graph of the function
@@ -482,38 +441,35 @@
       The values of the shaded areas were calculated with the program RIEMANN, which we will develop later in this section.
       Note that with 50 rectangles the Riemann sum is within 0.005 of <m>\pi/2</m>,
       the exact value of the area.
+    </p>
+    <p>
       <image width="73%" source="images/semicir1.png"/>
     </p>
   </subsection>
-  <subsection xml:id="sec_riemann-sums_subsec_calculating-lengths">
+  <subsection xml:id="subsec_calculating-lengths">
     <title>Calculating Lengths</title>
     <p>
       It is to be expected that products<mdash/>and ultimately, Riemann sums<mdash/>will be involved in calculating areas.
       It is more surprising to find that we can use them to calculate <em>lengths</em>, too.
       In fact, when we are working in a coordinate plane,
       using a product to describe the length of a straight line is even quite natural.
-      To see how this can happen,
     </p>
-    <aside>
-      <p>
-        The length of a straight line
-      </p>
-    </aside>
     <p>
-      consider a line segment in the
+      To see how this can happen, [[NOTE:The length of a straight line]] consider a line segment in the
       <m>x,
       y</m>-plane that has a known slope <m>m</m>.
       If we also know the horizontal separation between
     </p>
-    <sidebyside>
-      the two ends, we can find the length of the segment.  Suppose the
-      horizontal separation is <m>\Delta x</m> and the vertical separation
-      <m>\Delta y</m>.  Then the length of the segment is
+    <p>
+      the two ends, we can find the length of the segment.
+      Suppose the horizontal separation is
+      <m>\Delta x</m> and the vertical separation <m>\Delta y</m>.
+      Then the length of the segment is
       <me>
         \sqrt{\Delta x^2 + \Delta y^2}
       </me>
-      <image source="images/3d322e955bfbf90f8b11d2fdd3b5d47fa969f99c.png"/>
-    </sidebyside>
+    </p>
+    <image source=""/>
     <p>
       by the Pythagorean theorem
       (<xref ref="Pythagorean_theorem">see</xref>).
@@ -531,33 +487,28 @@
       </me>.
     </p>
     <p>
-      Suppose the line is <em>curved</em>, instead of straight.
-    </p>
-    <aside>
-      <p>
-        The length of a curved line
-      </p>
-    </aside>
-    <p>
-      Can we describe its length the same way?
+      Suppose the line is <em>curved</em>,
+      instead of straight. [[NOTE:The length of a curved line]] Can we describe its length the same way?
       We'll assume that the curve is the graph <m>y = g(x)</m>.
       The complication is that the slope
       <m>m = g'(x)</m> now varies with <m>x</m>.
     </p>
-    <sidebyside>
-      If <m>g'(x)</m> doesn't vary too much over an interval of length <m>\Delta
-      x</m>, then the curve is nearly straight.  Pick a point <m>x_*</m> in that
-      interval and sample the slope <m>g'(x_*)</m> there; we expect the length of
-      the curve to be approximately
+    <p>
+      If <m>g'(x)</m> doesn't vary too much over an interval of length <m>\Delta x</m>,
+      then the curve is nearly straight.
+      Pick a point <m>x_*</m> in that interval and sample the slope <m>g'(x_*)</m> there;
+      we expect the length of the curve to be approximately
       <me>
         \sqrt{1 + (g'(x_*))^2} \cdot \Delta x
       </me>.
-      <image source="images/1ed81d7c0eab642e76514fce12a111975b415ff9.png"/>
-    </sidebyside>
+    </p>
+    <image source=""/>
     <p>
       As the figure shows,
       this is the exact length of the straight line segment that lies over the same interval
       <m>\Delta x</m> and is tangent to the curve at the point <m>x = x_*</m>.
+    </p>
+    <p>
       If the slope <m>g'(x)</m> varies appreciably over the interval,
       we should subdivide the interval into small pieces <m>\Delta x_1</m>,
       <m>\Delta x_2</m>,
@@ -568,15 +519,9 @@
         \sqrt{1 + (g'(x_1))^2} \cdot \Delta x_1 + \cdots + \sqrt{1 + (g'(x_n))^2} \cdot \Delta x_n
       </me>
       will give us an estimate for the total length of the curve.
-      Once again, we find an expression that has the form of
     </p>
-    <aside>
-      <p>
-        The length of a curve is estimated by a Riemann sum
-      </p>
-    </aside>
     <p>
-      a Riemann sum.
+      Once again, we find an expression that has the form of [[NOTE:The length of a curve is estimated by a Riemann sum]] a Riemann sum.
       There is, however, a new ingredient worth noting.
       The estimate is a Riemann sum not for the <em>original</em>
       function <m>g(x)</m> but for <em>another</em> function
@@ -585,6 +530,8 @@
       </me>
       that we constructed using <m>g</m>.
       The important thing is that the length is estimated by a Riemann sum for <em>some</em> function.
+    </p>
+    <p>
       <image width="73%" source="images/length3.png"/> The figure above shows two estimates for the length of the graph of
       <m>y = \sin{x}</m> between 0 and <m>\pi</m>.
       In each case,
@@ -595,6 +542,8 @@
       the approximation to the shape of the graph becomes quite good.
       Notice that the graph itself is not shown on the right;
       only the 20 segments.
+    </p>
+    <p>
       To calculate the two lengths,
       we constructed Riemann sums for the function <m>f(x) = \sqrt{1 + \cos^2{x}}</m>.
       We used the fact that the derivative of
@@ -607,23 +556,21 @@
     <p>
       Thus, the 20-segment estimate is already accurate to four decimal places.
     </p>
-    <aside>
-      <p>
-        We have already constructed estimates for the length of a curve,
-        in chapter 2
-        (<xref ref="length-begin">pages</xref><ndash/> <xref ref="length-end"></xref>).
-        Those estimates were sums, too,
-        but they were not <em>Riemann</em> sums.
-        The terms had the form <m>\sqrt{\Delta x^2 + \Delta y^2}</m>;
-        they were not <em>products</em>
-        of the form <m>\sqrt{1 + m^2} \cdot \Delta x</m>.
-        The sums in chapter 2 may seem more straightforward.
-        However, we are developing Riemann sums as a powerful general tool for dealing with many different questions.
-        By expressing lengths as Riemann sums we gain access to that power.
-      </p>
-    </aside>
+    <p>
+      [[NOTE:We have already constructed estimates for the length of a curve,
+      in chapter 2
+      (<xref ref="length-begin">pages</xref><ndash/> <xref ref="length-end"></xref>).
+      Those estimates were sums, too,
+      but they were not <em>Riemann</em> sums.
+      The terms had the form <m>\sqrt{\Delta x^2 + \Delta y^2}</m>;
+      they were not <em>products</em>
+      of the form <m>\sqrt{1 + m^2} \cdot \Delta x</m>.
+      The sums in chapter 2 may seem more straightforward.
+      However, we are developing Riemann sums as a powerful general tool for dealing with many different questions.
+      By expressing lengths as Riemann sums we gain access to that power.]]
+    </p>
   </subsection>
-  <subsection xml:id="sec_riemann-sums_subsec_definition">
+  <subsection xml:id="subsec_definition">
     <title>Definition</title>
     <p>
       The Riemann sums that appear in the calculation of power,
@@ -631,28 +578,13 @@
       and length are instances of a general mathematical object that can be constructed for
       <em>any</em> function whatsoever.
       We pause now to describe that construction apart from any particular context.
-      In what follows it will be convenient for us to
-    </p>
-    <aside>
-      <p>
-        Notation: <m>{[}a, b{]}</m>
-      </p>
-    </aside>
-    <p>
-      write an interval of the form
+      In what follows it will be convenient for us to [[NOTE:Notation:
+      <m>{[}a, b{]}</m>]] write an interval of the form
       <m>a \leq x \leq b</m> more compactly as <m>[a, b]</m>.
     </p>
     <image source=""/>
     <p>
-      Notice that once the function
-    </p>
-    <aside>
-      <p>
-        Data for a Riemann sum
-      </p>
-    </aside>
-    <p>
-      and the interval have been specified,
+      Notice that once the function [[NOTE:Data for a Riemann sum]] and the interval have been specified,
       a Riemann sum is determined by the following data:
       <ul>
         <li>
@@ -672,16 +604,8 @@
       </ul>
     </p>
     <p>
-      A Riemann sum for <m>f(x)</m> is a sum of products of values of
-      <m>\Delta x</m> and values of <m>y = f(x)</m>.
-    </p>
-    <aside>
-      <p>
-        Units
-      </p>
-    </aside>
-    <p>
-      If <m>x</m> and <m>y</m> have units,
+      A Riemann sum for <m>f(x)</m> is a sum of products of values of <m>\Delta x</m> and values of
+      <m>y = f(x)</m>. [[NOTE:Units]] If <m>x</m> and <m>y</m> have units,
       then so does the Riemann sum;
       its units are the units for <m>x</m> times the units for <m>y</m>.
       When a Riemann sum arises in a particular context,
@@ -692,18 +616,14 @@
       the energy approximation we considered at the beginning of the section is a Riemann sum for the power demand function <m>p(t)</m> on <m>[0, 24]</m>.
       The length approximation for the graph
       <m>y = \sin{x}</m> is a Riemann sum for the function <m>\sqrt{1 + \cos^2{x}}</m> on <m>[0, \pi]</m>.
-      It is important to note that,
     </p>
-    <aside>
-      <p>
-        A Riemann sum is just a number
-      </p>
-    </aside>
     <p>
-      from a mathematical point of view,
+      It is important to note that, [[NOTE:A Riemann sum is just a number]] from a mathematical point of view,
       a Riemann sum is just a number.
       It's the <em>context</em> that provides the meaning: Riemann sums for a power demand that varies over time approximate total energy consumption; Riemann sums for a velocity that varies over time approximate total distance;
       and Riemann sums for a height that varies over distance approximate total area.
+    </p>
+    <p>
       To illustrate the generality of a Riemann sum,
       and to stress that it is just a number arrived at through arbitrary choices,
       let's work through an example without a context.
@@ -713,15 +633,7 @@
       </me>.
     </p>
     <p>
-      We will break up the full interval <m>[1, 3]</m>
-    </p>
-    <aside>
-      <p>
-        The data
-      </p>
-    </aside>
-    <p>
-      into three subintervals <m>[1, 1.6]</m>,
+      We will break up the full interval <m>[1, 3]</m> [[NOTE:The data]] into three subintervals <m>[1, 1.6]</m>,
       <m>[1.6, 2.3]</m> and <m>[2.3, 3]</m>.
       Thus
       <me>
@@ -747,19 +659,15 @@
       as well as the choice of the point <m>x_k</m> in each subinterval,
       was haphazard.
       Different data would produce a different value for the Riemann sum.
+    </p>
+    <p>
       Keep in mind that an individual Riemann sum is not especially significant.
       Ultimately, we are interested in seeing what happens when we recalculate Riemann sums with smaller and smaller subintervals.
       For that reason,
       it is helpful to do the calculations systematically.
-      <term>Calculating a Riemann sum algorithmically</term>.
     </p>
-    <aside>
-      <p>
-        Systematic data
-      </p>
-    </aside>
     <p>
-      As we have seen with our contextual problems,
+      <term>Calculating a Riemann sum algorithmically</term>. [[NOTE:Systematic data]] As we have seen with our contextual problems,
       the data for a Riemann sum is not usually chosen in a haphazard fashion.
       In fact, when dealing with functions given by formulas,
       such as the function <m>f(x) = \sqrt{1 - x^2}</m> whose graph is a semicircle,
@@ -768,6 +676,8 @@
       <q>same</q>
       point from each subinterval (e.g., always pick the midpoint or always pick the left endpoint).
       The benefit of systematic choices is that we can write down the computations involved in a Riemann sum in a simple algorithmic form that can be carried out on a computer.
+    </p>
+    <p>
       Let's illustrate how this strategy applies to the function <m>\sqrt{1+x^3}</m> on <m>[1, 3]</m>.
       Since the whole interval is <m>3 - 1 = 2</m> units long,
       if we construct <m>n</m> subintervals of equal length <m>\Delta x</m>,
@@ -782,6 +692,8 @@
       the space between one sampling point and the next is <m>\Delta x</m>,
       the same as the width of a subinterval.
       This puts the <m>k</m>-th sampling point at <m>x = 1 + (k-1)\Delta x</m>.
+    </p>
+    <p>
       In the following table, we add up the terms in a Riemann sum <m>S</m> for
       <m>f(x) = \sqrt{1 + x^3}</m> on the interval <m>[1, 3]</m>.
       We used <m>n = 4</m> subintervals and always sampled <m>f</m> at the left endpoint.
@@ -891,11 +803,16 @@
     </tabular>
     <p>
       The Riemann sum <m>S</m> appears as the final value 5.2916 in the fourth column.
+    </p>
+    <p>
       The program RIEMANN, below,
       will generate the last two columns in the above table.
       The statement <c>x = a</c> on the sixth line determines the position of the first sampling point.
       Within the FOR<ndash/>NEXT loop,
-      the statement <c>x = x + deltax</c> moves the sampling point to its next position. \knownterminologyProgram: RIEMANN
+      the statement <c>x = x + deltax</c> moves the sampling point to its next position.
+    </p>
+    <p>
+      \knownterminologyProgram: RIEMANN
     </p>
     <p>
       Left endpoint Riemann sums}
@@ -928,11 +845,15 @@ NEXT k
       <m>x</m> (line 6) to <c>x = a + deltax / 2</c>.
     </p>
   </subsection>
-  <subsection xml:id="sec_riemann-sums_subsec_summation-notation">
+  <subsection xml:id="subsec_summation-notation">
     <title>Summation Notation</title>
     <p>
           <idx><h>summation notation</h></idx>
-      Because Riemann sums arise frequently and because they are unwieldy to write out in full, we now introduce a method<mdash/>called <term>summation notation</term><mdash/>that allows us to write them more compactly.
+    </p>
+    <p>
+      Because Riemann sums arise frequently and because they are unwieldy to write out in full,
+      we now introduce a method<mdash/>called
+      <term>summation notation</term><mdash/>that allows us to write them more compactly.
       To see how it works, look first at the sum
       <me>
         1^2 + 2^2 + 3^2 + \cdots + 50^2
@@ -960,14 +881,7 @@ NEXT k
       For this reason, summation notation is sometimes referred to as
       <term>sigma notation</term>.
           <idx><h>sigma notation</h></idx>
-    </p>
-    <aside>
-      <p>
-        Sigma notation
-      </p>
-    </aside>
-    <p>
-      You should regard <m>\sum</m> as an instruction telling you to <term>sum</term>
+      [[NOTE:Sigma notation]] You should regard <m>\sum</m> as an instruction telling you to <term>sum</term>
       the numbers of the indicated form as the index <m>k</m> runs through the integers,
       starting at the integer displayed below the <m>\sum</m> and ending at the integer displayed above it.
       Notice that changing the index <m>k</m> to some other letter has no effect on the sum.
@@ -977,6 +891,8 @@ NEXT k
       </me>,
       since both expressions give the sum of the cubes of the first twenty positive integers.
       Other aspects of summation notation will be covered in the exercises.
+    </p>
+    <p>
       Summation notation allows us to write the Riemann sum
       <me>
         f(x_1) \cdot \Delta x_1 + \cdots + f(x_n) \cdot \Delta x_n
@@ -1001,7 +917,7 @@ NEXT k
   </subsection>
   <subsection>
     <title>Exercises</title>
-    <subsubsection xml:id="sec_riemann-sums_subsubsec_making-approximations">
+    <subsubsection xml:id="subsubsec_making-approximations">
       <title>Making approximations</title>
       <ol>
         <li>
@@ -1129,57 +1045,71 @@ NEXT k
               <li>
                 <p>
                   Estimate the <em>average</em> power demand in the house during the 24-hour period.
-                  <term>Waste production</term>.
-                  A colony of living yeast cells in a vat of fermenting grape juice produces waste products<mdash/>mainly alcohol and carbon dioxide<mdash/>as it consumes the sugar in the grape juice.
-                  It is reasonable to expect that another yeast colony,
-                  twice as large as this one,
-                  would produce twice as much waste over the same time period.
-                  Moreover, since waste accumulates over time,
-                  if we double the time period we would expect our colony to produce twice as much waste.
-                  These observations suggest that waste production is proportional to both the size of the colony and the amount of time that passes.
-                  If <m>P</m> is the size of the colony,
-                  in grams, and <m>\Delta t</m> is a short time interval,
-                  then we can express waste production <m>W</m> as a function of <m>P</m> and <m>\Delta t</m>:
-                  <me>
-                    W = k \cdot P \cdot \Delta t \ \mbox{grams}
-                  </me>.
-                  If <m>\Delta t</m> is measured in hours,
-                  then the multiplier <m>k</m> has to be measured in units of grams of waste per hour per gram of yeast.
-                  The preceding formula is useful only over a time interval
-                  <m>\Delta t</m> in which the population size <m>P</m> does not vary significantly.
-                  If the time interval is large,
-                  and the population size can be expressed as a function <m>P(t)</m> of the time <m>t</m>,
-                  then we can estimate waste production by breaking up the whole time interval into a succession of smaller intervals <m>\Delta t_1</m>,
-                  <m>\Delta t_2</m>,
-                  <ellipsis/> , <m>\Delta t_n</m> and forming a Riemann sum
-                  <me>
-                    k\,P(t_1)\,\Delta t_1 + \cdots + k\,P(t_n)\,\Delta t_n \approx W \ \mbox{grams}
-                  </me>.
-                  The time <m>t_k</m> must lie within the time interval <m>\Delta t_k</m>,
-                  and <m>P(t_k)</m> must be a good approximation to the population size <m>P(t)</m> throughout that time interval.
                 </p>
               </li>
             </ol>
           </p>
         </li>
-        <li>
-          <p>
-            Suppose the colony starts with 300 grams of yeast (i.e., at time <m>t = 0</m> hours) and it grows exponentially according to the formula
-            <me>
-              P(t) = 300\,e^{0.2\,t} \,
-            </me>.
-            If the waste production constant <m>k</m> is 0.1 grams per hour per gram of yeast,
-            estimate how much waste is produced in the first four hours.
-            Use a Riemann sum with four hour-long time intervals and measure the population size of the yeast in the middle of each interval<mdash/>that is,
-            <q>on the half-hour.</q>
-          </p>
-        </li>
       </ol>
     </subsubsection>
-    <subsubsection xml:id="sec_riemann-sums_subsubsec_using-riemann">
+    <subsubsection>
+      <title>Waste production</title>
+      <p>
+        A colony of living yeast cells in a vat of fermenting grape juice produces waste products<mdash/>mainly alcohol and carbon dioxide<mdash/>as it consumes the sugar in the grape juice.
+        It is reasonable to expect that another yeast colony,
+        twice as large as this one,
+        would produce twice as much waste over the same time period.
+        Moreover, since waste accumulates over time,
+        if we double the time period we would expect our colony to produce twice as much waste.
+      </p>
+      <p>
+        These observations suggest that waste production is proportional to both the size of the colony and the amount of time that passes.
+        If <m>P</m> is the size of the colony,
+        in grams, and <m>\Delta t</m> is a short time interval,
+        then we can express waste production <m>W</m> as a function of <m>P</m> and <m>\Delta t</m>:
+        <me>
+          W = k \cdot P \cdot \Delta t \ \mbox{grams}
+        </me>.
+      </p>
+      <p>
+        If <m>\Delta t</m> is measured in hours,
+        then the multiplier <m>k</m> has to be measured in units of grams of waste per hour per gram of yeast.
+      </p>
+      <p>
+        The preceding formula is useful only over a time interval
+        <m>\Delta t</m> in which the population size <m>P</m> does not vary significantly.
+        If the time interval is large,
+        and the population size can be expressed as a function <m>P(t)</m> of the time <m>t</m>,
+        then we can estimate waste production by breaking up the whole time interval into a succession of smaller intervals <m>\Delta t_1</m>,
+        <m>\Delta t_2</m>,
+        <ellipsis/> , <m>\Delta t_n</m> and forming a Riemann sum
+        <me>
+          k\,P(t_1)\,\Delta t_1 + \cdots + k\,P(t_n)\,\Delta t_n \approx W \ \mbox{grams}
+        </me>.
+      </p>
+      <p>
+        The time <m>t_k</m> must lie within the time interval <m>\Delta t_k</m>,
+        and <m>P(t_k)</m> must be a good approximation to the population size <m>P(t)</m> throughout that time interval.
+        <ol>
+          <li>
+            <p>
+              Suppose the colony starts with 300 grams of yeast (i.e., at time <m>t = 0</m> hours) and it grows exponentially according to the formula
+              <me>
+                P(t) = 300\,e^{0.2\,t} \,
+              </me>.
+              If the waste production constant <m>k</m> is 0.1 grams per hour per gram of yeast,
+              estimate how much waste is produced in the first four hours.
+              Use a Riemann sum with four hour-long time intervals and measure the population size of the yeast in the middle of each interval<mdash/>that is,
+              <q>on the half-hour.</q>
+            </p>
+          </li>
+        </ol>
+      </p>
+    </subsubsection>
+    <subsubsection xml:id="subsubsec_using-riemann">
       <title>Using RIEMANN</title>
       <ol>
-        <li xml:id="sec_riemann-sums_left_sums">
+        <li xml:id="left_sums">
           <p>
             Calculate left endpoint Riemann sums for the function
             <m>\sqrt{1 + x^3}</m> on the interval <m>[1, 3]</m> using 40, 400, 4000,
@@ -1309,7 +1239,7 @@ NEXT k
             <me>
               f(x) = \cos(x^2) \mbox{on the interval \([0, 4]\)}
             </me>,
-            using 100, 1000, and 10000 equally-spaced subintervals. \ans{With 10000 equally-spaced intervals,
+            using 100, 1000, and 10000 equally-spaced subintervals.  \ans{With 10000 equally-spaced intervals,
             the left endpoint Riemann sum has the value 0.59485189.}
           </p>
         </li>
@@ -1350,7 +1280,7 @@ NEXT k
         </li>
       </ol>
     </subsubsection>
-    <subsubsection xml:id="sec_riemann-sums_subsubsec_volume-as-a-riemann-sum">
+    <subsubsection xml:id="subsubsec_volume-as-a-riemann-sum">
       <title>Volume as a Riemann sum</title>
       <p>
         If you slice a rectangular parallelepiped (e.g., a brick or a shoebox) parallel to a face,
@@ -1358,8 +1288,15 @@ NEXT k
         The same is true for a cylinder (e.g., a can of spinach or a coin).
         For <em>any</em> solid that has a constant cross-section (e.g., the object on the right, below),
         its volume is just the product of its cross-sectional area with its thickness.
-        <image width="73%" source="images/solid1.png"/> volume = area of cross-section <times/> thickness =
-        <m>A \cdot \Delta x</m> Most solids don't have such a regular shape.
+      </p>
+      <p>
+        <image width="73%" source="images/solid1.png"/>
+      </p>
+      <p>
+        volume = area of cross-section <times/> thickness = <m>A \cdot \Delta x</m>
+      </p>
+      <p>
+        Most solids don't have such a regular shape.
         They are more like the one shown below.
         If you take cross-sectional slices perpendicular to some fixed line
         (which will become our <m>x</m>-axis),
@@ -1371,7 +1308,12 @@ NEXT k
         you cannot calculate the volume of this solid using the simple formula above.
         However, you can <em>estimate</em>
         the volume as a Riemann sum for <m>A</m>.
-        <image width="73%" source="images/solid2.png"/> The procedure should now be familiar to you.
+      </p>
+      <p>
+        <image width="73%" source="images/solid2.png"/>
+      </p>
+      <p>
+        The procedure should now be familiar to you.
         Subdivide the <m>x</m>-axis into segments of length <m>\Delta x_1</m>,
         <m>\Delta x_2</m>,
         <ellipsis/>, <m>\Delta x_n</m> inches, respectively.
@@ -1464,7 +1406,7 @@ NEXT k
         </li>
       </ol>
     </subsubsection>
-    <subsubsection xml:id="sec_riemann-sums_subsubsec_summation-notation">
+    <subsubsection xml:id="subsubsec_summation-notation">
       <title>Summation notation</title>
       <ol>
         <li>
@@ -1562,7 +1504,7 @@ NEXT k
         </li>
       </ol>
     </subsubsection>
-    <subsubsection xml:id="sec_riemann-sums_subsubsec_length-and-area">
+    <subsubsection xml:id="subsubsec_length-and-area">
       <title>Length and area</title>
       <ol>
         <li>
@@ -1570,7 +1512,7 @@ NEXT k
             Using Riemann sums with equal subintervals,
             estimate the length of the parabola <m>y = x^2</m> over the interval <m>0 \leq x \leq 1</m>.
             Obtain a sequence of estimates that stabilize to four decimal places.
-            How many subintervals did you need? (Compare your result here with the earlier result <xref ref="sec_approximate-solutions_successive_lengths">on</xref>.)
+            How many subintervals did you need? (Compare your result here with the earlier result <xref ref="successive_lengths">on</xref>.)
           </p>
         </li>
         <li>

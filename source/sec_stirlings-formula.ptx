@@ -1,20 +1,16 @@
-<section xml:id="sec_stirlings-formula_sec_stirlings-formula">
+<section xml:id="sec_stirlings-formula">
   <title>Stirling's Formula</title>
   <introduction>
     <p>
           <idx><h>Stirling's formula</h></idx>
           <idx><h>factorial</h></idx>
           <idx><h><m>n"!</m></h></idx>
-      Given a positive integer <m>n</m>, we define <m>n!</m><mdash/>pronounced <em><m>n</m> factorial</em><mdash/>by the rule <m>n!=1\cdot 2\cdot 3\cdots (n-1)\cdot n</m><nbsp/>.
-      This is a convenient concept which occurs in a number of settings,
     </p>
-    <aside>
-      <p>
-        Factorials in probability
-      </p>
-    </aside>
     <p>
-      particularly combinatorial and probabilistic ones.
+      Given a positive integer <m>n</m>,
+      we define <m>n!</m><mdash/>pronounced
+      <em><m>n</m> factorial</em><mdash/>by the rule <m>n!=1\cdot 2\cdot 3\cdots (n-1)\cdot n</m><nbsp/>.
+      This is a convenient concept which occurs in a number of settings, [[NOTE:Factorials in probability]] particularly combinatorial and probabilistic ones.
       For instance, the probability
           <idx><h>probability</h></idx>
       of getting exactly <m>n</m> heads out of <m>2n</m> tosses of a coin turns out to be
@@ -28,20 +24,15 @@
       Although though many calculators will compute factorials,
       few of them can handle numbers as large as <m>1000!</m><nbsp/>.
       Even when we can evaluate <m>n!</m>,
-      we are often as interested in the asymptotic behavior of a certain expression as much as in its exact value for specific <m>n</m>.
-    </p>
-    <aside>
-      <p>
-        <m>n!</m> is difficult to calculate
-      </p>
-    </aside>
-    <p>
-      For instance, using methods we develop below,
+      we are often as interested in the asymptotic behavior of a certain expression as much as in its exact value for specific <m>n</m>. [[NOTE<m>:n!</m> is difficult to calculate]] For instance,
+      using methods we develop below,
       it turns out that the above expression for the probability of <m>n</m> heads in <m>2n</m> tosses is very close to <m>1/\sqrt{\pi n}</m>,
       with the approximation being more accurate the larger <m>n</m> is.
       In fact, for <m>n \geq 8</m>,
       the approximation is good to two places;
       for <m>n \geq 25</m>, the approximation gives three-place accuracy.
+    </p>
+    <p>
       In his book <em>Methodus differentialis</em> (1730),
       the British mathematician James Stirling
           <idx><h>Stirling, J.</h></idx>
@@ -58,7 +49,7 @@
       To see how good this approximation is,
       here are some comparisons:
     </p>
-    <tabular xml:id="sec_stirlings-formula_table2">
+    <tabular xml:id="table2">
       <row>
         <cell></cell>
         <cell></cell>
@@ -120,7 +111,7 @@
       In the second stage we will show that this constant is actually <m>\sqrt{2\pi}</m>.
     </p>
   </introduction>
-  <subsection xml:id="sec_stirlings-formula_subsec_stage-one-deriving-the-general-form">
+  <subsection xml:id="subsec_stage-one-deriving-the-general-form">
     <title>Stage One: Deriving the General Form</title>
     <p>
       We first observe that
@@ -140,41 +131,33 @@
       Thus <m>\ln(n!) = A_n+\tfrac{1}{2}\ln n </m>.
       Even though <m>\ln 1 = 0</m>,
       it will be useful to retain the term in the expression for <m>A_n</m>.
+    </p>
+    <p>
       We will find upper and lower bounds for <m>A_n</m> (and hence for <m>\ln(n!)</m><nbsp/>) by approximating the area under the curve <m>y=\ln x</m> by certain inscribed and circumscribed trapezoids.
           <idx><h>trapezoid</h></idx>
       We will then use these bounds to predict the asymptotic behavior of <m>A_n</m> for large values of <m>n</m>.
     </p>
-    <sidebyside>
-      <term>The upper bound</term>:<idx><h>bound</h><h>integral</h></idx> Note that if we inscribe
-      a trapezoid under the graph of <m>y=\ln x</m> between <m>x=k-1</m> and <m>x=k</m>,
-      its area will be <m>\tfrac{1}{2}(\ln (k-1) +\ln k)</m>. (How do we know
-      that the straight line connecting the points <m>(k-1, \ln (k-1))</m> and
-      <m>(k, \ln k)</m> will lie under the graph of <m>y=\ln x</m>?) The sum of the
-      areas of all such trapezoids from <m>x=1</m> to <m>x=n</m> is clearly less than
-      the area under the curve <m>y=\ln x</m> over the interval <m>[1,n]</m>.
-      \special{psfile=../ps/calc2/ch121-1.ps}
-    </sidebyside>
     <p>
-      We therefore have the inequality
-      <me>
-        \dfrac{1}{2}(\ln 1 +\ln 2) +\dfrac{1}{2}(\ln 2 +\ln 3)+ \cdots + \dfrac{1}{2}(\ln(n-1)+\ln n)\lt \int_1^n\ln x\,dx
-      </me>,
-      which is equivalent to <m>A_n \lt \dint_1^n\ln x\,dx</m>.
+      <term>The upper bound</term>:
+          <idx><h>bound</h><h>integral</h></idx>
+      Note that if we inscribe a trapezoid under the graph of <m>y=\ln x</m> between <m>x=k-1</m> and <m>x=k</m>,
+      its area will be <m>\tfrac{1}{2}(\ln (k-1) +\ln k)</m>. (How do we know that the straight line connecting the points <m>(k-1, \ln (k-1))</m> and
+      <m>(k, \ln k)</m> will lie under the graph of <m>y=\ln x</m>?) The sum of the areas of all such trapezoids from <m>x=1</m> to <m>x=n</m> is clearly less than the area under the curve <m>y=\ln x</m> over the interval <m>[1,n]</m>. \special{psfile=../ps/calc2/ch121-1.ps}
     </p>
-    <sidebyside>
+    <p>
       \special{psfile=../ps/calc2/ch121-2.ps}
-      <term>The lower bound</term>: On the other hand if we draw the tangent line
-      to <m>y=\ln x</m> at \mbox{<m>x=k</m>}  and form the trapezoid between <m>x=k-0.5</m>
-      and <m>x=k+.5</m>, its area will just be <m>\ln k</m> and will be greater than
-      the area under the curve over the same interval. (We've used the
-      fact<mdash/>which you should check<mdash/>that the area of a trapezoid equals
-      the distance between the parallel sides times the distance between the
-      midpoints of the other two sides.)
-      <nbsp/><nbsp/>  Adding up all such trapezoids, we get the inequality
+    </p>
+    <p>
+      <term>The lower bound</term>: On the other hand if we draw the tangent line to <m>y=\ln x</m> at \mbox{<m>x=k</m>} and form the trapezoid between <m>x=k-0.5</m> and <m>x=k+.5</m>,
+      its area will just be <m>\ln k</m> and will be greater than the area under the curve over the same interval.
+      (We've used the fact<mdash/>which you should check<mdash/>that the area of a trapezoid equals the distance between the parallel sides times the distance between the midpoints of the other two sides.)
+    </p>
+    <p>
+      Adding up all such trapezoids, we get the inequality
       <me>
         \int_{\frac{3}{2}}^n\ln x\,dx \lt A_n
       </me>.
-    </sidebyside>
+    </p>
     <p>
       Since we know that <m>\int \ln x\,dx = x\ln x -x</m>,
       we can evaluate these upper and lower bounds to conclude
@@ -194,6 +177,8 @@
       between the expressions on the two sides of the rightmost inequality is just the accumulated error from approximating the area under <m>y=\ln x</m> by the inscribed trapezoids.
       Since the error over each interval is always positive,
       <m>D_n</m> must therefore get larger as <m>n</m> increases, We will need this fact shortly.
+    </p>
+    <p>
       Returning to our inequalities,
       they can finally be rewritten as
       <me>
@@ -217,15 +202,7 @@
       </me>.
     </p>
     <p>
-      Notice that these bounds are already quite strong
-    </p>
-    <aside>
-      <p>
-        These estimates are often adequate
-      </p>
-    </aside>
-    <p>
-      and would be adequate for many estimates.
+      Notice that these bounds are already quite strong [[NOTE:These estimates are often adequate]] and would be adequate for many estimates.
       Moreover, they are true for any value of <m>n</m>.
       If we are only interested in large values of <m>n</m>,
       we can do a little better.
@@ -256,21 +233,13 @@
       In stage 2 we will see that <m>c=\sqrt{2\pi}</m>.
     </p>
   </subsection>
-  <subsection xml:id="sec_stirlings-formula_subsec_stage-two-evaluating-c">
+  <subsection xml:id="subsec_stage-two-evaluating-c">
     <title>Stage Two: Evaluating <m>c</m></title>
     <introduction>
       <p>
         We will do this using an interesting result of a 17th century English mathematician, John Wallis,
             <idx><h>Wallis, J.</h></idx>
-            <idx><h>Wallis's formula</h></idx>
-      </p>
-      <aside>
-        <p>
-          Wallis's formula
-        </p>
-      </aside>
-      <p>
-        who showed that
+            <idx><h>Wallis's formula</h></idx> [[NOTE:Wallis's formula]] who showed that
         <me>
           \lim_{n \rightarrow \infty} \dfrac{2}{1} \times \dfrac{2}{3} \times \dfrac{4}{3}\times \dfrac{4}{5}\times \dfrac{6}{5} \times \dfrac{6}{7}\times \cdots \times \dfrac{2n}{2n-1} \times \dfrac{2n}{2n+1} = \dfrac{\pi}{2}
         </me>.
@@ -326,7 +295,7 @@
         as desired.
       </p>
     </introduction>
-    <subsubsection xml:id="sec_stirlings-formula_subsubsec_deriving-walliss-formula">
+    <subsubsection xml:id="subsubsec_deriving-walliss-formula">
       <title>Deriving Wallis's formula</title>
       <p>
         One way to derive Wallis's formula involves the integrals
@@ -376,18 +345,10 @@
         we get Wallis's formula.
       </p>
     </subsubsection>
-    <subsubsection xml:id="sec_stirlings-formula_subsubsec_further-refinements">
+    <subsubsection xml:id="subsubsec_further-refinements">
       <title>Further refinements</title>
       <p>
-        Using even more careful methods of analysis,
-      </p>
-      <aside>
-        <p>
-          Some refinements
-        </p>
-      </aside>
-      <p>
-        it is possible to improve on Stirling's approximation and derive approximations like
+        Using even more careful methods of analysis, [[NOTE:Some refinements]] it is possible to improve on Stirling's approximation and derive approximations like
         <me>
           n!\sim \sqrt{2\pi}\,n^{n+\frac{1}{2}}\, e^{-n+\frac{1}{12n}-\frac{1}{360n^3}+\frac{1}{1260n^5}-\cdots}
         </me>.
@@ -395,13 +356,15 @@
       <p>
         If we use this expression to approximate <m>1000!</m>,
         for instance, our result is accurate for the first 24 digits.
+      </p>
+      <p>
         While this approximation and Stirling's original one are good in the sense that they give more and more accurate digits the larger <m>n</m> gets<mdash/>so that the <em>ratio</em>
         of <m>n!</m> to either approximation goes to 1 as <m>n</m> gets large<mdash/>they are bad in the sense that the <em>difference</em>
         between <m>n!</m> and either approximation becomes infinite as <m>n</m> gets large.
       </p>
     </subsubsection>
   </subsection>
-  <subsection xml:id="sec_stirlings-formula_subsec_the-binomial-distribution">
+  <subsection xml:id="subsec_the-binomial-distribution">
     <title>The Binomial Distribution</title>
     <p>
           <idx><h>binomial probability distribution</h></idx>
@@ -421,7 +384,7 @@
       </me>.
     </p>
     <p>
-      <term>Example 1</term>How likely is it to get four 2's if we roll twelve dice?
+      <term>[[EX:1]]</term>How likely is it to get four 2's if we roll twelve dice?
       The probability of getting a 2 by throwing one die is <m>\dfrac{1}{6}</m>.
       Therefore the answer to the question is
       <me>
@@ -430,7 +393,9 @@
     </p>
     <p>
       <ndash/>-we should get exactly four 2's slightly less frequently than once out of every 11 times we roll twelve dice.
-      <term>Example 2</term>What is the probability of getting exactly 47 heads if we flip 100 pennies?
+    </p>
+    <p>
+      <term>[[EX:2]]</term>What is the probability of getting exactly 47 heads if we flip 100 pennies?
       Since the probability of getting heads on a single toss of a penny is <m>\frac{1}{2}</m>,
       <me>
         P(100, 47, \tfrac{1}{2}) = \dfrac{100!}{47!\,53!}\left(\dfrac{1}{2}\right)^{100}=.0665905
@@ -439,11 +404,13 @@
     <p>
       <ndash/>-on the average, if we flip 100 pennies,
       we should get 47 heads about once out of every 15 times.
+    </p>
+    <p>
       The second example demonstrates the fact that calculating binomial probabilities can get very messy very quickly.
       Several of the exercises are designed to show how Stirling's formula can give us quick estimates that are easy to calculate and work with.
     </p>
   </subsection>
-  <subsection xml:id="sec_stirlings-formula_subsec_exercises">
+  <subsection xml:id="subsec_exercises">
     <title>Exercises</title>
     <introduction>
       <ol>
@@ -455,7 +422,7 @@
         </li>
         <li>
           <p>
-            Confirm the values given in the table <xref ref="sec_stirlings-formula_table2">on</xref>
+            Confirm the values given in the table <xref ref="table2">on</xref>
             for the approximations of <m>100!</m> and <m>1000!</m> that Stirling's formula produces.
           </p>
         </li>
@@ -532,7 +499,7 @@
         </li>
       </ol>
     </introduction>
-    <subsubsection xml:id="sec_stirlings-formula_subsubsec_the-binomial-distribution">
+    <subsubsection xml:id="subsubsec_the-binomial-distribution">
       <title>The binomial distribution</title>
       <ol>
         <li>

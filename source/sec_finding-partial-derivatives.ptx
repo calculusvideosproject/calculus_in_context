@@ -1,4 +1,4 @@
-<section xml:id="sec_finding-partial-derivatives_sec_finding-partial-derivatives">
+<section xml:id="sec_finding-partial-derivatives">
   <title>Finding Partial Derivatives</title>
   <introduction>
     <p>
@@ -9,40 +9,35 @@
       If we do this we get new techniques for analyzing rates of change in problems that involve functions of several variables.
     </p>
   </introduction>
-  <subsection xml:id="sec_finding-partial-derivatives_subsec_some-examples">
+  <subsection xml:id="subsec_some-examples">
     <title>Some Examples</title>
     <p>
-      Here are two examples to illustrate the technique for calculating partial derivatives:
+      Here are two examples to illustrate the technique for calculating partial derivatives: [[NOTE:Finding formulas for partial derivatives]]
+      <ol>
+        <li>
+          <p>
+            Suppose <m>f(x,y) = x^2y + 5x^3 - \sqrt{x+y}</m>.
+            Then
+            <md>
+              <mrow>f_x(x,y) \amp = 2xy + 15x^2 - \frac{1}{2\sqrt{x+y}}, \mbox{and}</mrow>
+              <mrow>f_y(x,y) \amp = x^2  - \frac{1}{2\sqrt{x+y}}</mrow>
+            </md>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Suppose <m>g(u,v) = e^{\displaystyle uv} + \displaystyle{\frac{u}{v}}</m>.
+            Then
+            <md>
+              <mrow>g_u(u,v) \amp = ve^{\displaystyle uv} + \frac{1}{v}, \mbox{and}</mrow>
+              <mrow>g_v(u,v) \amp = ue^{\displaystyle uv} - \frac{u}{v^2}</mrow>
+            </md>.
+          </p>
+        </li>
+      </ol>
     </p>
-    <aside>
-      <p>
-        Finding formulas for partial derivatives
-      </p>
-    </aside>
-    <ol>
-      <li>
-        <p>
-          Suppose <m>f(x,y) = x^2y + 5x^3 - \sqrt{x+y}</m>.
-          Then
-          <md>
-            <mrow>f_x(x,y) \amp = 2xy + 15x^2 - \frac{1}{2\sqrt{x+y}}, \mbox{and}</mrow>
-            <mrow>f_y(x,y) \amp = x^2  - \frac{1}{2\sqrt{x+y}}</mrow>
-          </md>.
-        </p>
-      </li>
-      <li>
-        <p>
-          Suppose <m>g(u,v) = e^{\displaystyle uv} + \displaystyle{\frac{u}{v}}</m>.
-          Then
-          <md>
-            <mrow>g_u(u,v) \amp = ve^{\displaystyle uv} + \frac{1}{v}, \mbox{and}</mrow>
-            <mrow>g_v(u,v) \amp = ue^{\displaystyle uv} - \frac{u}{v^2}</mrow>
-          </md>.
-        </p>
-      </li>
-    </ol>
   </subsection>
-  <subsection xml:id="sec_finding-partial-derivatives_subsec_eradication-of-disease">
+  <subsection xml:id="subsec_eradication-of-disease">
     <title>Eradication of Disease</title>
     <p>
       Controlling<mdash/>or, better still,
@@ -103,23 +98,19 @@
     </p>
     <p>
       For a disease like measles,
-      public health officials can directly affect the variable <m>V</m>,
-    </p>
-    <aside>
-      <p>
-        Partial derivatives can tell us which variables are most significant
-      </p>
-    </aside>
-    <p>
-      for example by the recommendations they make to physicians about immunization schedules for children.
+      public health officials can directly affect the variable <m>V</m>, [[NOTE:Partial derivatives can tell us which variables are most significant]] for example by the recommendations they make to physicians about immunization schedules for children.
       They may also indirectly affect the variables <m>A</m> and <m>L</m>,
       because public health policy influences factors which can modify the age at which children catch the disease or the overall life expectancy of the population.
       (Many other factors affect these variables as well.)
       Which of these three variables has the greatest effect on the proportion of the population that must be vaccinated?
+    </p>
+    <p>
       In other words, which is largest:
       <m>\partial p/\partial L</m>,
       <m>\partial p/\partial A</m>,
       or <m>\partial p/\partial V</m>?
+    </p>
+    <p>
       Using the rules, we compute:
       <md>
         <mrow>\frac{\partial p}{\partial L} \amp = \frac{1\cdot (L+A)-1\cdot (L+V)}{(L+A)^2} = \frac{A-V}{(L+A)^2},</mrow>
@@ -141,15 +132,7 @@
       </md>.
     </p>
     <p>
-      A comment is in order here on units.
-    </p>
-    <aside>
-      <p>
-        Determining units
-      </p>
-    </aside>
-    <p>
-      While the input variables <m>L\/</m>,
+      A comment is in order here on units. [[NOTE:Determining units]] While the input variables <m>L\/</m>,
       <m>A\/</m> and <m>V</m> are all measured in years<mdash/>so the rates are <em>per year</em>,
       the output variable <m>p</m> is dimensionless:
       it is the ratio of persons vaccinated to persons not vaccinated.
@@ -195,7 +178,7 @@
   </subsection>
   <subsection>
     <title>Exercises</title>
-    <subsubsection xml:id="sec_finding-partial-derivatives_subsubsec_finding-partial-derivatives">
+    <subsubsection xml:id="subsubsec_finding-partial-derivatives">
       <title>Finding Partial Derivatives</title>
       <ol>
         <li>
@@ -304,7 +287,7 @@
         </li>
       </ol>
     </subsubsection>
-    <subsubsection xml:id="sec_finding-partial-derivatives_subsubsec_eradication-of-disease">
+    <subsubsection xml:id="subsubsec_eradication-of-disease">
       <title>Eradication of Disease</title>
       <ol>
         <li>
@@ -317,7 +300,7 @@
         </li>
       </ol>
     </subsubsection>
-    <subsubsection xml:id="sec_finding-partial-derivatives_subsubsec_partial-differential-equations">
+    <subsubsection xml:id="subsubsec_partial-differential-equations">
       <title>Partial differential equations</title>
       <p>
             <idx><h>partial differential equations</h></idx>

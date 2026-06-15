@@ -1,4 +1,4 @@
-<section xml:id="sec_the-differentiation-rules_sec_the-differentiation-rules">
+<section xml:id="sec_the-differentiation-rules">
   <title>The Differentiation Rules</title>
   <introduction>
     <p>
@@ -28,23 +28,17 @@
       Our goal in this chapter is to differentiate functions given by formulas.
     </p>
   </introduction>
-  <subsection xml:id="sec_the-differentiation-rules_subsec_derivatives-of-basic-functions">
+  <subsection xml:id="subsec_derivatives-of-basic-functions">
     <title>Derivatives of Basic Functions</title>
     <introduction>
       <p>
-        When a function is given by a <em>formula</em>,
-      </p>
-      <aside>
-        <p>
-          Functions given by formulas have derivatives given by formulas
-        </p>
-      </aside>
-      <p>
-        there is in fact a formula for its derivative.
+        When a function is given by a <em>formula</em>, [[NOTE:Functions given by formulas have derivatives given by formulas]] there is in fact a formula for its derivative.
         We have already seen several examples in chapters 3 and 4.
         These examples include all of what we may consider the
         <term>basic functions</term>.
         We collect these formulas in the following table.
+      </p>
+      <p>
         <term>Rules for Derivatives of Basic Functions</term>
         <me>
           \begin{array}{cccc} \mbox{function}     \amp \qquad \amp         \amp \mbox{derivative}  \\ \hline \\ [-9pt] mx+b            \amp  \amp       \amp m \\ x^{r}           \amp  \amp               \amp rx^{r-1} \\ \sin{x}         \amp  \amp               \amp \cos{x} \\ \cos{x}         \amp  \amp               \amp -\sin{x}  \\ e^{x}           \amp  \amp               \amp e^{x} \\ \ln{x}          \amp  \amp               \amp 1/x \end{array}
@@ -58,7 +52,7 @@
         To find the derivatives of the other functions we will need to start from the definition.
       </p>
     </introduction>
-    <subsubsection xml:id="sec_the-differentiation-rules_subsubsec_an-example-fxx3">
+    <subsubsection xml:id="subsubsec_an-example-fxx3">
       <title>An example: <m>f(x)=x^3</m></title>
       <p>
         We begin by examining the calculation of the derivative of
@@ -82,16 +76,9 @@
       <p>
         To see what's happening with this expression,
         let's consider the specific value <m>x=2</m> and evaluate the corresponding values of
-        <m>\Delta y/ \Delta x\/</m> for successively smaller
-      </p>
-      <aside>
-        <p>
-          The value of <m>\Delta y/ \Delta x</m> gets closer and closer to 12 as
-          <m>\Delta x</m> gets smaller and smaller
-        </p>
-      </aside>
-      <p>
-        <m>\Delta x\/</m>.
+        <m>\Delta y/ \Delta x\/</m> for successively smaller [[NOTE:The value of
+        <m>\Delta y/ \Delta x</m> gets closer and closer to 12 as
+        <m>\Delta x</m> gets smaller and smaller]] <m>\Delta x\/</m>.
       </p>
       <tabular>
         <row>
@@ -135,12 +122,16 @@
         It is clear from this table that we can make
         <m>\Delta y</m>/<m>\Delta x</m> as close to 12 as we like by making <m>\Delta x</m> small enough.
         Therefore <m>f'(2)=12</m>.
+      </p>
+      <p>
         Note that in the table above we have used positive values of <m>\Delta x</m>.
         You should check to convince yourself that if we had used negative values of
         <m>\Delta x</m> we would have come up with a different set of approximations <m>\Delta y</m>/<m>\Delta x</m>,
         but that the limit would still be the same,
         namely 12<mdash/>it doesn't matter whether we use positive or negative values for <m>\Delta x</m>,
         or a mixture of the two, so long as <m>\Delta x \rightarrow 0</m>.
+      </p>
+      <p>
         In general, for any given <m>x</m>,
         the second and third terms in the expansion for
         <m>\Delta y</m>/<m>\Delta x</m> become vanishingly small as <m>\Delta x \rightarrow 0</m>,
@@ -158,6 +149,8 @@
         <m>f'(x) = 3 x^2</m>.
         Note that this general formula agrees with the specific value
         <m>f'(2)=12</m> we have already obtained.
+      </p>
+      <p>
         Notice the difference between the statements
         <me>
           f'(x) \approx \Delta y/\Delta x \qquad \mbox{and}  \qquad f'(x) = 3x^2
@@ -174,6 +167,8 @@
         <em>limit value</em> <m>3x^2</m>.
         The value of the derivative <m>f'(x)</m> is
         <em>exactly</em> <m>3x^2\/</m>.
+      </p>
+      <p>
         More generally, for any function <m>y=f(x)</m>,
         a particular difference quotient
         <m>\Delta y/\Delta x</m> is an approximation of <m>f'(x)\/</m>.
@@ -187,21 +182,20 @@
         In this chapter we will concentrate on the exact statements that are possible for functions given by formulas.
       </p>
     </subsubsection>
-    <subsubsection xml:id="sec_the-differentiation-rules_subsubsec_the-other-basic-functions">
+    <subsubsection xml:id="subsubsec_the-other-basic-functions">
       <title>The other basic functions</title>
       <p>
         Our formula for the derivative of the function
-        <m>f(x) = x^{3}</m> is one instance of the general rule for the derivative
+        <m>f(x) = x^{3}</m> is one instance of the general rule for the derivative [[NOTE:The rule for the derivative of a power function]] of <m>f(x) = x^r\/</m>.
       </p>
-      <aside>
-        <p>
-          The rule for the derivative of a power function
-        </p>
-      </aside>
+      <observation>
       <p>
-        of <m>f(x) = x^r\/</m>.
+        For every real number <m>r</m> \unboldmath, the derivative
       </p>
-      <image source="images/7383b30c1bf725f1f2555184945a2b6e4e9229f8.png"/>
+      <p>
+        of <m>f(x) = x^{\displaystyle r}</m> \unboldmath is <m>f'(x) = r\, x^{\displaystyle r-1}</m>. \unboldmath
+      </p>
+      </observation>
       <p>
         We can prove this rule for the case when <m>r</m> is a positive integer using algebraic manipulations very like the ones carried out for <m>x^{3}</m>;
         see the exercises for verifications of this and the other differentiation rules in this section.
@@ -228,21 +222,13 @@
       </p>
     </subsubsection>
   </subsection>
-  <subsection xml:id="sec_the-differentiation-rules_subsec_combining-functions">
+  <subsection xml:id="subsec_combining-functions">
     <title>Combining Functions</title>
     <p>
       We can form new functions by combining functions.
       We have already studied one of the most useful ways of doing this in chapter 3 when we looked at forming
       <q>chains</q>
-      of functions and
-    </p>
-    <aside>
-      <p>
-        Functions combined by chains<ellipsis/>
-      </p>
-    </aside>
-    <p>
-      developed the <term>chain rule</term>
+      of functions and [[NOTE:Functions combined by chains<ellipsis/>]] developed the <term>chain rule</term>
       for taking the derivative of such a chain.
       Suppose <m>u=f(x)</m> and <m>y=g(u)</m>.
       Chaining these two functions together we have <m>y</m> as a function of <m>x</m>:
@@ -259,15 +245,7 @@
     </p>
     <p>
       In Leibniz notation, using
-      <m>f(x) = u</m> we can write the chain rule
-    </p>
-    <aside>
-      <p>
-        The chain rule
-      </p>
-    </aside>
-    <p>
-      as
+      <m>f(x) = u</m> we can write the chain rule [[NOTE:The chain rule]] as
       <me>
         \frac{dy}{dx} = \frac{dy}{du} \cdot \frac{du}{dx}
       </me>.
@@ -275,15 +253,7 @@
     <p>
       We also saw in chapter 3 that the polynomial
       <m>5x^{3}-7x^2 +3</m> can be thought of as an <em>algebraic</em>
-      combination of simple functions.
-    </p>
-    <aside>
-      <p>
-        <ellipsis/> and algebraically
-      </p>
-    </aside>
-    <p>
-      We can build an even more complicated function by forming a quotient with this polynomial in the numerator and the difference of the functions <m>\sin{x}</m> and <m>e^x</m> in the denominator.
+      combination of simple functions. [[NOTE:<ellipsis/> and algebraically]] We can build an even more complicated function by forming a quotient with this polynomial in the numerator and the difference of the functions <m>\sin{x}</m> and <m>e^x</m> in the denominator.
       The result is
       <me>
         \frac{5x^{3}-7x^2 +3}{\sin{x} - e^x}
@@ -294,35 +264,18 @@
       as well as of other functions formed by adding,
       subtracting, multiplying and dividing simpler functions,
       is obtained by use of the following rules for the derivatives of algebraic combinations of differentiable functions.
+    </p>
+    <p>
       <term>Rules for Algebraic Combinations of Functions</term>
+      [[NOTE:Combining functions by adding,
+      subtracting, multiplying and dividing]]
+      <me>
+        \begin{array}{cccc} \mbox{function}     \amp  \amp         \amp \mbox{derivative}  \\[.05in]  \hline  \mbox{\(f(x) + g(x)\)}            \amp  \amp  \amp \mbox{\(f'(x) + g'(x)\)}        \\[.1in] f(x) - g(x)     \amp  \amp       \amp f'(x) - g'(x)  \\[.1in] cf(x)           \amp  \amp       \amp cf'(x)  \\[.1in] f(x)\cdot g(x)     \amp   \amp        \amp f'(x)\cdot g(x) + f(x)\cdot g'(x)  \\[.1in] \displaystyle{\frac{f(x)}{g(x)}}   \amp  \amp \amp \displaystyle{ \frac{g(x)\cdot f'(x)-f(x)\cdot g'(x)}{[g(x)]^2} } \end{array}
+      </me>
     </p>
-    <aside>
-      <p>
-        Combining functions by adding,
-        subtracting, multiplying and dividing
-      </p>
-    </aside>
-    <me>
-      \begin{array}{cccc}
-      \mbox{function}     \amp  \amp         \amp \mbox{derivative}  \\[.05in]  \hline
-      \mbox{\(f(x) + g(x)\)}            \amp  \amp  \amp \mbox{\(f'(x) + g'(x)\)}        \\[.1in]
-      f(x) - g(x)     \amp  \amp       \amp f'(x) - g'(x)  \\[.1in]
-      cf(x)           \amp  \amp       \amp cf'(x)  \\[.1in]
-      f(x)\cdot g(x)     \amp   \amp        \amp f'(x)\cdot g(x) + f(x)\cdot g'(x)  \\[.1in]
-      \displaystyle{\frac{f(x)}{g(x)}}   \amp  \amp
-      \amp \displaystyle{ \frac{g(x)\cdot f'(x)-f(x)\cdot g'(x)}{[g(x)]^2} }
-      \end{array}
-    </me>
     <p>
-      Notice carefully that the product rule has a plus sign but the quotient rule has a <em>minus</em> sign.
-    </p>
-    <aside>
-      <p>
-        Notice the signs in the rules
-      </p>
-    </aside>
-    <p>
-      You can remember these formulas better if you think about where these signs come from.
+      Notice carefully that the product rule has a plus sign but the quotient rule has a <em>minus</em>
+      sign. [[NOTE:Notice the signs in the rules]] You can remember these formulas better if you think about where these signs come from.
       Increasing <em>either</em> factor increases a (positive) product,
       so the derivative of <em>each</em>
       factor appears with a plus sign in the formula for the derivative of a product.
@@ -331,6 +284,8 @@
       However, increasing the denominator
       <em>decreases</em> a positive quotient,
       so the derivative of the denominator appears with a minus sign.
+    </p>
+    <p>
       Let's now use the rules to differentiate the quotient
       <me>
         \dfrac{5x^3-7x^2+3}{\sin{x} -e^x}
@@ -364,6 +319,8 @@
       Suppose too that the population of the country is currently 200,000,000 people and is rising at the rate of 1,000,000 people per year.
       Is the total daily energy consumption of this country rising or falling?
       By how much?
+    </p>
+    <p>
       Three different quantities vary with time in this example:
       daily per capita energy consumption,
       population and total daily energy consumption.
@@ -402,15 +359,9 @@
     <p>
       So the total daily energy consumption is currently rising at the rate of <m>6 \times 10^{11}</m> BTU per year.
       Thus the growth in the population more than offsets the efforts to conserve energy.
-      Finally, it is a useful exercise to check that the units make sense in this computation.
     </p>
-    <aside>
-      <p>
-        Checking units
-      </p>
-    </aside>
     <p>
-      Recall that <m>C(t)</m> represents <em>per capita</em>
+      Finally, it is a useful exercise to check that the units make sense in this computation. [[NOTE:Checking units]] Recall that <m>C(t)</m> represents <em>per capita</em>
       daily energy consumption,
       so the units for <m>C(0) \cdot P'(0)</m> are
       <me>
@@ -422,7 +373,7 @@
       </me>.
     </p>
   </subsection>
-  <subsection xml:id="sec_the-differentiation-rules_subsec_informal-arguments">
+  <subsection xml:id="subsec_informal-arguments">
     <title>Informal Arguments</title>
     <p>
       All of the rules for differentiating algebraic combinations of functions can be proved by using the algebraic definition of the derivative as a limit of a difference quotient.
@@ -434,14 +385,9 @@
           <p>
             If a new function <m>g</m> is obtained from <m>f</m> by multiplying by a positive constant <m>c</m>,
             so <m>g(x)=cf(x)</m>,
-            what is the relationship between the graphs of <m>y=f(x)</m> and of <m>y=g(x)</m>?
-            <aside>
-              <p>
-                Stretching <m>y</m>-coordinates
-              </p>
-            </aside>
-            Stretching (or compressing,
-            if <m>c</m> is less than 1) the <m>y</m>-coordinates of the points of the graph of <m>f</m> by a factor of <m>c</m> yields the graph of <m>g</m>.
+            what is the relationship between the graphs of <m>y=f(x)</m> and of <m>y=g(x)</m>? [[NOTE:Stretching <m>y</m>-coordinates]] Stretching
+            (or compressing, if <m>c</m> is less than 1)
+            the <m>y</m>-coordinates of the points of the graph of <m>f</m> by a factor of <m>c</m> yields the graph of <m>g</m>.
             <image width="73%" source="images/pic200a.png"/> What then is the relationship between the slopes <m>f'(x)</m> and <m>g'(x)</m>?
             If the <m>y</m>-coordinates are tripled,
             the slope will be three times as great.
@@ -455,13 +401,7 @@
         <li>
           <p>
             Now suppose instead that <m>g</m> is obtained from <m>f</m> by adding a constant <m>b</m>,
-            so <m>g(x) = f(x) + b</m>.
-            <aside>
-              <p>
-                Shifting <m>y</m>-coordinates
-              </p>
-            </aside>
-            This time the graph of <m>y=g(x)</m> is obtained from the graph of <m>y=f(x)</m> by shifting up or down
+            so <m>g(x) = f(x) + b</m>. [[NOTE:Shifting <m>y</m>-coordinates]] This time the graph of <m>y=g(x)</m> is obtained from the graph of <m>y=f(x)</m> by shifting up or down
             (according to the sign of <m>c</m>)
             by <m>|c|</m> units.
             What is the relationship between the slopes <m>f'(x)</m> and <m>g'(x)</m>?
@@ -476,21 +416,18 @@
       There is a similar pattern when the coordinates of the input variable are stretched or shifted<mdash/>that is when <m>y=f(u)</m> and <m>u</m> is <em>rescaled</em>
       by the linear relation <m>u=mx+b</m>.
       These results depend on the chain rule and appear in the exercises.
+    </p>
+    <p>
       The fact that the derivative of <m>f(x)+b</m> is the same as the derivative of <m>f(x)</m> is a special case of the general <em>addition rule</em>,
       which says <em>the derivative of a sum is the sum of the derivatives</em>.
       In the special case,
       the derivative of the constant function <m>b</m> is zero,
       so adding a constant leaves the derivative unchanged.
       To see that how natural it is to add rates in the general case,
-      consider the following example: Suppose we are diluting concentrated orange juice
+      consider the following example:
     </p>
-    <aside>
-      <p>
-        Adding flows
-      </p>
-    </aside>
     <p>
-      by mixing it with water in a big tub.
+      Suppose we are diluting concentrated orange juice [[NOTE:Adding flows]] by mixing it with water in a big tub.
       We may let <m>f(t)</m> be the amount
       (in gallons)
       of concentrate in the tub and <m>g(t)</m> be the amount of water in the tub at time <m>t</m>.
@@ -504,11 +441,13 @@
       the liquid in the tub is increasing by 4.3 gal/min at that moment.
     </p>
   </subsection>
-  <subsection xml:id="sec_the-differentiation-rules_subsec_a-formal-proof-the-product-rule">
+  <subsection xml:id="subsec_a-formal-proof-the-product-rule">
     <title>A Formal Proof: the Product Rule</title>
     <p>
       We include here the algebraic calculations yielding the rule for the derivative of the product of two arbitrary functions<mdash/>just to give the flavor of these arguments.
       Algebraic arguments for the rest of these rules may be found in the exercises.
+    </p>
+    <p>
       <term>The Product Rule:</term>
       <me>
         F(x) = f(x) \cdot g(x) \textit{ implies}\ F'(x) = f'(x)\cdot g(x) + f(x)\cdot g'(x)
@@ -537,13 +476,8 @@
         <mrow>\amp = f(x) \cdot g(x) + f(x) \cdot \Delta g + \Delta f \cdot g(x) + \Delta f \cdot \Delta g</mrow>
       </md>
     </p>
-    <aside>
-      <p>
-        Simplifying <m>\Delta F</m>
-      </p>
-    </aside>
     <p>
-      This gives us a simple expression for
+      [[NOTE:Simplifying <m>\Delta F</m>]] This gives us a simple expression for
       <me>
         \Delta F = F(x + \Delta x) - F(x)
       </me>
@@ -553,15 +487,9 @@
       </me>
     </p>
     <p>
-      These quantities all have nice geometric interpretations.
-    </p>
-    <aside>
-      <p>
-        Interpret <m>\Delta f</m> and <m>\Delta g</m> as lengths
-      </p>
-    </aside>
-    <p>
-      First, think of the numbers <m>f(x)</m> and <m>g(x)</m> as lengths that depend on <m>x</m>;
+      These quantities all have nice geometric interpretations. [[NOTE:Interpret
+      <m>\Delta f</m> and <m>\Delta g</m> as lengths]] First,
+      think of the numbers <m>f(x)</m> and <m>g(x)</m> as lengths that depend on <m>x</m>;
       then <m>F(x)</m> naturally stands for the area of the rectangle whose sides are <m>f(x)</m> and <m>g(x)</m>.
       If the sides of the rectangle grow by the amounts <m>\Delta f</m> and <m>\Delta g</m>,
       then the area <m>F</m> grows by <m>\Delta F</m>.
@@ -569,7 +497,7 @@
       <m>\Delta F</m> has three parts,
       corresponding to the three terms in the expression we derived algebraically for <m>\Delta F</m>.
     </p>
-    <image source="images/721e772ea640bd86ea05eeaf2339e4a4a223564a.png"/>
+    <image source=""/>
     <p>
       Now we divide <m>\Delta F</m> by
       <m>\Delta x</m> and finish the argument:
@@ -590,6 +518,8 @@
       Similarly, in the second term,
       the quotient <m>\Delta f/ \Delta x</m> approaches <m>f'(x)</m>,
       and the second term approaches <m>f'(x) \cdot g(x)</m>.
+    </p>
+    <p>
       Finally, look at the third term.
       We would know what to expect if we had another factor of <m>\Delta x</m> in the denominator.
       We can put ourselves in familiar territory by the
@@ -602,6 +532,8 @@
     <p>
       Thus we can see that as <m>\Delta x</m> approaches zero,
       the third term itself approaches <m>f'(x) \cdot g'(x) \cdot 0 = 0</m>.
+    </p>
+    <p>
       We may summarize our calculation by writing
       <md>
         <mrow>\lim_{\Delta x \rightarrow 0} \frac{\Delta F}{\Delta x} \amp = f(x)\cdot\left(\lim_{\Delta x \rightarrow 0} \frac{\Delta g}{\Delta x}\right)  + \left(\lim_{\Delta x \rightarrow 0} \frac{\Delta f}{\Delta x}\right) \cdot g(x)</mrow>
@@ -620,7 +552,7 @@
   </subsection>
   <subsection>
     <title>Exercises</title>
-    <subsubsection xml:id="sec_the-differentiation-rules_subsubsec_finding-derivatives">
+    <subsubsection xml:id="subsubsec_finding-derivatives">
       <title>Finding Derivatives</title>
       <ol>
         <li>
@@ -668,11 +600,12 @@
         </li>
         <li>
           <p>
-            Suppose <m>f</m> and <m>g</m> are functions and that we are given \begin{xalignat*}{3} f(2) &amp;= 3, &amp;
-            g(2) &amp;= 4, &amp;
-            g(3) &amp;= 2, f'(2) &amp;= 2, &amp;
-            g'(2) &amp;= -1, &amp;
-            g'(3) &amp;= 17. \end{xalignat*} Evaluate the derivative of each of the following functions at <m>t=2</m>:
+            Suppose <m>f</m> and <m>g</m> are functions and that we are given
+            <md>
+              <mrow>{3} f(2)  \amp = 3, \amp   g(2) \amp = 4, \amp  g(3) \amp = 2,</mrow>
+              <mrow>f'(2) \amp = 2, \amp       g'(2) \amp = -1, \amp     g'(3) \amp = 17</mrow>
+            </md>.
+            Evaluate the derivative of each of the following functions at <m>t=2</m>:
             <tabular>
               <row>
                 <cell>a) <m>\;\; f(t) + g(t)</m></cell>
@@ -695,7 +628,7 @@
                 <cell>j) <m>\;\;f(3t-(g(1+t))^2)</m></cell>
               </row>
             </tabular>
-            k) <nbsp/> What additional piece of information would you need to calculate the derivative of <m>f(g(t))</m> at <m>t=2</m>? l) <nbsp/> Estimate the value of <m>f(t)/g(t)</m> at <m>t=1.95</m>
+            k) <nbsp/> What additional piece of information would you need to calculate the derivative of <m>f(g(t))</m> at <m>t=2</m>?    l) <nbsp/> Estimate the value of <m>f(t)/g(t)</m> at <m>t=1.95</m>
           </p>
         </li>
         <li>
@@ -855,7 +788,7 @@
         </li>
       </ol>
     </subsubsection>
-    <subsubsection xml:id="sec_the-differentiation-rules_subsubsec_deriving-differentiation-rules">
+    <subsubsection xml:id="subsubsec_deriving-differentiation-rules">
       <title>Deriving Differentiation Rules</title>
       <ol>
         <li>
@@ -935,13 +868,13 @@
                   </me>
                   But now, before tackling this general case,
                   look at the following examples.
-                  In the examples we use notation to help us keep track of which factors are contributing to the final result. i) Consider the product <m>(a + b)(\underline{a} + \underline{b}) = a\underline{a} + a\underline{b} + b\underline{a} + b\underline{b}</m>.
+                  In the examples we use notation to help us keep track of which factors are contributing to the final result.   i) Consider the product <m>(a + b)(\underline{a} + \underline{b}) = a\underline{a} + a\underline{b} + b\underline{a} + b\underline{b}</m>.
                   There are four individual terms.
                   Each term contains one of the entries in the first factor
                   (namely <m>a</m> or <m>b</m>)
                   and one of the entries in the second factor
                   (namely <m>\underline{a}</m> or <m>\underline{b}</m>).
-                  The four terms represent thereby all possible ways of choosing one entry in the first factor and one entry in the second factor. ii) Multiply out the product <m>(a + b)(\underline{a}+ \underline{b})(A + B)</m>.
+                  The four terms represent thereby all possible ways of choosing one entry in the first factor and one entry in the second factor.     ii) Multiply out the product <m>(a + b)(\underline{a}+ \underline{b})(A + B)</m>.
                   (Don't combine like terms yet.)
                   Does each term contain one entry from the first factor,
                   one from the second, and one from the third?
@@ -967,7 +900,7 @@
                   such terms with precisely one <m>\Delta x</m> factor?
                   What is the minimum number of
                   <m>\Delta x</m> factors in any of the remaining terms in the full expansion of
-                  <m>(x + \Delta x)^n</m> ? Do your calculations agree with this summary:
+                  <m>(x + \Delta x)^n</m> ?  Do your calculations agree with this summary:
                   <me>
                     (x + \Delta x)^n = x^n + nx^{n-1} \Delta x + R(\Delta x)^2 \ ?
                   </me>
@@ -1143,7 +1076,7 @@
         </li>
       </ol>
     </subsubsection>
-    <subsubsection xml:id="sec_the-differentiation-rules_subsubsec_differential-equations">
+    <subsubsection xml:id="subsubsec_differential-equations">
       <title>Differential Equations</title>
       <ol>
         <li>
@@ -1215,7 +1148,7 @@
         </li>
       </ol>
     </subsubsection>
-    <subsubsection xml:id="sec_the-differentiation-rules_subsubsec_the-colorado-river-problem">
+    <subsubsection xml:id="subsubsec_the-colorado-river-problem">
       <title>The Colorado River Problem</title>
       <p>.
         Make your answer to this sequence of questions an essay.
@@ -1225,6 +1158,8 @@
         <q><m>A</m> depends on time <m>t</m>,
         measured in weeks from the present</q>).
         Identify the derivatives of those functions, as necessary.
+      </p>
+      <p>
         The Colorado River<mdash/>which excavated the Grand Canyon,
         among others<mdash/>used to empty into the Gulf of California.
         It no longer does.
@@ -1248,10 +1183,8 @@
             As the lake fills, it gets longer, too.
             Suppose it is currently 950 yards long,
             and it is extending upstream at a rate of 15 yards per week.
-            Assuming the lake remains approximately rectangular as it grows, find
-            <sidebyside>
-              \special{psfile=../ps/calc1/lake.ps}
-            </sidebyside>
+            Assuming the lake remains approximately rectangular as it grows,
+            find \special{psfile=../ps/calc1/lake.ps}
           </p>
           <ol>
             <li>

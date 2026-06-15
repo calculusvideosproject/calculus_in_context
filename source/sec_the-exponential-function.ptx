@@ -1,6 +1,6 @@
-<section xml:id="sec_the-exponential-function_sec_the-exponential-function">
+<section xml:id="sec_the-exponential-function">
   <title>The Exponential Function</title>
-  <subsection xml:id="sec_the-exponential-function_subsec_the-equation-y-ky">
+  <subsection xml:id="subsec_the-equation-y-ky">
     <title>The Equation <m>y'= ky</m></title>
     <p>
       As we have seen, initial value problems <em>define</em>
@@ -10,50 +10,36 @@
       Fortunately, a few differential equations<mdash/>in fact,
       the very simplest<mdash/>arise over and over again in an astonishing variety of contexts.
       The functions they define are among the most important in mathematics.
-      One of the simplest differential equations is
     </p>
-    <aside>
-      <p>
-        A simple and natural model of growth and decay
-      </p>
-    </aside>
     <p>
-      <m>dy/dt =ky</m>, where <m>k</m> is a constant.
+      One of the simplest differential equations is [[NOTE:A simple and natural model of growth and decay]] <m>dy/dt =ky</m>,
+      where <m>k</m> is a constant.
       It is also one of the most useful.
       We used it in chapter 1 to model the populations of Poland and Afghanistan,
       as well as bacterial growth and radioactive decay.
       In this chapter,
       it was our initial model of a rabbit population and one of our models of the world population.
       Later, we will use it to describe how money accrues interest in a bank and how radiation penetrates solid objects.
+    </p>
+    <p>
       In this section we will look at the solutions to differential equations of this form from two different vantage points.
       On the one hand,
       we already have named functions which solve such equations<mdash/>the exponential functions.
       On the other hand,
       the fact that Euler's method produces the same functions will allow us to prove properties of such functions and to compute their values effectively.
-      In chapter 3 we established that the solutions
     </p>
-    <aside>
-      <p>
-        Exponential solutions<mdash/>with different bases<nbsp/><ellipsis/>
-      </p>
-    </aside>
     <p>
-      to <m>dy/dt = ky</m> are exponential functions.
+      In chapter 3 we established that the solutions [[NOTE:Exponential solutions<mdash/>with different bases<nbsp/><ellipsis/>]] to
+      <m>dy/dt = ky</m> are exponential functions.
           <idx><h>function</h><h>exponential</h></idx>
       Specifically, for each base <m>b</m>,
       the exponential function <m>y = b^t</m> was a solution to <m>dy/dt = k_b \cdot b^t = k_b \cdot y</m>,
       where <m>k_b</m> was the slope of the graph of <m>y = b^t</m> at the origin.
       In this approach, if the constant <m>k</m> changes,
       we must change the base <m>b</m> so that <m>k_b = k</m>.
-      Exercise<nbsp/>7 in the previous section ( <xref ref="sec_solutions-of-differential-equations_ex_base_2"></xref>)
     </p>
-    <aside>
-      <p>
-        <ellipsis/> and a fixed base
-      </p>
-    </aside>
     <p>
-      opened up a new possibility:
+      Exercise<nbsp/>7 in the previous section ( <xref ref="ex_base_2"></xref>) [[NOTE:<ellipsis/> and a fixed base]] opened up a new possibility:
       for the <em>fixed</em> base 2, the function
       <me>
         y = 2^{kt/.6931\ldots}
@@ -66,6 +52,8 @@
         y = 10^{kt/2.3025\ldots}
       </me>
       would serve equally well as solutions.
+    </p>
+    <p>
       In fact, we can show that, for any base <m>b</m>, the functions
       <me>
         y = b^{kt/k_b}
@@ -85,15 +73,8 @@
       </me>.
     </p>
     <p>
-      If we express solutions to <m>dy/dt = ky</m> by
-    </p>
-    <aside>
-      <p>
-        Advantages of a fixed base
-      </p>
-    </aside>
-    <p>
-      exponential functions with a <em>fixed</em> base,
+      If we express solutions to
+      <m>dy/dt = ky</m> by [[NOTE:Advantages of a fixed base]] exponential functions with a <em>fixed</em> base,
       it is easy to alter the solution if the growth constant <m>k</m> changes.
       We just change the value of <m>k</m> in the exponent of <m>b^{kt/k_b}</m>.
       Let's see how this works when <m>b = 2</m> and <m>b = 10</m>:
@@ -112,16 +93,12 @@
       (when the base is 2)
       and by <m>k_{10} = 2.3025\ldots</m>
       (when the base is 10).
-      The most vivid solution to
-      <m>dy/dt = ky</m> would use the base <m>b</m> for which <m>k_b = 1</m> <em>exactly</em>.
     </p>
-    <aside>
-      <p>
-        The base <m>e</m>
-      </p>
-    </aside>
     <p>
-      There is such a base, and it is always denoted <m>e</m>.
+      The most vivid solution to
+      <m>dy/dt = ky</m> would use the base <m>b</m> for which <m>k_b = 1</m>
+      <em>exactly</em>. [[NOTE:The base <m>e</m>]] There is such a base,
+      and it is always denoted <m>e</m>.
           <idx><h><m>e</m></h></idx>
       (We will determine the value of <m>e</m> in a moment.) Since <m>k_e = 1</m>,
       <m>k</m> would stand out in the exponent:
@@ -135,33 +112,22 @@
       for describing exponential growth and decay<mdash/>that is,
       for describing solutions to <m>dy/dt = ky</m>.
     </p>
-    <aside>
-      <p>
-        The use of the symbol <m>e</m> to denote the base dates back to a paper that Euler
-            <idx><h>Euler, L.</h></idx>
-        wrote at age 21, entitled <em>Meditatio in experimenta explosione tormentorum nuper instituta</em>
-        (Meditation upon recent experiments on the firing of cannons),
-        where the symbol <m>e</m> was used sixteen times.
-        It is now in universal use.
-        The number <m>e</m> is, like <m>\pi</m>,
-        one of the most important and ubiquitous in mathematics.
-      </p>
-    </aside>
+    <p>
+      [[NOTE:The use of the symbol <m>e</m> to denote the base dates back to a paper that Euler wrote at age 21,
+      entitled <em>Meditatio in experimenta explosione tormentorum nuper instituta</em>
+      (Meditation upon recent experiments on the firing of cannons),
+      where the symbol <m>e</m> was used sixteen times.
+      It is now in universal use.
+      The number <m>e</m> is, like <m>\pi</m>,
+      one of the most important and ubiquitous in mathematics.]]
+    </p>
     <p>
       By design, <m>y = e^t</m> is a solution to the differential equation <m>dy/dt = y</m>.
       In particular,
       the slope of the graph of <m>y = e^t</m> at the origin is exactly<nbsp/>1.
       As we have just seen, the function
       <m>y = e^{kt}</m> is a solution to the differential equations
-      <m>dy/dt = ky</m> whose growth constant is <m>k</m>.
-    </p>
-    <aside>
-      <p>
-        The general initial value problem for exponential functions
-      </p>
-    </aside>
-    <p>
-      Finally:
+      <m>dy/dt = ky</m> whose growth constant is <m>k</m>. [[NOTE:The general initial value problem for exponential functions]] Finally:
     </p>
     <image source=""/>
     <p>
@@ -178,18 +144,10 @@
       and we used the fact that the derivative of <m>e^{kt}</m> was already established to be <m>k\,e^{kt}</m>.
     </p>
   </subsection>
-  <subsection xml:id="sec_the-exponential-function_subsec_the-number-e">
+  <subsection xml:id="subsec_the-number-e">
     <title>The Number <m>e</m></title>
     <p>
-      The number <m>e</m> is determined by the property that <m>k_e = 1</m>.
-    </p>
-    <aside>
-      <p>
-        Finding <m>e</m> with a computer microscope
-      </p>
-    </aside>
-    <p>
-      Since this number is the slope of the graph of <m>y = e^t</m> at the origin,
+      The number <m>e</m> is determined by the property that <m>k_e = 1</m>. [[NOTE:Finding <m>e</m> with a computer microscope]] Since this number is the slope of the graph of <m>y = e^t</m> at the origin,
       one way to find <m>e</m> is with a computer microscope.
       Pick an approximation <m>E</m> for <m>e</m> and graph <m>y = f^t</m>.
       Zoom in the graph at the origin, and measure the slope.
@@ -198,16 +156,10 @@
       if the slope is less than<nbsp/>1, choose a larger value.
       Repeat this process,
       narrowing down the value of <m>e</m> until you know its value to as many decimal places as you wish.
-      We already know <m>E= 2</m> is too small,
     </p>
-    <aside>
-      <p>
-        Under successive magnifications:
-        <m>e = 2.71828\ldots</m>
-      </p>
-    </aside>
     <p>
-      because the slope of <m>y = 2^t</m> at the origin is 0.69.
+      We already know <m>E= 2</m> is too small, [[NOTE:Under successive magnifications:
+      <m>e = 2.71828\ldots</m>]] because the slope of <m>y = 2^t</m> at the origin is 0.69.
       Likewise, <m>E = 3</m> is too large,
       because the slope of <m>y = 3^t</m> at the origin is 1.09.
       Thus <m>2 \lt e \lt 3</m>, and is closer to 3 than to 2.
@@ -215,17 +167,11 @@
       (slope <m>= 0.9933</m>)
       but 2.8 is too large
       (slope <m>= 1.0296</m>).
-      Thus, at least we know <m>e = 2.7\ldots</m> . Several stages later we would learn
-      <m>e = 2.71828\ldots</m> . While the method just described for finding the value of <m>e</m> works,
-      it is somewhat ponderous.
+      Thus, at least we know <m>e = 2.7\ldots</m> . Several stages later we would learn <m>e = 2.71828\ldots</m> .
     </p>
-    <aside>
-      <p>
-        Finding <m>e</m> by Euler's method
-      </p>
-    </aside>
     <p>
-      We can take a very different approach to finding the numerical value of <m>e</m> by using the fact that <m>e</m> is defined by an initial value problem.
+      While the method just described for finding the value of <m>e</m> works,
+      it is somewhat ponderous. [[NOTE:Finding <m>e</m> by Euler's method]] We can take a very different approach to finding the numerical value of <m>e</m> by using the fact that <m>e</m> is defined by an initial value problem.
       Here is the idea:
       <m>e</m> is the value of the function <m>e^t</m> when <m>t = 1</m>,
       and <m>y(t) = e^t</m> is the solution to the initial value problem
@@ -237,6 +183,8 @@
       We can then find <m>e = y(1)</m> in the usual way by solving this initial value problem using Euler's method.
       Due to some convenient algebraic simplifications,
       this approach yields powerful insights about the nature of <m>e</m>.
+    </p>
+    <p>
       Suppose we take <m>n</m> steps to go from <m>t = 0</m> to <m>t = 1</m>.
       Then the step size is <m>\Delta t = 1/n</m>.
       The following table shows the calculations: Finding <m>y(1)</m> by Euler's method when <m>y' = y</m> and <m>y(0) = 1</m>
@@ -263,6 +211,8 @@
       Since the second <m>y</m> is itself <m>(1 + 1/n)</m>,
       the third will be <m>(1 + 1/n)^2</m>,
       the fourth will be <m>(1 + 1/n)^3</m>, and so on.
+    </p>
+    <p>
       Euler's method with <m>n</m> steps therefore gives us the following estimate for <m>e = y(1) = y(n/n)</m>:
       <me>
         e \approx (1 + 1/n)^n
@@ -283,15 +233,7 @@
     <p>
       The <em>true</em> value of <m>e</m>
           <idx><h><m>e</m></h></idx>
-      is
-    </p>
-    <aside>
-      <p>
-        Expressing <m>e</m> as a limit
-      </p>
-    </aside>
-    <p>
-      the limit of these approximations as we take <m>n</m> arbitrarily large:
+      is [[NOTE:Expressing <m>e</m> as a limit]] the limit of these approximations as we take <m>n</m> arbitrarily large:
       <me>
         e = \lim_{n \rightarrow \infty} \left( 1 + 1/n \right)^n = 2.71828182845904\ldots
       </me>
@@ -311,24 +253,19 @@
       </me>
     </p>
   </subsection>
-  <subsection xml:id="sec_the-exponential-function_subsec_differential-equations-define-functions">
+  <subsection xml:id="subsec_differential-equations-define-functions">
     <title>Differential Equations Define Functions</title>
     <p>
       There is an important point underlying the operations we just performed having to do with the question of
       <em> computability</em>.
           <idx><h>computability</h></idx>
       While it may be appalling to think about doing it by hand,
-      there is nothing conceptually difficult about evaluating an expression like
-    </p>
-    <aside>
-      <p>
-        Euler's method uses only arithmetic
-      </p>
-    </aside>
-    <p>
+      there is nothing conceptually difficult about evaluating an expression like [[NOTE:Euler's method uses only arithmetic]]
       <m>(1+1/1000)^{1000}</m><mdash/>all we need are ordinary addition,
       division, and multiplication.
       In fact, for any differential equation, Euler's method generates a solution using only ordinary arithmetic.
+    </p>
+    <p>
       By contrast,
       think for a moment about the earlier method for evaluating <m>e</m> by evaluating expressions like
       <m>(2.718^{.0001}-2.718^{-0.0001})/.0002</m> and seeing whether we get a value bigger than or less than 1.
@@ -346,22 +283,18 @@
       we actual trigger a fairly elaborate program having little directly to do with raising numbers to powers which produces an approximation to the desired number.
       It turns out that if you use the \fbox{<m>x^y</m>} key on your calculator to evaluate <m>2^5</m> it doesn't come up with the answer by multiplying 2 by itself 5 times,
       but uses this more complicated program.
-      There is often a large gap between naming and defining a function,
-      and being able to compute
     </p>
-    <aside>
-      <p>
-        Defining a function is not the same as being able to evaluate it
-      </p>
-    </aside>
     <p>
-      values for it to four or five decimals.
+      There is often a large gap between naming and defining a function,
+      and being able to compute [[NOTE:Defining a function is not the same as being able to evaluate it]] values for it to four or five decimals.
       Think about the trigonometric functions for a moment.
       You have probably seen several definitions of the cosine function by now<mdash/>as the ratio of the adjacent side over the hypotenuse of a right triangle,
       or as the <m>x</m>-coordinate of a point moving around a circle of radius 1.
       Yet neither of these definitions would help you calculate <m>\cos(2)</m> to five decimals.
       It turns out that most methods for evaluating functions are based on the way the derivatives of the functions behave.
       While we will have much more to say about this in chapter 10, Euler's method is a good first example of this.
+    </p>
+    <p>
       Returning to exponents, think what would be involved in evaluating
       <m>2^{\sqrt{3}}</m> using the pre-calculus concept of exponents.
       We might first get a series of rational approximations to <m>\sqrt{3}=1.73205081\ldots</m>:
@@ -379,12 +312,16 @@
       Even evaluating the first of these approximations would involve finding the 10th root of 2 and raising it to the 17th power,
       which would not be easy.
       We would continue with these approximations until the desired number of digits remained fixed.
+    </p>
+    <p>
       By contrast,
       evaluating <m>e^{\sqrt{3}}</m> by Euler's method is very straightforward.
       As we saw above, it reduces to evaluating
       <m>(1+1.73205\ldots/n)^n</m> for increasing values of <m>n</m> until the desired number of digits remains fixed.
       Moreover, this same process works just as well for any kind of exponent<mdash/>positive or negative,
       rational or irrational.
+    </p>
+    <p>
       In fact, <em>all</em> the properties of the exponential function follow from the fact that it is the solution to its initial value problem,
       so we could have made this the definition in the first place.
       This would have given us the benefit of coherence
@@ -395,16 +332,11 @@
       Since the process of deducing the properties of a function from its defining equation will be important later on,
       and since it is a good exercise in some of the theoretical ideas we've been developing,
       let's see how this works.
-      We will assume <em>nothing</em>
-      about the function <m>y = e^t</m>.
     </p>
-    <aside>
-      <p>
-        Defining <m>\exp(t)</m>
-      </p>
-    </aside>
     <p>
-      Instead, we begin simply with the observation that each initial value problem defines a function<mdash/>its solution.
+      We will assume <em>nothing</em>
+      about the function <m>y = e^t</m>. [[NOTE:Defining <m>\exp(t)</m>]] Instead,
+      we begin simply with the observation that each initial value problem defines a function<mdash/>its solution.
       Therefore, the specific problem
       <me>
         y' = y \qquad y(0) = 1
@@ -428,6 +360,8 @@
       since there is, as we've seen,
       a bit of hand-waving about what it means to raise a number to an irrational power.
       The following theorem is the key to establishing this result.
+    </p>
+    <p>
       <term>Theorem 1</term>.
       <em>For any real numbers <m>r</m> and <m>s</m></em>,
       <me>
@@ -451,24 +385,18 @@
       </me>.
     </p>
     <p>
-      Repeating this argument for any positive integer <m>m</m>,
-      we get <term>Corollary 1</term>.
+      Repeating this argument for any positive integer <m>m</m>, we get
+    </p>
+    <p>
+      <term>Corollary 1</term>.
       <em>For any positive integer <m>m</m></em>,
       <me>
         \exp(m) = \left(\exp(1)\right)^m = e^m
       </me>.
     </p>
     <p>
-      We can also express <m>\exp(t)</m> in terms of <m>e</m> when <m>t</m> is a
-      <em>negative</em> integer.
-    </p>
-    <aside>
-      <p>
-        Negative integers
-      </p>
-    </aside>
-    <p>
-      We begin with another consequence of Theorem<nbsp/>1:
+      We can also express <m>\exp(t)</m> in terms of <m>e</m> when <m>t</m> is a <em>negative</em>
+      integer. [[NOTE:Negative integers]] We begin with another consequence of Theorem<nbsp/>1:
       <me>
         1 = \exp(0) = \exp(-1+1) = \exp(-1) \cdot \exp(1)
       </me>.
@@ -492,15 +420,8 @@
       </me>.
     </p>
     <p>
-      We can even do the same thing with fractions.
-    </p>
-    <aside>
-      <p>
-        Rational numbers
-      </p>
-    </aside>
-    <p>
-      Here's how to deal with <m>\exp(1/3)</m>, for example:
+      We can even do the same thing with fractions. [[NOTE:Rational numbers]] Here's how to deal with <m>\exp(1/3)</m>,
+      for example:
       <md>
         <mrow>\exp(1) \amp = \exp\left(\tfrac{1}{3} + \tfrac{1}{3} + \tfrac{1}{3}\right)</mrow>
         <mrow>\amp = \exp(1/3) \cdot \exp(1/3) \cdot \exp(1/3)</mrow>
@@ -512,36 +433,48 @@
       </me>.
     </p>
     <p>
-      A similar argument will show that <term>Corollary 3</term>.
+      A similar argument will show that
+    </p>
+    <p>
+      <term>Corollary 3</term>.
       <em>For any positive integer <m>n</m></em>,
       <m>\exp(1/n) = e^{1/n}</m>.
+    </p>
+    <p>
       Finally, we can deal with any rational number <m>m/n</m>:
       <me>
         \exp(m/n) = \left( \exp(1/n) \right)^m = \left( e^{1/n} \right)^m = e^{m/n}
       </me>.
     </p>
     <p>
-      This leads to <term>Theorem 2</term>.
+      This leads to
+    </p>
+    <p>
+      <term>Theorem 2</term>.
       <em>For any rational number <m>r</m></em>,
       <m>\exp(r) = \left( \exp(1) \right)^{\displaystyle r} = e^{\displaystyle r}</m>.
+    </p>
+    <p>
       In other words, Theorem<nbsp/>1 implies that the function <m>\exp(t)</m> is the same function as the exponential function <m>e^t</m><mdash/>at least when <m>t</m> is a rational number <m>m/n</m>,
       as claimed.
       We could now prove that <m>\exp(t)=e^t</m> when <m>t</m> is an irrational number,
       which would require being clearer about what it means to raise a number to an irrational power than most high school texts are.
+    </p>
+    <p>
       We adopt a more attractive option.
       Since <m>\exp(t)</m> and <m>e^t</m> agree at rational values of <m>t</m>,
       and since <m>\exp(t)</m> is well-defined for <em>all</em>
       values of <m>t</m><mdash/>including irrational numbers<mdash/>we <em>define</em>
       <m>e^t</m> for irrational values of <m>t</m> by setting it equal to <m>\exp(t)</m>.
-      <term>Proof of Theorem 1</term> The proof uses the Existence and Uniqueness Principle for differential equations we articulated
     </p>
-    <aside>
-      <p>
-        The proof of Theorem<nbsp/>1
-      </p>
-    </aside>
     <p>
-      earlier: if two functions satisfy the same differential equation and satisfy the same initial conditions then they have to be the same function.
+      <term>Proof of Theorem 1</term>
+    </p>
+    <p>
+      The proof uses the Existence and Uniqueness Principle for differential equations we articulated [[NOTE:The proof of Theorem<nbsp/>1]] earlier:
+      if two functions satisfy the same differential equation and satisfy the same initial conditions then they have to be the same function.
+    </p>
+    <p>
       Theorem 1 involves two fixed real numbers, <m>r</m> and <m>s</m>.
       We fix one of them, say <m>r</m>,
       to define two new functions of <m>t</m>:
@@ -558,7 +491,10 @@
     </p>
     <p>
       (Remember, <m>\exp(r)</m> is a constant,
-      because <m>r</m> is fixed.) If we show this,
+      because <m>r</m> is fixed.)
+    </p>
+    <p>
+      If we show this,
       it will then follow that <m>P(t)</m> and <m>Q(t)</m> must be the same function.
       Since
       <md>
@@ -592,12 +528,18 @@
         \exp(r + s) = P(s) = Q(s) = \exp(r) \cdot \exp(s)
       </me>,
       which is exactly the statement of Theorem 1, and so completes the proof.
+    </p>
+    <p>
       Now that we have established <m>\exp(x) = e^x</m>,
-      we shall call <m>\exp(x)</m> <term><em>the</em>
-      exponential function</term>
+      we shall call <m>\exp(x)</m>
+    </p>
+    <p>
+      <term><em>the</em> exponential function</term>
       and we shall use the forms <m>e^x</m> and <m>\exp(x)</m> interchangeably.
       The following theorem summarizes several more properties of the exponential function.
           <idx><h>function</h><h>exponential</h></idx>
+    </p>
+    <p>
       <term>Theorem 3</term>.
       <em>For any real numbers <m>r</m> and <m>s</m></em>,
       <md>
@@ -613,13 +555,19 @@
       Proofs will be covered in the exercises.
     </p>
   </subsection>
-  <subsection xml:id="sec_the-exponential-function_subsec_exponential-growth">
+  <subsection xml:id="subsec_exponential-growth">
     <title>Exponential Growth</title>
     <p>
           <idx><h>growth</h><h>exponential</h></idx>
-      The function <m>\exp(x) = e^x</m>, like polynomials and the sine and cosine functions, is defined for all real numbers.
+    </p>
+    <p>
+      The function <m>\exp(x) = e^x</m>,
+      like polynomials and the sine and cosine functions,
+      is defined for all real numbers.
       Nevertheless,
       it behaves in a way that is quite different from any of those functions.
+    </p>
+    <p>
       One difference occurs when <m>x</m> is large,
       either positive or negative.
       The sine function and the cosine function stay bounded between <m>+1</m> and <m>-1</m> over their entire domain.
@@ -630,15 +578,9 @@
       As <m>x \to -\infty</m>, <m>\exp(x) \to 0</m>.
       As <m>x \to + \infty</m>, however,
       <m>\exp(x) \to +\infty</m>.
-      Let's look more closely at what happens
     </p>
-    <aside>
-      <p>
-        How fast do <m>x^n</m> and <m>e^x</m> become infinite?
-      </p>
-    </aside>
     <p>
-      to power functions <m>x^n</m> and the exponential function <m>e^x</m> as <m>x \to \infty</m>.
+      Let's look more closely at what happens [[NOTE:How fast do <m>x^n</m> and <m>e^x</m> become infinite?]] to power functions <m>x^n</m> and the exponential function <m>e^x</m> as <m>x \to \infty</m>.
       Both kinds of functions
       <q>blow up</q>
       but they do so at quite different rates, as we shall see.
@@ -657,17 +599,10 @@
       </me>
     </p>
     <p>
-      It should be clear to you that we can compare
-    </p>
-    <aside>
-      <p>
-        <m>x^p</m> grows more slowly than <m>x^q</m> if <m>p \lt q</m>
-      </p>
-    </aside>
-    <p>
-      <em>any</em> two powers of <m>x</m> this way.
+      It should be clear to you that we can compare [[NOTE<m>:x^p</m> grows more slowly than <m>x^q</m> if <m>p \lt q</m>]] <em>any</em>
+      two powers of <m>x</m> this way.
       We will find that <m>x^p</m> grows more slowly than <m>x^q</m> if,
-      and only if, <m>p \lt  q</m>.
+      and only if, <m>p \lt q</m>.
       To prove this,
       we must see what happens to the ratio <m>x^p/x^q</m>, as <m>x \to +\infty</m>.
       We can write <m>x^p/x^q = 1/x^{q - p}</m>,
@@ -677,6 +612,8 @@
       <m>x^{q-p} \to \infty</m> as well,
       and therefore <m>1/x^{q-p} \to 0</m>.
       This completes the proof.
+    </p>
+    <p>
       How does <m>e^x</m> compare to <m>x^p</m>?
       To make it tough on <m>e^x</m>,
       let's compare it to <m>x^{50}</m>.
@@ -694,20 +631,14 @@
       </me>
     </p>
     <p>
-      So <m>x^{50}</m> grows more slowly than <m>e^x</m>,
-    </p>
-    <aside>
-      <p>
-        <m>e^x</m> grows more rapidly than any power of <m>x</m>
-      </p>
-    </aside>
-    <p>
-      and so does any lower power of <m>x</m>.
+      So <m>x^{50}</m> grows more slowly than <m>e^x</m>, [[NOTE<m>:e^x</m> grows more rapidly than any power of <m>x</m>]] and so does any lower power of <m>x</m>.
       Perhaps a higher power of <m>x</m> would do better.
       It does, but ultimately the ratio <m>x^p/e^x \to 0</m>,
       no matter how large the power <m>p</m> is.
       We don't yet have all the tools needed to prove this,
       but we will after we introduce the logarithm function in the next section.
+    </p>
+    <p>
       The speed of exponential growth has had an impact in computer science.
       In many cases,
       the number of operations needed to calculate a particular quantity is a power of the number of digits of precision required in the answer.
@@ -722,7 +653,7 @@
   </subsection>
   <subsection>
     <title>Exercises</title>
-    <subsubsection xml:id="sec_the-exponential-function_subsubsec_the-exponential-functions-bt">
+    <subsubsection xml:id="subsubsec_the-exponential-functions-bt">
       <title>The exponential functions <m>b^t</m></title>
       <p>
             <idx><h>function</h><h>exponential</h></idx>
@@ -768,7 +699,7 @@
         </li>
       </ol>
     </subsubsection>
-    <subsubsection xml:id="sec_the-exponential-function_subsubsec_differentiating-exponential-functions">
+    <subsubsection xml:id="subsubsec_differentiating-exponential-functions">
       <title>Differentiating exponential functions</title>
       <p>
             <idx><h>differentiation</h></idx>
@@ -841,7 +772,7 @@
         </li>
       </ol>
     </subsubsection>
-    <subsubsection xml:id="sec_the-exponential-function_subsubsec_powers-of-e">
+    <subsubsection xml:id="subsubsec_powers-of-e">
       <title>Powers of <m>e</m></title>
       <ol>
         <li>
@@ -914,7 +845,7 @@
         </li>
       </ol>
     </subsubsection>
-    <subsubsection xml:id="sec_the-exponential-function_subsubsec_solving-y-ky-using-et">
+    <subsubsection xml:id="subsubsec_solving-y-ky-using-et">
       <title>Solving <m>y'= ky</m> using <m>e^t</m></title>
       <ol>
         <li>
@@ -1045,7 +976,7 @@
         </li>
       </ol>
     </subsubsection>
-    <subsubsection xml:id="sec_the-exponential-function_subsubsec_solving-other-differential-equations">
+    <subsubsection xml:id="subsubsec_solving-other-differential-equations">
       <title>Solving other differential equations</title>
       <ol>
         <li>
@@ -1127,7 +1058,7 @@
             <me>
               \dfrac{dv}{dt} = -g - bv \qquad v(0) = 0
             </me>
-            that appears in exercise<nbsp/>21 <xref ref="sec_solutions-of-differential-equations_ex_falling_body1">on</xref>.
+            that appears in exercise<nbsp/>21 <xref ref="ex_falling_body1">on</xref>.
             Show that the modified expression is still a solution.
             <ol>
               <li>
@@ -1140,7 +1071,7 @@
                   </me>,
                   where <m>v(t)</m> is the velocity function from the previous exercise.
                   Find a formula for <m>x(t)</m> using the exponential function with base <m>e</m>.  (Compare this formula with the one in exercise<nbsp/>22<nbsp/>(a),
-                  <xref ref="sec_solutions-of-differential-equations_ex_falling_body2"></xref>.)
+                  <xref ref="ex_falling_body2"></xref>.)
                 </p>
               </li>
               <li>
@@ -1151,7 +1082,7 @@
                   In 2 seconds?
                   Use your formula from part (b).
                   Compare these values with those you obtained in exercise<nbsp/>22<nbsp/>(b),
-                  <xref ref="sec_solutions-of-differential-equations_ex_falling_body3"></xref>.
+                  <xref ref="ex_falling_body3"></xref>.
                 </p>
               </li>
             </ol>
@@ -1159,10 +1090,12 @@
         </li>
       </ol>
     </subsubsection>
-    <subsubsection xml:id="sec_the-exponential-function_subsubsec_interest-rates">
+    <subsubsection xml:id="subsubsec_interest-rates">
       <title>Interest rates</title>
       <p>
             <idx><h>interest rates</h></idx>
+      </p>
+      <p>
         Bank advertisements sometimes look like this:
       </p>
       <p>
@@ -1302,8 +1235,10 @@
         </row>
       </tabular>
       <p>
-        } Since this particular account pays interest at the rate of 6% per year and there are 12 months in a year the interest rate is 6%/12 = 0.5% per month.
+        Since this particular account pays interest at the rate of 6% per year and there are 12 months in a year the interest rate is 6%/12 = 0.5% per month.
         The following table shows the interest computations for one year for a bank account earning 6% annual interest compounded monthly.
+      </p>
+      <p>
         Notice that at the end of the year the account contains $106.17.
         It has effectively earned 6.17% interest.
         This is the meaning of the advertised
@@ -1315,6 +1250,8 @@
         Banks routinely advertise the effective rate to attract depositors.
         Of course, banks do the same computations for loans.
         They rarely advertise the effective rate of interest for loans because customers might be repelled by the true cost of borrowing.
+      </p>
+      <p>
         The effective rate of interest can be computed much more quickly than we did in the previous table.
         Let <m>R</m> denote the annual interest rate as a decimal.
         For example, if the interest rate is 6% then <m>R = 0.06</m>.
@@ -1336,7 +1273,10 @@
         <me>
           \left(1 + \dfrac{0.06}{12}\right)^{12}V = 1.061678 \, V
         </me>
-        and the effective interest rate is 6.1678%. Many banks now compound interest daily.
+        and the effective interest rate is 6.1678%.
+      </p>
+      <p>
+        Many banks now compound interest daily.
         Some even compound interest <em>continuously</em>.
         The value of a deposit in an account with interest compounded continuously at the rate of 6% per year,
         for example, grows according to the differential equation

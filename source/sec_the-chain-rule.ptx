@@ -1,506 +1,490 @@
-<section xml:id="sec_the-chain-rule_sec_the-chain-rule">
+<section xml:id="sec_the-chain-rule">
   <title>The Chain Rule</title>
   <introduction>
     <p>
           <idx><h>chain rule</h></idx>
     </p>
   </introduction>
-  <subsection xml:id="sec_the-chain-rule_subsec_combining-rates-of-change">
+  <subsection xml:id="subsec_combining-rates-of-change">
     <title>Combining Rates of Change</title>
-    <p>
-          <idx><h>rate of change</h></idx>
-      Let's return to the expanding house
-          <idx><h>expanding house</h></idx>
-      that we studied in section<nbsp/>4.
-      When the temperature <m>T</m> increased,
-      every side <m>s</m> of the house got longer;
-      when <m>s</m> got longer, the volume <m>V</m> got larger.
-      We already discussed how <m>V</m> responds to changes in <m>s</m>,
-      but that's only part of the story.
-      What we'd really like to know is this:
-      exactly how does the volume <m>V</m> respond to changes in temperature <m>T</m>?
-      We can work this out in stages:
-      first we see how <m>V</m> responds to changes in <m>s</m>,
-      and then how <m>s</m> responds to changes in <m>T</m>.
-    </p>
-    <p>
-      <term>Stage 1</term>.
-      Our
-      <q>house</q>
-      is a cube that measures 200 inches on a side,
-      and the microscope equation
-          <idx><h>microscope equation</h></idx>
-      (section<nbsp/>4) describes how <m>V</m> responds to changes in <m>s</m>:
-    </p>
-    <aside>
+    <introduction>
       <p>
-        How volume responds to changes in length
+            <idx><h>rate of change</h></idx>
       </p>
-    </aside>
-    <me>
-      \Delta V \approx 120000 \
-      \dfrac{\mbox{cubic inches of volume} }{\mbox{inch of length} }
-      \cdot \Delta s \ \mbox{inches}
-    </me>.
-    <p>
-      <term>Stage 2</term>.
-      Physical experiments with wood show that a 200 inch length of wood increases about 0.0004 inches in length per degree Fahrenheit.
-      This is a <em>rate</em>,
-      and we can build a second microscope equation with it:
-    </p>
-    <aside>
       <p>
-        How length responds to changes in temperature
+        Let's return to the expanding house
+            <idx><h>expanding house</h></idx>
+        that we studied in section<nbsp/>4.
+        When the temperature <m>T</m> increased,
+        every side <m>s</m> of the house got longer;
+        when <m>s</m> got longer, the volume <m>V</m> got larger.
+        We already discussed how <m>V</m> responds to changes in <m>s</m>,
+        but that's only part of the story.
+        What we'd really like to know is this:
+        exactly how does the volume <m>V</m> respond to changes in temperature <m>T</m>?
+        We can work this out in stages:
+        first we see how <m>V</m> responds to changes in <m>s</m>,
+        and then how <m>s</m> responds to changes in <m>T</m>.
       </p>
-    </aside>
-    <me>
-      \Delta s \approx
-      0.0004\ \dfrac{\mbox{inches of length} }{\mbox{degree F} }
-      \cdot \Delta T \ \mbox{degrees F}
-    </me>,
-    <p>
-      where <m>\Delta T</m> measures the change in temperature,
-      in degrees Fahrenheit.
-      We can combine the two stages because <m>\Delta s</m> appears in both.
-      Replace <m>\Delta s</m> in the first equation by the right-hand side of the second equation.
-      The result is
-      <me>
-        \Delta V \approx 120000 \ \dfrac{\mbox{cubic inches} }{\mbox{inch} } \times 0.0004\ \dfrac{\mbox{inches} }{\mbox{degree F} } \cdot \Delta T \ \mbox{degrees F}
-      </me>.
-    </p>
-    <p>
-      We can condense
-    </p>
-    <aside>
+    </introduction>
+    <subsubsection>
+      <title>Stage 1</title>
       <p>
-        How volume responds to changes in temperature
+        Our
+        <q>house</q>
+        is a cube that measures 200 inches on a side,
+        and the microscope equation
+            <idx><h>microscope equation</h></idx>
+        (section<nbsp/>4) describes how <m>V</m> responds to changes in <m>s</m>: [[NOTE:How volume responds to changes in length]]
+        <me>
+          \Delta V \approx 120000 \ \dfrac{\mbox{cubic inches of volume} }{\mbox{inch of length} } \cdot \Delta s \ \mbox{inches}
+        </me>.
       </p>
-    </aside>
-    <p>
-      this to
-      <me>
-        \Delta V \approx 48 \ \dfrac{\mbox{cubic inches} }{\mbox{degree F} } \cdot \Delta T \ \mbox{degrees F}
-      </me>.
-    </p>
-    <p>
-      This is a <em>third</em> microscope equation,
-      and it shows directly how the volume of the house responds to changes in temperature.
-      It is the answer to our question.
-      As always, the multiplier
-          <idx><h>multiplier</h></idx>
-      in a microscope equation is a rate.
-      The multiplier in the third microscope equation, 48 cubic inches/degree F, tells us the rate at which
-      <em>volume changes with respect to temperature</em>.
-      Thus, if the temperature increases by 10 degrees between night and day,
-      the house will become about 480 cubic inches larger.
-      Recall that Bodanis
-      (see section<nbsp/>4)
-      said that the house might become only a few cubic inches larger<mdash/>say,
-      <m>\Delta V = 3</m> cubic inches.
-      If we solve the microscope equation
-      <me>
-        3 \approx 48 \cdot \Delta T
-      </me>
-      for <m>\Delta T</m>,
-      we see that the temperature would have risen only 1/16-th of a degree F! The rate that appears as the multiplier in the third microscope equation is the product of the other two:
-    </p>
-    <aside>
+    </subsubsection>
+    <subsubsection>
+      <title>Stage 2</title>
       <p>
-        How the rates combine
+        Physical experiments with wood show that a 200 inch length of wood increases about 0.0004 inches in length per degree Fahrenheit.
+        This is a <em>rate</em>,
+        and we can build a second microscope equation with it: [[NOTE:How length responds to changes in temperature]]
+        <me>
+          \Delta s \approx 0.0004\ \dfrac{\mbox{inches of length} }{\mbox{degree F} } \cdot \Delta T \ \mbox{degrees F}
+        </me>,
+        where <m>\Delta T</m> measures the change in temperature,
+        in degrees Fahrenheit.
       </p>
-    </aside>
-    <me>
-      48 \ \dfrac{\mbox{cubic inches} }{\mbox{degree F} } =
-      120000 \ \dfrac{\mbox{cubic inches} }{\mbox{inch} }
-      \times
-      0.0004 \ \dfrac{\mbox{inches} }{\mbox{degree F} }
-    </me>.
-    <p>
-      Each of these rates is a derivative:
-      <me>
-        \underbrace {48 \ \rule[-15pt]{0pt}{15pt} \dfrac{\mbox{cubic inches} }{\mbox{degree F} }}_ {\displaystyle dV/dT} = \underbrace {120000 \ \rule[-15pt]{0pt}{15pt} \dfrac{\mbox{cubic inches} }{\mbox{inch} }}_ {\displaystyle dV/ds} \times \underbrace {.0004 \ \rule[-15pt]{0pt}{15pt} \dfrac{\mbox{inches} }{\mbox{degree F} }}_ {\displaystyle ds/dT}
-      </me>.
-    </p>
-    <p>
-      We wrote the derivatives in Leibniz's notation because it's particularly helpful in keeping straight what is going on.
-      For instance,
-      <m>dV/dT</m> indicates very clearly the rate at which volume is changing with respect to <em>temperature</em>,
-      and <m>dV/ds</m> the rate at which it is changing with respect to <em>length</em>.
-      These rates are quite different<mdash/>they even have different units<mdash/>but the notation <m>V'</m> does not distinguish between them.
-      In Leibniz's notation,
-      the relation between the three rates takes this striking form:
-      <me>
-        \dfrac{dV}{dT} = \dfrac{dV}{ds} \cdot \dfrac{ds}{dT}
-      </me>.
-    </p>
-    <p>
-      This relation is called the <term>chain rule</term>
-          <idx><h>chain rule</h></idx>
-      for the variables <m>T</m>, <m>s</m>, and <m>V</m>.
-      (We'll see in a moment what this has to do with chains.)
-      The chain rule is a consequence of the way the three microscope equations are related to each other.
-      We can see how it emerges directly from the microscope equations if we replace the numbers that appear as multipliers in those equations by the three derivatives.
-      To begin, we write
-      <me>
-        \Delta V \approx \dfrac{dV}{ds} \cdot \Delta s \qquad \mbox{and}  \qquad \Delta s \approx \dfrac{ds}{dT} \cdot \Delta T
-      </me>.
-    </p>
-    <p>
-      Then, combining these equations, we get
-      <me>
-        \Delta V \approx \dfrac{dV}{ds} \cdot \dfrac{ds}{dT} \cdot \Delta T
-      </me>.
-    </p>
-    <p>
-      In fact, this is the microscope equation for <m>V</m> in terms of <m>T</m>,
-      which can be written more directly as
-      <me>
-        \Delta V \approx \dfrac{dV}{dT} \cdot \Delta T
-      </me>.
-    </p>
-    <p>
-      In these two expressions we have the same microscope equation,
-      so the multipliers must be equal.
-      Thus, we recover the chain rule:
-      <me>
-        \dfrac{dV}{ds} \cdot \dfrac{ds}{dT} = \dfrac{dV}{dT}
-      </me>.
-    </p>
-    <aside>
       <p>
-        Recall that Leibniz
-            <idx><h>Leibniz, G.</h></idx>
-            <idx><h>differential</h></idx>
-        worked directly with <em>differentials</em>,
+        We can combine the two stages because <m>\Delta s</m> appears in both.
+        Replace <m>\Delta s</m> in the first equation by the right-hand side of the second equation.
+        The result is
+        <me>
+          \Delta V \approx 120000 \ \dfrac{\mbox{cubic inches} }{\mbox{inch} } \times 0.0004\ \dfrac{\mbox{inches} }{\mbox{degree F} } \cdot \Delta T \ \mbox{degrees F}
+        </me>.
+      </p>
+      <p>
+        We can condense [[NOTE:How volume responds to changes in temperature]] this to
+        <me>
+          \Delta V \approx 48 \ \dfrac{\mbox{cubic inches} }{\mbox{degree F} } \cdot \Delta T \ \mbox{degrees F}
+        </me>.
+      </p>
+      <p>
+        This is a <em>third</em> microscope equation,
+        and it shows directly how the volume of the house responds to changes in temperature.
+        It is the answer to our question.
+      </p>
+      <p>
+        As always, the multiplier
+            <idx><h>multiplier</h></idx>
+        in a microscope equation is a rate.
+        The multiplier in the third microscope equation, 48 cubic inches/degree F, tells us the rate at which
+        <em>volume changes with respect to temperature</em>.
+        Thus, if the temperature increases by 10 degrees between night and day,
+        the house will become about 480 cubic inches larger.
+        Recall that Bodanis
+        (see section<nbsp/>4)
+        said that the house might become only a few cubic inches larger<mdash/>say,
+        <m>\Delta V = 3</m> cubic inches.
+        If we solve the microscope equation
+        <me>
+          3 \approx 48 \cdot \Delta T
+        </me>
+        for <m>\Delta T</m>,
+        we see that the temperature would have risen only 1/16-th of a degree F!
+      </p>
+      <p>
+        The rate that appears as the multiplier in the third microscope equation is the product of the other two: [[NOTE:How the rates combine]]
+        <me>
+          48 \ \dfrac{\mbox{cubic inches} }{\mbox{degree F} } = 120000 \ \dfrac{\mbox{cubic inches} }{\mbox{inch} } \times 0.0004 \ \dfrac{\mbox{inches} }{\mbox{degree F} }
+        </me>.
+      </p>
+      <p>
+        Each of these rates is a derivative:
+        <me>
+          \underbrace {48 \ \rule[-15pt]{0pt}{15pt} \dfrac{\mbox{cubic inches} }{\mbox{degree F} }}_ {\displaystyle dV/dT} = \underbrace {120000 \ \rule[-15pt]{0pt}{15pt} \dfrac{\mbox{cubic inches} }{\mbox{inch} }}_ {\displaystyle dV/ds} \times \underbrace {.0004 \ \rule[-15pt]{0pt}{15pt} \dfrac{\mbox{inches} }{\mbox{degree F} }}_ {\displaystyle ds/dT}
+        </me>.
+      </p>
+      <p>
+        We wrote the derivatives in Leibniz's notation because it's particularly helpful in keeping straight what is going on.
+        For instance,
+        <m>dV/dT</m> indicates very clearly the rate at which volume is changing with respect to <em>temperature</em>,
+        and <m>dV/ds</m> the rate at which it is changing with respect to <em>length</em>.
+        These rates are quite different<mdash/>they even have different units<mdash/>but the notation <m>V'</m> does not distinguish between them.
+        In Leibniz's notation,
+        the relation between the three rates takes this striking form:
+        <me>
+          \dfrac{dV}{dT} = \dfrac{dV}{ds} \cdot \dfrac{ds}{dT}
+        </me>.
+      </p>
+      <p>
+        This relation is called the <term>chain rule</term>
+            <idx><h>chain rule</h></idx>
+        for the variables <m>T</m>, <m>s</m>, and <m>V</m>.
+        (We'll see in a moment what this has to do with chains.)
+      </p>
+      <p>
+        The chain rule is a consequence of the way the three microscope equations are related to each other.
+        We can see how it emerges directly from the microscope equations if we replace the numbers that appear as multipliers in those equations by the three derivatives.
+        To begin, we write
+        <me>
+          \Delta V \approx \dfrac{dV}{ds} \cdot \Delta s \qquad \mbox{and}  \qquad \Delta s \approx \dfrac{ds}{dT} \cdot \Delta T
+        </me>.
+      </p>
+      <p>
+        Then, combining these equations, we get
+        <me>
+          \Delta V \approx \dfrac{dV}{ds} \cdot \dfrac{ds}{dT} \cdot \Delta T
+        </me>.
+      </p>
+      <p>
+        In fact, this is the microscope equation for <m>V</m> in terms of <m>T</m>,
+        which can be written more directly as
+        <me>
+          \Delta V \approx \dfrac{dV}{dT} \cdot \Delta T
+        </me>.
+      </p>
+      <p>
+        In these two expressions we have the same microscope equation,
+        so the multipliers must be equal.
+        Thus, we recover the chain rule:
+        <me>
+          \dfrac{dV}{ds} \cdot \dfrac{ds}{dT} = \dfrac{dV}{dT}
+        </me>.
+      </p>
+      <p>
+        [[NOTE:Recall that Leibniz worked directly with <em>differentials</em>,
         like <m>dV</m> and <m>ds</m>,
         so a derivative was a genuine fraction.
         For him, the chain rule is true simply because we can cancel the two appearances of
         <q><m>ds</m></q>
         in the derivatives.
         For us, though, a derivative is not really a fraction,
-        so we need an argument like the one in the text to establish the rule.
+        so we need an argument like the one in the text to establish the rule.]]
       </p>
-    </aside>
+    </subsubsection>
   </subsection>
-  <subsection xml:id="sec_the-chain-rule_subsec_chains-and-the-chain-rule">
+  <subsection xml:id="subsec_chains-and-the-chain-rule">
     <title>Chains and the Chain Rule</title>
-    <p>
-          <idx><h>chain</h></idx>
-      Let's analyze the relationships between the three variables in the expanding house problem in more detail.
-      There are three functions involved:
-      volume is a function of length:
-      <m>V = V(s)</m>; length is a function of temperature:
-      <m>s = s(T)</m>; and finally,
-      volume is a function of temperature, too: <m>V = V(s(T))</m>.
-      To visualize these relationships better,
-      we introduce the notion of an <term>input<ndash/>output diagram</term>.
-          <idx><h>input<ndash/>output diagram</h></idx>
-      The input<ndash/>output diagram for the function
-      <m>s = s(T)</m> is just <m>T \to s</m>.
-      It indicates that <m>T</m> is the input of a function whose output is <m>s</m>.
-      Likewise <m>s \to V</m> says that volume <m>V</m> is a function of length <m>s</m>.
-      Since the output of <m>T \to s</m> is the input of <m>s \to V</m>,
-      we can make a <em>chain</em> of these two
-    </p>
-    <aside>
+    <introduction>
       <p>
-        An input<ndash/>output chain
+            <idx><h>chain</h></idx>
       </p>
-    </aside>
-    <p>
-      diagrams:
-      <me>
-        T \longrightarrow s \longrightarrow V
-      </me>.
-    </p>
-    <p>
-      The result describes a function that has input <m>T</m> and output <m>V</m>.
-      It is thus an input<ndash/>output diagram for the third function <m>V = V(s(T))</m>.
-      We could also write the input<ndash/>output diagram for the third function simply as <m>T \to V</m>;
-      in other words,
-      <me>
-        T \longrightarrow V \qquad \mbox{equals}  \qquad T \longrightarrow s \longrightarrow V
-      </me>.
-    </p>
-    <p>
-      We say that <m>T \to s \to V</m> is a <term>chain</term>
-          <idx><h>chain</h></idx>
-    </p>
-    <aside>
       <p>
-        A chain and its links
+        Let's analyze the relationships between the three variables in the expanding house problem in more detail.
+        There are three functions involved:
+        volume is a function of length:
+        <m>V = V(s)</m>; length is a function of temperature:
+        <m>s = s(T)</m>; and finally,
+        volume is a function of temperature, too: <m>V = V(s(T))</m>.
+        To visualize these relationships better,
+        we introduce the notion of an <term>input<ndash/>output diagram</term>.
+            <idx><h>input<ndash/>output diagram</h></idx>
+        The input<ndash/>output diagram for the function
+        <m>s = s(T)</m> is just <m>T \to s</m>.
+        It indicates that <m>T</m> is the input of a function whose output is <m>s</m>.
+        Likewise <m>s \to V</m> says that volume <m>V</m> is a function of length <m>s</m>.
+        Since the output of <m>T \to s</m> is the input of <m>s \to V</m>,
+        we can make a <em>chain</em> of these two [[NOTE:An input<ndash/>output chain]] diagrams:
+        <me>
+          T \longrightarrow s \longrightarrow V
+        </me>.
       </p>
-    </aside>
-    <p>
-      that is made up of the two <term>links</term>
-          <idx><h>link</h></idx>
-      <m>T \to s</m> and <m>s \to V</m>.
-      Since each input<ndash/>output diagram represents a function,
-      we can attach a derivative that describes the rate of change of the output with respect to the input:
-    </p>
-    <image source=""/>
-    <p>
-      Here is a single picture that shows all the relationships:
-    </p>
-    <image source=""/>
-    <p>
-      We can thus relate the derivative <m>dV/dT</m> of the whole chain to the derivatives <m>dV/ds</m> and <m>ds/dT</m> of the individual links by
-      <me>
-        \dfrac{dV}{dT} = \dfrac{dV}{ds} \cdot \dfrac{ds}{dT}
-      </me>.
-    </p>
-    <p>
-      The same argument holds for any chain of functions.
-      If <m>u</m> is a function of <m>x</m>,
-      and if <m>y</m> is some function of <m>u</m>,
-      then a small change in <m>x</m> produces a small change in <m>u</m> and hence in <m>y</m>.
-      The total multiplier for the chain is simply the product of the multipliers of the individual links:
-    </p>
-    <image source=""/>
-    <p>
-      Moreover, an obvious generalization extends this result to a chain containing more than two links.
-      <term>A simple example</term>.
-      We can sometimes use the chain rule without giving it much thought.
-      For instance,
-      suppose a bookstore makes an average profit of $3 per book,
-      and its sales are increasing at the rate of 40 books per month.
-      At what rate is its monthly profit increasing, in dollars per month?
-      Does it seem clear to you that the rate is $120 per month?
-      Let's analyze the question in more detail.
-      There are three variables here:
-    </p>
-    <tabular>
-      <row>
-        <cell><term>time</term></cell>
-        <cell><m>t</m></cell>
-        <cell>measured in months;</cell>
-      </row>
-      <row>
-        <cell><term>sales</term></cell>
-        <cell><m>s</m></cell>
-        <cell>measured in books;</cell>
-      </row>
-      <row>
-        <cell><term>profit</term></cell>
-        <cell><m>p</m></cell>
-        <cell>measured in dollars.</cell>
-      </row>
-    </tabular>
-    <p>
-      The two known rates are
-      <me>
-        \dfrac{dp}{ds} = 3 \ \dfrac{\mbox{dollars} }{\mbox{book} } \qquad \mbox{and}  \qquad \dfrac{ds}{dt} = 40 \ \dfrac{\mbox{books} }{\mbox{month} }
-      </me>.
-    </p>
-    <p>
-      The rate we seek is <m>dp/dt</m>,
-      and we find it by the chain rule:
-      <md>
-        <mrow>\dfrac{dp}{dt} \amp = \dfrac{dp}{ds} \cdot \dfrac{ds}{dt}</mrow>
-        <mrow>\amp = 3 \ \dfrac{\mbox{dollars} }{\mbox{book} } \times 40 \ \dfrac{\mbox{books} }{\mbox{month} }</mrow>
-        <mrow>\amp = 120 \ \dfrac{\mbox{dollars} }{\mbox{month} }</mrow>
-      </md>
-    </p>
-    <p>
-      <term>Chains, in general</term>.
-      The chain rule applies whenever the output of one function is the input of another.
-      For example, suppose <m>u = f(x)</m> and <m>y = g(u)</m>.
-      Then <m>y = g(f(x))</m>, and we have:
-    </p>
-    <image source=""/>
-    <p>
-      Let's take
-      <me>
-        u = x^2 \qquad \mbox{and}  \qquad y = \sin(u);
-      </me>
-      then <m>y = \sin(x^2)</m>,
-      and it is not at all obvious what the derivative <m>dy/dx</m> ought to be.
-      None of the basic rules in section<nbsp/>4 covers this function.
-      However, those rules <em>do</em>
-      cover <m>u = x^2</m> and <m>y = \sin(u)</m>:
-      <me>
-        \dfrac{du}{dx} = 2x \qquad \mbox{and}  \qquad \dfrac{dy}{du} = \cos(u)
-      </me>.
-    </p>
-    <p>
-      We can now get <m>dy/dx</m> by the chain rule:
-      <me>
-        \dfrac{dy}{dx} = \dfrac{dy}{du} \cdot \dfrac{du}{dx} = \cos(u) \cdot 2x
-      </me>.
-    </p>
-    <p>
-      Since we are interested in <m>y</m> as a function of <m>x</m><mdash/>rather than <m>u</m><mdash/>we should rewrite <m>dy/dx</m> so that it is expressed entirely in terms of <m>x</m>:
-      <me>
-        \mbox{If}   y = \sin(x^2),  \mbox{then} \dfrac{dy}{dx} = 2x \cos(u) = 2x \cos(x^2)
-      </me>.
-    </p>
-    <p>
-      Let's start over,
-      using the function names <m>f</m> and <m>g</m> we introduced at the outset:
-      <me>
-        u = f(x)  \mbox{and}   y = g(u), \mbox{so}   y = g(f(x))
-      </me>.
-    </p>
-    <p>
-      The third function, <m>y = g(f(x))</m>, needs a name of its own;
-      let's call it <m>h</m>.
-      Thus
-    </p>
-    <aside>
       <p>
-        Composition of functions
+        The result describes a function that has input <m>T</m> and output <m>V</m>.
+        It is thus an input<ndash/>output diagram for the third function <m>V = V(s(T))</m>.
       </p>
-    </aside>
-    <me>
-      y = h(x) = g(f(x))
-    </me>.
-    <p>
-      We say that <m>h</m> is <term>composed</term>
-      of <m>g</m> and <m>f</m>,
-      and <m>h</m> is called the
-          <idx><h>composite</h></idx>
-      <term>composite</term>, or the <idx><h>composition of functions</h></idx>
-      <term>composition</term>, of <m>g</m> and <m>f</m>.
-      The problem is to find the derivative <m>h'</m> of the composite function,
-      knowing <m>g'</m> and <m>f'</m>.
-      Let's translate all the derivatives into Leibniz's notation.
-          <idx><h>Leibniz's notation</h></idx>
-      <me>
-        h'(x) = \dfrac{dy}{dx} \qquad g'(u) = \dfrac{dy}{du} \qquad f'(x) = \dfrac{du}{dx}
-      </me>.
-    </p>
-    <p>
-      We can now invoke the chain rule:
-      <me>
-        h'(x) = \dfrac{dy}{dx} = \dfrac{dy}{du} \cdot \dfrac{du}{dx} = g'(u) \cdot f'(x)
-      </me>.
-    </p>
-    <p>
-      Although <m>h'</m> is now expressed in terms of <m>g'</m> and <m>f'</m>,
-      we are not yet done.
-      The variable <m>u</m> that appears in <m>g'(u)</m> is out of place<mdash/>because <m>h</m> is a function of <m>x</m>,
-      not <m>u</m>. (We got to the same point in the example;
-      the original form of the derivative of <m>\sin(x^2)</m> was
-      <m>2x\cos(u)</m>.) The remedy is to replace <m>u</m> by <m>f(x)</m>;
-      we can do this because <m>u = f(x)</m> is given.
-          <idx><h>chain rule</h></idx>
-    </p>
-    <image source=""/>
-    <p>
-      There is a certain danger in a formula as terse and compact as this that it loses all conceptual meaning and becomes simply a formal string of symbols to be manipulated blindly.
-      You should always remember that the expression in the box is just a mathematical statement of the intuitively clear idea that when two functions are chained together,
-      with the output of one serving as the input of the other,
-      then the combined function has a multiplier which is simply the product of the multipliers of the two constituent functions.
-    </p>
+      <p>
+        We could also write the input<ndash/>output diagram for the third function simply as <m>T \to V</m>;
+        in other words,
+        <me>
+          T \longrightarrow V \qquad \mbox{equals}  \qquad T \longrightarrow s \longrightarrow V
+        </me>.
+      </p>
+      <p>
+        We say that <m>T \to s \to V</m> is a <term>chain</term>
+            <idx><h>chain</h></idx>
+        [[NOTE:A chain and its links]] that is made up of the two <term>links</term>
+            <idx><h>link</h></idx>
+        <m>T \to s</m> and <m>s \to V</m>.
+        Since each input<ndash/>output diagram represents a function,
+        we can attach a derivative that describes the rate of change of the output with respect to the input:
+      </p>
+      <image source=""/>
+      <p>
+        Here is a single picture that shows all the relationships:
+      </p>
+      <image source=""/>
+      <p>
+        We can thus relate the derivative <m>dV/dT</m> of the whole chain to the derivatives <m>dV/ds</m> and <m>ds/dT</m> of the individual links by
+        <me>
+          \dfrac{dV}{dT} = \dfrac{dV}{ds} \cdot \dfrac{ds}{dT}
+        </me>.
+      </p>
+      <p>
+        The same argument holds for any chain of functions.
+        If <m>u</m> is a function of <m>x</m>,
+        and if <m>y</m> is some function of <m>u</m>,
+        then a small change in <m>x</m> produces a small change in <m>u</m> and hence in <m>y</m>.
+        The total multiplier for the chain is simply the product of the multipliers of the individual links:
+      </p>
+      <image source=""/>
+      <p>
+        Moreover, an obvious generalization extends this result to a chain containing more than two links.
+      </p>
+    </introduction>
+    <subsubsection>
+      <title>A simple example</title>
+      <p>
+        We can sometimes use the chain rule without giving it much thought.
+        For instance,
+        suppose a bookstore makes an average profit of $3 per book,
+        and its sales are increasing at the rate of 40 books per month.
+        At what rate is its monthly profit increasing, in dollars per month?
+        Does it seem clear to you that the rate is $120 per month?
+      </p>
+      <p>
+        Let's analyze the question in more detail.
+        There are three variables here:
+      </p>
+      <tabular>
+        <row>
+          <cell><term>time</term></cell>
+          <cell><m>t</m></cell>
+          <cell>measured in months;</cell>
+        </row>
+        <row>
+          <cell><term>sales</term></cell>
+          <cell><m>s</m></cell>
+          <cell>measured in books;</cell>
+        </row>
+        <row>
+          <cell><term>profit</term></cell>
+          <cell><m>p</m></cell>
+          <cell>measured in dollars.</cell>
+        </row>
+      </tabular>
+      <p>
+        The two known rates are
+        <me>
+          \dfrac{dp}{ds} = 3 \ \dfrac{\mbox{dollars} }{\mbox{book} } \qquad \mbox{and}  \qquad \dfrac{ds}{dt} = 40 \ \dfrac{\mbox{books} }{\mbox{month} }
+        </me>.
+      </p>
+      <p>
+        The rate we seek is <m>dp/dt</m>,
+        and we find it by the chain rule:
+        <md>
+          <mrow>\dfrac{dp}{dt} \amp = \dfrac{dp}{ds} \cdot \dfrac{ds}{dt}</mrow>
+          <mrow>\amp = 3 \ \dfrac{\mbox{dollars} }{\mbox{book} } \times 40 \ \dfrac{\mbox{books} }{\mbox{month} }</mrow>
+          <mrow>\amp = 120 \ \dfrac{\mbox{dollars} }{\mbox{month} }</mrow>
+        </md>
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title>Chains, in general</title>
+      <p>
+        The chain rule applies whenever the output of one function is the input of another.
+        For example, suppose <m>u = f(x)</m> and <m>y = g(u)</m>.
+        Then <m>y = g(f(x))</m>, and we have:
+      </p>
+      <image source=""/>
+      <p>
+        Let's take
+        <me>
+          u = x^2 \qquad \mbox{and}  \qquad y = \sin(u);
+        </me>
+        then <m>y = \sin(x^2)</m>,
+        and it is not at all obvious what the derivative <m>dy/dx</m> ought to be.
+        None of the basic rules in section<nbsp/>4 covers this function.
+        However, those rules <em>do</em>
+        cover <m>u = x^2</m> and <m>y = \sin(u)</m>:
+        <me>
+          \dfrac{du}{dx} = 2x \qquad \mbox{and}  \qquad \dfrac{dy}{du} = \cos(u)
+        </me>.
+      </p>
+      <p>
+        We can now get <m>dy/dx</m> by the chain rule:
+        <me>
+          \dfrac{dy}{dx} = \dfrac{dy}{du} \cdot \dfrac{du}{dx} = \cos(u) \cdot 2x
+        </me>.
+      </p>
+      <p>
+        Since we are interested in <m>y</m> as a function of <m>x</m><mdash/>rather than <m>u</m><mdash/>we should rewrite <m>dy/dx</m> so that it is expressed entirely in terms of <m>x</m>:
+        <me>
+          \mbox{If}   y = \sin(x^2),  \mbox{then} \dfrac{dy}{dx} = 2x \cos(u) = 2x \cos(x^2)
+        </me>.
+      </p>
+      <p>
+        Let's start over,
+        using the function names <m>f</m> and <m>g</m> we introduced at the outset:
+        <me>
+          u = f(x)  \mbox{and}   y = g(u), \mbox{so}   y = g(f(x))
+        </me>.
+      </p>
+      <p>
+        The third function, <m>y = g(f(x))</m>, needs a name of its own;
+        let's call it <m>h</m>.
+        Thus [[NOTE:Composition of functions]]
+        <me>
+          y = h(x) = g(f(x))
+        </me>.
+      </p>
+      <p>
+        We say that <m>h</m> is <term>composed</term>
+        of <m>g</m> and <m>f</m>,
+        and <m>h</m> is called the
+            <idx><h>composite</h></idx>
+        <term>composite</term>, or the <idx><h>composition of functions</h></idx>
+        <term>composition</term>, of <m>g</m> and <m>f</m>.
+      </p>
+      <p>
+        The problem is to find the derivative <m>h'</m> of the composite function,
+        knowing <m>g'</m> and <m>f'</m>.
+        Let's translate all the derivatives into Leibniz's notation.
+            <idx><h>Leibniz's notation</h></idx>
+        <me>
+          h'(x) = \dfrac{dy}{dx} \qquad g'(u) = \dfrac{dy}{du} \qquad f'(x) = \dfrac{du}{dx}
+        </me>.
+      </p>
+      <p>
+        We can now invoke the chain rule:
+        <me>
+          h'(x) = \dfrac{dy}{dx} = \dfrac{dy}{du} \cdot \dfrac{du}{dx} = g'(u) \cdot f'(x)
+        </me>.
+      </p>
+      <p>
+        Although <m>h'</m> is now expressed in terms of <m>g'</m> and <m>f'</m>,
+        we are not yet done.
+        The variable <m>u</m> that appears in <m>g'(u)</m> is out of place<mdash/>because <m>h</m> is a function of <m>x</m>,
+        not <m>u</m>. (We got to the same point in the example;
+        the original form of the derivative of <m>\sin(x^2)</m> was
+        <m>2x\cos(u)</m>.) The remedy is to replace <m>u</m> by <m>f(x)</m>;
+        we can do this because <m>u = f(x)</m> is given.
+            <idx><h>chain rule</h></idx>
+      </p>
+      <image source=""/>
+      <p>
+        There is a certain danger in a formula as terse and compact as this that it loses all conceptual meaning and becomes simply a formal string of symbols to be manipulated blindly.
+        You should always remember that the expression in the box is just a mathematical statement of the intuitively clear idea that when two functions are chained together,
+        with the output of one serving as the input of the other,
+        then the combined function has a multiplier which is simply the product of the multipliers of the two constituent functions.
+      </p>
+    </subsubsection>
   </subsection>
-  <subsection xml:id="sec_the-chain-rule_subsec_using-the-chain-rule">
+  <subsection xml:id="subsec_using-the-chain-rule">
     <title>Using the Chain Rule</title>
-    <p>
-      The chain rule will allow us to differentiate nearly any formula.
-      The key is to recognize when a given formula can be written as a chain<mdash/>and then,
-      how to write it.
-      <term>Example 1</term>.
-      Here is a problem first mentioned <xref ref="x_sin_5x__">on</xref>: What is the derivative of <m>y = \sin(5x)</m>?
-      If we set
-      <me>
-        y = \sin(u) \qquad \mbox{where}  \qquad u = 5x
-      </me>,
-      then we find immediately
-      <me>
-        \dfrac{dy}{du} = \cos(u) \qquad \mbox{and}  \qquad \dfrac{du}{dx} = 5
-      </me>.
-    </p>
-    <p>
-      Thus, by the chain rule we see
-      <me>
-        \dfrac{dy}{dx} = \dfrac{dy}{du} \cdot \dfrac{du}{dx} = \cos(u) \cdot 5 = 5\cos(5x)
-      </me>.
-    </p>
-    <p>
-      <term>Example 2</term>.
-      <m>w = 2^{\cos{z}}</m>.
-      Set
-      <me>
-        w = 2^u \qquad \mbox{and}  \qquad u = \cos{z}
-      </me>.
-    </p>
-    <p>
-      Then, once again,
-      the basic rules from section<nbsp/>4 are sufficient to differentiate the individual links:
-      <me>
-        \dfrac{dw}{du} =  k_2 \, 2^u \qquad \mbox{and}  \qquad \dfrac{du}{dz} = - \sin{z}
-      </me>.
-    </p>
-    <p>
-      The chain rule does the rest:
-      <me>
-        \dfrac{dw}{dz} = \dfrac{dw}{du} \cdot \dfrac{du}{dz} = k_2 \, 2^u \cdot (-\sin{z}) = - k_2 \sin{z} 2^{\cos{z}}
-      </me>.
-    </p>
-    <p>
-      <term>Example 3</term>.
-      <m>p = \sqrt{7t^3 + \sin^2{t}}</m>.
-      This presents several challenges.
-      First let's make a chain:
-      <me>
-        p = \sqrt{u} \qquad \mbox{where}  \qquad u = 7t^3 + \sin^2{t}
-      </me>.
-    </p>
-    <p>
-      The basic rules give us <m>dp/du = 1/2\sqrt{u}</m>,
-      but it is more difficult to deal with <m>u</m>.
-      Let's at least introduce separate labels for the two terms in <m>u</m>:
-      <me>
-        q = 7t^3 \qquad \mbox{and}  \qquad r = \sin^2{t}
-      </me>.
-    </p>
-    <p>
-      Then
-      <me>
-        \dfrac{du}{dt} = \dfrac{dq}{dt} + \dfrac{dr}{dt} \qquad \mbox{and}  \qquad \dfrac{dq}{dt} = 21 t^2
-      </me>.
-    </p>
-    <p>
-      The remaining term <m>r = \sin^2{t} = (\sin{t})^2</m> can itself be differentiated by the chain rule.
-      Set
-      <me>
-        r = v^2 \qquad \mbox{where}  \qquad v = \sin{t}
-      </me>.
-    </p>
-    <p>
-      Then
-      <me>
-        \dfrac{dr}{dv} = 2v \qquad \mbox{and}   \qquad \dfrac{dv}{dt} = \cos(t)
-      </me>,
-      so
-      <me>
-        \dfrac{dr}{dt} = \dfrac{dr}{dv} \cdot \dfrac{dv}{dt} = 2v \cos{t} = 2 \sin{t} \cos{t}
-      </me>.
-    </p>
-    <p>
-      The final step is to assemble all the pieces:
-      <me>
-        \dfrac{dp}{dt} = \dfrac{dp}{du} \cdot \dfrac{du}{dt} = \dfrac{1}{2\sqrt{u}} \cdot \left(21 t^2 + 2 \sin{t} \cos{t}\right) = \dfrac{21 t^2 + 2 \sin{t} \cos{t}} {2\sqrt{7t^3 + \sin^2{t}}}
-      </me>
-    </p>
-    <p>
-      By breaking down a complicated expression into simple pieces,
-      and applying the appropriate differentiation rule to each piece,
-      it is possible to differentiate a vast array of formulas.
-      You may meet two sorts of difficulties:
-      you may not see how to break down the expression into simpler parts;
-      and you may overlook a step.
-      Practice helps overcome the first, and vigilance the second.
-      Here is an example of the second problem:
-      find the derivative of <m>y = -3 \cos(2x)</m>.
-      The derivative is <em>not</em> <m>3 \sin(2x)</m>;
-      it is <m>6\sin(2x)</m>.
-      Besides remembering to deal with the constant multiplier <m>-3</m>,
-      and with the fact that there is a minus sign in the derivative of <m>\cos{u}</m>,
-      you must not overlook the link <m>u = 2x</m> in the chain that connects <m>y</m> to <m>x</m>.
-    </p>
+    <introduction>
+      <p>
+        The chain rule will allow us to differentiate nearly any formula.
+        The key is to recognize when a given formula can be written as a chain<mdash/>and then,
+        how to write it.
+      </p>
+    </introduction>
+    <subsubsection>
+      <title>[[EX:1]]</title>
+      <p>
+        Here is a problem first mentioned <xref ref="x_sin_5x__">on</xref>: What is the derivative of <m>y = \sin(5x)</m>?
+        If we set
+        <me>
+          y = \sin(u) \qquad \mbox{where}  \qquad u = 5x
+        </me>,
+        then we find immediately
+        <me>
+          \dfrac{dy}{du} = \cos(u) \qquad \mbox{and}  \qquad \dfrac{du}{dx} = 5
+        </me>.
+      </p>
+      <p>
+        Thus, by the chain rule we see
+        <me>
+          \dfrac{dy}{dx} = \dfrac{dy}{du} \cdot \dfrac{du}{dx} = \cos(u) \cdot 5 = 5\cos(5x)
+        </me>.
+      </p>
+      <p>
+        <term>[[EX:2]]</term>.
+        <m>w = 2^{\cos{z}}</m>.
+        Set
+        <me>
+          w = 2^u \qquad \mbox{and}  \qquad u = \cos{z}
+        </me>.
+      </p>
+      <p>
+        Then, once again,
+        the basic rules from section<nbsp/>4 are sufficient to differentiate the individual links:
+        <me>
+          \dfrac{dw}{du} =  k_2 \, 2^u \qquad \mbox{and}  \qquad \dfrac{du}{dz} = - \sin{z}
+        </me>.
+      </p>
+      <p>
+        The chain rule does the rest:
+        <me>
+          \dfrac{dw}{dz} = \dfrac{dw}{du} \cdot \dfrac{du}{dz} = k_2 \, 2^u \cdot (-\sin{z}) = - k_2 \sin{z} 2^{\cos{z}}
+        </me>.
+      </p>
+      <p>
+        <term>[[EX:3]]</term>.
+        <m>p = \sqrt{7t^3 + \sin^2{t}}</m>.
+        This presents several challenges.
+        First let's make a chain:
+        <me>
+          p = \sqrt{u} \qquad \mbox{where}  \qquad u = 7t^3 + \sin^2{t}
+        </me>.
+      </p>
+      <p>
+        The basic rules give us <m>dp/du = 1/2\sqrt{u}</m>,
+        but it is more difficult to deal with <m>u</m>.
+        Let's at least introduce separate labels for the two terms in <m>u</m>:
+        <me>
+          q = 7t^3 \qquad \mbox{and}  \qquad r = \sin^2{t}
+        </me>.
+      </p>
+      <p>
+        Then
+        <me>
+          \dfrac{du}{dt} = \dfrac{dq}{dt} + \dfrac{dr}{dt} \qquad \mbox{and}  \qquad \dfrac{dq}{dt} = 21 t^2
+        </me>.
+      </p>
+      <p>
+        The remaining term <m>r = \sin^2{t} = (\sin{t})^2</m> can itself be differentiated by the chain rule.
+        Set
+        <me>
+          r = v^2 \qquad \mbox{where}  \qquad v = \sin{t}
+        </me>.
+      </p>
+      <p>
+        Then
+        <me>
+          \dfrac{dr}{dv} = 2v \qquad \mbox{and}   \qquad \dfrac{dv}{dt} = \cos(t)
+        </me>,
+        so
+        <me>
+          \dfrac{dr}{dt} = \dfrac{dr}{dv} \cdot \dfrac{dv}{dt} = 2v \cos{t} = 2 \sin{t} \cos{t}
+        </me>.
+      </p>
+      <p>
+        The final step is to assemble all the pieces:
+        <me>
+          \dfrac{dp}{dt} = \dfrac{dp}{du} \cdot \dfrac{du}{dt} = \dfrac{1}{2\sqrt{u}} \cdot \left(21 t^2 + 2 \sin{t} \cos{t}\right) = \dfrac{21 t^2 + 2 \sin{t} \cos{t}} {2\sqrt{7t^3 + \sin^2{t}}}
+        </me>
+      </p>
+      <p>
+        By breaking down a complicated expression into simple pieces,
+        and applying the appropriate differentiation rule to each piece,
+        it is possible to differentiate a vast array of formulas.
+        You may meet two sorts of difficulties:
+        you may not see how to break down the expression into simpler parts;
+        and you may overlook a step.
+        Practice helps overcome the first, and vigilance the second.
+      </p>
+      <p>
+        Here is an example of the second problem:
+        find the derivative of <m>y = -3 \cos(2x)</m>.
+        The derivative is <em>not</em> <m>3 \sin(2x)</m>;
+        it is <m>6\sin(2x)</m>.
+        Besides remembering to deal with the constant multiplier <m>-3</m>,
+        and with the fact that there is a minus sign in the derivative of <m>\cos{u}</m>,
+        you must not overlook the link <m>u = 2x</m> in the chain that connects <m>y</m> to <m>x</m>.
+      </p>
+    </subsubsection>
   </subsection>
-  <subsection xml:id="sec_the-chain-rule_subsec_exercises">
+  <subsection xml:id="subsec_exercises">
     <title>Exercises</title>
     <ol>
       <li>

@@ -1,9 +1,11 @@
-<section xml:id="sec_integration-by-substitution_sec_integration-by-substitution">
+<section xml:id="sec_integration-by-substitution">
   <title>Integration by Substitution</title>
   <introduction>
     <p>
       In the preceding section we converted a couple of general rules for differentiation<mdash/>the rule for the derivative of a constant times a function and the rule for the derivative of the sum of two functions<mdash/>into equivalent rules in integral form.
       In this section we will develop the integral form of the chain rule and see some of the ways this can be used to find antiderivatives.
+    </p>
+    <p>
       Suppose we have functions <m>F</m> and <m>G</m>,
       with corresponding derivatives <m>f</m> and <m>g</m>.
       Then the chain rule says
@@ -17,15 +19,10 @@
         F(G(x))+C=\int (F(G(x)))'\,dx=\int f(G(x))\,g(x)\,dx
       </me>,
       where <m>C</m> can be any constant.
-      Reversing these equalities
     </p>
-    <aside>
-      <p>
-        The integral form of the chain rule
-      </p>
-    </aside>
     <p>
-      to get a statement about integrals, we obtain:
+      Reversing these equalities [[NOTE:The integral form of the chain rule]] to get a statement about integrals,
+      we obtain:
     </p>
     <image source=""/>
     <p>
@@ -33,15 +30,8 @@
       Here's how: Suppose we want to find an indefinite integral,
       and see in the integrand a <em>pair</em>
       of functions <m>G</m> and <m>g</m>,
-      where <m>G'=g</m> and where <m>g(x)</m> can be factored out of the integrand.
-    </p>
-    <aside>
-      <p>
-        Reduction methods transform problems into equivalent, simpler, problems
-      </p>
-    </aside>
-    <p>
-      We then find a function <m>f</m> so that the integrand can be written in the form <m>f(G(x))g(x)</m>.
+      where <m>G'=g</m> and where <m>g(x)</m> can be factored out of the integrand. [[NOTE:Reduction methods transform problems into equivalent, simpler,
+      problems]] We then find a function <m>f</m> so that the integrand can be written in the form <m>f(G(x))g(x)</m>.
       Now we only have to find an antiderivative for <m>f</m>.
       Once we have such an antiderivative, call it <m>F</m>,
       then the solution to our original problem will be <m>F(G(x))</m>.
@@ -52,7 +42,9 @@
       Such <term>reduction methods</term>
       are typical of many integration techniques.
       We will see other examples in the remainder of this chapter.
-      <term>Example 1</term>Suppose we try to find a formula for the integral
+    </p>
+    <p>
+      <term>[[EX:1]]</term>Suppose we try to find a formula for the integral
       <me>
         \int 3x^2 \left(1 + x^3\right)^7 dx
       </me>.
@@ -64,6 +56,8 @@
       <q>term-by-term,</q>
       using the rules for sums and constant multiples of powers of <m>x</m> that were given in the previous section.
       But this is tedious<mdash/>even excruciating.
+    </p>
+    <p>
       Instead, notice that the expression <m>3x^2</m> is the derivative of <m>1+x^3</m>.
       If we let <m>G(x)=1+x^3</m> and <m>g(x)=3x^2</m>,
       we can then write the integrand as
@@ -84,6 +78,8 @@
       we can check our answer by taking the derivative of the right-hand side to see if it agrees with the integrand on the left.
       You should do this whenever you aren't quite sure of your technique
       (or your arithmetic!).
+    </p>
+    <p>
       Note that the term <m>3x^2</m> that appeared in the integrand above was essential for the procedure to work.
       The integral
       <me>
@@ -95,21 +91,18 @@
       even though it appears to have a simpler form.
       (Of course, the integral <em>can</em>
       be found by multiplying out the integrand.)
+    </p>
+    <p>
       <term>Using differential notation</term>
           <idx><h>differential notation</h></idx>
-    </p>
-    <aside>
-      <p>
-        A compact notation for expressing the integral form of the chain rule
-      </p>
-    </aside>
-    <p>
-      So far the symbol <m>dx</m>
+      [[NOTE:A compact notation for expressing the integral form of the chain rule]] So far the symbol <m>dx</m>
       (the <term>differential</term> of<nbsp/><m>x</m>)
       under the integral sign has simply been an appendage,
       tagging along to suggest the
       <m>\Delta x</m> portion of the Riemann sums approximating definite integrals.
       It turns out we can take advantage of this notation to use the integral form of the chain rule more compactly.
+    </p>
+    <p>
       Instead of naming the functions <m>G</m> and <m>g</m> as above,
       we introduce a new variable <m>u=G(x)</m>.
       Then
@@ -152,7 +145,9 @@
       You should always be clear, though,
       that integration by substitution is just the integral form of the chain rule,
       a relationship that becomes clear whenever you check the answer substitution gives you.
-      <term>Example 2</term>Can we use the method of substitution to find
+    </p>
+    <p>
+      <term>[[EX:2]]</term>Can we use the method of substitution to find
       <me>
         \int \dfrac{e^{5x}}{6 + e^{5x}} \, dx?
       </me>
@@ -177,6 +172,8 @@
     </p>
     <p>
       As usual, you should check this answer by differentiating to see that you really do get the original function.
+    </p>
+    <p>
       Now let's see how this works using differential notation.
       If we set <m>u = 6 + e^{5x}</m>, then
       <me>
@@ -193,16 +190,12 @@
         <mrow>\amp = \dfrac{1}{5} \ln(6+e^{5x}) + C</mrow>
       </md>,
       as before.
-      The two examples above have the same structure.
     </p>
-    <aside>
-      <p>
-        The basic structure
-      </p>
-    </aside>
     <p>
-      In both, a certain function of <m>x</m> is selected and called <m>u</m>;
-      part of the integrand, namely <m>u'\,dx</m>, becomes <m>du</m>,
+      The two examples above have the same structure. [[NOTE:The basic structure]] In both,
+      a certain function of <m>x</m> is selected and called <m>u</m>;
+      part of the integrand, namely <m>u'\,dx</m>,
+      becomes <m>du</m>,
       the rest becomes one of the basic functions of <m>u</m>.
       Specifically:
       <me>
@@ -218,7 +211,9 @@
       There is no set routine to be followed to find an antiderivative most efficiently,
       or even any way to know whether a particular method will work until you try it.
       Success comes with experience and a certain amount of intelligent fiddling until something works out.
-      <term>Example 3</term>The method of substitution is useful in simple problems, too.
+    </p>
+    <p>
+      <term>[[EX:3]]</term>The method of substitution is useful in simple problems, too.
       Consider
       <me>
         \int \cos(3t) \, dt
@@ -234,7 +229,7 @@
       </md>.
     </p>
   </introduction>
-  <subsection xml:id="sec_integration-by-substitution_subsec_substitution-in-definite-integrals">
+  <subsection xml:id="subsec_substitution-in-definite-integrals">
     <title>Substitution in Definite Integrals</title>
     <p>
       Until now we have been using the technique of substitution to find antiderivatives<mdash/>that is,
@@ -267,10 +262,15 @@
       <em>If we make the substitution  <m>u=G(x)</m>, then</em>
     </p>
     <p>
-      <m>\dint_a^b f(G(x))\,g(x)\,dx = F(G(b))-F(G(a))=\dint_{G(a)}^{G(b)} f(u)\,du</m>. } }} This means that to evaluate a definite integral by substitution,
+      <m>\dint_a^b f(G(x))\,g(x)\,dx = F(G(b))-F(G(a))=\dint_{G(a)}^{G(b)} f(u)\,du</m>. } }}
+    </p>
+    <p>
+      This means that to evaluate a definite integral by substitution,
       we can do everything in terms of <m>u</m>.
       We don't ever need to find an antiderivative for the original integrand in terms of <m>x</m> or use the original limits of integration.
-      <term>Example 4</term>Consider the definite integral
+    </p>
+    <p>
+      <term>[[EX:4]]</term>Consider the definite integral
       <me>
         \int_0^{\pi/2} \dfrac{\cos{x}\,dx}{1+\sin{x}}
       </me>.
@@ -287,7 +287,9 @@
     </p>
     <p>
       Check that this is the same answer you would have gotten if you had expressed the antiderivative <m>\ln{u}</m> in terms of <m>x</m> and evaluated the result at the limits on the original integral.
-      <term>Example 5</term>Evaluate
+    </p>
+    <p>
+      <term>[[EX:5]]</term>Evaluate
       <me>
         \int_0^1 6 x^2(1+x^3)^4\,dx
       </me>.
@@ -301,7 +303,7 @@
       </me>.
     </p>
   </subsection>
-  <subsection xml:id="sec_integration-by-substitution_subsec_exercises">
+  <subsection xml:id="subsec_exercises">
     <title>Exercises</title>
     <ol>
       <li>

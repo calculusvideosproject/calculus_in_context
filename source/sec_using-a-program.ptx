@@ -1,22 +1,27 @@
-<section xml:id="sec_using-a-program_sec_using-a-program">
+<section xml:id="sec_using-a-program">
   <title>Using a Program</title>
   <introduction>
     <p>
           <idx><h>program</h></idx>
     </p>
   </introduction>
-  <subsection xml:id="sec_using-a-program_subsec_computers">
+  <subsection xml:id="subsec_computers">
     <title>Computers</title>
     <introduction>
       <p>
             <idx><h>computer</h></idx>
-        A computer changes the way we can use calculus as a tool, and it vastly enlarges the range of questions that we can tackle.
+      </p>
+      <p>
+        A computer changes the way we can use calculus as a tool,
+        and it vastly enlarges the range of questions that we can tackle.
         No longer need we back away from a problem that involves a lot of computations.
         There are two aspects to the power of a computer.
         First, it is fast.
         It can do a million additions in the time it takes us to do one.
         Second, it can be programmed.
         By arranging computations into a loop<mdash/>as we did <xref ref="x_loop_">on</xref><mdash/>we can construct a program with only a few instructions that will carry out millions of repetitive calculations.
+      </p>
+      <p>
         The purpose of this section is to give you practice using a computer program that estimates values of <m>S</m>,
         <m>I</m>,
         and <m>R</m> in the epidemic model.
@@ -26,7 +31,7 @@
         or a million, rounds of calculations with no extra effort.
       </p>
     </introduction>
-    <subsubsection xml:id="sec_using-a-program_subsubsec_the-program-sir">
+    <subsubsection xml:id="subsubsec_the-program-sir">
       <title>The Program SIR</title>
       <p>
         The program on the following page calculates values of <m>S</m>,
@@ -34,30 +39,17 @@
         It is a set of instructions<mdash/>sometimes called
         <em> code</em><mdash/>that is designed to be read by you and by a computer.
             <idx><h>code</h></idx>
-        These instructions mirror the operations we performed by hand to generate the table <xref ref="x_threeday_">on</xref>.
-      </p>
-      <aside>
-        <p>
-          Read a program line by line from the top
-        </p>
-      </aside>
-      <p>
-        The code here is similar to what it would be in most programming languages.
+        These instructions mirror the operations we performed by hand to generate the table <xref ref="x_threeday_">on</xref>. [[NOTE:Read a program line by line from the top]] The code here is similar to what it would be in most programming languages.
         The line numbers, however, are not part of the program;
         they are there to help us refer to the lines.
         A computer reads the code one line at a time, starting at the top.
         Each line is a complete instruction which causes the computer to do something.
         The purpose of nearly every instruction in this program is to assign a numerical value to a symbol.
         Watch for this as we go down the lines of code.
-        The first line, <c>t = 0</c>,
       </p>
-      <aside>
-        <p>
-          Lines 1<ndash/>5
-        </p>
-      </aside>
       <p>
-        is the instruction
+        The first line,
+        <c>t = 0</c>, [[NOTE:Lines 1<ndash/>5]] is the instruction
         <q>Give <m>t</m> the value 0.</q>
         The next four lines are similar.
         Notice, in the fifth line,
@@ -65,40 +57,14 @@
         It is a common practice for the name of a variable to be several letters long.
         A few lines later <m>S'</m> is typed out as <c> Sprime</c>,
         for instance.
-        The instruction on the sixth line
-      </p>
-      <aside>
-        <p>
-          Line 6
-        </p>
-      </aside>
-      <p>
-        is the first that does not assign a value to a symbol.
+        The instruction on the sixth line [[NOTE:Line 6]] is the first that does not assign a value to a symbol.
         Instead, it causes the computer to print the following on the computer monitor screen:
-        <c>0</c> <c>45400</c> <c>2100</c> <c>2500</c> <term>Program: SIR</term>
+        <c>0</c> <c>45400</c> <c>2100</c> <c>2500</c>
+      </p>
+      <p>
+        <term>Program: SIR</term>
             <idx><h>program</h><h>SIR</h></idx>
       </p>
-      <sidebyside>
-        <em>
-        1
-        2
-        3
-        4
-        5
-        6
-        7
-        8
-        9
-        10
-        11
-        12
-        13
-        14
-        15
-        16
-        17
-        18
-        19</em>
 <pre>
 t = 0
 S = 45400
@@ -120,30 +86,14 @@ R = R + deltaR
 PRINT t, S, I, R
 NEXT k
 </pre>
-        $
-        \left.
-        \right\} \mbox{Step I}
-        $
-      </sidebyside>
       <p>
-        Skip over the line that says <c>FOR k = 1 TO 3</c>.
+        <em>Step I</em>
       </p>
-      <aside>
-        <p>
-          Line 7
-        </p>
-      </aside>
       <p>
-        It will be easier to understand after we've read the rest of the program.
-        Look at the first three indented lines.
+        Skip over the line that says <c>FOR k = 1 TO 3</c>. [[NOTE:Line 7]] It will be easier to understand after we've read the rest of the program.
       </p>
-      <aside>
-        <p>
-          Lines 8<ndash/>10
-        </p>
-      </aside>
       <p>
-        You should recognize them as coded versions of the rate equations
+        Look at the first three indented lines. [[NOTE:Lines 8<ndash/>10]] You should recognize them as coded versions of the rate equations
         <md>
           <mrow>S' \amp = -0.00001\,SI,</mrow>
           <mrow>I' \amp = 0.00001\,SI - I/14,</mrow>
@@ -163,30 +113,18 @@ NEXT k
         respectively. (Can you see why?) So it calculates the product
         <m>-0.00001 \times 45400 \times 2100 = -953.4</m> and then gives <m>S'</m> the value <m>-953.4</m>.
         There is an extra step to calculate the product.
+      </p>
+      <p>
         Notice that the first three indented lines are bracketed together and labelled
         <q>Step I,</q>
-        because they carry out Step I in the flow chart.
-      </p>
-      <aside>
-        <p>
-          Lines 11<ndash/>13
-        </p>
-      </aside>
-      <p>
-        The next three indented lines carry out Step II in the flow chart.
+        because they carry out Step I in the flow chart. [[NOTE:Lines 11<ndash/>13]] The next three indented lines carry out Step II in the flow chart.
         They assign values to three more symbols<mdash/>namely <m>\Delta S</m>,
         <m>\Delta I</m>,
         and <m>\Delta R</m><mdash/>using the current values of <m>S'</m>,
         <m>I'</m>, <m>R'</m> and <m>\Delta t</m>.
-        The next four indented lines present a puzzle.
       </p>
-      <aside>
-        <p>
-          Lines 14<ndash/>17
-        </p>
-      </aside>
       <p>
-        They don't make sense if we read them as ordinary mathematics.
+        The next four indented lines present a puzzle. [[NOTE:Lines 14<ndash/>17]] They don't make sense if we read them as ordinary mathematics.
         For example,
         in an expression like \mbox{\texttt{t = t + deltat}} , we would cancel the <c>t</c>'s and conclude <c>deltat = 0</c>.
         The lines <em>do</em> make sense when we read them as computer instructions, however.
@@ -201,15 +139,10 @@ NEXT k
         (Here the value of <m>t</m> is changed from 0 to 1.)
         Likewise, the instruction <c>S = S + deltaS</c> gives <m>S</m> a new value.
         What was the old value, and what is the new?
-        Compare the three lines of code
       </p>
-      <aside>
-        <p>
-          How a program computes new values
-        </p>
-      </aside>
       <p>
-        that produce new values of <m>S</m>, <m>I</m>,
+        Compare the three lines of code [[NOTE:How a program computes new values]] that produce new values of <m>S</m>,
+        <m>I</m>,
         and <m>R</m> with the original equations that we used to define Step III back <xref ref="x_flowchart_">on</xref>:
         <md>
           <mrow>{2} \amp \texttt{S = S + deltaS} \amp \qquad\qquad  \text{ new \(S\) }  \amp = \text{ current \(S\) + \(\Delta S\) } ,</mrow>
@@ -231,32 +164,22 @@ NEXT k
         Second, a computer instruction of the form <c>A = B</c> is always understood to mean
         <q>new <c>A</c> = current <c>B</c>.</q>
       </p>
-      <aside>
-        <p>
-          Notice that the instructions <c>A = B</c> and <c>B = A</c> mean different things.
-          The second says
-          <q>new <c>B</c> = current <c> A</c>.</q>
-          Thus, in <c>A = B</c>,
-          <c>A</c> is altered to equal <c>B</c>,
-          while in <c>B = A</c>,
-          <c>B</c> is altered to equal <c>A</c>.
-          To emphasize that the symbol on the left is always the one affected,
-          some programming languages use a modified equal sign,
-          as in <c>A := B</c>.
-          We sometimes read this as
-          <q><c>A</c> gets <c>B</c></q>.
-        </p>
-      </aside>
       <p>
-        The next line is another <c>PRINT</c> statement,
+        [[NOTE:Notice that the instructions <c>A = B</c> and <c>B = A</c> mean different things.
+        The second says
+        <q>new <c>B</c> = current <c> A</c>.</q>
+        Thus, in <c>A = B</c>,
+        <c>A</c> is altered to equal <c>B</c>,
+        while in <c>B = A</c>,
+        <c>B</c> is altered to equal <c>A</c>.
+        To emphasize that the symbol on the left is always the one affected,
+        some programming languages use a modified equal sign,
+        as in <c>A := B</c>.
+        We sometimes read this as
+        <q><c>A</c> gets <c>B</c></q>.]]
       </p>
-      <aside>
-        <p>
-          Line 18
-        </p>
-      </aside>
       <p>
-        exactly like the one on line 6.
+        The next line is another <c>PRINT</c> statement, [[NOTE:Line 18]] exactly like the one on line 6.
         It causes the current values of <m>t</m>, <m>S</m>, <m>I</m>,
         and <m>R</m> to be printed on the computer monitor screen.
         But this time what appears is <c>1</c> <c>44446.6</c> <c>2903.4</c> <c>2650</c> The values were changed by the previous four instructions.
@@ -264,15 +187,10 @@ NEXT k
         Had the second <c>PRINT</c> statement appeared right after line 13,
         say, the old values of <m>t</m>, <m>S</m>, <m>I</m>,
         and <m>R</m> would have appeared on the monitor screen a second time.
-        We will take the last line and line 7 together.
       </p>
-      <aside>
-        <p>
-          Lines 7 and 19: the loop
-        </p>
-      </aside>
       <p>
-        They are the instructions for the loop.
+        We will take the last line and line 7 together. [[NOTE:Lines 7 and 19:
+        the loop]] They are the instructions for the loop.
         Consider the situation when we reach the last line.
         The variables <m>t</m>, <m>S</m>,
         <m>I</m>, and <m>R</m> now have their
@@ -285,15 +203,9 @@ NEXT k
         <q>day 2</q>
         values.
         That's what lines 7 and 19 do.
-        Here is the meaning of the instruction <c>FOR k = 1 TO 3</c> on line 7: Give <m>k</m> the value 1,
       </p>
-      <aside>
-        <p>
-          \mbox{FOR k = 1 TO 3}
-        </p>
-      </aside>
       <p>
-        and be prepared later to
+        Here is the meaning of the instruction <c>FOR k = 1 TO 3</c> on line 7: Give <m>k</m> the value 1, [[NOTE:\mbox{FOR k = 1 TO 3} ]] and be prepared later to
       </p>
       <p>
         give it the value 2 and then the value 3.
@@ -304,17 +216,11 @@ NEXT k
         However, when we said we had done three rounds of calculations,
         for example,
         we were really saying <m>k = 3</m>.
+      </p>
+      <p>
         After the computer reads and executes line 7, it carries out all the instructions from lines 8 to 18,
         arriving finally at the last line.
-        The computer then interprets the instruction <c>NEXT k</c> on the last line as follows: Give <m>k</m> the next value
-      </p>
-      <aside>
-        <p>
-          NEXT k
-        </p>
-      </aside>
-      <p>
-        that the <c>FOR</c> command allows, and
+        The computer then interprets the instruction <c>NEXT k</c> on the last line as follows: Give <m>k</m> the next value [[NOTE: NEXT k]] that the <c>FOR</c> command allows, and
       </p>
       <p>
         move back to the line immediately after the <c>FOR</c> command.
@@ -324,16 +230,10 @@ NEXT k
         and continues down the program, line by line,
         until it reaches line 19 once again.
         This sets the value of <m>k</m> to 3 and moves the computer back to line 8.
-        Once again it continues down the program to line 19.
-      </p>
-      <aside>
-        <p>
-          How the program stops
-        </p>
-      </aside>
-      <p>
-        This time there is no allowable value that <m>k</m> can be given,
+        Once again it continues down the program to line 19. [[NOTE:How the program stops]] This time there is no allowable value that <m>k</m> can be given,
         so the program stops.
+      </p>
+      <p>
         The <c>NEXT k</c> command is different from all the others in the program.
         It is the only one that directs the computer to go to a different line.
         That action causes the program to <term>loop</term>.
@@ -349,7 +249,7 @@ NEXT k
   </subsection>
   <subsection>
     <title>Exercises</title>
-    <subsubsection xml:id="sec_using-a-program_subsubsec_the-program-sir_2">
+    <subsubsection xml:id="subsubsec_the-program-sir">
       <title>The program SIR</title>
       <p>
         The object of these exercises is to verify that the program SIR works the way the text says it does.
@@ -449,137 +349,139 @@ NEXT k
         </li>
       </ol>
     </subsubsection>
-    <subsubsection xml:id="sec_using-a-program_subsubsec_programs-to-practice-on">
+    <subsubsection xml:id="subsubsec_programs-to-practice-on">
       <title>Programs to practice on</title>
       <p>
         In this section there are a number of short programs for you to analyze and run.
+        <ul>
+          <li>
+            <title>\textbf{Program 1}</title>
+            <p>
+                <pre> A = 2 B = 3 A = B PRINT A, B </pre>
+            </p>
+          </li>
+          <li>
+            <title>\textbf{Program 2}</title>
+            <p>
+                <pre> A = 2 B = 3 B = A PRINT A, B </pre>
+            </p>
+          </li>
+          <li>
+            <title>\textbf{Program 3}</title>
+            <p>
+                <pre> A = 2 B = 3 A = A + B B = A + B PRINT A, B </pre>
+            </p>
+          </li>
+        </ul>
+        <ol>
+          <li>
+            <p>
+              When Program 1 runs it will print the values of <m>A</m> and <m>B</m> that are current when the program stops.
+              What values will it print?
+              Type in this program and run it to verify your answers.
+            </p>
+          </li>
+          <li>
+            <p>
+              What will Program 2 do when it runs?
+              Type in this program and run it to verify your answers.
+            </p>
+          </li>
+          <li>
+            <p>
+              After each line in Program 3 write the values that <m>A</m> and <m>B</m> have <em>after</em>
+              that line has been carried out.
+              What values of <m>A</m> and <m>B</m> will it print?
+              Type in this program and run it to verify your answers.
+              The next three programs have an element not found in the program SIR. In each of them,
+              there is a FOR<ndash/>NEXT loop,
+              and the counter <m>k</m> actually appears in the statements within the loop.
+              <ul>
+                <li>
+                  <title>\textbf{Program 4}</title>
+                  <p>
+                      <pre> FOR k = 1 TO 5 A = k ^ 3 PRINT A NEXT k </pre>
+                  </p>
+                </li>
+                <li>
+                  <title>\textbf{Program 5}</title>
+                  <p>
+                      <pre> FOR k = 1 TO 5 A = k ^ 3 NEXT k PRINT A </pre>
+                  </p>
+                </li>
+                <li>
+                  <title>\textbf{Program 6}</title>
+                  <p>
+                      <pre> x = 0 FOR k = 1 TO 5 x = x + k PRINT k, x NEXT k </pre>
+                  </p>
+                </li>
+              </ul>
+            </p>
+          </li>
+          <li>
+            <p>
+              What output does Program 4 produce?
+              Type in the code and run the program to confirm your answer.
+            </p>
+          </li>
+          <li>
+            <p>
+              What is the difference between the code in Program 5 and the code in Program 4?
+              What is the output of Program 5?
+              Does it differ from the output of Program 4?
+              If so, why?
+            </p>
+          </li>
+          <li>
+            <p>
+              What output does Program 6 produce?
+              Type in the code and run the program to confirm your answer.
+              <ul>
+                <li>
+                  <title>\textbf{Program 7}</title>
+                  <p>
+                      <pre> A = 0 B = 0 FOR k = 1 TO 5 A = A + 1 B = A + B PRINT A, B NEXT k </pre>
+                  </p>
+                </li>
+                <li>
+                  <title>\textbf{Program 8}</title>
+                  <p>
+                      <pre> A = 0 B = 1 FOR k = 1 TO 5 A = A + B B = A + B PRINT A, B NEXT k </pre>
+                  </p>
+                </li>
+                <li>
+                  <title>\textbf{Program 9}</title>
+                  <p>
+                      <pre> A = 0 B = 1 FOR k = 1 TO 5 A = A + B B = A + B NEXT k PRINT A, B </pre>
+                  </p>
+                </li>
+              </ul>
+            </p>
+          </li>
+          <li>
+            <p>
+              Program 7 prints five lines of output.
+              What are they?
+              Type in the program and run it to confirm your answers.
+            </p>
+          </li>
+          <li>
+            <p>
+              What is the output of Program 8?
+              Type in the program and run it to confirm your answers.
+            </p>
+          </li>
+          <li>
+            <p>
+              Describe exactly how the <em>codes</em>
+              for Programs 8 and 9 differ.
+              How do the <em>outputs</em> differ?
+            </p>
+          </li>
+        </ol>
       </p>
-      <tabular>
-        <row>
-          <cell><sidebyside>
-              <term>Program 1</term>
-<pre>
-A = 2
-B = 3
-A = B
-PRINT A, B
-</pre>
-            </sidebyside></cell>
-          <cell><sidebyside>
-              <term>Program 2</term>
-<pre>
-A = 2
-B = 3
-B = A
-PRINT A, B
-</pre>
-            </sidebyside></cell>
-          <cell><sidebyside>
-              <term>Program 3</term>
-<pre>
-A = 2
-B = 3
-A = A + B
-B = A + B
-PRINT A, B
-</pre>
-            </sidebyside></cell>
-        </row>
-      </tabular>
-      <ol>
-        <li>
-          <p>
-            When Program 1 runs it will print the values of <m>A</m> and <m>B</m> that are current when the program stops.
-            What values will it print?
-            Type in this program and run it to verify your answers.
-          </p>
-        </li>
-        <li>
-          <p>
-            What will Program 2 do when it runs?
-            Type in this program and run it to verify your answers.
-          </p>
-        </li>
-        <li>
-          <p>
-            After each line in Program 3 write the values that <m>A</m> and <m>B</m> have <em>after</em>
-            that line has been carried out.
-            What values of <m>A</m> and <m>B</m> will it print?
-            Type in this program and run it to verify your answers.
-            The next three programs have an element not found in the program SIR. In each of them,
-            there is a FOR<ndash/>NEXT loop,
-            and the counter <m>k</m> actually appears in the statements within the loop.
-            <tabular>
-              <row>
-                <cell><sidebyside>
-                    <term>Program 4</term> <pre> FOR k = 1 TO 5 A = k ^ 3 PRINT A NEXT k </pre>
-                  </sidebyside></cell>
-                <cell><sidebyside>
-                    <term>Program 5</term> <pre> FOR k = 1 TO 5 A = k ^ 3 NEXT k PRINT A </pre>
-                  </sidebyside></cell>
-                <cell><sidebyside>
-                    <term>Program 6</term> <pre> x = 0 FOR k = 1 TO 5 x = x + k PRINT k, x NEXT k </pre>
-                  </sidebyside></cell>
-              </row>
-            </tabular>
-          </p>
-        </li>
-        <li>
-          <p>
-            What output does Program 4 produce?
-            Type in the code and run the program to confirm your answer.
-          </p>
-        </li>
-        <li>
-          <p>
-            What is the difference between the code in Program 5 and the code in Program 4?
-            What is the output of Program 5?
-            Does it differ from the output of Program 4?
-            If so, why?
-          </p>
-        </li>
-        <li>
-          <p>
-            What output does Program 6 produce?
-            Type in the code and run the program to confirm your answer.
-            <tabular>
-              <row>
-                <cell><sidebyside>
-                    <term>Program 7</term> <pre> A = 0 B = 0 FOR k = 1 TO 5 A = A + 1 B = A + B PRINT A, B NEXT k </pre>
-                  </sidebyside></cell>
-                <cell><sidebyside>
-                    <term>Program 8</term> <pre> A = 0 B = 1 FOR k = 1 TO 5 A = A + B B = A + B PRINT A, B NEXT k </pre>
-                  </sidebyside></cell>
-                <cell><sidebyside>
-                    <term>Program 9</term> <pre> A = 0 B = 1 FOR k = 1 TO 5 A = A + B B = A + B NEXT k PRINT A, B </pre>
-                  </sidebyside></cell>
-              </row>
-            </tabular>
-          </p>
-        </li>
-        <li>
-          <p>
-            Program 7 prints five lines of output.
-            What are they?
-            Type in the program and run it to confirm your answers.
-          </p>
-        </li>
-        <li>
-          <p>
-            What is the output of Program 8?
-            Type in the program and run it to confirm your answers.
-          </p>
-        </li>
-        <li>
-          <p>
-            Describe exactly how the <em>codes</em>
-            for Programs 8 and 9 differ.
-            How do the <em>outputs</em> differ?
-          </p>
-        </li>
-      </ol>
     </subsubsection>
-    <subsubsection xml:id="sec_using-a-program_subsubsec_analyzing-the-measles-epidemic">
+    <subsubsection xml:id="subsubsec_analyzing-the-measles-epidemic">
       <title>Analyzing the measles epidemic</title>
       <ol>
         <li>
@@ -674,14 +576,14 @@ PRINT A, B
             <term>There and back again</term>.
               <idx><h>there and back again</h></idx>
           Use the SIR program, modified as necessary,
-            to carry out the calculations described in exercise 18 <xref ref="sec_the-spread-of-disease_x_therebackprob_">on</xref>.
+            to carry out the calculations described in exercise 18 <xref ref="x_therebackprob_">on</xref>.
             Do your computer results agree with those you obtained earlier?
           </p>
         </li>
         <li>
           <p>
             In exercises 22<ndash/>26 at the end of section<nbsp/>2
-            (<xref ref="sec_the-mathematical-ideas_x_falling_">pages</xref><ndash/> <xref ref="sec_the-mathematical-ideas_x_cooling_"></xref>)
+            (<xref ref="x_falling_">pages</xref><ndash/> <xref ref="x_cooling_"></xref>)
             you set up rate equations to model some other systems.
             Choose a couple of these and think of some interesting questions that could be answered using a suitably modified SIR program.
             Make the modifications and report your results.
