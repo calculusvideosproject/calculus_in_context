@@ -1,4 +1,4 @@
-<section xml:id="sec_trigonometric-integrals_sec_trigonometric-integrals">
+<section xml:id="sec_trigonometric-integrals">
   <title>Trigonometric Integrals</title>
   <introduction>
     <p>
@@ -10,6 +10,8 @@
       largely involving trigonometric functions in various ways,
       that are sometimes useful.
       The purpose of this section is to develop the most commonly used of these techniques.
+    </p>
+    <p>
       Recall that there are only a few simple antiderivatives we can write down immediately by inspection.
       All non-numerical integration techniques consist of finding transformations that will reduce some new class of integration problems to a class we already know how to solve.
       Once we have a new class of solvable problems,
@@ -18,7 +20,10 @@
       The techniques we will be developing in this section involve ways of making such transformations through the use of basic trigonometric identities,
       typically in conjunction with integration by parts or by substitution.
       Before we proceed with the integration techniques,
-      it will be helpful to list the trigonometric identities used. \subsubsection{Review of trigonometric identities} The most frequently used identity is
+      it will be helpful to list the trigonometric identities used.
+    </p>
+    <p>
+      \subsubsection{Review of trigonometric identities} The most frequently used identity is
       <me>
         \sin^2{x} + \cos^2{x} =1
       </me>,
@@ -42,21 +47,12 @@
       </me>.
     </p>
   </introduction>
-  <subsection xml:id="sec_trigonometric-integrals_subsec_inverse-substitution">
+  <subsection xml:id="subsec_inverse-substitution">
     <title>Inverse Substitution</title>
     <p>
           <idx><h>inverse substitution</h><h>integration by</h></idx>
           <idx><h>integration by inverse substitution</h></idx>
-      The method of substitution outlined in chapter<nbsp/>11.2 worked by taking a complicated integrand and breaking it down into simpler components, reducing the problem
-    </p>
-    <aside>
-      <p>
-        Success sometimes comes by making things more complicated
-      </p>
-    </aside>
-    <p>
-      of finding an antiderivative for something in the form
-      <m>f(G(x))g(x)</m> to the problem of finding an antiderivative for <m>f</m>.
+      The method of substitution outlined in chapter<nbsp/>11.2 worked by taking a complicated integrand and breaking it down into simpler components, reducing the problem [[NOTE:Success sometimes comes by making things more complicated]] of finding an antiderivative for something in the form <m>f(G(x))g(x)</m> to the problem of finding an antiderivative for <m>f</m>.
       In some cases, though, we go in the opposite direction:
       we have an integral <m>\int f(x)\,dx</m> we want to find but can't evaluate directly.
       Instead, we can find a function <m>G(u)</m> with derivative <m>g(u)</m> such that we can find an antiderivative for <m>f(G(u))g(u)</m>.
@@ -65,10 +61,14 @@
       As with the earlier substitution techniques,
       this <term>inverse substitution</term>
       is conveniently expressed using differential notation.
-      <term>Example 1</term>Suppose we want to evaluate
+    </p>
+    <p>
+      <term>[[EX:1]]</term>Suppose we want to evaluate
       <me>
         \int \sqrt{4-x^2}\,dx
       </me>.
+    </p>
+    <p>
       If we substitute <m>x=2\sin{u}</m>,
       so that <m>dx=2\cos{u}\,du</m>, look what happens:
       <md>
@@ -110,21 +110,15 @@
     </p>
     <p>
       As usual, you should check this result by differentiating the right-hand side to see that you do obtain the integrand on the left.
-      Similar substitutions
     </p>
-    <aside>
-      <p>
-        Some useful substitutions
-      </p>
-    </aside>
     <p>
-      allow us to evaluate other integrals involving square roots of quadratic expressions.
+      Similar substitutions [[NOTE:Some useful substitutions]] allow us to evaluate other integrals involving square roots of quadratic expressions.
       Here is a summary of useful substitutions.
       In each case, <m>a</m> is a positive real number.
     </p>
-    <image source="images/331c5b599645ab885316e889d0e3f024ae0ab43b.png"/>
+    <image source=""/>
     <p>
-      <term>Example 2</term>Integrate
+      <term>[[EX:2]]</term>Integrate
       <me>
         \int \dfrac{dx}{\sqrt{x^2+9}}
       </me>.
@@ -153,7 +147,9 @@
       </md>,
       where <m>C'=C-\ln{3}</m> is a new constant.
       As usual, you should differentiate to check that this really is the claimed antiderivative
-      <term>Example 3</term>Evaluate
+    </p>
+    <p>
+      <term>[[EX:3]]</term>Evaluate
       <me>
         \int \dfrac{dx}{\sqrt{9x^2-16}}
       </me>.
@@ -180,10 +176,12 @@
         <mrow>\amp = \dfrac{1}{3}\ln{\left|3x +\sqrt{9x^2-16}\right|} +C'</mrow>
       </md>,
       where <m>C'=C-(\ln{4})/3</m>.
+    </p>
+    <p>
       As usual, you should differentiate this final expression to confirm that it really is the desired antiderivative.
     </p>
   </subsection>
-  <subsection xml:id="sec_trigonometric-integrals_subsec_inverse-substitution-and-definite-integrals">
+  <subsection xml:id="subsec_inverse-substitution-and-definite-integrals">
     <title>Inverse Substitution and Definite Integrals</title>
     <p>
       We saw <xref ref="defint">on</xref>
@@ -209,6 +207,8 @@
       so that <m>x=G(u)</m> was equivalent to <m>u=G^{-1}(x)</m>,
       and <m>F(x)=F(G(G^{-1}(x)))</m>.
       It is this last step we can eliminate in calculating definite integrals.
+    </p>
+    <p>
       If we want <m>x</m> to go from <m>a</m> to <m>b</m>, what must <m>u</m> do?
       What interval of <m>u</m> values will get transformed to this interval of <m>x</m> values by <m>G</m>.
       The value of <m>u</m> such that <m>G(u)=a</m> is <m>A=G^{-1}(a)</m>.
@@ -229,13 +229,15 @@
     <image source=""/>
     <p>
       Let's look back at a couple of the preceding examples to see how this works.
-      <term>Example 4</term>Evaluate
+    </p>
+    <p>
+      <term>[[EX:4]]</term>Evaluate
       <me>
         \int_{-2}^2 \sqrt{4-x^2}\,dx
       </me>.
     </p>
     <p>
-      In Example 1 we found an antiderivative for this function by making the substitution <m>x= 2\sin{u}=G(u)</m>.
+      In [[EX:1]] we found an antiderivative for this function by making the substitution <m>x= 2\sin{u}=G(u)</m>.
       The inverse function is then <m>G^{-1}(x)=\arcsin(x/2)</m>.
       To get <m>x</m> to go from <m>-2</m> to 2, <m>u</m> must go from
       <m>G^{-1}(-2)=\arcsin(-1)=-\pi/2=A</m> to <m>G^{-1}(2)=\arcsin{1}=\pi/2=B</m>.
@@ -248,24 +250,26 @@
     <p>
       (Note that this is just half the area of a circle of radius 2.
       How could we have foreseen this result from the form of the problem?)
-      <term>Example 5</term>Suppose we wanted the integral
+    </p>
+    <p>
+      <term>[[EX:5]]</term>Suppose we wanted the integral
       <me>
         \int_0^3 \dfrac{dx}{\sqrt{x^2+9}}
       </me>.
     </p>
     <p>
-      In Example 2 we found an antiderivative by letting <m>x=3\tan{u}</m>.
+      In [[EX:2]] we found an antiderivative by letting <m>x=3\tan{u}</m>.
       Here <m>G^{-1}(x)=\arctan(x/3)</m>.
       For <m>x</m> to go from 0 to <m>3</m>,
       <m>u</m> must go from 0 to <m>\arctan{1}=\pi/4</m>.
-      Using the <m>u</m>-antiderivative we found in Example 2, we have
+      Using the <m>u</m>-antiderivative we found in [[EX:2]], we have
       <md>
         <mrow>\dint_0^3 \dfrac{dx}{\sqrt{x^2+9}} \amp = \left.\ln|\sec{u}+\tan{u}|\,\right|_0^{\pi/4}</mrow>
         <mrow>\amp = \ln{|\sqrt{2}+1|}-\ln{|1+0|}=\ln(\sqrt{2}+1)</mrow>
       </md>.
     </p>
   </subsection>
-  <subsection xml:id="sec_trigonometric-integrals_subsec_completing-the-square">
+  <subsection xml:id="subsec_completing-the-square">
     <title>Completing The Square</title>
     <p>
       Integrands involving terms of the form
@@ -287,7 +291,9 @@
       </me>
       then transform the problem to a form where we can use the techniques already developed.
       The following examples should make this clear.
-      <term>Example 6</term>Consider the integral
+    </p>
+    <p>
+      <term>[[EX:6]]</term>Consider the integral
       <me>
         \int \dfrac{dx}{x^2+4x+5}
       </me>.
@@ -308,7 +314,7 @@
       </md>.
     </p>
     <p>
-      <term>Example 7</term>The technique of completing the square even works for expressions we could have factored directly,
+      <term>[[EX:7]]</term>The technique of completing the square even works for expressions we could have factored directly,
       if we had noticed:
       <md>
         <mrow>\dint \dfrac{dx}{x^2+4x+3} \amp = \dint \dfrac{dx}{(x+2)^2-1}</mrow>
@@ -319,7 +325,7 @@
       </md>.
     </p>
     <p>
-      <term>Example 8</term>Evaluate
+      <term>[[EX:8]]</term>Evaluate
       <me>
         \int \dfrac{dx}{\sqrt{6x-x^2}}
       </me>.
@@ -336,7 +342,7 @@
       </md>.
     </p>
   </subsection>
-  <subsection xml:id="sec_trigonometric-integrals_subsec_trigonometric-polynomials">
+  <subsection xml:id="subsec_trigonometric-polynomials">
     <title>Trigonometric Polynomials</title>
     <introduction>
       <p>
@@ -350,6 +356,8 @@
         <em> reduction formula</em><mdash/>which can be used to generate mathematical results interesting in their own right.
         One example is the striking representation of <m>\pi</m> derived in chapter<nbsp/>12.1.
         Other examples are developed in the exercises at the end of this section.
+      </p>
+      <p>
         Since every trigonometric function is expressible in terms of sines and cosines,
         any trigonometric polynomial can be written as a sum of terms of the form
         <m>c\,\sin^m{x}\,\cos^n{x}</m> where <m>c</m> is a constant and <m>m</m> and <m>n</m> are integers<mdash/>positive,
@@ -384,7 +392,7 @@
         </row>
       </tabular>
     </introduction>
-    <subsubsection xml:id="sec_trigonometric-integrals_subsubsec_category-i-either-boldmath-mgeq-0-or-ngeq-0-or-both">
+    <subsubsection xml:id="subsubsec_category-i-either-boldmath-mgeq-0-or-ngeq-0-or-both">
       <title>Category I: Either  <m>m\geq 0</m> or <m>n\geq 0</m> (or both)</title>
       <p>
         Assume for the sake of explicitness that <m>m\geq 0</m>.
@@ -392,7 +400,9 @@
         <m>\sin^m{x}</m> entirely by cosine terms if <m>m</m> is even,
         or to replace all but one of the sine terms by cosines if <m>m</m> is odd.
         A similar replacement can be made if <m>n\geq 0</m>.
-        <term>Example 9</term>
+      </p>
+      <p>
+        <term>[[EX:9]]</term>
         <md>
           <mrow>\sin^4{x}\,\cos^6{x} \amp = (1-\cos^2{x})^2\cdot\cos^6{x}</mrow>
           <mrow>\amp = (1-2\,\cos^2{x}+\cos^4{x})\cdot\cos^6{x}</mrow>
@@ -401,14 +411,17 @@
       </p>
       <p>
         (Note that in this example we could just as well have expressed
-        <m>\cos^6{x}</m> entirely in terms of <m>\sin{x}</m>.) <term>Example 10</term>
+        <m>\cos^6{x}</m> entirely in terms of <m>\sin{x}</m>.)
+      </p>
+      <p>
+        <term>[[EX:10]]</term>
         <md>
           <mrow>\sin^3{x}\,\cos^{-8}{x} \amp = \sin{x}\cdot (1-\cos^2{x})\cdot\cos^{-8}{x}</mrow>
           <mrow>\amp = \sin{x}\,\cos^{-8}{x}-\sin{x}\,\cos^{-6}{x}</mrow>
         </md>.
       </p>
       <p>
-        <term>Example 11</term>
+        <term>[[EX:11]]</term>
         <md>
           <mrow>\sin^{-7}{x}\,\cos^{7}{x} \amp = \sin^{-7}{x}\cdot (1-\sin^2{x})^3\cdot\cos{x}</mrow>
           <mrow>\amp = \sin^{-7}{x}\,\cos{x}-3\,\sin^{-5}{x}\,\cos{x}+3\,\sin^{-3}{x}\,\cos{x}</mrow>
@@ -430,6 +443,8 @@
       </tabular>
       <p>
         We will now see how to find antiderivatives for these cases.
+      </p>
+      <p>
         <term>Case 1:  <m>m=1</m> or <m>n=1</m></term>Since the two possibilities are analogous,
         we will consider the case with <m>n=1</m>.
         Then <m>m</m> can be any real number at all,
@@ -443,18 +458,12 @@
       <p>
         Replacing <m>u</m> by its expression in <m>x</m> we have the antiderivative:
       </p>
-      <image source="images/6c32d6cb37058a4d75ec46f1774c8c93a5ce4019.png"/>
+      <image source=""/>
+    </subsubsection>
+    <subsubsection>
+      <title>Remark:</title>
       <p>
-        <term>Remark:</term> The instance <m>m=-1</m> in this
-      </p>
-      <aside>
-        <p>
-          The antiderivative of the cotangent
-        </p>
-      </aside>
-      <p>
-            <idx><h>cotangent</h><h>antiderivative of</h></idx>
-        case is worth singling out,
+        The instance <m>m=-1</m> in this [[NOTE:The antiderivative of the cotangent]]<idx><h>cotangent</h><h>antiderivative of</h></idx> case is worth singling out,
         as it gives us an antiderivative for <m>\cot{x}</m>:
         <me>
           \int \cot{x}\,dx=\int \dfrac{\cos{x}}{\sin{x}}\,dx =  \ln|\sin{x}|+C
@@ -464,29 +473,25 @@
         Integrals where <m>m=1</m> are handled in a completely analogous fashion.
         You should check that
       </p>
-      <image source="images/71fad527cce9364e8720dfff4f3d22d8d2cce940.png"/>
+      <image source=""/>
+    </subsubsection>
+    <subsubsection xml:id="tander">
+      <title>Remark:</title>
       <p>
-        <term>Remark:</term> Notice that <m>n=-1</m> gives us
-      </p>
-      <aside>
-        <p>
-          The antiderivative of the tangent
-        </p>
-      </aside>
-      <p>
-            <idx><h>tangent</h><h>antiderivative of</h></idx>
-        an antiderivative for <m>\tan{x}</m>:
+        Notice that <m>n=-1</m> gives us [[NOTE:The antiderivative of the tangent]]<idx><h>tangent</h><h>antiderivative of</h></idx> an antiderivative for <m>\tan{x}</m>:
         <me>
           \int \tan{x}\,dx=\int \dfrac{\sin{x}}{\cos{x}}\,dx = -\ln|\cos{x}|+C
         </me>.
       </p>
       <p>
-        <term>Case II:  <m>m=0</m> or <m>n=0</m></term>Again the two possibilities are analogous,
+        <term>Case II: <m>m=0</m> or <m>n=0</m></term>Again the two possibilities are analogous,
         so we will look at instances where <m>n=0</m>.
         There are a number of clever ways for dealing with antiderivatives of functions of this form,
         many of them depending on special subcases according to whether <m>m</m> is even or odd,
         positive or negative, etc.
         We will develop a single method which deals with all cases in the same way.
+      </p>
+      <p>
         Think of <m>\sin^n{x}</m> as
         <m>\sin^{n-1}{x}\cdot\sin{x}</m> and use integration by parts with
         <me>
@@ -519,17 +524,10 @@
         </me>,
         so that
       </p>
-      <image source="images/1dede6c53700e769232c766fa31698f2f9b44eee.png"/>
+      <image source=""/>
       <p>
-        We thus have
-      </p>
-      <aside>
-        <p>
-          A reduction formula
-        </p>
-      </aside>
-      <p>
-        a <term>reduction formula</term><idx><h>reduction formula</h><h>for integrating
+        We thus have [[NOTE:A reduction formula]] a
+        <term>reduction formula</term><idx><h>reduction formula</h><h>for integrating
         <m>\sin^n{x}</m></h></idx> which reduces the problem of finding an antiderivative for
         <m>\sin^n{x}</m> to the problem of finding an antiderivative for <m>\sin^{n-2}{x}</m>.
         This in turn can be reduced to finding an antiderivative for <m>\sin^{n-4}{x}</m>,
@@ -538,7 +536,9 @@
         (if <m>n</m> is odd),
         or for 1
         (if <m>n</m> is even).
-        <term>Example 12</term>
+      </p>
+      <p>
+        <term>[[EX:12]]</term>
         <md>
           <mrow>\dint \sin^5{x}\,dx \amp = \dfrac{-1}{5}\sin^4{x}\cos{x}+\dfrac{4}{5}\dint \sin^3{x}\,dx</mrow>
           <mrow>\amp = \dfrac{-1}{5}\sin^4{x}\cos{x} +\dfrac{4}{5}\left(\dfrac{-1}{3}\sin^2{x}\cos{x} +\dfrac{2}{3}\dint \sin{x}\,dx \,\right)</mrow>
@@ -549,7 +549,9 @@
         Check this answer by taking the derivative of the right-hand side.
         To show that this derivative really is equal to the integrand on the left,
         you will need to express all the cosines in terms of sines.
-        <term>Example 13</term>If we let <m>n=2</m>,
+      </p>
+      <p>
+        <term>[[EX:13]]</term>If we let <m>n=2</m>,
         we quickly get the antiderivative for
         <m>\sin^2{x}</m> that we've needed at several points already:
         <md>
@@ -558,15 +560,8 @@
         </md>.
       </p>
       <p>
-        The reduction formula as stated is
-      </p>
-      <aside>
-        <p>
-          In its current form, the reduction formula works best for <m>n>0</m>
-        </p>
-      </aside>
-      <p>
-        most convenient for <m>n>0</m>,
+        The reduction formula as stated is [[NOTE:In its current form,
+        the reduction formula works best for <m>n>0</m>]] most convenient for <m>n>0</m>,
         although it is true for any number <m>n\neq 0</m>.
         For if <m>n\lt 0</m>, though,
         we want to <em>increase</em> the exponent,
@@ -578,19 +573,12 @@
         </me>.
       </p>
       <p>
-        Since we are interested in negative exponents,
-      </p>
-      <aside>
-        <p>
-          The reduction formula for negative exponents
-        </p>
-      </aside>
-      <p>
-        call <m>n-2</m> by a new name, <m>-k</m>.
+        Since we are interested in negative exponents, [[NOTE:The reduction formula for negative exponents]] call <m>n-2</m> by a new name,
+        <m>-k</m>.
         But if <m>n-2=-k</m>, then <m>n=-k+2</m>,
         and we can rewrite our formula as
       </p>
-      <image source="images/563b35a99d3a5d61e88a0803ebba59d69f308750.png"/>
+      <image source=""/>
       <p>
         With this formula we can reduce the problem of finding an antiderivative for
         <m>\sin^{-k}{x}</m> to the problem of finding an antiderivative for <m>\sin^{-k+2}{x}</m>.
@@ -610,7 +598,9 @@
       </p>
       <p>
         We can now handle antiderivatives for any negative integer exponent of the sine function.
-        <term>Example 14</term> We can check this formula by trying <m>k=2</m>,
+      </p>
+      <p>
+        <term>[[EX:14]]</term> We can check this formula by trying <m>k=2</m>,
         which will give us the antiderivative of <m>\csc^2{x}</m>:
         <md>
           <mrow>\dint \csc^2{x} \amp = \dint \sin^{-2}{x}\,dx</mrow>
@@ -618,7 +608,9 @@
           <mrow>\amp = -\sin^{-1}{x}\,\cos{x}+C=-\cot{x}+C</mrow>
         </md>,
         as it should.
-        <term>Example 15</term>
+      </p>
+      <p>
+        <term>[[EX:15]]</term>
         <md>
           <mrow>\dint \sin^{-3}{x}\,dx \amp = -\dfrac{1}{2}\sin^{-2}{x}\,\cos{x}+\dfrac{1}{2}\int \sin^{-1}{x}\,dx</mrow>
           <mrow>\amp = \dfrac{1}{2}\left(-\sin^{-2}{x}\cos{x}-\ln{|\csc{x}+\cot{x}|}\right)+C</mrow>
@@ -630,7 +622,7 @@
       </p>
       <image source=""/>
     </subsubsection>
-    <subsubsection xml:id="sec_trigonometric-integrals_subsubsec_category-ii-both-boldmath-m0-and-n0">
+    <subsubsection xml:id="subsubsec_category-ii-both-boldmath-m0-and-n0">
       <title>Category II: Both  <m>m\lt 0</m> and <m>n\lt 0</m></title>
       <p>
         If we divide the identity <m>\cos^2{x}+\sin^2{x}=1</m> by <m>\sin^2{x}\,\cos^2{x}</m>,
@@ -648,12 +640,16 @@
         or <m>\sin^{-k}{x}\,\cos{x}</m>.
         Since we learned how to find antiderivatives for expressions like these in the previous cases,
         we will then be done.
+      </p>
+      <p>
         The trick in transforming <m>cos^{-r}{x}\,\sin^{-s}{x}</m> to the desired form is to multiply by <m>(\cos{x}\,\cos^{-1}{x})</m> or
         <m>(\sin{x}\,\sin^{-1}{x})</m> as needed so that both the sine and the cosine terms appear to
         <em>even</em> negative exponents.
         Then simply keep using the identity above until there's nothing left to use it on.
         The following three examples should make clear how the reduction then works.
-        <term>Example 16</term> (<m>r</m> and <m>s</m> both even already)
+      </p>
+      <p>
+        <term>[[EX:16]]</term> (<m>r</m> and <m>s</m> both even already)
         <md>
           <mrow>\sin^{-4}{x}\,\cos^{-6}{x} \amp = \left( \sin^{-2}{x}\,\cos^{-2}{x}\right)^2\,\cos^{-2}{x}</mrow>
           <mrow>\amp = \left( \sin^{-2}{x}+\cos^{-2}{x}\right)^2\,\cos^{-2}{x}</mrow>
@@ -677,7 +673,9 @@
         We will use this result to demonstrate how to deal with cases where either <m>r</m> or <m>s</m>
         (or both)
         is odd.
-        <term>Example 17</term> (<m>r</m> even and <m>s</m> odd)
+      </p>
+      <p>
+        <term>[[EX:17]]</term> (<m>r</m> even and <m>s</m> odd)
         <md>
           <mrow>\sin^{-4}{x}\,\cos^{-5}{x} \amp = \sin^{-4}{x}\,\cos^{-6}{x}\,\cos{x}</mrow>
           <mrow>\amp = \sin^{-4}{x}\,\cos{x}+3\sin^{-2}{x}\,\cos{x}+ 3\cos^{-1}{x}</mrow>
@@ -685,7 +683,7 @@
         </md>
       </p>
       <p>
-        <term>Example 18</term> (both <m>r</m> and <m>s</m> odd)
+        <term>[[EX:18]]</term> (both <m>r</m> and <m>s</m> odd)
         <md>
           <mrow>\sin^{-3}{x}\,\cos^{-5}{x} \amp = \sin{x}\,\sin^{-4}{x}\,\cos^{-6}{x}\,\cos{x}</mrow>
           <mrow>\amp = \sin^{-3}{x}\,\cos{x}+3\sin^{-1}{x}\,\cos{x}+ 3\sin{x}\,\cos^{-1}{x}</mrow>
@@ -694,7 +692,7 @@
       </p>
     </subsubsection>
   </subsection>
-  <subsection xml:id="sec_trigonometric-integrals_subsec_exercises">
+  <subsection xml:id="subsec_exercises">
     <title>Exercises</title>
     <introduction>
       <ol>
@@ -922,12 +920,12 @@
         </li>
         <li>
           <p>
-            Use the analysis of Example 17 ( <xref ref="ex17"></xref>) to find an antiderivative for <m>\sin^{-4}{x}\,\cos^{-5}{x}</m>.
+            Use the analysis of [[EX:17]] ( <xref ref="ex17"></xref>) to find an antiderivative for <m>\sin^{-4}{x}\,\cos^{-5}{x}</m>.
           </p>
         </li>
       </ol>
     </introduction>
-    <subsubsection xml:id="sec_trigonometric-integrals_subsubsec_reduction-formulas">
+    <subsubsection xml:id="subsubsec_reduction-formulas">
       <title>Reduction formulas</title>
       <ol>
         <li>
@@ -1025,7 +1023,7 @@
             </ol>
           </p>
         </li>
-        <li xml:id="sec_trigonometric-integrals_x1plusx2">
+        <li xml:id="x1plusx2">
           <p>
             Find a reduction formula expressing
             <me>

@@ -1,4 +1,4 @@
-<section xml:id="sec_the-logarithm-function_sec_the-logarithm-function">
+<section xml:id="sec_the-logarithm-function">
   <title>The Logarithm Function</title>
   <introduction>
     <p>
@@ -6,6 +6,8 @@
       If there are 100,000 persons now,
       how many will there be 37 years from now?
       How long will it take the population to double?
+    </p>
+    <p>
       Translating into mathematics,
       we want to find the function <m>P(t)</m> that solves the initial value problem
       <me>
@@ -27,15 +29,7 @@
       </md>
     </p>
     <p>
-      To find out how long it will take
-    </p>
-    <aside>
-      <p>
-        The doubling time of a population
-      </p>
-    </aside>
-    <p>
-      the population to double,
+      To find out how long it will take [[NOTE:The doubling time of a population]] the population to double,
           <idx><h>doubling time</h></idx>
       we want to find a value for <m>t</m> so that <m>P(t) = 200000</m>.
       In other words, we need to solve for <m>t</m> in the equation
@@ -60,21 +54,15 @@
       </me>,
       so <m>t = 0.693147/.003 = 231.049</m>.
       Thus it will take about 231 years for the population to double.
+    </p>
+    <p>
       To determine the doubling time of the population we had to know the number <m>b</m> for which
       <me>
         \exp(b) = e^{\displaystyle b} = 2
       </me>.
     </p>
     <p>
-      This is an aspect
-    </p>
-    <aside>
-      <p>
-        Solving an exponential equation
-      </p>
-    </aside>
-    <p>
-      of a very general question:
+      This is an aspect [[NOTE:Solving an exponential equation]] of a very general question:
       given a positive number <m>a</m>,
       find a number <m>b</m> for which
       <me>
@@ -87,16 +75,12 @@
       we can indeed find a unique point <m>b</m> on the horizontal axis which gives us <m>\exp(b) = a</m>.
     </p>
     <p>
-      <image width="73%" source="images/log1.png"/> This process of obtaining the number <m>b</m> that satisfies
-      <m>\exp(b) = a</m> for any given positive number <m>a</m> is a clear and unambiguous rule.
+      <image width="73%" source="images/log1.png"/>
     </p>
-    <aside>
-      <p>
-        The natural logarithm function
-      </p>
-    </aside>
     <p>
-      Thus, it defines a function.
+      This process of obtaining the number <m>b</m> that satisfies
+      <m>\exp(b) = a</m> for any given positive number <m>a</m> is a clear and unambiguous rule. [[NOTE:The natural logarithm function]] Thus,
+      it defines a function.
           <idx><h>function</h><h>logarithm</h></idx>
           <idx><h>logarithm function</h></idx>
           <idx><h>logarithm</h></idx>
@@ -116,6 +100,8 @@
         \ln(a) = b  \mbox{and}   \exp(b) = a
       </me>
       express exactly the same relation between the quantities <m>a</m> and <m>b</m>.
+    </p>
+    <p>
       The question that led to the introduction of the logarithm function was:
       what number gives the exponent to which <m>e</m> must be raised in order to produce the value 2?
       This number is <m>\ln(2)</m>,
@@ -133,14 +119,7 @@
       </me>.
     </p>
     <p>
-      The first equations says
-    </p>
-    <aside>
-      <p>
-        The logarithm and exponential functions are inverses
-      </p>
-    </aside>
-    <p>
+      The first equations says [[NOTE:The logarithm and exponential functions are inverses]]
       <em>the exponential function
       <q>undoes</q>
       the effect of the logarithm function</em>
@@ -163,7 +142,7 @@
       We will say more about inverse functions later in this section.
     </p>
   </introduction>
-  <subsection xml:id="sec_the-logarithm-function_subsec_properties-of-the-logarithm-function">
+  <subsection xml:id="subsec_properties-of-the-logarithm-function">
     <title>Properties of the Logarithm Function</title>
     <p>
       The inverse relationship allows us to translate each of the properties of the exponential function into a corresponding statement about the logarithm function.
@@ -216,6 +195,8 @@
       we can use the exponential property and the inverse relationship between exp and ln to establish the logarithmic property.
       As an example, we will establish the second property.
       You should be able to demonstrate the others.
+    </p>
+    <p>
       <em>Proof of the second property</em>.
       Remember that to show <m>\ln(a)=b</m>,
       we need to show <m>e^b=a</m>.
@@ -237,19 +218,15 @@
       and our proof is complete.
     </p>
   </subsection>
-  <subsection xml:id="sec_the-logarithm-function_subsec_the-derivative-of-the-logarithm-function">
+  <subsection xml:id="subsec_the-derivative-of-the-logarithm-function">
     <title>The Derivative of the Logarithm Function</title>
     <p>
           <idx><h>derivative</h></idx>
-      Since the natural logarithm is a function in its own right, it is reasonable to ask: what is the derivative of this function?
     </p>
-    <aside>
-      <p>
-        The graph of <m>\ln</m>
-      </p>
-    </aside>
     <p>
-      Since the derivative describes the slope of the graph,
+      Since the natural logarithm is a function in its own right,
+      it is reasonable to ask:
+      what is the derivative of this function? [[NOTE:The graph of <m>\ln</m>]] Since the derivative describes the slope of the graph,
       let us begin by examining the graph of ln.
       Can we take advantage of the relationship between ln and exp<mdash/>a function whose graph we know well<mdash/>as we do this?
       Indeed we can, by making the following observations.
@@ -287,49 +264,41 @@
       </row>
     </tabular>
     <p>
-      The picture below
-    </p>
-    <aside>
-      <p>
-        Reflection across the <m>45^{\circ}</m><nbsp/>line
-      </p>
-    </aside>
-    <p>
-      demonstrates that the point <m>(a, b)</m> and the point <m>(b, a)</m> are reflections
+      The picture below [[NOTE:Reflection across the
+      <m>45^{\circ}</m><nbsp/>line]] demonstrates that the point <m>(a, b)</m> and the point <m>(b, a)</m> are reflections
           <idx><h>reflection</h></idx>
       of each other about the <m>45^{\circ}</m> line.
       (Remember that points on the
       <m>45^{\circ}</m> line have the same <m>x</m> and <m>y</m> coordinates.)
       This is because these two points are the endpoints of the diagonal of a square whose other diagonal is the line <m>y=x</m>.
-      <image width="73%" source="images/log2.png"/> Since we have just seen that every point <m>(a, b)</m> on the graph of
+    </p>
+    <p>
+      <image width="73%" source="images/log2.png"/>
+    </p>
+    <p>
+      Since we have just seen that every point <m>(a, b)</m> on the graph of
       <m>y=\ln(x)</m> corresponds to a point <m>(b, a)</m> on the graph of <m>y=e^x</m>,
       we see that <em>the graphs of
       <m>y=\ln(x)</m> and <m>y=e^x</m> are the reflections of each other about the line <m>y=x</m>.</em>
-      <image width="73%" source="images/log3.png"/> Finally,
-      since the two graphs are reflections of one another,
-          <idx><h>microscope</h></idx>
     </p>
-    <aside>
-      <p>
-        Microscopic views at mirror image points
-      </p>
-    </aside>
     <p>
-      a microscopic view of <m>\ln(x)</m> at any point <m>(b, a)</m> will be the mirror image of the microscopic view of of <m>e^x</m> at the point <m>(a, b)</m>.
+      <image width="73%" source="images/log3.png"/>
+    </p>
+    <p>
+      Finally, since the two graphs are reflections of one another,
+          <idx><h>microscope</h></idx>
+      [[NOTE:Microscopic views at mirror image points]] a microscopic view of <m>\ln(x)</m> at any point <m>(b, a)</m> will be the mirror image of the microscopic view of of <m>e^x</m> at the point <m>(a, b)</m>.
       Any change in the <m>y</m>-value on one of these lines will correspond to an equal change in the <m>x</m>-value in its mirror image,
       and vice versa.
       The figure below shows what microscopic views of a pair of corresponding points look like,
       showing how a vertical change in one line equals the horizontal change in the other,
       and conversely.
-      <image width="73%" source="images/log4.png"/> It follows that the slopes of the two lines
     </p>
-    <aside>
-      <p>
-        The slopes are reciprocals
-      </p>
-    </aside>
     <p>
-      must be reciprocals of each other.
+      <image width="73%" source="images/log4.png"/>
+    </p>
+    <p>
+      It follows that the slopes of the two lines [[NOTE:The slopes are reciprocals]] must be reciprocals of each other.
       This says that the rate of change of <m>\ln(x)</m> at <m>x = b</m> is just the reciprocal of the rate of change of <m>e^x</m> at <m>x = a</m>,
       where <m>a = \ln(b)</m>.
       But the rate of change of <m>e^x</m> at
@@ -337,8 +306,12 @@
       Therefore the rate of change of <m>\ln(x)</m> at <m>x = b</m> is the reciprocal of this value,
       namely <m>1/b</m>.
       We have thus proved the following result:
+    </p>
+    <p>
       <term>Theorem 1</term>.
       <m>(\ln(x))' = 1/x</m>.
+    </p>
+    <p>
       Note that one interpretation of this theorem is that the function <m>\ln(x)</m> is the solution to a certain initial value problem, namely
       <me>
         \dfrac{dy}{dx} = \dfrac{1}{x} \qquad y(1) = 0
@@ -350,19 +323,13 @@
       Applications of this idea can be found in the exercises.
     </p>
   </subsection>
-  <subsection xml:id="sec_the-logarithm-function_subsec_exponential-growth">
+  <subsection xml:id="subsec_exponential-growth">
     <title>Exponential Growth</title>
     <p>
           <idx><h>growth</h><h>exponential</h></idx>
-      The logarithm gives us a useful tool for comparing
     </p>
-    <aside>
-      <p>
-        Comparing rates of growth
-      </p>
-    </aside>
     <p>
-      the growth rates of exponential and power functions.
+      The logarithm gives us a useful tool for comparing [[NOTE:Comparing rates of growth]] the growth rates of exponential and power functions.
       In the last section we claimed that <m>e^x</m> grows faster than any power <m>x^p</m> of <m>x</m>,
       as <m>x \to +\infty</m>.
       We interpreted that to mean
@@ -371,6 +338,8 @@
       </me>,
       for any number <m>p</m>.
       Using the natural logarithm, we can now show why it is true.
+    </p>
+    <p>
       To analyze the quotient <m>Q = x^p/e^x</m>,
       we first replace it by its logarithm
       <me>
@@ -381,6 +350,8 @@
       Several properties of the logarithm function were invoked here to reduce <m>\ln{Q}</m> to <m>p \ln{x} - x</m>.
       By another property of the logarithm function,
       if we can show <m>\ln{Q} \to -\infty</m> we will have established our original claim that <m>Q \to 0</m>.
+    </p>
+    <p>
       Let <m>y = \ln{Q} = p \ln{x} - x</m>.
       We know <m>y</m> is increasing when
       <m>dy/dx > 0</m> and decreasing where <m>dy/dx \lt  0</m>.
@@ -390,31 +361,16 @@
       </me>.
     </p>
     <p>
-      The expression <m>p/x - 1</m> is positive when <m>x</m> is
-    </p>
-    <aside>
-      <p>
-        <m>y = \ln{Q}</m> decreases when <m>x > p</m> <ellipsis/>
-      </p>
-    </aside>
-    <p>
-      less than <m>p</m> and negative when <m>x</m> is greater than <m>p</m>.
+      The expression <m>p/x - 1</m> is positive when <m>x</m> is [[NOTE<m>:y = \ln{Q}</m> decreases when <m>x > p</m> <ellipsis/>]] less than <m>p</m> and negative when <m>x</m> is greater than <m>p</m>.
       For <m>x</m> near <m>p</m>,
       the graph of <m>y</m> must therefore look like this:
     </p>
     <image source=""/>
     <p>
       Since <m>dy/dx</m> remains negative as <m>x</m> gets large,
-      <m>y</m> will continue to decrease.
-    </p>
-    <aside>
-      <p>
-        <ellipsis/> but <m>y</m> may still
-        <q>level off</q>
-      </p>
-    </aside>
-    <p>
-      This does not,
+      <m>y</m> will continue to decrease. [[NOTE:<ellipsis/> but <m>y</m> may still
+      <q>level off</q>
+      ]] This does not,
       in itself, imply that <m>y \to -\infty</m>, however.
       It's conceivable that <m>y</m> might
       <q>level off</q>
@@ -436,15 +392,7 @@
       </me>.
     </p>
     <p>
-      In other words,
-    </p>
-    <aside>
-      <p>
-        <m>y</m> lies below a line that slopes down to<nbsp/><m>-\infty</m>
-      </p>
-    </aside>
-    <p>
-      the slope of the graph of <m>y</m> is more negative than <m>-1/2</m>.
+      In other words, [[NOTE<m>:y</m> lies below a line that slopes down to<nbsp/><m>-\infty</m>]] the slope of the graph of <m>y</m> is more negative than <m>-1/2</m>.
       The graph of <m>y</m> must therefore lie <em>below</em>
       the straight line with slope <m>-1/2</m> that we see below:
     </p>
@@ -455,24 +403,21 @@
       we have shown that <m>e^x</m> grows faster than any power of <m>x</m>.
     </p>
   </subsection>
-  <subsection xml:id="sec_the-logarithm-function_subsec_the-exponential-functions-bdisplaystyle-x">
+  <subsection xml:id="subsec_the-exponential-functions-bdisplaystyle-x">
     <title>The Exponential Functions <m>b^{\displaystyle x}</m></title>
     <p>
           <idx><h>function</h><h>exponential</h></idx>
-      We have come to adopt the exponential function <m>\exp(x) = e^x</m> as the natural one for calculus,
     </p>
-    <aside>
-      <p>
-        One exponential function is enough
-      </p>
-    </aside>
     <p>
-      and especially for dealing with differential equations of the form <m>dy/dx = ky</m>.
+      We have come to adopt the exponential function
+      <m>\exp(x) = e^x</m> as the natural one for calculus, [[NOTE:One exponential function is enough]] and especially for dealing with differential equations of the form <m>dy/dx = ky</m>.
       Initially, though,
       all exponential functions <m>b^x</m> were on an equal footing.
       With the natural logarithm function, however,
       a <em>single</em> exponential function will meet our needs.
       Let's see why.
+    </p>
+    <p>
       If <m>b</m> is any positive real number,
       then <m>b = e^{\ln{b}}</m>.
       Consequently,
@@ -481,39 +426,29 @@
       </me>.
     </p>
     <p>
-      In other words,
-      <m>b^{\displaystyle x} = e^{\displaystyle cx}</m>, where <m>c = \ln{b}</m>.
-    </p>
-    <aside>
-      <p>
-        <m>b^{x} = e^{\ln{b} \cdot x}</m>
-      </p>
-    </aside>
-    <p>
-      Thus, every exponential function can be expressed in terms of <m>\exp</m> in a simple way.
+      In other words, <m>b^{\displaystyle x} = e^{\displaystyle cx}</m>,
+      where <m>c = \ln{b}</m>. [[NOTE<m>:b^{x} = e^{\ln{b} \cdot x}</m>]] Thus,
+      every exponential function can be expressed in terms of <m>\exp</m> in a simple way.
       This is, in fact, the way computers evaluate exponents,
       since the computer can raise any number to any power so long as it has a way to evaluate the functions ln and exp.
-      For instance, when you ask a computer or calculator to evaluate
+      For instance,
+      when you ask a computer or calculator to evaluate [[NOTE:How to calculate <m>2^5</m>]] <c>2^5</c> (2 to the 5th power in most computer languages),
+      it will first calculate <m>\ln{2}</m>,
+      then multiply this number by 5, then apply exp to the result.
+      That is, it evaluates <m>2^5</m> by thinking <m>e^{5\ln{2}}</m>!
+      While this may seem a roundabout way to come up with 32,
+      its virtue is that the computer needs only one algorithm to calculate any base to any power,
+      without having to consider different cases.
     </p>
-    <aside>
-      <p>
-        How to calculate <m>2^5</m>
-      </p>
-    </aside>
     <p>
-       <c>2^5</c> (2 to the 5th power in most computer languages),
-       it will first calculate <m>\ln{2}</m>,
-       then multiply this number by 5, then apply exp to the result.
-       That is, it evaluates <m>2^5</m> by thinking <m>e^{5\ln{2}}</m>!
-       While this may seem a roundabout way to come up with 32,
-       its virtue is that the computer needs only one algorithm to calculate any base to any power,
-       without having to consider different cases.
-       This expression gives us a new way to find the derivative of <m>b^x</m>.
-       We already know that
+      This expression gives us a new way to find the derivative of <m>b^x</m>.
+      We already know that
       <me>
         ( e^{\displaystyle cx})' = c \cdot e^{\displaystyle cx}
       </me>,
-      for any constant <m>c</m>. This follows from the chain rule. When <m>c = \ln{b}</m>, we get
+      for any constant <m>c</m>.
+      This follows from the chain rule.
+      When <m>c = \ln{b}</m>, we get
       <me>
         (b^{\displaystyle x})' = (e^{\displaystyle \ln(b) \cdot x})' = \ln(b) \cdot e^{\displaystyle \ln(b) \cdot x} = \ln(b) \cdot b^{\displaystyle x}
       </me>.
@@ -531,13 +466,8 @@
       </me>.
     </p>
     <p>
-      We see now that <m>k_b = \ln(b)</m>.
+      We see now that <m>k_b = \ln(b)</m>. [[NOTE<m>:k_b = \ln(b)</m>]]
     </p>
-    <aside>
-      <p>
-        <m>k_b = \ln(b)</m>
-      </p>
-    </aside>
     <p>
       We can use the connection between <m>k_b</m> and the natural logarithm,
       and between the natural logarithm and the exponential function,
@@ -557,205 +487,207 @@
       </me>.
     </p>
   </subsection>
-  <subsection xml:id="sec_the-logarithm-function_subsec_inverse-functions">
+  <subsection xml:id="subsec_inverse-functions">
     <title>Inverse Functions</title>
-    <p>
-      Most of what we have said about the exponential and logarithm functions carries over directly to <em>any</em>
-      pair of inverse functions.
-      We begin by saying precisely what it means for two functions <m>f</m> and <m>g</m> to be inverses of each other.
-          <idx><h>inverse function</h></idx>
-          <idx><h>function</h><h>inverse</h></idx> <term>Definition</term>.
-      Two functions <m>f</m> and <m>g</m> are <term>inverses</term> if
-      <md>
-        <mrow>f(g(a)) \amp =  a</mrow>
-        <mrow>\mbox{and}  \ g(f(b)) \amp =  b</mrow>
-      </md>
-      for every <m>a</m> in the domain
-          <idx><h>domain</h></idx>
-      of <m>g</m> and every <m>b</m> in the domain of <m>f</m>.
-      Observe that if <m>f</m> and <m>g</m> are inverses of each other,
-      then each one
-      <q>undoes</q>
-      the effect of the other by sending any value back to the number it came from via the other function.
-      One implication of this is that neither function can have two different input values going to the same output value.
-      For instance,
-      suppose <m>b_1</m> and <m>b_2</m> get sent to the same value by <m>f</m>:
-      <m>f(b_1)=f(b_2)</m>.
-      Applying <m>g</m> to both sides of this equation we would get <m>b_1=g(f(b_1))=g(f(b_2))=b_2</m>,
-      so <m>b_1</m> and <m>b_2</m> were actually the same number.
-      This is an important enough property that there is a name for it:
-      <term>Definition.</term> We say that a function <m>f</m> is <term>one-to-one</term>,
-          <idx><h>one-to-one</h></idx>
-      usually written as <term>1<ndash/>1</term>,
-      if it is true that whenever
-      <m>x_1\neq x_2</m> then it is also the case that <m>f(x_1)\neq f(x_2)</m>.
-      Equivalently,
-      <m>f</m> is 1<ndash/>1 if whenever <m>f(x_1)=f(x_2)</m>,
-      then it must be true that <m>x_1=x_2</m>.
-      We have thus seen that only functions which are one-to-one can have inverses.
-      This means that to establish inverses for some functions,
-      we will need to restrict their domains to regions where they are one-to-one.
-      Let's re-examine the examples we mentioned earlier to see how they fit this definition.
-      <term>Example 1</term>.
-      Suppose <m>f(x)=\exp(x)</m> and <m>g(x)=\ln(x)</m>.
-      Then the equations
-      <md>
-        <mrow>f(g(a)) \amp  =  \exp(\ln(a)) = e^{\displaystyle \ln(a)} = a \;\; \mbox{for} \ a>0</mrow>
-        <mrow>\mbox{and}  \ g(f(b)) \amp  =  \ln(\exp(b)) = \ln(e^{\displaystyle b}) = b</mrow>
-      </md>
-      hold for all real numbers <m>b</m> and for all
-      <em>positive</em> real numbers <m>a</m>.
-      The domain of the exponential function is all real numbers and the domain of the natural logarithm function is all positive real numbers.
-      <term>Example 2</term>.
-      Suppose <m>f(x)= x^2</m> and <m>g(x) = \sqrt{x}</m>.
-    </p>
-    <aside>
+    <introduction>
       <p>
-        <m>x^2</m> is invertible on <m>x \geq 0</m>
+        Most of what we have said about the exponential and logarithm functions carries over directly to <em>any</em>
+        pair of inverse functions.
+        We begin by saying precisely what it means for two functions <m>f</m> and <m>g</m> to be inverses of each other.
+            <idx><h>inverse function</h></idx>
+            <idx><h>function</h><h>inverse</h></idx>
       </p>
-    </aside>
-    <p>
-      The squaring function is not invertible on its natural domain because it is not one-to-one.
-      Since a number and its negative have the same square,
-      we wouldn't know which one to send the square back to when we took the square root.
-      We can't avoid the problem by saying that <m>g(4)=\pm 2</m>,
-      since a function has to have only one output for each input.
-      The squaring function is invertible,
-      though, if we restrict it to non-negative real numbers.
-      Then
-      <md>
-        <mrow>f(g(a)) \amp  =  (\sqrt{a})^2 = a \;\; (\mbox{for}  \;\; a \geq 0)</mrow>
-        <mrow>\mbox{and}  \ g(f(b)) \amp  =  \sqrt{b^2} = b \;\; (\mbox{for}  \;\; b \geq 0)</mrow>
-      </md>.
-    </p>
-    <p>
-      The domain of the square root function is all <m>b \geq 0</m>.
-      Note that we could have restricted the domain of <m>f</m> in another way to make it one-to-one by considering only non-positive real numbers.
-      Now <m>g</m> is no longer the inverse of this restricted <m>f</m>.
-      For instance, <m>g(f(-3))=g(9) = 3\neq -3</m>.
-      What would the inverse of <m>f</m> be in this case?
-      <term>Example 3.</term> Suppose
-      <m>f(x) = \sin(x)</m> and <m>g(x)=\arcsin(x)</m>.
-    </p>
-    <aside>
+    </introduction>
+    <subsubsection>
+      <title>Definition</title>
       <p>
-        <m>\sin{x}</m> is invertible
+        Two functions <m>f</m> and <m>g</m> are <term>inverses</term> if
+        <md>
+          <mrow>f(g(a)) \amp =  a</mrow>
+          <mrow>\mbox{and}  \ g(f(b)) \amp =  b</mrow>
+        </md>
+        for every <m>a</m> in the domain
+            <idx><h>domain</h></idx>
+        of <m>g</m> and every <m>b</m> in the domain of <m>f</m>.
       </p>
       <p>
-        on \mbox{<m>-\pi/2 \leq x \leq \pi/2</m>}
+        Observe that if <m>f</m> and <m>g</m> are inverses of each other,
+        then each one
+        <q>undoes</q>
+        the effect of the other by sending any value back to the number it came from via the other function.
+        One implication of this is that neither function can have two different input values going to the same output value.
+        For instance,
+        suppose <m>b_1</m> and <m>b_2</m> get sent to the same value by <m>f</m>:
+        <m>f(b_1)=f(b_2)</m>.
+        Applying <m>g</m> to both sides of this equation we would get <m>b_1=g(f(b_1))=g(f(b_2))=b_2</m>,
+        so <m>b_1</m> and <m>b_2</m> were actually the same number.
+        This is an important enough property that there is a name for it:
       </p>
-    </aside>
-    <p>
-      Since <m>f</m> is not one-to-one on its natural domain,
-      we again need to restrict it in order for it to have an inverse.
-      By convention,
-      the domain of <m>\sin(x)</m> is taken to be <m>-\pi/2 \leq x \leq \pi/2</m>.
-      <md>
-        <mrow>f(g(a)) \amp  =  \sin(\arcsin(a)) = a \;\; (\mbox{for}  \;\; -1 \leq a \leq 1) \;\; \mbox{and}</mrow>
-        <mrow>g(f(b)) \amp  =  \arcsin(\sin(b)) = b \;\; (\mbox{for}  \;\; -\pi/2 \leq b \leq \pi/2)</mrow>
-      </md>.
-    </p>
-    <p>
-      Each pair of inverse functions share corresponding properties,
-      just as the logarithm and exponential functions do<mdash/>the particular properties depending on the particular functions.
-      But two they all share are
-      <ul>
-        <li>
-          <p>
-            The range of <m>f</m> is the domain of <m>g</m>.
-          </p>
-        </li>
-        <li>
-          <p>
-            The domain of <m>f</m> is the range of <m>g</m>.
-          </p>
-        </li>
-      </ul>
-    </p>
-    <p>
-      The exercises check this for examples 2 and 3.
-    </p>
-    <p>
-      Finally, the graphs<mdash/>and therefore the derivatives<mdash/>of a function and of its inverse are mirror images,
-      exactly like those of the exponential and logarithm functions.
-      We begin with the same list of observations.
-      <ul>
-        <li>
-          <p>
-            We know the point <m>(a, b)</m> is on the graph of <m>y=g(x)</m> if and only if <m>b = g(a)</m>.
-          </p>
-        </li>
-        <li>
-          <p>
-            We know <m>b = g(a)</m> says the same thing as <m>a = f(b)</m>.
-          </p>
-        </li>
-        <li>
-          <p>
-            Finally, we know <m>a = f(b)</m> is true if and only if the point <m>(b, a)</m> is on the graph of <m>y = f(x)</m>.
-          </p>
-        </li>
-      </ul>
-    </p>
-    <p>
-      As before, putting our observations together, we have
-    </p>
-    <tabular>
-      <row>
-        <cell><m>(a, b)</m> is on the graph of <m>y=g(x)</m></cell>
-      </row>
-      <row>
-        <cell>if and only if</cell>
-      </row>
-      <row>
-        <cell><m>(b, a)</m> is on the graph of <m>y=f(x)</m>.</cell>
-      </row>
-    </tabular>
-    <p>
-      Exactly as before,
-      we have that the point <m>(a, b)</m> and the point <m>(b, a)</m> are reflections of each other about the line <m>y=x</m>.
-    </p>
-    <aside>
+    </subsubsection>
+    <subsubsection>
+      <title>Definition</title>
       <p>
-        The graphs of inverse functions are mirror images <ellipsis/>
+        We say that a function <m>f</m> is <term>one-to-one</term>,
+            <idx><h>one-to-one</h></idx>
+        usually written as <term>1<ndash/>1</term>,
+        if it is true that whenever
+        <m>x_1\neq x_2</m> then it is also the case that <m>f(x_1)\neq f(x_2)</m>.
+        Equivalently,
+        <m>f</m> is 1<ndash/>1 if whenever <m>f(x_1)=f(x_2)</m>,
+        then it must be true that <m>x_1=x_2</m>.
       </p>
-    </aside>
-    <p>
-      Since we have just seen that every point <m>(a, b)</m> on the graph of <m>y=g(x)</m> corresponds to a point <m>(b, a)</m> on the graph of <m>y=f(x)</m>,
-      we again see that <em>the graphs of <m>y=g(x)</m> and <m>y=f(x)</m> are the reflections of each other about the line <m>y=x</m>.</em> Finally,
-      since the two graphs are reflections of one another,
-      the local linear approximation of <m>g(x)</m> at any point <m>(a, b)</m> will be the mirror image of the local linear approximation of <m>f(x)</m> at the point <m>(b, a)</m>.
-      Any change in the <m>y</m>-value on one of these local lines will correspond to an equal change in the <m>x</m>-value in its mirror image,
-      and vice versa.
-      Just as before,
-      it follows that the slopes of the two lines must be reciprocals of each other.
-      This says that the rate of change of <m>g(x)</m> at <m>x = b</m> is the reciprocal of the rate of change of <m>f(x)</m> at <m>x = a</m>,
-      where <m>a = g(b)</m>.
-    </p>
-    <aside>
       <p>
-        <ellipsis/> and their derivatives are reciprocals
+        We have thus seen that only functions which are one-to-one can have inverses.
+        This means that to establish inverses for some functions,
+        we will need to restrict their domains to regions where they are one-to-one.
+        Let's re-examine the examples we mentioned earlier to see how they fit this definition.
       </p>
-    </aside>
-    <p>
-      But the rate of change of <m>f(x)</m> at
-      <m>x = g(b)</m> is just <m>f'(g(b))</m>.
-      Therefore the rate of change of <m>g(x)</m> at <m>x = b</m> is the reciprocal of this value,
-      namely <m>1/f'(g(b))</m>.
-      We have thus proved the following result:
-      <term>Theorem 2</term>.
-      <em>If the functions</em> <m>f</m> <em>and</em>
-      <m>g</m> <em>are inverses,
-      then</em> <m>g</m> <em>is locally linear at</em>
-      <m>(b,a)</m> <em>if and only if</em>
-      <m>f</m> <em>is locally linear at</em> <m>(a,b)</m>.
-      <em>When local linearity holds,</em>
-      <me>
-        g'(b) = \frac{1}{f'(a)}
-      </me>.
-    </p>
+    </subsubsection>
+    <subsubsection>
+      <title>[[EX:1]]</title>
+      <p>
+        Suppose <m>f(x)=\exp(x)</m> and <m>g(x)=\ln(x)</m>.
+        Then the equations
+        <md>
+          <mrow>f(g(a)) \amp  =  \exp(\ln(a)) = e^{\displaystyle \ln(a)} = a \;\; \mbox{for} \ a>0</mrow>
+          <mrow>\mbox{and}  \ g(f(b)) \amp  =  \ln(\exp(b)) = \ln(e^{\displaystyle b}) = b</mrow>
+        </md>
+        hold for all real numbers <m>b</m> and for all
+        <em>positive</em> real numbers <m>a</m>.
+        The domain of the exponential function is all real numbers and the domain of the natural logarithm function is all positive real numbers.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title>[[EX:2]]</title>
+      <p>
+        Suppose <m>f(x)= x^2</m> and
+        <m>g(x) = \sqrt{x}</m>. [[NOTE<m>:x^2</m> is invertible on
+        <m>x \geq 0</m>]] The squaring function is not invertible on its natural domain because it is not one-to-one.
+        Since a number and its negative have the same square,
+        we wouldn't know which one to send the square back to when we took the square root.
+        We can't avoid the problem by saying that <m>g(4)=\pm 2</m>,
+        since a function has to have only one output for each input.
+        The squaring function is invertible,
+        though, if we restrict it to non-negative real numbers.
+        Then
+        <md>
+          <mrow>f(g(a)) \amp  =  (\sqrt{a})^2 = a \;\; (\mbox{for}  \;\; a \geq 0)</mrow>
+          <mrow>\mbox{and}  \ g(f(b)) \amp  =  \sqrt{b^2} = b \;\; (\mbox{for}  \;\; b \geq 0)</mrow>
+        </md>.
+      </p>
+      <p>
+        The domain of the square root function is all <m>b \geq 0</m>.
+      </p>
+      <p>
+        Note that we could have restricted the domain of <m>f</m> in another way to make it one-to-one by considering only non-positive real numbers.
+        Now <m>g</m> is no longer the inverse of this restricted <m>f</m>.
+        For instance, <m>g(f(-3))=g(9) = 3\neq -3</m>.
+        What would the inverse of <m>f</m> be in this case?
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title>[[EX:3]]</title>
+      <p>
+        Suppose <m>f(x) = \sin(x)</m> and
+        <m>g(x)=\arcsin(x)</m>. [[NOTE<m>:\sin{x}</m> is invertible on \mbox{<m>-\pi/2 \leq x \leq \pi/2</m>} ]] Since <m>f</m> is not one-to-one on its natural domain,
+        we again need to restrict it in order for it to have an inverse.
+        By convention,
+        the domain of <m>\sin(x)</m> is taken to be <m>-\pi/2 \leq x \leq \pi/2</m>.
+        <md>
+          <mrow>f(g(a)) \amp  =  \sin(\arcsin(a)) = a \;\; (\mbox{for}  \;\; -1 \leq a \leq 1) \;\; \mbox{and}</mrow>
+          <mrow>g(f(b)) \amp  =  \arcsin(\sin(b)) = b \;\; (\mbox{for}  \;\; -\pi/2 \leq b \leq \pi/2)</mrow>
+        </md>.
+      </p>
+      <p>
+        Each pair of inverse functions share corresponding properties,
+        just as the logarithm and exponential functions do<mdash/>the particular properties depending on the particular functions.
+        But two they all share are
+        <ul>
+          <li>
+            <p>
+              The range of <m>f</m> is the domain of <m>g</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              The domain of <m>f</m> is the range of <m>g</m>.
+            </p>
+          </li>
+        </ul>
+      </p>
+      <p>
+        The exercises check this for examples 2 and 3.
+      </p>
+      <p>
+        Finally, the graphs<mdash/>and therefore the derivatives<mdash/>of a function and of its inverse are mirror images,
+        exactly like those of the exponential and logarithm functions.
+        We begin with the same list of observations.
+        <ul>
+          <li>
+            <p>
+              We know the point <m>(a, b)</m> is on the graph of <m>y=g(x)</m> if and only if <m>b = g(a)</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              We know <m>b = g(a)</m> says the same thing as <m>a = f(b)</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Finally, we know <m>a = f(b)</m> is true if and only if the point <m>(b, a)</m> is on the graph of <m>y = f(x)</m>.
+            </p>
+          </li>
+        </ul>
+      </p>
+      <p>
+        As before, putting our observations together, we have
+      </p>
+      <tabular>
+        <row>
+          <cell><m>(a, b)</m> is on the graph of <m>y=g(x)</m></cell>
+        </row>
+        <row>
+          <cell>if and only if</cell>
+        </row>
+        <row>
+          <cell><m>(b, a)</m> is on the graph of <m>y=f(x)</m>.</cell>
+        </row>
+      </tabular>
+      <p>
+        Exactly as before,
+        we have that the point <m>(a, b)</m> and the point <m>(b, a)</m> are reflections of each other about the line <m>y=x</m>. [[NOTE:The graphs of inverse functions are mirror images <ellipsis/>]] Since we have just seen that every point <m>(a, b)</m> on the graph of <m>y=g(x)</m> corresponds to a point <m>(b, a)</m> on the graph of <m>y=f(x)</m>,
+        we again see that <em>the graphs of <m>y=g(x)</m> and <m>y=f(x)</m> are the reflections of each other about the line <m>y=x</m>.</em>
+      </p>
+      <p>
+        Finally, since the two graphs are reflections of one another,
+        the local linear approximation of <m>g(x)</m> at any point <m>(a, b)</m> will be the mirror image of the local linear approximation of <m>f(x)</m> at the point <m>(b, a)</m>.
+        Any change in the <m>y</m>-value on one of these local lines will correspond to an equal change in the <m>x</m>-value in its mirror image,
+        and vice versa.
+        Just as before,
+        it follows that the slopes of the two lines must be reciprocals of each other.
+        This says that the rate of change of <m>g(x)</m> at <m>x = b</m> is the reciprocal of the rate of change of <m>f(x)</m> at <m>x = a</m>,
+        where <m>a = g(b)</m>. [[NOTE:<ellipsis/> and their derivatives are reciprocals]] But the rate of change of <m>f(x)</m> at
+        <m>x = g(b)</m> is just <m>f'(g(b))</m>.
+        Therefore the rate of change of <m>g(x)</m> at <m>x = b</m> is the reciprocal of this value,
+        namely <m>1/f'(g(b))</m>.
+        We have thus proved the following result:
+      </p>
+      <p>
+        <term>Theorem 2</term>.
+        <em>If the functions</em> <m>f</m> <em>and</em>
+        <m>g</m> <em>are inverses,
+        then</em> <m>g</m> <em>is locally linear at</em>
+        <m>(b,a)</m> <em>if and only if</em>
+        <m>f</m> <em>is locally linear at</em> <m>(a,b)</m>.
+        <em>When local linearity holds,</em>
+        <me>
+          g'(b) = \frac{1}{f'(a)}
+        </me>.
+      </p>
+    </subsubsection>
   </subsection>
-  <subsection xml:id="sec_the-logarithm-function_subsec_exercises">
+  <subsection xml:id="subsec_exercises">
     <title>Exercises</title>
     <ol>
       <li>

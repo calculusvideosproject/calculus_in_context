@@ -1,4 +1,4 @@
-<section xml:id="sec_the-poisson-distribution_sec_the-poisson-distribution">
+<section xml:id="sec_the-poisson-distribution">
   <title>The Poisson Distribution</title>
   <introduction>
     <p>
@@ -6,11 +6,13 @@
           <idx><h>probablity distribution</h><h>Poissson</h></idx>
     </p>
   </introduction>
-  <subsection xml:id="sec_the-poisson-distribution_subsec_a-linear-model-for-alpha-ray-emission">
+  <subsection xml:id="subsec_a-linear-model-for-alpha-ray-emission">
     <title>A Linear Model for <m>\alpha</m>-Ray Emission</title>
     <p>
           <idx><h><m>\alpha</m>-ray</h></idx>
           <idx><h>alpha ray</h></idx>
+    </p>
+    <p>
       When a radioactive element decays,
       we know from the study of differential equations in chapter 4 that the amount <m>A(t)</m> of radioactive material present at time <m>t</m> satisfies the differential equation
       <me>
@@ -35,15 +37,7 @@
       <me>
         kT=\ln{2}
       </me>
-      and
-    </p>
-    <aside>
-      <p>
-        The relation between the half-life and the decay constant
-      </p>
-    </aside>
-    <p>
-      therefore
+      and [[NOTE:The relation between the half-life and the decay constant]] therefore
       <me>
         T=\dfrac{\ln{2}}{k}
       </me>.
@@ -67,12 +61,17 @@
       means several hours in this case.
       Thus, if we spend an afternoon in a laboratory studying the decay of polonium,
       we can assume that <m>A(t)</m> is linear.
+    </p>
+    <p>
       When polonium decays, it produces various sorts of radiation,
           <idx><h>radiation</h></idx>
       including <m>\alpha</m>-rays (
       <q>alpha rays</q>).
       Using a scintillation counter,
-      one can determine the number of rays emitted in given directions: A setup like this will count a fixed percentage of the total number of <m>\alpha</m>-rays emitted.
+      one can determine the number of rays emitted in given directions:
+    </p>
+    <p>
+      A setup like this will count a fixed percentage of the total number of <m>\alpha</m>-rays emitted.
       Since our model of decay
           <idx><h>radioactive decay model</h></idx>
       is linear, it follows that the number of <m>\alpha</m>-rays detected should be a linear function of time.
@@ -91,25 +90,32 @@
       They repeated their experiment 2608 times and detected a total of 10,097 <m>\alpha</m>-rays.
       This is an average of
       <me>
-        \dfrac{10097}{2608} = 3.8715\ \hbox{$\alpha$-rays per 7.5-second period}
+        \dfrac{10097}{2608} = 3.8715\ \hbox{\(\alpha\)-rays per 7.5-second period}
       </me>,
       so the number of <m>\alpha</m>-rays per second is
       <me>
-        \dfrac{3.8715}{7.5} = 0.5162\ \hbox{$\alpha$-rays per second}
+        \dfrac{3.8715}{7.5} = 0.5162\ \hbox{\(\alpha\)-rays per second}
       </me>.
     </p>
     <p>
       Thus the straight line in the above graph has slope 0.5162.
+    </p>
+    <p>
       This model of <m>\alpha</m>-ray production has several problems.
       First, it predicts the existence of fractional <m>\alpha</m>-rays,
       which makes no sense<mdash/>the number detected is always a nonnegative integer.
-      To remedy this,
-      we can modify our model as follows: Notice that the graph is now a step function.
+      To remedy this, we can modify our model as follows:
+    </p>
+    <p>
+      Notice that the graph is now a step function.
           <idx><h>function</h><h>step</h></idx>
       It shows that we should see a new <m>\alpha</m>-ray every <m>1/.5162 = 1.937</m> seconds.
       This model also has the following consequence:
       if we observe the number of <m>\alpha</m>-rays produced in a 7.5-second interval,
-      then we will always see 3 or 4 particles: As the picture indicates,
+      then we will always see 3 or 4 particles:
+    </p>
+    <p>
+      As the picture indicates,
       whether we get 3 or 4 depends on where the interval starts.
       Now comes the serious problem:
       this prediction is <em>inconsistent</em>
@@ -121,7 +127,7 @@
       while in 139 cases, 7 <m>\alpha</m>-rays were observed.
       Here are the complete data of the experiment:
     </p>
-    <tabular xml:id="sec_the-poisson-distribution_data">
+    <tabular xml:id="data">
     <row>
       <cell>number of</cell>
       <cell>number of</cell>
@@ -256,29 +262,25 @@
       and this is where probability enters in.
     </p>
   </subsection>
-  <subsection xml:id="sec_the-poisson-distribution_subsec_probability-models">
+  <subsection xml:id="subsec_probability-models">
     <title>Probability Models</title>
     <introduction>
       <p>
             <idx><h>model</h><h>probability</h></idx>
-        The basic idea of probability theory is that the outcome
       </p>
-      <aside>
-        <p>
-          Randomness has structure
-        </p>
-      </aside>
       <p>
-        of a certain event can be unpredictable in the individual instance but predictable on the average.
+        The basic idea of probability theory is that the outcome [[NOTE:Randomness has structure]] of a certain event can be unpredictable in the individual instance but predictable on the average.
         Throwing dice and tossing a coin are familiar examples.
         In this section,
         we will show how the Poisson probability distribution gives an excellent model of the <m>\alpha</m>-ray experiment described above.
       </p>
     </introduction>
-    <subsubsection xml:id="sec_the-poisson-distribution_subsubsec_the-definition-of-probability">
+    <subsubsection xml:id="subsubsec_the-definition-of-probability">
       <title>The definition of probability</title>
       <p>
             <idx><h>probability</h></idx>
+      </p>
+      <p>
         We will let <m>p_n</m> denote the probability of observing exactly <m>n</m> <m>\alpha</m>-rays in a 7.5-second time interval.
         By this statement, we mean the following.
         Suppose we run the experiment <m>N</m> times, where <m>N</m> is large.
@@ -296,7 +298,7 @@
         </me>.
       </p>
       <p>
-        For example, the data presented <xref ref="sec_the-poisson-distribution_data">on</xref>
+        For example, the data presented <xref ref="data">on</xref>
         were obtained from <m>N = 2608</m> repetitions of our experiment.
         From the table given there,
         we see that 0 <m>\alpha</m>-rays were observed 57 times.
@@ -316,24 +318,18 @@
         <q>before the fact.</q>
       </p>
     </subsubsection>
-    <subsubsection xml:id="sec_the-poisson-distribution_subsubsec_some-properties-of-probabilities">
+    <subsubsection xml:id="subsubsec_some-properties-of-probabilities">
       <title>Some properties of probabilities</title>
       <p>
         In any introductory course on probability,
         one learns certain basic principles for working with probabilities.
         We will give examples to illustrate some of these principles,
         and more examples may be found in the exercises.
+      </p>
+      <p>
         For our purposes, we will be working in the following setting.
         There is a certain <term>experiment</term> being performed.
-        This might consist of flipping
-      </p>
-      <aside>
-        <p>
-          The general context
-        </p>
-      </aside>
-      <p>
-        a coin and noting which side comes up,
+        This might consist of flipping [[NOTE:The general context]] a coin and noting which side comes up,
         or running a survey asking people at random their opinions about a certain TV show, or,
         in our case,
         counting the number of <m>\alpha</m>-rays detected in a 7.5-second interval.
@@ -357,6 +353,8 @@
         and
         <q>having green eyes</q>
         would not be acceptable outcomes in our sense unless we somehow knew in advance that there were no green-eyed males in the group.
+      </p>
+      <p>
         Knowing the probabilities <m>p_0,p_1,\ldots</m> of the possible outcomes allows us to compute other,
         possibly more complicated probabilities.
         This brings in the concept of an <term>event</term>,
@@ -382,16 +380,8 @@
         </ul>
       </p>
       <p>
-        In general, an <term>event</term><idx><h>event</h><h>in probability</h></idx> is a subcollection of the possible outcomes.
+        In general, an <term>event</term><idx><h>event</h><h>in probability</h></idx> is a subcollection of the possible outcomes. [[NOTE:The addition rule for probabilities]]
       </p>
-      <aside>
-        <p>
-          The addition rule
-        </p>
-        <p>
-          for probabilities
-        </p>
-      </aside>
       <blockquote>
         <term>Rule 1<nbsp/><nbsp/> The <term>probability of an event</term><idx><h>probability</h><h>of an event</h></idx> is simply the sum of the probabilities of its component outcomes.</term>
       </blockquote>
@@ -433,6 +423,8 @@
         The reason for this is that the list of outcomes was stipulated to be the list of
         <em>all possible</em> outcomes.
         Hence the event consisting of all these outcomes is bound to occur every time<mdash/>its probability is 1.
+      </p>
+      <p>
         A third rule we will need relates the probabilities of
         <em> independent</em> events.
         Two events are independent if the occurrence or non- occurrence of one of the events has no impact on the probability of the second event occurring.
@@ -459,16 +451,8 @@
       <p>
         We would expect the first and second events to be independent,
         and also the second and third,
-        but not the first and third.
+        but not the first and third. [[NOTE:The product rule for probabilities]]
       </p>
-      <aside>
-        <p>
-          The product rule
-        </p>
-        <p>
-          for probabilities
-        </p>
-      </aside>
       <blockquote>
         <term>Rule 3<nbsp/><nbsp/> The probability that two or more independent events
         all occur is the product of their separate
@@ -481,19 +465,11 @@
         and <m>\frac{1}{3}</m> are taller than 5'7". We might then expect roughly
         <m>\frac{1}{24}</m> of them to be green-eyed <em>and</em>
         over 5'7", but we would have no particular reason to expect that
-        <m>\frac{1}{6}</m> of them are females taller than 5'7". A final rule that is often useful is
+        <m>\frac{1}{6}</m> of them are females taller than 5'7".
       </p>
-      <aside>
-        <p>
-          The probability
-        </p>
-        <p>
-          that something
-        </p>
-        <p>
-          doesn't happen
-        </p>
-      </aside>
+      <p>
+        A final rule that is often useful is [[NOTE:The probability that something doesn't happen]]
+      </p>
       <blockquote>
         <term>Rule 4<nbsp/><nbsp/> If a certain event has a probability  <m>p</m> of
         happening, then the probability that the event doesn't take place is
@@ -505,7 +481,7 @@
         <m>\frac{7}{8}</m> of them to have eyes colored something other than green, etc.
       </p>
     </subsubsection>
-    <subsubsection xml:id="sec_the-poisson-distribution_subsubsec_the-notion-of-a-probability-model">
+    <subsubsection xml:id="subsubsec_the-notion-of-a-probability-model">
       <title>The notion of a probability model</title>
       <p>
         A <term>model</term>
@@ -520,12 +496,14 @@
         <em>a listing of all possible outcomes and an assignment of probabilities to each outcome so that their sum is 1</em>.
         In order that the probability model be a good picture of reality,
         we ask that the <em>probability assigned to an outcome should be the relative frequency with which that outcome would appear if the experiment were duplicated independently a large number of times</em>.
+      </p>
+      <p>
         As an example,
         a probability model for one toss of a fair die consists of a list of all possible outcomes,
         namely 1, 2, 3, 4, 5, 6, and an assignment of a probability to each,
-        namely <m>\frac{1}{6}</m>, <m>\frac{1}{6}</m>, <m>\frac{1}{6}</m>,
-        <m>\frac{1}{6}</m>, <m>\frac{1}{6}</m>,
-        <m>\frac{1}{6}</m>, respectively.
+        namely <m>\frac{1}{6}</m>,
+        <m>\frac{1}{6}</m>, <m>\frac{1}{6}</m>, <m>\frac{1}{6}</m>,
+        <m>\frac{1}{6}</m>, <m>\frac{1}{6}</m>, respectively.
         We assign the number <m>\frac{1}{6}</m> to each outcome because we expect that if the the experiment were repeated
         (that is, if the die were tossed)
         a large number of times,
@@ -536,6 +514,8 @@
         <m>\frac{1}{3}</m> to 1, 2, 3, 4, 5, 6, respectively.
         This is a probability model,
         because the numbers we have assigned add to 1, but it certainly does not model very well the throw of a fair die.
+      </p>
+      <p>
         We would like to set up a probability model for our experiment with <m>\alpha</m>-rays.
         The outcomes are 0, 1, 2, 3, 4, ... where, for example,
         the number 5 labels the outcome in which we observe 5 <m>\alpha</m>-rays in our 7.5-second interval.
@@ -555,13 +535,19 @@
       </p>
     </subsubsection>
   </subsection>
-  <subsection xml:id="sec_the-poisson-distribution_subsec_the-poisson-probability-distribution">
+  <subsection xml:id="subsec_the-poisson-probability-distribution">
     <title>The Poisson Probability Distribution</title>
-    <subsubsection xml:id="sec_the-poisson-distribution_subsubsec_the-poisson-model-of-alpha-ray-emission">
+    <subsubsection xml:id="subsubsec_the-poisson-model-of-alpha-ray-emission">
       <title>The Poisson model of <m>\alpha</m>-ray emission</title>
       <p>
             <idx><h>Poisson model</h></idx>
-        To describe the probabilities <m>p_0</m>, <m>p_1</m>, <ellipsis/>, <m>p_n</m>, <ellipsis/> that we will observe 0, 1, <ellipsis/>, <m>n</m>, <ellipsis/> <m>\alpha</m>-rays in a 7.5-second interval for our <m>\alpha</m>-ray experiment, we use the <em> Poisson probability distribution</em>
+      </p>
+      <p>
+        To describe the probabilities <m>p_0</m>, <m>p_1</m>,
+        <ellipsis/>, <m>p_n</m>,
+        <ellipsis/> that we will observe 0, 1, <ellipsis/>,
+        <m>n</m>, <ellipsis/> <m>\alpha</m>-rays in a 7.5-second interval for our <m>\alpha</m>-ray experiment,
+        we use the <em> Poisson probability distribution</em>
             <idx><h>Poisson distribution</h></idx>
         <me>
           p_n = \dfrac{{\lambda^n e^{-\lambda}}}{{n!}}
@@ -590,8 +576,10 @@
         </md>.
       </p>
       <p>
-        (The transition from the second line to the third uses the fact that the expression in parentheses is just the Taylor series for
-        <m>e^{\lambda}</m>.) We will shortly derive the Poisson distribution from basic principles.
+        (The transition from the second line to the third uses the fact that the expression in parentheses is just the Taylor series for <m>e^{\lambda}</m>.)
+      </p>
+      <p>
+        We will shortly derive the Poisson distribution from basic principles.
         For the moment, though,
         we will assume that the probabilities <m>p_0</m>, <m>p_1</m>,
         <m>\ldots</m> for <m>\alpha</m>-ray emission are given by the above formulas,
@@ -599,6 +587,8 @@
         The key to determining <m>\lambda</m> is the notion of <term>expectation</term>,
             <idx><h>expectation</h></idx>
         which for us will mean the average number of <m>\alpha</m>-rays observed in a 7.5-second interval.
+      </p>
+      <p>
         Suppose we repeat our experiment <m>N</m> times.
         As usual, we let <m>N_n</m> denote the number of times exactly <m>n</m> <m>\alpha</m>-rays were observed.
         Then the total number of <m>\alpha</m>-rays observed in the <m>N</m> experiments is
@@ -617,8 +607,13 @@
       <p>
         This limit is called the <term>expected value</term>
             <idx><h>expected value</h></idx>
-        or <term>expectation</term>
+        or
+      </p>
+      <p>
+        <term>expectation</term>
         (which explains why it is denoted <m>E</m>).
+      </p>
+      <p>
         We claim that for the Poisson distribution,
         the expected value <m>E</m> is exactly the number<nbsp/><m>\lambda</m>.
         To see this,
@@ -632,15 +627,7 @@
         <me>
           p_n = \lim_{N\to\infty} \dfrac{N_n}{N}\
         </me>,
-        it follows
-      </p>
-      <aside>
-        <p>
-          The general formula for the expected value in a probability model
-        </p>
-      </aside>
-      <p>
-        that we get the following formula for the expectation:
+        it follows [[NOTE:The general formula for the expected value in a probability model]] that we get the following formula for the expectation:
         <me>
           E = 0\cdot p_0 + 1\cdot p_1 + 2\cdot p_2 + 3\cdot p_3 + \cdots = \sum_{n=0}^\infty np_n
         </me>.
@@ -648,7 +635,10 @@
       <p>
         (Note that this equality is true for
         <em>any</em> probability model,
-        not just the one we are considering) Substituting in the values of <m>p_n</m> given by the Poisson distribution, we have
+        not just the one we are considering)
+      </p>
+      <p>
+        Substituting in the values of <m>p_n</m> given by the Poisson distribution, we have
             <idx><h>summation</h></idx>
         <md>
           <mrow>E \amp = 0\cdot e^{-\lambda} + 1\cdot \lambda e^{-\lambda} + 2\cdot \dfrac{\lambda ^2}{2!} e^{-\lambda} + 3\cdot \dfrac{\lambda ^3}{3!}e^{-\lambda} + \cdots</mrow>
@@ -671,9 +661,11 @@
       </p>
       <p>
         This proves that the expected value is <m>\lambda</m> as claimed.
+      </p>
+      <p>
         Now that we know how to interpret <m>\lambda</m>,
         it is easy to determine what it should be for the <m>\alpha</m>-ray experiment.
-        The data given <xref ref="sec_the-poisson-distribution_data">on</xref>
+        The data given <xref ref="data">on</xref>
         covered <m>N = 2608</m> repetitions of the experiment, with
         <me>
           0\cdot N_0 + 1\cdot N_1 + \cdots = 10097
@@ -687,7 +679,7 @@
         However, since this is the only information about <m>\lambda</m> we have,
         we will let <m>\lambda = 3.8715</m>.
         Using this value of <m>\lambda</m>,
-        we can then compare the frequencies predicted by the Poisson distribution to the actual data from <xref ref="sec_the-poisson-distribution_data">on</xref>:
+        we can then compare the frequencies predicted by the Poisson distribution to the actual data from <xref ref="data">on</xref>:
       </p>
       <tabular>
       <row>
@@ -977,6 +969,8 @@
         <m>N_n/N</m> and <m>p_n</m> are reasonably close.
         Notice that we shouldn't expect perfect agreement since <m>N_n/N</m> is only an approximation to <m>p_n</m>.
         We would expect these approximations to get better as we take larger values of <m>N</m>.
+      </p>
+      <p>
         Look at the last column, labelled
         <q>Poisson prediction.</q>
         The numbers here are the Poisson probabilities multiplied by
@@ -988,9 +982,13 @@
         both actual and predicted.
         The circles are the experimental data,
         while the line-segment graph connects the Poisson predictions.
+      </p>
+      <p>
         Although the model seems to fit the data nicely,
         we should point out that there are statistical tests which can be used measure the fit more precisely.
         These tests are part of the material covered in courses in probability and statistics.
+      </p>
+      <p>
         A final and very important point to make concerns the number of <m>\alpha</m>-rays observed over a long period of time.
         Our particular Poisson model with
         <m>\lambda=3.8715</m> only works for a 7.5-second interval.
@@ -1015,11 +1013,14 @@
         Thus our probabilistic model is consistent with what we did earlier and yet allows us to describe what happens when the linear model breaks down.
       </p>
     </subsubsection>
-    <subsubsection xml:id="sec_the-poisson-distribution_subsubsec_derivation-of-the-poisson-model">
+    <subsubsection xml:id="subsubsec_derivation-of-the-poisson-model">
       <title>Derivation of the Poisson model</title>
       <p>
             <idx><h>Poisson model</h><h>derivation</h></idx>
-        In the previous discussion we simply assumed that the <m>\alpha</m>-ray probabilities were given by the Poisson distribution, and found that the Poisson probabilities agreed with the experimental data.
+      </p>
+      <p>
+        In the previous discussion we simply assumed that the <m>\alpha</m>-ray probabilities were given by the Poisson distribution,
+        and found that the Poisson probabilities agreed with the experimental data.
         Let's see where the Poisson formulas come from.
         It turns out that we can derive the Poisson probabilities <m>p_n</m> from the following assumptions:
         <ul>
@@ -1050,6 +1051,8 @@
         (by Rule 4, <xref ref="rule4"></xref>).
         Thus, the probability <m>p_0</m> that none of the <m>M</m> atoms emits an <m>\alpha</m>-ray in the 7.5-second period is <m>(1-\lambda/M)^M</m>
         (by Rule 3, <xref ref="rule3"></xref>).
+      </p>
+      <p>
         The fact that <m>M</m> is so large allows us to make a simplifying approximation.
         Recall that for any value of <m>x</m>, positive or negative,
         <me>
@@ -1064,6 +1067,8 @@
       </p>
       <p>
         You might calculate some sample values for various values of <m>M</m> to see how good this approximation is.
+      </p>
+      <p>
         To derive the values of <m>p_k</m> for <m>k>1</m>,
         we need a slight improvement on the estimate we just made.
         Let <m>k</m> be a relatively small
@@ -1076,18 +1081,12 @@
       </p>
       <p>
         Now if <m>M</m> is very large compared to <m>k</m><mdash/>we will be thinking of values of <m>M</m> on the order of magnitude of <m>10^{18}</m> and
-        <m>k\lt 100</m><mdash/>then <m>(M-k)/M</m>
-      </p>
-      <aside>
-        <p>
-          <m>(M-k)/M</m> is essentially equal to 1
-        </p>
-      </aside>
-      <p>
-        will essentially equal<nbsp/>1, Hence
+        <m>k\lt 100</m><mdash/>then <m>(M-k)/M</m> [[NOTE<m>:(M-k)/M</m> is essentially equal to 1]] will essentially equal<nbsp/>1, Hence
         <me>
           \left( 1-\dfrac{\lambda}{M}\right)^{M-k} \approx \left(e^{-\lambda}\right)^1=e^{-\lambda}
         </me>.
+      </p>
+      <p>
         We can now work out <m>p_1</m>.
         Fix your attention first on a particular atom.
         The probability that <em>that</em>
@@ -1096,6 +1095,8 @@
           \left(\dfrac{\lambda}{M}\right)^1 \left( 1-\dfrac{\lambda}{M}\right)^{M-1} \approx \dfrac{\lambda}{M}\,e^{-\lambda}
         </me>,
         by the preceding approximation.
+      </p>
+      <p>
         Since there are altogether <m>M</m> atoms which might have been responsible for the single <m>\alpha</m>-ray emission,
         the probability that some <em>unspecified</em>
         atom emits an <m>\alpha</m>-ray while the others do not is (Rule 1, <xref ref="rule1"></xref>) the sum of the probability we just calculated for each of the <m>M</m> atoms,
@@ -1136,7 +1137,7 @@
         the binomial distribution is extremely close to the Poisson distribution.
       </p>
     </subsubsection>
-    <subsubsection xml:id="sec_the-poisson-distribution_subsubsec_other-applications-of-the-poisson-distribution">
+    <subsubsection xml:id="subsubsec_other-applications-of-the-poisson-distribution">
       <title>Other applications of the Poisson distribution</title>
       <p>
         The Poisson distribution can be used to model many other situations that have a random element.
@@ -1171,7 +1172,7 @@
   </subsection>
   <subsection>
     <title>Exercises</title>
-    <subsubsection xml:id="sec_the-poisson-distribution_subsubsec_probability-models">
+    <subsubsection xml:id="subsubsec_probability-models">
       <title>Probability models</title>
       <p>
             <idx><h>probability model</h></idx>
@@ -1218,7 +1219,7 @@
         </li>
       </ol>
     </subsubsection>
-    <subsubsection xml:id="sec_the-poisson-distribution_subsubsec_the-poisson-distribution">
+    <subsubsection xml:id="subsubsec_the-poisson-distribution">
       <title>The Poisson distribution</title>
       <ol>
         <li>

@@ -1,18 +1,9 @@
-<section xml:id="sec_integration-by-parts_sec_integration-by-parts">
+<section xml:id="sec_integration-by-parts">
   <title>Integration by Parts</title>
   <introduction>
     <p>
           <idx><h>integration by parts</h></idx>
-      As in the previous section,
-    </p>
-    <aside>
-      <p>
-        An integral form of the product rule
-      </p>
-    </aside>
-    <p>
-      suppose we have functions <m>F</m> and <m>G</m>,
-      with corresponding derivatives <m>f</m> and <m>g</m>.
+      As in the previous section, [[NOTE:An integral form of the product rule]] suppose we have functions <m>F</m> and <m>G</m>, with corresponding derivatives <m>f</m> and <m>g</m>.
       If we use the product rule
           <idx><h>product rule</h></idx>
       to differentiate <m>F(x) \cdot G(x)</m>, we get:
@@ -37,7 +28,9 @@
     <image source=""/>
     <p>
       it becomes very useful.
-      <term>Example 1</term>We will use the formula in the box to find
+    </p>
+    <p>
+      <term>[[EX:1]]</term>We will use the formula in the box to find
       <me>
         \int x \cdot \cos{x} \, dx
       </me>.
@@ -60,27 +53,23 @@
       </md>.
     </p>
     <p>
-      The integrand is first broken into two parts<mdash/>in this case,
-    </p>
-    <aside>
-      <p>
-        Integrate only part of the integrand
-      </p>
-    </aside>
-    <p>
-      <m>x</m> and <m>\cos{x}</m>.
+      The integrand is first broken into two parts<mdash/>in this case, [[NOTE:Integrate only part of the integrand]] <m>x</m> and <m>\cos{x}</m>.
       One part is differentiated while the other part is integrated. (The part we integrated is <m>g(x) = \cos{x}</m>,
       and we got <m>G(x) = \sin{x}</m>.) For this reason,
       the rule described in the box is called
       <term>integration by parts</term>.
           <idx><h>integration by parts</h></idx>
+    </p>
+    <p>
       As with integration by substitution,
       integration by parts exchanges one integration task for another: Instead of finding an antiderivative for <m>F \cdot g</m>,
       we must find one for <m>f \cdot G</m>.
       The idea is to
       <q>trade-in</q>
       one integration problem for a more readily solvable one.
-      <term>Example 2</term>Use integration by parts to find
+    </p>
+    <p>
+      <term>[[EX:2]]</term>Use integration by parts to find
       <me>
         \int \ln(x) \, dx
       </me>.
@@ -112,27 +101,21 @@
     <p>
       We thus see that integration by parts
           <idx><h>integration by parts</h></idx>
-      <mdash/>like integration by substitution<mdash/>is an art rather than a set routine.
-    </p>
-    <aside>
-      <p>
-        The ingredients of a successful integration by parts
-      </p>
-    </aside>
-    <p>
-      If integration by parts is to work,
+      <mdash/>like integration by substitution<mdash/>is an art rather than a set routine. [[NOTE:The ingredients of a successful integration by parts]] If integration by parts is to work,
       several things must happen.
       First, you need to see that the method might actually apply.
-      (In Example 2 this wasn't obvious.)
+      (In [[EX:2]] this wasn't obvious.)
       Next, you need to identify the parts of the integrand that will be differentiated and integrated,
       respectively.
       The wrong choices can lead you away from a solution,
-      rather than towards one. (See example 3 below for a cautionary tale.
+      rather than towards one. (See [[EX:3]] below for a cautionary tale.
           <idx><h>integration by parts</h><h>cautionary tale</h></idx>
       ) Finally, you need to be able to carry out the integration of the new integral <m>\int f \cdot G \, dx</m>.
       As you work you may have to reshape the integrand algebraically.
       Technique comes with practice, and luck is useful, too.
-      <term>Example 3</term>Use integration by parts to find
+    </p>
+    <p>
+      <term>[[EX:3]]</term>Use integration by parts to find
       <me>
         \int t \cdot e^t \, dt
       </me>.
@@ -156,19 +139,11 @@
     <p>
       While this is a true statement,
       we are not better off<mdash/>the new integral is <em>not</em>
-      simpler than the original.
-    </p>
-    <aside>
-      <p>
-        What went wrong?
-      </p>
-    </aside>
-    <p>
-      A solution is eluding us here.
+      simpler than the original. [[NOTE:What went wrong?]] A solution is eluding us here.
       You will have a chance to do this problem properly in the exercises.
     </p>
   </introduction>
-  <subsection xml:id="sec_integration-by-parts_subsec_exercises">
+  <subsection xml:id="subsec_exercises">
     <title>Exercises</title>
     <introduction>
       <ol>
@@ -410,7 +385,7 @@
         </li>
       </ol>
     </introduction>
-    <subsubsection xml:id="sec_integration-by-parts_subsubsec_sine-and-cosine-integrals">
+    <subsubsection xml:id="subsubsec_sine-and-cosine-integrals">
       <title>Sine and cosine integrals</title>
       <p>
             <idx><h>integral</h><h>sine and cosine</h></idx>
@@ -433,7 +408,7 @@
         </md>.
       </p>
       <ol>
-        <li xml:id="sec_integration-by-parts_x_trig_">
+        <li xml:id="x_trig_">
           <p>
             In the later exercises we shall make frequent use of the following
             <q>trigonometric identities</q>:
@@ -528,13 +503,13 @@
         </li>
         <li>
           <p>
-            <term>Evaluating </term><m>\displaystyle \int \sin^2{\alpha x} \, dx</m> Determine this integral anew,
+            <term>Evaluating </term><m>\displaystyle \int \sin^2{\alpha x} \, dx</m>    Determine this integral anew,
             without using integration by parts,
             by carrying out the following steps.
             <ol>
               <li>
                 <p>
-                  From the trigonometric identities<idx><h>trigonometric identities</h></idx> <xref ref="sec_integration-by-parts_x_trig_">on</xref>,
+                  From the trigonometric identities<idx><h>trigonometric identities</h></idx> <xref ref="x_trig_">on</xref>,
                   deduce that
                   <me>
                     2 \sin^2 {\alpha x} = 1 - \cos{2 \alpha x}
@@ -554,7 +529,7 @@
         </li>
         <li>
           <p>
-            <term>Evaluating </term><m>\displaystyle \int \cos^2{\alpha x} \, dx</m> Using only algebra and the identity <m>\sin^2{\alpha x} + \cos^2{\alpha x} = 1</m>,
+            <term>Evaluating </term><m>\displaystyle \int \cos^2{\alpha x} \, dx</m>    Using only algebra and the identity <m>\sin^2{\alpha x} + \cos^2{\alpha x} = 1</m>,
             show that the previous exercise implies
             <me>
               \int \cos^2{\alpha x} \, dx = \dfrac{x}{2} + \dfrac{1}{4\alpha}\sin{2\alpha x} + C
@@ -647,7 +622,7 @@
         </li>
         <li>
           <p>
-            <term>Evaluating </term><m>{\displaystyle \int \cos{\alpha x} \sin{\beta x}\, dx}</m> This integral is the same as one in the preceding exercise,
+            <term>Evaluating </term><m>{\displaystyle \int \cos{\alpha x} \sin{\beta x}\, dx}</m>    This integral is the same as one in the preceding exercise,
             if you exchange the factors <m>\alpha</m> and <m>\beta</m>.
             Do that, and obtain the formula
             <me>

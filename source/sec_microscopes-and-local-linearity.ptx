@@ -1,4 +1,4 @@
-<section xml:id="sec_microscopes-and-local-linearity_sec_microscopes-and-local-linearity">
+<section xml:id="sec_microscopes-and-local-linearity">
   <title>Microscopes and Local Linearity</title>
   <introduction>
     <p>
@@ -6,18 +6,22 @@
           <idx><h>local linearity</h></idx>
     </p>
   </introduction>
-  <subsection xml:id="sec_microscopes-and-local-linearity_subsec_the-graph-of-data">
+  <subsection xml:id="subsec_the-graph-of-data">
     <title>The Graph of Data</title>
     <p>
-          <idx><h>graph</h><h>data</h></idx> <image width="73%" source="images/sunrise1.png"/>
+          <idx><h>graph</h><h>data</h></idx>
     </p>
-    <sidebyside>
-      This section is about seeing rates geometrically.  We know from
-      chapter<nbsp/>1 that we can visualize the rate of change of a <em>linear</em>
-      function as the slope of its graph.  Can we say the same thing about
-      the sunrise function?  The graph of this function appears at the
-      right; it plots the time of sunrise (over the
-    </sidebyside>
+    <p>
+      <image width="73%" source="images/sunrise1.png"/>
+    </p>
+    <p>
+      This section is about seeing rates geometrically.
+      We know from chapter<nbsp/>1 that we can visualize the rate of change of a <em>linear</em>
+      function as the slope of its graph.
+      Can we say the same thing about the sunrise function?
+      The graph of this function appears at the right;
+      it plots the time of sunrise (over the
+    </p>
     <p>
       course of a year at <m>40^\circ</m> N latitude),
       as a function of the date.
@@ -26,33 +30,27 @@
       In fact, it isn't even clear what we might mean by the
       <em>slope</em> of this graph!
       We can make it clear by using a <term>microscope</term>.
-      Imagine we have a microscope
     </p>
-    <aside>
-      <p>
-        Zoom in on the graph with a microscope
-      </p>
-    </aside>
     <p>
-      that allows us to
+      Imagine we have a microscope [[NOTE:Zoom in on the graph with a microscope]] that allows us to
       <q>zoom in</q>
           <idx><h>zooming</h></idx>
       on the graph near each of the the three dates we considered in section<nbsp/>1.
       If we put each magnified image in a window,
       then we get the following:
-      <image width="73%" source="images/sunrise2a.png"/> Notice how different the graph looks under the microscope.
-      First of all,
-      it now shows up clearly as a collection of separate points<mdash/>one for each day of the year.
     </p>
-    <aside>
-      <p>
-        The graph looks straight under a microscope
-      </p>
-    </aside>
     <p>
-      Second, the points in a particular window lie on a line that is essentially straight.
+      <image width="73%" source="images/sunrise2a.png"/>
+    </p>
+    <p>
+      Notice how different the graph looks under the microscope.
+      First of all,
+      it now shows up clearly as a collection of separate points<mdash/>one for each day of the year. [[NOTE:The graph looks straight under a microscope]] Second,
+      the points in a particular window lie on a line that is essentially straight.
       The straight lines in the three windows have very different slopes,
       but that is only to be expected.
+    </p>
+    <p>
       What is the connection between these slopes and the rates of change we calculated in the last section?
       To decide, we should calculate the slope in each window.
       This involves choosing a pair of points <m>(d_1, T_1)</m> and
@@ -74,15 +72,7 @@
     <p>
       If we use the same approach in the other two windows we find that the line in window <term>b</term> has slope
           <idx><h>slope</h></idx>
-          <idx><h>rate of change</h></idx> <m>-1.5</m> min/day,
-    </p>
-    <aside>
-      <p>
-        Slope and rate calculations are the same
-      </p>
-    </aside>
-    <p>
-      while the line in window <term>c</term> has slope +.8 min/day.
+          <idx><h>rate of change</h></idx> <m>-1.5</m> min/day, [[NOTE:Slope and rate calculations are the same]] while the line in window <term>c</term> has slope +.8 min/day.
       These are exactly the same calculations we did in section<nbsp/>1 to determine the rate of change of the time of sunrise around January 23, March 24, and July 25,
       and they produce the same values we obtained there:
       <me>
@@ -93,30 +83,37 @@
       This is a crucial observation which we use repeatedly in other contexts;
       let's pause and state it in general terms:
     </p>
-    <image source="images/64afd88c5c36c521997c1ce87c1316ba5cf5d490.png"/>
+    <observation>
+    <p>
+      The <em>rate of change of a function</em> at a point is equal to
+    </p>
+    <p>
+      the <em>slope of its graph</em>
+      at that point, if the graph
+    </p>
+    <p>
+      looks straight when we view it under a microscope.
+    </p>
+    </observation>
   </subsection>
-  <subsection xml:id="sec_microscopes-and-local-linearity_subsec_the-graph-of-a-formula">
+  <subsection xml:id="subsec_the-graph-of-a-formula">
     <title>The Graph of a Formula</title>
     <p>
           <idx><h>graph</h><h>formula</h></idx>
           <idx><h>formula</h></idx>
           <idx><h>formula</h><h>graph</h></idx>
+    </p>
+    <p>
       Rates and slopes are really the same thing<mdash/>that's what we learn by using a microscope to view the graph of the sunrise function.
       But the sunrise graph consists of a finite number of disconnected points<mdash/>a very common situation when we deal with data.
       In such cases it doesn't make sense to magnify the graph too much.
       For instance,
-      we would get no useful information from a window that was narrower than the space between the data points.
-    </p>
-    <aside>
-      <p>
-        High-power magnification is possible with a formula
-      </p>
-    </aside>
-    <p>
-      There is no such limitation if we use a microscope to look at the graph of a function given by a formula, though.
+      we would get no useful information from a window that was narrower than the space between the data points. [[NOTE:High-power magnification is possible with a formula]] There is no such limitation if we use a microscope to look at the graph of a function given by a formula, though.
       We can zoom in as close as we wish and still see a continuous curve or line.
       By using a high-power microscope,
       we can learn even more about rates and slopes.
+    </p>
+    <p>
       Consider this rather complicated-looking function:
       <me>
         f(x) = \dfrac{{2 + x^3\cos{x} + 1.5^x}}{2 + x^2}
@@ -130,31 +127,42 @@
       We do this in stages,
       producing a succession of windows that run clockwise from the upper left.
       Notice how the graph gets straighter with each magnification.
-      <image width="73%" source="images/mag1.png"/> <image width="73%" source="images/mag2.png"/> <image width="73%" source="images/mag3.png"/> <image width="73%" source="images/mag4.png"/> <image width="73%" source="images/mag5.png"/> <image width="73%" source="images/mag6.png"/> We will need a way to describe the part of the graph that we see in a window.
+    </p>
+    <p>
+      <image width="73%" source="images/mag1.png"/>
+    </p>
+    <p>
+      <image width="73%" source="images/mag2.png"/>
+    </p>
+    <p>
+      <image width="73%" source="images/mag3.png"/>
+    </p>
+    <p>
+      <image width="73%" source="images/mag4.png"/>
+    </p>
+    <p>
+      <image width="73%" source="images/mag5.png"/>
+    </p>
+    <p>
+      <image width="73%" source="images/mag6.png"/>
+    </p>
+    <p>
+      We will need a way to describe the part of the graph that we see in a window.
       Let's call it the <term>field of view</term>.
           <idx><h>field of view</h></idx>
-    </p>
-    <aside>
-      <p>
-        The field of view of a window
-      </p>
-    </aside>
-    <p>
-      The field of view of each window is only one-tenth as wide as the previous one,
+      [[NOTE:The field of view of a window]] The field of view of each window is only one-tenth as wide as the previous one,
       and the field of view of the last window is only one-millionth of the first!
       The last window shows what we would see if we looked at the original graph with a million-power microscope.
     </p>
-    <aside>
-      <p>
-        The microscope used to study functions is real,
-        but it is different from the one a biologist uses to study micro-organisms.
-        Our microscope is a computer graphing program that can
-        <q>zoom in</q>
-        on any point on a graph.
-        The computer screen is the window you look through,
-        and you determine the field of view when you set the size of the interval over which the graph is plotted.
-      </p>
-    </aside>
+    <p>
+      [[NOTE:The microscope used to study functions is real,
+      but it is different from the one a biologist uses to study micro-organisms.
+      Our microscope is a computer graphing program that can
+      <q>zoom in</q>
+      on any point on a graph.
+      The computer screen is the window you look through,
+      and you determine the field of view when you set the size of the interval over which the graph is plotted.]]
+    </p>
     <p>
       Here is our point of departure:
       <em>the rate <m>f'(27)</m> is the slope of the graph of <m>f(x)</m> at <m>x = 27</m> when we magnify the graph enough to make it look straight</em>.
@@ -182,14 +190,8 @@
       <m>\Delta y/\Delta x</m> have <term>stabilized</term>.
           <idx><h>stabilize</h></idx>
       We saw in chapter 2 how to think about a sequence of numbers whose digits stabilize one by one.
-      We should treat the values of <m>\Delta y/\Delta x</m> as
-    </p>
-    <aside>
-      <p>
-        The slope is a limit
-      </p>
-    </aside>
-    <p>
+      We should treat the values of
+      <m>\Delta y/\Delta x</m> as [[NOTE:The slope is a limit]]
       <term>successive approximations</term><idx><h>successive approximation</h></idx> to the slope of the graph.
       The exact value of the slope is then the <term>limit</term>
           <idx><h>limit</h></idx>
@@ -213,11 +215,29 @@
       until the value of the slope stabilizes.
       The method is very powerful.
       In the exercises you will have an opportunity to use it with other functions.
+    </p>
+    <p>
       By using a microscope of arbitrarily high power,
       we have obtained further insights about rates and slopes.
       In fact, with these insights we can now state definitively what we mean by the slope of a curved graph and the rate of change of a function.
     </p>
-    <image source=""/>
+    <observation>
+    <p>
+      <term>Definition</term>.
+      The <term>slope</term>
+          <idx><h>slope</h></idx>
+      of a graph at a point is the <em>limit</em>
+      of the slopes seen in a microscope at that point,
+      as the field of view shrinks to zero.
+    </p>
+    <p>
+      <term>Definition</term>.
+      The <term>rate of change</term>
+          <idx><h>rate of change</h></idx>
+      of a function at a point is the slope of its graph at that point.
+      Thus the rate of change is also a limit.
+    </p>
+    </observation>
     <p>
       To calculate the value of the slope of the graph of <m>f(x)</m> when <m>x = a</m>,
       we have to carry out a limit process.
@@ -237,20 +257,15 @@
       4. Take the limit of the succession of slopes produced in step<nbsp/>3.
     </p>
   </subsection>
-  <subsection xml:id="sec_microscopes-and-local-linearity_subsec_local-linearity">
+  <subsection xml:id="subsec_local-linearity">
     <title>Local Linearity</title>
     <p>
           <idx><h>local linearity</h></idx>
+    </p>
+    <p>
       The crucial property of a microscope
           <idx><h>microscope</h></idx>
-    </p>
-    <aside>
-      <p>
-        A microscope gives a local view
-      </p>
-    </aside>
-    <p>
-      is that it allows us to look at a graph <term>locally</term>,
+      [[NOTE:A microscope gives a local view]] is that it allows us to look at a graph <term>locally</term>,
       that is, in a small neighborhood of a particular point.
       The two functions we have been studying in this section have curved graphs<mdash/>like most functions.
       But <em>locally</em>, their graphs are straight<mdash/>or nearly so.
@@ -259,6 +274,8 @@
           <idx><h>function</h><h>locally linear</h></idx>
       In other words,
       a locally linear function looks like a linear function, locally.
+    </p>
+    <p>
       The graph of a linear function has a definite slope at every point,
       and so does a <em>locally</em> linear function.
       For a linear function, the slope is easy to calculate,
@@ -267,15 +284,9 @@
       the slope is harder to calculate;
       it involves a limit process.
       The slope also varies from point to point.
-      How common is local linearity?
     </p>
-    <aside>
-      <p>
-        All the standard functions are locally linear at almost all points
-      </p>
-    </aside>
     <p>
-      All the standard functions you already deal with are locally linear almost everywhere.
+      How common is local linearity? [[NOTE:All the standard functions are locally linear at almost all points]] All the standard functions you already deal with are locally linear almost everywhere.
       To see why we use the qualifying phrase
       <q>almost everywhere,</q>
       look at what happens when we view the graph of <m>y = f(x) = x^{2/3}</m> with a microscope.
@@ -283,6 +294,8 @@
       the graph is locally linear.
       For instance,
       if we view this graph over the interval from 0 to 2 and then zoom in on the point <m>(1, 1)</m> by two successive powers of 10, here's what we see:
+    </p>
+    <p>
       <image width="73%" source="images/cusp1.png"/>
     </p>
     <p>
@@ -296,28 +309,31 @@
     </p>
     <p>
       Similarly, if we zoom in on the point <m>(.001, 0.01)</m> we get:
-      <image width="73%" source="images/cusp2.png"/> In the last window the graph looks like a line of slope
+    </p>
+    <p>
+      <image width="73%" source="images/cusp2.png"/>
+    </p>
+    <p>
+      In the last window the graph looks like a line of slope
       <me>
         f'(.001) \approx \frac{.0118 - 0.0082}{.00128181 - 0.00074254} = \frac{.0036}{.00053937} = 6.674
       </me>.
     </p>
     <p>
       At the origin, though, something quite different happens:
-      <image width="73%" source="images/cusp3.png"/> The graph simply looks more and more sharply pointed the closer we zoom in to the origin<mdash/>it never looks like a straight line.
+    </p>
+    <p>
+      <image width="73%" source="images/cusp3.png"/>
+    </p>
+    <p>
+      The graph simply looks more and more sharply pointed the closer we zoom in to the origin<mdash/>it never looks like a straight line.
       However, the origin turns out to be the only point where the graph does not eventually look like a straight line.
       In spite of these examples,
       it is important to realize that local linearity is a very special property.
       There are some functions that fail to be locally linear anywhere!
       Such functions are called <em> fractals</em>.
           <idx><h>fractal</h></idx>
-    </p>
-    <aside>
-      <p>
-        Fractals are locally <em>non</em>-linear objects
-      </p>
-    </aside>
-    <p>
-      No matter how much you magnify the graph of a fractal at any point,
+      [[NOTE:Fractals are locally <em>non</em>-linear objects]] No matter how much you magnify the graph of a fractal at any point,
       it continues to look non-linear<mdash/>bent and
       <q>pointy</q>
       in various ways.
@@ -332,11 +348,18 @@
       However, calculus does not deal with such functions.
       On the contrary:
     </p>
-    <image source=""/>
+    <observation>
+    <p>
+      <term>Calculus studies functions that are</term>
+    </p>
+    <p>
+      <term>locally linear almost everywhere.</term>
+    </p>
+    </observation>
   </subsection>
   <subsection>
     <title>Exercises</title>
-    <subsubsection xml:id="sec_microscopes-and-local-linearity_subsubsec_using-a-microscope">
+    <subsubsection xml:id="subsubsec_using-a-microscope">
       <title>Using a microscope</title>
       <p>
             <idx><h>microscope</h></idx>
@@ -530,7 +553,7 @@
         </li>
       </ol>
     </subsubsection>
-    <subsubsection xml:id="sec_microscopes-and-local-linearity_subsubsec_rates-from-graphs-graphs-from-rates">
+    <subsubsection xml:id="subsubsec_rates-from-graphs-graphs-from-rates">
       <title>Rates from graphs; graphs from rates</title>
       <p>
             <idx><h>rate</h></idx>
@@ -706,7 +729,7 @@
         </li>
       </ol>
     </subsubsection>
-    <subsubsection xml:id="sec_microscopes-and-local-linearity_subsubsec_when-local-linearity-fails">
+    <subsubsection xml:id="subsubsec_when-local-linearity-fails">
       <title>When local linearity fails</title>
       <p>
             <idx><h>local linearity</h></idx>

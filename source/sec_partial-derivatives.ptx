@@ -1,4 +1,4 @@
-<section xml:id="sec_partial-derivatives_sec_partial-derivatives">
+<section xml:id="sec_partial-derivatives">
   <title>Partial Derivatives</title>
   <introduction>
     <p>
@@ -46,15 +46,9 @@
     </tabular>
     <p>
       Thus on March 15, the time of sunrise increases as latitude increases.
-      Clearly what this shows
     </p>
-    <aside>
-      <p>
-        The time of sunrise depends on latitude as well as on the date
-      </p>
-    </aside>
     <p>
-      is that the time of sunrise is actually a function of two independent inputs:
+      Clearly what this shows [[NOTE:The time of sunrise depends on latitude as well as on the date]] is that the time of sunrise is actually a function of two independent inputs:
       the date and the latitude.
       If <m>T</m> denotes the time of sunrise,
       then we will write <m>T = T(d, \lambda)</m> to make explicit the dependence of <m>T</m> on both the date <m>d</m> and the latitude <m>\lambda</m>.
@@ -190,15 +184,9 @@
     <p>
       Two quite different rates are at work here,
       one with respect to time, the other with respect to latitude.
-      We need a notation which allows us to talk about the different rates at which a function can change,
     </p>
-    <aside>
-      <p>
-        A function of several variables has several rates of change
-      </p>
-    </aside>
     <p>
-      when that function depends on more than one variable.
+      We need a notation which allows us to talk about the different rates at which a function can change, [[NOTE:A function of several variables has several rates of change]] when that function depends on more than one variable.
       A rate of change is, of course, a derivative.
       But since a change in one input produces only part of the change that a function of several variables can experience,
       we call the rate of change with respect to any one of the inputs a
@@ -211,13 +199,8 @@
       </me>.
     </p>
     <p>
-      We call this rate the
+      We call this rate the [[NOTE:Partial derivatives]]
     </p>
-    <aside>
-      <p>
-        Partial derivatives
-      </p>
-    </aside>
     <p>
       <term>partial derivative of  <m>F</m> with respect to  <m>x</m></term>.
       Similarly, we define the partial derivative of <m>F</m> with respect to <m>y</m> to be the rate at which <m>z</m> is changing when <m>y</m> is varied.
@@ -234,6 +217,8 @@
         \frac{\partial z}{\partial x} \qquad \mbox{rather than} \qquad \frac{dz}{dx}
       </me>,
       as we did when <m>x</m> was the only input variable.
+    </p>
+    <p>
       To calculate the partial derivative of <m>F</m> with respect to <m>x</m> at the point <m>(a,b)</m>,
       we can use
       <me>
@@ -256,27 +241,25 @@
       </md>.
     </p>
   </introduction>
-  <subsection xml:id="sec_partial-derivatives_subsec_partial-derivatives-as-multipliers">
+  <subsection xml:id="subsec_partial-derivatives-as-multipliers">
     <title>Partial Derivatives as Multipliers</title>
     <p>
           <idx><h>multiplier</h></idx>
+    </p>
+    <p>
       For any given date <m>d</m> and latitude <m>\lambda</m> we can write down two microscope equations
           <idx><h>microscope equation</h></idx>
       for the sunrise function <m>T(d, \lambda)</m>.
       One describes how the time of sunrise responds to changes in the date,
       the other to changes in the latitude.
-      Let's consider variations in the time of sunrise in the vicinity of March 15 and
-      <m>42^\circ</m>N. The partial derivative
-      <m>T_d(74,42^\circ\mbox{N} )</m> of <m>T</m> with respect to <m>d</m> is the multiplier in the first of these microscope equations:
+      Let's consider variations in the time of sunrise in the vicinity of March 15 and <m>42^\circ</m>N.
     </p>
-    <aside>
-      <p>
-        The microscope equation for dates
-      </p>
-    </aside>
-    <me>
-      \Delta T \approx T_d(74,42^\circ\mbox{N} ) \cdot \Delta d
-    </me>.
+    <p>
+      The partial derivative <m>T_d(74,42^\circ\mbox{N} )</m> of <m>T</m> with respect to <m>d</m> is the multiplier in the first of these microscope equations: [[NOTE:The microscope equation for dates]]
+      <me>
+        \Delta T \approx T_d(74,42^\circ\mbox{N} ) \cdot \Delta d
+      </me>.
+    </p>
     <p>
       For example,
       from March 15 to March 17 (<m>\Delta d</m> = 2 days),
@@ -292,17 +275,11 @@
       </me>.
     </p>
     <p>
-      The partial derivative <m>T_{\lambda}(74,42^\circ\mbox{N} )</m> of <m>T</m> with respect to <m>\lambda</m> is the multiplier in the second microscope equation:
+      The partial derivative <m>T_{\lambda}(74,42^\circ\mbox{N} )</m> of <m>T</m> with respect to <m>\lambda</m> is the multiplier in the second microscope equation: [[NOTE:The microscope equation for latitudes]]
+      <me>
+        \Delta T \approx T_\lambda(74,42^\circ\mbox{N} ) \cdot \Delta \lambda
+      </me>.
     </p>
-    <aside>
-      <p>
-        The microscope equation for latitudes
-      </p>
-    </aside>
-    <me>
-      \Delta T \approx T_\lambda(74,42^\circ\mbox{N} ) \cdot
-      \Delta \lambda
-    </me>.
     <p>
       If, say, we moved <m>1^\circ</m> north,
       to <m>43^\circ</m>N, we would expect the time of sunrise on March 7 to change by
@@ -323,15 +300,10 @@
       That is, can we determine the time of sunrise on March 17 at
       <m>43^\circ</m>N? This involves changing <em>both</em>
       the date and the latitude.
-      To determine the total change we shall just
     </p>
-    <aside>
-      <p>
-        The total change
-      </p>
-    </aside>
     <p>
-      combine the two changes <m>\Delta T</m> we have already calculated.
+      To determine the total change we shall just [[NOTE:The total change]] combine the two changes
+      <m>\Delta T</m> we have already calculated.
       Making the date two days later moves the time of sunrise 3.3 minutes <em>earlier</em>,
       and travelling one degree north makes the time of sunrise 0.25 minutes <em>later</em>,
       so the net effect would be to change the time of sunrise by
@@ -341,6 +313,8 @@
     </p>
     <p>
       This puts the time of sunrise at <m>T(76,43^\circ\mbox{N} ) \approx</m> 6:10.
+    </p>
+    <p>
       We can formulate this idea more generally in the following way:
       partial derivatives are not only multipliers for gauging the separate effects that changes in each input have on the output,
       but they also serve as multipliers for gauging the <em>cumulative</em>
@@ -350,7 +324,14 @@
       the combined change in <m>z</m> caused by small changes in <m>x</m> and <m>y</m> can be stated by the
       <em>full</em> microscope equation:
     </p>
-    <image source=""/>
+    <observation>
+    <p>
+      <term>The full microscope equation:</term>
+    </p>
+    <p>
+      <term> <m>\Delta z \approx F_x(a,b) \cdot \Delta x + F_y(a,b) \cdot \Delta y</m></term>
+    </p>
+    </observation>
     <p>
       As was the case for the functions of one variable,
       there is an important class of functions for which we may write
@@ -362,6 +343,8 @@
           <idx><h>linear function</h></idx>
       is <m>z=F(x,y)= mx + ny + c</m>,
       for constants <m>m</m>, <m>n</m>, and <m>c</m>.
+    </p>
+    <p>
       In the exercises you will have an opportunity to verify that for a linear function
       <m>z = F(x,y) = mx + ny + c</m> and for all <m>(a,b)</m>,
       we know that <m>F_x(a,b) = m</m> and <m>F_y(a,b) = n</m>,
@@ -369,72 +352,67 @@
       <m>\Delta z = F_x(a,b) \cdot \Delta x + F_y(a,b) \cdot \Delta y</m> is true for all values of <m>\Delta x</m> and <m>\Delta y</m>.
     </p>
   </subsection>
-  <subsection xml:id="sec_partial-derivatives_subsec_formulas-for-partial-derivatives">
+  <subsection xml:id="subsec_formulas-for-partial-derivatives">
     <title>Formulas for Partial Derivatives</title>
-    <p>
-          <idx><h>formula</h></idx>
-      No new rules are needed to find the formulas for the partial derivatives of a function of two variables that is given by a formula.
-    </p>
-    <aside>
+    <introduction>
       <p>
-        To find a partial derivative,
-        treat the other variable as a constant
+            <idx><h>formula</h></idx>
       </p>
-    </aside>
-    <p>
-      To find the partial derivative with respect to one of the variables,
-      just treat the other variable as a constant and follow the rules for functions of a single variable.
-      (The basic rules are described in section<nbsp/>5 and the chain rule in section<nbsp/>6.)
-      We give two examples to illustrate the method.
-      <term>Example 1</term>.
-      For <m>z = F(x,y) = 3x^2y + 5y^2 \sqrt{x}</m>, we have
-      <md>
-        <mrow>F_x(x,y) \amp =  3y (2x) + 5y^2 \frac{1}{2 \sqrt{x}} = 6xy + \frac{5y^2}{2 \sqrt{x}}</mrow>
-        <mrow>F_y(x,y) \amp =  3x^2 + 10y \sqrt{x}</mrow>
-      </md>
-    </p>
-    <p>
-      <term>Example 2</term>.
-      For <m>w = G(u,v) = 3 u^5 \sin{v}  - \cos{v} + u</m>, we have
-      <md>
-        <mrow>\dfrac{\partial w}{\partial u} \amp =   15 u^4 \sin{v} + 1</mrow>
-        <mrow>\dfrac{\partial w}{\partial v} \amp = 3u^5 \cos{v} + \sin{v}</mrow>
-      </md>
-    </p>
-    <p>
-      The formulas for derivatives and the combined multiplier effect of partial derivatives allow us to determine the effect of changes in length and in width on the area of a rectangle.
-      The area <m>A</m> of the rectangle is a simple function of its dimensions <m>l</m> and <m>w</m>,
-      <m>A = F(l,w) = lw\/</m>.
-      The partial derivatives of the area are then
-      <me>
-        F_l(l,w) = w \hspace{.25in} \mbox{and}  \hspace{.25in} F_w(l,w) = l
-      </me>.
-    </p>
-    <image source="images/61f87b50f0a350fc2ea27363bc493ec2dc7bd568.png"/>
-    <p>
-      Changes <m>\Delta l</m> and
-      <m>\Delta w</m> in the dimensions produce a change
-    </p>
-    <aside>
       <p>
-        The full microscope equation for rectangular area
+        No new rules are needed to find the formulas for the partial derivatives of a function of two variables that is given by a formula. [[NOTE:To find a partial derivative,
+        treat the other variable as a constant]] To find the partial derivative with respect to one of the variables,
+        just treat the other variable as a constant and follow the rules for functions of a single variable.
+        (The basic rules are described in section<nbsp/>5 and the chain rule in section<nbsp/>6.)
+        We give two examples to illustrate the method.
       </p>
-    </aside>
-    <me>
-      \Delta A \approx w \cdot \Delta l + l \cdot \Delta w
-    </me>
-    <p>
-      in the area.
-      The picture below shows that the <em>exact</em>
-      value of <m>\Delta A</m> includes an additional term<mdash/>namely
-      <m>\Delta l \cdot \Delta w</m><mdash/>that is not in the approximation <m>w \cdot \Delta l + l \cdot \Delta w</m>.
-      The difference, <m>\Delta l \cdot \Delta w</m>,
-      is <em>very</em> small when the changes
-      <m>\Delta l</m> and <m>\Delta w</m> are small.
-      In chapter 5 we will have a further look at the nature of this approximation.
-    </p>
+    </introduction>
+    <subsubsection>
+      <title>[[EX:1]]</title>
+      <p>
+        For <m>z = F(x,y) = 3x^2y + 5y^2 \sqrt{x}</m>, we have
+        <md>
+          <mrow>F_x(x,y) \amp =  3y (2x) + 5y^2 \frac{1}{2 \sqrt{x}} = 6xy + \frac{5y^2}{2 \sqrt{x}}</mrow>
+          <mrow>F_y(x,y) \amp =  3x^2 + 10y \sqrt{x}</mrow>
+        </md>
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title>[[EX:2]]</title>
+      <p>
+        For <m>w = G(u,v) = 3 u^5 \sin{v}  - \cos{v} + u</m>, we have
+        <md>
+          <mrow>\dfrac{\partial w}{\partial u} \amp =   15 u^4 \sin{v} + 1</mrow>
+          <mrow>\dfrac{\partial w}{\partial v} \amp = 3u^5 \cos{v} + \sin{v}</mrow>
+        </md>
+      </p>
+      <p>
+        The formulas for derivatives and the combined multiplier effect of partial derivatives allow us to determine the effect of changes in length and in width on the area of a rectangle.
+        The area <m>A</m> of the rectangle is a simple function of its dimensions <m>l</m> and <m>w</m>,
+        <m>A = F(l,w) = lw\/</m>.
+        The partial derivatives of the area are then
+        <me>
+          F_l(l,w) = w \hspace{.25in} \mbox{and}  \hspace{.25in} F_w(l,w) = l
+        </me>.
+      </p>
+      <image source=""/>
+      <p>
+        Changes <m>\Delta l</m> and
+        <m>\Delta w</m> in the dimensions produce a change [[NOTE:The full microscope equation for rectangular area]]
+        <me>
+          \Delta A \approx w \cdot \Delta l + l \cdot \Delta w
+        </me>
+        in the area.
+        The picture below shows that the <em>exact</em>
+        value of <m>\Delta A</m> includes an additional term<mdash/>namely
+        <m>\Delta l \cdot \Delta w</m><mdash/>that is not in the approximation <m>w \cdot \Delta l + l \cdot \Delta w</m>.
+        The difference, <m>\Delta l \cdot \Delta w</m>,
+        is <em>very</em> small when the changes
+        <m>\Delta l</m> and <m>\Delta w</m> are small.
+        In chapter 5 we will have a further look at the nature of this approximation.
+      </p>
+    </subsubsection>
   </subsection>
-  <subsection xml:id="sec_partial-derivatives_subsec_exercises">
+  <subsection xml:id="subsec_exercises">
     <title>Exercises</title>
     <ol>
       <li>
@@ -690,7 +668,7 @@
                 Is the rate positive or negative?
               </p>
             </li>
-            <li xml:id="sec_partial-derivatives_trade_off">
+            <li xml:id="trade_off">
               <p>
                 Suppose managers respond to increased demand for the product by adding three workers to the labor force.
                 What does that do to monthly profit?

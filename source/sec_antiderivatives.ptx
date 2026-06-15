@@ -1,6 +1,6 @@
-<section xml:id="sec_antiderivatives_sec_antiderivatives">
+<section xml:id="sec_antiderivatives">
   <title>Antiderivatives</title>
-  <subsection xml:id="sec_antiderivatives_subsec_definition">
+  <subsection xml:id="subsec_definition">
     <title>Definition</title>
     <p>
       Recall that we say <m>F</m> is an
@@ -49,15 +49,7 @@
       </row>
     </tabular>
     <p>
-      Notice that you go up (<m>\uparrow</m>) from the bottom row
-    </p>
-    <aside>
-      <p>
-        Undo a differentiation
-      </p>
-    </aside>
-    <p>
-      to the top by carrying out a differentiation.
+      Notice that you go up (<m>\uparrow</m>) from the bottom row [[NOTE:Undo a differentiation]] to the top by carrying out a differentiation.
           <idx><h>differentiation</h></idx>
       To go down (<m>\downarrow</m>) you must
       <q>undo</q>
@@ -67,15 +59,9 @@
       <term>antidifferentiation</term>.
           <idx><h>antidifferentiation</h></idx>
       You should differentiate each function on the bottom row to check that it is an antiderivative of the function above it.
-      While a function can have only one derivative,
     </p>
-    <aside>
-      <p>
-        A function has many antiderivatives
-      </p>
-    </aside>
     <p>
-      it has many antiderivatives.
+      While a function can have only one derivative, [[NOTE:A function has many antiderivatives]] it has many antiderivatives.
           <idx><h>antiderivative</h></idx>
       For example, <m>1-\cos{u}</m> and
       <m>99 - \cos{u}</m> are also antiderivatives of the function <m>\sin{u}</m> because
@@ -96,15 +82,7 @@
       </me>.
     </p>
     <p>
-      It is tempting to claim
-    </p>
-    <aside>
-      <p>
-        A caution
-      </p>
-    </aside>
-    <p>
-      the converse<mdash/>that <em>every</em>
+      It is tempting to claim [[NOTE:A caution]] the converse<mdash/>that <em>every</em>
       antiderivative of <m>f</m> is equal to <m>F + C</m>,
       for some appropriately chosen value of <m>C</m>.
       In fact, you will often see this statement written.
@@ -117,28 +95,16 @@
       constant and still yield an antiderivative for <m>f</m>.
       Exercises 18, 19, and 20 at the end of this section explore this for a couple of cases.
       If <m>f</m> is continuous,
-      though, <m>F + C</m> will cover all the possibilities, and
-    </p>
-    <aside>
-      <p>
-        What the <sq><m>+\ C</m></sq> term really means
-      </p>
-    </aside>
-    <p>
-      we sometimes say that <m>F + C</m> is <em>the</em>
+      though, <m>F + C</m> will cover all the possibilities,
+      and [[NOTE:What the <sq><m>+\ C</m></sq> term really means]] we sometimes say that <m>F + C</m> is <em>the</em>
       antiderivative of <m>f</m>.
       For the sake of keeping a compact notation,
       we will even write this when the domain of <m>f</m> consists of more than one interval.
       You should understand, though, that in such cases,
-      over each piece <m>F</m> can be modified by a different constant For future reference we collect a list
+      over each piece <m>F</m> can be modified by a different constant
     </p>
-    <aside>
-      <p>
-        Antiderivatives of basic functions
-      </p>
-    </aside>
     <p>
-      of basic functions whose antiderivatives
+      For future reference we collect a list [[NOTE:Antiderivatives of basic functions]] of basic functions whose antiderivatives
           <idx><h>antiderivative</h></idx>
       we already know.
       Remember that each antiderivative in the table can have an arbitrary constant added to it.
@@ -152,7 +118,9 @@
       the function <m>1/x</m> is defined for all <m>x\neq 0</m>,
       but its listed antiderivative, <m>\ln{x}</m>,
       is only defined for <m>x>0</m>.
-      In exercise 18 ( <xref ref="sec_antiderivatives_log"></xref>) you will see how to find antiderivatives for <m>1/x</m> over its entire domain.
+      In exercise 18 ( <xref ref="log"></xref>) you will see how to find antiderivatives for <m>1/x</m> over its entire domain.
+    </p>
+    <p>
       Two of our basic functions<mdash/><m>\ln{x}</m> and <m>\tan{x}</m><mdash/>do not appear in the left column of the table.
       This happens because there is no simple multiple of a basic function whose derivative is equal to either <m>\ln{x}</m> or <m>\tan{x}</m>.
       It turns out that these functions <em>do</em>
@@ -166,6 +134,8 @@
       In particular,
       the antiderivative of <m>\ln{x}</m> is derived in chapter<nbsp/>11.3 <xref ref="lnder">on</xref>,
       while the antiderivative of <m>\tan{x}</m> is derived in chapter<nbsp/>11.5 <xref ref="tander">on</xref>.
+    </p>
+    <p>
       There are a couple of other functions that don't appear in the above table whose antiderivatives are needed frequently enough that they should become part of your repertoire of elementary functions that you recognize immediately:
       <me>
         \begin{array}{ccc} \mbox{function}  \amp  \qquad \amp   \mbox{antiderivative}  \\ \hline \\ [-9pt] \begin{array}{l} \dfrac{1}{\sqrt{1-x^2}}  \\ \dfrac{1}{1+x^2} \end{array} \amp  \amp \begin{array}{l} \arcsin{x} \\ \arctan{x} \end{array} \end{array}
@@ -181,7 +151,7 @@
       Let's see how the derivatives of these inverse functions are derived.
     </p>
   </subsection>
-  <subsection xml:id="sec_antiderivatives_subsec_inverse-functions">
+  <subsection xml:id="subsec_inverse-functions">
     <title>Inverse Functions</title>
     <introduction>
       <p>
@@ -202,11 +172,18 @@
         of<nbsp/><m>g</m>, and vice versa.
         We write <m>g = f^{-1}</m> to indicate that <m>g</m> is the inverse of<nbsp/><m>f</m>,
         and <m>f = g^{-1}</m> to indicate that <m>f</m> is the inverse of<nbsp/><m>g</m>.
+      </p>
+      <p>
         The graphs of <m>y = f(x)</m> and
         <m>y = g(x)</m> are mirror reflections about the line <m>y=x</m>.
         As the figure below shows,
         the mirror image of a point with coordinates <m>(a, b)</m> is the point with coordinates <m>(b, a)</m>.
-        <image width="73%" source="images/ch11-1.png"/> This connection between the graphs is a direct translation of the definitions into graphical language, since
+      </p>
+      <p>
+        <image width="73%" source="images/ch11-1.png"/>
+      </p>
+      <p>
+        This connection between the graphs is a direct translation of the definitions into graphical language, since
         <md>
           <mrow>\text{ \((a, b)\) is on the graph of \(y=g(x)\) }  \amp \Longleftrightarrow g(a) = b \qquad \text{ (definition of graph) }</mrow>
           <mrow>\amp \Longleftrightarrow  f(b)=a \qquad \text{ (definition of inverse } )</mrow>
@@ -234,7 +211,7 @@
         for any value of <m>x</m> for which <m>g(x)</m> is defined.
       </p>
     </introduction>
-    <subsubsection xml:id="sec_antiderivatives_subsubsec_inverse-trigonometric-functions">
+    <subsubsection xml:id="subsubsec_inverse-trigonometric-functions">
       <title>Inverse trigonometric functions</title>
       <p>
         <term>The arcsine function</term>
@@ -253,8 +230,19 @@
         and whose range is <m>[-\pi/2, \pi/2]</m>.
         Since the sine function is strictly increasing on its domain,
         the arcsine function will be strictly increasing on its domain as well<mdash/>do you see why this has to be?
+      </p>
+      <p>
         Another notation for the arcsine function is <m>\sin^{-1}{x}</m>;
-        this form commonly appears on one of the buttons on a calculator.<image width="73%" source="images/ch11-2a.png"/> <image width="73%" source="images/ch11-2b.png"/> To find the derivative of the arcsine function,
+        this form commonly appears on one of the buttons on a calculator.
+      </p>
+      <p>
+        <image width="73%" source="images/ch11-2a.png"/>
+      </p>
+      <p>
+        <image width="73%" source="images/ch11-2b.png"/>
+      </p>
+      <p>
+        To find the derivative of the arcsine function,
         let <m>f(x)=\sin{x}</m>, and let <m>g(x)=\arcsin{x}</m>.
         Then by the remarks above, we have
         <me>
@@ -266,6 +254,8 @@
         which we will obtain two ways,
         one algebraic, the other geometric.
         Both perspectives are useful.
+      </p>
+      <p>
         <term>The algebraic approach.</term>Recall that for any input <m>t</m>,
         <m>\sin^2{t} + \cos^2{t}=1</m>.
         This can be solved for <m>\cos{t}</m> as <m>\cos{t}=\pm\sqrt{1-\sin^2{t}}</m>.
@@ -284,6 +274,8 @@
           (\arcsin{x})'=\dfrac{1}{\cos{(\arcsin{x})}}=\dfrac{1}{\sqrt{1-x^2}}
         </me>,
         as we indicated above <xref ref="arcsin_deriv">on</xref>.
+      </p>
+      <p>
         <term>The geometric approach</term>Introduce a new variable <m>\theta = \arcsin{x}</m>,
         so that <m>x=\sin{\theta}</m>.
         We can represent these relationships in the following picture:
@@ -296,6 +288,8 @@
         the remaining side must then be <m>\sqrt{1-x^2}</m>.
         From this picture it is then obvious that <m>\cos(\arcsin{x})=\cos\theta=\sqrt{1-x^2}/1=\sqrt{1-x^2}</m>,
         as before.
+      </p>
+      <p>
         <term>The arctangent function</term><idx><h>function</h><h>arctangent</h></idx>
         To get an inverse for the tangent function,
         we again need to limit its domain.
@@ -309,8 +303,15 @@
         whose domain is the interval <m>(-\infty, \infty)</m>,
         and whose range is <m>(-\pi/2, \pi/2)</m>.
         Again, both functions are increasing over their domains.
-        <image width="73%" source="images/ch11-3a.png"/> <image width="73%" source="images/ch11-3b.png"/> To find the derivative,
-        we proceed as we did with <m>\arcsin{x}</m>,
+      </p>
+      <p>
+        <image width="73%" source="images/ch11-3a.png"/>
+      </p>
+      <p>
+        <image width="73%" source="images/ch11-3b.png"/>
+      </p>
+      <p>
+        To find the derivative, we proceed as we did with <m>\arcsin{x}</m>,
         letting <m>f(x)=\tan{x}</m>, and <m>g(x)=\arctan{x}</m>.
         This time we get
         <me>
@@ -321,6 +322,8 @@
         This expression also has a different form;
         we obtain it from another trigonometric identity, as we did before,
         deriving the desired result algebraically and geometrically.
+      </p>
+      <p>
         <term>Algebraic</term>We start as before with the identity <m>\sin^2{t} + \cos^2{t}=1</m>.
         Dividing through by <m>\cos^2{t}</m>,
         we get the equivalent identity <m>\tan^2{t}+1=\sec^2{t}</m>.
@@ -335,6 +338,8 @@
           (\arctan{x})' = \dfrac{1}{\sec^2(\arctan{x})} = \dfrac{1}{1+x^2}
         </me>,
         as we indicated above <xref ref="arcsin_deriv">on</xref>.
+      </p>
+      <p>
         <term>Geometric</term>Let <m>\theta=\arctan{x}</m>, so <m>x=\tan\theta</m>.
         Again we can draw and label a triangle reflecting these relationships:
       </p>
@@ -348,7 +353,7 @@
       </p>
     </subsubsection>
   </subsection>
-  <subsection xml:id="sec_antiderivatives_subsec_notation">
+  <subsection xml:id="subsec_notation">
     <title>Notation</title>
     <p>
       According to the fundamental theorem of calculus<idx><h>fundamental theorem of calculus</h></idx>
@@ -367,15 +372,7 @@
       <me>
         \int_a^x f(t) \, dt
       </me>
-      represents an antiderivative of <m>f</m>.
-    </p>
-    <aside>
-      <p>
-        Write an antiderivative as an integral
-      </p>
-    </aside>
-    <p>
-      The influence of the fundamental theorem is so pervasive that this expression<mdash/>with the
+      represents an antiderivative of <m>f</m>. [[NOTE:Write an antiderivative as an integral]] The influence of the fundamental theorem is so pervasive that this expression<mdash/>with the
       <q>limits of integration</q>
       <m>a</m> and <m>x</m> omitted<mdash/>is used to denote an antiderivative:
           <idx><h>integral</h></idx>
@@ -384,14 +381,7 @@
     <p>
       With this new notation<idx><h>notation</h><h>antiderivative</h></idx> the antiderivatives we have listed so far can be written
           <idx><h>antiderivative</h></idx>
-    </p>
-    <aside>
-      <p>
-        The basic antiderivatives again
-      </p>
-    </aside>
-    <p>
-      in the following form.
+      [[NOTE:The basic antiderivatives again]] in the following form.
       <md>
         <mrow>\int x^p \, dx \amp = \dfrac{1}{p+1} \, x^{p+1} + C  \qquad\mbox{ ( \(p\neq -1\))}</mrow>
         <mrow>\int \dfrac{1}{x} \, dx \amp = \ln{x} + C</mrow>
@@ -404,18 +394,9 @@
       </md>
     </p>
     <p>
-      The integration sign <m>\int</m> now has two distinct meanings.
-    </p>
-    <aside>
-      <p>
-        The <em>definite</em> integral
-      </p>
-      <p>
-        is a number<ellipsis/>
-      </p>
-    </aside>
-    <p>
-      Originally, it was used to describe the <em>number</em>
+      The integration sign <m>\int</m> now has two distinct meanings. [[NOTE:The <em>definite</em>
+      integral is a number<ellipsis/>]] Originally,
+      it was used to describe the <em>number</em>
       <me>
         \int_a^b f(x) \, dx
       </me>,
@@ -429,15 +410,9 @@
       <me>
         \int f(x) \, dx
       </me>,
-      which is a <em>function</em>, not a number.
-    </p>
-    <aside>
-      <p>
-        <ellipsis/> while the <em>indefinite</em> integral is a function
-      </p>
-    </aside>
-    <p>
-      To contrast the new use of <m>\int</m> with the old,
+      which is a <em>function</em>,
+      not a number. [[NOTE:<ellipsis/> while the <em>indefinite</em>
+      integral is a function]] To contrast the new use of <m>\int</m> with the old,
       and to remind us that the new expression is a variable quantity,
       it is called the <em> indefinite integral</em>
           <idx><h>indefinite integral</h></idx>.
@@ -451,6 +426,8 @@
       are completely synonymous.
       We will tend to use the former term in general discussions,
       using the latter term when focusing on the process of finding the antiderivative.
+    </p>
+    <p>
       Because an indefinite integral represents an antiderivative,
       the process of finding an antiderivative is sometimes called <em> integration</em>.
           <idx><h>integration</h></idx>
@@ -459,7 +436,7 @@
       has two distinct meanings.
     </p>
   </subsection>
-  <subsection xml:id="sec_antiderivatives_subsec_using-antiderivatives">
+  <subsection xml:id="subsec_using-antiderivatives">
     <title>Using Antiderivatives</title>
     <p>
       According to the fundamental theorem,
@@ -471,9 +448,9 @@
       the statement of the fundamental theorem in the box <xref ref="fund_th-antider">on</xref> takes the following form.
           <idx><h>fundamental theorem of calculus</h></idx>
     </p>
-    <image source="images/9e082f9707b8ec20e2c512848deded5eb0445be3.png"/>
+    <image source=""/>
     <p>
-      <term>Example 1</term>Find <m>\dint_1^4 x^2 \, dx</m>.
+      <term>[[EX:1]]</term>Find <m>\dint_1^4 x^2 \, dx</m>.
       We have that
       <me>
         \int x^2 \, dx = \tfrac{1}{3} x^3 + C;
@@ -484,7 +461,7 @@
       </me>.
     </p>
     <p>
-      <term>Example 2</term>Find <m>\dint_0^{\pi/2} \cos{t} \, dt</m>.
+      <term>[[EX:2]]</term>Find <m>\dint_0^{\pi/2} \cos{t} \, dt</m>.
       This time the indefinite integral we need is
       <me>
         \int \cos{t} \, dt = \sin{t} + C
@@ -497,17 +474,12 @@
       </me>.
     </p>
     <p>
-      In each example the two appearances of <m>C</m> cancel each other.
-    </p>
-    <aside>
-      <p>
-        The calculation doesn't depend on <m>C</m>, so take <m>C = 0</m>
-      </p>
-    </aside>
-    <p>
-      Thus <m>C</m> does not appear in the final result.
+      In each example the two appearances of <m>C</m> cancel each other. [[NOTE:The calculation doesn't depend on <m>C</m>,
+      so take <m>C = 0</m>]] Thus <m>C</m> does not appear in the final result.
       This implies that it does not matter which value of <m>C</m> we choose to do the calculation.
       Usually, we just take <m>C = 0</m>.
+    </p>
+    <p>
       <term>Notation</term><idx><h>notation</h><h>indefinite integral</h></idx>
       :
           <idx><h>indefinite integral</h><h>notation</h></idx>
@@ -527,28 +499,17 @@
       There are clear advantages to using antiderivatives to evaluate definite integrals:
       we get exact values and we avoid many lengthy calculations.
       The difficulty is that the method works only if we can find a formula for the antiderivative.
-      There are several reasons why we might not
     </p>
-    <aside>
-      <p>
-        We may not recognize the \mbox{antiderivative\ldots}
-      </p>
-    </aside>
     <p>
-      find the formula we need.
+      There are several reasons why we might not [[NOTE:We may not recognize the \mbox{antiderivative\ldots} ]] find the formula we need.
       For instance,
       the antiderivative we want may be a function we have never seen before.
       The function <m>\arctan{x}</m> is an example.
-      Even if we have a broad acquaintance with functions,
-      we may still not be able to find the formula for a given antiderivative.
     </p>
-    <aside>
-      <p>
-        <ellipsis/> and there may even be no formula for it
-      </p>
-    </aside>
     <p>
-      The reason is simple: for most functions we can write down,
+      Even if we have a broad acquaintance with functions,
+      we may still not be able to find the formula for a given antiderivative. [[NOTE:<ellipsis/> and there may even be no formula for it]] The reason is simple:
+      for most functions we can write down,
       the antiderivative is just not among the basic functions of calculus.
       For example, none of the basic functions,
       in any form or combination, equals
@@ -570,7 +531,7 @@
       for this antiderivative in terms of the basic functions of calculus.
     </p>
   </subsection>
-  <subsection xml:id="sec_antiderivatives_subsec_finding-antiderivatives">
+  <subsection xml:id="subsec_finding-antiderivatives">
     <title>Finding Antiderivatives</title>
     <p>
       In the rest of this chapter we will be deriving a number of statements involving antiderivatives.
@@ -578,15 +539,8 @@
     </p>
     <image source=""/>
     <p>
-      In other words, a statement
-    </p>
-    <aside>
-      <p>
-        We differentiate to verify a statement about antiderivatives
-      </p>
-    </aside>
-    <p>
-      about antiderivatives can be verified by looking at a statement about derivatives.
+      In other words,
+      a statement [[NOTE:We differentiate to verify a statement about antiderivatives]] about antiderivatives can be verified by looking at a statement about derivatives.
       If it is claimed that the antiderivative of <m>f</m> is <m>F</m>,
       you check the statement by seeing if it is true that <m>F'=f</m>.
       This was how we verified the elementary antiderivatives we've considered so far.
@@ -595,17 +549,12 @@
         \left(\int f(x)\,dx\right)' = f(x)\mbox{and}  \int F'(x)\,dx = F(x)+C
       </me>
       for any functions <m>f</m> and <m>F</m>.
+    </p>
+    <p>
       This duality between statements about derivatives and statements about antiderivatives also holds when applied to more general statements.
       Many of the most useful techniques for finding antiderivatives are based on converting the general rules for taking derivatives of sums,
-      products, and chains into equivalent antiderivative form.
-    </p>
-    <aside>
-      <p>
-        The constant multiple and addition rules
-      </p>
-    </aside>
-    <p>
-      We'll start with the simplest combinations,
+      products,
+      and chains into equivalent antiderivative form. [[NOTE:The constant multiple and addition rules]] We'll start with the simplest combinations,
       which involve a <em> function multiplied by a constant</em>
       and a <term>sum of two functions</term>.
       <me>
@@ -624,10 +573,14 @@
       (by the derivative rule),
       which is just <m>k\cdot f</m>,
       which is what we had to show.
+    </p>
+    <p>
       Similarly, to show that <m>\int (f+g) = F + G</m><mdash/>the antiderivative of the sum of two functions is the sum of their separate antiderivatives<mdash/>we differentiate the right-hand side and find <m>(F+G)'=F'+G'</m>
       (by the derivative rule for sums)
       which is just <m>f+g</m>, so the rule is true.
-      <term>Example 3</term>This example illustrates the use of both the addition and the constant multiple rules.
+    </p>
+    <p>
+      <term>[[EX:3]]</term>This example illustrates the use of both the addition and the constant multiple rules.
       <md>
         <mrow>\int (7e^x + \cos{x}) \, dx \amp = \int 7e^x \, dx + \int \cos{x} \, dx</mrow>
         <mrow>\amp = 7 \int e^x \, dx + \int \cos{x} \, dx</mrow>
@@ -637,6 +590,8 @@
     <p>
       To verify this answer,
       you should take the derivative of the right-hand side to see that it equals the integrand on the left-hand side.
+    </p>
+    <p>
       In the following sections we will develop the antidifferentiation rules that correspond to the product rule and to the chain rule.
       They are called <em>integration by parts</em>
           <idx><h>integration by parts</h></idx>
@@ -644,14 +599,9 @@
       and <em>integration by substitution</em><idx><h>integration by substitution</h></idx>,
           <idx><h>integration by substitution</h><h>correspondence to chain rule</h></idx>
       respectively.
-      While antiderivatives can be hard to find,
     </p>
-    <aside>
-      <p>
-        Trial and error
-      </p>
-    </aside>
     <p>
+      While antiderivatives can be hard to find, [[NOTE:Trial and error]]
           <idx><h>trial and error</h></idx>
       they are easy to check.
       This makes
@@ -662,10 +612,14 @@
       but the function doesn't look too bad, try guessing.
       When you differentiate your guess,
       what you see may lead you to a better guess.
-      <term>Example 4</term>Find
+    </p>
+    <p>
+      <term>[[EX:4]]</term>Find
       <me>
         F(x) = \dint \cos(3x) \, dx
       </me>.
+    </p>
+    <p>
       Since the derivative of <m>\sin{u}</m> is <m>\cos{u}</m>,
       it is reasonable to try <m>\sin(3x)</m> as an antiderivative for <m>\cos(3x)</m>.
       Therefore:
@@ -686,34 +640,23 @@
     </p>
     <p>
       Thus <m>\dint \cos(3x) \, dx = \tfrac{1}{3}\sin(3x)</m>.
-      Because indefinite integrals are difficult to calculate,
     </p>
-    <aside>
-      <p>
-        Tables of Integrals
-      </p>
-    </aside>
     <p>
-          <idx><h>integrals</h><h>table of</h></idx>
-      reference manuals in mathematics and science often include tables of integrals.
+      Because indefinite integrals are difficult to calculate, [[NOTE:Tables of Integrals]]<idx><h>integrals</h><h>table of</h></idx> reference manuals in mathematics and science often include tables of integrals.
       There are sometimes many hundreds of individual formulas,
       organized by the type of function being integrated.
       A modest selection of such formulas can be found at the back of this book.
       You should take some time to learn how these tables are arranged and get some practice using them.
       You should also check some of the more unlikely looking formulas by differentiating them to see that they really are the antiderivatives they are claimed to be.
+    </p>
+    <p>
       Computers are having a major impact on integration techniques.
       We saw in the last chapter that any continuous function<mdash/>even one given by the output from some laboratory recording device or as the result of a numerical technique like Euler's method<mdash/>can be approximated by a polynomial
       (usually using lots of computation!),
       and the antiderivative of a polynomial is easy to find.
-      Moreover, computer software packages
     </p>
-    <aside>
-      <p>
-        Integration can now be done quickly and efficiently by computer software
-      </p>
-    </aside>
     <p>
-      which can find any existing formula for a definite integral are becoming widespread and will probably have a profound impact on the importance of integration techniques over the next several years.
+      Moreover, computer software packages [[NOTE:Integration can now be done quickly and efficiently by computer software]] which can find any existing formula for a definite integral are becoming widespread and will probably have a profound impact on the importance of integration techniques over the next several years.
       Just as hand-held calculators have rendered obsolete many traditional arts<mdash/>like using logarithms for performing multiplications or knowing how to interpolate in trig tables<mdash/>there is likely to be a decreased importance placed on humans' being adept at some of the more esoteric integration techniques.
       While some will continue to derive pleasure from becoming proficient in these skills,
       for most users it will generally be much faster,
@@ -724,7 +667,7 @@
       The subsequent sections of this chapter develop the most commonly needed techniques for doing this.
     </p>
   </subsection>
-  <subsection xml:id="sec_antiderivatives_subsec_exercises">
+  <subsection xml:id="subsec_exercises">
     <title>Exercises</title>
     <ol>
       <li>
@@ -825,7 +768,7 @@
       </li>
       <li>
         <p>
-          Verify that the antiderivatives given in the table <xref ref="sec_a-global-view_deriv_table">on</xref> are correct.
+          Verify that the antiderivatives given in the table <xref ref="table">on</xref> are correct.
         </p>
       </li>
       <li>
@@ -833,7 +776,7 @@
           Find an antiderivative of each of the following functions.
           Don't hesitate to use the
           <q>trial and error</q>
-          method of Example 4 above.
+          method of [[EX:4]] above.
           <tabular>
             <row>
               <cell><m>3</m></cell>
@@ -1029,7 +972,7 @@
           What is <m>C</m>?
         </p>
       </li>
-      <li xml:id="sec_antiderivatives_log">
+      <li xml:id="log">
         <p>
           Since the function <m>\ln{x}</m> is defined only when <m>x > 0</m>,
           the equation
@@ -1154,7 +1097,7 @@
       </li>
       <li>
         <p>
-          In the table <xref ref="sec_a-global-view_deriv_table">on</xref>
+          In the table <xref ref="table">on</xref>
           the antiderivative of <m>x^p</m> is given as
           <me>
             \dfrac{1}{p+1} x^{p+1} +C
@@ -1311,7 +1254,7 @@
             \dfrac{1}{b-a} \int_a^b f(x) \, dx
           </me>.
           (See the discussion of average value in chapter<nbsp/>6,
-          <xref ref="average-begin">pages</xref><ndash/> <xref ref="sec_the-integral_average-end"></xref>.)
+          <xref ref="average-begin">pages</xref><ndash/> <xref ref="average-end"></xref>.)
           <ol>
             <li>
               <p>

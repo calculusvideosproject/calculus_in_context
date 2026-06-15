@@ -1,15 +1,20 @@
-<section xml:id="sec_the-mathematical-implications---eulers-method_sec_the-mathematical-implications---eulers-method">
+<section xml:id="sec_the-mathematical-implications---eulers-method">
   <title>The Mathematical Implications<mdash/>
   Euler's Method</title>
   <introduction>
     <p>
-          <idx><h>Euler's method</h></idx> \hyphenation{Eu-ler}
+          <idx><h>Euler's method</h></idx>
+    </p>
+    <p>
+      \hyphenation{Eu-ler}
     </p>
   </introduction>
-  <subsection xml:id="sec_the-mathematical-implications---eulers-method_subsec_approximate-solutions">
+  <subsection xml:id="subsec_approximate-solutions">
     <title>Approximate Solutions</title>
     <p>
           <idx><h>solution</h><h>approximate</h></idx>
+    </p>
+    <p>
       In the last section we approximated the function <m>S(t)</m> by piecewise-linear approximations using steps of size <m>\Delta t =1</m>, 0.1, and 0.01.
       This process can clearly be extended to produce approximations with an
       <em>arbitrary</em> number of steps.
@@ -24,6 +29,8 @@
       and in 1768 he proposed this method to approximate them.
       The method is conceptually simple and can indeed be used to get solutions for an enormous range of rate equations.
       For this reason we will make it a basic tool.
+    </p>
+    <p>
       To begin to get a sense of the general utility of Euler's method,
       let's use it in a new setting.
       Here is a simple problem that involves just a single variable <m>y</m> that depends on <m>t</m>.
@@ -41,12 +48,19 @@
           <idx><h>logistic equation</h></idx>
       frequently used in population models.
       We will explore this context in the exercises.
+    </p>
+    <p>
       Let's now construct the function that approximates <m>y(t)</m> on the interval <m>0 \leq t \leq 75</m>,
       using <m>\Delta t = 0.5</m><nbsp/>.
       We can make the suitable modifications in SIRPLOT or SIRVALUE to get this approximation.
       Suppose we want to view the approximation graphically.
-      Here's what the modified SIRPLOT would look like: <term>Program:
-      modified SIRPLOT</term> <em>Set up GRAPHICS</em>
+      Here's what the modified SIRPLOT would look like:
+    </p>
+    <p>
+      <term>Program: modified SIRPLOT</term>
+    </p>
+    <p>
+      <em>Set up GRAPHICS</em>
     </p>
 <pre>
 tinitial = 0
@@ -72,14 +86,18 @@ NEXT k
       As before, words in italics, like
       <q><em>Plot the line from<ellipsis/> to</em></q>
       need to be translated into the specific formulation required by the computer language you are using.
+    </p>
+    <p>
       When we run this program,
       we get the following graph (axes and scales have been added):
+    </p>
+    <p>
       <image width="73%" source="images/picture4.png"/> As before,
       what we see here is only an approximation to the true solution <m>y(t)</m>.
       How can we get some idea of how good this approximation is?
     </p>
   </subsection>
-  <subsection xml:id="sec_the-mathematical-implications---eulers-method_subsec_exact-solutions">
+  <subsection xml:id="subsec_exact-solutions">
     <title>Exact Solutions</title>
     <p>
       For any chosen step size,
@@ -88,6 +106,8 @@ NEXT k
       We will call such an approximation an
       <term>Euler approximation</term>.
       In the last section we saw that we can improve the accuracy of the approximation by making the steps smaller and using more of them.
+    </p>
+    <p>
       For example,
       we have already found an approximate solution to the problem
       <me>
@@ -114,6 +134,8 @@ NEXT k
     <p>
       Here are the graphs of <m>y_{j}(t)</m> for
       <m>j=1,2,\ldots ,7</m> plus the graph of <m>y_{11}(t)</m>:
+    </p>
+    <p>
       <image width="73%" source="images/picture5.png"/> These functions form a sequence of
       <term>successive approximations</term><idx><h>successive approximation</h></idx> to the true solution <m>y(t)</m>,
       which is
@@ -127,15 +149,8 @@ NEXT k
     </p>
     <p>
       Earlier we noticed how the digits in the estimates for <m>S(3)</m> stabilized.
-      If we
-    </p>
-    <aside>
-      <p>
-        Functions and graphs can be limits, too
-      </p>
-    </aside>
-    <p>
-      plot the approximations <m>y_j(t)</m> together we'll find that they stabilize, too.
+      If we [[NOTE:Functions and graphs can be limits,
+      too]] plot the approximations <m>y_j(t)</m> together we'll find that they stabilize, too.
       Each graph in the sequence is different from the preceding one,
       but the differences diminish the larger <m>j</m> becomes.
       Eventually, when <m>j</m> is large enough,
@@ -146,31 +161,28 @@ NEXT k
       In this example, at the scale in the graph above,
       this happens around <m>j=11</m>.
       If we had drawn the graph of <m>y_{15}</m> or <m>y_{20}</m>,
-      it would not have been distinguishable
-    </p>
-    <aside>
-      <p>
-        Euler's method is the process of finding solutions through a sequence of successive approximations
-      </p>
-    </aside>
-    <p>
-      from the graph of <m>y_{11}</m>.
+      it would not have been distinguishable [[NOTE:Euler's method is the process of finding solutions through a sequence of successive approximations]] from the graph of <m>y_{11}</m>.
       It is this entire process of calculating a sequence of successive approximations using increasingly many steps as far as is needed to get the desired level of stabilization that is meant when we talk about Euler's method.
+    </p>
+    <p>
       The program SEQUENCE shown below plots 14 Euler approximations to <m>y(t)</m>,
       increasing the number of steps by a factor of 2 each time.
       It demonstrates how the graphs of <m>y_j(t)</m> stabilize to define <m>y(t)</m> as their limit.
           <idx><h>program</h><h>SEQUENCE</h></idx>
+    </p>
+    <p>
       \knownterminologyProgram: SEQUENCE
     </p>
     <p>
-      A sequence of graphs for <m>y' = 0.1y(1-y/1000)</m>;
-      <m>y(0) = 100</m>} <em>Set up GRAPHICS</em>
+      A sequence of graphs for <m>y' = 0.1y(1-y/1000)</m>; <m>y(0) = 100</m>}
+    </p>
+    <p>
+      <em>Set up GRAPHICS</em>
     </p>
 <pre>
 FOR j = 1 TO 14
 </pre>
-    <sidebyside>
-      <pre>
+<pre>
 tinitial = 0
 tfinal = 75
 t = tinitial
@@ -181,25 +193,30 @@ FOR k = 1 TO numberofsteps
 yprime = 0.1 * y * (1 - y / 1000)
 deltay = yprime * deltat
 </pre>
-      <em>Plot the line from
-<c>(t, y)</c></em>
-      <em>to
-<c>(t + deltat, y + deltay)</c></em>
+    <p>
+      <em>Plot the line from <c>(t, y)</c></em>
+    </p>
+    <p>
+      <em>to <c>(t + deltat, y + deltay)</c></em>
+    </p>
+    <p>
       <em>Color the line with color <c>j</c></em>
+    </p>
 <pre>
 t = t + deltat
 y = y + deltay
 NEXT k
 </pre>
-      $
-      \left.
+    <p>
+      $ \left.
+    </p>
+    <p>
       \right\}
-      \begin{array}{c}
-      \mbox\knownterminology{Program:} \\
-      \mbox\knownterminology{modified SIRPLOT}
-      \end{array}
-      $
-    </sidebyside>
+    </p>
+    \begin{array}{c}
+    \mbox\knownterminology{Program:} \\
+    \mbox\knownterminology{modified SIRPLOT}
+    \end{array}
 <pre>
 NEXT j
 </pre>
@@ -209,11 +226,16 @@ NEXT j
       The only new element that has been added to SIRPLOT is
       <q><em>Color the line with color <c>j</c></em></q>. When you express this in your programming language it instructs the computer to draw the <m>j</m>-th graph using color number <m>j</m> in the computer's
       <q>palette.</q>
-      In the exercises you are asked to use the program SEQUENCE to explore the solutions to a number of rate equation problems. \subsubsection<term>Approximate solutions versus exact</term>
+      In the exercises you are asked to use the program SEQUENCE to explore the solutions to a number of rate equation problems.
+    </p>
+    <p>
+      \subsubsection<term>Approximate solutions versus exact</term>
       By constructing successive approximations to the solution of a rate equation problem,
       using a sequence of step sizes <c>deltat</c> =
       <m>\Delta t</m> that shrink to 0, we obtain the
       <em>exact</em> solution in the limit.
+    </p>
+    <p>
       In practice,
       though, all we can ever get are particular approximations.
       However, we can control the level of precision in our approximations by adjusting the step size.
@@ -226,12 +248,14 @@ NEXT j
       indicates we would get that level of precision using a step size of about <m>\Delta t = 10^{-2}</m>.
       Greater precision than this may be pointless,
       because the modelling process<mdash/>which converts reality to mathematics<mdash/>is itself only an approximation.
+    </p>
+    <p>
       The question we asked in the last section<mdash/>In what sense do we know a number?<mdash/>applies equally to the functions we obtain using Euler's method.
       That is, even if we can characterize a function quite precisely as the solution of a particular rate equation,
       we may be able to evaluate it only approximately.
     </p>
   </subsection>
-  <subsection xml:id="sec_the-mathematical-implications---eulers-method_subsec_a-caution">
+  <subsection xml:id="subsec_a-caution">
     <title>A Caution</title>
     <p>
       We have now seen how to take a set of rate equations and find approximations to the solution of these equations to any degree of accuracy desired.
@@ -251,13 +275,13 @@ NEXT j
   </subsection>
   <subsection>
     <title>Exercises</title>
-    <subsubsection xml:id="sec_the-mathematical-implications---eulers-method_subsubsec_approximate-solutions">
+    <subsubsection xml:id="subsubsec_approximate-solutions">
       <title>Approximate solutions</title>
       <ol>
         <li>
           <p>
             Modify SIRVALUE and SIRPLOT to analyze the population of Poland
-            (see exercise<nbsp/>25 of chapter<nbsp/>1, <xref ref="sec_the-mathematical-ideas_Poland"></xref>).
+            (see exercise<nbsp/>25 of chapter<nbsp/>1, <xref ref="Poland"></xref>).
             We assume the population <m>P(t)</m> satisfies the conditions
             <me>
               P' = 0.009 \, P  \mbox{and} P(0) = \mbox{37,500,000}
@@ -281,10 +305,12 @@ NEXT j
         </li>
       </ol>
     </subsubsection>
-    <subsubsection xml:id="sec_the-mathematical-implications---eulers-method_subsubsec_the-logistic-equation">
+    <subsubsection xml:id="subsubsec_the-logistic-equation">
       <title>The Logistic Equation</title>
       <p>
             <idx><h>logistic equation</h></idx>
+      </p>
+      <p>
         Suppose we were studying a population of rabbits.
         If we turn 100 rabbits loose in a field and let <m>y(t)</m> be the number of rabbits at time <m>t</m> measured in months,
         we would like to know how this function behaves.
@@ -357,7 +383,7 @@ NEXT j
             modify SIRVALUE or DO<ndash/>WHILE to find the value for <m>t</m> such that <m>y(t)=900</m>.
           </p>
         </li>
-        <li xml:id="sec_the-mathematical-implications---eulers-method_logistic-end">
+        <li xml:id="logistic-end">
           <p>
             Suppose we wanted to fit a logistic rate equation to a population,
             starting with <m>y(0)=100</m>.
@@ -369,7 +395,7 @@ NEXT j
         </li>
       </ol>
     </subsubsection>
-    <subsubsection xml:id="sec_the-mathematical-implications---eulers-method_subsubsec_using-sequence">
+    <subsubsection xml:id="subsubsec_using-sequence">
       <title>Using SEQUENCE</title>
       <p>
             <idx><h>program</h><h>SEQUENCE</h></idx>

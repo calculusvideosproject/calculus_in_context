@@ -1,4 +1,4 @@
-<section xml:id="sec_improper-integrals_sec_improper-integrals">
+<section xml:id="sec_improper-integrals">
   <title>Improper Integrals</title>
   <introduction>
     <p>
@@ -6,22 +6,16 @@
           <idx><h>integral</h><h>improper</h></idx>
     </p>
   </introduction>
-  <subsection xml:id="sec_improper-integrals_subsec_the-lifetime-of-light-bulbs">
+  <subsection xml:id="subsec_the-lifetime-of-light-bulbs">
     <title>The Lifetime of Light Bulbs</title>
     <p>
           <idx><h>light bulbs</h><h>lifetime of</h></idx>
-      Ordinary light bulbs are supposed to burn about 700 hours,
-    </p>
-    <aside>
-      <p>
-        The lifetime of a light bulb is unpredictable
-      </p>
-    </aside>
-    <p>
-      but of course some last longer while others burn out more quickly.
+      Ordinary light bulbs are supposed to burn about 700 hours, [[NOTE:The lifetime of a light bulb is unpredictable]] but of course some last longer while others burn out more quickly.
       It is impossible to know,
       in advance, the lifetime of a particular bulb you might buy,
       but it is possible to describe what happens to a large batch of bulbs.
+    </p>
+    <p>
       Suppose we take a batch of 1000 light bulbs,
       start them burning at the same time,
       and note how long it takes each one to burn out.
@@ -33,20 +27,14 @@
     <p>
       Then <m>L(t)</m> might have a graph that looks like this:
     </p>
-    <image source="images/833e6c360e25d9e5c6d8b0c94a17c440e8871d98.png"/>
+    <image source=""/>
     <p>
       In this example, <m>L(400) \approx 0.5</m>,
       so about half the bulbs burned out before 400 hours.
       Furthermore, all but a few have burned out by 1250 hours.
-      Manufacturers are very concerned
     </p>
-    <aside>
-      <p>
-        The burnout rate
-      </p>
-    </aside>
     <p>
-      about the way the lifetime of light bulbs varies.
+      Manufacturers are very concerned [[NOTE:The burnout rate]] about the way the lifetime of light bulbs varies.
       They study the output of their factories on a regular basis.
       It is more common, though,
       for them to talk about the <em>rate</em>
@@ -66,15 +54,7 @@
       </me>.
     </p>
     <p>
-      This is yet another consequence of
-    </p>
-    <aside>
-      <p>
-        Lifetime is the integral of burnout rate<ellipsis/>
-      </p>
-    </aside>
-    <p>
-      the fundamental theorem of calculus.
+      This is yet another consequence of [[NOTE:Lifetime is the integral of burnout rate<ellipsis/>]] the fundamental theorem of calculus.
           <idx><h>fundamental theorem of calculus</h></idx>
       The integral expression is quite handy.
       For example,
@@ -90,15 +70,7 @@
       </me>
     </p>
     <p>
-      In practice <m>r</m> is the average burnout rate
-    </p>
-    <aside>
-      <p>
-        <ellipsis/> but there is no upper limit to the lifetime
-      </p>
-    </aside>
-    <p>
-      for many batches of light bulbs,
+      In practice <m>r</m> is the average burnout rate [[NOTE:<ellipsis/> but there is no upper limit to the lifetime]] for many batches of light bulbs,
       so we can't identify the precise moment when <m>L</m> becomes 1.
       All we can really say is
       <me>
@@ -109,15 +81,8 @@
       This is called an <term>improper integral</term>
           <idx><h>improper integral</h></idx>,
           <idx><h>integral</h><h>improper</h></idx>
-    </p>
-    <aside>
-      <p>
-        An integral is <em>improper</em>
-        if the domain of integration is infinite
-      </p>
-    </aside>
-    <p>
-      because it cannot be calculated directly: its
+      [[NOTE:An integral is <em>improper</em>
+      if the domain of integration is infinite]] because it cannot be calculated directly: its
       <q>domain of integration</q>
       is infinite.
       By definition,
@@ -143,14 +108,7 @@
     </p>
     <p>
       Since the probability that <m>x</m> lies <em>somewhere</em>
-    </p>
-    <aside>
-      <p>
-        The normal probability distribution involves an improper integral
-      </p>
-    </aside>
-    <p>
-      on the <m>x</m>-axis is 1, we have
+      [[NOTE:The normal probability distribution involves an improper integral]] on the <m>x</m>-axis is 1, we have
       <me>
         \int_{-\infty}^{\infty} f(x) \, dx = 1
       </me>.
@@ -167,114 +125,112 @@
       In the exercises you will have a chance to evaluate this integral.
     </p>
   </subsection>
-  <subsection xml:id="sec_improper-integrals_subsec_evaluating-improper-integrals">
+  <subsection xml:id="subsec_evaluating-improper-integrals">
     <title>Evaluating Improper Integrals</title>
-    <p>
-          <idx><h>improper integral</h><h>evaluating</h></idx>
-          <idx><h>integral</h><h>improper!evaluating</h></idx>
-      An integral with an infinite domain of integration is
-    </p>
-    <aside>
+    <introduction>
       <p>
-        An integral is also improper if its integrand becomes infinite
+            <idx><h>improper integral</h><h>evaluating</h></idx>
+            <idx><h>integral</h><h>improper!evaluating</h></idx>
+        An integral with an infinite domain of integration is [[NOTE:An integral is also improper if its integrand becomes infinite]] only one kind of improper integral.
+        A second kind has a finite domain of integration, but the integrand
+            <idx><h>integrand</h></idx>
+        becomes infinite on that domain.
+        For example,
+        <me>
+          \int_0^1 \dfrac{dx}{x} \qquad \mbox{and}  \qquad \int_0^1 \ln{x} \, dx
+        </me>
+        are both improper in this sense.
+        In both cases, the integrand becomes infinite as <m>x \to 0</m>.
+        Because the difficulty lies at the endpoint 0, we define
+        <me>
+          \int_0^1 \dfrac{dx}{x} = \lim_{a \to 0} \int_a^1 \dfrac{dx}{x}
+        </me>.
       </p>
-    </aside>
-    <p>
-      only one kind of improper integral.
-      A second kind has a finite domain of integration, but the integrand
-          <idx><h>integrand</h></idx>
-      becomes infinite on that domain.
-      For example,
-      <me>
-        \int_0^1 \dfrac{dx}{x} \qquad \mbox{and}  \qquad \int_0^1 \ln{x} \, dx
-      </me>
-      are both improper in this sense.
-      In both cases, the integrand becomes infinite as <m>x \to 0</m>.
-      Because the difficulty lies at the endpoint 0, we define
-      <me>
-        \int_0^1 \dfrac{dx}{x} = \lim_{a \to 0} \int_a^1 \dfrac{dx}{x}
-      </me>.
-    </p>
-    <p>
-      More generally,
-      <me>
-        \int_a^b f(x) \, dx
-      </me>
-      is an improper integral if <m>f(x)</m> becomes infinite at some point <m>c</m> in the interval <m>[a, b]</m>.
-      In that case we define
-      <me>
-        \int_a^b f(x) \, dx = \lim_{q \to 0} \left(\int_a^{c-q} f(x) \, dx + \int_{c+q}^b f(x) \, dx\right)
-      </me>.
-    </p>
-    <p>
-      In effect, we avoid the bad spot but
-      <q>creep up</q>
-      on it in the limit.
-      Indefinite integrals
-          <idx><h>indefinite integral</h></idx>
-      <mdash/>that is,
-    </p>
-    <aside>
       <p>
-        Antiderivatives help find improper integrals
+        More generally,
+        <me>
+          \int_a^b f(x) \, dx
+        </me>
+        is an improper integral if <m>f(x)</m> becomes infinite at some point <m>c</m> in the interval <m>[a, b]</m>.
+        In that case we define
+        <me>
+          \int_a^b f(x) \, dx = \lim_{q \to 0} \left(\int_a^{c-q} f(x) \, dx + \int_{c+q}^b f(x) \, dx\right)
+        </me>.
       </p>
-    </aside>
-    <p>
-      antiderivatives
-          <idx><h>antiderivative</h></idx>
-      <mdash/>can be a great help in evaluating improper integrals.
-      Here are some examples.
-      <term>Example 1</term>.
-      We can evaluate
-      <me>
-        \int_0^{\infty} e^{-x} \, dx
-      </me>
-      by noting first that <m>\dint e^{-x} \, dx = - e^{-x}</m>.
-      Therefore
-      <me>
-        \int_0^b e^{-x} \, dx = \left. - e^{-x} \right|_0^b = -e^{-b} - \left(-e^{-0}\right) = 1 - e^{-b}
-      </me>
-      and
-      <me>
-        \int_0^{\infty} e^{-x} \, dx = \lim_{b \to \infty} \int_0^b e^{-x} \, dx = \lim_{b \to \infty} \left(1-e^{-b}\right) = 1
-      </me>.
-    </p>
-    <p>
-      <term>Example 2</term>.
-      To evaluate <m>\dint_0^1 \ln{x} \, dx</m>,
-      we use the indefinite integral
-      <me>
-        \int \ln{x} \, dx = x\, \ln{x} - x
-      </me>.
-    </p>
-    <p>
-      Thus
-      <me>
-        \int_a^1 \ln{x} \, dx = \left. x\,\ln{x} - x \,\right|_a^1 = -1 - \left( a\ln{a} - a \right) = a-1 - a\ln{a}
-      </me>.
-    </p>
-    <p>
-      By direct calculation
-      (using a graphing package, for instance)
-      we can find
-      <me>
-        \lim_{a \to 0} \ a\ln{a} = 0;
-      </me>
-      therefore
-      <me>
-        \int_0^1 \ln{x} \, dx = \lim_{a \to 0} \int_a^1 \ln{x} \, dx = \lim_{a \to 0} \ a-1 - a\ln{a} = -1
-      </me>.
-    </p>
-    <p>
-      You should not assume that an improper integral<idx><h>improper integral</h><h>finite value of</h></idx> always has a finite value, though.
-      Consider the next example.
-      <term>Example 3</term>.
-      <m>\displaystyle \left. \dint_0^1 \dfrac{dx}{x} = \lim_{a \to 0} \int_a^1 \dfrac{dx}{x} = \lim_{a \to 0} \ln(x) \,\right|_a^1 = \lim_{a \to 0} \left( \ln(1)-\ln(a) \right) = \infty</m>.
-      This is forced because <m>{\displaystyle \lim_{a \to 0} \ \ln(a) = -\infty}</m>,
-      which you can see from the graph of the logarithm function.
-    </p>
+      <p>
+        In effect, we avoid the bad spot but
+        <q>creep up</q>
+        on it in the limit.
+      </p>
+      <p>
+        Indefinite integrals
+            <idx><h>indefinite integral</h></idx>
+        <mdash/>that is, [[NOTE:Antiderivatives help find improper integrals]] antiderivatives
+            <idx><h>antiderivative</h></idx>
+        <mdash/>can be a great help in evaluating improper integrals.
+        Here are some examples.
+      </p>
+    </introduction>
+    <subsubsection>
+      <title>[[EX:1]]</title>
+      <p>
+        We can evaluate
+        <me>
+          \int_0^{\infty} e^{-x} \, dx
+        </me>
+        by noting first that <m>\dint e^{-x} \, dx = - e^{-x}</m>.
+        Therefore
+        <me>
+          \int_0^b e^{-x} \, dx = \left. - e^{-x} \right|_0^b = -e^{-b} - \left(-e^{-0}\right) = 1 - e^{-b}
+        </me>
+        and
+        <me>
+          \int_0^{\infty} e^{-x} \, dx = \lim_{b \to \infty} \int_0^b e^{-x} \, dx = \lim_{b \to \infty} \left(1-e^{-b}\right) = 1
+        </me>.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title>[[EX:2]]</title>
+      <p>
+        To evaluate <m>\dint_0^1 \ln{x} \, dx</m>,
+        we use the indefinite integral
+        <me>
+          \int \ln{x} \, dx = x\, \ln{x} - x
+        </me>.
+      </p>
+      <p>
+        Thus
+        <me>
+          \int_a^1 \ln{x} \, dx = \left. x\,\ln{x} - x \,\right|_a^1 = -1 - \left( a\ln{a} - a \right) = a-1 - a\ln{a}
+        </me>.
+      </p>
+      <p>
+        By direct calculation
+        (using a graphing package, for instance)
+        we can find
+        <me>
+          \lim_{a \to 0} \ a\ln{a} = 0;
+        </me>
+        therefore
+        <me>
+          \int_0^1 \ln{x} \, dx = \lim_{a \to 0} \int_a^1 \ln{x} \, dx = \lim_{a \to 0} \ a-1 - a\ln{a} = -1
+        </me>.
+      </p>
+      <p>
+        You should not assume that an improper integral<idx><h>improper integral</h><h>finite value of</h></idx> always has a finite value, though.
+        Consider the next example.
+      </p>
+      <p>
+        <term>[[EX:3]]</term>.
+        <m>\displaystyle \left. \dint_0^1 \dfrac{dx}{x} = \lim_{a \to 0} \int_a^1 \dfrac{dx}{x} = \lim_{a \to 0} \ln(x) \,\right|_a^1 = \lim_{a \to 0} \left( \ln(1)-\ln(a) \right) = \infty</m>.
+      </p>
+      <p>
+        This is forced because <m>{\displaystyle \lim_{a \to 0} \ \ln(a) = -\infty}</m>,
+        which you can see from the graph of the logarithm function.
+      </p>
+    </subsubsection>
   </subsection>
-  <subsection xml:id="sec_improper-integrals_subsec_exercises">
+  <subsection xml:id="subsec_exercises">
     <title>Exercises</title>
     <introduction>
       <ol>
@@ -329,13 +285,13 @@
         <li>
           <p>
             Use the reduction formula for
-            <m>\dint \dfrac{dx}{(1+x^2)^n}</m> you found <xref ref="sec_trigonometric-integrals_x1plusx2">on</xref>
+            <m>\dint \dfrac{dx}{(1+x^2)^n}</m> you found <xref ref="x1plusx2">on</xref>
             to find the exact value of <m>\dint_0^{\infty} \dfrac{dx}{(1+x^2)^{10}}</m>
           </p>
         </li>
       </ol>
     </introduction>
-    <subsubsection xml:id="sec_improper-integrals_subsubsec_the-normal-density-function">
+    <subsubsection xml:id="subsubsec_the-normal-density-function">
       <title>The normal density function</title>
       <p>
         The next two questions concern the improper integral
@@ -414,7 +370,7 @@
         </li>
       </ol>
     </subsubsection>
-    <subsubsection xml:id="sec_improper-integrals_subsubsec_the-gamma-function">
+    <subsubsection xml:id="subsubsec_the-gamma-function">
       <title>The gamma function</title>
       <p>
             <idx><h>function, gamma</h></idx>
@@ -433,6 +389,8 @@
         so that we could deal with expressions like <m>tfrac{1}{2}!</m>,
         for example?
         The <em>gamma function</em> answers this question.
+      </p>
+      <p>
         The <term>gamma function</term>
             <idx><h>gamma function</h></idx>
         <m>\Gamma(x)</m> is defined by the improper integral

@@ -1,16 +1,8 @@
-<section xml:id="sec_state-spaces-and-vector-fields_sec_state-spaces-and-vector-fields">
+<section xml:id="sec_state-spaces-and-vector-fields">
   <title>State Spaces and Vector Fields</title>
   <introduction>
     <p>
-      If you look back at the examples we've considered,
-    </p>
-    <aside>
-      <p>
-        The standard way to graph solutions
-      </p>
-    </aside>
-    <p>
-      many of them take the following form:
+      If you look back at the examples we've considered, [[NOTE:The standard way to graph solutions]] many of them take the following form:
       we have two
       (or more)
       variable quantities <m>x</m> and <m>y</m> that are functions of time,
@@ -20,6 +12,8 @@
       From a given starting point,
       we typically used something like Euler's method to get values for <m>x</m> and <m>y</m> at times on either side of the starting value.
       We then graphed the solutions as functions of time<mdash/><m>x</m> against <m>t</m> and <m>y</m> against <m>t</m>.
+    </p>
+    <p>
       In many instances,
       the rules determining <m>x'(t)</m> and <m>y'(t)</m> depend only on the current values of <m>x</m> and <m>y</m>,
       but not on the value of <m>t</m>,
@@ -29,16 +23,10 @@
       Such systems are said to be <em> autonomous</em>.
           <idx><h>dynamical system</h><h>autonomous</h></idx>
       These are the only systems we will be considering in this chapter.
-      In autonomous systems
     </p>
-    <aside>
-      <p>
-        A new way to graph solutions:
-        as trajectories in state space
-      </p>
-    </aside>
     <p>
-      there is another way of visualizing the solutions that can be very powerful.
+      In autonomous systems [[NOTE:A new way to graph solutions:
+      as trajectories in state space]] there is another way of visualizing the solutions that can be very powerful.
       Instead of plotting values of <m>x</m> and <m>y</m> as functions of time,
       we view these values as coordinates of a point in the <m>x</m>-<m>y</m> plane.
       As the system changes,
@@ -53,6 +41,8 @@
           <idx><h>trajectory</h></idx>
       By looking at three examples,
       we will see how this method of analysis can help us understand the overall behavior of a system.
+    </p>
+    <p>
       There are a number of effective software packages available which can perform efficiently all the operations we will be considering,
       and one of them would probably be the most useful tool for exploring the ideas in this chapter.
       On the other hand, the basic numerical operations are quite simple,
@@ -63,7 +53,7 @@
       and we urge you to do so.
     </p>
   </introduction>
-  <subsection xml:id="sec_state-spaces-and-vector-fields_subsec_predator--prey-models">
+  <subsection xml:id="subsec_predator--prey-models">
     <title>Predator<ndash/>Prey Models</title>
     <introduction>
       <p>
@@ -77,22 +67,23 @@
       </p>
       <p>
         When we started with the initial values <m>R(0)=2000</m> rabbits and
-        <m>F(0)= 10</m> foxes, Euler's method produced the following solutions for the first 250 months:<image width="73%" source="images/pred1.png"/> Let's see how the same model looks
+        <m>F(0)= 10</m> foxes, Euler's method produced the following solutions for the first 250 months:
       </p>
-      <aside>
-        <p>
-          Two ways of representing the same solution graphically
-        </p>
-      </aside>
       <p>
-        when we express it in the language of state spaces.
+        <image width="73%" source="images/pred1.png"/>
+      </p>
+      <p>
+        Let's see how the same model looks [[NOTE:Two ways of representing the same solution graphically]] when we express it in the language of state spaces.
         The state space consists of points in the <m>R</m>-<m>F</m> plane.
         For physical reasons our state space consists only of points <m>(R, F)</m> satisfying <m>R\geq 0</m> and <m>F\geq 0</m>.
         That is, our state space is the first quadrant of the <m>R</m>-<m>F</m> plane together with the bounding portions of the <m>R</m>-axis and the <m>F</m>-axis.We can easily modify the program used to obtain the curves in the previous picture to plot the corresponding trajectory in the <m>R</m>-<m>F</m> plane.
         We only need change the specification of the dimensions of the viewing window and change the <c>plot</c> command to plot points with coordinates <m>(R, F)</m> instead of <m>(t, R)</m> and <m>(t, F)</m>;
         all the rest of the calculations are unchanged.
         Here's what the same solution looks like when we do this:
-        <image width="73%" source="images/pred2.png"/> You should notice several things here:
+        <image width="73%" source="images/pred2.png"/>
+      </p>
+      <p>
+        You should notice several things here:
         <ul>
           <li>
             <p>
@@ -121,27 +112,25 @@
           </li>
         </ul>
       </p>
-      <sidebyside>
-        <nbsp/><nbsp/><nbsp/>If we wanted to include some information about time, one way
-        would be to label some points on the trajectory with the associated
-        time value.  If we label the points every 6 months, say, we would get
-        the picture at the right.  Note that the points are not uniformly
-        spaced along the trajectory: the spacing is
-      </sidebyside>
       <p>
-        <image width="73%" source="images/predtime.png"/> largest between points relatively far from the origin,
+        If we wanted to include some information about time,
+        one way would be to label some points on the trajectory with the associated time value.
+        If we label the points every 6 months, say,
+        we would get the picture at the right.
+        Note that the points are not uniformly spaced along the trajectory:
+        the spacing is
+      </p>
+      <p>
+        <image width="73%" source="images/predtime.png"/>
+      </p>
+      <p>
+        largest between points relatively far from the origin,
         where the values of <m>R</m> and <m>F</m> are largest.
         Moreover, the closer we come to the limit state,
         the tighter the spacing becomes.
-        Could we have foreseen some of this behavior
       </p>
-      <aside>
-        <p>
-          The differential equations indicate how the state changes
-        </p>
-      </aside>
       <p>
-        by looking at the original differential equations?
+        Could we have foreseen some of this behavior [[NOTE:The differential equations indicate how the state changes]] by looking at the original differential equations?
         Since the differential equations give <m>R'</m> and <m>F'</m> as functions of <m>R</m> and <m>F</m> alone,
         for each point <m>(R, F)</m> in the state space we can calculate the associated values for <m>R'</m> and <m>F'</m>.
         Knowing these values,
@@ -156,42 +145,26 @@
         Here's what we get in our current example when we choose a
         <m>16\times 16</m> grid of points in the region <m>0\leq R\leq 3000</m> and
         <m>0\leq F\leq 30</m>, with <m>\Delta t =1</m>.
-        <image width="73%" source="images/vecf1.png"/> Several things are immediately clear from this picture:
+        <image width="73%" source="images/vecf1.png"/>
       </p>
-      <aside>
-        <p>
-          Arrows indicate the change in state<ellipsis/>
-        </p>
-      </aside>
       <p>
-        the arrows suggest a general counter-clockwise flow in the plane;
+        Several things are immediately clear from this picture: [[NOTE:Arrows indicate the change in state<ellipsis/>]] the arrows suggest a general counter-clockwise flow in the plane;
         change is most rapid in the upper right corner;
         near the limit point of the flow and near the origin change is so slow that arrows don't even show up there.
-        Moreover, since the method used to construct the arrows is exactly the way Euler's method calculates the trajectories themselves,
-        the solution trajectory through a given initial state is a curve
       </p>
-      <aside>
-        <p>
-          <ellipsis/> and trajectories are tangent to the arrows
-        </p>
-      </aside>
       <p>
-        in the state space which at every point is tangent to the arrow at that point.
+        Moreover, since the method used to construct the arrows is exactly the way Euler's method calculates the trajectories themselves,
+        the solution trajectory through a given initial state is a curve [[NOTE:<ellipsis/> and trajectories are tangent to the arrows]] in the state space which at every point is tangent to the arrow at that point.
         For instance,
         if we superpose the trajectory graphed <xref ref="x_trajectory_">on</xref>
         on the picture above, we get the following:
+      </p>
+      <p>
         <image width="73%" source="images/vecf2.png"/>
       </p>
       <p>
-        The net effect of this construction is thus
-      </p>
-      <aside>
-        <p>
-          How to construct a geometrical visualization of a dynamical system
-        </p>
-      </aside>
-      <p>
-        to transform a problem in <em>analysis</em><mdash/>findinging a solution to a system of differential equations<mdash/>into a problem in
+        The net effect of this construction is thus [[NOTE:How to construct a geometrical visualization of a dynamical system]] to transform a problem in
+        <em>analysis</em><mdash/>findinging a solution to a system of differential equations<mdash/>into a problem in
         <em>geometry</em><mdash/>finding a curve which is tangent everywhere to a prescribed set of arrows.
         This correspondence between the analytical and the geometrical ways of formulating a problem is very powerful.
         Let's sum up the way this correspondence was established:
@@ -235,15 +208,10 @@
         </ul>
       </p>
       <p>
-        <image width="73%" source="images/phasepor.png"/> There is almost too much detail
+        <image width="73%" source="images/phasepor.png"/>
       </p>
-      <aside>
-        <p>
-          Simplifying the picture
-        </p>
-      </aside>
       <p>
-        in the picture of the vector field and the phase portrait.
+        There is almost too much detail [[NOTE:Simplifying the picture]] in the picture of the vector field and the phase portrait.
         One way to see the underlying simplicity is to notice that the space is divided into four regions according to whether <m>F'</m> and <m>R'</m> are positive or negative.
         The <em>signs</em> of <m>F'</m> and <m>R'</m> in turn determine the <em>direction</em>
         of the associated velocity vector.
@@ -284,15 +252,9 @@
         The set of points satisfying <m>R=1000</m> is just a vertical line in the state space.
         The condition that <m>F'=0</m> on this line can be expressed geometrically by saying that any trajectory crossing this line must do so horizontally
         (why?).
-        The remainder of the quadrant consists of two regions:
       </p>
-      <aside>
-        <p>
-          Divide the state space into regions
-        </p>
-      </aside>
       <p>
-        one consists of all points <m>(R, F)</m> with <m>0\leq R\lt 1000</m> and <m>F>0</m>,
+        The remainder of the quadrant consists of two regions: [[NOTE:Divide the state space into regions]] one consists of all points <m>(R, F)</m> with <m>0\leq R\lt 1000</m> and <m>F>0</m>,
         the other consists of all points <m>(R, F)</m> with <m>R>1000</m> and <m>F>0</m>.
         Moreover, since we've already accounted for all the points where <m>F'=0</m>,
         it must be true that at every point of these two regions <m>F'</m> must be <m>>0</m> or <m>\lt 0</m>;
@@ -315,6 +277,8 @@
         In other problems, though, the
         <q>test point</q>
         approach may be the more convenient.
+      </p>
+      <p>
         In exactly the same way,
         if we look at the first rate equation,
         we find that <m>R'=0</m> in two cases:
@@ -342,10 +306,15 @@
         Further, for any other state <m>(R, F)</m> we have <m>R'>0</m> if the point is below this line
         (the point <m>R=1</m> and <m>F=0</m> is a convenient test point where it's easy to see without doing any arithmetic that <m>R'>0</m>),
         and <m>R'\lt 0</m> if the point is above the line.
+      </p>
+      <p>
         We can combine all this information into the following picture.
         We have drawn a number of velocity vectors along the lines where <m>R'=0</m> and <m>F'=0</m>,
         with one or two others in each region.
-        <image width="73%" source="images/pred3.png"/> We see that the entire state space is divided into four regions:
+        <image width="73%" source="images/pred3.png"/>
+      </p>
+      <p>
+        We see that the entire state space is divided into four regions:
         <ol>
           <li>
             <p>
@@ -379,16 +348,8 @@
         </ol>
       </p>
       <p>
-        Notice that this diagram makes it clear
-      </p>
-      <aside>
-        <p>
-          There are simple trajectories:
-          three are just points<ellipsis/>
-        </p>
-      </aside>
-      <p>
-        what the limit state of the spirals is:
+        Notice that this diagram makes it clear [[NOTE:There are simple trajectories:
+        three are just points<ellipsis/>]] what the limit state of the spirals is:
         it is the point <m>Q=(1000, 18)</m> where the line <m>R=1000</m> and the line <m>F=20-0.002\,R</m> intersect.
         Notice that at <m>Q</m> both <m>R'=0</m> and <m>F'=0</m>,
         so that if we are ever at <m>Q</m>,
@@ -396,14 +357,7 @@
         The points <m>O = (0, 0)</m> and
         <m>P = (10\,000, 0)</m> are the two other such point trajectories.
         While the typical trajectory looks like a spiral coming into the point <m>Q</m>,
-        note that this picture contains three other
-      </p>
-      <aside>
-        <p>
-          <ellipsis/> and three are straight line segments
-        </p>
-      </aside>
-      <p>
+        note that this picture contains three other [[NOTE:<ellipsis/> and three are straight line segments]]
         <q>special</q>
         trajectories in addition to the point trajectories:
         <ul>
@@ -431,20 +385,11 @@
         </ul>
       </p>
     </introduction>
-    <subsubsection xml:id="sec_state-spaces-and-vector-fields_subsubsec_equilibrium-points">
+    <subsubsection xml:id="subsubsec_equilibrium-points">
       <title>Equilibrium Points</title>
       <p>
             <idx><h>equilibrium point</h></idx>
-        The three points <m>O</m>, <m>P</m>, and <m>Q</m>
-      </p>
-      <aside>
-        <p>
-          Different kinds of equilibrium points
-        </p>
-      </aside>
-      <p>
-        in the previous figure<mdash/>single points which are also trajectories<mdash/>are called
-        <term>equilibrium points</term> for the system.
+        The three points <m>O</m>, <m>P</m>, and <m>Q</m> [[NOTE:Different kinds of equilibrium points]] in the previous figure<mdash/>single points which are also trajectories<mdash/>are called <term>equilibrium points</term> for the system.
         If the ststem ever in such a state, it stays in it forever.
         Moreover, the system can't reach such a state from any other state
         (although it may be able to come very close).
@@ -452,7 +397,12 @@
         the behavior of the system is not the same near the three points.
         If we zoom in on each of these points and draw some of the nearby trajectories,
         we get the following pictures:
-        <image width="73%" source="images/eqpoints.png"/> Points <m>O</m> and <m>P</m> look fairly similar<mdash/>they would look even more alike if we crossed over into the negative <m>R</m> and negative <m>F</m> regions and included the trajectories there as well
+      </p>
+      <p>
+        <image width="73%" source="images/eqpoints.png"/>
+      </p>
+      <p>
+        Points <m>O</m> and <m>P</m> look fairly similar<mdash/>they would look even more alike if we crossed over into the negative <m>R</m> and negative <m>F</m> regions and included the trajectories there as well
         (impossible to do in the real world,
         but elementary in mathematics!).
         In both cases there is one direction from which trajectories come straight towards the point
@@ -461,33 +411,23 @@
         and one direction in which trajectories move directly away from the point (the <m>R</m>-axis in the case of point <m>O</m>,
         and the line of slope <m>-0.0092</m> (we'll see how to find this later!) in the case of <m>P</m>).
         The remaining trajectories look sort of like hyperbolas asymptotic to these two lines.
-        Equilibrium points of this sort
-      </p>
-      <aside>
-        <p>
-          Saddle point equilibrium
-        </p>
-      </aside>
-      <p>
-        are called <term>saddle points</term>
+        Equilibrium points of this sort [[NOTE:Saddle point equilibrium]] are called
+        <term>saddle points</term>
             <idx><h>saddle point</h></idx>.
             <idx><h>equilibrium point</h><h>saddle point</h></idx>
         They are characterized by the property that there is exactly one direction along which the system can be displaced and still move back towards the equilibrium point.
         Displacements in any other direction get amplified,
         with the state eventually moving even further away.
+      </p>
+      <p>
         Point <m>Q</m> is quite different.
         If the state experiences a small displacement away from <m>Q</m> in any direction,
         over time it will move back towards <m>Q</m>.
         Such equilibrium points are called <em> attractors</em>
             <idx><h>attractor</h></idx>,
             <idx><h>equilibrium point</h><h>attractor</h></idx>
-        and <m>Q</m> is an example of a particular kind of attractor called a
+        and <m>Q</m> is an example of a particular kind of attractor called a [[NOTE:Spiral equilibrium]]
       </p>
-      <aside>
-        <p>
-          Spiral equilibrium
-        </p>
-      </aside>
       <p>
         <term>spiral attractor</term>.
             <idx><h>equilibrium point</h><h>spiral attractor</h></idx>
@@ -496,15 +436,10 @@
         We will shortly see examples
         (<xref ref="basin">see</xref>, for instance)
         of attractors that draw from more limited portions of the state space.
-        For future reference,
       </p>
-      <aside>
-        <p>
-          Attractors and repellors
-        </p>
-      </aside>
       <p>
-        we define here the concept of <term>repellor</term><idx><h>equilibrium point</h><h>repellor</h></idx>
+        For future reference, [[NOTE:Attractors and repellors]] we define here the concept of
+        <term>repellor</term><idx><h>equilibrium point</h><h>repellor</h></idx>
             <idx><h>repellor</h></idx>
         and <term>spiral repellor</term><idx><h>equilibrium point</h><h>spiral repellor</h></idx>.
             <idx><h>repellor</h><h>spiral</h></idx>
@@ -519,11 +454,14 @@
       </p>
     </subsubsection>
   </subsection>
-  <subsection xml:id="sec_state-spaces-and-vector-fields_pend-begin">
+  <subsection xml:id="pend-begin">
     <title>The Pendulum Revisited</title>
     <introduction>
       <p>
-            <idx><h>pendulum</h></idx> <image width="73%" source="images/pend1a.png"/> In chapter 7 we analyzed the motion of a pendulum.
+            <idx><h>pendulum</h></idx> <image width="73%" source="images/pend1a.png"/>
+      </p>
+      <p>
+        In chapter 7 we analyzed the motion of a pendulum.
         Let's see how this analysis looks when translated into the language of state space.
         We first need to figure out what the appropriate coordinates are,
         which means deciding what information we need in order to specify the state of a pendulum.
@@ -538,21 +476,20 @@
       </p>
       <p>
         Here is what the vector field for this system looks like:
-        <image width="73%" source="images/pendvf.png"/> We have included in this diagram the lines where <m>v'=0</m>
+      </p>
+      <p>
+        <image width="73%" source="images/pendvf.png"/>
+      </p>
+      <p>
+        We have included in this diagram the lines where <m>v'=0</m>
         (the vertical lines at every multiple of <m>\pi</m>)
         and the line where <m>x'=0</m>
         (the horizontal line at <m>v=0</m>).
-        Note that the velocity vectors are horizontal on the lines corresponding to <m>v'=0</m> and are vertical on the line corresponding to <m>x'=0</m>.
-      </p>
-      <aside>
-        <p>
-          The equilibrium points
-        </p>
-      </aside>
-      <p>
-        The points where these two sets of lines intersect<mdash/>all points of the form
+        Note that the velocity vectors are horizontal on the lines corresponding to <m>v'=0</m> and are vertical on the line corresponding to <m>x'=0</m>. [[NOTE:The equilibrium points]] The points where these two sets of lines intersect<mdash/>all points of the form
         <m>(k\pi, 0)</m> for <m>k</m> an integer<mdash/>are the equilibrium points of the system.
         Let's sketch the phase portrait of this system to see more clearly what's going on:
+      </p>
+      <p>
         <image width="73%" source="images/pendpha.png"/>
       </p>
       <p>
@@ -561,13 +498,8 @@
           <li>
             <p>
               There are the wavy trajectories moving from left to right across the top of the state space.
-              Note that for these trajectories the value of <m>v</m> is
-              <aside>
-                <p>
-                  Trajectories from left to right in the state plane correspond to <m>v>0</m>
-                </p>
-              </aside>
-              always positive, and <m>x</m> just keeps increasing.
+              Note that for these trajectories the value of <m>v</m> is [[NOTE:Trajectories from left to right in the state plane correspond to <m>v>0</m>]] always positive,
+              and <m>x</m> just keeps increasing.
               These trajectories correspond to the cases where the velocity is great enough that the pendulum can go over the top,
               continuing to loop around counterclockwise
               (since <m>x</m> is increasing and <m>x</m> is measured in a counterclockwise direction)
@@ -588,13 +520,7 @@
           <li>
             <p>
               There are the closed loops.
-              Here <m>x</m> oscillates back and forth
-              <aside>
-                <p>
-                  Oscillations of the pendulum correspond to closed loops in the state plane
-                </p>
-              </aside>
-              between some maximum and minimum value symmetrically placed about an even multiple of <m>\pi</m>.
+              Here <m>x</m> oscillates back and forth [[NOTE:Oscillations of the pendulum correspond to closed loops in the state plane]] between some maximum and minimum value symmetrically placed about an even multiple of <m>\pi</m>.
               These trajectories correspond to a pendulum swinging back and forth.
               The fact that some are centered at <m>x</m>-values other than 0 is due to the fact that the same position of the pendulum can be specified by an infinite number of values of <m>x</m>,
               all differing from each other by multiples of <m>2\pi</m>.
@@ -602,13 +528,8 @@
           </li>
           <li>
             <p>
-              There are the equilibrium points <m>(k\pi, 0)</m>,
-              <aside>
-                <p>
-                  A center: a neutral equilibrium
-                </p>
-              </aside>
-              with <m>k</m> an even integer.
+              There are the equilibrium points <m>(k\pi, 0)</m>, [[NOTE:A center:
+              a neutral equilibrium]] with <m>k</m> an even integer.
               This corresponds to the pendulum hanging straight down.
               If we perturb the system to a state slightly away from such a point,
               the pendulum swings back and forth,
@@ -639,13 +560,7 @@
               There are the trajectories connecting the saddle points.
               These correspond to cases where the pendulum has just enough velocity so that it keeps moving closer to the vertical position without either overshooting and wrapping around,
               or coming to a stop and reversing direction.
-              In fact, these
-              <aside>
-                <p>
-                  A connected curve in the phase portrait may be composed of more than one trajectory
-                </p>
-              </aside>
-              trajectories divide the state space:
+              In fact, these [[NOTE:A connected curve in the phase portrait may be composed of more than one trajectory]] trajectories divide the state space:
               on one side of such a trajectory are points corresponding to states where the pendulum will wrap around,
               and on the other side are points corresponding to states where the pendulum will swing back and forth.
               Note that the saddle points are <em>not</em>
@@ -656,7 +571,7 @@
         </ul>
       </p>
     </introduction>
-    <subsubsection xml:id="sec_state-spaces-and-vector-fields_subsubsec_first-integrals-again">
+    <subsubsection xml:id="subsubsec_first-integrals-again">
       <title>First Integrals Again</title>
       <p>
             <idx><h>first integral</h></idx>
@@ -667,15 +582,7 @@
         In the vocabulary of this chapter,
         if <m>(x, v)</m> is any state on the trajectory through <m>(x_1, v_1)</m>,
         then it must be true that <m>\tfrac{1}{2} v^2 + 1 - \cos{x} = \tfrac{1}{2} v_1^2 + 1 - \cos{x_1}</m>.
-        But this
-      </p>
-      <aside>
-        <p>
-          First integrals can give equations of trajectories
-        </p>
-      </aside>
-      <p>
-        relation determines a curve in the <m>x</m>-<m>v</m> plane.
+        But this [[NOTE:First integrals can give equations of trajectories]] relation determines a curve in the <m>x</m>-<m>v</m> plane.
         We thus have an algebraic condition for each of the trajectories,
         which will depend on the initial values.
         In this example we could actually get an equation for each trajectory by first using the initial values to determine the energy <m>E = \tfrac{1}{2} v_1^2 + 1 - \cos{x_1}</m>.
@@ -683,7 +590,14 @@
         <m>v=\pm \sqrt{2(E-1+\cos{x})}</m> and plot the resulting function.
         (Whether we took the plus sign or the minus sign would depend on whether the pendulum was moving counterclockwise or clockwise.)
         Let's return to our previous sketch of the phase portrait and label some of the trajectories by their corresponding values of <m>E</m>:
-        <image width="73%" source="images/pendpha2.png"/> Note that for each value of <m>E\geq 0</m> there is more than one trajectory having that value as its energy.
+      </p>
+      <p>
+        <image width="73%" source="images/pendpha2.png"/>
+      </p>
+      <p>
+        Note that for each value of <m>E\geq 0</m> there is more than one trajectory having that value as its energy.
+      </p>
+      <p>
         We can now characterize the different kinds of trajectories by their associated energy <m>E</m>:
         <ul>
           <li>
@@ -712,38 +626,28 @@
       </p>
     </subsubsection>
   </subsection>
-  <subsection xml:id="sec_state-spaces-and-vector-fields_subsec_a-model-for-the-acquisition-of-immunity">
+  <subsection xml:id="subsec_a-model-for-the-acquisition-of-immunity">
     <title>A Model for the Acquisition of Immunity</title>
     <p>
           <idx><h>immunity</h><h>acquisition of</h></idx>
-      One of the roles of mathematical
-    </p>
-    <aside>
-      <p>
-        A mathematical model can be used to think about the feasibility of a proposed explanation
-      </p>
-    </aside>
-    <p>
-      modelling is to allow researchers to explore possible mechanisms to explain an observed phenomenon.
+      One of the roles of mathematical [[NOTE:A mathematical model can be used to think about the feasibility of a proposed explanation]] modelling is to allow researchers to explore possible mechanisms to explain an observed phenomenon.
       As an example of this, consider the phenomenon of immunity:
       for many infections, particularly those due to viruses,
       once you've been exposed to the disease your body continues to produce high levels of antibodies to the disease for the rest of your life,
       even in the absence of any further stimulation from the virus.
     </p>
-    <aside>
-      <p>
-        A capsule summary of the immune response: Vertebrates have a wide variety of specialized cells called <em>lymphocytes</em>
-        circulating in their blood streams and lymphatic systems at all times.
-        Each lymphocyte has the ability to recognize and bind with a specific kind of invading organism.
-        The invader is called an <em>antigen</em>,
-        and the neutralizing molecules produced by the responding lymphocytes are called <em>antibodies</em>.
-        Prior to infection,
-        the concentration level of a particular antibody is typically so low as to be undetectable,
-        but the appearance of the antigen causes the system to respond by producing large quantities of the appropriate antibody.
-        If the body can continue to produce high levels of antibodies,
-        it will be immune to reinfection.
-      </p>
-    </aside>
+    <p>
+      [[NOTE:A capsule summary of the immune response: Vertebrates have a wide variety of specialized cells called <em>lymphocytes</em>
+      circulating in their blood streams and lymphatic systems at all times.
+      Each lymphocyte has the ability to recognize and bind with a specific kind of invading organism.
+      The invader is called an <em>antigen</em>,
+      and the neutralizing molecules produced by the responding lymphocytes are called <em>antibodies</em>.
+      Prior to infection,
+      the concentration level of a particular antibody is typically so low as to be undetectable,
+      but the appearance of the antigen causes the system to respond by producing large quantities of the appropriate antibody.
+      If the body can continue to produce high levels of antibodies,
+      it will be immune to reinfection.]]
+    </p>
     <p>
       In their book <em>Infectious Diseases of Humans</em>, Roy Anderson
           <idx><h>Anderson, R.</h></idx>
@@ -771,21 +675,18 @@
       At this stage, though,
       when we are simply exploring to see if such a mechanism might account for the phenomenon of permanent immunity,
       we can try a range of values for the parameters to see how they affect the behavior of the model.
-      <image width="73%" source="images/andmay1.png"/> In the figure above,
-      we have taken <m>\Lambda_1=\Lambda_2=8000</m>,
+      <image width="73%" source="images/andmay1.png"/>
+    </p>
+    <p>
+      In the figure above, we have taken <m>\Lambda_1=\Lambda_2=8000</m>,
       <m>\mu_1=\mu_2=1000</m>, <m>a_1=a_2=10</m>,
       and <m>b_1=b_2=10^{-6}</m>.
       There are a couple of features to notice about this graph:
       <ol>
         <li>
           <p>
-            Since the velocity vectors differ so much in their size, we
-            <aside>
-              <p>
-                Knowing the direction of the trajectories is often sufficient
-              </p>
-            </aside>
-            have recorded only the direction of the velocity vectors,
+            Since the velocity vectors differ so much in their size,
+            we [[NOTE:Knowing the direction of the trajectories is often sufficient]] have recorded only the direction of the velocity vectors,
             drawing all the arrows to be the same length.
             Thus we don't really show the vector field,
             but its close relative, the <em> direction field</em>.
@@ -799,13 +700,7 @@
             <term>log-log scale</term>.
               <idx><h>log<ndash/>log scale</h></idx>
           That is, we have plotted the values so that each interval spanning a power of 10<mdash/>from <m>10^0</m> to <m>10^1</m>,
-            or from <m>10^3</m> to <m>10^4</m><mdash/>gets the same space.
-            <aside>
-              <p>
-                Expressing graphical information over several different orders of magnitude
-              </p>
-            </aside>
-            This is equivalent to plotting the logarithms of the values on ordinary graph paper.
+            or from <m>10^3</m> to <m>10^4</m><mdash/>gets the same space. [[NOTE:Expressing graphical information over several different orders of magnitude]] This is equivalent to plotting the logarithms of the values on ordinary graph paper.
             This allows us to see effects that take place at different scales.
             If we hadn't done this,
             but had plotted this information on regular graph paper with the values running from 0 to <m>10^5</m>,
@@ -828,7 +723,12 @@
       (<xref ref="x_andmay_">see</xref>)
       we will see how to zoom in and look at the trajectories near each of these points to confirm this impression.
       Here is a picture of the phase portrait for this system.
-      <image width="73%" source="images/andmay3.png"/> Note that neither <m>P_1</m> nor <m>P_3</m> is an attractor for the entire system.
+    </p>
+    <p>
+      <image width="73%" source="images/andmay3.png"/>
+    </p>
+    <p>
+      Note that neither <m>P_1</m> nor <m>P_3</m> is an attractor for the entire system.
       The <term>basin of attraction</term>
           <idx><h>basin of attraction</h></idx>
       for <m>P_1</m> appears to be a region in the lower left of the graph,
@@ -836,6 +736,8 @@
       The boundary separating these two basins is formed by the two heavily shaded trajectories which come toward the point <m>P_2</m>
       (since <m>P_2</m> is a saddle point,
       there are only two such trajectories<mdash/>every other trajectory eventually veers off and heads toward either <m>P_1</m> or <m>P_3</m>).
+    </p>
+    <p>
       We can now interpret this system in the following way.
       State <m>P_1</m> represents the <term>virgin</term>
           <idx><h>state</h><h>virgin</h></idx>
@@ -847,6 +749,8 @@
       (why?).
       Note that after small perturbations (i.e., anything roughly less than a 10-fold increase of type 1 or type 2 cells) from <m>P_1</m>,
       the system will settle back to this resting state.
+    </p>
+    <p>
       Now, though,
       suppose a viral pathogen appears which possesses an antigen which is identical to that expressed by cell type 1.
       This has an effect equivalent to moving vertically in the <m>E_1</m>-<m>E_2</m> plane to a state which is now in the basin for <m>P_3</m>.
@@ -869,7 +773,7 @@
   </subsection>
   <subsection>
     <title>Exercises</title>
-    <subsubsection xml:id="sec_state-spaces-and-vector-fields_subsubsec_two-species-interactions">
+    <subsubsection xml:id="subsubsec_two-species-interactions">
       <title>Two-species interactions</title>
       <p>
         We look at some variations of the predator-prey model.
@@ -1076,7 +980,7 @@
               <mrow>y' \amp = 0.03(1 -0.004x - 0.005y)y</mrow>
             </md>.
             The term <m>-0.010y</m> in the first equation shows explicitly how an increase in <m>y</m> reduces the growth rate <m>x'</m>.
-            In the second equation <m>-0.004x</m> tells us how much X affects the growth of Y.  Notice that Y affects X more strongly than X affects Y. If <m>x</m> and <m>y</m> are both small,
+            In the second equation <m>-0.004x</m> tells us how much X affects the growth of Y.  Notice that Y affects X more strongly than X affects Y.  If <m>x</m> and <m>y</m> are both small,
             then the parenthetical terms are approximately equal to<nbsp/>1, so the equations reduce to
             <md>
               <mrow>x' \amp = 0.15x,</mrow>
@@ -1141,7 +1045,7 @@
             </ol>
           </p>
         </li>
-        <li xml:id="sec_state-spaces-and-vector-fields_x_basins_">
+        <li xml:id="x_basins_">
           <p>
             <term>Fairer competition</term>.
             The vector field in question 3 shows that species X didn't have a chance:
@@ -1292,7 +1196,7 @@
         </li>
       </ol>
     </subsubsection>
-    <subsubsection xml:id="sec_state-spaces-and-vector-fields_subsubsec_the-pendulum">
+    <subsubsection xml:id="subsubsec_the-pendulum">
       <title>The pendulum</title>
       <ol>
         <li>
@@ -1318,7 +1222,7 @@
         </li>
       </ol>
     </subsubsection>
-    <subsubsection xml:id="sec_state-spaces-and-vector-fields_subsubsec_the-anderson--may-model">
+    <subsubsection xml:id="subsubsec_the-anderson--may-model">
       <title>The Anderson<ndash/>May model</title>
       <ol>
         <li>
@@ -1330,7 +1234,7 @@
             Is your answer consistent with the graph <xref ref="x_amprob_">on</xref>?
           </p>
         </li>
-        <li xml:id="sec_state-spaces-and-vector-fields_AMay2">
+        <li xml:id="AMay2">
           <p>
             In the same book<mdash/><em>Infectious Diseases of Humans</em><mdash/>containing the previous model, Anderson and May propose another model to explain the acquisition of (apparently) permanent immunity.
             In this model there is just the virus and the lymphocyte cells

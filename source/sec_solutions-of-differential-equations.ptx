@@ -1,313 +1,295 @@
-<section xml:id="sec_solutions-of-differential-equations_sec_solutions-of-differential-equations">
+<section xml:id="sec_solutions-of-differential-equations">
   <title>Solutions of Differential Equations</title>
-  <subsection xml:id="sec_solutions-of-differential-equations_subsec_differential-equations-are-equations">
+  <subsection xml:id="subsec_differential-equations-are-equations">
     <title>Differential Equations are Equations</title>
-    <p>
-      Until now, we have viewed a system of differential equations
-    </p>
-    <aside>
+    <introduction>
       <p>
-        Differential equations give instructions for Euler's method
-      </p>
-    </aside>
-    <p>
-      as a set of <em>instructions</em> for
-      <q>stepping into the future</q>
-      (or the past).
-      Put another way,
-      an initial value problem was treated as a prescription for using Euler's method
-          <idx><h>Euler's method</h></idx>
-      to determine a set of functions which were then given either graphically or in tabular form.
-      In this section we take a new point of view:
-      we will think of differential equations as <em>equations</em>
-          <idx><h>equation</h></idx>
-      for which we would like to find <em>solutions</em>
-          <idx><h>solution</h></idx>
-      in terms of functions which can be given by explicit formulas.
-      While it is unfortunately the case that most differential equations do not have solutions which can be given by formulas,
-      there are enough important classes of equations where such solutions do exist to make them worth studying.
-      When such solutions can be found,
-      we have a very powerful tool for examining the behavior of the phenomenon being modelled.
-      To see what this means, let's look first at equations in algebra.
-    </p>
-    <aside>
-      <p>
-        Equations have <em>solutions</em>
-      </p>
-    </aside>
-    <p>
-      Consider the equation <m>x^2 = x + 6</m>.
-      As it stands, this is neither true nor false.
-      We make it true or false, though,
-      when we substitute a particular number for <m>x</m>.
-      For example, <m>x = 3</m> makes the equation true,
-      because <m>3^2 = 3 + 6</m>.
-      On the other hand, <m>x = 1</m> makes the equation false,
-      because <m>1^2 \neq 1 + 6</m>.
-      Any number that makes an equation true is called a
-      <em>solution</em> to that equation.
-      In fact, <m>x^2 = x + 6</m> has exactly two solutions:
-      <m>x = 3</m> and <m>x = -2</m>.
-      We can view differential equations the same way.
-      Consider, for example, the differential equation
-      <me>
-        \dfrac{dy}{dt} = \dfrac{1}{2y}
-      </me>.
-    </p>
-    <p>
-      Because it involves the expression <m>dy/dt</m>,
-      we understand that <m>y</m> is a function of <m>t</m>.
-      As it stands,
-      the differential equation is neither true nor false.
-      We make it true or false, though,
-      when we substitute a particular
-      <em>function</em> for <m>y</m>.
-      For example,
-      <m>y = \sqrt{t} = t^{1/2}</m> makes the differential equation true.
-      To see this, first look at the left-hand side of the
-    </p>
-    <aside>
-      <p>
-        Substitute <m>y = \sqrt{t}</m>
+        Until now, we have viewed a system of differential equations [[NOTE:Differential equations give instructions for Euler's method]] as a set of
+        <em>instructions</em> for
+        <q>stepping into the future</q>
+        (or the past).
+        Put another way,
+        an initial value problem was treated as a prescription for using Euler's method
+            <idx><h>Euler's method</h></idx>
+        to determine a set of functions which were then given either graphically or in tabular form.
       </p>
       <p>
-        into the differential equation
-      </p>
-    </aside>
-    <p>
-      equation:
-      <me>
-        \dfrac{dy}{dt} = \tfrac{1}{2} t^{-1/2} = \dfrac{1}{2 \sqrt{t}}
-      </me>.
-    </p>
-    <p>
-      Now look at the right-hand side:
-      <me>
-        \dfrac{1}{2y} = \dfrac{1}{2\sqrt{t}}
-      </me>.
-    </p>
-    <p>
-      The two sides of the equation are equal,
-      so the substitution <m>y = \sqrt{t}</m> makes the equation true.
-      The function <m>y = t^2</m>,
-      however, makes the differential equation <em>false</em>.
-      The left-hand side is
-      <me>
-        \dfrac{dy}{dt} = 2t
-      </me>,
-      but the right-hand side is
-      <me>
-        \dfrac{1}{2y} = \dfrac{1}{2t^2}
-      </me>.
-    </p>
-    <p>
-      Since <m>2t</m> and <m>1/2t^2</m> are different functions,
-      the two sides are unequal and the equation is therefore false.
-      We say that <m>y = \sqrt{t}</m> is a
-    </p>
-    <aside>
-      <p>
-        A <em>solution</em> makes
+        In this section we take a new point of view:
+        we will think of differential equations as <em>equations</em>
+            <idx><h>equation</h></idx>
+        for which we would like to find <em>solutions</em>
+            <idx><h>solution</h></idx>
+        in terms of functions which can be given by explicit formulas.
+        While it is unfortunately the case that most differential equations do not have solutions which can be given by formulas,
+        there are enough important classes of equations where such solutions do exist to make them worth studying.
+        When such solutions can be found,
+        we have a very powerful tool for examining the behavior of the phenomenon being modelled.
       </p>
       <p>
-        the equation true
+        To see what this means,
+        let's look first at equations in algebra. [[NOTE:Equations have
+        <em>solutions</em>]] Consider the equation <m>x^2 = x + 6</m>.
+        As it stands, this is neither true nor false.
+        We make it true or false, though,
+        when we substitute a particular number for <m>x</m>.
+        For example, <m>x = 3</m> makes the equation true,
+        because <m>3^2 = 3 + 6</m>.
+        On the other hand, <m>x = 1</m> makes the equation false,
+        because <m>1^2 \neq 1 + 6</m>.
+        Any number that makes an equation true is called a
+        <em>solution</em> to that equation.
+        In fact, <m>x^2 = x + 6</m> has exactly two solutions:
+        <m>x = 3</m> and <m>x = -2</m>.
       </p>
-    </aside>
-    <p>
-      <term>solution</term> to this differential equation.
-      The function <m>y = t^2</m> is <em>not</em> a solution.
-      To decide whether a particular function is a solution when the function is given by a formula,
-      notice that we need to be able to differentiate the formula.
-    </p>
-    <aside>
       <p>
-        If we view differential equations simply as instructions for carrying out Euler's method,
+        We can view differential equations the same way.
+        Consider, for example, the differential equation
+        <me>
+          \dfrac{dy}{dt} = \dfrac{1}{2y}
+        </me>.
+      </p>
+      <p>
+        Because it involves the expression <m>dy/dt</m>,
+        we understand that <m>y</m> is a function of <m>t</m>.
+        As it stands,
+        the differential equation is neither true nor false.
+        We make it true or false, though,
+        when we substitute a particular
+        <em>function</em> for <m>y</m>.
+        For example,
+        <m>y = \sqrt{t} = t^{1/2}</m> makes the differential equation true.
+        To see this,
+        first look at the left-hand side of the [[NOTE:Substitute
+        <m>y = \sqrt{t}</m> into the differential equation]] equation:
+        <me>
+          \dfrac{dy}{dt} = \tfrac{1}{2} t^{-1/2} = \dfrac{1}{2 \sqrt{t}}
+        </me>.
+      </p>
+      <p>
+        Now look at the right-hand side:
+        <me>
+          \dfrac{1}{2y} = \dfrac{1}{2\sqrt{t}}
+        </me>.
+      </p>
+      <p>
+        The two sides of the equation are equal,
+        so the substitution <m>y = \sqrt{t}</m> makes the equation true.
+      </p>
+      <p>
+        The function <m>y = t^2</m>,
+        however, makes the differential equation <em>false</em>.
+        The left-hand side is
+        <me>
+          \dfrac{dy}{dt} = 2t
+        </me>,
+        but the right-hand side is
+        <me>
+          \dfrac{1}{2y} = \dfrac{1}{2t^2}
+        </me>.
+      </p>
+      <p>
+        Since <m>2t</m> and <m>1/2t^2</m> are different functions,
+        the two sides are unequal and the equation is therefore false.
+      </p>
+      <p>
+        We say that <m>y = \sqrt{t}</m> is a [[NOTE:A <em>solution</em>
+        makes the equation true]]
+      </p>
+      <p>
+        <term>solution</term> to this differential equation.
+        The function <m>y = t^2</m> is <em>not</em> a solution.
+        To decide whether a particular function is a solution when the function is given by a formula,
+        notice that we need to be able to differentiate the formula.
+      </p>
+      <p>
+        [[NOTE:If we view differential equations simply as instructions for carrying out Euler's method,
         we need only the microscope equation
         <m>\Delta y \approx y'\cdot \Delta t</m> in order to find functions.
         However, if we want to find functions that are solutions to differential equations from our new point of view,
-        we first need to introduce the idea of the derivative and the rules for differentiating functions.
+        we first need to introduce the idea of the derivative and the rules for differentiating functions.]]
       </p>
-    </aside>
-    <p>
-      Just as an algebraic equation can have more than one solution,
-      so can a differential equation.
-      In fact, we can show that <m>y = \sqrt{t + C}</m> is a solution to the differential equation
-      <me>
-        \dfrac{dy}{dt} = \dfrac{1}{2y}
-      </me>,
-      for any value of the constant <m>C</m>.
-      To evaluate the left-hand side <m>dy/dt</m>, we need the chain rule
-      (chapter<nbsp/>3.6).
-      Let's write
-      <me>
-        y = \sqrt{u} \qquad \mbox{where}  \qquad u = t + C
-      </me>.
-    </p>
-    <p>
-      Then the left-hand side is the function
-      <me>
-        \dfrac{dy}{dt} = \dfrac{dy}{du} \cdot \dfrac{du}{dt} = \dfrac{1}{2\sqrt{u}} \cdot 1 = \dfrac{1}{2\sqrt{t + C}}
-      </me>.
-    </p>
-    <p>
-      Since the right-hand side of the differential equation is
-      <me>
-        \dfrac{1}{2y} = \dfrac{1}{2 \sqrt{t + C}}
-      </me>,
-      the two sides are equal<mdash/>no matter what value <m>C</m> happens to have.
-    </p>
-    <aside>
       <p>
-        A differential equation can have infinitely many solutions
+        Just as an algebraic equation can have more than one solution,
+        so can a differential equation.
+        In fact, we can show that <m>y = \sqrt{t + C}</m> is a solution to the differential equation
+        <me>
+          \dfrac{dy}{dt} = \dfrac{1}{2y}
+        </me>,
+        for any value of the constant <m>C</m>.
+        To evaluate the left-hand side <m>dy/dt</m>, we need the chain rule
+        (chapter<nbsp/>3.6).
+        Let's write
+        <me>
+          y = \sqrt{u} \qquad \mbox{where}  \qquad u = t + C
+        </me>.
       </p>
-    </aside>
-    <p>
-      This proves that every function of the form
-      <m>y = \sqrt{t + C}</m> is a solution to the differential equation.
-      Since there are infinitely many values that <m>C</m> can take,
-      the differential equation has infinitely many different solutions!
-      If a differential equation arises in modelling a physical or biological process,
-      the variables involved must also satisfy an initial condition.
-      Suppose we add an initial condition to our differential equation:
-      <me>
-        \dfrac{dy}{dt} = \dfrac{1}{2y} \qquad \mbox{and} \qquad y(0) = 5
-      </me>.
-    </p>
-    <p>
-      Does <em>this</em> problem have a solution<mdash/>that is,
-      can we find a function <m>y(t)</m> that is a solution to the differential equation and also satisfies the condition <m>y(0) = 5</m>?
-      Notice <m>y = \sqrt{t}</m> is not a solution to this new problem.
-      Although it satisfies the differential equation,
-      it fails to satisfy the initial condition:
-      <me>
-        y(0) = \sqrt{0} = 0 \neq 5
-      </me>.
-    </p>
-    <p>
-      Perhaps one of the other solutions to the differential equation will work.
-      When we evaluate the solution
-      <m>y = \sqrt{t + C}</m> at <m>t = 0</m> we get
-      <me>
-        y(0) = \sqrt{0 + C} = \sqrt{C}
-      </me>.
-    </p>
-    <p>
-      We want this to equal 5, and it will if <m>C = 25</m>.
-    </p>
-    <aside>
       <p>
-        An initial value problem has only one solution
+        Then the left-hand side is the function
+        <me>
+          \dfrac{dy}{dt} = \dfrac{dy}{du} \cdot \dfrac{du}{dt} = \dfrac{1}{2\sqrt{u}} \cdot 1 = \dfrac{1}{2\sqrt{t + C}}
+        </me>.
       </p>
-    </aside>
-    <p>
-      Thus, <m>y = \sqrt{t + 25}</m> is a solution to the initial value problem.
-      Furthermore,
-      the only value of <m>C</m> which will make <m>y(0) = 5</m> is <m>C = 25</m>,
-      so the initial value problem has only one solution of the form <m>\sqrt{t + C}</m>.
-      Here is the graph of this solution:
-    </p>
-    <image source=""/>
-    <p>
-      As always, you can use Euler's method to find the function determined by an initial value problem,
-      and you can graph that function using the program SIRPLOT, for example.
-      How will <em>that</em> graph compare with this one?
-      In the exercises you can explore this question.
-      <term>Checking solutions versus finding solutions</term>.
-      Notice that we have only <em>checked</em>
-      whether a given function solves an initial value problem;
-      we have not <em>constructed</em>
-      a formula to solve the problem.
-      By this point you are probably wondering where the given solutions came from.
-      It is helpful to continue exploring the parallels with solutions of algebraic equations.
-      In the case of the equation <m>x^2 = x + 6</m>, there are,
-      of course, methods to find solutions.
-      One possibility is to rewrite
-      <m>x^2 = x + 6</m> in the form <m>x^2 - x - 6 = 0</m>.
-      By factoring <m>x^2 - x - 6</m> as
-      <me>
-        x^2 - x - 6 = (x - 3)(x + 2)
-      </me>
-      we can see that either <m>x - 3 = 0</m>
-      (so <m>x = 3</m>),
-      or <m>x + 2 = 0</m>
-      (so <m>x = -2</m>).
-      Another method is to use the <term>quadratic formula</term>
-          <idx><h>quadratic formula</h></idx>
-      <me>
-        x = \dfrac{-b \pm \sqrt{b^2 - 4ac}}{2a}
-      </me>
-      for the roots of the quadratic function <m>ax^2 + bx + c</m>.
-      In our case, the quadratic formula yields
-      <me>
-        x = \dfrac{-(-1) \pm \sqrt{1 - 4 \cdot 1 \cdot (-6)}} {2 \cdot 1} = \dfrac{1 \pm \sqrt{1 + 24}}{2} = \dfrac{1 \pm 5}{2}
-      </me>,
-      so again we find that <m>x</m> must be either 3 or <m>-2</m>.
-    </p>
-    <p>
-      Thus we have at least two different methods
-    </p>
-    <aside>
       <p>
-        There are special methods to solve particular equations,
-        but other methods work generally
+        Since the right-hand side of the differential equation is
+        <me>
+          \dfrac{1}{2y} = \dfrac{1}{2 \sqrt{t + C}}
+        </me>,
+        the two sides are equal<mdash/>no matter what value <m>C</m> happens to have. [[NOTE:A differential equation can have infinitely many solutions]] This proves that every function of the form
+        <m>y = \sqrt{t + C}</m> is a solution to the differential equation.
+        Since there are infinitely many values that <m>C</m> can take,
+        the differential equation has infinitely many different solutions!
       </p>
-    </aside>
-    <p>
-      for finding solutions to this particular equation.
-      The methods we use to solve an algebraic equation depend very much on the equation we face.
-      For example, there is no way to find a solution to
-      <m>\sin{x} = 2^x</m> by factoring, or by using a
-      <q>magic formula</q>
-      like the quadratic formula.
-      Nevertheless, there are methods that <em>do</em> work.
-      In chapters 1 and 2 we dealt with similar problems by using a computer graphing utility that could zoom in on the point of intersection of two graphs.
-      In chapter 6 we will introduce another tool,
-      the Newton<ndash/>Raphson method, for finding roots.
-      These are both powerful methods,
-      because they will work with nearly all algebraic equations.
-      It is important to recognize that these numerical methods really do solve the problem,
-      even though they do not give solutions in closed form the way the quadratic formula does.
-      The situation is entirely analogous in dealing with differential equations.
-      The methods we use to solve a differential equation depend on the equation we face.
-      A course in differential equations provides methods for finding formulas that solve many different kinds of differential equations.
-      The methods are like the quadratic formula in algebra,
-      though<mdash/>they give a complete solution,
-      but they work only with differential equations that have a very specific form.
-      This course will not attempt to survey the methods that find such formulas,
-      although in the next sections we will see effective methods for dealing with some special subcases.
-      It is important to realize, though,
-      that Euler's method is always there if we can't think of anything cleverer,
-      and it really does provide solutions.
-    </p>
-    <aside>
       <p>
-        Most initial value problem have one, and only one, solution.
-        Euler's method will find it.
+        If a differential equation arises in modelling a physical or biological process,
+        the variables involved must also satisfy an initial condition.
+        Suppose we add an initial condition to our differential equation:
+        <me>
+          \dfrac{dy}{dt} = \dfrac{1}{2y} \qquad \mbox{and} \qquad y(0) = 5
+        </me>.
       </p>
-    </aside>
-    <p>
-      In fact, most initial value problems have one,
-      <em>and only one</em>, solution,
-      and Euler's method can be used to determine this unique solution.
-      If we can also find a formula for the solution,
-      then it must be the same solution as that produced by Euler's method.
-      In more advanced courses you will see a proof that this is true in general,
-      provided some mild conditions are satisfied.
-      To emphasize the importance of this idea, we give it a name:
-    </p>
-    <image source=""/>
-    <p>
-      The existence and uniqueness principle <idx><h>existence and uniqueness principle</h></idx> is one of the most important mathematical results in the theory of differential equations.
-      We will continue to rely primarily on Euler's method,
-      which generates solutions for nearly all differential equations.
-      However, there are clear benefits to having a formula for the solution to a differential equation,
-      allowing us to investigate questions that we can't answer very well if we only have solutions given by Euler's method.
-      In this section, we will look at some of those benefits.
-    </p>
+      <p>
+        Does <em>this</em> problem have a solution<mdash/>that is,
+        can we find a function <m>y(t)</m> that is a solution to the differential equation and also satisfies the condition <m>y(0) = 5</m>?
+      </p>
+      <p>
+        Notice <m>y = \sqrt{t}</m> is not a solution to this new problem.
+        Although it satisfies the differential equation,
+        it fails to satisfy the initial condition:
+        <me>
+          y(0) = \sqrt{0} = 0 \neq 5
+        </me>.
+      </p>
+      <p>
+        Perhaps one of the other solutions to the differential equation will work.
+        When we evaluate the solution
+        <m>y = \sqrt{t + C}</m> at <m>t = 0</m> we get
+        <me>
+          y(0) = \sqrt{0 + C} = \sqrt{C}
+        </me>.
+      </p>
+      <p>
+        We want this to equal 5, and it will if <m>C = 25</m>. [[NOTE:An initial value problem has only one solution]] Thus,
+        <m>y = \sqrt{t + 25}</m> is a solution to the initial value problem.
+        Furthermore,
+        the only value of <m>C</m> which will make <m>y(0) = 5</m> is <m>C = 25</m>,
+        so the initial value problem has only one solution of the form <m>\sqrt{t + C}</m>.
+        Here is the graph of this solution:
+      </p>
+      <image source=""/>
+      <p>
+        As always, you can use Euler's method to find the function determined by an initial value problem,
+        and you can graph that function using the program SIRPLOT, for example.
+        How will <em>that</em> graph compare with this one?
+        In the exercises you can explore this question.
+      </p>
+    </introduction>
+    <subsubsection>
+      <title>Checking solutions versus finding solutions</title>
+      <p>
+        Notice that we have only <em>checked</em>
+        whether a given function solves an initial value problem;
+        we have not <em>constructed</em>
+        a formula to solve the problem.
+        By this point you are probably wondering where the given solutions came from.
+      </p>
+      <p>
+        It is helpful to continue exploring the parallels with solutions of algebraic equations.
+        In the case of the equation <m>x^2 = x + 6</m>, there are,
+        of course, methods to find solutions.
+        One possibility is to rewrite
+        <m>x^2 = x + 6</m> in the form <m>x^2 - x - 6 = 0</m>.
+        By factoring <m>x^2 - x - 6</m> as
+        <me>
+          x^2 - x - 6 = (x - 3)(x + 2)
+        </me>
+        we can see that either <m>x - 3 = 0</m>
+        (so <m>x = 3</m>),
+        or <m>x + 2 = 0</m>
+        (so <m>x = -2</m>).
+        Another method is to use the <term>quadratic formula</term>
+            <idx><h>quadratic formula</h></idx>
+        <me>
+          x = \dfrac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+        </me>
+        for the roots of the quadratic function <m>ax^2 + bx + c</m>.
+        In our case, the quadratic formula yields
+        <me>
+          x = \dfrac{-(-1) \pm \sqrt{1 - 4 \cdot 1 \cdot (-6)}} {2 \cdot 1} = \dfrac{1 \pm \sqrt{1 + 24}}{2} = \dfrac{1 \pm 5}{2}
+        </me>,
+        so again we find that <m>x</m> must be either 3 or <m>-2</m>.
+      </p>
+      <p>
+        Thus we have at least two different methods [[NOTE:There are special methods to solve particular equations,
+        but other methods work generally]] for finding solutions to this particular equation.
+        The methods we use to solve an algebraic equation depend very much on the equation we face.
+        For example, there is no way to find a solution to
+        <m>\sin{x} = 2^x</m> by factoring, or by using a
+        <q>magic formula</q>
+        like the quadratic formula.
+        Nevertheless, there are methods that <em>do</em> work.
+        In chapters 1 and 2 we dealt with similar problems by using a computer graphing utility that could zoom in on the point of intersection of two graphs.
+        In chapter 6 we will introduce another tool,
+        the Newton<ndash/>Raphson method, for finding roots.
+        These are both powerful methods,
+        because they will work with nearly all algebraic equations.
+        It is important to recognize that these numerical methods really do solve the problem,
+        even though they do not give solutions in closed form the way the quadratic formula does.
+      </p>
+      <p>
+        The situation is entirely analogous in dealing with differential equations.
+        The methods we use to solve a differential equation depend on the equation we face.
+        A course in differential equations provides methods for finding formulas that solve many different kinds of differential equations.
+        The methods are like the quadratic formula in algebra,
+        though<mdash/>they give a complete solution,
+        but they work only with differential equations that have a very specific form.
+        This course will not attempt to survey the methods that find such formulas,
+        although in the next sections we will see effective methods for dealing with some special subcases.
+      </p>
+      <p>
+        It is important to realize, though,
+        that Euler's method is always there if we can't think of anything cleverer,
+        and it really does provide solutions. [[NOTE:Most initial value problem have one,
+        and only one,
+        solution.
+        Euler's method will find it.]] In fact,
+        most initial value problems have one,
+        <em>and only one</em>, solution,
+        and Euler's method can be used to determine this unique solution.
+        If we can also find a formula for the solution,
+        then it must be the same solution as that produced by Euler's method.
+        In more advanced courses you will see a proof that this is true in general,
+        provided some mild conditions are satisfied.
+        To emphasize the importance of this idea, we give it a name:
+      </p>
+      <observation>
+      <p>
+        <term>Existence and Uniqueness Principle<idx><h>existence and uniqueness principle</h></idx>
+        </term>
+      </p>
+      <p>
+        Under most conditions, an initial value problem
+      </p>
+      <p>
+        has one and only one solution.
+      </p>
+      </observation>
+      <p>
+        The existence and uniqueness principle <idx><h>existence and uniqueness principle</h></idx> is one of the most important mathematical results in the theory of differential equations.
+      </p>
+      <p>
+        We will continue to rely primarily on Euler's method,
+        which generates solutions for nearly all differential equations.
+      </p>
+      <p>
+        However, there are clear benefits to having a formula for the solution to a differential equation,
+        allowing us to investigate questions that we can't answer very well if we only have solutions given by Euler's method.
+        In this section, we will look at some of those benefits.
+      </p>
+    </subsubsection>
   </subsection>
-  <subsection xml:id="sec_solutions-of-differential-equations_subsec_world-population-growth">
+  <subsection xml:id="subsec_world-population-growth">
     <title>World Population Growth</title>
-    <subsubsection xml:id="sec_solutions-of-differential-equations_subsubsec_two-models">
+    <subsubsection xml:id="subsubsec_two-models">
       <title>Two models</title>
       <p>
         In the exercises in the last section,
@@ -322,15 +304,7 @@
         In both cases,
         the population is expressed in billions of persons and time is measured in years,
         with <m>t=0</m> in 1990.
-        In this notation,
-      </p>
-      <aside>
-        <p>
-          Models for world population growth
-        </p>
-      </aside>
-      <p>
-        the two models are
+        In this notation, [[NOTE:Models for world population growth]] the two models are
         <me>
           \begin{array}{rll} \mbox{constant per capita:}   \qquad \amp \dfrac{dP}{dt} =.02\,P \amp  P(0) = 5; \\ \mbox{supergrowth:}  \amp \dfrac{dQ}{dt} = 0.015\,Q^{1.2} \amp  Q(0) = 5. \end{array}
         </me>
@@ -338,6 +312,8 @@
       <p>
             <idx><h>growth</h><h>constant per capita</h></idx>
             <idx><h>supergrowth</h></idx>
+      </p>
+      <p>
         By using Euler's method,
         we discover that the two models predict fairly similar results over sixty years,
         although the supergrowth model lives up to its name by predicting larger populations than the constant per capita growth model as time passes:
@@ -348,6 +324,8 @@
       <p>
         These estimates are accurate to one decimal place,
         and that level of accuracy was obtained with the step size <m>\Delta t=.1</m>.
+      </p>
+      <p>
         However, the predictions made by the models differ widely over longer time spans.
         If we use Euler's method to estimate the populations after 240 years, we get
         <me>
@@ -360,60 +338,41 @@
         already three digits have stabilized.
         But in the estimates of the supergrowth model,
         not even one digit of <m>Q(240)</m> has stabilized.
+      </p>
+      <p>
         In this section we will see that there are actually <em>formulas</em>
         for the functions <m>P(t)</m> and <m>Q(t)</m>.
         These formulas will illuminate the reason behind the differences in speed of stabilization in the estimates.
       </p>
     </subsubsection>
-    <subsubsection xml:id="sec_solutions-of-differential-equations_subsubsec_a-formula-for-the-supergrowth-model">
+    <subsubsection xml:id="subsubsec_a-formula-for-the-supergrowth-model">
       <title>A formula for the supergrowth model</title>
       <p>
             <idx><h>formula</h></idx>
-        Without asking how the following formula might have been derived, let's check that it is indeed a solution to the supergrowth initial value problem.
+      </p>
+      <p>
+        Without asking how the following formula might have been derived,
+        let's check that it is indeed a solution to the supergrowth initial value problem.
         <me>
           Q(t) = \left( \frac{1}{\sqrt[5]{5}} - 0.003\,t \right)^{-5}
         </me>
       </p>
       <p>
-        First of all,
-      </p>
-      <aside>
-        <p>
-          Checking the initial condition
-        </p>
-      </aside>
-      <p>
-        the formula satisfies the initial condition <m>Q(0)=5</m>:
+        First of all, [[NOTE:Checking the initial condition]] the formula satisfies the initial condition <m>Q(0)=5</m>:
             <idx><h>initial condition</h></idx>
         <me>
           Q(0) = \left( \frac{1}{\sqrt[5]{5}} \right)^{-5} = (\sqrt[5]{5})^5 =5
         </me>.
       </p>
       <p>
-        To check that it
-      </p>
-      <aside>
-        <p>
-          Checking the differential equation
-        </p>
-      </aside>
-      <p>
-        also satisfies the differential equation,
+        To check that it [[NOTE:Checking the differential equation]] also satisfies the differential equation,
         we must evaluate the two sides of the differential equation
         <me>
           \dfrac{dQ}{dt} = 0.015\,Q^{1.2}
         </me>.
       </p>
       <p>
-        Let's begin by evaluating the left-hand side.
-      </p>
-      <aside>
-        <p>
-          Left-hand side
-        </p>
-      </aside>
-      <p>
-        To differentiate <m>Q(t)</m>,
+        Let's begin by evaluating the left-hand side. [[NOTE:Left-hand side]] To differentiate <m>Q(t)</m>,
         we will write <m>Q</m> as a <em>chain</em> of functions:
         <me>
           Q=u^{-5} \qquad \mbox{where}  \qquad u = \frac{1}{\sqrt[5]{5}}-0.003 \,t
@@ -435,14 +394,9 @@
         <q>finish the job</q>
         by substituting for <m>u</m> its formula in terms of <m>t</m>.
         However, in this case it is clearer to just leave the left-hand side in this form.
-        To evaluate the right-hand side of the differential equation
       </p>
-      <aside>
-        <p>
-          Right-hand side
-        </p>
-      </aside>
       <p>
+        To evaluate the right-hand side of the differential equation [[NOTE:Right-hand side]]
         (which is the expression <m>.015\,Q^{1.2}</m>),
         we would expect to substitute for <m>Q</m> its formula in terms of <m>t</m>.
         But since in evaluating the left-hand side,
@@ -461,21 +415,19 @@
           \dfrac{dQ}{dt} = 0.015\,Q^{1.2}
         </me>.
       </p>
-      <aside>
-        <p>
-          Notice two things about this result.
-          First, when we work with formulas we have greater need for algebra to manipulate them.
-          For example, we needed one of the laws of exponents,
-          <m>(a^b)^c = a^{bc}</m>, to evaluate the right-hand side.
-          Second, we found it simpler to express <m>Q</m> in terms of the intermediate variable <m>u</m>,
-          instead of the original input variable <m>t</m>.
-          In another computation,
-          it might be preferable to replace <m>u</m> by its formula in terms of <m>t</m>.
-          You need to choose your algebraic strategy to fit the circumstances.
-        </p>
-      </aside>
+      <p>
+        [[NOTE:Notice two things about this result.
+        First, when we work with formulas we have greater need for algebra to manipulate them.
+        For example, we needed one of the laws of exponents,
+        <m>(a^b)^c = a^{bc}</m>, to evaluate the right-hand side.
+        Second, we found it simpler to express <m>Q</m> in terms of the intermediate variable <m>u</m>,
+        instead of the original input variable <m>t</m>.
+        In another computation,
+        it might be preferable to replace <m>u</m> by its formula in terms of <m>t</m>.
+        You need to choose your algebraic strategy to fit the circumstances.]]
+      </p>
     </subsubsection>
-    <subsubsection xml:id="sec_solutions-of-differential-equations_subsubsec_behavior-of-the-supergrowth-solution">
+    <subsubsection xml:id="subsubsec_behavior-of-the-supergrowth-solution">
       <title>Behavior of the supergrowth solution</title>
       <p>
         It was convenient to use a negative exponent in the formula for <m>Q(t)</m> when we wanted to differentiate <m>Q</m>.
@@ -496,20 +448,14 @@
       </p>
       <p>
         Consider what happens, though,
-        as <m>t</m> approaches this special value 241.6<ellipsis/> . The
-      </p>
-      <aside>
-        <p>
-          <m>Q</m>
-          <q>blows up</q>
-          as <m>t \to 241.6\ldots</m>
-        </p>
-      </aside>
-      <p>
-        denominator isn't <em>yet</em> zero,
+        as <m>t</m> approaches this special value 241.6<ellipsis/> . The [[NOTE<m>:Q</m>
+        <q>blows up</q>
+        as <m>t \to 241.6\ldots</m>]] denominator isn't <em>yet</em> zero,
         but it is <em>approaching</em> zero,
         so the fraction <m>Q</m> is becoming infinite.
         This means that the supergrowth model predicts the world population will become infinite in about 240 years!
+      </p>
+      <p>
         Let's see what the predicted population size is when <m>t = 240</m>
         (which is the year 2230 <sc>a.d.</sc>),
         shortly before <m>Q</m> becomes infinite.
@@ -535,43 +481,49 @@
       </p>
       <p>
         Let's look at the relationship between the Euler approximations of <m>Q</m> and the formula for <m>Q</m> graphically.
-        Here are graphs produced by a modification of the program SEQUENCE. <image width="73%" source="images/pic204a.png"/> The range of values of <m>Q</m> for
+        Here are graphs produced by a modification of the program SEQUENCE.
+      </p>
+      <p>
+        <image width="73%" source="images/pic204a.png"/>
+      </p>
+      <p>
+        The range of values of <m>Q</m> for
         <m>0 \leq t \leq 240</m> is so immense that these graphs are useless.
         In a case like this,
         it is helpful to rescale the vertical axis so that the space between one power of 10 and the next is the same.
         In other words,
         instead of seeing 1, 2, 3, <ellipsis/> , we see <m>10^1</m>,
-        <m>10^2</m>,
-        <m>10^3</m>,
-        <ellipsis/> . This is called a
+        <m>10^2</m>, <m>10^3</m>, <ellipsis/> . This is called a
+      </p>
+      <p>
         <term>logarithmic</term> scale.
             <idx><h>logarithmic scale</h></idx>
         Here's what happens to the graphs if we put a logarithmic scale on the vertical axis:
-        <image width="73%" source="images/pic204b.png"/> Euler approximations and the formula for <m>Q</m> The second graph makes it clearer that the Euler approximations do indeed approach the graph of the function given by our formula,
+      </p>
+      <p>
+        <image width="73%" source="images/pic204b.png"/>
+      </p>
+      <p>
+        Euler approximations and the formula for <m>Q</m>
+      </p>
+      <p>
+        The second graph makes it clearer that the Euler approximations do indeed approach the graph of the function given by our formula,
         but they approach more and more slowly,
         the closer <m>t</m> approaches 241.6<ellipsis/> .
       </p>
-      <aside>
-        <p>
-          Graphs are made with logarithmic scales particularly when the numbers being plotted cover a wide range of values.
-          When just one axis is logarithmic,
-          the result is called a <em>semi-log</em> plot;
-          when both axes are logarithmic,
-          the result is called a <em>log<ndash/>log</em> plot.
-        </p>
-      </aside>
       <p>
+        [[NOTE:Graphs are made with logarithmic scales particularly when the numbers being plotted cover a wide range of values.
+        When just one axis is logarithmic,
+        the result is called a <em>semi-log</em> plot;
+        when both axes are logarithmic,
+        the result is called a <em>log<ndash/>log</em> plot.]]
             <idx><h>log<ndash/>log plot</h></idx>
             <idx><h>semi-log plot</h></idx>
-        Since <m>Q(t)</m> becomes infinite when <m>t = 241.6\ldots</m> , we must conclude that the solution to the original initial value problem
       </p>
-      <aside>
-        <p>
-          The initial value problem has a solution only for <m>t \lt 241.6\ldots</m>
-        </p>
-      </aside>
       <p>
-        is meaningful only for <m>t \lt  241.6\ldots</m> . Of course,
+        Since <m>Q(t)</m> becomes infinite when
+        <m>t = 241.6\ldots</m> , we must conclude that the solution to the original initial value problem [[NOTE:The initial value problem has a solution only for
+        <m>t \lt  241.6\ldots</m>]] is meaningful only for <m>t \lt  241.6\ldots</m> . Of course,
         the formula for <m>Q</m> works quite well when
         <m>t > 241.6\ldots</m> . It just has no meaning as the size of a population.
         For instance, when <m>t = 260</m> we get
@@ -582,21 +534,16 @@
       <p>
         In other words,
         the function determined by the initial value problem is defined only on intervals around <m>t=0</m> that do not contain <m>t = 241.6\ldots</m><nbsp/>.
+      </p>
+      <p>
         The formula for <m>Q'(t)</m> is informative too:
         <me>
           Q'(t) = 0.015 \left( \frac{1}{1/\sqrt[5]{5}-0.003t} \right)^6
         </me>
       </p>
       <p>
-        Since <m>Q'</m> has the same denominator as <m>Q</m>,
-      </p>
-      <aside>
-        <p>
-          <m>Q'</m> blows up as <m>t \to 241.6\ldots</m>
-        </p>
-      </aside>
-      <p>
-        it becomes infinite the same way <m>Q</m> does:
+        Since <m>Q'</m> has the same denominator as <m>Q</m>, [[NOTE<m>:Q'</m> blows up as
+        <m>t \to 241.6\ldots</m>]] it becomes infinite the same way <m>Q</m> does:
         <m>Q'(t) \to \infty</m> as
         <m>t \to 241.6\ldots</m> . Because Euler's method uses the microscope equation
         <m>\Delta Q \approx Q' \cdot \Delta t</m> to predict the next value of <m>Q</m>,
@@ -604,7 +551,7 @@
         as <m>Q' \to \infty</m>, <m>\Delta Q \to \infty</m>, too.
       </p>
     </subsubsection>
-    <subsubsection xml:id="sec_solutions-of-differential-equations_subsubsec_a-formula-for-constant-per-capita-growth">
+    <subsubsection xml:id="subsubsec_a-formula-for-constant-per-capita-growth">
       <title>A formula for constant per capita growth</title>
       <p>
         The constant per capita growth model for the world population that we are considering is
@@ -629,15 +576,8 @@
         so <m>P(t) = 2^t</m> is not a solution to our problem.
       </p>
       <p>
-        However, the multiplier that appears
-      </p>
-      <aside>
-        <p>
-          Exponential functions satisfy <m>dy/dt = ky</m>
-        </p>
-      </aside>
-      <p>
-        when we differentiate an exponential function changes when we change the base.
+        However, the multiplier that appears [[NOTE:Exponential functions satisfy
+        <m>dy/dt = ky</m>]] when we differentiate an exponential function changes when we change the base.
         That is, if <m>P(t) = b^t</m>,
         then <m>P'(t) = k_b \cdot b^t</m>,
         where <m>k_b</m> depends on <m>b</m>.
@@ -650,6 +590,8 @@
         Notice that <m>k_b</m> gets larger as <m>b</m> does.
         Since 0.02 lies between <m>-0.693147</m> and <m>+.693147</m>,
         the table suggests that the value of <m>b</m> we want lies somewhere between 0.5 and 2.
+      </p>
+      <p>
         We can say even more about the multiplier.
         Since <m>P'(t) = k_b \cdot P(t)</m> and <m>P(t) = b^t</m>, we find
         <me>
@@ -659,16 +601,11 @@
       <p>
         In other words,
         <em><m>k_b</m> is the slope of the graph of <m>P(t) = b^t</m> at the origin</em>.
-        Thus, we will be able to solve the differential equation
-        <m>dP/dt = 0.02\,P</m> if we can find an exponential function <m>P(t) = b^t</m>
       </p>
-      <aside>
-        <p>
-          The correct exponential function has slope 0.02 at the origin
-        </p>
-      </aside>
       <p>
-        whose graph has slope 0.02 at the origin.
+        Thus, we will be able to solve the differential equation
+        <m>dP/dt = 0.02\,P</m> if we can find an exponential function
+        <m>P(t) = b^t</m> [[NOTE:The correct exponential function has slope 0.02 at the origin]] whose graph has slope 0.02 at the origin.
         This is a problem that we can solve with a computer microscope.
         Pick a value of <m>b</m> and graph <m>b^t</m>.
         Zoom in on the graph at the origin and measure the slope.
@@ -685,6 +622,8 @@
       </p>
       <p>
         You should check that <m>P'(0) = 0.02000\ldots</m> ; see the exercises.
+      </p>
+      <p>
         Thus <m>P(t) = (1.0202)^t</m> solves the differential equation <m>P' = .02\,P</m>.
         However, it does not satisfy the initial condition, because
         <me>
@@ -709,16 +648,11 @@
         </me>.
       </p>
       <p>
-        So we have verified that the solution to our problem is
+        So we have verified that the solution to our problem is [[NOTE:The formula for <m>P</m>]]
+        <me>
+          P(t) = 5 \, (1.0202)^t
+        </me>.
       </p>
-      <aside>
-        <p>
-          The formula for <m>P</m>
-        </p>
-      </aside>
-      <me>
-        P(t) = 5 \, (1.0202)^t
-      </me>.
       <p>
         Because exponential functions are involved,
         constant per capita growth is commonly called
@@ -731,22 +665,19 @@
         Notice that population is plotted on a logarithmic scale (a
         <em>semi<ndash/>log</em> plot).
         This makes the graph of <m>P</m> a straight line!
-        <image width="73%" source="images/pic207.png"/> The graphs of <m>P(t)</m> and <m>Q(t)</m>
+      </p>
+      <p>
+        <image width="73%" source="images/pic207.png"/>
+      </p>
+      <p>
+        The graphs of <m>P(t)</m> and <m>Q(t)</m>
       </p>
     </subsubsection>
   </subsection>
-  <subsection xml:id="sec_solutions-of-differential-equations_subsec_differential-equations-involving-parameters">
+  <subsection xml:id="subsec_differential-equations-involving-parameters">
     <title>Differential Equations Involving Parameters</title>
     <p>
-      The <m>S</m>-<m>I</m>-<m>R</m> model contained two parameters<mdash/>the transmission
-    </p>
-    <aside>
-      <p>
-        How do parameters affect solutions?
-      </p>
-    </aside>
-    <p>
-      and recovery coefficients <m>a</m> and <m>b</m>.
+      The <m>S</m>-<m>I</m>-<m>R</m> model contained two parameters<mdash/>the transmission [[NOTE:How do parameters affect solutions?]] and recovery coefficients <m>a</m> and <m>b</m>.
           <idx><h>parameter</h></idx>
       When we used Euler's method to analyze <m>S</m>,
       <m>I</m>, and <m>R</m>, we were working numerically.
@@ -760,6 +691,8 @@
       we used algebra to see that there was a threshold for the spread of the disease:
       if there were fewer than <m>b/a</m> people in the susceptible population,
       the infection would fade away.
+    </p>
+    <p>
       This is the situation generally.
       Euler's method can be used to produce solutions to a very broad range of initial value problems.
       However, if the model includes parameters,
@@ -767,22 +700,19 @@
       Euler's method is a rather clumsy tool for investigating this question.
       Other methods<mdash/>ones that don't require the values of the parameters to be fixed<mdash/>work better.
       One possibility is to start with a formula.
+    </p>
+    <p>
       The supergrowth problem illustrates
           <idx><h>supergrowth</h></idx>
-    </p>
-    <aside>
-      <p>
-        Supergrowth parameters
-      </p>
-    </aside>
-    <p>
-      both how questions about parameters can arise and how useful a formula for the solution can be to answer the questions.
+      [[NOTE:Supergrowth parameters]] both how questions about parameters can arise and how useful a formula for the solution can be to answer the questions.
       One of the most striking features of the supergrowth model is that it predicts the population becomes infinite in 241.6<ellipsis/> years.
       That prediction was based on an initial population of 5 billion and a growth constant of .015.
       Suppose those values turn out to be incorrect,
       and we need to start with different values.
       Will that change the prediction?
       If so, how?
+    </p>
+    <p>
       We should treat the initial population and the growth constant as parameters<mdash/>that is,
       as quantities that <em>can</em> vary,
       although they will have fixed values in any specific situation that we consider.
@@ -795,15 +725,7 @@
       </me>
     </p>
     <p>
-      Here is the formula for a function that solves this
-    </p>
-    <aside>
-      <p>
-        The supergrowth solution with parameters
-      </p>
-    </aside>
-    <p>
-      problem:
+      Here is the formula for a function that solves this [[NOTE:The supergrowth solution with parameters]] problem:
       <me>
         Q(t) =\left( \frac{1}{\sqrt[5]{A}} -0.2kt \right)^{-5}
       </me>
@@ -811,15 +733,9 @@
     <p>
       Notice that, when <m>A = 5</m> and <m>k = 0.015</m>,
       this formula reduces to the one we considered earlier.
-      Let's check
     </p>
-    <aside>
-      <p>
-        Checking the formula
-      </p>
-    </aside>
     <p>
-      that the formula does indeed solve the initial value problem.
+      Let's check [[NOTE:Checking the formula]] that the formula does indeed solve the initial value problem.
       First, the initial condition:
       <me>
         Q(0)=\left( \frac{1}{\sqrt[5]{A}} -0.2k \cdot 0 \right)^{-5} = \left(\frac{1}{\sqrt[5]{A}}\right)^{-5} = (\sqrt[5]{A})^5 = A
@@ -853,17 +769,11 @@
     <p>
       Since both sides equal <m>k\,u^{-6}</m>, they equal each other,
       proving that <m>Q(t)</m> is a solution to the differential equation.
+    </p>
+    <p>
       Next, we ask when the population becomes infinite.
       Exactly as before,
-      this will happen when the denominator of the formula for <m>Q(t)</m> becomes
-    </p>
-    <aside>
-      <p>
-        The time to infinity
-      </p>
-    </aside>
-    <p>
-      zero:
+      this will happen when the denominator of the formula for <m>Q(t)</m> becomes [[NOTE:The time to infinity]] zero:
       <me>
         \dfrac{1}{\sqrt[5]{A}} - 0.2\,kt = 0, \qquad \mbox{or} \qquad t = \dfrac{1}{.2\,k\sqrt[5]{A}}
       </me>.
@@ -871,6 +781,8 @@
     <p>
       Here, in fact, is a <em>formula</em>
       that tells us how each of the parameters <m>A</m> and <m>k</m> affects the time it takes for the population to become infinite.
+    </p>
+    <p>
       Let's use <m>\tau</m>
       (the Greek letter
       <q>tau</q>
@@ -895,15 +807,7 @@
     </p>
     <p>
       Conclusion: doubling the growth rate has a much greater impact than doubling the initial population.
-      For any specific growth rate and initial population,
-    </p>
-    <aside>
-      <p>
-        Uncertainty in the size of <m>\tau</m>
-      </p>
-    </aside>
-    <p>
-      we can always calculate the time to infinity.
+      For any specific growth rate and initial population, [[NOTE:Uncertainty in the size of <m>\tau</m>]] we can always calculate the time to infinity.
       But we can actually do more;
       the formula for <m>\tau</m> allows us to do an <em>error analysis</em>
           <idx><h>error analysis</h></idx>
@@ -916,15 +820,9 @@
       how uncertain does <em>that</em> make <m>\tau</m>?
       Also, how are the <em>relative</em> errors related?
       Let's do this analysis, assuming that <m>k = 0.015</m> and <m>A = 5</m>.
-      Our tool is the error propagation equation<mdash/>which is
     </p>
-    <aside>
-      <p>
-        How an error in <m>k</m> propagates
-      </p>
-    </aside>
     <p>
-      the microscope equation.
+      Our tool is the error propagation equation<mdash/>which is [[NOTE:How an error in <m>k</m> propagates]] the microscope equation.
           <idx><h>error propagation</h></idx>
       If we deal with <m>k</m> first, then
       <me>
@@ -948,15 +846,9 @@
       For example, if the uncertainty in the value of
       <m>k = 0.015</m> is <m>\Delta k = \pm 0.001</m>,
       then the uncertainty in <m>\tau</m> is about <m>\mp 16</m> years.
-      To determine how an error in <m>A</m> propagates to <m>\tau</m>,
     </p>
-    <aside>
-      <p>
-        How an error in <m>A</m> propagates
-      </p>
-    </aside>
     <p>
-      we first write
+      To determine how an error in <m>A</m> propagates to <m>\tau</m>, [[NOTE:How an error in <m>A</m> propagates]] we first write
       <me>
         \tau = \dfrac{1}{.2\,k} A^{-1/5}
       </me>.
@@ -972,15 +864,9 @@
       If the uncertainty in the world population is about 100 million persons,
       so <m>\Delta A = \pm 0.1</m>,
       then the uncertainty in <m>\tau</m> is less than 1 year.
-      To complete the analysis,
     </p>
-    <aside>
-      <p>
-        Relative errors
-      </p>
-    </aside>
     <p>
-      let's compare relative errors.
+      To complete the analysis, [[NOTE:Relative errors]] let's compare relative errors.
       This involves a lot of algebra.
       To see how an error in <m>k</m> propagates, we have
       <me>
@@ -996,6 +882,8 @@
     <p>
       Thus, a 1% error in <m>k</m> leads to a 1% error in <m>\tau</m>,
       although the sign is reversed.
+    </p>
+    <p>
       To analyze how a given relative error in <m>A</m> propagates,
       we start with
       <me>
@@ -1009,30 +897,14 @@
       </me>.
     </p>
     <p>
-      This says that it takes a 5% error in <m>A</m>
-    </p>
-    <aside>
-      <p>
-        How sensitive <m>\tau</m> is to errors in <m>k</m> and <m>A</m>
-      </p>
-    </aside>
-    <p>
-      to produce a 1% error in <m>\tau</m>.
+      This says that it takes a 5% error in <m>A</m> [[NOTE:How sensitive <m>\tau</m> is to errors in <m>k</m> and <m>A</m>]] to produce a 1% error in <m>\tau</m>.
       Consequently, the time to infinity
       <em><m>\tau</m> is 5 times more sensitive to errors in <m>k</m> than to errors in <m>A</m></em>.
       The exercises in this section will give you an opportunity to check that a particular formula is a solution to an initial value problem that arises in a variety of contexts.
       Later in this chapter,
       we will make a modest beginning on the much harder task of <em>finding</em>
-      solutions given by formulas for special initial value problems.
-    </p>
-    <aside>
-      <p>
-        Special methods give formulas;
-        general methods are numerical
-      </p>
-    </aside>
-    <p>
-      There are more sophisticated methods for finding formulas,
+      solutions given by formulas for special initial value problems. [[NOTE:Special methods give formulas;
+      general methods are numerical]] There are more sophisticated methods for finding formulas,
       when the formulas exist,
       and they provide powerful tools for some important problems,
       especially in physics.
@@ -1050,7 +922,7 @@
       not the mathematicians.
     </p>
   </subsection>
-  <subsection xml:id="sec_solutions-of-differential-equations_subsec_exercises">
+  <subsection xml:id="subsec_exercises">
     <title>Exercises</title>
     <introduction>
       <p>
@@ -1219,7 +1091,7 @@
         </li>
       </ol>
     </introduction>
-    <subsubsection xml:id="sec_solutions-of-differential-equations_subsubsec_world-population-growth-with-parameters">
+    <subsubsection xml:id="subsubsec_world-population-growth-with-parameters">
       <title>World population growth with parameters</title>
       <p>
             <idx><h>population</h><h>world</h></idx>
@@ -1246,7 +1118,7 @@
             </li>
           </ol>
         </li>
-        <li xml:id="sec_solutions-of-differential-equations_ex_base_2">
+        <li xml:id="ex_base_2">
           <p>
             Show that the function <m>y = 2^{t/.69}</m> satisfies the differential equation <m>dy/dt = y</m>.
             Use the chain rule: <m>y = 2^u</m>, <m>u = t/.69</m>.
@@ -1317,11 +1189,14 @@
         </li>
       </ol>
     </subsubsection>
-    <subsubsection xml:id="sec_solutions-of-differential-equations_subsubsec_newtons-law-of-cooling">
+    <subsubsection xml:id="subsubsec_newtons-law-of-cooling">
       <title>Newton's law of cooling</title>
       <p>
             <idx><h>Newton's law of cooling</h></idx>
-        There are formulas that describe how a body cools, or heats up, to match the temperature of its surroundings.
+      </p>
+      <p>
+        There are formulas that describe how a body cools,
+        or heats up, to match the temperature of its surroundings.
         See the exercises on Newton's law of cooling in section<nbsp/>1.
         Consider first the model
         <me>
@@ -1353,14 +1228,14 @@
               <p>
                 Use the formula in part (a) to find the temperature of the coffee after 20 minutes.
                 Compare this result with the value you found in exercise<nbsp/>12<nbsp/>(b),
-                <xref ref="sec_modelling-with-differential-equations_ex_coffee1"></xref>.
+                <xref ref="ex_coffee1"></xref>.
               </p>
             </li>
             <li>
               <p>
                 Use the formula in part (a) to determine how many minutes it takes for the coffee to cool to 30<m>^{\circ}</m>C. In doing the calculations you will find it helpful to know that <m>1/7 = 2^{-2.8}</m>.
                 Compare this result with the value you found in exercise<nbsp/>11<nbsp/>(c),
-                <xref ref="sec_modelling-with-differential-equations_ex_coffee2"></xref>.
+                <xref ref="ex_coffee2"></xref>.
               </p>
             </li>
           </ol>
@@ -1378,7 +1253,7 @@
                 <p>
                   Use the formula to find the temperature of the drink after 5 minutes and after 10 minutes.
                   Compare your results with the values you found in exercise<nbsp/>12,
-                  <xref ref="sec_modelling-with-differential-equations_ex_cold_drink"></xref>.
+                  <xref ref="ex_cold_drink"></xref>.
                 </p>
               </li>
             </ol>
@@ -1394,7 +1269,7 @@
         </li>
       </ol>
     </subsubsection>
-    <subsubsection xml:id="sec_solutions-of-differential-equations_subsubsec_a-leaking-tank">
+    <subsubsection xml:id="subsubsec_a-leaking-tank">
       <title>A leaking tank</title>
       <p>
             <idx><h>leaking tank</h></idx>
@@ -1456,7 +1331,7 @@
                   Compare this result with your answer using Euler's method.
                 </p>
               </li>
-              <li xml:id="sec_solutions-of-differential-equations_leaking_tank-end">
+              <li xml:id="leaking_tank-end">
                 <p>
                   Sketch the graph of <m>V(t)</m> for <m>0 \leq t \leq 2C</m>,
                   taking particular care to display the value <m>V(0)</m> in terms of <m>k</m> and <m>C</m>.
@@ -1467,16 +1342,20 @@
         </li>
       </ol>
     </subsubsection>
-    <subsubsection xml:id="sec_solutions-of-differential-equations_subsubsec_motion">
+    <subsubsection xml:id="subsubsec_motion">
       <title>Motion</title>
       <p>
             <idx><h>motion</h></idx>
+      </p>
+      <p>
         Newton created the calculus to study the motion of the planets.
         He said that all motion obeys certain basic laws.
         One law says that the velocity of an object changes only if a force acts on the body.
         Furthermore,
         the <em>rate</em> at which the velocity changes is proportional to the force.
         By knowing the forces that act on a body we can construct<mdash/>and then solve<mdash/>a differential equation for the velocity.
+      </p>
+      <p>
         <term>Falling bodies<mdash/>with gravity</term>.
             <idx><h>falling object</h></idx>
         A body falling through the air starts up slowly but picks up speed as it falls.
@@ -1486,6 +1365,8 @@
             <idx><h>gravity</h></idx>
         At the surface of the earth,
         the rate of change of velocity caused by gravity is essentially the same for all objects.
+      </p>
+      <p>
         Suppose an object is <m>x</m> meters above the surface of the earth after <m>t</m> seconds have passed.
         Then, by definition, its velocity is
         <me>
@@ -1508,7 +1389,7 @@
         and <m>g</m> is called the <term>acceleration due to gravity</term>.)<idx><h>acceleration</h><h>due to gravity</h></idx>
       </p>
       <ol>
-        <li xml:id="sec_solutions-of-differential-equations_falling_body0">
+        <li xml:id="falling_body0">
           <p>
             Verify that <m>v(t) = -g\,t + v_0</m> is a solution to the differential equation
             <m>dv/dt = -g</m> with initial velocity <m>v_0</m>.
@@ -1549,7 +1430,7 @@
                 In 2 seconds?
               </p>
             </li>
-            <li xml:id="sec_solutions-of-differential-equations_fall_w_air-begin">
+            <li xml:id="fall_w_air-begin">
               <p>
                 How long does it take for the body to reach the ground?
                 <term>Falling bodies<mdash/>with gravity and air resistance</term>.
@@ -1570,7 +1451,7 @@
             </li>
           </ol>
         </li>
-        <li xml:id="sec_solutions-of-differential-equations_ex_falling_body1">
+        <li xml:id="ex_falling_body1">
           <p>
             Show that
             <me>
@@ -1579,14 +1460,14 @@
             is a solution to this differential equation that also satisfies the initial condition <m>v(0) = 0</m> meters/second.
           </p>
         </li>
-        <li xml:id="sec_solutions-of-differential-equations_ex_falling_body2">
+        <li xml:id="ex_falling_body2">
           <p>
             Show that the position <m>x(t)</m> of a body that falls against air resistance from an initial height of <m>x_0</m> meters is given by the formula
             <me>
               x(t) = x_0 - \dfrac{g}{b} \, t - \dfrac{g}{b^2} \left(2^{-b\,t/.69} - 1\right) \ \mbox{meters}
             </me>.
             <ol>
-              <li xml:id="sec_solutions-of-differential-equations_ex_falling_body3">
+              <li xml:id="ex_falling_body3">
                 <p>
                   Suppose the coefficient of air resistance is <m>b = 0.2</m> per second.
                   If a body is held motionless 200 meters above the ground,
@@ -1616,7 +1497,7 @@
             Once the body reaches its terminal velocity,
             it continues to fall at that velocity.
             <ol>
-              <li xml:id="sec_solutions-of-differential-equations_fall_w_air-end">
+              <li xml:id="fall_w_air-end">
                 <p>
                   What is the terminal velocity of the body in the previous exercise?
                   <term>The oscillating spring</term>.
@@ -1624,12 +1505,20 @@
           Springs can smooth out life's little irregularities
                   (as in the suspension of a car)
                   or amplify and measure them
-                  (as
-                  <sidebyside>
-                    in earthquake detection devices).  Suppose a spring that hangs from a hook has a weight at its end.  Let the weight come to rest.  Then, when the weight moves, let <m>x</m> denote the position of the weight above the rest position.  (If <m>x</m> is negative, this means the weight is below the rest position.)  If you pull down on the weight, the spring pulls it back up.  If you push up on the weight, the spring (and gravity) push it back down.  This push is the <term>spring force</term>.
+                  (as     in earthquake detection devices).
+                  Suppose a spring that hangs from a hook has a weight at its end.
+                  Let the weight come to rest.
+                  Then, when the weight moves,
+                  let <m>x</m> denote the position of the weight above the rest position.
+                  (If <m>x</m> is negative, this means the weight is below the rest position.)
+                  If you pull down on the weight,
+                  the spring pulls it back up.
+                  If you push up on the weight, the spring
+                  (and gravity)
+                  push it back down.
+                  This push is the <term>spring force</term>.
               <idx><h>spring force</h></idx>
-          </sidebyside>
-                  <image width="73%" source="images/spring9.png"/> The simplest assumption is that the spring force is proportional to the amount <m>x</m> that the spring has been stretched:
+          <image width="73%" source="images/spring9.png"/>  The simplest assumption is that the spring force is proportional to the amount <m>x</m> that the spring has been stretched:
                   force = <m>-c^2x</m>.
                   The constant <m>c^2</m> is customarily written as a square to emphasize that it is positive.
                   The minus sign tells us the force pushes down if <m>x > 0</m>
@@ -1728,7 +1617,7 @@
                   Does your answer agree with your intuitions?
                 </p>
               </li>
-              <li xml:id="sec_solutions-of-differential-equations_spring-end">
+              <li xml:id="spring-end">
                 <p>
                   When you calculate the period of the motion using your formula form part (a),
                   suppose you know the actual value of the mass only to within 5%.  How accurately do you know the period<mdash/>as a percentage of the calculated value?

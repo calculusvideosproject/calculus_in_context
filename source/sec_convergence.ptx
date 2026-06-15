@@ -1,4 +1,4 @@
-<section xml:id="sec_convergence_sec_convergence">
+<section xml:id="sec_convergence">
   <title>Convergence</title>
   <introduction>
     <p>
@@ -17,18 +17,13 @@
       Further, we have the example of the function
       <m>1/(1+x^2)</m> as a caution<mdash/>it seemed to converge for small values of <m>x</m> (<m>|x|\lt 1</m>),
       but not for large values.
+    </p>
+    <p>
       Let's first clarify what we mean by convergence.
           <idx><h>convergence</h></idx>
-      It is,
-    </p>
-    <aside>
-      <p>
-        Convergence means essentially that
-        <q>decimals stabilize</q>
-      </p>
-    </aside>
-    <p>
-      essentially, the intuitive notion of
+      It is, [[NOTE:Convergence means essentially that
+      <q>decimals stabilize</q>
+      ]] essentially, the intuitive notion of
       <q>decimals stabilizing</q>
       that we have been using all along.
       To make explicit what we've been doing, let's write a
@@ -67,30 +62,30 @@
     <p>
       <term>converges</term> if, no matter how many decimal places are specified,
       it is always the case that the partial sums eventually agree to at least this many decimal places.
+    </p>
+    <p>
       Put more formally, we say the series converges if,
       given any number <m>D</m> of decimal places,
       it is always possible to find an integer <m>N_D</m> such that if <m>k</m> and <m>n</m> are both greater than <m>N_D</m>,
       then <m>S_k</m> and <m>S_n</m> agree to at least <m>D</m> decimal places.
+    </p>
+    <p>
       The number defined by these stabilizing decimals is called the
       <em> sum</em> of the series.
+    </p>
+    <p>
       If a series does not converge,
-      we say it <term>diverges</term>. }
+      we say it <term>diverges</term>.
     </p>
     <p>
-      In other words,
-    </p>
-    <aside>
-      <p>
-        What it means for an infinite sum to converge
-      </p>
-    </aside>
-    <p>
-      for me to prove to you that the Taylor series for <m>\sin(x)</m> converges at <m>x=100^{100}</m>,
+      In other words, [[NOTE:What it means for an infinite sum to converge]] for me to prove to you that the Taylor series for <m>\sin(x)</m> converges at <m>x=100^{100}</m>,
       you would specify a certain number of decimal places, say 5000,
       and I would have to be able to prove to you that if you took partial sums with enough terms,
       they would all agree to at least 5000 decimals.
       Moreover, I would have to be able to show the same thing happens if you specify <em>any</em>
       number of decimal places you want agreement on.
+    </p>
+    <p>
       How can this be done?
       It seems like an enormously daunting task to be able to do for any series.
       We'll tackle this challenge in stages.
@@ -101,7 +96,7 @@
       cosine, and exponential functions.
     </p>
   </introduction>
-  <subsection xml:id="sec_convergence_subsec_divergent-series">
+  <subsection xml:id="subsec_divergent-series">
     <title>Divergent Series</title>
     <introduction>
       <p>
@@ -127,21 +122,15 @@
         In section<nbsp/>2 we defined this to mean <m>|S_{123}-S_{122}|\lt .5 \times 10^{-19}</m>.
         But since <m>S_{123}-S_{122}=b_{123}</m>,
         this means that <m>|b_{123}|\lt .5 \times 10^{-19}</m>.
-        To phrase this more generally, Two successive partial sums,
-        <m>S_n</m> and <m>S_{n+1}</m>,
+        To phrase this more generally,
+      </p>
+      <p>
+        Two successive partial sums, <m>S_n</m> and <m>S_{n+1}</m>,
         agree out to <m>k</m> decimal places if and only if <m>|b_{n+1}|\lt .5 \times 10^{-k}</m>.
       </p>
       <p>
         But since our definition of convergence required that we be able to fix any specified number of decimals provided we took partial sums lengthy enough,
-        it must be true that <em>if the series converges</em>,
-      </p>
-      <aside>
-        <p>
-          A necessary condition for convergence
-        </p>
-      </aside>
-      <p>
-        the individual terms <m>b_k</m> must become arbitrarily small if we go out far enough.
+        it must be true that <em>if the series converges</em>, [[NOTE:A necessary condition for convergence]] the individual terms <m>b_k</m> must become arbitrarily small if we go out far enough.
         Intuitively,
         you can think of the partial sums <m>S_k</m> as being a series of approximations to some quantity.
         The term <m>b_{k+1}</m> can be thought of as the
@@ -149,27 +138,28 @@
         which is added to <m>S_k</m> to produce the next approximation <m>S_{k+1}</m>.
         Clearly, if the approximations are eventually becoming good ones,
         the corrections made should become smaller and smaller.
-        We thus have the following necessary condition for convergence: If the infinite series <m>b_0 + b_1 + b_2 + \cdots = \displaystyle \sum_{m=0}^\infty b_m</m> converges,
+        We thus have the following necessary condition for convergence:
+      </p>
+      <p>
+        If the infinite series <m>b_0 + b_1 + b_2 + \cdots = \displaystyle \sum_{m=0}^\infty b_m</m> converges,
       </p>
       <p>
         then <m>\displaystyle \lim_{k\rightarrow \infty} b_k = 0</m>. }
       </p>
+    </introduction>
+    <subsubsection>
+      <title>Remark:</title>
       <p>
-        <term>Remark:</term> It is important to recognize what this criterion does and does
-      </p>
-      <aside>
-        <p>
-          <em>Necessary</em> and <em>sufficient</em> mean different things
-        </p>
-      </aside>
-      <p>
-        not say<mdash/>it is a <term>necessary</term>
+        It is important to recognize what this criterion does and does [[NOTE:<em>Necessary</em> and
+        <em>sufficient</em> mean different things]] not say<mdash/>it is a <term>necessary</term>
         condition for convergence (i.e., every convergent sequence has to satisfy the condition
         <m>\lim_{k\rightarrow \infty} b_k = 0</m>)<mdash/>but it is not a <em> sufficient</em>
         condition for convergence (i.e., there are some divergent sequences that also have the property that <m>\lim_{k\rightarrow \infty} b_k = 0</m>).
         The criterion is usually used to detect some divergent series,
         and is more useful in the following form (which you should convince yourself is equivalent to the preceding):
             <idx><h>divergence criterion</h></idx>
+      </p>
+      <p>
         If <m>{\displaystyle \lim_{k\rightarrow \infty} b_k \ne 0 }</m>, (either because the limit doesn't exist at all,
       </p>
       <p>
@@ -179,15 +169,7 @@
         </me>.
       </p>
       <p>
-        This criterion allows us to detect a number of divergent series
-      </p>
-      <aside>
-        <p>
-          Detecting divergent series
-        </p>
-      </aside>
-      <p>
-        right away.
+        This criterion allows us to detect a number of divergent series [[NOTE:Detecting divergent series]] right away.
         For instance, we saw earlier that the statement
         <me>
           \dfrac{1}{1+x^2} = 1 - x^2 + x^4 - x^6 + \cdots
@@ -204,6 +186,8 @@
         and the partial sums will alternate more and more wildly from a huge positive number to a huge negative number.
         Hence the series converges <em>at most</em> for <m>-1\lt x\lt 1</m>.
         We will see in the next subsection how to prove that it really does converge for all <m>x</m> in this interval.
+      </p>
+      <p>
         Using exactly the same kind of argument,
         we can show that the following series also diverge for <m>|x|>1</m>:
         <me>
@@ -215,23 +199,15 @@
         While these common series all happen to diverge for <m>|x|>1</m>,
         it is easy to find other series that diverge for <m>|x|>2</m> or <m>|x|>17</m> or whatever<mdash/>see the exercises for some examples.
       </p>
-    </introduction>
-    <subsubsection xml:id="sec_convergence_subsubsec_the-harmonic-series">
+    </subsubsection>
+    <subsubsection xml:id="subsubsec_the-harmonic-series">
       <title>The Harmonic Series</title>
       <p>
         We stated earlier in this section that simply knowing that the individual terms <m>b_k</m> go to 0 for large values of <m>k</m> does not guarantee that the series
         <me>
           b_0 + b_1 + b_2 + \cdots
         </me>
-        will converge.
-      </p>
-      <aside>
-        <p>
-          An important counterexample
-        </p>
-      </aside>
-      <p>
-        Essentially what can happen is that the <m>b_k</m> go to 0 slowly enough that they can still accumulate large values.
+        will converge. [[NOTE:An important counterexample]] Essentially what can happen is that the <m>b_k</m> go to 0 slowly enough that they can still accumulate large values.
         The classic example of such a series is the
         <term>harmonic series</term>:
             <idx><h>harmonic series</h></idx>
@@ -258,7 +234,7 @@
       </p>
     </subsubsection>
   </subsection>
-  <subsection xml:id="sec_convergence_subsec_the-geometric-series">
+  <subsection xml:id="subsec_the-geometric-series">
     <title>The Geometric Series</title>
     <p>
       A series occurring frequently in a wide range of contexts is the
@@ -271,16 +247,14 @@
     <p>
       This is also a sequence we can analyze completely and rigorously in terms of its convergence.
       It will turn out that we can then reduce the analysis of the convergence of several other sequences to the behavior of this one.
-      By the analysis we performed above,
     </p>
-    <aside>
-      <p>
-        To avoid divergence, <m>|x|</m> must be less than 1
-      </p>
-    </aside>
     <p>
-      if <m>|x|\ge 1</m> the individual terms of the series clearly don't go to 0, and the series therefore diverges.
+      By the analysis we performed above, [[NOTE:To avoid divergence,
+      <m>|x|</m> must be less than 1]] if
+      <m>|x|\ge 1</m> the individual terms of the series clearly don't go to 0, and the series therefore diverges.
       What about the case where <m>|x|\lt 1</m>?
+    </p>
+    <p>
       The starting point is the partial sums.
       A typical partial sum looks like:
       <me>
@@ -288,15 +262,7 @@
       </me>.
     </p>
     <p>
-      This is a finite number;
-    </p>
-    <aside>
-      <p>
-        A simple expression for the partial sum <m>S_n</m>
-      </p>
-    </aside>
-    <p>
-      we must find out what happens to it as <m>n</m> grows without bound.
+      This is a finite number; [[NOTE:A simple expression for the partial sum <m>S_n</m>]] we must find out what happens to it as <m>n</m> grows without bound.
       Since <m>S_n</m> is finite, we can calculate with it.
       In particular,
       <me>
@@ -314,8 +280,10 @@
       </me>.
     </p>
     <p>
-      (What is the value of <m>S_n</m> if <m>x=1</m>?) This is a handy,
-      compact form for the partial sum.
+      (What is the value of <m>S_n</m> if <m>x=1</m>?)
+    </p>
+    <p>
+      This is a handy, compact form for the partial sum.
       Let us see what value it has for various values of <m>x</m>.
       For example, if <m>x = 1/2</m>, then
       <me>
@@ -323,15 +291,9 @@
       </me>
     </p>
     <p>
-      It appears that as <m>n \to \infty</m>, <m>S_n \to 2 \/</m>.
-    </p>
-    <aside>
-      <p>
-        Finding the limit of <m>S_n</m> as <m>n \to \infty</m>
-      </p>
-    </aside>
-    <p>
-      Can we see this algebraically?
+      It appears that as <m>n \to \infty</m>,
+      <m>S_n \to 2 \/</m>. [[NOTE:Finding the limit of <m>S_n</m> as
+      <m>n \to \infty</m>]] Can we see this algebraically?
       <md>
         <mrow>S_n \amp = \dfrac{1 - (1/2)^{n+1}}{1 - \tfrac{1}{2}}</mrow>
         <mrow>\amp = \dfrac{1 - (1/2)^{n+1}}{1/2}</mrow>
@@ -342,15 +304,10 @@
       As <m>n \to \infty</m>, <m>(1/2)^n \to 0</m>,
       so the values of <m>S_n</m> become closer and closer to <m>2</m>.
       The series converges, and its sum is 2.
-      Similarly,
     </p>
-    <aside>
-      <p>
-        Summing another geometric series
-      </p>
-    </aside>
     <p>
-      when <m>x = -1/2</m>, the partial sums are
+      Similarly, [[NOTE:Summing another geometric series]] when
+      <m>x = -1/2</m>, the partial sums are
       <me>
         S_n = \dfrac{1 - (-1/2)^{n+1}}{3/2} = \dfrac{2}{3} \left( 1 \pm \dfrac{1}{2^{n+1}} \right)
       </me>.
@@ -359,6 +316,8 @@
       The presence of the <m>\pm</m> sign does not alter the outcome:
       since \mbox{<m>(1/2^{n+1}) \to 0</m>} , the partial sums converge to <m>2/3</m>.
       Therefore, we can say the series converges and its sum is <m>2/3</m>.
+    </p>
+    <p>
       In exactly the same way, though,
       for any <m>x</m> satisfying <m>|x|\lt 1</m> we have
       <me>
@@ -367,13 +326,11 @@
       and as <m>n \to \infty</m>, <m>x^{n+1} \to 0</m>.
       Therefore, <m>S_n \to 1/(1-x)</m>.
       Thus the series converges, and its sum is <m>1/(1-x)</m>.
-      To summarize, we have thus proved that
     </p>
-    <aside>
-      <p>
-        Convergence and divergence of the geometric series
-      </p>
-    </aside>
+    <p>
+      To summarize,
+      we have thus proved that [[NOTE:Convergence and divergence of the geometric series]]
+    </p>
     <p>
       The geometric series<idx><h>geometric series</h><h>convergence criterion</h></idx>
           <idx><h>convergence criterion</h><h>geometric series</h></idx>
@@ -407,240 +364,225 @@
       </me>.
     </p>
   </subsection>
-  <subsection xml:id="sec_convergence_subsec_alternating-series">
+  <subsection xml:id="subsec_alternating-series">
     <title>Alternating Series</title>
-    <p>
-      A large class of common
-    </p>
-    <aside>
+    <introduction>
       <p>
-        Many common series are alternating,
-        at least for some values of <m>x</m>
+        A large class of common [[NOTE:Many common series are alternating,
+        at least for some values of <m>x</m>]] power series consists of the
+        <term>alternating series</term><idx><h>alternating series</h><h>definition of</h></idx>
+        <mdash/>series in which the terms are alternately positive and negative.
+        The behavior of such series is particularly easy to analyze,
+        as we shall see in this section.
+        Here are some examples of alternating series we've already encountered :
+        <md>
+          <mrow>\sin{x} \amp = x - \dfrac{x^3}{3!} + \dfrac{x^5}{5!} - \dfrac{x^7}{7!} + \cdots ,</mrow>
+          <mrow>[.15in] \cos{x} \amp = 1 - \dfrac{x^2}{2!} + \dfrac{x^4}{4!} - \dfrac{x^6}{6!} + \cdots ,</mrow>
+          <mrow>[.15in] \dfrac{1}{1+x^2}\amp = 1 - x^2 + x^4 - x^6 + \cdots , \mbox{\hspace{.5in} (for \(|x|\lt 1\))} </mrow>
+        </md>.
       </p>
-    </aside>
-    <p>
-      power series consists of the <term>alternating series</term><idx><h>alternating series</h><h>definition of</h></idx>
-      <mdash/>series in which the terms are alternately positive and negative.
-      The behavior of such series is particularly easy to analyze,
-      as we shall see in this section.
-      Here are some examples of alternating series we've already encountered :
-      <md>
-        <mrow>\sin{x} \amp = x - \dfrac{x^3}{3!} + \dfrac{x^5}{5!} - \dfrac{x^7}{7!} + \cdots ,</mrow>
-        <mrow>[.15in] \cos{x} \amp = 1 - \dfrac{x^2}{2!} + \dfrac{x^4}{4!} - \dfrac{x^6}{6!} + \cdots ,</mrow>
-        <mrow>[.15in] \dfrac{1}{1+x^2}\amp = 1 - x^2 + x^4 - x^6 + \cdots , \mbox{\hspace{.5in} (for \(|x|\lt 1\))} </mrow>
-      </md>.
-    </p>
-    <p>
-      Other series may be alternating for some,
-      but not all, values of <m>x</m>.
-      For instance,
-      here are two series that are alternating for negative values of <m>x</m>,
-      but not for positive values:
-      <md>
-        <mrow>e^x \amp = 1 + x + \dfrac{x^2}{2!} + \dfrac{x^3}{3!} + \dfrac{x^4}{4!} + \cdots ,</mrow>
-        <mrow>[.15in] \ln(1-x) \amp = -(x + x^2 + x^3 + x^4 + \cdots ) \mbox{\hspace{.5in} (for \(|x|\lt 1\))} </mrow>
-      </md>.
-    </p>
-    <p>
-      <term>Convergence criterion for alternating series.</term>
-      Let us write a generic alternating series as
-      <me>
-        b_0-b_1 + b_2 - b_3 + \cdots + (-1)^mb_m + \cdots \,
-      </me>,
-      where the <m>b_m</m> are positive.
-      It turns out that an alternating series converges if the terms <m>b_m</m> both consistently shrink in size and approach zero:<idx><h>alternating series</h><h>convergence criterion</h></idx>
-          <idx><h>convergence criterion</h><h>alternating series</h></idx> <m>b_0-b_1 + b_2 - b_3 + \cdots + (-1)^mb_m + \cdots</m> converges if
-    </p>
-    <p>
-      <m>0\lt b_{m+1} \leq b_m</m> for all <m>\; m</m> and
-      <m>{\displaystyle \lim_{m \to \infty} b_m = 0}</m>. } <idx><h>alternating series</h><h>convergence of</h></idx> It is this property
-    </p>
-    <aside>
       <p>
-        Alternating series are easy to test for convergence
+        Other series may be alternating for some,
+        but not all, values of <m>x</m>.
+        For instance,
+        here are two series that are alternating for negative values of <m>x</m>,
+        but not for positive values:
+        <md>
+          <mrow>e^x \amp = 1 + x + \dfrac{x^2}{2!} + \dfrac{x^3}{3!} + \dfrac{x^4}{4!} + \cdots ,</mrow>
+          <mrow>[.15in] \ln(1-x) \amp = -(x + x^2 + x^3 + x^4 + \cdots ) \mbox{\hspace{.5in} (for \(|x|\lt 1\))} </mrow>
+        </md>.
       </p>
-    </aside>
-    <p>
-      that makes alternating series particularly easy to deal with.
-      Recall that this is <em>not</em>
-      a property of series in general,
-      as we saw by the example of the harmonic series.
-      The reason it is true for alternating series becomes clear if we view the behavior of the partial sums geometrically:
-      <image width="73%" source="images/altseries.png"/> We mark the partial sums <m>S_n</m> on a number line.
-      The first sum <m>S_0=b_0</m> lies to the right of the origin.
-      To find <m>S_1</m> we go to the left a distance <m>b_1</m>.
-      Because <m>b_1 \leq b_0</m>,
-      <m>S_1</m> will lie between the origin and <m>S_0</m>.
-      Next we go to the right a distance <m>b_2</m>,
-      which brings us to <m>S_2</m>.
-      Since <m>b_2 \leq b_1</m>, we will have <m>S_2 \leq S_0</m>.
-      The next move is to the left a distance <m>b_3</m>,
-      and we find <m>S_3 \geq S_1</m>.
-      We continue going back and forth in this fashion,
-      each step being less than or equal to the preceding one,
-      since <m>b_{m+1} \leq b_m</m>.
-      We thus get
-      <me>
-        0\leq S_1 \leq S_3 \leq S_5 \leq \ldots \leq S_{2m-1} \leq \cdots \leq S_{2m} \leq \ldots \leq S_4 \leq S_2 \leq S_0
-      </me>.
-    </p>
-    <p>
-      The partial sums oscillate back and forth,
-    </p>
-    <aside>
+    </introduction>
+    <subsubsection>
+      <title>Convergence criterion for alternating series</title>
       <p>
-        The partial sums oscillate,
-        with the exact sum trapped between consecutive partial sums
+        Let us write a generic alternating series as
+        <me>
+          b_0-b_1 + b_2 - b_3 + \cdots + (-1)^mb_m + \cdots \,
+        </me>,
+        where the <m>b_m</m> are positive.
+        It turns out that an alternating series converges if the terms <m>b_m</m> both consistently shrink in size and approach zero:<idx><h>alternating series</h><h>convergence criterion</h></idx>
+            <idx><h>convergence criterion</h><h>alternating series</h></idx>
       </p>
-    </aside>
-    <p>
-      with all the odd sums on the left increasing and all the even sums on the right decreasing.
-      Moreover, since <m>|S_{n}-S_{n-1}| = b_n</m>,
-      and since <m>\lim_{n \to \infty} b_n = 0</m>,
-      the difference between consecutive partial sums eventually becomes arbitrarily small<mdash/>the oscillations take place within a smaller and smaller interval.
-      Thus given any number of decimal places,
-      we can always go far enough out in the series so that <m>S_k</m> and <m>S_{k+1}</m> agree to that many decimal places.
-      But if <m>n</m> is any integer greater than <m>k</m>, then,
-      since <m>S_n</m> lies between <m>S_k</m> and <m>S_{k+1}</m>,
-      <m>S_n</m> will also agree to that many decimal places<mdash/>those decimals will be fixed from <m>k</m> on out.
-      The series therefore converges,
-      as claimed<mdash/>the sum is the unique number <m>S</m> that is greater than all the odd partial sums and less than all the even partial sums.
-      For a convergent alternating
-    </p>
-    <aside>
       <p>
-        A simple estimate for the accuracy of the partial sums
+        <m>b_0-b_1 + b_2 - b_3 + \cdots + (-1)^mb_m + \cdots</m> converges if
       </p>
-    </aside>
-    <p>
-      series, we also have a particularly simple bound for the error<idx><h>error bound</h><h>alternating series</h></idx>
-          <idx><h>alternating series</h><h>error bound</h></idx>
-      when we approximate the sum <m>S</m> of the series by partial sums.
-      If <m>S_n = b_0-b_1 + b_2 - \cdots \pm b_n</m>,
-    </p>
-    <p>
-      and if <m>0\lt b_{m+1} \leq b_m \mbox{for all <m>m</m> and} {\displaystyle \lim_{m \to \infty} b_m = 0}</m>,
-    </p>
-    <p>
-      (so the series converges), then
-      <me>
-        |S-S_n| \lt  b_{n+1}
-      </me>.
-    </p>
-    <p>
-      In words, the error in approximating <m>S</m> by <m>S_n</m> is less than the next term in the series. }
-    </p>
-    <p>
-      <term>Proof</term>: Suppose <m>n</m> is odd.
-      Then we have, as above, that <m>S_n\lt S\lt S_{n+1}</m>.
-      Therefore <m>0\lt S-S_n\lt S_{n+1}-S_n=b_{n+1}</m>.
-      If <m>n</m> is even,
-      a similar argument shows <m>0\lt S_n-S\lt S_n-S_{n+1}=b_{n+1}</m>.
-      In either case, we have <m>|S-S_n| \lt b_{n+1}</m>, as claimed.
-      Note further that we also know whether <m>S_n</m> is too large or too small,
-      depending on whether <m>n</m> is even or odd.
-      <term>Example</term>.
-      Let's apply the error estimate
-    </p>
-    <aside>
       <p>
-        Estimating the error in approximating <m>\cos(.7)</m>
+        <m>0\lt b_{m+1} \leq b_m</m> for all <m>\; m</m> and
+        <m>{\displaystyle \lim_{m \to \infty} b_m = 0}</m>. } <idx><h>alternating series</h><h>convergence of</h></idx>
       </p>
-    </aside>
-    <p>
-      for an alternating series to analyze the error if we approximate
-      <m>\cos(.7)</m> with a Taylor series with three terms:
-      <me>
-        \cos(.7) \approx        1 - \dfrac{1}{2!} (.7)^2 + \dfrac{1}{4!} (.7)^4 = 0.765004166\ldots
-      </me>.
-    </p>
-    <p>
-      Since the last term in this partial sum was an addition,
-      this approximation is too big.
-      To get an estimate of how far off it might be,
-      we look at the next term in the series:
-      <me>
-        \dfrac{1}{6!} (.7)^6 = 0.0001634\ldots
-      </me>.
-    </p>
-    <p>
-      We thus know that the correct value for
-      <m>\cos(.7)</m> is somewhere in the interval
-      <me>
-        .76484 = 0.76500 - 0.00016 \leq \cos(.7) \leq 0.76501
-      </me>,
-      so we know that <m>\cos(.7)</m> begins
-      <m>.76\ldots</m> and the third decimal is either a<nbsp/>4 or a<nbsp/>5.
-      Moreover, we know that <m>\cos(.7) = 0.765</m> rounded to 3<nbsp/>decimal places.
-      If we use the partial sum with four terms, we get
-      <me>
-        \cos(.7) \approx        1 - \dfrac{1}{2!} (.7)^2 + \dfrac{1}{4!} (.7)^4 - \dfrac{1}{6!} (.7)^6 = 0.764840765\ldots
-      </me>,
-      and the error would be less than
-      <me>
-        \dfrac{1}{8!}(.7)^8 = 0.0000014\ldots \lt  0.5 \times 10^{-5}
-      </me>,
-      so we could now say that <m>\cos(.7) =.76484\ldots</m>.
-      If we wanted to know in advance
-    </p>
-    <aside>
       <p>
-        How many terms are needed to obtain accuracy to 12 decimal places?
+        It is this property [[NOTE:Alternating series are easy to test for convergence]] that makes alternating series particularly easy to deal with.
+        Recall that this is <em>not</em>
+        a property of series in general,
+        as we saw by the example of the harmonic series.
+        The reason it is true for alternating series becomes clear if we view the behavior of the partial sums geometrically:
       </p>
-    </aside>
-    <p>
-      how far out in the series we would have to go to determine
-      <m>\cos(.7)</m> to, say, 12 decimals,
-      we could do it by finding a value for <m>n</m> such that
-      <me>
-        b_n = \dfrac{1}{n!}(.7)^n \leq 0.5 \times 10^{-12}
-      </me>.
-    </p>
-    <p>
-      With a little trial and error,
-      we see that <m>b_{12} \approx 0.3 \times 10^{-10}</m>,
-      while \mbox{<m>b_{14} \lt 10^{-13}</m>} . Thus if we take the value of the 12th degree approximation for <m>\cos(.7)</m>,
-      we can be assured that our value will be accurate to 12 places.
-      We have met this capability of getting an error estimate in a single step before,
-      in version 3 of Taylor's theorem.
-      It is in contrast to the approximations made in dealing with general series,
-      where we typically had to look at the pattern of stabilizing digits in the succession of improving estimates to get a sense of how good our approximation was,
-      and even then we had no guarantee.
-      <term>Computing <m>e</m>.</term> Because of the fact that we
-    </p>
-    <aside>
       <p>
-        It may be possible to convert a given problem to one involving alternating series
+        <image width="73%" source="images/altseries.png"/>
       </p>
-    </aside>
-    <p>
-      can find sharp bounds for the accuracy of an approximation with alternating series,
-      it is often desirable to convert a given problem to this form where we can.
-      For instance, suppose we wanted a good value for <m>e</m>.
-      The obvious thing to do would be to take the Taylor series for <m>e^x</m> and substitute <m>x=1</m>.
-      If we take the first 11 terms of this series we get the approximation
-      <me>
-        e = e^1 \approx 1 + 1 + \dfrac{1}{2!} + \dfrac{1}{3!} + \cdots + \dfrac{1}{10!} = 2.718281801146\ldots
-      </me>,
-      but we have no way of knowing how many of these digits are correct.
-      Suppose instead, that we evaluate <m>e^{-1}</m>:
-      <me>
-        e^{-1} \approx 1 - 1 + \dfrac{1}{2!} - \dfrac{1}{3!} + \cdots + \dfrac{1}{10!} = 0.367879464286\ldots
-      </me>.
-    </p>
-    <p>
-      Since <m>1/(11!) = 0.000000025\ldots</m>,
-      we know this approximation is accurate to at least 7 decimals.
-      If we take its reciprocal we get
-      <me>
-        1/.3678794624286\ldots = 2.718281657666\ldots
-      </me>,
-      which will then be accurate to 6 decimals
-      (in the exercises you will show why the accuracy drops by 1 decimal place),
-      so we can say <m>e=2.718281\ldots</m>.
-    </p>
+      <p>
+        We mark the partial sums <m>S_n</m> on a number line.
+        The first sum <m>S_0=b_0</m> lies to the right of the origin.
+        To find <m>S_1</m> we go to the left a distance <m>b_1</m>.
+        Because <m>b_1 \leq b_0</m>,
+        <m>S_1</m> will lie between the origin and <m>S_0</m>.
+        Next we go to the right a distance <m>b_2</m>,
+        which brings us to <m>S_2</m>.
+        Since <m>b_2 \leq b_1</m>, we will have <m>S_2 \leq S_0</m>.
+        The next move is to the left a distance <m>b_3</m>,
+        and we find <m>S_3 \geq S_1</m>.
+        We continue going back and forth in this fashion,
+        each step being less than or equal to the preceding one,
+        since <m>b_{m+1} \leq b_m</m>.
+        We thus get
+        <me>
+          0\leq S_1 \leq S_3 \leq S_5 \leq \ldots \leq S_{2m-1} \leq \cdots \leq S_{2m} \leq \ldots \leq S_4 \leq S_2 \leq S_0
+        </me>.
+      </p>
+      <p>
+        The partial sums oscillate back and forth, [[NOTE:The partial sums oscillate,
+        with the exact sum trapped between consecutive partial sums]] with all the odd sums on the left increasing and all the even sums on the right decreasing.
+        Moreover, since <m>|S_{n}-S_{n-1}| = b_n</m>,
+        and since <m>\lim_{n \to \infty} b_n = 0</m>,
+        the difference between consecutive partial sums eventually becomes arbitrarily small<mdash/>the oscillations take place within a smaller and smaller interval.
+        Thus given any number of decimal places,
+        we can always go far enough out in the series so that <m>S_k</m> and <m>S_{k+1}</m> agree to that many decimal places.
+        But if <m>n</m> is any integer greater than <m>k</m>, then,
+        since <m>S_n</m> lies between <m>S_k</m> and <m>S_{k+1}</m>,
+        <m>S_n</m> will also agree to that many decimal places<mdash/>those decimals will be fixed from <m>k</m> on out.
+        The series therefore converges,
+        as claimed<mdash/>the sum is the unique number <m>S</m> that is greater than all the odd partial sums and less than all the even partial sums.
+      </p>
+      <p>
+        For a convergent alternating [[NOTE:A simple estimate for the accuracy of the partial sums]] series,
+        we also have a particularly simple bound for the error<idx><h>error bound</h><h>alternating series</h></idx>
+            <idx><h>alternating series</h><h>error bound</h></idx>
+        when we approximate the sum <m>S</m> of the series by partial sums.
+      </p>
+      <p>
+        If <m>S_n = b_0-b_1 + b_2 - \cdots \pm b_n</m>,
+      </p>
+      <p>
+        and if <m>0\lt b_{m+1} \leq b_m \mbox{for all <m>m</m> and} {\displaystyle \lim_{m \to \infty} b_m = 0}</m>,
+      </p>
+      <p>
+        (so the series converges), then
+        <me>
+          |S-S_n| \lt  b_{n+1}
+        </me>.
+      </p>
+      <p>
+        In words, the error in approximating <m>S</m> by <m>S_n</m> is less than the next term in the series.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title>Proof:</title>
+      <p>
+        Suppose <m>n</m> is odd.
+        Then we have, as above, that <m>S_n\lt S\lt S_{n+1}</m>.
+        Therefore <m>0\lt S-S_n\lt S_{n+1}-S_n=b_{n+1}</m>.
+        If <m>n</m> is even,
+        a similar argument shows <m>0\lt S_n-S\lt S_n-S_{n+1}=b_{n+1}</m>.
+        In either case, we have <m>|S-S_n| \lt b_{n+1}</m>, as claimed.
+      </p>
+      <p>
+        Note further that we also know whether <m>S_n</m> is too large or too small,
+        depending on whether <m>n</m> is even or odd.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title>Example</title>
+      <p>
+        Let's apply the error estimate [[NOTE:Estimating the error in approximating
+        <m>\cos(.7)</m>]] for an alternating series to analyze the error if we approximate
+        <m>\cos(.7)</m> with a Taylor series with three terms:
+        <me>
+          \cos(.7) \approx        1 - \dfrac{1}{2!} (.7)^2 + \dfrac{1}{4!} (.7)^4 = 0.765004166\ldots
+        </me>.
+      </p>
+      <p>
+        Since the last term in this partial sum was an addition,
+        this approximation is too big.
+        To get an estimate of how far off it might be,
+        we look at the next term in the series:
+        <me>
+          \dfrac{1}{6!} (.7)^6 = 0.0001634\ldots
+        </me>.
+      </p>
+      <p>
+        We thus know that the correct value for
+        <m>\cos(.7)</m> is somewhere in the interval
+        <me>
+          .76484 = 0.76500 - 0.00016 \leq \cos(.7) \leq 0.76501
+        </me>,
+        so we know that <m>\cos(.7)</m> begins
+        <m>.76\ldots</m> and the third decimal is either a<nbsp/>4 or a<nbsp/>5.
+        Moreover, we know that <m>\cos(.7) = 0.765</m> rounded to 3<nbsp/>decimal places.
+      </p>
+      <p>
+        If we use the partial sum with four terms, we get
+        <me>
+          \cos(.7) \approx        1 - \dfrac{1}{2!} (.7)^2 + \dfrac{1}{4!} (.7)^4 - \dfrac{1}{6!} (.7)^6 = 0.764840765\ldots
+        </me>,
+        and the error would be less than
+        <me>
+          \dfrac{1}{8!}(.7)^8 = 0.0000014\ldots \lt  0.5 \times 10^{-5}
+        </me>,
+        so we could now say that <m>\cos(.7) =.76484\ldots</m>.
+      </p>
+      <p>
+        If we wanted to know in advance [[NOTE:How many terms are needed to obtain accuracy to 12 decimal places?]] how far out in the series we would have to go to determine
+        <m>\cos(.7)</m> to, say, 12 decimals,
+        we could do it by finding a value for <m>n</m> such that
+        <me>
+          b_n = \dfrac{1}{n!}(.7)^n \leq 0.5 \times 10^{-12}
+        </me>.
+      </p>
+      <p>
+        With a little trial and error,
+        we see that <m>b_{12} \approx 0.3 \times 10^{-10}</m>,
+        while \mbox{<m>b_{14} \lt 10^{-13}</m>} . Thus if we take the value of the 12th degree approximation for <m>\cos(.7)</m>,
+        we can be assured that our value will be accurate to 12 places.
+      </p>
+      <p>
+        We have met this capability of getting an error estimate in a single step before,
+        in version 3 of Taylor's theorem.
+        It is in contrast to the approximations made in dealing with general series,
+        where we typically had to look at the pattern of stabilizing digits in the succession of improving estimates to get a sense of how good our approximation was,
+        and even then we had no guarantee.
+      </p>
+      <p>
+        <term>Computing <m>e</m>.</term> Because of the fact that we [[NOTE:It may be possible to convert a given problem to one involving alternating series]] can find sharp bounds for the accuracy of an approximation with alternating series,
+        it is often desirable to convert a given problem to this form where we can.
+        For instance, suppose we wanted a good value for <m>e</m>.
+        The obvious thing to do would be to take the Taylor series for <m>e^x</m> and substitute <m>x=1</m>.
+        If we take the first 11 terms of this series we get the approximation
+        <me>
+          e = e^1 \approx 1 + 1 + \dfrac{1}{2!} + \dfrac{1}{3!} + \cdots + \dfrac{1}{10!} = 2.718281801146\ldots
+        </me>,
+        but we have no way of knowing how many of these digits are correct.
+      </p>
+      <p>
+        Suppose instead, that we evaluate <m>e^{-1}</m>:
+        <me>
+          e^{-1} \approx 1 - 1 + \dfrac{1}{2!} - \dfrac{1}{3!} + \cdots + \dfrac{1}{10!} = 0.367879464286\ldots
+        </me>.
+      </p>
+      <p>
+        Since <m>1/(11!) = 0.000000025\ldots</m>,
+        we know this approximation is accurate to at least 7 decimals.
+        If we take its reciprocal we get
+        <me>
+          1/.3678794624286\ldots = 2.718281657666\ldots
+        </me>,
+        which will then be accurate to 6 decimals
+        (in the exercises you will show why the accuracy drops by 1 decimal place),
+        so we can say <m>e=2.718281\ldots</m>.
+      </p>
+    </subsubsection>
   </subsection>
-  <subsection xml:id="sec_convergence_subsec_the-radius-of-convergence">
+  <subsection xml:id="subsec_the-radius-of-convergence">
     <title>The Radius of Convergence</title>
     <p>
       We have seen examples of power series that converge for all <m>x</m>
@@ -664,21 +606,16 @@
       does it converge to <m>e^x</m> or to something else?
       After all, this Taylor series is designed to look like <m>e^x</m> only near <m>x = 0</m>;
       it remains to be seen how well the function and its series match up far from <m>x = 0</m>.
+    </p>
+    <p>
       The question of convergence has a definitive answer.
       It goes like this: if the power series
       <me>
         a_0 + a_1 x + a_2 x^2 + a_3 x^3  + \cdots + a_n x^n + \cdots \
       </me>.
-      converges for a particular value of <m>x</m>,
-      say <m>x = s</m>, then it automatically
-    </p>
-    <aside>
-      <p>
-        The answer to the convergence question
-      </p>
-    </aside>
-    <p>
-      converges for any <em>smaller</em> value of <m>x</m>
+      converges for a particular value of <m>x</m>, say <m>x = s</m>,
+      then it automatically [[NOTE:The answer to the convergence question]] converges for any
+      <em>smaller</em> value of <m>x</m>
       (meaning any <m>x</m> that is closer to the origin than <m>s</m> is;
       i.e, any <m>x</m> for which <m>|x| \lt |s|</m>).
       Likewise, if the series <em>diverges</em>
@@ -705,15 +642,9 @@
     </p>
     <p>
       We know that this converges for
-      <m>|x| \lt 1</m> and diverges for <m>|x| > 1</m>.
+      <m>|x| \lt 1</m> and diverges for <m>|x| > 1</m>. [[NOTE:Radius of convergence of the geometric series]] Thus the radius of convergence is <m>R = 1</m> in this case.
     </p>
-    <aside>
-      <p>
-        Radius of convergence of the geometric series
-      </p>
-    </aside>
     <p>
-      Thus the radius of convergence is <m>R = 1</m> in this case.
       It is possible for a power series to converge for all <m>x</m>;
       if that happens, we take <m>R</m> to be <m>\infty</m>.
       At the other extreme, the series may converge only for <m>x = 0</m>.
@@ -721,6 +652,8 @@
       so it certainly converges <em>at least</em> when <m>x = 0</m>.)
       If the series converges only for <m>x = 0</m>,
       then we take <m>R</m> to be 0.
+    </p>
+    <p>
       At <m>x = R</m> the series may diverge or converge;
       different things happen for different series.
       The same is true when <m>x = -R</m>.
@@ -735,257 +668,251 @@
       then the interval of convergence is <m>(-R,R]</m>, and so on.
     </p>
   </subsection>
-  <subsection xml:id="sec_convergence_subsec_the-ratio-test">
+  <subsection xml:id="subsec_the-ratio-test">
     <title>The Ratio Test</title>
-    <p>
-      There are several ways to determine the radius of convergence of a power series.
-      One of the simplest and most useful is by means of the <term>ratio test</term>.
-          <idx><h>ratio test</h></idx>
-      Because the power series to which we apply this test need not include
-      <em>consecutive</em> powers of <m>x</m>
-      (think of the Taylor series for <m>\cos x</m> or <m>\sin x\/</m>)
-      we'll write a
-      <q>generic</q>
-      series as
-      <me>
-        b_0 + b_1 + b_2 + \cdots = \sum_{m=0}^\infty b_m
-      </me>
-    </p>
-    <p>
-      Here are three examples of the use of this notation.
-      <ol>
-        <li>
-          <p>
-            The Taylor series for <m>e^x</m> is <m>{\displaystyle \sum_{m=0}^\infty b_m}</m>, where
-            <me>
-              b_0 = 1,   b_1 = x,  b_2 = \dfrac{x^2}{2!}, \cdots , b_m = \dfrac{x^m}{m!}
-            </me>.
-          </p>
-        </li>
-        <li>
-          <p>
-            The Taylor series for <m>\cos x</m> is <m>{\displaystyle \sum_{m=0}^\infty b_m}</m>, where
-            <me>
-              b_0 = 1,  b_1 = \dfrac{-x^2}{2!},  b_2 = \dfrac{x^4}{4!}, \cdots , b_m = (-1)^m \dfrac{x^{2m}}{(2m)!}
-            </me>.
-          </p>
-        </li>
-        <li>
-          <p>
-            We can even describe the series
-            <me>
-              17 + x + x^2 + x^4 + x^6 + x^8 + \cdots = 17 + x + \sum_{m=2}^\infty x^{2m-2}
-            </me>
-            in our generic notation, in spite of the presence of the first two terms
-            <q><m>17 + x</m></q>
-            which don't fit the pattern of later ones.
-            We have <m>b_0 = 17</m>, <m>b_1 = x</m>,
-            and then <m>b_m = x^{2m-2}</m> for <m>m = 2</m>, 3, 4,<nbsp/><ellipsis/> .
-          </p>
-        </li>
-      </ol>
-    </p>
-    <p>
-      The question of convergence for a power series is
-    </p>
-    <aside>
+    <introduction>
       <p>
-        Convergence is determined by the
+        There are several ways to determine the radius of convergence of a power series.
+        One of the simplest and most useful is by means of the
+      </p>
+      <p>
+        <term>ratio test</term>.
+            <idx><h>ratio test</h></idx>
+        Because the power series to which we apply this test need not include
+        <em>consecutive</em> powers of <m>x</m>
+        (think of the Taylor series for <m>\cos x</m> or <m>\sin x\/</m>)
+        we'll write a
+        <q>generic</q>
+        series as
+        <me>
+          b_0 + b_1 + b_2 + \cdots = \sum_{m=0}^\infty b_m
+        </me>
+      </p>
+      <p>
+        Here are three examples of the use of this notation.
+        <ol>
+          <li>
+            <p>
+              The Taylor series for <m>e^x</m> is <m>{\displaystyle \sum_{m=0}^\infty b_m}</m>, where
+              <me>
+                b_0 = 1,   b_1 = x,  b_2 = \dfrac{x^2}{2!}, \cdots , b_m = \dfrac{x^m}{m!}
+              </me>.
+            </p>
+          </li>
+          <li>
+            <p>
+              The Taylor series for <m>\cos x</m> is <m>{\displaystyle \sum_{m=0}^\infty b_m}</m>, where
+              <me>
+                b_0 = 1,  b_1 = \dfrac{-x^2}{2!},  b_2 = \dfrac{x^4}{4!}, \cdots , b_m = (-1)^m \dfrac{x^{2m}}{(2m)!}
+              </me>.
+            </p>
+          </li>
+          <li>
+            <p>
+              We can even describe the series
+              <me>
+                17 + x + x^2 + x^4 + x^6 + x^8 + \cdots = 17 + x + \sum_{m=2}^\infty x^{2m-2}
+              </me>
+              in our generic notation, in spite of the presence of the first two terms
+              <q><m>17 + x</m></q>
+              which don't fit the pattern of later ones.
+              We have <m>b_0 = 17</m>, <m>b_1 = x</m>,
+              and then <m>b_m = x^{2m-2}</m> for <m>m = 2</m>, 3, 4,<nbsp/><ellipsis/> .
+            </p>
+          </li>
+        </ol>
+      </p>
+      <p>
+        The question of convergence for a power series is [[NOTE:Convergence is determined by the
         <q>tail</q>
-        of the series
+        of the series]] unaffected by the
+        <q>beginning</q>
+        of the series; only the pattern in the
+        <q>tail</q>
+        matters.
+        (Of course the <em>value</em> of the power series is affected by all of its terms.)
+        So we can modify our generic notation to fit the circumstances at hand.
+        No harm is done if we don't begin with <m>b_0</m>.
       </p>
-    </aside>
-    <p>
-      unaffected by the
-      <q>beginning</q>
-      of the series; only the pattern in the
-      <q>tail</q>
-      matters.
-      (Of course the <em>value</em> of the power series is affected by all of its terms.)
-      So we can modify our generic notation to fit the circumstances at hand.
-      No harm is done if we don't begin with <m>b_0</m>.
-      Using this notation we can state the ratio test
-      (but we give no proof).
-    </p>
-    <image source=""/>
-    <p>
-      Let's see
-    </p>
-    <aside>
       <p>
-        The ratio test for the geometric series <m>\ldots</m>
+        Using this notation we can state the ratio test
+        (but we give no proof).
       </p>
-    </aside>
-    <p>
-      what the ratio test says about the geometric series:
-      <me>
-        1 + x + x^2 + x^3 + \cdots \
-      </me>.
-    </p>
-    <p>
-      We have <m>b_m = x^m</m>, so the ratio we must consider is
-      <me>
-        \dfrac{|b_{m+1}|}{|b_m|} = \dfrac{|x^{m+1}|}{|x^m|} = \dfrac{|x|^{m+1}}{|x|^m} = |x|
-      </me>.
-    </p>
-    <p>
-      (Be sure you see why <m>|x^m| = |x|^m\/</m>.) Obviously,
-      this ratio has the same value for all <m>m</m>, so the limit
-      <me>
-        \lim_{m \to \infty} |x| = |x|
-      </me>
-      exists and is less than <m>1</m> precisely when <m>|x| \lt  1</m>.
-      Thus the geometric series converges for
-      <m>|x| \lt  1</m><mdash/>which we already know is true.
-      This means that the radius of convergence of the geometric series is <m>R=1</m>.
-      Look next
-    </p>
-    <aside>
+      <observation>
       <p>
-        <m>\ldots</m> and for <m>e^x</m>
+        Ratio Test: the series <m>b_0 + b_1 + b_2 + b_3 + \cdots + b_n + \cdots</m>
       </p>
-    </aside>
-    <p>
-      at the Taylor series for <m>e^x</m>:
-      <me>
-        1 + x + \dfrac{x^2}{2!} + \dfrac{x^3}{3!} + \dfrac{x^4}{4!} + \cdots = \sum_{m=0}^{\infty} \dfrac{x^m}{m!}
-      </me>.
-    </p>
-    <p>
-      For negative <m>x</m> this is an alternating series,
-      so by the criterion for convergence of alternating series we know it converges for all <m>x \lt  0</m>.
-      The radius of convergence should then be <m>\infty</m>.
-      We will use the ratio test to show that in fact this series converges for
-      <em>all</em><nbsp/><m>x</m>.
-      In this case
-      <me>
-        b_m = \dfrac{x^m}{m!}
-      </me>,
-      so the relevant ratio is
-      <me>
-        \dfrac{|b_{m+1}|}{|b_m|} = \left|\dfrac{x^{m+1}}{(m+1)!}\right| \cdot \left|\dfrac{m!}{x^m}\right| =  \dfrac{|x^{m+1}|}{|x^m|} \cdot \dfrac{m!}{(m+1)!} =  |x| \cdot \dfrac{1}{m+1} = \dfrac{|x|}{m+1}
-      </me>.
-    </p>
-    <p>
-      Unlike the example with the geometric series,
-      the value of this ratio depends on <m>m</m>.
-      For any particular <m>x</m>,
-      as <m>m</m> gets larger and larger the numerator stays the same and the denominator grows,
-      so this ratio gets smaller and smaller.
-      In other words,
-      <me>
-        \lim_{m \to \infty} \dfrac{|b_{m+1}|}{|b_m|} = \lim_{m \to \infty} \dfrac{|x|}{m+1} = 0
-      </me>.
-    </p>
-    <p>
-      Since this limit is less than 1 for any value of <m>x</m>,
-      the series converges for <em>all</em><nbsp/><m>x</m>,
-      and thus the radius of convergence of the Taylor series for <m>e^x</m> is <m>R= \infty</m>,
-      as we expected.
-      One of the uses of the theory developed so far is that it gives us a new way of specifying functions.
-      For example, consider the power series
-      <me>
-        \sum_{m=0}^\infty (-1)^m\,\dfrac{2^m}{m^2+1}\,x^m = 1 - x + \dfrac{4}{5} x^2 - \dfrac{8}{10} x^3 + \dfrac{16}{17} x^4 + \cdots
-      </me>.
-    </p>
-    <p>
-      In this case <m>b_m=(-1)^m \dfrac{2^m}{m^2+1}x^m</m>,
-      so to find the radius of convergence, we compute the ratio
-      <me>
-        \dfrac{|b_{m+1}|}{|b_m|} = \dfrac{2^{m+1}|x|^{m+1}}{(m+1)^2 + 1} \cdot \dfrac{m^2 + 1}{2^m |x|^m} = 2|x| \dfrac{m^2 + 1}{m^2 + 2m + 2}
-      </me>.
-    </p>
-    <p>
-      To figure out what happens to this ratio as <m>m</m> grows large,
-    </p>
-    <aside>
       <p>
-        Finding the limit of <m>|b_{m+1}|/|b_m|</m> may require some algebra
+        converges if <m>{\displaystyle \lim_{m \to \infty}\dfrac{|b_{m+1}|}{|b_m|} \lt 1.}</m>
       </p>
-    </aside>
-    <p>
-      it is helpful to rewrite the factor involving the <m>m</m>'s as
-      <me>
-        \dfrac{m^2 \cdot (1 + 1/m^2)}{m^2 \cdot (1+2/m +2/m^2)} = \dfrac{1 + 1/m^2}{1 + 2/m + 2/m^2}
-      </me>.
-    </p>
-    <p>
-      Now we can see that
-      <me>
-        \lim_{m \to \infty} \dfrac{|b_{m+1}|}{|b_m|} = 2 |x| \cdot \dfrac{1}{1} = 2|x|
-      </me>.
-    </p>
-    <p>
-      The limit value is less than <m>1</m> precisely when <m>2|x| \lt  1\/</m>, or,
-      equivalently, <m>|x| \lt  1/2</m>,
-      so the radius of convergence of this series is <m>R=1/2\/</m>.
-      It follows that for <m>|x| \lt  1/2</m>,
-      we have a new function <m>f(x)</m> defined by the power series:
-      <me>
-        f(x) = \sum_{m=0}^\infty (-1)^m \dfrac{2^m}{m^2+1} \,x^m
-      </me>.
-    </p>
-    <p>
-      We can also discuss the radius of convergence of a power series
-      <me>
-        a_0 + a_1 (x - a) + a_2 (x - a)^2 + \cdots + a_m (x - a)^m + \cdots
-      </me>
-      centered at a location <m>x = a</m> other than the origin.
-      The radius of convergence of a power series of this form can be found by the <em>ratio test</em>
-      in exactly the same way it was when <m>a = 0</m>.
-      <term>Example.</term> Let's apply the ratio test to the Taylor series centered at <m>a=1</m> for <m>\ln(x)</m>:
-      <me>
-        \ln(x) = \sum_{m=1}^\infty \dfrac{(-1)^{m-1}}{m} \, (x-1)^m
-      </me>.
-    </p>
-    <p>
-      We can start our series with <m>b_1\/</m>,
-      so we can take <m>b_m = \dfrac{(-1)^{m-1}}{m} \, (x-1)^m\/</m>.
-      Then the ratio we must consider is
-      <me>
-        \dfrac{|b_{m+1}|}{|b_m|} = \dfrac{|x-1|^{m+1}}{m+1} \cdot \dfrac{m}{|x-1|^m} = |x-1| \cdot \dfrac{m}{m+1} = |x-1| \cdot \dfrac{1}{1 + 1/m}
-      </me>.
-    </p>
-    <p>
-      Then
-      <me>
-        \lim_{m \to \infty} \dfrac{|b_{m+1}|}{|b_m|} = |x-1| \cdot 1 = |x-1|
-      </me>.
-    </p>
-    <p>
-      From this we conclude that this series converges for <m>|x-1| \lt  1</m>.
-      This inequality is equivalent to
-      <me>
-        -1 \lt  x-1 \lt  1
-      </me>,
-      which is an interval of
-      <q>radius</q>
-      <m>1</m> about <m>a=1</m>,
-      so the radius of convergence is <m>R=1</m> in this case.
-      We may also write the interval of convergence for this power series as
-      <me>
-        0 \lt  x \lt  2
-      </me>.
-    </p>
-    <p>
-      More generally,
-      using the ratio test we find that a power series centered at <m>a</m> converges in an interval of
-      <q>radius</q>
-      <m>R</m> (and width <m>2R</m>) around the point <m>x = a</m> on the <m>x</m>-axis.
-      Ignoring what happens at the endpoints,
-      we say the <term>interval of convergence</term>
-          <idx><h>interval of convergence</h></idx>
-      is
-      <me>
-        a - R \lt  x \lt  a + R
-      </me>.
-    </p>
-    <p>
-      Here is a picture of what this looks like:
-    </p>
-    <image source="images/c8a4d53eb59d01bc850c9c50b18d55d159bdb593.png"/>
+      </observation>
+      <p>
+        Let's see [[NOTE:The ratio test for the geometric series <m>\ldots</m>]] what the ratio test says about the geometric series:
+        <me>
+          1 + x + x^2 + x^3 + \cdots \
+        </me>.
+      </p>
+      <p>
+        We have <m>b_m = x^m</m>, so the ratio we must consider is
+        <me>
+          \dfrac{|b_{m+1}|}{|b_m|} = \dfrac{|x^{m+1}|}{|x^m|} = \dfrac{|x|^{m+1}}{|x|^m} = |x|
+        </me>.
+      </p>
+      <p>
+        (Be sure you see why <m>|x^m| = |x|^m\/</m>.) Obviously,
+        this ratio has the same value for all <m>m</m>, so the limit
+        <me>
+          \lim_{m \to \infty} |x| = |x|
+        </me>
+        exists and is less than <m>1</m> precisely when <m>|x| \lt  1</m>.
+        Thus the geometric series converges for
+        <m>|x| \lt  1</m><mdash/>which we already know is true.
+        This means that the radius of convergence of the geometric series is <m>R=1</m>.
+      </p>
+      <p>
+        Look next [[NOTE<m>:\ldots</m> and for <m>e^x</m>]] at the Taylor series for <m>e^x</m>:
+        <me>
+          1 + x + \dfrac{x^2}{2!} + \dfrac{x^3}{3!} + \dfrac{x^4}{4!} + \cdots = \sum_{m=0}^{\infty} \dfrac{x^m}{m!}
+        </me>.
+      </p>
+      <p>
+        For negative <m>x</m> this is an alternating series,
+        so by the criterion for convergence of alternating series we know it converges for all <m>x \lt 0</m>.
+        The radius of convergence should then be <m>\infty</m>.
+        We will use the ratio test to show that in fact this series converges for
+        <em>all</em><nbsp/><m>x</m>.
+      </p>
+      <p>
+        In this case
+        <me>
+          b_m = \dfrac{x^m}{m!}
+        </me>,
+        so the relevant ratio is
+        <me>
+          \dfrac{|b_{m+1}|}{|b_m|} = \left|\dfrac{x^{m+1}}{(m+1)!}\right| \cdot \left|\dfrac{m!}{x^m}\right| =  \dfrac{|x^{m+1}|}{|x^m|} \cdot \dfrac{m!}{(m+1)!} =  |x| \cdot \dfrac{1}{m+1} = \dfrac{|x|}{m+1}
+        </me>.
+      </p>
+      <p>
+        Unlike the example with the geometric series,
+        the value of this ratio depends on <m>m</m>.
+        For any particular <m>x</m>,
+        as <m>m</m> gets larger and larger the numerator stays the same and the denominator grows,
+        so this ratio gets smaller and smaller.
+        In other words,
+        <me>
+          \lim_{m \to \infty} \dfrac{|b_{m+1}|}{|b_m|} = \lim_{m \to \infty} \dfrac{|x|}{m+1} = 0
+        </me>.
+      </p>
+      <p>
+        Since this limit is less than 1 for any value of <m>x</m>,
+        the series converges for <em>all</em><nbsp/><m>x</m>,
+        and thus the radius of convergence of the Taylor series for <m>e^x</m> is <m>R= \infty</m>,
+        as we expected.
+      </p>
+      <p>
+        One of the uses of the theory developed so far is that it gives us a new way of specifying functions.
+        For example, consider the power series
+        <me>
+          \sum_{m=0}^\infty (-1)^m\,\dfrac{2^m}{m^2+1}\,x^m = 1 - x + \dfrac{4}{5} x^2 - \dfrac{8}{10} x^3 + \dfrac{16}{17} x^4 + \cdots
+        </me>.
+      </p>
+      <p>
+        In this case <m>b_m=(-1)^m \dfrac{2^m}{m^2+1}x^m</m>,
+        so to find the radius of convergence, we compute the ratio
+        <me>
+          \dfrac{|b_{m+1}|}{|b_m|} = \dfrac{2^{m+1}|x|^{m+1}}{(m+1)^2 + 1} \cdot \dfrac{m^2 + 1}{2^m |x|^m} = 2|x| \dfrac{m^2 + 1}{m^2 + 2m + 2}
+        </me>.
+      </p>
+      <p>
+        To figure out what happens to this ratio as <m>m</m> grows large, [[NOTE:Finding the limit of
+        <m>|b_{m+1}|/|b_m|</m> may require some algebra]] it is helpful to rewrite the factor involving the <m>m</m>'s as
+        <me>
+          \dfrac{m^2 \cdot (1 + 1/m^2)}{m^2 \cdot (1+2/m +2/m^2)} = \dfrac{1 + 1/m^2}{1 + 2/m + 2/m^2}
+        </me>.
+      </p>
+      <p>
+        Now we can see that
+        <me>
+          \lim_{m \to \infty} \dfrac{|b_{m+1}|}{|b_m|} = 2 |x| \cdot \dfrac{1}{1} = 2|x|
+        </me>.
+      </p>
+      <p>
+        The limit value is less than <m>1</m> precisely when <m>2|x| \lt  1\/</m>, or,
+        equivalently, <m>|x| \lt  1/2</m>,
+        so the radius of convergence of this series is <m>R=1/2\/</m>.
+        It follows that for <m>|x| \lt  1/2</m>,
+        we have a new function <m>f(x)</m> defined by the power series:
+        <me>
+          f(x) = \sum_{m=0}^\infty (-1)^m \dfrac{2^m}{m^2+1} \,x^m
+        </me>.
+      </p>
+      <p>
+        We can also discuss the radius of convergence of a power series
+        <me>
+          a_0 + a_1 (x - a) + a_2 (x - a)^2 + \cdots + a_m (x - a)^m + \cdots
+        </me>
+        centered at a location <m>x = a</m> other than the origin.
+        The radius of convergence of a power series of this form can be found by the <em>ratio test</em>
+        in exactly the same way it was when <m>a = 0</m>.
+      </p>
+    </introduction>
+    <subsubsection>
+      <title>Example</title>
+      <p>
+        Let's apply the ratio test to the Taylor series centered at <m>a=1</m> for <m>\ln(x)</m>:
+        <me>
+          \ln(x) = \sum_{m=1}^\infty \dfrac{(-1)^{m-1}}{m} \, (x-1)^m
+        </me>.
+      </p>
+      <p>
+        We can start our series with <m>b_1\/</m>,
+        so we can take <m>b_m = \dfrac{(-1)^{m-1}}{m} \, (x-1)^m\/</m>.
+        Then the ratio we must consider is
+        <me>
+          \dfrac{|b_{m+1}|}{|b_m|} = \dfrac{|x-1|^{m+1}}{m+1} \cdot \dfrac{m}{|x-1|^m} = |x-1| \cdot \dfrac{m}{m+1} = |x-1| \cdot \dfrac{1}{1 + 1/m}
+        </me>.
+      </p>
+      <p>
+        Then
+        <me>
+          \lim_{m \to \infty} \dfrac{|b_{m+1}|}{|b_m|} = |x-1| \cdot 1 = |x-1|
+        </me>.
+      </p>
+      <p>
+        From this we conclude that this series converges for <m>|x-1| \lt  1</m>.
+        This inequality is equivalent to
+        <me>
+          -1 \lt  x-1 \lt  1
+        </me>,
+        which is an interval of
+        <q>radius</q>
+        <m>1</m> about <m>a=1</m>,
+        so the radius of convergence is <m>R=1</m> in this case.
+        We may also write the interval of convergence for this power series as
+        <me>
+          0 \lt  x \lt  2
+        </me>.
+      </p>
+      <p>
+        More generally,
+        using the ratio test we find that a power series centered at <m>a</m> converges in an interval of
+        <q>radius</q>
+        <m>R</m> (and width <m>2R</m>) around the point <m>x = a</m> on the <m>x</m>-axis.
+        Ignoring what happens at the endpoints,
+        we say the <term>interval of convergence</term>
+            <idx><h>interval of convergence</h></idx>
+        is
+        <me>
+          a - R \lt  x \lt  a + R
+        </me>.
+      </p>
+      <p>
+        Here is a picture of what this looks like:
+      </p>
+      <image source="images/c8a4d53eb59d01bc850c9c50b18d55d159bdb593.png"/>
+    </subsubsection>
   </subsection>
-  <subsection xml:id="sec_convergence_subsec_exercises">
+  <subsection xml:id="subsec_exercises">
     <title>Exercises</title>
     <ol>
       <li>
@@ -1231,10 +1158,14 @@
                 Clearly if <m>n=1</m>,
                 the farthest reach you could would be <m>\frac{1}{2}</m>.
                 If <m>n=2</m>,
-                you could clearly <image width="73%" source="images/cards.png"/>
-                <sidebyside>
-                  place the top card to extend half a unit beyond the bottom card.  For the system to be stable, the center of mass of the two cards must be to the left of the edge of the table. Show that for this to happen, the bottom card can't extend more than 1/4 unit beyond the edge.  Thus with <m>n=2</m><nbsp/>, the maximum extension of the pile is <m>\frac{1}{2} + \frac{1}{4} = \frac{3}{4}</m>.  The picture at the right shows 10 cards stacked carefully.
-                </sidebyside>
+                you could clearly <image width="73%" source="images/cards.png"/> place the top card to extend half a unit beyond the bottom card.
+                For the system to be stable,
+                the center of mass of the two cards must be to the left of the edge of the table.
+                Show that for this to happen,
+                the bottom card can't extend more than 1/4 unit beyond the edge.
+                Thus with <m>n=2</m><nbsp/>,
+                the maximum extension of the pile is <m>\frac{1}{2} + \frac{1}{4} = \frac{3}{4}</m>.
+                The picture at the right shows 10 cards stacked carefully.
                 Prove that if you have <m>n</m> cards,
                 the stack can be built to extend a distance of
                 <me>
@@ -1264,7 +1195,7 @@
               <p>
                 Let's look at the case <m>n=6</m> to see what's going on.
                 Consider the following picture:
-                <image width="73%" source="images/harmonic.png"/> Show that the lightly shaded region plus the dark region has area equal to <m>S_5</m><nbsp/>,
+                <image width="73%" source="images/harmonic.png"/>  Show that the lightly shaded region plus the dark region has area equal to <m>S_5</m><nbsp/>,
                 which can be rewritten as <m>S_6 - \tfrac{1}{6}</m>.
                 Show that the dark region alone has area <m>S_6 - 1</m>.
                 Hence prove that
@@ -1290,22 +1221,17 @@
             </li>
             <li>
               <p>
-                Use the result of part (b) to get an estimate for how many cards you would need in part (f) of the preceding problem to make the top of the pile extend 100 units beyond the edge of the table. \ans{It would take approximately <m>10^{87}</m> cards<mdash/>a number which is on the same order of magnitude as the number of atoms in the universe!}
-                <aside>
-                  <p>
-                    Remarkably, partial sums of the harmonic series exceed <m>\ln(n)</m> in a very regular way.
-                    It turns out that
-                    <me>
-                      \lim_{n \rightarrow \infty} \, \left\{ S_n - \ln(n) \right\} = \gamma
-                    </me>,
-                    where <m>\gamma = 0.5772\ldots</m> is called
-                    <term>Euler's constant.</term>
-            <idx><h>Euler's constant</h></idx>
-                    (You have seen another constant named for Euler,
-                    the base <m>e= 2.7183\ldots</m>.) Although one can find the decimal expansion of <m>\gamma</m> to any desired degree of accuracy,
-                    no one knows whether <m>\gamma</m> is a rational number or not.
-                  </p>
-                </aside>
+                Use the result of part (b) to get an estimate for how many cards you would need in part (f) of the preceding problem to make the top of the pile extend 100 units beyond the edge of the table.  \ans{It would take approximately <m>10^{87}</m> cards<mdash/>a number which is on the same order of magnitude as the number of atoms in the universe!}     [[NOTE:Remarkably,
+                partial sums of the harmonic series exceed <m>\ln(n)</m> in a very regular way.
+                It turns out that
+                <me>
+                  \lim_{n \rightarrow \infty} \, \left\{ S_n - \ln(n) \right\} = \gamma
+                </me>,
+                where <m>\gamma = 0.5772\ldots</m> is called
+                <term>Euler's constant.</term>
+                (You have seen another constant named for Euler,
+                the base <m>e= 2.7183\ldots</m>.)  Although one can find the decimal expansion of <m>\gamma</m> to any desired degree of accuracy,
+                no one knows whether <m>\gamma</m> is a rational number or not.]]
               </p>
             </li>
           </ol>

@@ -1,4 +1,4 @@
-<section xml:id="sec_separation-of-variables-and-partial-fractions_sec_separation-of-variables-and-partial-fractions">
+<section xml:id="sec_separation-of-variables-and-partial-fractions">
   <title>Separation of Variables and
   Partial Fractions</title>
   <introduction>
@@ -15,45 +15,26 @@
       In this section we will see how our earlier techniques can be adapted to apply to problems of this sort as well.
     </p>
   </introduction>
-  <subsection xml:id="sec_separation-of-variables-and-partial-fractions_subsec_the-differential-equation-y-y">
+  <subsection xml:id="subsec_the-differential-equation-y-y">
     <title>The Differential Equation <m>y' = y</m></title>
     <introduction>
       <p>
-        As you know,
-      </p>
-      <aside>
-        <p>
-          A new method for solving <m>y' = y</m>
-        </p>
-      </aside>
-      <p>
-        the exponential functions <m>y = C e^t</m> are the solutions to the differential equation <m>dy/dt = y</m>.
+        As you know, [[NOTE:A new method for solving <m>y' = y</m>]] the exponential functions
+        <m>y = C e^t</m> are the solutions to the differential equation <m>dy/dt = y</m>.
         Let's put aside this knowledge for a moment and rediscover these solutions using a new method.
         The method involves the connection between inverse functions and their derivatives.
         With it we will be able to explore a variety of problems that had been beyond our reach.
-        The idea behind the new method is quite simple:
       </p>
-      <aside>
-        <p>
-          Find the inverse function instead
-        </p>
-      </aside>
       <p>
-        Instead of thinking of <m>y</m> as a function of <m>t</m>,
+        The idea behind the new method is quite simple: [[NOTE:Find the inverse function instead]] Instead of thinking of <m>y</m> as a function of <m>t</m>,
         convert to thinking of <m>t</m> as a function of <m>y</m>,
         thereby looking for the <term>inverse function</term>.
         We know that the derivative of the inverse function is the reciprocal of the derivative of the original function,
-        so we can rewrite the given differential equation by using its reciprocal:
+        so we can rewrite the given differential equation by using its reciprocal: [[NOTE:The new differential equation<ellipsis/>]]
+        <me>
+          \dfrac{dy}{dt} = y \qquad \mbox{becomes}  \qquad \dfrac{dt}{dy} = \dfrac{1}{y}
+        </me>.
       </p>
-      <aside>
-        <p>
-          The new differential equation<ellipsis/>
-        </p>
-      </aside>
-      <me>
-        \dfrac{dy}{dt} = y \qquad \mbox{becomes}  \qquad
-        \dfrac{dt}{dy} = \dfrac{1}{y}
-      </me>.
       <p>
         Then solve the new differential equation <m>dt/dy = 1/y</m>.
         While this may not look very different,
@@ -63,27 +44,14 @@
         But this is just the form we have been considering in the earlier sections of this chapter.
         A solution to the new equation is a function
         <m>t = g(y)</m> whose derivative is <m>1/y</m>.
-        This is one of the basic antiderivatives listed
-      </p>
-      <aside>
-        <p>
-          <ellipsis/> and its solution
-        </p>
-      </aside>
-      <p>
-        in the table <xref ref="sec_a-global-view_deriv_table">on</xref>:
+        This is one of the basic antiderivatives listed [[NOTE:<ellipsis/> and its solution]] in the table <xref ref="table">on</xref>:
         <me>
           t = g(y) = \ln{y} + k
         </me>,
         where <m>k</m> is an arbitrary constant.
-        The solution to the original differential equation
       </p>
-      <aside>
-        <p>
-          The inverse <ellipsis/>
-        </p>
-      </aside>
       <p>
+        The solution to the original differential equation [[NOTE:The inverse <ellipsis/>]]
         <m>dy/dt = y</m> is the inverse of <m>t = \ln{y} + k</m>.
         We find it by solving this equation for <m>y</m>:
         <md>
@@ -93,30 +61,16 @@
         </md>
       </p>
       <p>
-        Thus <m>y(t) = Ce^t</m>,
-      </p>
-      <aside>
-        <p>
-          <ellipsis/> solves the original problem
-        </p>
-      </aside>
-      <p>
-        where we have replaced the constant <m>e^{-k}</m> by <m>C</m>.
+        Thus <m>y(t) = Ce^t</m>, [[NOTE:<ellipsis/> solves the original problem]] where we have replaced the constant <m>e^{-k}</m> by <m>C</m>.
       </p>
     </introduction>
-    <subsubsection xml:id="sec_separation-of-variables-and-partial-fractions_subsubsec_indefinite-integrals">
+    <subsubsection xml:id="subsubsec_indefinite-integrals">
       <title>Indefinite integrals</title>
       <p>
             <idx><h>indefinite integral</h></idx>
-        The language of indefinite integrals
       </p>
-      <aside>
-        <p>
-          The differential equation expressed using differentials
-        </p>
-      </aside>
       <p>
-        and differentials again provides a convenient mnemonic for this new method.
+        The language of indefinite integrals [[NOTE:The differential equation expressed using differentials]] and differentials again provides a convenient mnemonic for this new method.
         First, we use the original differential equation to relate the differentials <m>dy</m> and <m>dt</m>:
         <me>
           dy = \dfrac{dy}{dt} \, dt = y \, dt
@@ -141,6 +95,8 @@
         represents a function <m>F(t)</m> whose derivative is <m>f(t)</m>.
         If <m>f</m> is <em>not</em> given by a formula in <m>t</m>,
         there is no way to get a formula for <m>F(t)</m>.
+      </p>
+      <p>
         Suppose, though,
         that we divide both sides of the differential equation <m>dy = y \, dt</m> by <m>y</m>,
         and integrate with respect to <m>y</m>.
@@ -156,36 +112,21 @@
         </me>.
       </p>
       <p>
-        This time the variables <m>y</m> and <m>t</m>
-      </p>
-      <aside>
-        <p>
-          The variables are now <em>separated</em>
-        </p>
-      </aside>
-      <p>
-        have been separated from each other,
+        This time the variables <m>y</m> and <m>t</m> [[NOTE:The variables are now
+        <em>separated</em>]] have been separated from each other,
         and we <em>can</em> find the integrals.
         In fact,
         <me>
           \ln{y} = \int \dfrac{dy}{y} = \int dt = t + b
         </me>,
-        where <m>b</m> is an arbitrary constant. (We could just as easily have added the constant to the left side instead<mdash/>do you see why we don't have to add a constant to both sides?) To complete the work
-      </p>
-      <aside>
-        <p>
-          The solution once again
-        </p>
-      </aside>
-      <p>
-        we solve for<nbsp/><m>y</m>:
+        where <m>b</m> is an arbitrary constant. (We could just as easily have added the constant to the left side instead<mdash/>do you see why we don't have to add a constant to both sides?) To complete the work [[NOTE:The solution once again]] we solve for<nbsp/><m>y</m>:
         <me>
           y = e^{t + b} = e^t \cdot e^b = Ce^t
         </me>,
         where <m>C = e^b</m>.
       </p>
     </subsubsection>
-    <subsubsection xml:id="sec_separation-of-variables-and-partial-fractions_subsubsec_summary">
+    <subsubsection xml:id="subsubsec_summary">
       <title>Summary</title>
       <p>
         The first time we went through the method, we replaced
@@ -208,15 +149,8 @@
         This change was also algebraic,
         and it had the same effect:
         the dependent variable changed from <m>y</m> to <m>t</m>.
-        More important,
-      </p>
-      <aside>
-        <p>
-          To integrate, separate the variables
-        </p>
-      </aside>
-      <p>
-        in the new differential equation
+        More important, [[NOTE:To integrate,
+        separate the variables]] in the new differential equation
         (using the differentials themselves!)
         the variables are separated.
         That allows us to do the integration.
@@ -226,12 +160,16 @@
       </p>
     </subsubsection>
   </subsection>
-  <subsection xml:id="sec_separation-of-variables-and-partial-fractions_subsec_separation-of-variables">
+  <subsection xml:id="subsec_separation-of-variables">
     <title>Separation of Variables</title>
     <introduction>
       <p>
             <idx><h>separation of variables</h></idx>
-        With the method of <term>separation of variables</term>, introduced in the previous pages, we can obtain formulas for solutions to a number of differential equations that were previously accessible only by Euler's method.
+      </p>
+      <p>
+        With the method of <term>separation of variables</term>,
+        introduced in the previous pages,
+        we can obtain formulas for solutions to a number of differential equations that were previously accessible only by Euler's method.
         Recall that one of the clear advantages of a <em>formula</em>
         is that it allows us to see how the parameters in the problem affect the solution.
         We'll look at two problems.
@@ -240,7 +178,7 @@
         to be discussed next, we'll give a formula for logistic growth.
       </p>
     </introduction>
-    <subsubsection xml:id="sec_separation-of-variables-and-partial-fractions_subsubsec_supergrowth">
+    <subsubsection xml:id="subsubsec_supergrowth">
       <title>Supergrowth</title>
       <p>
         In chapter 4.2 we modelled the growth of a population <m>Q</m> by the initial value problem
@@ -250,15 +188,7 @@
         </me>.
       </p>
       <p>
-        To get a formula for the solution,
-      </p>
-      <aside>
-        <p>
-          Separate the variables
-        </p>
-      </aside>
-      <p>
-        transform the differential equation in the following way:
+        To get a formula for the solution, [[NOTE:Separate the variables]] transform the differential equation in the following way:
         <me>
           \dfrac{dQ}{dt} = k \, Q^{1.2}  \leadsto dQ = k \, Q^{1.2} \, dt  \leadsto \dfrac{dQ}{Q^{1.2}} = k \, dt
         </me>.
@@ -278,15 +208,7 @@
         </md>
       </p>
       <p>
-        Therefore, <m>\tfrac{1}{-0.2} Q^{-0.2} = kt + C</m>.
-      </p>
-      <aside>
-        <p>
-          Solve for <m>Q</m>
-        </p>
-      </aside>
-      <p>
-        Now we must solve this equation for <m>Q</m>.
+        Therefore, <m>\tfrac{1}{-0.2} Q^{-0.2} = kt + C</m>. [[NOTE:Solve for <m>Q</m>]] Now we must solve this equation for <m>Q</m>.
         Here is one possible approach.
         First, we can write
         <me>
@@ -307,15 +229,7 @@
         </me>.
       </p>
       <p>
-        The last step is to incorporate
-      </p>
-      <aside>
-        <p>
-          Bring in the initial condition
-        </p>
-      </aside>
-      <p>
-        the initial condition <m>Q(0) = A</m>.
+        The last step is to incorporate [[NOTE:Bring in the initial condition]] the initial condition <m>Q(0) = A</m>.
         According to the new formula for <m>Q(t)</m>,
         <me>
           Q(0) = (C_1 -0.2k\cdot 0)^{-5} = C_1^{-5} = A
@@ -334,15 +248,7 @@
         </me>.
       </p>
       <p>
-        This is the formula that appears <xref ref="supergrowth_soln">on</xref>.
-      </p>
-      <aside>
-        <p>
-          Interpreting the formula
-        </p>
-      </aside>
-      <p>
-        It shows how the parameters <m>k</m> and <m>A</m> affect the solution.
+        This is the formula that appears <xref ref="supergrowth_soln">on</xref>. [[NOTE:Interpreting the formula]] It shows how the parameters <m>k</m> and <m>A</m> affect the solution.
         In particular, we called this <em>supergrowth</em>
         because the model predicts that the population <m>Q</m> becomes infinite when
         <me>
@@ -351,20 +257,27 @@
       </p>
     </subsubsection>
   </subsection>
-  <subsection xml:id="sec_separation-of-variables-and-partial-fractions_subsec_partial-fractions">
+  <subsection xml:id="subsec_partial-fractions">
     <title>Partial Fractions</title>
     <introduction>
       <p>
             <idx><h>partial fractions</h></idx>
-        Using separation of variables with a partial fractions decomposition (to be described below), we will obtain a formula for the solution to the logistic equation (chapter<nbsp/>4.1).
+      </p>
+      <p>
+        Using separation of variables with a partial fractions decomposition
+        (to be described below),
+        we will obtain a formula for the solution to the logistic equation
+        (chapter<nbsp/>4.1).
         The method of <term>partial fractions</term>
         is a useful tool for solving many integration problems.
       </p>
     </introduction>
-    <subsubsection xml:id="sec_separation-of-variables-and-partial-fractions_subsubsec_logistic-growth">
+    <subsubsection xml:id="subsubsec_logistic-growth">
       <title>Logistic growth</title>
       <p>
             <idx><h>logistic growth</h></idx>
+      </p>
+      <p>
         Consider this initial value problem associated with the logistic differential equation:
         <me>
           \dfrac{dP}{dt} = kP \left( 1 - \dfrac{P}{C} \right), \qquad P(0) = A
@@ -372,15 +285,10 @@
       </p>
       <p>
         We will find a formula for the solution that incorporates the growth parameter <m>k</m> and the carrying capacity <m>C</m>.
-        The first step is to transform the equation
       </p>
-      <aside>
-        <p>
-          Step 1: separate the variables
-        </p>
-      </aside>
       <p>
-        into one where the variables are separated:
+        The first step is to transform the equation [[NOTE:Step 1:
+        separate the variables]] into one where the variables are separated:
         <me>
           \dfrac{dP}{dt} = kP \left( 1 - \dfrac{P}{C} \right)  \leadsto \dfrac{dP}{P (1 - P/C)} = k \, dt
         </me>.
@@ -392,19 +300,13 @@
         </me>.
       </p>
       <p>
-        We are stuck now,
-      </p>
-      <aside>
-        <p>
-          The denominator has an unfamiliar form
-        </p>
-      </aside>
-      <p>
-        because the integral on the left doesn't appear in our table of integrals ( <xref ref="sec_a-global-view_deriv_table"></xref>).
+        We are stuck now, [[NOTE:The denominator has an unfamiliar form]] because the integral on the left doesn't appear in our table of integrals ( <xref ref="table"></xref>).
         If the denominator had <em>only</em>
         <m>P</m> or <em>only</em> <m>1 - P/C</m>,
         we could use the natural logarithm.
         The difficulty is that the denominator is the product of both terms.
+      </p>
+      <p>
         There is a way out of the difficulty.
         We will use algebra to transform the integrand into a form we can work with.
         The first step is to simplify the denominator a bit:
@@ -422,15 +324,8 @@
         </me>
       </p>
       <p>
-        The denominator is a product<mdash/>very much like the product <m>P(C - P)</m>
-      </p>
-      <aside>
-        <p>
-          Step 2: write the integrand as a sum of simple fractions
-        </p>
-      </aside>
-      <p>
-        in our integrand!
+        The denominator is a product<mdash/>very much like the product <m>P(C - P)</m> [[NOTE:Step 2:
+        write the integrand as a sum of simple fractions]] in our integrand!
         Perhaps we can write <em>that</em>
         as a sum of two simpler fractions:
         <me>
@@ -449,15 +344,7 @@
         </me>.
       </p>
       <p>
-        Since the denominators are equal,
-      </p>
-      <aside>
-        <p>
-          Determining <m>\alpha</m> and <m>\beta</m>
-        </p>
-      </aside>
-      <p>
-        the numerators must also be equal:
+        Since the denominators are equal, [[NOTE:Determining <m>\alpha</m> and <m>\beta</m>]] the numerators must also be equal:
         <me>
           \alpha (C - P) + \beta P = C
         </me>.
@@ -478,15 +365,7 @@
         </me>.
       </p>
       <p>
-        Thus <m>\alpha = \beta = 1</m>,
-      </p>
-      <aside>
-        <p>
-          The partial fractions decomposition
-        </p>
-      </aside>
-      <p>
-        and we have
+        Thus <m>\alpha = \beta = 1</m>, [[NOTE:The partial fractions decomposition]] and we have
         <me>
           \dfrac{C}{P(C - P)} = \dfrac{1}{P} + \dfrac{1}{C - P}
         </me>.
@@ -500,21 +379,16 @@
         The equation that expresses the integrand as a sum of partial fractions is called a
         <term>partial fractions decomposition</term>.
             <idx><h>partial fractions decomposition</h></idx>
+      </p>
+      <p>
         We can now return to the integral equation we are trying to solve:
         <me>
           \int \dfrac{C}{P(C - P)} \, dP  = \int k \, dt
         </me>.
       </p>
       <p>
-        The right hand side equals <m>kt + b</m>,
-      </p>
-      <aside>
-        <p>
-          Step 3: evaluate the integrals
-        </p>
-      </aside>
-      <p>
-        where <m>b</m> is the usual constant of integration.
+        The right hand side equals <m>kt  + b</m>, [[NOTE:Step 3:
+        evaluate the integrals]] where <m>b</m> is the usual constant of integration.
         Thanks to the partial fractions decomposition,
         the left hand side can be written
         <me>
@@ -541,15 +415,8 @@
         </me>.
       </p>
       <p>
-        As we have seen,
-      </p>
-      <aside>
-        <p>
-          Step 4: solve for <m>P</m>
-        </p>
-      </aside>
-      <p>
-        separation of variables usually leaves us with an inverse function to find.
+        As we have seen, [[NOTE:Step 4:
+        solve for <m>P</m>]] separation of variables usually leaves us with an inverse function to find.
         This problem is no different.
         We must solve the last equation for <m>P</m>.
         The first step is to exponentiate both sides:
@@ -573,29 +440,13 @@
         </me>.
       </p>
       <p>
-        The final step is to divide
-      </p>
-      <aside>
-        <p>
-          The formula for <m>P(t)</m>
-        </p>
-      </aside>
-      <p>
-        by the coefficient <m>1 + Be^{kt}</m>:
+        The final step is to divide [[NOTE:The formula for <m>P(t)</m>]] by the coefficient <m>1 + Be^{kt}</m>:
         <me>
           P(t) = \dfrac{CBe^{kt}}{1 + Be^{kt}}
         </me>.
       </p>
       <p>
-        Lastly,
-      </p>
-      <aside>
-        <p>
-          Step 5: incorporate the initial condition
-        </p>
-      </aside>
-      <p>
-        we must see how the initial condition
+        Lastly, [[NOTE:Step 5: incorporate the initial condition]] we must see how the initial condition
         <m>P(0) = A</m> affects the solution.
         We could substitute <m>t = 0</m>,
         <m>P = A</m> into the last formula,
@@ -617,21 +468,15 @@
       </p>
       <p>
         If we write <m>-A + Ae^{kt} = A(e^{kt} - 1)</m>,
-        we get one of the standard forms of the solution to
-      </p>
-      <aside>
-        <p>
-          The complete solution
-        </p>
-      </aside>
-      <p>
-        the logistic equation:
+        we get one of the standard forms of the solution to [[NOTE:The complete solution]] the logistic equation:
         <me>
           P(t) = \dfrac{CAe^{kt}}{C + A(e^{kt} - 1)}
         </me>.
       </p>
+    </subsubsection>
+    <subsubsection xml:id="trick">
+      <title>Remark</title>
       <p>
-        <term>Remark</term>.
         The method of partial fractions
             <idx><h>partial fractions</h></idx>
         can be used to evaluate integrals of the form
@@ -643,6 +488,8 @@
         As one example, though,
         let's compute the antiderivative of the cosecant function,
         since we will need it in the next section.
+      </p>
+      <p>
         <term>Example<mdash/>The antiderivative of the cosecant</term><idx><h>cosecant</h><h>antiderivative of</h></idx> We first use a trigonometric identity to transform the integral slightly:
         <md>
           <mrow>\dint \csc{x}\,dx \amp = \dint \dfrac{1}{\sin{x}}\,dx</mrow>
@@ -663,18 +510,10 @@
         </md>.
       </p>
       <p>
-        We can simplify this slightly
-      </p>
-      <aside>
-        <p>
-          The final form of the antiderivative of the cosecant
-        </p>
-      </aside>
-      <p>
-        by multiplying both numerator and denominator by <m>1+\cos{x}</m> to get
+        We can simplify this slightly [[NOTE:The final form of the antiderivative of the cosecant]] by multiplying both numerator and denominator by <m>1+\cos{x}</m> to get
         <md>
           <mrow>\dint \csc{x}\,dx \amp = \dfrac{1}{2}\ln\dfrac{1-\cos^2{x}}{(1+\cos{x})^2}+C = \ln{\left|\dfrac{\sin{x}}{1+\cos{x}}\right|}+C</mrow>
-          <mrow xml:id="sec_separation-of-variables-and-partial-fractions_cosecant" number="yes">\amp =-\ln{|\csc{x}+\cot{x}|}+C</mrow>
+          <mrow xml:id="cosecant" number="yes">\amp =-\ln{|\csc{x}+\cot{x}|}+C</mrow>
         </md>.
       </p>
       <p>
@@ -683,15 +522,9 @@
         Note also that since the domain of the secant function consists of infinitely many separate intervals. the
         <q><m>+\ C</m></q>
         at the end of the antiderivative needs to be interpreted as potentially a different value of <m>C</m> over each interval.
-        In the same fashion we can
       </p>
-      <aside>
-        <p>
-          The antiderivative of the secant
-        </p>
-      </aside>
       <p>
-        obtain the antiderivative for the secant function:
+        In the same fashion we can [[NOTE:The antiderivative of the secant]] obtain the antiderivative for the secant function:
             <idx><h>secant</h><h>antiderivative of</h></idx>
         <me>
           \int \sec{x}\,dx=\ln{|\sec{x} +\tan{x}|}+C
@@ -701,7 +534,7 @@
   </subsection>
   <subsection>
     <title>Exercises</title>
-    <subsubsection xml:id="sec_separation-of-variables-and-partial-fractions_subsubsec_separation-of-variables">
+    <subsubsection xml:id="subsubsec_separation-of-variables">
       <title>Separation of variables</title>
       <p>
             <idx><h>separation of variables</h></idx>
@@ -853,7 +686,7 @@
             to model the motion of a body falling under the influence of gravity (<m>g</m>) and air resistance
             (<m>bv</m>).
             Here <m>v</m> is the velocity of the body at time <m>t</m>.
-            (See <xref ref="sec_solutions-of-differential-equations_fall_w_air-begin">pages</xref><ndash/> <xref ref="sec_solutions-of-differential-equations_fall_w_air-end"></xref>.)
+            (See <xref ref="fall_w_air-begin">pages</xref><ndash/> <xref ref="fall_w_air-end"></xref>.)
             <ol>
               <li>
                 <p>
@@ -875,7 +708,7 @@
               </li>
               <li>
                 <p>
-                  Exercise 21 <xref ref="sec_solutions-of-differential-equations_ex_falling_body1">on</xref>
+                  Exercise 21 <xref ref="ex_falling_body1">on</xref>
                   gives the solution to the initial value problem as
                   <me>
                     v(t) = \dfrac{g}{b} \, \left( 2^{-bt/.69} - 1 \right)
@@ -947,7 +780,7 @@
         </li>
       </ol>
     </subsubsection>
-    <subsubsection xml:id="sec_separation-of-variables-and-partial-fractions_subsubsec_partial-fractions">
+    <subsubsection xml:id="subsubsec_partial-fractions">
       <title>Partial fractions</title>
       <p>
             <idx><h>partial fractions</h></idx>
@@ -1062,7 +895,7 @@
               \dfrac{dP}{dt} = 0.2 P\left( 1 - \dfrac{P}{10} \right) \ \mbox{lbs/hr} , \qquad P(0) = 0.5 \ \mbox{lbs}
             </me>
             (Compare this with the fermentation problems,
-            <xref ref="ferment-begin">pages</xref><ndash/> <xref ref="sec_modelling-with-differential-equations_ferment-end"></xref>.)
+            <xref ref="ferment-begin">pages</xref><ndash/> <xref ref="ferment-end"></xref>.)
             <ol>
               <li>
                 <p>

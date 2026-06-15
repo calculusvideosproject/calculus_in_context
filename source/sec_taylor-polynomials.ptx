@@ -1,9 +1,8 @@
-<section xml:id="sec_taylor-polynomials_sec_taylor-polynomials">
+<section xml:id="sec_taylor-polynomials">
   <title>Taylor Polynomials</title>
   <introduction>
     <p>
-      <term>The general setting.</term>
-      In chapter 3 we discovered that functions were locally linear at most points<mdash/>when we zoomed in on them they looked more and more like straight lines.
+      \subsubsection{The general setting.} In chapter 3 we discovered that functions were locally linear at most points<mdash/>when we zoomed in on them they looked more and more like straight lines.
       This fact was central to the development of much of the subsequent material.
       It turns out that this is only the initial manifestation of an even deeper phenomenon: Not only are functions locally linear, but,
       if we don't zoom in quite so far,
@@ -12,7 +11,10 @@
       Later in this section we will see how to use the computer to visualize these
       <q>local parabolizations</q>,
       <q>local cubicizations</q>, etc.
-      Let's summarize the idea and then explore its significance: The functions of interest to calculus look locally like polynomials at most points of their domain.
+      Let's summarize the idea and then explore its significance:
+    </p>
+    <p>
+      The functions of interest to calculus look locally like polynomials at most points of their domain.
       The higher the degree of the polynomial,
       the better typically will be the fit.
     </p>
@@ -29,15 +31,9 @@
       your intuition is a reasonable guide<mdash/>one fit to a curve is better than another near some point if it
       <q>shares more phosphor</q>
       with the curve when they are graphed on a computer screen centered at the given point.
-      The fact that functions look locally like polynomials has profound implications conceptually and
     </p>
-    <aside>
-      <p>
-        The behavior of a function can often be inferred from the behavior of a local polynomialization
-      </p>
-    </aside>
     <p>
-      computationally.
+      The fact that functions look locally like polynomials has profound implications conceptually and [[NOTE:The behavior of a function can often be inferred from the behavior of a local polynomialization]] computationally.
       It means we can often determine the behavior of a function locally by examining the corresponding behavior of what we might call a
       <q>local polynomialization</q>
       instead.
@@ -46,16 +42,10 @@
       we can deal with the values or graph of a local polynomialization instead.
       Since we can actually evaluate polynomials directly,
       this can be a major simplification.
-      There is an extra feature to all this which makes the concept particularly attractive:
-      not only are functions locally polynomial,
     </p>
-    <aside>
-      <p>
-        We want the best fit at <m>x=0</m>
-      </p>
-    </aside>
     <p>
-      it is easy to find the coefficients of the polynomials.
+      There is an extra feature to all this which makes the concept particularly attractive:
+      not only are functions locally polynomial, [[NOTE:We want the best fit at <m>x=0</m>]] it is easy to find the coefficients of the polynomials.
       Let's see how this works.
       Suppose we had some function <m>f(x)</m> and we wanted to find the fifth degree polynomial that best fit this function at <m>x=0</m>.
       Let's call this polynomial
@@ -67,38 +57,29 @@
       To determine <m>P</m>,
       we need to find values for the six coefficients <m>a_0</m>,
       <m>a_1</m>, <m>a_2</m>, <m>a_3</m>, <m>a_4</m>, <m>a_5</m>.
+    </p>
+    <p>
       Before we can do this, we need to define what we mean by the
       <q>best</q>
       fit to <m>f</m> at <m>x=0</m>.
       Since we have six unknowns, we need six conditions.
-      One obvious
-    </p>
-    <aside>
-      <p>
-        The best fit should pass through the point <m>(0, f(0))</m>
-      </p>
-    </aside>
-    <p>
-      condition is that the graph of <m>P</m> should pass through the point <m>(0, f(0))</m>.
+      One obvious [[NOTE:The best fit should pass through the point
+      <m>(0, f(0))</m>]] condition is that the graph of <m>P</m> should pass through the point <m>(0, f(0))</m>.
       But this is equivalent to requiring that <m>P(0)=f(0)</m>.
       Since <m>P(0)=a_0</m>, we thus must have <m>a_0=f(0)</m>,
       and we have found one of the coefficients of <m>P(x)</m>.
-      Let's summarize the argument so far: The graph of a polynomial passes through the point
+      Let's summarize the argument so far:
+    </p>
+    <p>
+      The graph of a polynomial passes through the point
       <m>(0,f(0))</m> if and only if the polynomial is of the form
       <me>
         f(0)+a_1x+a_2x^2+\cdots
-      </me>
+      </me>.
     </p>
     <p>
-      But we're
-    </p>
-    <aside>
-      <p>
-        The best fit should have the right slope at <m>(0, f(0))</m>
-      </p>
-    </aside>
-    <p>
-      not interested in just any polynomial passing through the right point;
+      But we're [[NOTE:The best fit should have the right slope at
+      <m>(0, f(0))</m>]] not interested in just any polynomial passing through the right point;
       it should be headed in the right direction as well.
       That is, we want the slope of <m>P</m> at <m>x=0</m> to be the same as the slope of <m>f</m> at this point<mdash/>we want <m>P'(0)=f'(0)</m>.
       But
@@ -107,19 +88,27 @@
       </me>,
       so <m>P'(0)=a_1</m>.
       Our second condition therefore must be that <m>a_1=f'(0)</m>.
-      Again, we can summarize this as The graph of a polynomial passes through the point
+      Again, we can summarize this as
+    </p>
+    <p>
+      The graph of a polynomial passes through the point
       <m>(0, f(0))</m> and has slope <m>f'(0)</m> there if and only if it is of the form
       <me>
         f(0) + f'(0)x + a_2x^2 + \cdots
-      </me>
+      </me>.
     </p>
     <p>
       Note that at this point we have recovered the general form for the local linear approximation to <m>f</m> at <m>x=0</m>:
       <m>L(x) = f(0) + f'(0)x</m>.
+    </p>
+    <p>
       But there is no reason to stop with the first derivative.
       Similarly, we would want the way in which the slope of <m>P(x)</m> is changing<mdash/>we are now talking about <m>P''(0)</m><mdash/>to behave the way the slope of <m>f</m> is changing at <m>x=0</m>, etc.
       Each higher derivative controls a more subtle feature of the shape of the graph.
-      We now see how we could formulate reasonable additional conditions which would determine the remaining coefficients of<nbsp/><m>P(x)</m>: Say that <m>P(x)</m> is the <term>best fit</term>
+      We now see how we could formulate reasonable additional conditions which would determine the remaining coefficients of<nbsp/><m>P(x)</m>:
+    </p>
+    <p>
+      Say that <m>P(x)</m> is the <term>best fit</term>
           <idx><h>best fit at a point</h></idx>
       to <m>f(x)</m> at the point <m>x=0</m> if
       <me>
@@ -129,15 +118,10 @@
     <p>
       Since <m>P(x)</m> is a fifth degree polynomial,
       all the derivatives of <m>P</m> beyond the fifth will be identically 0, so we can't control their values by altering the values of the <m>a_k</m>.
-      What we are saying, then, is that we are using as our
+      What we are saying, then,
+      is that we are using as our [[NOTE:The final criterion for best fit at <m>x=0</m>]] criterion for the best fit that all the derivatives of <m>P</m> as high as we can control them have the same values at <m>x=0</m> as the corresponding derivatives of <m>f</m>.
     </p>
-    <aside>
-      <p>
-        The final criterion for best fit at <m>x=0</m>
-      </p>
-    </aside>
     <p>
-      criterion for the best fit that all the derivatives of <m>P</m> as high as we can control them have the same values at <m>x=0</m> as the corresponding derivatives of <m>f</m>.
       While this is a reasonable definition for something we might call the
       <q>best fit</q>
       at the point <m>x=0</m>,
@@ -149,17 +133,14 @@
       we'll be able to make measurements that allow us to to see how well the polynomial fits the function.
       First, though,
       we need to see how to determine the coefficients of the approximating polynomials and get some practice manipulating them.
-      <term>Note on Notation:</term> We have used the
     </p>
-    <aside>
-      <p>
-        Notation for higher derivatives
-      </p>
-    </aside>
     <p>
-      notation <m>f^{(5)}(x)</m> to denote the fifth derivative of <m>f(x)</m> as a convenient shorthand for
+      \subsubsection{Note on Notation:} We have used the [[NOTE:Notation for higher derivatives]] notation
+      <m>f^{(5)}(x)</m> to denote the fifth derivative of <m>f(x)</m> as a convenient shorthand for
       <m>f'''''(x)</m>, which is harder to read.
       We will use this throughout.
+    </p>
+    <p>
       <term>Finding the coefficients</term>We first observe that the derivatives of <m>P</m> at <m>x=0</m> are easy to express in terms of <m>a_1,a_2,\ldots </m>.
       We have
       <md>
@@ -174,34 +155,22 @@
       Thus <m>P''(0)=2\,a_2</m>, <m>P^{(3)}(0)= 3\cdot2\,a_3</m>,
       <m>P^{(4)}(0)= 4\cdot3\cdot2\,a_4</m>,
       and <m>P^{(5)}(0)=5\cdot4\cdot3\cdot2\,a_5 </m>.
+    </p>
+    <p>
       We can simplify this a bit by introducing the <em> factorial</em>
           <idx><h>factorial</h></idx>
       notation, in which we write <m>n!=n\cdot(n-1)\cdot(n-2)\cdots3\cdot2\cdot1 </m>.
       This is called
-      <q><m>n</m> factorial</q>.
-    </p>
-    <aside>
-      <p>
-        Factorial notation
-      </p>
-    </aside>
-    <p>
-      Thus, for example,
+      <q><m>n</m> factorial</q>. [[NOTE:Factorial notation]] Thus, for example,
       <m>7!=7\cdot6\cdot5\cdot4\cdot3\cdot2\cdot1 = 5040</m>.
       It turns out to be convenient to extend the factorial notation to 0 by defining <m>0!=1</m>.
       (Notice, for instance,
       that this makes the formulas below work out right.)
       In the exercises you will see why this extension of the notation is not only convenient,
       but reasonable as well!
-      With this notation
     </p>
-    <aside>
-      <p>
-        The desired rule for finding the coefficients
-      </p>
-    </aside>
     <p>
-      we can express compactly the equations above as
+      With this notation [[NOTE:The desired rule for finding the coefficients]] we can express compactly the equations above as
       <m>P^{(k)}(0)=k!\,a_k</m> for <m>k=0</m>, 1, 2, <ellipsis/> 5 <nbsp/>.
       Finally, since we want <m>P^{(k)}(0)=f^{(k)}(0)</m>,
       we can solve for the coefficients of <m>P(x)</m>:
@@ -225,15 +194,9 @@
       We call this the <term>fifth degree Taylor polynomial for <m>f(x)</m></term>.
       It is sometimes also called the fifth
       <term>order</term> Taylor polynomial.
-      It should be obvious to you that we can generalize what we've done above to get a
     </p>
-    <aside>
-      <p>
-        General rule for the Taylor polynomial at <m>x=0</m>
-      </p>
-    </aside>
     <p>
-      best-fitting polynomial<idx><h>polynomial</h><h>best-fitting</h></idx> of any degree.
+      It should be obvious to you that we can generalize what we've done above to get a [[NOTE:General rule for the Taylor polynomial at <m>x=0</m>]] best-fitting polynomial<idx><h>polynomial</h><h>best-fitting</h></idx> of any degree.
       Thus The <term>Taylor polynomial<idx><h>Taylor polynomial</h><h>definition</h></idx> of degree</term>
       { <m>n</m>} approximating the function <m>f(x)</m> at <m>x=0</m> is given by the formula
       <me>
@@ -243,6 +206,8 @@
     <p>
       We also speak of the Taylor polynomial
       <em>centered at</em> <m>x=0</m>.
+    </p>
+    <p>
       <term>Example</term>.
       Consider <m>f(x) = \sin(x)</m>.
       Then for <m>n=7</m> we have
@@ -275,15 +240,11 @@
       To see how closely these polynomial approximations follow <m>\sin(x)</m>,
       here's the graph of <m>\sin(x)</m> together with the Taylor polynomials of degrees
       <m>n=1,3,5,\ldots ,17</m> plotted over the interval <m>[0, 7.5]</m>:
-      <image width="73%" source="images/sin3.png"/> <idx><h>Taylor polynomial</h><h>graphs for <m>\sin{x}</m></h></idx> While each polynomial eventually wanders off
+      <image width="73%" source="images/sin3.png"/> <idx><h>Taylor polynomial</h><h>graphs for <m>\sin{x}</m></h></idx>
     </p>
-    <aside>
-      <p>
-        The higher the degree of the polynomial, the better the fit
-      </p>
-    </aside>
     <p>
-      to infinity,
+      While each polynomial eventually wanders off [[NOTE:The higher the degree of the polynomial,
+      the better the fit]] to infinity,
       successive polynomials stay close to the sine function for longer and longer intervals<mdash/>the Taylor polynomial of degree 17 is just beginning to diverge visibly by the time <m>x</m> reaches <m>2\pi</m>.
       We might expect that if we kept going,
       we could find Taylor polynomials that were good fits out to <m>x=100</m>,
@@ -293,15 +254,11 @@
       Fortunately, as you will see in the exercises,
       with a little cleverness we can use a Taylor polynomial of degree 9 to calculate
       <m>\sin(100)</m> to 5 decimal place accuracy.
-      <term>Other Taylor Polynomials:</term>
     </p>
-    <aside>
-      <p>
-        Approximating polynomials for other basic functions
-      </p>
-    </aside>
     <p>
-      In a similar fashion, we can get Taylor polynomials for other functions.
+      <term>Other Taylor Polynomials:</term>
+      [[NOTE:Approximating polynomials for other basic functions]] In a similar fashion,
+      we can get Taylor polynomials for other functions.
       You should use the general formula to verify the Taylor polynomials for the following basic functions. (The Taylor polynomial for <m>\sin(x)</m> is included for convenient reference.)
       <me>
         \begin{array}{ccl} f(x)  \amp \amp   P_n(x) \\ \hline \amp  \\ [-6pt] \sin(x) \amp  \amp  x - \dfrac{x^3}{3!} + \dfrac{x^5}{5!} - \dfrac{x^7}{7!} + \cdots \pm \dfrac{x^n}{n!} (n \mbox{ odd} )\\ [.2in] \cos(x) \amp  \amp  1 - \dfrac{x^2}{2!} + \dfrac{x^4}{4!} - \dfrac{x^6}{6!} + \cdots \pm \dfrac{x^n}{n!} (n \mbox{ even} )\\ [.2in] e^x \amp  \amp  1 + x + \dfrac{x^2}{2!} + \dfrac{x^3}{3!} + \dfrac{x^4}{4!} + \cdots + \dfrac{x^n}{n!} \\ [.2in] \ln{(1-x)} \amp  \amp  -\left(x+ \dfrac{x^2}{2} + \dfrac{x^3}{3} + \dfrac{x^4}{4} + \cdots + \dfrac{x^n}{n}\right) \\ [.2in] \dfrac{1}{1-x} \amp  \amp {\displaystyle 1+x+x^2+x^3+\cdots +x^n} \end{array}
@@ -309,17 +266,12 @@
     </p>
     <p>
       <term>Taylor polynomials at points other than <m>x=0</m>.</term>
-    </p>
-    <aside>
-      <p>
-        General rule for the Taylor polynomial at <m>x=a</m>
-      </p>
-    </aside>
-    <p>
-      Using exactly the same arguments we used to develop the best-fitting polynomial at <m>x=0</m>,
+      [[NOTE:General rule for the Taylor polynomial at <m>x=a</m>]] Using exactly the same arguments we used to develop the best-fitting polynomial at <m>x=0</m>,
       we can derive the more general formula for the best-fitting polynomial at any value of <m>x</m>.
       Thus, if we know the behavior of <m>f</m> and its derivatives at some point <m>x=a</m>,
       we would like to find a polynomial <m>P_n(x)</m> which is a good approximation to <m>f(x)</m> for values of <m>x</m> close to <m>a</m>.
+    </p>
+    <p>
       Since the expression <m>x-a</m> tells us how close <m>x</m> is to <m>a</m>,
       we use it
       (instead of the variable <m>x</m> itself)
@@ -340,7 +292,11 @@
     </p>
     <p>
       <idx><h>Taylor polynomial</h><h>centered at a point other than the origin</h></idx>
+    </p>
+    <p>
       <term>Program: TAYLOR </term>
+    </p>
+    <p>
       <em>Set up GRAPHICS</em>
     </p>
 <pre>
@@ -371,8 +327,7 @@ FOR x = 0 TO 3.14 STEP 0.01
 NEXT x
 </pre>
     <p>
-      <term>A computer program for graphing Taylor polynomials</term>
-      Shown above is a program that evaluates the 17-th degree Taylor polynomial for <m>\sin(x)</m> and graphs it over the interval <m>[0, 3.14]</m>.
+      \subsubsection{A computer program for graphing Taylor polynomials} Shown above is a program that evaluates the 17-th degree Taylor polynomial for <m>\sin(x)</m> and graphs it over the interval <m>[0, 3.14]</m>.
       The first seven lines of the program constitute a subroutine for evaluating factorials.
       The syntax of such subroutines varies from one computer language to another,
       so be sure to use the format that's appropriate for you.
@@ -385,122 +340,131 @@ NEXT x
           <idx><h>program</h><h>TAYLOR</h></idx>
     </p>
   </introduction>
-  <subsection xml:id="sec_taylor-polynomials_subsec_new-taylor-polynomials-from-old">
+  <subsection xml:id="subsec_new-taylor-polynomials-from-old">
     <title>New Taylor Polynomials from Old</title>
-    <p>
-      Given a function we want to approximate by Taylor polynomials,
-      we could always go straight to the general formula for deriving such polynomials.
-      On the other hand,
-      it is often possible to avoid a lot of tedious calculation of derivatives by using a polynomial we've already calculated.
-      It turns out that any manipulation on Taylor polynomials you might be tempted to try will probably work.
-      Here are some examples to illustrate the kinds of manipulations that can be performed on Taylor polynomials.
-    </p>
-    <p>
-      <term>Substitution in Taylor Polynomials.</term>
-      Suppose we wanted the Taylor polynomial for <m>e^{x^2}</m>.
-      We know from what we've already done that for any value of <m>u</m> close to 0,
-      <me>
-        e^u \approx 1 + u + \dfrac{u^2}{2!} + \dfrac{u^3}{3!} + \dfrac{u^4}{4!} + \cdots + \dfrac{u^n}{n!}
-      </me>.
-    </p>
-    <p>
-      In this expression <m>u</m> can be anything,
-      including another variable expression.
-      For instance, if we set <m>u=x^2</m>,
-      we get the Taylor polynomial
-      <md>
-        <mrow>e^{x^2} \amp = e^u</mrow>
-        <mrow>[-3pt] \amp \approx  1 + u + \dfrac{u^2}{2!} + \dfrac{u^3}{3!} + \dfrac{u^4}{4!} + \cdots + \dfrac{u^n}{n!}</mrow>
-        <mrow>\amp = 1 + (x^2) + \dfrac{(x^2)^2}{2!} + \dfrac{(x^2)^3}{3!} + \dfrac{(x^2)^4}{4!} + \cdots + \dfrac{(x^2)^n}{n!}</mrow>
-        <mrow>\amp = 1 + x^2 + \dfrac{x^4}{2!} + \dfrac{x^6}{3!} + \dfrac{x^8}{4!} + \cdots + \dfrac{x^{2n}}{n!}</mrow>
-      </md>.
-    </p>
-    <p>
-      You should check to see that this is what you get if you apply the general formula for computing Taylor polynomials to the function <m>e^{x^2}</m>.
-    </p>
-    <p>
-      Similarly, suppose we wanted a Taylor polynomial for <m>1/(1+x^2)</m>.
-      We could start with the approximation given earlier:
-      <me>
-        \dfrac{1}{1-u} \approx 1+u+u^2+u^3+\cdots +u^n
-      </me>.
-    </p>
-    <p>
-      If we now replace <m>u</m> everywhere by <m>-x^2</m>,
-      we get the desired expansion:
-      <md>
-        <mrow>\dfrac {1}{1+x^2} =  \dfrac{1}{1-(-x^2)} \amp =  \dfrac{1}{1-u}</mrow>
-        <mrow>\amp \approx  1+u+u^2+u^3+\cdots +u^n</mrow>
-        <mrow>\amp =  1+(-x^2)+(-x^2)^2+(-x^2)^3+\cdots +(-x^2)^n</mrow>
-        <mrow>\amp =  1-x^2+x^4-x^6+\cdots \pm x^{2n}</mrow>
-      </md>.
-    </p>
-    <p>
-      Again, you should verify that if you start with
-      <m>f(x)=1/(1+x^2)</m> and apply to <m>f</m> the general formula for deriving Taylor polynomials,
-      you will get the preceding result.
-      Which method is quicker?
-      <term>Multiplying Taylor Polynomials.</term>
-      Suppose we wanted the 5-th degree Taylor polynomial for <m>e^{3x}\cdot \sin(2x)</m>.
-      We can use substitution to write down polynomial approximations for <m>e^{3x}</m> and <m>\sin(2x)</m>,
-      so we can get an approximation for their product by multiplying the two polynomials:
-      <md>
-        <mrow>\lefteqn{e^{3x} \cdot \sin(2x)}</mrow>
-        <mrow>\amp \approx \left(1 + (3x)+ \dfrac{(3x)^2}{2!} + \dfrac{(3x)^3}{3!} + \dfrac{(3x)^4}{4!} + \dfrac{(3x)^5}{5!}\right) \left((2x) - \dfrac{(2x)^3}{3!} + \dfrac{(2x)^5}{5!}\right)</mrow>
-        <mrow>\amp \approx  2x + 6x^2 + \dfrac{23}{3}x^3 + 5x^4 - \dfrac{61}{60}x^5</mrow>
-      </md>.
-    </p>
-    <p>
-      Again, you should try calculating this polynomial directly from the general rule,
-      both to see that you get the same result,
-      and to appreciate how much more tedious the general formula is to use in this case.
-      In the same way, we can also divide Taylor polynomials,
-      raise them to powers, and chain them by composition.
-      The exercises provide examples of some of these operations.
-      <term>Differentiating Taylor Polynomials.</term>
-      Suppose we know a Taylor polynomial for some function <m>f</m>.
-      If <m>g</m> is the derivative of <m>f</m>,
-      we can immediately get a Taylor polynomial for <m>g</m>
-      (of degree one less)
-      by differentiating the polynomial we know for <m>f</m>.
-      You should review the definition of Taylor polynomial to see why this is so.
-      For instance,
-      suppose <m>f(x) = 1/(1-x)</m> and <m>g(x) =1/(1-x)^2</m>.
-      Verify that <m>f'(x) = g(x)</m>.
-      It then follows that
-      <md>
-        <mrow>\dfrac{1}{(1-x)^2} = \dfrac{d}{dx} \left(\dfrac{1}{1 - x}\right) \amp \approx \dfrac{d}{dx} (1 + x + x^2 + \cdots + x^n)</mrow>
-        <mrow>\amp = 1 + 2x + 3x^2 + \cdots + nx^{n-1}</mrow>
-      </md>.
-    </p>
-    <p>
-      <term>Integrating Taylor Polynomials.</term>
-      Again suppose we have functions <m>f(x)</m> and <m>g(x)</m> with <m>f'(x) = g(x)</m>,
-      and suppose this time that we know a Taylor polynomial for <m>g</m>.
-      We can then get a Taylor polynomial for <m>f</m> by antidifferentiating term by term.
-      For instance,
-      we find in chapter 11 that the derivative of <m>\arctan(x)</m> is <m>1/(1+x^2)</m>,
-      and we have seen above how to get a Taylor polynomial for <m>1/(1+x^2)</m>.
-      Therefore we have
-      <md>
-        <mrow>\arctan{x} = \int_0^x \frac{1}{1+t^2} dt \amp \approx \int_0^x \left( 1-t^2+t^4-t^6+ \cdots \pm t^{2n}\right) dt</mrow>
-        <mrow>\amp =  \left. t-\dfrac{1}{3}t^3 + \dfrac{1}{5} t^5 - \cdots \pm \dfrac{1}{2n+1}t^{2n+1} \; \right|_0^x</mrow>
-        <mrow>\amp = x - \dfrac{1}{3}x^3 + \dfrac{1}{5} x^5 - \cdots \pm \dfrac{1}{2n+1}x^{2n+1}</mrow>
-      </md>.
-    </p>
+    <introduction>
+      <p>
+        Given a function we want to approximate by Taylor polynomials,
+        we could always go straight to the general formula for deriving such polynomials.
+        On the other hand,
+        it is often possible to avoid a lot of tedious calculation of derivatives by using a polynomial we've already calculated.
+        It turns out that any manipulation on Taylor polynomials you might be tempted to try will probably work.
+        Here are some examples to illustrate the kinds of manipulations that can be performed on Taylor polynomials.
+      </p>
+    </introduction>
+    <subsubsection>
+      <title>Substitution in Taylor Polynomials</title>
+      <p>
+        Suppose we wanted the Taylor polynomial for <m>e^{x^2}</m>.
+        We know from what we've already done that for any value of <m>u</m> close to 0,
+        <me>
+          e^u \approx 1 + u + \dfrac{u^2}{2!} + \dfrac{u^3}{3!} + \dfrac{u^4}{4!} + \cdots + \dfrac{u^n}{n!}
+        </me>.
+      </p>
+      <p>
+        In this expression <m>u</m> can be anything,
+        including another variable expression.
+        For instance, if we set <m>u=x^2</m>,
+        we get the Taylor polynomial
+        <md>
+          <mrow>e^{x^2} \amp = e^u</mrow>
+          <mrow>[-3pt] \amp \approx  1 + u + \dfrac{u^2}{2!} + \dfrac{u^3}{3!} + \dfrac{u^4}{4!} + \cdots + \dfrac{u^n}{n!}</mrow>
+          <mrow>\amp = 1 + (x^2) + \dfrac{(x^2)^2}{2!} + \dfrac{(x^2)^3}{3!} + \dfrac{(x^2)^4}{4!} + \cdots + \dfrac{(x^2)^n}{n!}</mrow>
+          <mrow>\amp = 1 + x^2 + \dfrac{x^4}{2!} + \dfrac{x^6}{3!} + \dfrac{x^8}{4!} + \cdots + \dfrac{x^{2n}}{n!}</mrow>
+        </md>.
+      </p>
+      <p>
+        You should check to see that this is what you get if you apply the general formula for computing Taylor polynomials to the function <m>e^{x^2}</m>.
+      </p>
+      <p>
+        Similarly, suppose we wanted a Taylor polynomial for <m>1/(1+x^2)</m>.
+        We could start with the approximation given earlier:
+        <me>
+          \dfrac{1}{1-u} \approx 1+u+u^2+u^3+\cdots +u^n
+        </me>.
+      </p>
+      <p>
+        If we now replace <m>u</m> everywhere by <m>-x^2</m>,
+        we get the desired expansion:
+        <md>
+          <mrow>\dfrac {1}{1+x^2} =  \dfrac{1}{1-(-x^2)} \amp =  \dfrac{1}{1-u}</mrow>
+          <mrow>\amp \approx  1+u+u^2+u^3+\cdots +u^n</mrow>
+          <mrow>\amp =  1+(-x^2)+(-x^2)^2+(-x^2)^3+\cdots +(-x^2)^n</mrow>
+          <mrow>\amp =  1-x^2+x^4-x^6+\cdots \pm x^{2n}</mrow>
+        </md>.
+      </p>
+      <p>
+        Again, you should verify that if you start with
+        <m>f(x)=1/(1+x^2)</m> and apply to <m>f</m> the general formula for deriving Taylor polynomials,
+        you will get the preceding result.
+        Which method is quicker?
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title>Multiplying Taylor Polynomials</title>
+      <p>
+        Suppose we wanted the 5-th degree Taylor polynomial for <m>e^{3x}\cdot \sin(2x)</m>.
+        We can use substitution to write down polynomial approximations for <m>e^{3x}</m> and <m>\sin(2x)</m>,
+        so we can get an approximation for their product by multiplying the two polynomials:
+        <md>
+          <mrow>\lefteqn{e^{3x} \cdot \sin(2x)}</mrow>
+          <mrow>\amp \approx \left(1 + (3x)+ \dfrac{(3x)^2}{2!} + \dfrac{(3x)^3}{3!} + \dfrac{(3x)^4}{4!} + \dfrac{(3x)^5}{5!}\right) \left((2x) - \dfrac{(2x)^3}{3!} + \dfrac{(2x)^5}{5!}\right)</mrow>
+          <mrow>\amp \approx  2x + 6x^2 + \dfrac{23}{3}x^3 + 5x^4 - \dfrac{61}{60}x^5</mrow>
+        </md>.
+      </p>
+      <p>
+        Again, you should try calculating this polynomial directly from the general rule,
+        both to see that you get the same result,
+        and to appreciate how much more tedious the general formula is to use in this case.
+      </p>
+      <p>
+        In the same way, we can also divide Taylor polynomials,
+        raise them to powers, and chain them by composition.
+        The exercises provide examples of some of these operations.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title>Differentiating Taylor Polynomials</title>
+      <p>
+        Suppose we know a Taylor polynomial for some function <m>f</m>.
+        If <m>g</m> is the derivative of <m>f</m>,
+        we can immediately get a Taylor polynomial for <m>g</m>
+        (of degree one less)
+        by differentiating the polynomial we know for <m>f</m>.
+        You should review the definition of Taylor polynomial to see why this is so.
+        For instance,
+        suppose <m>f(x) = 1/(1-x)</m> and <m>g(x) =1/(1-x)^2</m>.
+        Verify that <m>f'(x) = g(x)</m>.
+        It then follows that
+        <md>
+          <mrow>\dfrac{1}{(1-x)^2} = \dfrac{d}{dx} \left(\dfrac{1}{1 - x}\right) \amp \approx \dfrac{d}{dx} (1 + x + x^2 + \cdots + x^n)</mrow>
+          <mrow>\amp = 1 + 2x + 3x^2 + \cdots + nx^{n-1}</mrow>
+        </md>.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title>Integrating Taylor Polynomials</title>
+      <p>
+        Again suppose we have functions <m>f(x)</m> and <m>g(x)</m> with <m>f'(x) = g(x)</m>,
+        and suppose this time that we know a Taylor polynomial for <m>g</m>.
+        We can then get a Taylor polynomial for <m>f</m> by antidifferentiating term by term.
+        For instance,
+        we find in chapter 11 that the derivative of <m>\arctan(x)</m> is <m>1/(1+x^2)</m>,
+        and we have seen above how to get a Taylor polynomial for <m>1/(1+x^2)</m>.
+        Therefore we have
+        <md>
+          <mrow>\arctan{x} = \int_0^x \frac{1}{1+t^2} dt \amp \approx \int_0^x \left( 1-t^2+t^4-t^6+ \cdots \pm t^{2n}\right) dt</mrow>
+          <mrow>\amp =  \left. t-\dfrac{1}{3}t^3 + \dfrac{1}{5} t^5 - \cdots \pm \dfrac{1}{2n+1}t^{2n+1} \; \right|_0^x</mrow>
+          <mrow>\amp = x - \dfrac{1}{3}x^3 + \dfrac{1}{5} x^5 - \cdots \pm \dfrac{1}{2n+1}x^{2n+1}</mrow>
+        </md>.
+      </p>
+    </subsubsection>
   </subsection>
-  <subsection xml:id="sec_taylor-polynomials_subsec_goodness-of-fit">
+  <subsection xml:id="subsec_goodness-of-fit">
     <title>Goodness of fit</title>
     <p>
       Let's turn to the question of <em>measuring</em>
-    </p>
-    <aside>
-      <p>
-        Graph the difference between a function and its Taylor polynomial
-      </p>
-    </aside>
-    <p>
-      the fit between a function and one of its Taylor polynomials.
+      [[NOTE:Graph the difference between a function and its Taylor polynomial]] the fit between a function and one of its Taylor polynomials.
       The ideas here have a strong geometric flavor,
       so you should use a computer graphing utility to follow this discussion.
       Once again, consider the function <m>\sin(x)</m> and its Taylor polynomial <m>P(x) = x - x^3/6</m>.
@@ -511,15 +475,11 @@ NEXT x
       If you choose the interval <m>-1 \leq x \leq 1</m>
       (and your graphing utility allows its vertical and horizontal scales to be set independently of each other),
       your graph should resemble this one.
-      <image width="73%" source="images/j101.png"/> This graph looks very much like a cubic polynomial.
+      <image width="73%" source="images/j101.png"/>
     </p>
-    <aside>
-      <p>
-        The difference looks like a power of <m>x</m>
-      </p>
-    </aside>
     <p>
-      If it really is a cubic, we can figure out its formula,
+      This graph looks very much like a cubic polynomial. [[NOTE:The difference looks like a power of <m>x</m>]] If it really is a cubic,
+      we can figure out its formula,
       because we know the value of
       <m>\sin(x) - P(x)</m> is about 0.008 when <m>x = 1</m>.
       Therefore the cubic should be <m>y = 0.008\, x^3</m>
@@ -533,32 +493,24 @@ NEXT x
       it's so close that it
       <q>shares phosphor</q>
       with <m>\sin(x) - P(x)</m> near <m>x = 0</m>.
-      <image width="73%" source="images/j102.png"/> <image width="73%" source="images/j103.png"/> If
-      <m>\sin(x) - P(X)</m> were <em>exactly</em>
-      a multiple of <m>x^5</m>,
     </p>
-    <aside>
-      <p>
-        Finding the multiplier
-      </p>
-    </aside>
     <p>
-      then <m>(\sin{x} - P(x))/x^5</m> would be constant and would equal the value of the multiplier.
+      <image width="73%" source="images/j102.png"/>
+    </p>
+    <p>
+      <image width="73%" source="images/j103.png"/>
+    </p>
+    <p>
+      If <m>\sin(x) - P(X)</m> were <em>exactly</em>
+      a multiple of <m>x^5</m>, [[NOTE:Finding the multiplier]] then
+      <m>(\sin{x} - P(x))/x^5</m> would be constant and would equal the value of the multiplier.
       What we actually find is this:
       <me>
         { \begin{array}{lc} x \amp \dfrac{\sin{x} - P(x)}{x^5} \\ \hline 1.0     \amp  0.0081377 \\ 0.5     \amp  0.0082839 \\ 0.1     \amp  0.0083313 \\ 0.05    \amp  0.0083328 \\ 0.01    \amp  0.0083333 \end{array} } \qquad \mbox{suggesting} \lim_{x \to 0} \dfrac{\sin{x} - P(x)}{x^5} = 0.008333\ldots
       </me>.
     </p>
     <p>
-      Thus, although the ratio is not constant,
-    </p>
-    <aside>
-      <p>
-        How <m>P(x)</m> fits <m>\sin(x)</m>
-      </p>
-    </aside>
-    <p>
-      it appears to converge to a definite value<mdash/>which we can take to be the value of the multipier:
+      Thus, although the ratio is not constant, [[NOTE:How <m>P(x)</m> fits <m>\sin(x)</m>]] it appears to converge to a definite value<mdash/>which we can take to be the value of the multipier:
       <me>
         \sin{x} - P(x) \approx 0.008333 \, x^5 \mbox{when}   x \approx 0
       </me>.
@@ -569,15 +521,9 @@ NEXT x
       <m>x^5</m> as <m>x \to 0</m>.
       So <m>\sin(x) - P(x)</m> is about as small as <m>x^5</m>.
       Thus, if we know the size of <m>x^5</m> we will be able to tell how close <m>\sin(x)</m> and <m>P(x)</m> are to each other.
-      A rough way to measure how close two numbers are
     </p>
-    <aside>
-      <p>
-        Comparing two numbers
-      </p>
-    </aside>
     <p>
-      is to count the number of decimal places to which they agree.
+      A rough way to measure how close two numbers are [[NOTE:Comparing two numbers]] is to count the number of decimal places to which they agree.
       But there are pitfalls here;
       for instance, none of the decimals of 1.00001 and 0.99999 agree,
       even though the difference between the two numbers is only 0.00002.
@@ -593,15 +539,7 @@ NEXT x
       <m>|A - B| \lt 0.5 \times 10^{-k}</m>.
     </p>
     <p>
-      Now we can say how close <m>P(x)</m> is to <m>\sin(x)</m>.
-    </p>
-    <aside>
-      <p>
-        What the fit means computationally
-      </p>
-    </aside>
-    <p>
-      Since <m>x</m> is small,
+      Now we can say how close <m>P(x)</m> is to <m>\sin(x)</m>. [[NOTE:What the fit means computationally]] Since <m>x</m> is small,
       we can take this to mean <em><m>x = 0</m> to <m>k</m> decimal places</em>,
       or <m>|x| \lt  0.5 \times 10^{-k}</m>.
       But then,
@@ -621,7 +559,10 @@ NEXT x
       </me>
       is 0.0083<ellipsis/> , we gain two more decimal places of accuracy. (Do you see why?) Thus, finally,
       we see how reliable the polynomial
-      <m>P(x) = x - x^3/6</m> is for calculating values of <m>\sin(x)</m>: When <m>x = 0</m> to <m>k</m> decimal places of accuracy,
+      <m>P(x) = x - x^3/6</m> is for calculating values of <m>\sin(x)</m>:
+    </p>
+    <p>
+      When <m>x = 0</m> to <m>k</m> decimal places of accuracy,
       we can use <m>P(x)</m> to calculate the first <m>5k + 3</m> decimal places of the value of <m>\sin(x)</m>.
     </p>
     <p>
@@ -638,83 +579,65 @@ NEXT x
       <m>.0086 = 0</m> to <em>one</em> decimal place, not two.)
     </p>
   </subsection>
-  <subsection xml:id="sec_taylor-polynomials_subsec_taylors-theorem">
+  <subsection xml:id="subsec_taylors-theorem">
     <title>Taylor's theorem</title>
-    <p>
-      Taylor's theorem
-    </p>
-    <aside>
+    <introduction>
       <p>
-        Order of magnitude
+        Taylor's theorem [[NOTE:Order of magnitude]] is the generalization of what we have just seen;
+        it describes the goodness of fit between an arbitrary function and one of its Taylor polynomials.
+        We'll state three versions of the theorem,
+        gradually uncovering more information.
+        To get started, we need a way to compare the order of magnitude of
+        <em>any</em> two functions.
       </p>
-    </aside>
-    <p>
-      is the generalization of what we have just seen;
-      it describes the goodness of fit between an arbitrary function and one of its Taylor polynomials.
-      We'll state three versions of the theorem,
-      gradually uncovering more information.
-      To get started, we need a way to compare the order of magnitude of
-      <em>any</em> two functions.
-      We say that <m>\varphi(x)</m> has
-      <term>the same order of magnitude</term>
-      as <m>q(x)</m> as <m>x \to a</m>,
-      and we write <m>\varphi(x) = O(q(x))</m> as <m>x \to a</m>,
-      if there is a constant <m>C</m> for which
-      <me>
-        \lim_{x \to a} \dfrac{\varphi(x)}{q(x)} = C
-      </me>.
-    </p>
-    <p>
-      Now, when <m>\lim_{x\to a} \varphi(x)/q(x)</m> is <m>C</m>, we have
-      <me>
-        \varphi(x) \approx C q(x)  \mbox{when \(x \approx a\)}
-      </me>.
-    </p>
-    <p>
-      We'll frequently use this relation to express the idea that
-      <m>\varphi(x)</m> has the same order of magnitude as <m>q(x)</m> as <m>x \to a</m>.
-      The symbol <m>O</m> is an upper case
-      <q>oh</q>.
-    </p>
-    <aside>
       <p>
-        <sq>Big oh</sq> notation
+        We say that <m>\varphi(x)</m> has
+        <term>the same order of magnitude</term>
+        as <m>q(x)</m> as <m>x \to a</m>,
+        and we write <m>\varphi(x) = O(q(x))</m> as <m>x \to a</m>,
+        if there is a constant <m>C</m> for which
+        <me>
+          \lim_{x \to a} \dfrac{\varphi(x)}{q(x)} = C
+        </me>.
       </p>
-    </aside>
-    <p>
-      When <m>\varphi(x) = O(q(x))</m> as <m>x \to a</m>,
-      we say <em><m>\varphi(x)</m> is <sq>big oh</sq> of <m>q(x)</m> as <m>x</m> approaches <m>a</m></em>.
-      Notice that the equal sign in <m>\varphi(x) = O(q(x))</m> does <em>not</em>
-      mean that <m>\varphi(x)</m> and <m>O(q(x))</m> are equal;
-      <m>O(q(x))</m> isn't even a function.
-      Instead, the equal sign and the <m>O</m> together tell us that
-      <m>\varphi(x)</m> stands in a certain relation to <m>q(x)</m>.
-      <term>Taylor's theorem, version<nbsp/>1</term>.
-      If <m>f(x)</m> has derivatives up to order <m>n</m> at <m>x = a</m>, then
-      <me>
-        f(x) = f(a) + \dfrac{f'(a)}{1!}(x - a) + \cdots + \dfrac{f^{(n)}(a)}{n!} (x - a)^n + R(x)
-      </me>,
-      where <m>R(x) = O((x - a)^{n+1})</m> as <m>x \to a</m>.
-      The term <m>R(x)</m> is called the <term>remainder</term>. }
-    </p>
-    <p>
-      This version of Taylor's theorem focusses
-    </p>
-    <aside>
       <p>
-        Informal language
+        Now, when <m>\lim_{x\to a} \varphi(x)/q(x)</m> is <m>C</m>, we have
+        <me>
+          \varphi(x) \approx C q(x)  \mbox{when \(x \approx a\)}
+        </me>.
       </p>
-    </aside>
-    <p>
-      on the general shape of the remainder function.
-      Sometimes we just say the remainder has
-      <q>order <m>n + 1</m></q>, using this short phrase as an abbreviation for
-      <q>the order of magnitude of the function <m>(x - a)^{n+1}</m></q>. In the same way,
-      we say that <em>a function and its <m>n</m>-th degree Taylor polynomial at <m>x = a</m> agree to order <m>n+1</m> as <m>x \to a</m></em>.
-    </p>
-    <aside>
       <p>
-        Notice that, if <m>\varphi(x) = O(x^3)</m> as <m>x \to 0</m>,
+        We'll frequently use this relation to express the idea that
+        <m>\varphi(x)</m> has the same order of magnitude as <m>q(x)</m> as <m>x \to a</m>.
+      </p>
+      <p>
+        The symbol <m>O</m> is an upper case
+        <q>oh</q>. [[NOTE:<sq>Big oh</sq> notation]] When <m>\varphi(x) = O(q(x))</m> as <m>x \to a</m>,
+        we say <em><m>\varphi(x)</m> is <sq>big oh</sq> of <m>q(x)</m> as <m>x</m> approaches <m>a</m></em>.
+        Notice that the equal sign in <m>\varphi(x) = O(q(x))</m> does <em>not</em>
+        mean that <m>\varphi(x)</m> and <m>O(q(x))</m> are equal;
+        <m>O(q(x))</m> isn't even a function.
+        Instead, the equal sign and the <m>O</m> together tell us that
+        <m>\varphi(x)</m> stands in a certain relation to <m>q(x)</m>.
+      </p>
+      <p>
+        <term>Taylor's theorem, version<nbsp/>1</term>.
+        If <m>f(x)</m> has derivatives up to order <m>n</m> at <m>x = a</m>, then
+        <me>
+          f(x) = f(a) + \dfrac{f'(a)}{1!}(x - a) + \cdots + \dfrac{f^{(n)}(a)}{n!} (x - a)^n + R(x)
+        </me>,
+        where <m>R(x) = O((x - a)^{n+1})</m> as <m>x \to a</m>.
+        The term <m>R(x)</m> is called the <term>remainder</term>.
+      </p>
+      <p>
+        This version of Taylor's theorem focusses [[NOTE:Informal language]] on the general shape of the remainder function.
+        Sometimes we just say the remainder has
+        <q>order <m>n + 1</m></q>, using this short phrase as an abbreviation for
+        <q>the order of magnitude of the function <m>(x - a)^{n+1}</m></q>. In the same way,
+        we say that <em>a function and its <m>n</m>-th degree Taylor polynomial at <m>x = a</m> agree to order <m>n+1</m> as <m>x \to a</m></em>.
+      </p>
+      <p>
+        [[NOTE:Notice that, if <m>\varphi(x) = O(x^3)</m> as <m>x \to 0</m>,
         then it is also true that <m>\varphi(x) = O(x^2)</m>
         (as <m>x \to 0</m>).
         This implies that we should take <m>\varphi(x) = O(x^n)</m> to mean
@@ -725,428 +648,363 @@ NEXT x
         (but somewhat more cumbersome)
         to say that <m>\varphi = O(q)</m> means
         <q><m>\varphi</m> has <em>at least</em>
-        the order of magnitude of <m>q</m></q>.
+        the order of magnitude of <m>q</m></q>.]]
       </p>
-    </aside>
-    <p>
-      As we saw in our example, we can translate the order
-    </p>
-    <aside>
       <p>
-        Decimal places of accuracy
+        As we saw in our example,
+        we can translate the order [[NOTE:Decimal places of accuracy]] of agreement between the function and the polynomial into information about the number of decimal places of accuracy in the polynomial approximation.
+        In particular, if <m>x - a = 0</m> to <m>k</m> decimal places,
+        then <m>(x - a)^n = 0</m> to <m>nk</m> places, at least.
+        Thus, as the order of magnitude <m>n</m> of the remainder increases,
+        the fit increases, too.
+        (You have already seen this illustrated with the sine function and its various Taylor polynomials,
+        in the figure <xref ref="sin3">on</xref>.)
       </p>
-    </aside>
-    <p>
-      of agreement between the function and the polynomial into information about the number of decimal places of accuracy in the polynomial approximation.
-      In particular, if <m>x - a = 0</m> to <m>k</m> decimal places,
-      then <m>(x - a)^n = 0</m> to <m>nk</m> places, at least.
-      Thus, as the order of magnitude <m>n</m> of the remainder increases,
-      the fit increases, too.
-      (You have already seen this illustrated with the sine function and its various Taylor polynomials,
-      in the figure <xref ref="sin3">on</xref>.)
-      While the first version of Taylor's theorem tells us that <m>R(x)</m>
-    </p>
-    <aside>
       <p>
-        A formula for the remainder
+        While the first version of Taylor's theorem tells us that <m>R(x)</m> [[NOTE:A formula for the remainder]] looks like <m>(x - a)^{n+1}</m> in some general way,
+        the next gives us a concrete formula.
+        At least, it <em>looks</em> concrete.
+        Notice, however,
+        that <m>R(x)</m> is expressed in terms of a number <m>c_x</m>
+        (which depends upon <m>x</m>),
+        but the formula doesn't tell us <em>how</em>
+        <m>c_x</m> depends upon <m>x</m>.
+        Therefore, if you want to use the formula to <em>compute</em>
+        the value of <m>R(x)</m>, you can't.
+        The theorem says only that <m>c_x</m> exists;
+        it doesn't say how to find its value.
+        Nevertheless,
+        this version provides useful information, as you will see.
       </p>
-    </aside>
-    <p>
-      looks like <m>(x - a)^{n+1}</m> in some general way,
-      the next gives us a concrete formula.
-      At least, it <em>looks</em> concrete.
-      Notice, however,
-      that <m>R(x)</m> is expressed in terms of a number <m>c_x</m>
-      (which depends upon <m>x</m>),
-      but the formula doesn't tell us <em>how</em>
-      <m>c_x</m> depends upon <m>x</m>.
-      Therefore, if you want to use the formula to <em>compute</em>
-      the value of <m>R(x)</m>, you can't.
-      The theorem says only that <m>c_x</m> exists;
-      it doesn't say how to find its value.
-      Nevertheless,
-      this version provides useful information, as you will see.
-      <term>Taylor's theorem, version<nbsp/>2</term>.
-      Suppose <m>f</m> has continuous derivatives up to order <m>n+1</m> for all <m>x</m> in some interval containing<nbsp/><m>a</m>.
-      Then, for each <m>x</m> in that interval,
-      there is a number <m>c_x</m> between <m>a</m> and <m>x</m> for which
-      <me>
-        R(x) =  \dfrac{f^{(n+1)}(c_x)}{(n+1)!} \, (x - a)^{n+1}
-      </me>.
-    </p>
-    <p>
-      This is called <term>Lagrange's form of the remainder</term>. }
-    </p>
-    <p>
-      We can use the Lagrange form
-    </p>
-    <aside>
       <p>
-        Another formula for the remainder
+        <term>Taylor's theorem, version<nbsp/>2</term>.
+        Suppose <m>f</m> has continuous derivatives up to order <m>n+1</m> for all <m>x</m> in some interval containing<nbsp/><m>a</m>.
+        Then, for each <m>x</m> in that interval,
+        there is a number <m>c_x</m> between <m>a</m> and <m>x</m> for which
+        <me>
+          R(x) =  \dfrac{f^{(n+1)}(c_x)}{(n+1)!} \, (x - a)^{n+1}
+        </me>.
       </p>
-    </aside>
-    <p>
-      as an aid to computation.
-      To see how, return to the formula
-      <me>
-        R(x) \approx C (x - a)^{n+1}  (x \approx a)
-      </me>
-      that expresses <m>R(x) = O((x - a)^{n+1})</m> as <m>x \to a</m>
-      (<xref ref="order">see</xref>).
-      The constant here is the limit
-      <me>
-        C = \lim_{x \to a} \dfrac{R(x)}{(x - a)^{n+1}}
-      </me>.
-    </p>
-    <p>
-      If we have a good estimate for the value of <m>C</m>,
-      then <m>R(x) \approx C (x - a)^{n+1}</m> gives us a good way to estimate <m>R(x)</m>.
-      Of course, we could just evaluate the limit to determine <m>C</m>.
-      In fact, that's what we did in the example;
-      knowing <m>C \approx 0.008</m> there gave us two more decimal places of accuracy in our polynomial approxmation to the sine function.
-      But the Lagrange form of the remainder
-    </p>
-    <aside>
       <p>
-        Determining <m>C</m> from <m>f</m> at <m>x = a</m>
+        This is called <term>Lagrange's form of the remainder</term>.
       </p>
-    </aside>
-    <p>
-      gives us another way to determine<nbsp/><m>C</m>:
-      <md>
-        <mrow>C = \lim_{x \to a} \dfrac{R(x)}{(x - a)^{n+1}} \amp = \lim_{x \to a} \dfrac{f^{(n+1)}(c_x)}{(n+1)!}</mrow>
-        <mrow>\amp = \dfrac{f^{(n+1)}(\lim_{x \to a} c_x)}{(n+1)!}</mrow>
-        <mrow>\amp = \dfrac{f^{(n+1)}(a)}{(n+1)!}</mrow>
-      </md>.
-    </p>
-    <p>
-      In this argument, we are permitted to take the limit
-      <q>inside</q>
-      <m>f^{(n+1)}</m> because <m>f^{(n+1)}</m> is a continuous function.
-      (That is one of the hypotheses of version<nbsp/>2.)
-      Finally, since <m>c_x</m> lies between <m>x</m> and <m>a</m>,
-      it follows that <m>c_x  \to a</m> as <m>x \to a</m>;
-      in other words, <m>\lim_{x \to a}c_x = a</m>.
-      Consequently, we get <m>C</m> <em>directly</em>
-      from the function <m>f</m> itself,
-      and we can therefore write
-      <me>
-        R(x) \approx \dfrac{f^{(n+1)}(a)}{(n+1)!} \, (x - a)^{n+1} \qquad (x \approx a)
-      </me>.
-    </p>
-    <p>
-      The third version of Taylor's theorem
-    </p>
-    <aside>
       <p>
-        An error bound
+        We can use the Lagrange form [[NOTE:Another formula for the remainder]] as an aid to computation.
+        To see how, return to the formula
+        <me>
+          R(x) \approx C (x - a)^{n+1}  (x \approx a)
+        </me>
+        that expresses <m>R(x) = O((x - a)^{n+1})</m> as <m>x \to a</m>
+        (<xref ref="order">see</xref>).
+        The constant here is the limit
+        <me>
+          C = \lim_{x \to a} \dfrac{R(x)}{(x - a)^{n+1}}
+        </me>.
       </p>
-    </aside>
-    <p>
-      uses the Lagrange form of the remainder in a similar way to get an <em>error bound</em>
-      for the polynomial approximation based on the size of <m>f^{(n+1)}(x)</m>.
-      <term>Taylor's theorem, version<nbsp/>3</term>.
-      Suppose that <m>|f^{(n+1)}(x)| \leq M</m> for all <m>x</m> in some interval containing<nbsp/><m>a</m>.
-      Then, for each <m>x</m> in that interval,
-      <me>
-        |R(x)| \leq  \dfrac{M}{(n+1)!} \, |x - a|^{n+1}
-      </me>.
-    </p>
-    <p>
-      With this error bound,
-      which is derived from knowledge of <m>f(x)</m> near <m>x = a</m>,
-      we can determine quite precisely how many decimal places of accuracy a Taylor polynomial approximation achieves.
-      The following example illustrates the different versions of Taylor's theorem.
-      <term>Example</term>.
-      Consider <m>\sqrt{x}</m> near <m>x = 100</m>.
-      The second degree Taylor polynomial for <m>\sqrt{x}</m>,
-      centered at <m>x = 100</m>, is
-      <me>
-        Q(x) = 10 + \dfrac{(x - 100)}{20} - \dfrac{(x - 100)^2}{8000}
-      </me>.
-    </p>
-    <p>
-      <image width="73%" source="images/j104.png"/> <image width="73%" source="images/j105.png"/> Plot
-      <m>y = Q(x)</m> and <m>y = \sqrt{x}</m> together;
-    </p>
-    <aside>
       <p>
-        Version 1: the remainder is <m>O((x-100)^3)</m>
+        If we have a good estimate for the value of <m>C</m>,
+        then <m>R(x) \approx C (x - a)^{n+1}</m> gives us a good way to estimate <m>R(x)</m>.
+        Of course, we could just evaluate the limit to determine <m>C</m>.
+        In fact, that's what we did in the example;
+        knowing <m>C \approx 0.008</m> there gave us two more decimal places of accuracy in our polynomial approxmation to the sine function.
       </p>
-    </aside>
-    <p>
-      the result should look like the figure on the left, above.
-      Then plot the remainder <m>y = \sqrt{x} - Q(x)</m> near <m>x = 100</m>.
-      This graph should suggest that <m>\sqrt{x} - Q(x) = O((x-100)^3)</m> as <m>x \to 100</m>.
-      In fact, this is what version 1 of Taylor's theorem asserts.
-      Furthermore,
-      <me>
-        \lim_{x \to 100} \dfrac{\sqrt{x} - Q(x)}{(x - 100)^3} \approx 6.25 \times 10^{-7};
-      </me>
-      check this yourself by constructing a table of values.
-      Thus
-      <me>
-        \sqrt{x} - Q(x) \approx C (x - 100)^3 \mbox{where \(C \approx 6.25 \times 10^{-7}\)}
-      </me>.
-    </p>
-    <p>
-      We can use the Lagrange form of the remainder
-    </p>
-    <aside>
       <p>
-        Version 2: determining <m>C</m> in terms of <m>\sqrt{x}</m> at <m>x = 100</m>
+        But the Lagrange form of the remainder [[NOTE:Determining <m>C</m> from <m>f</m> at <m>x = a</m>]] gives us another way to determine<nbsp/><m>C</m>:
+        <md>
+          <mrow>C = \lim_{x \to a} \dfrac{R(x)}{(x - a)^{n+1}} \amp = \lim_{x \to a} \dfrac{f^{(n+1)}(c_x)}{(n+1)!}</mrow>
+          <mrow>\amp = \dfrac{f^{(n+1)}(\lim_{x \to a} c_x)}{(n+1)!}</mrow>
+          <mrow>\amp = \dfrac{f^{(n+1)}(a)}{(n+1)!}</mrow>
+        </md>.
       </p>
-    </aside>
-    <p>
-      (in version 2 of Taylor's theorem) to get the value of <m>C</m> another way<mdash/>directly from the third derivative of <m>\sqrt{x}</m> at <m>x = 100</m>:
-      <me>
-        C = \left. \dfrac{(x^{1/2})'''}{3!} \, \right|_{x = 100} = \dfrac{\tfrac{1}{2} \cdot \tfrac{-1}{2} \cdot \tfrac{-3}{2} \cdot (100)^{-5/2}}{6} = \dfrac{1}{2^4 \cdot 10^5} = 6.25 \times 10^{-7}
-      </me>.
-    </p>
-    <p>
-      This is the <em>exact</em> value,
-      confirming the estimate obtained above.
-      Let's see what the equation
-    </p>
-    <aside>
       <p>
-        Accuracy of the polynomial approximation
+        In this argument, we are permitted to take the limit
+        <q>inside</q>
+        <m>f^{(n+1)}</m> because <m>f^{(n+1)}</m> is a continuous function.
+        (That is one of the hypotheses of version<nbsp/>2.)
+        Finally, since <m>c_x</m> lies between <m>x</m> and <m>a</m>,
+        it follows that <m>c_x  \to a</m> as <m>x \to a</m>;
+        in other words, <m>\lim_{x \to a}c_x = a</m>.
+        Consequently, we get <m>C</m> <em>directly</em>
+        from the function <m>f</m> itself,
+        and we can therefore write
+        <me>
+          R(x) \approx \dfrac{f^{(n+1)}(a)}{(n+1)!} \, (x - a)^{n+1} \qquad (x \approx a)
+        </me>.
       </p>
-    </aside>
-    <p>
-      <m>\sqrt{x} - Q(x) \approx 6.25 \times 10^{-7} (x - 100)^3</m> tells us about the accuracy of the polynomial approximation.
-      If we assume <m>|x - 100| \lt  0.5 \times 10^{-k}</m>, then
-      <md>
-        <mrow>|\sqrt{x} - Q(x)| \amp \lt  6.25 \times 10^{-7} \times  (.5 \times 10^{-k})^3</mrow>
-        <mrow>\amp = 0.78125 \times 10^{-(3k+7)} \ \lt  \ 0.5 \times 10^{-(3k+6)}</mrow>
-      </md>.
-    </p>
-    <p>
-      Thus <m>x = 100</m> to <m>k</m> decimal places <m>\Longrightarrow</m>
-      <m>\sqrt{x} = Q(x)</m> to <m>3k + 6</m> places.
-      For example, if <m>x = 100.47</m>, then <m>k = 0</m>,
-      so <m>Q(100.47) = \sqrt{100.47}</m> to 6 decimal places.
-      We find
-      <me>
-        Q(100.47) = \underline{10.023472}3875
-      </me>,
-      and the underlined digits should be correct.
-      In fact,
-      <me>
-        \sqrt{100.47} =  \underline{10.023472}4521\ldots
-      </me>.
-    </p>
-    <p>
-      Here is a second example.
-      If <m>x = 102.98</m>, then we can take <m>k = -1</m>,
-      so <m>Q(102.98) = \sqrt{102.98}</m> to <m>3 (-1) + 6 = 3</m> decimal places.
-      We find
-      <me>
-        Q(102.98) = \underline{10.147}88995, \qquad \sqrt{102.98} = \underline{10.147}906187\ldots
-      </me>.
-    </p>
-    <p>
-      Let's see what additional light version 3
-    </p>
-    <aside>
       <p>
-        Version 3: an explicit error bound
+        The third version of Taylor's theorem [[NOTE:An error bound]] uses the Lagrange form of the remainder in a similar way to get an <em>error bound</em>
+        for the polynomial approximation based on the size of <m>f^{(n+1)}(x)</m>.
       </p>
-    </aside>
-    <p>
-      sheds on our investigation.
-      Suppose we assume <m>x = 100</m> to <m>k = 0</m> decimal places.
-      This means that <m>x</m> lies in the open interval <m>(99.5, 100.5)</m>.
-      Version 3 requires that we have a bound on the size of the third derivative of <m>f(x) = \sqrt{x}</m> over this interval.
-      Now <m>f'''(x) = \tfrac{3}{8} x^{-5/2}</m>,
-      and this is a decreasing function.
-      (Check its graph; alternatively,
-      note that its derivative is negative.)
-      Its maximum value therefore occurs at the left endpoint of the (closed) interval <m>[99.5, 100.5]</m>:
-      <me>
-        |f'''(x)| \leq f'''(99.5) = \tfrac{3}{8} \, (99.5)^{-5/2} \lt  3.8 \times 10^{-6}
-      </me>.
-    </p>
-    <p>
-      Therefore, from version 3 of Taylor's theorem,
-      <me>
-        |\sqrt{x} - Q(x)| \lt  \dfrac{3.8 \times 10^{-6}}{3!} \, |x - 100|^3
-      </me>
-    </p>
-    <p>
-      Since <m>|x - 100| \lt  0.5</m>,
-      <m>|x - 100|^3 \lt  0.125</m>, so
-      <me>
-        |\sqrt{x} - Q(x)| \lt  \dfrac{3.8 \times 10^{-6} \times 0.125}{6} = 0.791667 \times 10^{-7} \lt  0.5 \times 10^{-6}
-      </me>.
-    </p>
-    <p>
-      This proves <m>\sqrt{x} = Q(x)</m> to 6 decimal places<mdash/>confirming what we found earlier.
-    </p>
+      <p>
+        <term>Taylor's theorem, version<nbsp/>3</term>.
+        Suppose that <m>|f^{(n+1)}(x)| \leq M</m> for all <m>x</m> in some interval containing<nbsp/><m>a</m>.
+        Then, for each <m>x</m> in that interval,
+        <me>
+          |R(x)| \leq  \dfrac{M}{(n+1)!} \, |x - a|^{n+1}
+        </me>.
+      </p>
+      <p>
+        With this error bound,
+        which is derived from knowledge of <m>f(x)</m> near <m>x = a</m>,
+        we can determine quite precisely how many decimal places of accuracy a Taylor polynomial approximation achieves.
+        The following example illustrates the different versions of Taylor's theorem.
+      </p>
+    </introduction>
+    <subsubsection>
+      <title>Example</title>
+      <p>
+        Consider <m>\sqrt{x}</m> near <m>x = 100</m>.
+        The second degree Taylor polynomial for <m>\sqrt{x}</m>,
+        centered at <m>x = 100</m>, is
+        <me>
+          Q(x) = 10 + \dfrac{(x - 100)}{20} - \dfrac{(x - 100)^2}{8000}
+        </me>.
+      </p>
+      <p>
+        <image width="73%" source="images/j104.png"/>
+      </p>
+      <p>
+        <image width="73%" source="images/j105.png"/>
+      </p>
+      <p>
+        Plot <m>y = Q(x)</m> and <m>y = \sqrt{x}</m> together; [[NOTE:Version 1:
+        the remainder is <m>O((x-100)^3)</m>]] the result should look like the figure on the left, above.
+        Then plot the remainder <m>y = \sqrt{x} - Q(x)</m> near <m>x = 100</m>.
+        This graph should suggest that <m>\sqrt{x} - Q(x) = O((x-100)^3)</m> as <m>x \to 100</m>.
+        In fact, this is what version 1 of Taylor's theorem asserts.
+        Furthermore,
+        <me>
+          \lim_{x \to 100} \dfrac{\sqrt{x} - Q(x)}{(x - 100)^3} \approx 6.25 \times 10^{-7};
+        </me>
+        check this yourself by constructing a table of values.
+        Thus
+        <me>
+          \sqrt{x} - Q(x) \approx C (x - 100)^3 \mbox{where \(C \approx 6.25 \times 10^{-7}\)}
+        </me>.
+      </p>
+      <p>
+        We can use the Lagrange form of the remainder [[NOTE:Version 2:
+        determining <m>C</m> in terms of <m>\sqrt{x}</m> at <m>x = 100</m>]]
+        (in version 2 of Taylor's theorem)
+        to get the value of <m>C</m> another way<mdash/>directly from the third derivative of <m>\sqrt{x}</m> at <m>x = 100</m>:
+        <me>
+          C = \left. \dfrac{(x^{1/2})'''}{3!} \, \right|_{x = 100} = \dfrac{\tfrac{1}{2} \cdot \tfrac{-1}{2} \cdot \tfrac{-3}{2} \cdot (100)^{-5/2}}{6} = \dfrac{1}{2^4 \cdot 10^5} = 6.25 \times 10^{-7}
+        </me>.
+      </p>
+      <p>
+        This is the <em>exact</em> value,
+        confirming the estimate obtained above.
+      </p>
+      <p>
+        Let's see what the equation [[NOTE:Accuracy of the polynomial approximation]]
+        <m>\sqrt{x} - Q(x) \approx 6.25 \times 10^{-7} (x - 100)^3</m> tells us about the accuracy of the polynomial approximation.
+        If we assume <m>|x - 100| \lt  0.5 \times 10^{-k}</m>, then
+        <md>
+          <mrow>|\sqrt{x} - Q(x)| \amp \lt  6.25 \times 10^{-7} \times  (.5 \times 10^{-k})^3</mrow>
+          <mrow>\amp = 0.78125 \times 10^{-(3k+7)} \ \lt  \ 0.5 \times 10^{-(3k+6)}</mrow>
+        </md>.
+      </p>
+      <p>
+        Thus <m>x = 100</m> to <m>k</m> decimal places <m>\Longrightarrow</m>
+        <m>\sqrt{x} = Q(x)</m> to <m>3k + 6</m> places.
+        For example, if <m>x = 100.47</m>, then <m>k = 0</m>,
+        so <m>Q(100.47) = \sqrt{100.47}</m> to 6 decimal places.
+        We find
+        <me>
+          Q(100.47) = \underline{10.023472}3875
+        </me>,
+        and the underlined digits should be correct.
+        In fact,
+        <me>
+          \sqrt{100.47} =  \underline{10.023472}4521\ldots
+        </me>.
+      </p>
+      <p>
+        Here is a second example.
+        If <m>x = 102.98</m>, then we can take <m>k = -1</m>,
+        so <m>Q(102.98) = \sqrt{102.98}</m> to <m>3 (-1) + 6 = 3</m> decimal places.
+        We find
+        <me>
+          Q(102.98) = \underline{10.147}88995, \qquad \sqrt{102.98} = \underline{10.147}906187\ldots
+        </me>.
+      </p>
+      <p>
+        Let's see what additional light version 3 [[NOTE:Version 3:
+        an explicit error bound]] sheds on our investigation.
+        Suppose we assume <m>x = 100</m> to <m>k = 0</m> decimal places.
+        This means that <m>x</m> lies in the open interval <m>(99.5, 100.5)</m>.
+        Version 3 requires that we have a bound on the size of the third derivative of <m>f(x) = \sqrt{x}</m> over this interval.
+        Now <m>f'''(x) = \tfrac{3}{8} x^{-5/2}</m>,
+        and this is a decreasing function.
+        (Check its graph; alternatively,
+        note that its derivative is negative.)
+        Its maximum value therefore occurs at the left endpoint of the (closed) interval <m>[99.5, 100.5]</m>:
+        <me>
+          |f'''(x)| \leq f'''(99.5) = \tfrac{3}{8} \, (99.5)^{-5/2} \lt  3.8 \times 10^{-6}
+        </me>.
+      </p>
+      <p>
+        Therefore, from version 3 of Taylor's theorem,
+        <me>
+          |\sqrt{x} - Q(x)| \lt  \dfrac{3.8 \times 10^{-6}}{3!} \, |x - 100|^3
+        </me>
+      </p>
+      <p>
+        Since <m>|x - 100| \lt  0.5</m>,
+        <m>|x - 100|^3 \lt  0.125</m>, so
+        <me>
+          |\sqrt{x} - Q(x)| \lt  \dfrac{3.8 \times 10^{-6} \times 0.125}{6} = 0.791667 \times 10^{-7} \lt  0.5 \times 10^{-6}
+        </me>.
+      </p>
+      <p>
+        This proves <m>\sqrt{x} = Q(x)</m> to 6 decimal places<mdash/>confirming what we found earlier.
+      </p>
+    </subsubsection>
   </subsection>
-  <subsection xml:id="sec_taylor-polynomials_subsec_applications">
+  <subsection xml:id="subsec_applications">
     <title>Applications</title>
-    <p>
-      <term>Evaluating Functions.</term> An obvious use
-    </p>
-    <aside>
+    <subsubsection>
+      <title>Evaluating Functions</title>
       <p>
-        Now you can do anything your calculator can!
+        An obvious use [[NOTE:Now you can do anything your calculator can!]] of Taylor polynomials is to evaluate functions.
+        In fact, whenever you ask a calculator or computer to evaluate a function<mdash/>trigonometric,
+        exponential,
+        logarithmic<mdash/>it is typically giving you the value of an appropriate polynomial
+        (though not necessarily a Taylor polynomial).
       </p>
-    </aside>
-    <p>
-      of Taylor polynomials is to evaluate functions.
-      In fact, whenever you ask a calculator or computer to evaluate a function<mdash/>trigonometric,
-      exponential,
-      logarithmic<mdash/>it is typically giving you the value of an appropriate polynomial
-      (though not necessarily a Taylor polynomial).
-      <term>Evaluating Integrals.</term>
-      The fundamental theorem of calculus gives us a quick way of evaluating a definite integral provided we can find an antiderivative for the function under the integral
-      (cf. chapter<nbsp/>6.4).
-      Unfortunately, many common functions,
-      like <m>e^{-x^2}</m> or <m>(\sin{x} )/x</m>,
-      don't have antiderivatives that can be expressed as finite algebraic combinations of the basic functions.
-      Up until now,
-      whenever we encountered such a function we had to rely on a Riemann sum to estimate the integral.
-      But now we have Taylor polynomials,
-      and it's easy to find an antiderivative for a polynomial!
-      Thus, if we have an awkward definite integral to evaluate,
-      it is reasonable to expect that we can estimate it by first getting a good polynomial approximation to the integrand,
-      and then integrating this polynomial.
-      As an example, consider the <term>error function</term>,
-          <idx><h>error function</h></idx>
-      erf<m>(t)</m>,
-    </p>
-    <aside>
       <p>
-        The error function
+        <term>Evaluating Integrals.</term>
+        The fundamental theorem of calculus gives us a quick way of evaluating a definite integral provided we can find an antiderivative for the function under the integral
+        (cf. chapter<nbsp/>6.4).
+        Unfortunately, many common functions,
+        like <m>e^{-x^2}</m> or <m>(\sin{x} )/x</m>,
+        don't have antiderivatives that can be expressed as finite algebraic combinations of the basic functions.
+        Up until now,
+        whenever we encountered such a function we had to rely on a Riemann sum to estimate the integral.
+        But now we have Taylor polynomials,
+        and it's easy to find an antiderivative for a polynomial!
+        Thus, if we have an awkward definite integral to evaluate,
+        it is reasonable to expect that we can estimate it by first getting a good polynomial approximation to the integrand,
+        and then integrating this polynomial.
+        As an example, consider the <term>error function</term>,
+            <idx><h>error function</h></idx>
+        erf<m>(t)</m>, [[NOTE:The error function]] defined by
+        <me>
+          \mbox{erf\((t)\)}  = \dfrac{2}{\sqrt{\pi}}\int_0^t e^{-x^2} \, dx\,
+        </me>.
       </p>
-    </aside>
-    <p>
-      defined by
-      <me>
-        \mbox{erf\((t)\)}  = \dfrac{2}{\sqrt{\pi}}\int_0^t e^{-x^2} \, dx\,
-      </me>.
-    </p>
-    <p>
-      This is perhaps the most important integral in statistics.
-      It is the basis of the so-called
-      <q>normal distribution</q>
-      and is widely used to decide how good certain statistical estimates are.
-      It is important to have a way of obtaining fast,
-      accurate approximations for erf<m>(t)</m>.
-      We have already seen that
-      <me>
-        e^{-x^2} \approx 1 - x^2 + \dfrac{x^4}{2!} - \dfrac{x^6}{3!} + \dfrac{x^8}{4!} - \cdots \pm \dfrac{x^{2n}}{n!}
-      </me>.
-    </p>
-    <p>
-      Now, if we antidifferentiate term by term:
-      <md>
-        <mrow>\int e^{-x^2}\, dx \amp \approx \int \left( 1 - x^2 + \dfrac{x^4}{2!} - \dfrac{x^6}{3!} + \dfrac{x^8}{4!} - \cdots \pm \dfrac{x^{2n}}{n!}\right) \, dx</mrow>
-        <mrow>\amp = \int 1 \, dx - \int x^2 \, dx + \int \dfrac{x^4}{2!} \, dx - \int \dfrac{x^6}{3!} \, dx + \cdots \pm \int \dfrac{x^{2n}}{n!} \, dx</mrow>
-        <mrow>\amp = x - \dfrac{x^3}{3} + \dfrac{x^5}{5 \cdot 2!} - \dfrac{x^7}{7 \cdot 3!} + \cdots \pm \dfrac{x^{2n+1}}{(2n+1)\cdot n!}</mrow>
-      </md>.
-    </p>
-    <p>
-      Thus,
-      <me>
-        \int_0^t e^{-x^2} \, dx\, \approx \left. x - \dfrac{x^3}{3} + \dfrac{x^5}{5 \cdot 2!} - \dfrac{x^7}{7 \cdot 3!} + \cdots\ \pm \dfrac{x^{2n+1}}{(2n+1) \cdot n!}\, \right|_0^t
-      </me>,
-      giving us, finally,
-    </p>
-    <aside>
       <p>
-        A formula for approximating the error function
+        This is perhaps the most important integral in statistics.
+        It is the basis of the so-called
+        <q>normal distribution</q>
+        and is widely used to decide how good certain statistical estimates are.
+        It is important to have a way of obtaining fast,
+        accurate approximations for erf<m>(t)</m>.
+        We have already seen that
+        <me>
+          e^{-x^2} \approx 1 - x^2 + \dfrac{x^4}{2!} - \dfrac{x^6}{3!} + \dfrac{x^8}{4!} - \cdots \pm \dfrac{x^{2n}}{n!}
+        </me>.
       </p>
-    </aside>
-    <p>
-      an approximate formula for erf<m>(t)</m>:
-      <me>
-        \mbox{erf\((t)\)}  \approx \dfrac{2}{\sqrt{\pi}} \left(t - \dfrac{t^3}{3} + \dfrac{t^5}{5 \cdot 2!} - \dfrac{t^7}{\cdot 3!} + \cdots \pm \dfrac{t^{2n+1}}{(2n+1) \cdot n!} \right)
-      </me>.
-    </p>
-    <p>
-      Thus if we needed to know, say, erf(1),
-      we could quickly approximate it.
-      For instance, letting <m>n=6</m>, we have
-      <md>
-        <mrow>\mbox{erf\((1)\)} \amp \approx  \dfrac{2}{\sqrt{\pi}} \left(1 - \dfrac{1}{3} + \dfrac{1}{5 \cdot 2!} - \dfrac{1}{7 \cdot 3!} + \dfrac{1}{9 \cdot 4!} - \dfrac{1}{11 \cdot 5!} + \dfrac{1}{13 \cdot 6!}\right)</mrow>
-        <mrow>\amp \approx \dfrac{2}{\sqrt{\pi}} \left(1 - \dfrac{1}{3} + \dfrac{1}{10} - \dfrac{1}{42} + \dfrac{1}{216} - \dfrac{1}{1320} + \dfrac{1}{9360}\right)</mrow>
-        <mrow>\amp \approx 0.746836\,\dfrac{2}{\sqrt{\pi}} \approx 0.842714</mrow>
-      </md>,
-      a value accurate to 4 decimals.
-      If we had needed greater accuracy,
-      we could simply have taken a larger value for <m>n</m>.
-      For instance, if we take <m>n=12</m>,
-      we get the estimate 0.8427007929<ellipsis/> , where all 10 decimals are accurate (i.e., they don't change as we take larger values<nbsp/><m>n</m>).
-      <term>Evaluating Limits.</term> Our final application of Taylor polynomials makes explicit use of the order of magnitude of the remainder.
-      Consider the problem of evaluating a limit like
-      <me>
-        \lim_{x \to 0} \dfrac{1 - \cos(x)}{x^2}
-      </me>.
-    </p>
-    <p>
-      Since both numerator and denominator approach <m>0</m> as <m>x \to 0</m>,
-      it isn't clear what the quotient is doing.
-      If we replace <m>\cos(x)</m> by its third degree Taylor polynomial with remainder,
-      though, we get
-      <me>
-        \cos(x) = 1 - \dfrac{1}{2!} x^2 + R(x)
-      </me>,
-      and <m>R(x) = O(x^4)</m> as <m>x \to 0</m>.
-      Consequently, if <m>x \neq 0</m> but <m>x \to 0</m>, then
-      <md>
-        <mrow>\dfrac{1 - \cos(x)}{x^2} \amp = \dfrac{1-\left(1 - \tfrac{1}{2}x^2 + R(x)\right)}{x^2}</mrow>
-        <mrow>\amp = \dfrac{\tfrac{1}{2}x^2 - R(x)}{x^2} = \dfrac{1}{2} - \dfrac{R(x)}{x^2}</mrow>
-      </md>.
-    </p>
-    <p>
-      Since <m>R(x) = O(x^4)</m>,
-      we know that there is some constant <m>C</m> for which <m>R(x)/x^4 \to C</m> as <m>x \to 0</m>.
-      Therefore,
-      <md>
-        <mrow>\lim_{x \to 0}\dfrac{1 - \cos(x)}{x^2} \amp = \dfrac{1}{2} - \lim_{x \to 0}\dfrac{R(x)}{x^2} = \dfrac{1}{2} - \lim_{x \to 0}\dfrac{x^2 \cdot R(x)}{x^4}</mrow>
-        <mrow>\amp = \frac{1}{2} - \lim_{x \to 0} x^2 \cdot \lim_{x \to 0}\dfrac{R(x)}{x^4} = \frac{1}{2} -  0 \cdot C = \frac{1}{2}</mrow>
-      </md>.
-    </p>
-    <p>
-      There is a way to shorten
-    </p>
-    <aside>
       <p>
-        Extending the <sq>big oh</sq> notation
+        Now, if we antidifferentiate term by term:
+        <md>
+          <mrow>\int e^{-x^2}\, dx \amp \approx \int \left( 1 - x^2 + \dfrac{x^4}{2!} - \dfrac{x^6}{3!} + \dfrac{x^8}{4!} - \cdots \pm \dfrac{x^{2n}}{n!}\right) \, dx</mrow>
+          <mrow>\amp = \int 1 \, dx - \int x^2 \, dx + \int \dfrac{x^4}{2!} \, dx - \int \dfrac{x^6}{3!} \, dx + \cdots \pm \int \dfrac{x^{2n}}{n!} \, dx</mrow>
+          <mrow>\amp = x - \dfrac{x^3}{3} + \dfrac{x^5}{5 \cdot 2!} - \dfrac{x^7}{7 \cdot 3!} + \cdots \pm \dfrac{x^{2n+1}}{(2n+1)\cdot n!}</mrow>
+        </md>.
       </p>
-    </aside>
-    <p>
-      these calculations<mdash/>and to make them more transparent<mdash/>by extending the way we read the <sq>big oh</sq> notation.
-      Specifically, we will read <m>O(q(x))</m> as
-      <q>some (unspecified) function that is the same order of magnitude as <m>q(x)</m></q>. Then, instead of writing <m>\cos(x) = 1 - \tfrac{1}{2} x^2 + R(x)</m>,
-      and then noting <m>R(x) = O(x^4)</m> as <m>x \to 0</m>,
-      we'll just write
-      <me>
-        \cos(x) = 1 - \tfrac{1}{2} x^2 + O(x^4) \qquad (x \to 0)
-      </me>.
-    </p>
-    <p>
-      In this spirit,
-      <md>
-        <mrow>\dfrac{1 - \cos(x)}{x^2} \amp = \dfrac{1-\left(1-\tfrac{1}{2}x^2 + O(x^4)\right)}{x^2}</mrow>
-        <mrow>\amp = \dfrac{\tfrac{1}{2}x^2 - O(x^4)}{x^2} =  \tfrac{1}{2} +O(x^2) \qquad (x \to 0)</mrow>
-      </md>.
-    </p>
-    <p>
-      We have used the fact that <m>\pm O(x^4)/x^2 = O(x^2)</m>.
-      Finally, since <m>O(x^2) \to 0</m> as <m>x \to 0</m>
-      (do you see why?),
-      the limit of the last expression is just 1/2 as <m>x \to 0</m>.
-      Thus, once again we arrive at the result
-      <me>
-        \lim_{x \to 0} \dfrac{1 - \cos(x)}{x^2} = \dfrac{1}{2}
-      </me>.
-    </p>
+      <p>
+        Thus,
+        <me>
+          \int_0^t e^{-x^2} \, dx\, \approx \left. x - \dfrac{x^3}{3} + \dfrac{x^5}{5 \cdot 2!} - \dfrac{x^7}{7 \cdot 3!} + \cdots\ \pm \dfrac{x^{2n+1}}{(2n+1) \cdot n!}\, \right|_0^t
+        </me>,
+        giving us, finally, [[NOTE:A formula for approximating the error function]] an approximate formula for erf<m>(t)</m>:
+        <me>
+          \mbox{erf\((t)\)}  \approx \dfrac{2}{\sqrt{\pi}} \left(t - \dfrac{t^3}{3} + \dfrac{t^5}{5 \cdot 2!} - \dfrac{t^7}{\cdot 3!} + \cdots \pm \dfrac{t^{2n+1}}{(2n+1) \cdot n!} \right)
+        </me>.
+      </p>
+      <p>
+        Thus if we needed to know, say, erf(1),
+        we could quickly approximate it.
+        For instance, letting <m>n=6</m>, we have
+        <md>
+          <mrow>\mbox{erf\((1)\)} \amp \approx  \dfrac{2}{\sqrt{\pi}} \left(1 - \dfrac{1}{3} + \dfrac{1}{5 \cdot 2!} - \dfrac{1}{7 \cdot 3!} + \dfrac{1}{9 \cdot 4!} - \dfrac{1}{11 \cdot 5!} + \dfrac{1}{13 \cdot 6!}\right)</mrow>
+          <mrow>\amp \approx \dfrac{2}{\sqrt{\pi}} \left(1 - \dfrac{1}{3} + \dfrac{1}{10} - \dfrac{1}{42} + \dfrac{1}{216} - \dfrac{1}{1320} + \dfrac{1}{9360}\right)</mrow>
+          <mrow>\amp \approx 0.746836\,\dfrac{2}{\sqrt{\pi}} \approx 0.842714</mrow>
+        </md>,
+        a value accurate to 4 decimals.
+        If we had needed greater accuracy,
+        we could simply have taken a larger value for <m>n</m>.
+        For instance, if we take <m>n=12</m>,
+        we get the estimate 0.8427007929<ellipsis/> , where all 10 decimals are accurate (i.e., they don't change as we take larger values<nbsp/><m>n</m>).
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title>Evaluating Limits</title>
+      <p>
+        Our final application of Taylor polynomials makes explicit use of the order of magnitude of the remainder.
+        Consider the problem of evaluating a limit like
+        <me>
+          \lim_{x \to 0} \dfrac{1 - \cos(x)}{x^2}
+        </me>.
+      </p>
+      <p>
+        Since both numerator and denominator approach <m>0</m> as <m>x \to 0</m>,
+        it isn't clear what the quotient is doing.
+        If we replace <m>\cos(x)</m> by its third degree Taylor polynomial with remainder,
+        though, we get
+        <me>
+          \cos(x) = 1 - \dfrac{1}{2!} x^2 + R(x)
+        </me>,
+        and <m>R(x) = O(x^4)</m> as <m>x \to 0</m>.
+        Consequently, if <m>x \neq 0</m> but <m>x \to 0</m>, then
+        <md>
+          <mrow>\dfrac{1 - \cos(x)}{x^2} \amp = \dfrac{1-\left(1 - \tfrac{1}{2}x^2 + R(x)\right)}{x^2}</mrow>
+          <mrow>\amp = \dfrac{\tfrac{1}{2}x^2 - R(x)}{x^2} = \dfrac{1}{2} - \dfrac{R(x)}{x^2}</mrow>
+        </md>.
+      </p>
+      <p>
+        Since <m>R(x) = O(x^4)</m>,
+        we know that there is some constant <m>C</m> for which <m>R(x)/x^4 \to C</m> as <m>x \to 0</m>.
+        Therefore,
+        <md>
+          <mrow>\lim_{x \to 0}\dfrac{1 - \cos(x)}{x^2} \amp = \dfrac{1}{2} - \lim_{x \to 0}\dfrac{R(x)}{x^2} = \dfrac{1}{2} - \lim_{x \to 0}\dfrac{x^2 \cdot R(x)}{x^4}</mrow>
+          <mrow>\amp = \frac{1}{2} - \lim_{x \to 0} x^2 \cdot \lim_{x \to 0}\dfrac{R(x)}{x^4} = \frac{1}{2} -  0 \cdot C = \frac{1}{2}</mrow>
+        </md>.
+      </p>
+      <p>
+        There is a way to shorten [[NOTE:Extending the <sq>big oh</sq> notation]] these calculations<mdash/>and to make them more transparent<mdash/>by extending the way we read the <sq>big oh</sq> notation.
+        Specifically, we will read <m>O(q(x))</m> as
+        <q>some (unspecified) function that is the same order of magnitude as <m>q(x)</m></q>.
+      </p>
+      <p>
+        Then, instead of writing <m>\cos(x) = 1 - \tfrac{1}{2} x^2 + R(x)</m>,
+        and then noting <m>R(x) = O(x^4)</m> as <m>x \to 0</m>,
+        we'll just write
+        <me>
+          \cos(x) = 1 - \tfrac{1}{2} x^2 + O(x^4) \qquad (x \to 0)
+        </me>.
+      </p>
+      <p>
+        In this spirit,
+        <md>
+          <mrow>\dfrac{1 - \cos(x)}{x^2} \amp = \dfrac{1-\left(1-\tfrac{1}{2}x^2 + O(x^4)\right)}{x^2}</mrow>
+          <mrow>\amp = \dfrac{\tfrac{1}{2}x^2 - O(x^4)}{x^2} =  \tfrac{1}{2} +O(x^2) \qquad (x \to 0)</mrow>
+        </md>.
+      </p>
+      <p>
+        We have used the fact that <m>\pm O(x^4)/x^2 = O(x^2)</m>.
+        Finally, since <m>O(x^2) \to 0</m> as <m>x \to 0</m>
+        (do you see why?),
+        the limit of the last expression is just 1/2 as <m>x \to 0</m>.
+        Thus, once again we arrive at the result
+        <me>
+          \lim_{x \to 0} \dfrac{1 - \cos(x)}{x^2} = \dfrac{1}{2}
+        </me>.
+      </p>
+    </subsubsection>
   </subsection>
-  <subsection xml:id="sec_taylor-polynomials_subsec_exercises">
+  <subsection xml:id="subsec_exercises">
     <title>Exercises</title>
     <ol>
       <li>

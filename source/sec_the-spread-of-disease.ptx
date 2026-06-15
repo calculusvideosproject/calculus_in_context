@@ -1,21 +1,14 @@
-<section xml:id="sec_the-spread-of-disease_sec_the-spread-of-disease">
+<section xml:id="sec_the-spread-of-disease">
   <title>The Spread of Disease</title>
-  <subsection xml:id="sec_the-spread-of-disease_subsec_making-a-model">
+  <subsection xml:id="subsec_making-a-model">
     <title>Making a Model</title>
     <p>
       Many human diseases are contagious: you
       <q>catch</q>
       them from someone who is already infected.
       Contagious diseases are of many kinds.
-      Smallpox, polio, and plague are severe and even fatal,
-    </p>
-    <aside>
-      <p>
-        Some properties of contagious diseases
-      </p>
-    </aside>
-    <p>
-      while the common cold and the childhood illnesses of measles, mumps,
+      Smallpox, polio,
+      and plague are severe and even fatal, [[NOTE:Some properties of contagious diseases]] while the common cold and the childhood illnesses of measles, mumps,
       and rubella are usually relatively mild.
       Moreover, you can catch a cold over and over again,
       but you get measles only once.
@@ -29,6 +22,8 @@
       upon + <em>demos</em>, the people.) <em>Epidemiology</em>
           <idx><h>epidemiology</h></idx>
       is the scientific study of these diseases.
+    </p>
+    <p>
       An epidemic is a complicated matter,
       but the dangers posed by contagion<mdash/>and especially by the appearance of new and uncontrollable diseases<mdash/>compel us to learn as much as we can about the nature of epidemics.
       Mathematics offers a very special kind of help.
@@ -36,16 +31,13 @@
       This is calculus as <em>language</em>.
       We substitute an
       <q>ideal</q>
-      mathematical world for the real one.
+      mathematical world for the real one. [[NOTE:The idea of a mathematical model]]
     </p>
-    <aside>
-      <p>
-        The idea of a mathematical model
-      </p>
-    </aside>
     <p>
       This is calculus as <em>tool</em>.
       Any conclusion we reach about the model can then be interpreted to tell us something about the reality.
+    </p>
+    <p>
       To give you an idea how this process works,
       we'll build a model of an epidemic.
       Its basic purpose is to help us understand the way a contagious disease spreads through a population<mdash/>to the point where we can even predict what fraction falls ill,
@@ -70,6 +62,8 @@
       we will assume that the affected population is large but fixed in size and confined to a geographically well-defined region.
       To have a concrete image,
       you can imagine the elementary school population of a big city.
+    </p>
+    <p>
       At any time,
       that population can be divided into three distinct classes:
       <ul>
@@ -97,15 +91,8 @@
       </ul>
     </p>
     <p>
-      Suppose we let <m>S</m>, <m>I</m>, and <m>R</m>
-    </p>
-    <aside>
-      <p>
-        The quantities that our model analyzes
-      </p>
-    </aside>
-    <p>
-      denote the number of people in each of these three classes,
+      Suppose we let <m>S</m>, <m>I</m>,
+      and <m>R</m> [[NOTE:The quantities that our model analyzes]] denote the number of people in each of these three classes,
       respectively.
       Of course, the classes are all mixed together throughout the population:
       on a given day, we may find persons who are susceptible,
@@ -117,7 +104,7 @@
       as in the following diagram:
           <idx><h>compartment diagram</h></idx>
     </p>
-    <image source="images/f19704ec5f44cdfe2ddb2919412675c2be25faf4.png"/>
+    <image source=""/>
     <p>
       The goal of our model is to determine what happens to the numbers <m>S</m>,
       <m>I</m>,
@@ -134,7 +121,7 @@
       One possible way that <m>I</m> might vary is shown in the following graph.
           <idx><h>graph</h></idx>
     </p>
-    <image source="images/3bd37a07927f74a327a11ff80bd039285f66766b.png"/>
+    <image source=""/>
     <p>
       During the course of the epidemic,
       susceptibles are constantly falling ill.
@@ -147,27 +134,20 @@
       The graph of <m>R</m> should therefore climb from left to right.
       The graphs of <m>S</m> and <m>R</m> might take the following forms:
     </p>
-    <image source="images/abf2e259734858071f0458fbad96906d6b969230.png"/>
-    <image source="images/b84dbb5279a26e0833764460f3a82b3f53ea5824.png"/>
+    <image source=""/>
+    <image source=""/>
     <p>
       While these graphs give us an idea about what might happen,
       they raise some new questions, too.
-      For example, because there are no scales marked along the axes,
-    </p>
-    <aside>
-      <p>
-        Some quantitative questions that the graphs raise
-      </p>
-    </aside>
-    <p>
-      the first graph does not tell us how large <m>I</m> becomes when the infection reaches its peak,
+      For example,
+      because there are no scales marked along the axes, [[NOTE:Some quantitative questions that the graphs raise]] the first graph does not tell us how large <m>I</m> becomes when the infection reaches its peak,
       nor when that peak occurs.
       Likewise, the second and third graphs do not say how rapidly the population either falls ill or recovers.
       A good model of the epidemic should give us graphs like these and it should also answer the quantitative questions we have already raised<mdash/>for example: When does the infection hit its peak?
       How many susceptibles eventually fall ill?
     </p>
   </subsection>
-  <subsection xml:id="sec_the-spread-of-disease_subsec_a-simple-model-for-predicting-change">
+  <subsection xml:id="subsec_a-simple-model-for-predicting-change">
     <title>A Simple Model for Predicting Change</title>
     <p>
       Suppose we know the values of <m>S</m>,
@@ -259,15 +239,8 @@
     </row>
     </tabular>
     <p>
-      Of course, these numbers will be correct only if the infection continues to spread at its present rate of 470 persons per day.
-    </p>
-    <aside>
-      <p>
-        Knowing rates, we can predict future values
-      </p>
-    </aside>
-    <p>
-      If we want to follow <m>S</m>,
+      Of course, these numbers will be correct only if the infection continues to spread at its present rate of 470 persons per day. [[NOTE:Knowing rates,
+      we can predict future values]] If we want to follow <m>S</m>,
       <m>I</m>, and <m>R</m> into the future,
       our example suggests that we should pay attention to the <em> rates</em>
           <idx><h>rate</h></idx>
@@ -287,17 +260,14 @@
     <p>
       Check that this gives the values of <m>S</m> found in the table when <m>t = 0</m>, 1, 2, or 3.
       How many susceptibles does it say are left after 10 days?
-      Our assumption that <m>S' = -470</m> persons per day amounts to a mathematical characterization
     </p>
-    <aside>
-      <p>
-        The equation <m>S' = -470</m> is a model
-      </p>
-    </aside>
     <p>
-      of the susceptible population<mdash/>in other words, a model!
+      Our assumption that <m>S' = -470</m> persons per day amounts to a mathematical characterization [[NOTE:The equation
+      <m>S' = -470</m> is a model]] of the susceptible population<mdash/>in other words, a model!
       Of course it is quite simple,
       but it led to a formula that told us what value we could expect <m>S</m> to have at any time <m>t</m>.
+    </p>
+    <p>
       The model will even take us backwards in time . For example,
       two days ago the value of <m>t</m> was <m>-2</m>;
       according to the model, there were
@@ -310,15 +280,10 @@
       Therefore, by letting <m>t</m> be negative we can generate values for <m>S</m> that can be checked against health records.
       If the model gives good agreement with <em>known</em>
       values of <m>S</m> we become more confident in using it to predict <em>future</em> values.
-      To predict the value of <m>S</m> using the rate <m>S'</m> we clearly need to have a starting point<mdash/>a known value of <m>S</m>
     </p>
-    <aside>
-      <p>
-        Predictions depend on the initial value, too
-      </p>
-    </aside>
     <p>
-      from which we can measure changes.
+      To predict the value of <m>S</m> using the rate <m>S'</m> we clearly need to have a starting point<mdash/>a known value of <m>S</m> [[NOTE:Predictions depend on the initial value,
+      too]] from which we can measure changes.
       In our case that starting point is <m>S = 20000</m>.
       This is called the <term>initial value</term>
           <idx><h>initial value</h></idx>
@@ -327,6 +292,8 @@
       <m>t = 0</m>.
       To construct the formula <m>S = 20000 - 470\,t</m>,
       we needed to have an initial value as well as a rate of change for <m>S</m>.
+    </p>
+    <p>
       In the following pages we will develop a more complex model for all three population groups that has the same general design as this simple one.
       Specifically,
       the model will give us information about the rates <m>S'</m>,
@@ -337,11 +304,13 @@
       and <m>R</m> at any time <m>t</m> .
     </p>
   </subsection>
-  <subsection xml:id="sec_the-spread-of-disease_subsec_the-rate-of-recovery">
+  <subsection xml:id="subsec_the-rate-of-recovery">
     <title>The Rate of Recovery</title>
     <p>
           <idx><h>rate</h><h>of recovery</h></idx>
           <idx><h>recovery</h></idx>
+    </p>
+    <p>
       Our first task will be to model the recovery rate <m>R'</m>.
       We look at the process of recovering first,
       because it's simpler to analyze.
@@ -372,16 +341,11 @@
     <p>
       This equation is telling us about <m>R'</m>,
       the rate at which <m>R</m> is changing.
-      We can write it more simply in the form
+      We can write it more simply in the form [[NOTE:The first piece of the <m>S</m>-<m>I</m>-<m>R</m> model]]
+      <me>
+        R' = \dfrac{1}{14}I \mbox{ persons per day}
+      </me>.
     </p>
-    <aside>
-      <p>
-        The first piece of the <m>S</m>-<m>I</m>-<m>R</m> model
-      </p>
-    </aside>
-    <me>
-      R' = \dfrac{1}{14}I \mbox{ persons per day}
-    </me>.
     <p>
       We call this a <term>rate equation</term>.
           <idx><h>rate equation</h></idx>
@@ -389,24 +353,24 @@
       In this case, it links <m>R'</m> to <m>I</m>.
       The rate equation for <m>R</m> is the first part of our model of the measles epidemic.
     </p>
-    <aside>
-      <p>
-        Are you uneasy about our claim that {1/14-th} of the infected population recovers every day?
-        You have good reason to be.
-        After all, during the first few days of the epidemic almost no one has had measles the full fourteen days,
-        so the recovery rate will be much less than <m>I/14</m> persons per day.
-        About a week before the infection disappears altogether there will be no one in the early stages of the illness.
-        The recovery rate will then be much greater than <m>I/14</m> persons per day.
-        Evidently our model is not a perfect mirror of reality!
-        Don't be particularly surprised or dismayed by this.
-        Our goal is to gain insight into the workings of an epidemic and to suggest how we might intervene to reduce its effects.
-        So we start off with a model which,
-        while imperfect, still captures some of the workings.
-        The simplifications in the model will be justified if we are led to inferences which help us understand how an epidemic works and how we can deal with it.
-        If we wish, we can then refine the model,
-        replacing the simple expressions with others that mirror the reality more fully.
-      </p>
-    </aside>
+    <p>
+      [[NOTE:Are you uneasy about our claim that {1/14-th} of the infected population recovers every day?
+      You have good reason to be.
+      After all, during the first few days of the epidemic almost no one has had measles the full fourteen days,
+      so the recovery rate will be much less than <m>I/14</m> persons per day.
+      About a week before the infection disappears altogether there will be no one in the early stages of the illness.
+      The recovery rate will then be much greater than <m>I/14</m> persons per day.
+      Evidently our model is not a perfect mirror of reality!
+    </p>
+    <p>
+      Don't be particularly surprised or dismayed by this.
+      Our goal is to gain insight into the workings of an epidemic and to suggest how we might intervene to reduce its effects.
+      So we start off with a model which,
+      while imperfect, still captures some of the workings.
+      The simplifications in the model will be justified if we are led to inferences which help us understand how an epidemic works and how we can deal with it.
+      If we wish, we can then refine the model,
+      replacing the simple expressions with others that mirror the reality more fully.]]
+    </p>
     <p>
       Notice that the rate equation for <m>R'</m> does indeed give us a tool to predict future values of <m>R</m>.
       For suppose today 2100 people are infected and 2500 have already recovered.
@@ -420,6 +384,8 @@
       Thus 150 people will recover in a single day,
       and twice as many, or 300, will recover in two.
       At this rate the recovered population will number 2650 tomorrow and 2800 the next day.
+    </p>
+    <p>
       These calculations assume that the rate <m>R'</m> holds steady at 150 persons per day for the entire two days.
       Since <m>R' = I/14</m>,
       this is the same as assuming that <m>I</m> holds steady at 2100 persons.
@@ -429,6 +395,8 @@
       In fact, <m>I</m> <em>does</em> vary over time.
       We shall see this when we analyze how the infection is transmitted.
       Then, in chapter 2, we'll see how to make the adjustments in the values of <m>R'</m> that will permit us to predict the value of <m>R</m> in the model with as much accuracy as we wish.
+    </p>
+    <p>
       <term>Other diseases</term>.
       What can we say about the recovery rate for a contagious disease other than measles?
       If the period of infection of the new illness is <m>k</m> days,
@@ -449,29 +417,33 @@
       The constant <m>b</m> is called the
       <term>recovery coefficient</term><idx><h>recovery</h><h>coefficient</h></idx> in this context.
     </p>
-    <sidebyside>
-      <image source="images/3a4c72a9f659e0c35d4d5c2edae05753ca8d2315.png"/>
-      <nbsp/><nbsp/><nbsp/>Let's incorporate our understanding of recovery into the
-      compartment diagram.  For the sake of illustration, we'll separate the
-      three compartments.  As time passes, people
+    <image source=""/>
+    <p>
+      Let's incorporate our understanding of recovery into the compartment diagram.
+      For the sake of illustration,
+      we'll separate the three compartments.
+      As time passes, people
       <q>flow</q>
-      from the infected
-      compartment to the recovered.  We represent this flow by an arrow from
-      <m>I</m> to <m>R</m>.  We label the arrow with the recovery coefficient <m>b</m> to
-      indicate that the flow is governed by the rate equation <m>R' = b I</m>.
-    </sidebyside>
+      from the infected compartment to the recovered.
+      We represent this flow by an arrow from <m>I</m> to <m>R</m>.
+      We label the arrow with the recovery coefficient <m>b</m> to indicate that the flow is governed by the rate equation <m>R' = b I</m>.
+    </p>
   </subsection>
-  <subsection xml:id="sec_the-spread-of-disease_subsec_the-rate-of-transmission">
+  <subsection xml:id="subsec_the-rate-of-transmission">
     <title>The Rate of Transmission</title>
     <p>
           <idx><h>rate</h><h>of transmission</h></idx>
           <idx><h>transmission</h></idx>
+    </p>
+    <p>
       Since susceptibles become infected,
       the compartment diagram above should also have an arrow that goes from <m>S</m> to <m>I</m> and a rate equation for <m>S'</m> to show how <m>S</m> changes as the infection spreads.
       While <m>R'</m> depends only on <m>I</m>,
       because recovery involves only waiting for people to leave the infected population,
       <m>S'</m> will depend on both <m>S</m> and <m>I</m>,
       because transmission involves contact between susceptible and infected persons.
+    </p>
+    <p>
       Here's a way to model the transmission rate.
       First, consider a single susceptible person on a single day.
       On average, this person will contact only a small fraction,
@@ -484,17 +456,14 @@
       So the fraction of contacts is <m>p = 2/I = 2/5000 = 0.0004</m>.
       The 2 contacts themselves can be expressed as
       <m>2 = (2/I)\cdot I = pI</m> contacts per day per susceptible.
-      To find out how many daily contacts the <em>whole</em>
     </p>
-    <aside>
-      <p>
-        Contacts are proportional to both <m>S</m> and <m>I</m>
-      </p>
-    </aside>
     <p>
-      susceptible population will have,
+      To find out how many daily contacts the <em>whole</em>
+      [[NOTE:Contacts are proportional to both <m>S</m> and <m>I</m>]] susceptible population will have,
       we can just multiply the average number of contacts per susceptible person by the number of susceptibles:
       this is <m>pI \cdot S = pSI</m>.
+    </p>
+    <p>
       Not all contacts lead to new infections;
       only a certain fraction <m>q</m> do.
       The more contagious the disease, the larger <m>q</m> is.
@@ -502,6 +471,8 @@
       we can expect <m>q \cdot pSI</m> new infections per day (i.e., to convert contacts to infections,
       multiply by <m>q</m>).
       This becomes <m>aSI</m> if we define <m>a</m> to be the product <m>qp</m>.
+    </p>
+    <p>
       Recall, the value of the recovery coefficient <m>b</m> depends only on the illness involved.
       It is the same for all populations.
       By contrast,
@@ -512,103 +483,91 @@
       Quarantine
           <idx><h>quarantine</h></idx>
       does this, for instance; see the exercises.
-      Since each new infection decreases the number of susceptibles,
-      we have the rate equation for <m>S</m>:
     </p>
-    <aside>
-      <p>
-        Here is the second piece of the <m>S</m>-<m>I</m>-<m>R</m> model
-      </p>
-    </aside>
-    <me>
-      S' =  - a S I \mbox{ persons per day}  \,
-    </me>.
+    <p>
+      Since each new infection decreases the number of susceptibles,
+      we have the rate equation for <m>S</m>: [[NOTE:Here is the second piece of the <m>S</m>-<m>I</m>-<m>R</m> model]]
+      <me>
+        S' =  - a S I \mbox{ persons per day}  \,
+      </me>.
+    </p>
     <p>
       The minus sign here tells us that <m>S</m> is decreasing
       (since <m>S</m> and <m>I</m> are positive).
       We call <m>a</m> the <term>transmission coefficient</term>.
           <idx><h>transmission</h><h>coefficient</h></idx>
     </p>
-    <sidebyside>
-      <nbsp/><nbsp/><nbsp/>Just as people flow from the infected to the recovered
-      compartment when they recover, they flow from the susceptible to the
-      infected when they fall ill.  To indicate the second flow let's add
-      another arrow to the compartment diagram.
-      <idx><h>compartment diagram</h></idx>
-  Because this flow is due to the
-      transmission of the illness, we will label the arrow with the
-      transmission coefficient <m>a</m>.  The compartment diagram now reflects
-      all aspects of our model.
-      <image source="images/76c49a5c50aa34b3e0b1f01950fb922eaa6bb578.png"/>
-    </sidebyside>
-    <aside>
-      <p>
-        We haven't talked about the units in which to measure <m>a</m> and <m>b</m>.
-        They must be chosen so that any equation in which <m>a</m> or <m>b</m> appears will balance.
-        Thus, in <m>R' = bI</m> the units on the left are persons/day;
-        since the units for <m>I</m> are persons,
-        the units for <m>b</m> must be 1/(days).
-        The units in <m>S' = -aSI</m> will balance only if <m>a</m> is measured in 1/(person-day).
-        The reciprocals have more natural interpretations.
-        First of all, 1/<m>b</m> is the number of days a person needs to recover.
-        Next, note that 1/<m>a</m> is measured in person-days (i.e., persons <times/> days),
-        which are the natural units in which to measure exposure.
-        Here is why.
-        Suppose you contact 3<nbsp/>infected persons for each of 4<nbsp/>days.
-        That gives you the same exposure to the illness that you get from 6<nbsp/>infected persons in 2<nbsp/>days<mdash/>both give 12
-        <q>person-days</q>
-        of exposure.
-        Thus, we can interpret <m>1/a</m> as the level of exposure of a typical susceptible person.
-      </p>
-    </aside>
+    <p>
+      Just as people flow from the infected to the recovered compartment when they recover,
+      they flow from the susceptible to the infected when they fall ill.
+      To indicate the second flow let's add another arrow to the compartment diagram.
+          <idx><h>compartment diagram</h></idx>
+      Because this flow is due to the transmission of the illness,
+      we will label the arrow with the transmission coefficient <m>a</m>.
+      The compartment diagram now reflects all aspects of our model.
+    </p>
+    <image source=""/>
+    <p>
+      [[NOTE:We haven't talked about the units in which to measure <m>a</m> and <m>b</m>.
+      They must be chosen so that any equation in which <m>a</m> or <m>b</m> appears will balance.
+      Thus, in <m>R' = bI</m> the units on the left are persons/day;
+      since the units for <m>I</m> are persons,
+      the units for <m>b</m> must be 1/(days).
+      The units in <m>S' = -aSI</m> will balance only if <m>a</m> is measured in 1/(person-day).
+    </p>
+    <p>
+      The reciprocals have more natural interpretations.
+      First of all, 1/<m>b</m> is the number of days a person needs to recover.
+      Next, note that 1/<m>a</m> is measured in person-days (i.e., persons <times/> days),
+      which are the natural units in which to measure exposure.
+      Here is why.
+      Suppose you contact 3<nbsp/>infected persons for each of 4<nbsp/>days.
+      That gives you the same exposure to the illness that you get from 6<nbsp/>infected persons in 2<nbsp/>days<mdash/>both give 12
+      <q>person-days</q>
+      of exposure.
+      Thus, we can interpret <m>1/a</m> as the level of exposure of a typical susceptible person.]]
+    </p>
   </subsection>
-  <subsection xml:id="sec_the-spread-of-disease_subsec_completing-the-model">
+  <subsection xml:id="subsec_completing-the-model">
     <title>Completing the Model</title>
     <p>
       The final rate equation we need<mdash/>the one for <m>I'</m><mdash/>reflects what is already clear from the compartment diagram:
       every loss in <m>I</m> is due to a gain in <m>R</m>,
       while every gain in <m>I</m> is due to a loss in <m>S</m>.
     </p>
-    <aside>
-      <p>
-        Here is the complete <m>S</m>-<m>I</m>-<m>R</m> model
-      </p>
-    </aside>
-    <md>
-      <mrow>{2}
-      S' \amp =  -a S I,           \amp     \amp</mrow>
-      <mrow>I' \amp =  a S I \amp -\, \amp  b I,</mrow>
-      <mrow>R' \amp =                    \amp     \amp  b I</mrow>
-    </md>.
+    <p>
+      [[NOTE:Here is the complete <m>S</m>-<m>I</m>-<m>R</m> model]]
+      <md>
+        <mrow>{2} S' \amp =  -a S I,           \amp     \amp</mrow>
+        <mrow>I' \amp =  a S I \amp -\, \amp  b I,</mrow>
+        <mrow>R' \amp =                    \amp     \amp  b I</mrow>
+      </md>.
+    </p>
     <p>
       If you add up these three rates you should get the overall rate of change of the whole population.
       The sum is zero.
       Do you see why?
     </p>
-    <aside>
-      <p>
-        You should not draw the conclusion that the only use of rate equations
-            <idx><h>rate equation</h></idx>
-        is to model an epidemic.
-        Rate equations have a long history,
-        and they have been put to many uses.
-        Isaac Newton
-            <idx><h>Newton, I.</h></idx>
-        (1642<ndash/>1727) introduced them to model the motion of a planet around the sun.
-        He showed that the same rate equations could model the motion of the moon around the earth and the motion of an object falling to the ground.
-        Newton created calculus as a tool to analyze these equations.
-        He did the work while he was still an undergraduate<mdash/>on an extended vacation,
-        curiously enough, because a plague epidemic was raging at Cambridge!
-        Today we use Newton's rate equations to control the motion of earth satellites and the spacecraft that have visited the moon and the planets.
-        We use other rate equations to model radioactive decay,
-        chemical reactions,
-        the growth and decline of populations,
-        the flow of electricity in a circuit,
-        the change in air pressure with altitude<mdash/>just to give a few examples.
-        You will have an opportunity in the following chapters to see how they arise in many different contexts,
-        and how they can be analyzed using the tools of calculus.
-      </p>
-    </aside>
+    <p>
+      [[NOTE:You should not draw the conclusion that the only use of rate equations is to model an epidemic.
+      Rate equations have a long history,
+      and they have been put to many uses.
+      Isaac Newton (1642<ndash/>1727) introduced them to model the motion of a planet around the sun.
+      He showed that the same rate equations could model the motion of the moon around the earth and the motion of an object falling to the ground.
+      Newton created calculus as a tool to analyze these equations.
+      He did the work while he was still an undergraduate<mdash/>on an extended vacation,
+      curiously enough, because a plague epidemic was raging at Cambridge!
+    </p>
+    <p>
+      Today we use Newton's rate equations to control the motion of earth satellites and the spacecraft that have visited the moon and the planets.
+      We use other rate equations to model radioactive decay,
+      chemical reactions,
+      the growth and decline of populations,
+      the flow of electricity in a circuit,
+      the change in air pressure with altitude<mdash/>just to give a few examples.
+      You will have an opportunity in the following chapters to see how they arise in many different contexts,
+      and how they can be analyzed using the tools of calculus.]]
+    </p>
     <p>
       The following diagram summarizes,
       in a schematic way, the relation between our model
@@ -617,16 +576,8 @@
     </p>
     <image source=""/>
     <p>
-      The diagram calls attention to several facts.
-    </p>
-    <aside>
-      <p>
-        The model is part of mathematics;
-        it only approximates reality
-      </p>
-    </aside>
-    <p>
-      First, the model
+      The diagram calls attention to several facts. [[NOTE:The model is part of mathematics;
+      it only approximates reality]] First, the model
           <idx><h>model</h></idx>
       is a part of mathematics.
       It is distinct from the reality being modelled.
@@ -648,669 +599,652 @@
       we must do some mathematics.
     </p>
   </subsection>
-  <subsection xml:id="sec_the-spread-of-disease_subsec_analyzing-the-model">
+  <subsection xml:id="subsec_analyzing-the-model">
     <title>Analyzing the Model</title>
-    <p>
-      Now that we have a model we shall analyze it as a mathematical object.
-      We will set aside, at least for the moment,
-      the connection between the mathematics and the reality.
-      Thus, for example,
-      you should not be concerned when our calculations produce a value for <m>S</m> of 44,446.6 persons at a certain time<mdash/>a value that will never be attained in reality.
-      In the following analysis <m>S</m> is just a numerical quantity that varies with <m>t</m>,
-      another numerical quantity.
-      Using only mathematical tools we must now extract from the rate equations the information that will tell us just how <m>S</m> and <m>I</m> and <m>R</m> vary with <m>t</m>.
-      We already took the first steps in that direction when we used the rate equation
-      <m>R' = I/14</m> to predict the value of <m>R</m> two days into the future
-      (<xref ref="x_future_">see</xref>).
-      We assumed that <m>I</m> remained fixed at 2100 during those two days,
-      so the rate <m>R' = 2100/14 = 150</m> was also fixed.
-      We concluded that if <m>R = 2500</m> today,
-      it will be 2650 tomorrow and 2800 the next day.
-      A glance at the full <m>S</m>-<m>I</m>-<m>R</m> model tells us those first steps have to be modified.
-      The assumption
-    </p>
-    <aside>
+    <introduction>
       <p>
-        Rates are continually changing;
-        this affects the calculations
+        Now that we have a model we shall analyze it as a mathematical object.
+        We will set aside, at least for the moment,
+        the connection between the mathematics and the reality.
+        Thus, for example,
+        you should not be concerned when our calculations produce a value for <m>S</m> of 44,446.6 persons at a certain time<mdash/>a value that will never be attained in reality.
+        In the following analysis <m>S</m> is just a numerical quantity that varies with <m>t</m>,
+        another numerical quantity.
+        Using only mathematical tools we must now extract from the rate equations the information that will tell us just how <m>S</m> and <m>I</m> and <m>R</m> vary with <m>t</m>.
       </p>
-    </aside>
-    <p>
-      we made<mdash/>that <m>I</m> remains fixed<mdash/>is not justified,
-      because <m>I</m>
-      (like <m>S</m> and <m>R</m>)
-      is continually changing.
-      As we shall see, <m>I</m> actually increases over those two days.
-      Hence, over the same two days,
-      <m>R'</m> is not fixed at 150,
-      but is continually increasing also.
-      That means that <m>R'</m> becomes larger than 150 during the first day,
-      so <m>R</m> will be larger than <m>2650</m> tomorrow.
-      The fact that the rates are continually changing complicates the mathematical work we need to do to find <m>S</m>,
-      <m>I</m>,
-      and <m>R</m>.
-      In chapter 2 we will develop tools and concepts that will overcome this problem.
-      For the present we'll assume that the rates <m>S'</m>,
-      <m>I'</m>,
-      and <m>R'</m> stay fixed for the course of an entire day.
-      This will still allow us to produce reasonable estimates
-          <idx><h>estimate</h></idx>
-      for the values of <m>S</m>, <m>I</m>, and <m>R</m>.
-      With these estimates we will get our first glimpse of the predictive power of the <m>S</m>-<m>I</m>-<m>R</m> model.
-      We will also use the estimates as the starting point for the work in chapter 2 that will give us precise values.
-      Let's look at the details of a specific problem.
-      <term>The Problem</term>.
-      Consider a measles epidemic in a school population of 50,000 children.
-      The recovery coefficient is <m>b = 1/14</m>.
-      For the transmission coefficient we choose <m>a = 0.00001</m>,
-      a number within the range used in epidemic studies.
-      We suppose that 2100 people are currently infected and 2500 have already recovered.
-      Since the total population is 50,000,
-      there must be 45,400 susceptibles.
-      Here is a summary of the problem in mathematical terms:
-    </p>
-    <image source=""/>
-    <p>
-      <term>Tomorrow</term>.
-      From our earlier discussion, <m>R' = 2100/14 = 150</m> persons per day,
-      giving us an estimated value of
-      <m>R = 2650</m> persons for tomorrow.
-      To estimate <m>S</m> we use
-      <me>
-        S' = - 0.00001\,SI = - 0.00001 \times 45400 \times 2100 = -953.4 \ \mbox{persons/day.}
-      </me>
-    </p>
-    <p>
-      Hence we estimate that tomorrow
-      <me>
-        S = 45400 - 953.4 = 44446.6 \ \mbox{persons.}
-      </me>
-    </p>
-    <p>
-      Since <m>S + I + R = 50000</m> and we have <m>S + R = 47096.6</m> tomorrow,
-      a final subtraction gives us <m>I = 2903.4</m> persons.
-      (Alternatively,
-      we could have used the rate equation for <m>I'</m> to estimate <m>I</m>.)
-      The fractional values in the estimates for <m>S</m> and <m>I</m> remind us that the <m>S</m>-<m>I</m>-<m>R</m> model describes the behavior of the epidemic only approximately.
-      <term>Several days hence</term>.
-      According to the model, we estimate that tomorrow <m>S = 44446.6</m>,
-      <m>I = 2903.4</m>, and <m>R = 2650</m>.
-      Therefore, from the new <m>I</m> we get a new approximation for the value of <m>R'</m> tomorrow; it is
-      <me>
-        R' = \dfrac{1}{14} I = \dfrac{1}{14} \times 2903.4 = 207.4 \ \mbox{persons/day.}
-      </me>
-    </p>
-    <p>
-      Hence, two days from now we estimate that <m>R</m> will have the new value <m>2650 + 207.4 = 2857.4</m>.
-      Now follow this pattern to get new approximations for <m>S'</m> and <m>I'</m>,
-      and then use those to estimate the values of <m>S</m> and <m>I</m> two days from now.
-      The pattern of steps that just carried you from the first day to the second will work just as well to carry you from the second to the third.
-    </p>
-    <aside>
       <p>
-        Stop and do the calculations
+        We already took the first steps in that direction when we used the rate equation
+        <m>R' = I/14</m> to predict the value of <m>R</m> two days into the future
+        (<xref ref="x_future_">see</xref>).
+        We assumed that <m>I</m> remained fixed at 2100 during those two days,
+        so the rate <m>R' = 2100/14 = 150</m> was also fixed.
+        We concluded that if <m>R = 2500</m> today,
+        it will be 2650 tomorrow and 2800 the next day.
       </p>
-    </aside>
-    <p>
-      Pause now and do all these calculations yourself.
-      See exercises 15 and 16 <xref ref="sec_the-spread-of-disease_x_measles_">on</xref>.
-      If you round your calculated values of <m>S</m>, <m>I</m>,
-      and <m>R</m> to the nearest tenth,
-      they should agree with those in the following table.
-      Estimates for the first three days { {\tabcolsep 3pt
-    </p>
-    <tabular>
-    <row>
-      <cell><m>t</m></cell>
-      <cell><m>S</m></cell>
-      <cell><m>I</m></cell>
-      <cell><m>R</m></cell>
-      <cell><m>S'</m></cell>
-      <cell><m>I'</m></cell>
-      <cell><m>R'</m></cell>
-    </row>
-    <row bottom="minor">
-      <cell></cell>
-      <cell></cell>
-      <cell></cell>
-      <cell></cell>
-      <cell></cell>
-      <cell></cell>
-      <cell></cell>
-    </row>
-    <row>
-    <cell><tabular>
-      <row>
-        <cell>0</cell>
-      </row>
-      <row>
-        <cell>1</cell>
-      </row>
-      <row>
-        <cell>2</cell>
-      </row>
-      <row>
-        <cell>3</cell>
-      </row>
-    </tabular></cell>
-    <cell><tabular>
-      <row>
-        <cell><m>45\,400.0</m></cell>
-      </row>
-      <row>
-        <cell><m>44\,446.6</m></cell>
-      </row>
-      <row>
-        <cell><m>43\,156.1</m></cell>
-      </row>
-      <row>
-        <cell><m>41\,435.7</m></cell>
-      </row>
-    </tabular></cell>
-    <cell><tabular>
-      <row>
-        <cell><m>2100.0</m></cell>
-      </row>
-      <row>
-        <cell><m>2903.4</m></cell>
-      </row>
-      <row>
-        <cell><m>3986.5</m></cell>
-      </row>
-      <row>
-        <cell><m>5422</m>.1</cell>
-      </row>
-    </tabular></cell>
-    <cell><tabular>
-      <row>
-        <cell><m>2500.0</m></cell>
-      </row>
-      <row>
-        <cell><m>2650.0</m></cell>
-      </row>
-      <row>
-        <cell><m>2857.4</m></cell>
-      </row>
-      <row>
-        <cell><m>3142.1</m></cell>
-      </row>
-    </tabular></cell>
-    <cell><tabular>
-      <row>
-        <cell><m>-953.4</m></cell>
-      </row>
-      <row>
-        <cell><m>-1290.5</m></cell>
-      </row>
-      <row>
-        <cell><m>-1720.4</m></cell>
-      </row>
-      <row>
-        <cell></cell>
-      </row>
-    </tabular></cell>
-    <cell><tabular>
-      <row>
-        <cell>803.4</cell>
-      </row>
-      <row>
-        <cell><m>1083.1</m></cell>
-      </row>
-      <row>
-        <cell><m>1435.7</m></cell>
-      </row>
-      <row>
-        <cell></cell>
-      </row>
-    </tabular></cell>
-    <cell><tabular>
-      <row>
-        <cell>150.0</cell>
-      </row>
-      <row>
-        <cell>207.4</cell>
-      </row>
-      <row>
-        <cell>284.7</cell>
-      </row>
-      <row>
-        <cell></cell>
-      </row>
-    </tabular></cell>
-    </row>
-    </tabular>
-    <p>
-      }} <term>Yesterday</term>.
-      We already pointed out, <xref ref="backwards">on</xref>,
-      that we can use our models to go
-      <em>backwards</em> in time, too.
-      This is a valuable way to see how well the model fits reality,
-      because we can compare estimates that the model generates with health records for the days in the recent past.
-      To find how <m>S</m>, <m>I</m>,
-      and <m>R</m> change when we go one day into the future we multiplied the rates <m>S'</m>,
-      <m>I'</m>,
-      and <m>R'</m> by a time step of +1.
-      To find how they change when we go one day into the past we do the same thing,
-      except that we must now use a time step of <ndash/>1.
-      According to the table above,
-      the rates at time <m>t = 0</m> (i.e., today) are
-      <me>
-        S' = -953.4, \qquad I' = 803.4, \qquad R' = 150.0
-      </me>.
-    </p>
-    <p>
-      Therefore we estimate that, one day ago,
-      <md>
-        <mrow>{2} S \amp = 45400 + (-953.4 \times -1)\; \amp = 45400 + 953.4 \amp =  46353.4,</mrow>
-        <mrow>I \amp = 2100 + (803.4 \times -1)   \amp = 2100 - 803.4 \amp = 1296.6,</mrow>
-        <mrow>R \amp = 2500 + (150.0 \times -1)   \amp = 2500 - 150.0 \amp = 2350.0</mrow>
-      </md>.
-    </p>
-    <p>
-      Just as we would expect with a spreading infection,
-      there are more susceptibles yesterday than today,
-      but fewer infected or recovered.
-      In the exercises for section<nbsp/>3 you will have an opportunity to continue this process,
-      tracing the epidemic many days into the past.
-      For example,
-      you will be able to go back and see when the infection started<mdash/>that is,
-      find the day when the value of <m>I</m> was only about<nbsp/>1.
-      <term>There and back again</term>.
-          <idx><h>there and back again</h></idx>
-    </p>
-    <aside>
       <p>
-        Go forward a day and then back again
+        A glance at the full <m>S</m>-<m>I</m>-<m>R</m> model tells us those first steps have to be modified.
+        The assumption [[NOTE:Rates are continually changing;
+        this affects the calculations]] we made<mdash/>that <m>I</m> remains fixed<mdash/>is not justified,
+        because <m>I</m>
+        (like <m>S</m> and <m>R</m>)
+        is continually changing.
+        As we shall see, <m>I</m> actually increases over those two days.
+        Hence, over the same two days,
+        <m>R'</m> is not fixed at 150,
+        but is continually increasing also.
+        That means that <m>R'</m> becomes larger than 150 during the first day,
+        so <m>R</m> will be larger than <m>2650</m> tomorrow.
       </p>
-    </aside>
-    <p>
-      What happens when we start with tomorrow's values and use tomorrow's rates to go back one day<mdash/>back to today?
-      We should get <m>S = 45400</m>,
-      <m>I = 2100</m>, and <m>R = 2500</m> once again, shouldn't we?
-      Tomorrow's values are \begin{xalignat*}{3} S &amp;= 44446.6, &amp; I &amp;= 2903.4, &amp; R &amp;= 2650.0,
-    </p>
-    <p>
-      S' &amp;= -1290.5, &amp; I' &amp;= 1083.1, &amp; R' &amp;= 207.4. \end{xalignat*} To go backwards one day we must use a time step of <m>-1</m>.
-      The predicted values are thus
-      <md>
-        <mrow>{2} S \amp = 44446.6 + (-1290.6 \times -1) \amp  \amp = 45737.2,</mrow>
-        <mrow>I \amp = 2903.4 + (1083.1 \times -1) \amp  \amp = 1820.3,</mrow>
-        <mrow>R \amp = 2650.0 + (207.4 \times -1) \amp \amp  = 2442.6</mrow>
-      </md>.
-    </p>
-    <p>
-      These are <em>not</em> the values that we had at the start,
-      when <m>t = 0</m>.
-      In fact, it's worth noting the difference between the original values and those produced by
-      <q>going there and back again.</q>
-    </p>
-    <tabular>
-    <row>
-      <cell></cell>
-      <cell>original</cell>
-      <cell>there and</cell>
-      <cell></cell>
-    </row>
-    <row>
-      <cell>[-2pt]</cell>
-      <cell>value</cell>
-      <cell>back again</cell>
-      <cell>difference</cell>
-    </row>
-    <row bottom="minor">
-      <cell></cell>
-      <cell></cell>
-      <cell></cell>
-      <cell></cell>
-    </row>
-    <row>
-    <cell><tabular>
+      <p>
+        The fact that the rates are continually changing complicates the mathematical work we need to do to find <m>S</m>,
+        <m>I</m>,
+        and <m>R</m>.
+        In chapter 2 we will develop tools and concepts that will overcome this problem.
+        For the present we'll assume that the rates <m>S'</m>,
+        <m>I'</m>,
+        and <m>R'</m> stay fixed for the course of an entire day.
+        This will still allow us to produce reasonable estimates
+            <idx><h>estimate</h></idx>
+        for the values of <m>S</m>, <m>I</m>, and <m>R</m>.
+        With these estimates we will get our first glimpse of the predictive power of the <m>S</m>-<m>I</m>-<m>R</m> model.
+        We will also use the estimates as the starting point for the work in chapter 2 that will give us precise values.
+        Let's look at the details of a specific problem.
+      </p>
+    </introduction>
+    <subsubsection xml:id="x_threeday_">
+      <title>The Problem</title>
+      <p>
+        Consider a measles epidemic in a school population of 50,000 children.
+        The recovery coefficient is <m>b = 1/14</m>.
+        For the transmission coefficient we choose <m>a = 0.00001</m>,
+        a number within the range used in epidemic studies.
+        We suppose that 2100 people are currently infected and 2500 have already recovered.
+        Since the total population is 50,000,
+        there must be 45,400 susceptibles.
+        Here is a summary of the problem in mathematical terms:
+      </p>
+      <image source=""/>
+      <p>
+        <term>Tomorrow</term>.
+        From our earlier discussion, <m>R' = 2100/14 = 150</m> persons per day,
+        giving us an estimated value of
+        <m>R = 2650</m> persons for tomorrow.
+        To estimate <m>S</m> we use
+        <me>
+          S' = - 0.00001\,SI = - 0.00001 \times 45400 \times 2100 = -953.4 \ \mbox{persons/day.}
+        </me>
+      </p>
+      <p>
+        Hence we estimate that tomorrow
+        <me>
+          S = 45400 - 953.4 = 44446.6 \ \mbox{persons.}
+        </me>
+      </p>
+      <p>
+        Since <m>S + I + R = 50000</m> and we have <m>S + R = 47096.6</m> tomorrow,
+        a final subtraction gives us <m>I = 2903.4</m> persons.
+        (Alternatively,
+        we could have used the rate equation for <m>I'</m> to estimate <m>I</m>.)
+      </p>
+      <p>
+        The fractional values in the estimates for <m>S</m> and <m>I</m> remind us that the <m>S</m>-<m>I</m>-<m>R</m> model describes the behavior of the epidemic only approximately.
+      </p>
+      <p>
+        <term>Several days hence</term>.
+        According to the model, we estimate that tomorrow <m>S = 44446.6</m>,
+        <m>I = 2903.4</m>, and <m>R = 2650</m>.
+        Therefore, from the new <m>I</m> we get a new approximation for the value of <m>R'</m> tomorrow; it is
+        <me>
+          R' = \dfrac{1}{14} I = \dfrac{1}{14} \times 2903.4 = 207.4 \ \mbox{persons/day.}
+        </me>
+      </p>
+      <p>
+        Hence, two days from now we estimate that <m>R</m> will have the new value <m>2650 + 207.4 = 2857.4</m>.
+        Now follow this pattern to get new approximations for <m>S'</m> and <m>I'</m>,
+        and then use those to estimate the values of <m>S</m> and <m>I</m> two days from now.
+      </p>
+      <p>
+        The pattern of steps that just carried you from the first day to the second will work just as well to carry you from the second to the third. [[NOTE:Stop and do the calculations]] Pause now and do all these calculations yourself.
+        See exercises 15 and 16 <xref ref="x_measles_">on</xref>.
+        If you round your calculated values of <m>S</m>, <m>I</m>,
+        and <m>R</m> to the nearest tenth,
+        they should agree with those in the following table.
+        Estimates for the first three days { {\tabcolsep 3pt
+      </p>
+      <tabular>
       <row>
+        <cell><m>t</m></cell>
         <cell><m>S</m></cell>
-      </row>
-      <row>
         <cell><m>I</m></cell>
-      </row>
-      <row>
         <cell><m>R</m></cell>
+        <cell><m>S'</m></cell>
+        <cell><m>I'</m></cell>
+        <cell><m>R'</m></cell>
       </row>
-    </tabular></cell>
-    <cell><tabular>
-      <row>
-        <cell>45400</cell>
-      </row>
-      <row>
-        <cell>2100</cell>
-      </row>
-      <row>
-        <cell>2500</cell>
-      </row>
-    </tabular></cell>
-    <cell><tabular>
-      <row>
-        <cell>45737.1</cell>
+      <row bottom="minor">
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
       </row>
       <row>
-        <cell>1820.3</cell>
+      <cell><tabular>
+        <row>
+          <cell>0</cell>
+        </row>
+        <row>
+          <cell>1</cell>
+        </row>
+        <row>
+          <cell>2</cell>
+        </row>
+        <row>
+          <cell>3</cell>
+        </row>
+      </tabular></cell>
+      <cell><tabular>
+        <row>
+          <cell><m>45\,400.0</m></cell>
+        </row>
+        <row>
+          <cell><m>44\,446.6</m></cell>
+        </row>
+        <row>
+          <cell><m>43\,156.1</m></cell>
+        </row>
+        <row>
+          <cell><m>41\,435.7</m></cell>
+        </row>
+      </tabular></cell>
+      <cell><tabular>
+        <row>
+          <cell><m>2100.0</m></cell>
+        </row>
+        <row>
+          <cell><m>2903.4</m></cell>
+        </row>
+        <row>
+          <cell><m>3986.5</m></cell>
+        </row>
+        <row>
+          <cell><m>5422</m>.1</cell>
+        </row>
+      </tabular></cell>
+      <cell><tabular>
+        <row>
+          <cell><m>2500.0</m></cell>
+        </row>
+        <row>
+          <cell><m>2650.0</m></cell>
+        </row>
+        <row>
+          <cell><m>2857.4</m></cell>
+        </row>
+        <row>
+          <cell><m>3142.1</m></cell>
+        </row>
+      </tabular></cell>
+      <cell><tabular>
+        <row>
+          <cell><m>-953.4</m></cell>
+        </row>
+        <row>
+          <cell><m>-1290.5</m></cell>
+        </row>
+        <row>
+          <cell><m>-1720.4</m></cell>
+        </row>
+        <row>
+          <cell></cell>
+        </row>
+      </tabular></cell>
+      <cell><tabular>
+        <row>
+          <cell>803.4</cell>
+        </row>
+        <row>
+          <cell><m>1083.1</m></cell>
+        </row>
+        <row>
+          <cell><m>1435.7</m></cell>
+        </row>
+        <row>
+          <cell></cell>
+        </row>
+      </tabular></cell>
+      <cell><tabular>
+        <row>
+          <cell>150.0</cell>
+        </row>
+        <row>
+          <cell>207.4</cell>
+        </row>
+        <row>
+          <cell>284.7</cell>
+        </row>
+        <row>
+          <cell></cell>
+        </row>
+      </tabular></cell>
       </row>
-      <row>
-        <cell>2442.6</cell>
-      </row>
-    </tabular></cell>
-    <cell><tabular>
-      <row>
-        <cell>337.1</cell>
-      </row>
-      <row>
-        <cell><ndash/>279.7</cell>
-      </row>
-      <row>
-        <cell><ndash/>57.4</cell>
-      </row>
-    </tabular></cell>
-    </row>
-    </tabular>
-    <p>
-      Do you see why there are differences?
-      We went forward in time using the rates that were current at <m>t = 0</m>,
-      but when we returned we used the rates that were current at <m>t = 1</m>.
-      Because these rates were different,
-      we didn't get back where we started.
-      These differences do not point to a flaw in the model;
-      the problem lies with the way we are trying to extract information from the model.
-      As we have been making estimates,
-          <idx><h>estimate</h></idx>
-    </p>
-    <aside>
+      </tabular>
+    </subsubsection>
+    <subsubsection xml:id="x_thereback_">
+      <title>Yesterday</title>
       <p>
-        The differences measure how rough an estimate is
+        We already pointed out, <xref ref="backwards">on</xref>,
+        that we can use our models to go
+        <em>backwards</em> in time, too.
+        This is a valuable way to see how well the model fits reality,
+        because we can compare estimates that the model generates with health records for the days in the recent past.
       </p>
-    </aside>
-    <p>
-      we have assumed that the rates don't change over the course of a whole day.
-      We already know that's not true,
-      so the values that we have been getting are not exact.
-      What this test adds to our knowledge is a way to measure just <em>how</em>
-      inexact those values are<mdash/>as we do in the table above.
-    </p>
-    <p>
-      In chapter 2 we will solve the problem of rough estimates by recalculating all the quantities ten times a day,
-      a hundred times a day, or even more.
-      When we do the computations with shorter and shorter time steps we will be able to see how the estimates improve.
-      We will even be able to see how to get values that are mathematically exact!
-      <term>Delta notation</term>.
-          <idx><h>delta notation</h></idx>
-      This work has given us some insights about the way our model predicts future values of <m>S</m>,
-      <m>I</m>,
-      and <m>R</m>.
-      The basic idea is very simple:
-      <em>determine how <m>S</m>, <m>I</m>, and <m>R</m> change</em>.
-      Because these changes play such an important role in what we do,
-      it is worth having a simple way to refer to them.
-      Here is the notation that we will use:
-      <m>\Delta x</m> stands for a <term>change</term>
-          <idx><h>change</h></idx>
-      in the quantity <m>x</m> The symbol
-      <q><m>\Delta</m></q>
-      is the Greek capital letter <em>delta</em>;
-      it corresponds to the Roman letter
-      <q>D</q>
-      and stands for <term>difference</term>.
-      Delta notation gives us a way to refer to changes of all sorts.
-      For example, in the table <xref ref="x_threeday_">on</xref>,
-      between day 1 and day 3 the quantities <m>t</m> and <m>S</m> change by
-      <md>
-        <mrow>\Delta t \amp = 2 \text{ days } ,</mrow>
-        <mrow>\Delta S \amp =  -3010.9 \text{ persons } </mrow>
-      </md>.
-    </p>
-    <p>
-      We sometimes refer to a change as a <term>step</term>.
-    </p>
-    <aside>
       <p>
-        <m>\Delta</m> stands for a change, a difference, or a step
+        To find how <m>S</m>, <m>I</m>,
+        and <m>R</m> change when we go one day into the future we multiplied the rates <m>S'</m>,
+        <m>I'</m>,
+        and <m>R'</m> by a time step of +1.
+        To find how they change when we go one day into the past we do the same thing,
+        except that we must now use a time step of <ndash/>1.
+        According to the table above,
+        the rates at time <m>t = 0</m> (i.e., today) are
+        <me>
+          S' = -953.4, \qquad I' = 803.4, \qquad R' = 150.0
+        </me>.
       </p>
-    </aside>
-    <p>
-      For instance, in this example we can say there is a
-      <q><m>t</m> step</q>
-      of 2 days, and an
-      <q><m>S</m> step</q>
-      of <m>-3010.9</m> persons.
-      In the calculations that produced the table <xref ref="x_threeday_">on</xref> we
-      <q>stepped into</q>
-      the future, a day at a time.
-      Finally, delta notation gives us a concise and vivid way to describe the relation between rates and changes.
-      For example,
-      if <m>S</m> changes at the constant rate <m>S'</m>,
-      then under a <m>t</m> step of <m>\Delta t</m>,
-      the value of <m>S</m> changes by
-      <me>
-        \Delta S = S' \cdot \Delta t
-      </me>.
-    </p>
-    <p>
-      <term>Using the computer as a tool</term>.
-      Suppose we wanted to find out what happens to <m>S</m>,
-      <m>I</m>, and <m>R</m> after a month, or even a year.
-      We need only repeat<mdash/>30 times,
-      or 365 times<mdash/>the three rounds of calculations we used to go three days into the future.
-      The computations would take time, though.
-      The same is true if we wanted to do ten or one hundred rounds of calculations per day<mdash/>which is the approach we'll take in chapter 2 to get more accurate values.
-      To save our time and effort we will soon begin to use a computer to do the repetitive calculations.
-    </p>
-    <p>
-      A computer does calculations by following a set of instructions called a <term>program</term>.
-          <idx><h>program</h></idx>
-      Of course, if we had to give a million instructions to make the computer carry out a million steps,
-      there would be no savings in labor.
-      The trick is to write a program with just a few instructions that can be repeated over and over again to do all the calculations we want.
-      The usual way to do this is to arrange the instructions in a <term>loop</term>
-          <idx><h>loop</h></idx>.
-      To give you an idea what a loop is,
-      we'll look at the <m>S</m>-<m>I</m>-<m>R</m> calculations.
-      They form a loop.
-      We can see the loop by making a flow chart.
-      <term>The flow chart</term>.
-          <idx><h>flow chart</h></idx>
-      We'll start by writing down the three steps that take us from one day to the next:
-      <ul>
-        <li>
-          <title>Step I</title>
-          <p>
-            Given the current values of <m>S</m>, <m>I</m>,
-            and <m>R</m>, we get current <m>S'</m>,
-            <m>I'</m>, and <m>R'</m> by using the rate equations
-            <md>
-              <mrow>{2} S' \amp = - a S I, \amp    \amp</mrow>
-              <mrow>I' \amp = a S I \amp  -\, \amp  b I,</mrow>
-              <mrow>R' \amp =          \amp    \amp  b I</mrow>
-            </md>.
-          </p>
-        </li>
-        <li>
-          <title>Step II</title>
-          <p>
-            Given the current values of <m>S'</m>, <m>I'</m>,
-            and <m>R'</m>,
-            we find the changes <m>\Delta S</m>, <m>\Delta I</m>,
-            and <m>\Delta R</m> over the course of a day by using the equations
-            <md>
-              <mrow>\Delta S \mbox{ persons}  \amp = S' \ \dfrac{\mbox{persons} }{\mbox{day} } \times 1 \ \mbox{day} ,</mrow>
-              <mrow>\Delta I \mbox{ persons}  \amp = I' \ \dfrac{\mbox{persons} }{\mbox{day} } \times 1 \ \mbox{day} ,</mrow>
-              <mrow>\Delta R \mbox{ persons}  \amp = R' \ \dfrac{\mbox{persons} }{\mbox{day} } \times 1 \ \mbox{day} </mrow>
-            </md>.
-          </p>
-        </li>
-        <li>
-          <title>Step III</title>
-          <p>
-            Given the current values of <m>\Delta S</m>,
-            <m>\Delta I</m>, and <m>\Delta R</m>,
-            we find the new values of <m>S</m>,
-            <m>I</m>, and <m>R</m> a day later by using the equations
-            <md>
-              <mrow>\mbox{new \(S\)}  \amp = \mbox{current \(S\)}  + \Delta S,</mrow>
-              <mrow>\mbox{new \(I\)}  \amp = \mbox{current \(I\)}  + \Delta I,</mrow>
-              <mrow>\mbox{new \(R\)}  \amp = \mbox{current \(R\)}  + \Delta R</mrow>
-            </md>.
-          </p>
-        </li>
-      </ul>
-    </p>
-    <p>
-      Each step takes three numbers as <term>input</term>,
-          <idx><h>input</h></idx>
-      and produces three new numbers as <term>output</term>.
-          <idx><h>output</h></idx>
-      Note that the output of each step is the input of the next,
-      so the steps flow together.
-      The diagram below, called a <term>flow chart</term>,
-          <idx><h>flow chart</h></idx>
-    </p>
-    <aside>
       <p>
-        The flow chart forms a loop
+        Therefore we estimate that, one day ago,
+        <md>
+          <mrow>{2} S \amp = 45400 + (-953.4 \times -1)\; \amp = 45400 + 953.4 \amp =  46353.4,</mrow>
+          <mrow>I \amp = 2100 + (803.4 \times -1)   \amp = 2100 - 803.4 \amp = 1296.6,</mrow>
+          <mrow>R \amp = 2500 + (150.0 \times -1)   \amp = 2500 - 150.0 \amp = 2350.0</mrow>
+        </md>.
       </p>
-    </aside>
-    <p>
-      shows us how the steps are connected.
-    </p>
-    <image source="images/b26e8901113a9de5c1b6e44f3cb748857d053bcb.png"/>
-    <p>
-      The calculations form a <term>loop</term>,
-          <idx><h>loop</h></idx>
-      because the output of step III is the input for step I. If we go once around the loop,
-      the output of step III gives us the values of <m>S</m>,
-      <m>I</m>, and <m>R</m> <em>on the following day</em>.
-      The steps do indeed carry us into the future.
-      Each step involves calculating three numbers.
-      If we count each calculation as a single instruction,
-      then it takes nine instructions to carry the values of <m>S</m>,
-      <m>I</m>,
-      and <m>R</m> one day into the future.
-      To go a million days into the future,
-      we need add only one more instruction:
-      <q>Go around the loop a million times.</q>
-      In this way,
-      a computer program with only ten instructions can carry out a million rounds of calculations!
-      Later in this chapter (section<nbsp/>3) you will find a real computer program that lists these instructions
-      (for three days instead of a million, though).
-    </p>
-    <aside>
       <p>
-        A computer program will carry out the three steps
+        Just as we would expect with a spreading infection,
+        there are more susceptibles yesterday than today,
+        but fewer infected or recovered.
+        In the exercises for section<nbsp/>3 you will have an opportunity to continue this process,
+        tracing the epidemic many days into the past.
+        For example,
+        you will be able to go back and see when the infection started<mdash/>that is,
+        find the day when the value of <m>I</m> was only about<nbsp/>1.
       </p>
-    </aside>
-    <p>
-      Study the program to see which instructions accomplish which steps.
-      In particular, see how it makes a loop.
-      Then run the program to check that the computer reproduces the values you already computed by hand.
-      Once you see how the program works,
-      you can modify it to get further information<mdash/>for example,
-      you can find out what happens to <m>S</m>,
-      <m>I</m>, and <m>R</m> thirty days into the future.
-      You will even be able to plot the graphs of <m>S</m>, <m>I</m>,
-      and <m>R</m>.
-    </p>
-    <aside>
       <p>
-        Rate equations
-            <idx><h>rate equation</h></idx>
-        have always been at the heart of calculus,
+        <term>There and back again</term>.
+            <idx><h>there and back again</h></idx>
+        [[NOTE:Go forward a day and then back again]] What happens when we start with tomorrow's values and use tomorrow's rates to go back one day<mdash/>back to today?
+        We should get <m>S = 45400</m>,
+        <m>I = 2100</m>, and <m>R = 2500</m> once again, shouldn't we?
+        Tomorrow's values are
+        <md>
+          <mrow>{3} S  \amp = 44446.6, \amp    I  \amp = 2903.4, \amp    R  \amp = 2650.0,</mrow>
+          <mrow>S' \amp = -1290.5, \amp    I' \amp = 1083.1, \amp    R' \amp = 207.4</mrow>
+        </md>.
+      </p>
+      <p>
+        To go backwards one day we must use a time step of <m>-1</m>.
+        The predicted values are thus
+        <md>
+          <mrow>{2} S \amp = 44446.6 + (-1290.6 \times -1) \amp  \amp = 45737.2,</mrow>
+          <mrow>I \amp = 2903.4 + (1083.1 \times -1) \amp  \amp = 1820.3,</mrow>
+          <mrow>R \amp = 2650.0 + (207.4 \times -1) \amp \amp  = 2442.6</mrow>
+        </md>.
+      </p>
+      <p>
+        These are <em>not</em> the values that we had at the start,
+        when <m>t = 0</m>.
+        In fact, it's worth noting the difference between the original values and those produced by
+        <q>going there and back again.</q>
+      </p>
+      <tabular>
+      <row>
+        <cell></cell>
+        <cell>original</cell>
+        <cell>there and</cell>
+        <cell></cell>
+      </row>
+      <row>
+        <cell>[-2pt]</cell>
+        <cell>value</cell>
+        <cell>back again</cell>
+        <cell>difference</cell>
+      </row>
+      <row bottom="minor">
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+      </row>
+      <row>
+      <cell><tabular>
+        <row>
+          <cell><m>S</m></cell>
+        </row>
+        <row>
+          <cell><m>I</m></cell>
+        </row>
+        <row>
+          <cell><m>R</m></cell>
+        </row>
+      </tabular></cell>
+      <cell><tabular>
+        <row>
+          <cell>45400</cell>
+        </row>
+        <row>
+          <cell>2100</cell>
+        </row>
+        <row>
+          <cell>2500</cell>
+        </row>
+      </tabular></cell>
+      <cell><tabular>
+        <row>
+          <cell>45737.1</cell>
+        </row>
+        <row>
+          <cell>1820.3</cell>
+        </row>
+        <row>
+          <cell>2442.6</cell>
+        </row>
+      </tabular></cell>
+      <cell><tabular>
+        <row>
+          <cell>337.1</cell>
+        </row>
+        <row>
+          <cell><ndash/>279.7</cell>
+        </row>
+        <row>
+          <cell><ndash/>57.4</cell>
+        </row>
+      </tabular></cell>
+      </row>
+      </tabular>
+      <p>
+        Do you see why there are differences?
+        We went forward in time using the rates that were current at <m>t = 0</m>,
+        but when we returned we used the rates that were current at <m>t = 1</m>.
+        Because these rates were different,
+        we didn't get back where we started.
+        These differences do not point to a flaw in the model;
+        the problem lies with the way we are trying to extract information from the model.
+        As we have been making estimates,
+            <idx><h>estimate</h></idx>
+        [[NOTE:The differences measure how rough an estimate is]] we have assumed that the rates don't change over the course of a whole day.
+        We already know that's not true,
+        so the values that we have been getting are not exact.
+        What this test adds to our knowledge is a way to measure just <em>how</em>
+        inexact those values are<mdash/>as we do in the table above.
+      </p>
+      <p>
+        In chapter 2 we will solve the problem of rough estimates by recalculating all the quantities ten times a day,
+        a hundred times a day, or even more.
+        When we do the computations with shorter and shorter time steps we will be able to see how the estimates improve.
+        We will even be able to see how to get values that are mathematically exact!
+        <term>Delta notation</term>.
+            <idx><h>delta notation</h></idx>
+        This work has given us some insights about the way our model predicts future values of <m>S</m>,
+        <m>I</m>,
+        and <m>R</m>.
+        The basic idea is very simple:
+        <em>determine how <m>S</m>, <m>I</m>, and <m>R</m> change</em>.
+        Because these changes play such an important role in what we do,
+        it is worth having a simple way to refer to them.
+        Here is the notation that we will use:
+        <m>\Delta x</m> stands for a <term>change</term>
+            <idx><h>change</h></idx>
+        in the quantity <m>x</m> The symbol
+        <q><m>\Delta</m></q>
+        is the Greek capital letter <em>delta</em>;
+        it corresponds to the Roman letter
+        <q>D</q>
+        and stands for <term>difference</term>.
+      </p>
+      <p>
+        Delta notation gives us a way to refer to changes of all sorts.
+        For example, in the table <xref ref="x_threeday_">on</xref>,
+        between day 1 and day 3 the quantities <m>t</m> and <m>S</m> change by
+        <md>
+          <mrow>\Delta t \amp = 2 \text{ days } ,</mrow>
+          <mrow>\Delta S \amp =  -3010.9 \text{ persons } </mrow>
+        </md>.
+      </p>
+      <p>
+        We sometimes refer to a change as a
+        <term>step</term>. [[NOTE<m>:\Delta</m> stands for a change,
+        a difference,
+        or a step]] For instance, in this example we can say there is a
+        <q><m>t</m> step</q>
+        of 2 days, and an
+        <q><m>S</m> step</q>
+        of <m>-3010.9</m> persons.
+        In the calculations that produced the table <xref ref="x_threeday_">on</xref> we
+        <q>stepped into</q>
+        the future, a day at a time.
+        Finally, delta notation gives us a concise and vivid way to describe the relation between rates and changes.
+        For example,
+        if <m>S</m> changes at the constant rate <m>S'</m>,
+        then under a <m>t</m> step of <m>\Delta t</m>,
+        the value of <m>S</m> changes by
+        <me>
+          \Delta S = S' \cdot \Delta t
+        </me>.
+      </p>
+    </subsubsection>
+    <subsubsection xml:id="x_loop_">
+      <title>Using the computer as a tool</title>
+      <p>
+        Suppose we wanted to find out what happens to <m>S</m>,
+        <m>I</m>, and <m>R</m> after a month, or even a year.
+        We need only repeat<mdash/>30 times,
+        or 365 times<mdash/>the three rounds of calculations we used to go three days into the future.
+        The computations would take time, though.
+        The same is true if we wanted to do ten or one hundred rounds of calculations per day<mdash/>which is the approach we'll take in chapter 2 to get more accurate values.
+        To save our time and effort we will soon begin to use a computer to do the repetitive calculations.
+      </p>
+      <p>
+        A computer does calculations by following a set of instructions called a <term>program</term>.
+            <idx><h>program</h></idx>
+        Of course, if we had to give a million instructions to make the computer carry out a million steps,
+        there would be no savings in labor.
+        The trick is to write a program with just a few instructions that can be repeated over and over again to do all the calculations we want.
+        The usual way to do this is to arrange the instructions in a <term>loop</term>
+            <idx><h>loop</h></idx>.
+        To give you an idea what a loop is,
+        we'll look at the <m>S</m>-<m>I</m>-<m>R</m> calculations.
+        They form a loop.
+        We can see the loop by making a flow chart.
+      </p>
+      <p>
+        <term>The flow chart</term>.
+            <idx><h>flow chart</h></idx>
+        We'll start by writing down the three steps that take us from one day to the next:
+        <ul>
+          <li>
+            <title>Step I</title>
+            <p>
+              Given the current values of <m>S</m>, <m>I</m>,
+              and <m>R</m>, we get current <m>S'</m>,
+              <m>I'</m>, and <m>R'</m> by using the rate equations
+              <md>
+                <mrow>{2} S' \amp = - a S I, \amp    \amp</mrow>
+                <mrow>I' \amp = a S I \amp  -\, \amp  b I,</mrow>
+                <mrow>R' \amp =          \amp    \amp  b I</mrow>
+              </md>.
+            </p>
+          </li>
+          <li>
+            <title>Step II</title>
+            <p>
+              Given the current values of <m>S'</m>, <m>I'</m>,
+              and <m>R'</m>,
+              we find the changes <m>\Delta S</m>, <m>\Delta I</m>,
+              and <m>\Delta R</m> over the course of a day by using the equations
+              <md>
+                <mrow>\Delta S \mbox{ persons}  \amp = S' \ \dfrac{\mbox{persons} }{\mbox{day} } \times 1 \ \mbox{day} ,</mrow>
+                <mrow>\Delta I \mbox{ persons}  \amp = I' \ \dfrac{\mbox{persons} }{\mbox{day} } \times 1 \ \mbox{day} ,</mrow>
+                <mrow>\Delta R \mbox{ persons}  \amp = R' \ \dfrac{\mbox{persons} }{\mbox{day} } \times 1 \ \mbox{day} </mrow>
+              </md>.
+            </p>
+          </li>
+          <li>
+            <title>Step III</title>
+            <p>
+              Given the current values of <m>\Delta S</m>,
+              <m>\Delta I</m>, and <m>\Delta R</m>,
+              we find the new values of <m>S</m>,
+              <m>I</m>, and <m>R</m> a day later by using the equations
+              <md>
+                <mrow>\mbox{new \(S\)}  \amp = \mbox{current \(S\)}  + \Delta S,</mrow>
+                <mrow>\mbox{new \(I\)}  \amp = \mbox{current \(I\)}  + \Delta I,</mrow>
+                <mrow>\mbox{new \(R\)}  \amp = \mbox{current \(R\)}  + \Delta R</mrow>
+              </md>.
+            </p>
+          </li>
+        </ul>
+      </p>
+      <p>
+        Each step takes three numbers as <term>input</term>,
+            <idx><h>input</h></idx>
+        and produces three new numbers as <term>output</term>.
+            <idx><h>output</h></idx>
+        Note that the output of each step is the input of the next,
+        so the steps flow together.
+        The diagram below, called a <term>flow chart</term>,
+            <idx><h>flow chart</h></idx>
+        [[NOTE:The flow chart forms a loop]] shows us how the steps are connected.
+      </p>
+      <image source=""/>
+      <p>
+        The calculations form a <term>loop</term>,
+            <idx><h>loop</h></idx>
+        because the output of step III is the input for step I. If we go once around the loop,
+        the output of step III gives us the values of <m>S</m>,
+        <m>I</m>, and <m>R</m> <em>on the following day</em>.
+        The steps do indeed carry us into the future.
+      </p>
+      <p>
+        Each step involves calculating three numbers.
+        If we count each calculation as a single instruction,
+        then it takes nine instructions to carry the values of <m>S</m>,
+        <m>I</m>,
+        and <m>R</m> one day into the future.
+        To go a million days into the future,
+        we need add only one more instruction:
+        <q>Go around the loop a million times.</q>
+        In this way,
+        a computer program with only ten instructions can carry out a million rounds of calculations!
+      </p>
+      <p>
+        Later in this chapter (section<nbsp/>3) you will find a real computer program that lists these instructions
+        (for three days instead of a million,
+        though). [[NOTE:A computer program will carry out the three steps]] Study the program to see which instructions accomplish which steps.
+        In particular, see how it makes a loop.
+        Then run the program to check that the computer reproduces the values you already computed by hand.
+        Once you see how the program works,
+        you can modify it to get further information<mdash/>for example,
+        you can find out what happens to <m>S</m>,
+        <m>I</m>, and <m>R</m> thirty days into the future.
+        You will even be able to plot the graphs of <m>S</m>, <m>I</m>,
+        and <m>R</m>.
+      </p>
+      <p>
+        [[NOTE:Rate equations have always been at the heart of calculus,
         and they have been analyzed using mechanical and electronic computers for as long as those tools have been available.
         Now that small powerful computers have begun to appear in the classroom,
         it is possible for beginning calculus students to explore interesting and complex problems that are modelled by rate equations.
-        Computers are changing how mathematics is done and how it is learned.
+        Computers are changing how mathematics is done and how it is learned.]]
       </p>
-    </aside>
-    <p>
-      <term>Analysis without a computer</term>.
-      A computer is a powerful tool for exploring the <m>S</m>-<m>I</m>-<m>R</m> model,
-      but there are many things we can learn about the model without using a computer.
-      Here is an example.
-      According to the model,
-      the rate at which the infected population grows is given by the equation
-      <me>
-        I' = 0.00001 \, S I - I/14  \mbox{persons/day.}
-      </me>
-    </p>
-    <p>
-      In our example, <m>I' = 803.4</m> at the outset.
-      This is a positive number, so <m>I</m> increases initially.
-      In fact, <m>I</m> will continue to increase as long as <m>I'</m> is positive.
-      If <m>I'</m> ever becomes negative, then <m>I</m> decreases.
-      So let's ask the question:
-      when is <m>I'</m> positive, when is it negative, and when is it zero?
-      By factoring out <m>I</m> in the last equation we obtain
-      <me>
-        I' = I \left( 0.00001 \, S - \dfrac{1}{14} \right) \ \mbox{persons/day.}
-      </me>
-    </p>
-    <p>
-      Consequently <m>I' = 0</m> if either
-      <me>
-        I = 0 \qquad \mbox{or}  \qquad 0.00001 \, S - \dfrac{1}{14} = 0
-      </me>.
-    </p>
-    <p>
-      The first possibility <m>I = 0</m> has a simple interpretation:
-      there is no infection within the population.
-      The second possibility is more interesting;
-      it says that <m>I'</m> will be zero when
-      <me>
-        .00001 \, S - \dfrac{1}{14} = 0 \qquad \mbox{or}  \qquad S = \dfrac{100000}{14} \approx 7142.9
-      </me>.
-    </p>
-    <p>
-      If <m>S</m> is <em>greater</em>
-      than <m>100000/14</m> and <m>I</m> is positive,
-      then you can check that the formula
-      <me>
-        I' = I \left( 0.00001 \, S - \dfrac{1}{14} \right) \ \mbox{persons/day}
-      </me>
-      tells us <m>I'</m> is positive<mdash/>so <m>I</m> is increasing.
-      If, on the other hand, <m>S</m> is
-      <em>less than</em> <m>100000/14</m>,
-      then <m>I'</m> is negative and <m>I</m> is decreasing.
-      So <m>S = 100000/14</m> represents a <em> threshold</em>.
-          <idx><h>threshold</h></idx>
-      If <m>S</m> falls below the threshold, <m>I</m> decreases.
-      If <m>S</m> exceeds the threshold, <m>I</m> increases.
-      Finally, <m>I</m> reaches its peak when <m>S</m> equals the threshold.
-      The presence of a threshold value for <m>S</m> is purely a mathematical result.
-      However, it has an interesting interpretation for the epidemic.
-    </p>
-    <aside>
       <p>
-        The threshold determines whether there will be an epidemic
+        <term>Analysis without a computer</term>.
+        A computer is a powerful tool for exploring the <m>S</m>-<m>I</m>-<m>R</m> model,
+        but there are many things we can learn about the model without using a computer.
+        Here is an example.
       </p>
-    </aside>
-    <p>
-      As long as there are at least <m>7143</m> susceptibles,
-      the infection will spread,
-      in the sense that there will be more people falling ill than recovering each day.
-      As new people fall ill, the number of susceptibles declines.
-      Finally, when there are fewer than <m>7143</m> susceptibles,
-      the pattern reverses:
-      each day more people will recover than will fall ill.
-      If there were fewer than <m>7143</m> susceptibles in the population <em>at the outset</em>,
-      then the number of infected would only decline with each passing day.
-      The infection would simply never catch hold.
-      The clear implication is that the noticeable surge in the number of cases that we associate with an
-      <q>epidemic</q>
-      disease is due to the presence of a large susceptible population.
-      If the susceptible population lies below a certain threshold value,
-      a surge just isn't possible.
-      This is a valuable insight<mdash/>and we got it with little effort.
-      We didn't need to make lengthy calculations or call on the resources of a computer;
-      a bit of algebra was enough.
-    </p>
+      <p>
+        According to the model,
+        the rate at which the infected population grows is given by the equation
+        <me>
+          I' = 0.00001 \, S I - I/14  \mbox{persons/day.}
+        </me>
+      </p>
+      <p>
+        In our example, <m>I' = 803.4</m> at the outset.
+        This is a positive number, so <m>I</m> increases initially.
+        In fact, <m>I</m> will continue to increase as long as <m>I'</m> is positive.
+        If <m>I'</m> ever becomes negative, then <m>I</m> decreases.
+        So let's ask the question:
+        when is <m>I'</m> positive, when is it negative, and when is it zero?
+        By factoring out <m>I</m> in the last equation we obtain
+        <me>
+          I' = I \left( 0.00001 \, S - \dfrac{1}{14} \right) \ \mbox{persons/day.}
+        </me>
+      </p>
+      <p>
+        Consequently <m>I' = 0</m> if either
+        <me>
+          I = 0 \qquad \mbox{or}  \qquad 0.00001 \, S - \dfrac{1}{14} = 0
+        </me>.
+      </p>
+      <p>
+        The first possibility <m>I = 0</m> has a simple interpretation:
+        there is no infection within the population.
+        The second possibility is more interesting;
+        it says that <m>I'</m> will be zero when
+        <me>
+          .00001 \, S - \dfrac{1}{14} = 0 \qquad \mbox{or}  \qquad S = \dfrac{100000}{14} \approx 7142.9
+        </me>.
+      </p>
+      <p>
+        If <m>S</m> is <em>greater</em>
+        than <m>100000/14</m> and <m>I</m> is positive,
+        then you can check that the formula
+        <me>
+          I' = I \left( 0.00001 \, S - \dfrac{1}{14} \right) \ \mbox{persons/day}
+        </me>
+        tells us <m>I'</m> is positive<mdash/>so <m>I</m> is increasing.
+        If, on the other hand, <m>S</m> is
+        <em>less than</em> <m>100000/14</m>,
+        then <m>I'</m> is negative and <m>I</m> is decreasing.
+        So <m>S = 100000/14</m> represents a <em> threshold</em>.
+            <idx><h>threshold</h></idx>
+        If <m>S</m> falls below the threshold, <m>I</m> decreases.
+        If <m>S</m> exceeds the threshold, <m>I</m> increases.
+        Finally, <m>I</m> reaches its peak when <m>S</m> equals the threshold.
+      </p>
+      <p>
+        The presence of a threshold value for <m>S</m> is purely a mathematical result.
+        However, it has an interesting interpretation for the epidemic. [[NOTE:The threshold determines whether there will be an epidemic]] As long as there are at least <m>7143</m> susceptibles,
+        the infection will spread,
+        in the sense that there will be more people falling ill than recovering each day.
+        As new people fall ill, the number of susceptibles declines.
+        Finally, when there are fewer than <m>7143</m> susceptibles,
+        the pattern reverses:
+        each day more people will recover than will fall ill.
+      </p>
+      <p>
+        If there were fewer than <m>7143</m> susceptibles in the population <em>at the outset</em>,
+        then the number of infected would only decline with each passing day.
+        The infection would simply never catch hold.
+        The clear implication is that the noticeable surge in the number of cases that we associate with an
+        <q>epidemic</q>
+        disease is due to the presence of a large susceptible population.
+        If the susceptible population lies below a certain threshold value,
+        a surge just isn't possible.
+        This is a valuable insight<mdash/>and we got it with little effort.
+        We didn't need to make lengthy calculations or call on the resources of a computer;
+        a bit of algebra was enough.
+      </p>
+    </subsubsection>
   </subsection>
   <subsection>
     <title>Exercises</title>
-    <subsubsection xml:id="sec_the-spread-of-disease_subsubsec_reading-a-graph">
+    <subsubsection xml:id="subsubsec_reading-a-graph">
       <title>Reading a Graph</title>
       <p>
             <idx><h>graph</h></idx>
@@ -1324,9 +1258,9 @@
         constant in this example,
         so these graphs cannot be solutions to our model..)
       </p>
-      <image source="images/5803b750c5d44d71867a27de009fee922762ba81.png"/>
-      <image source="images/c5e5b31569b88c047389dfed80c39348388540b2.png"/>
-      <image source="images/bf5b5857f85cab81c11100c82ae639dbb16d6262.png"/>
+      <image source=""/>
+      <image source=""/>
+      <image source=""/>
       <ol>
         <li>
           <p>
@@ -1373,7 +1307,7 @@
         </li>
       </ol>
     </subsubsection>
-    <subsubsection xml:id="sec_the-spread-of-disease_subsubsec_a-simple-model">
+    <subsubsection xml:id="subsubsec_a-simple-model">
       <title>A Simple Model</title>
       <p>
         These questions concern the rate equation
@@ -1410,11 +1344,14 @@
         </li>
       </ol>
     </subsubsection>
-    <subsubsection xml:id="sec_the-spread-of-disease_subsubsec_mark-twains-mississippi">
+    <subsubsection xml:id="subsubsec_mark-twains-mississippi">
       <title>Mark Twain's Mississippi</title>
       <p>
             <idx><h>Mississippi</h></idx>
-        The Lower Mississippi River meanders over its flat valley, forming broad loops called ox-bows.
+      </p>
+      <p>
+        The Lower Mississippi River meanders over its flat valley,
+        forming broad loops called ox-bows.
             <idx><h>ox-bow</h></idx>
         In a flood, the river can jump its banks and cut off one of these loops,
         getting shorter in the process.
@@ -1512,7 +1449,7 @@
         </ol>
       </p>
     </subsubsection>
-    <subsubsection xml:id="sec_the-spread-of-disease_subsubsec_the-measles-epidemic">
+    <subsubsection xml:id="subsubsec_the-measles-epidemic">
       <title>The Measles Epidemic</title>
       <p>
         We consider once again the specific rate equations
@@ -1528,7 +1465,7 @@
         </me>.
       </p>
       <ol>
-        <li xml:id="sec_the-spread-of-disease_x_measles_">
+        <li xml:id="x_measles_">
           <p>
             Calculate the current rates of change <m>S'</m>, <m>I'</m>,
             and <m>R'</m> when <m>t = 1</m>,
@@ -1561,7 +1498,7 @@
             <m>I'</m>, and <m>R'</m> that are current at time <m>t = 0</m>.
           </p>
         </li>
-        <li xml:id="sec_the-spread-of-disease_x_therebackprob_">
+        <li xml:id="x_therebackprob_">
           <p>
             <term>There and back again</term>.
     <idx><h>there and back again</h></idx>
@@ -1588,9 +1525,13 @@ In the text we went one day into the future and then back again to the present.
             <li>
               <p>
                 (<m>\Delta t = \pm 1</m>).
-                Now make a new start,
-                using the values \begin{xalignat*}{3} S &amp;= 43156.1, &amp; I &amp;= 3986.5, &amp; R &amp;= 2857.4, S' &amp;= -1720.4, &amp; I' &amp;= 1435.7, &amp; R' &amp;= 284.7. \end{xalignat*} that occur when <m>t = 2</m> if we make estimates with a time step
-                <m>\Delta t = 1</m>. (These values come from the table <xref ref="x_threeday_">on</xref>) Using two rounds of calculations with a time step of <m>\Delta t = -1</m>,
+                Now make a new start, using the values
+                <md>
+                  <mrow>{3} S  \amp = 43156.1, \amp   I  \amp = 3986.5, \amp   R  \amp = 2857.4,</mrow>
+                  <mrow>S' \amp = -1720.4, \amp   I' \amp = 1435.7, \amp   R' \amp = 284.7</mrow>
+                </md>.
+                that occur when <m>t = 2</m> if we make estimates with a time step
+                <m>\Delta t = 1</m>.  (These values come from the table <xref ref="x_threeday_">on</xref>) Using two rounds of calculations with a time step of <m>\Delta t = -1</m>,
                 estimate another set of new values for <m>S</m>, <m>I</m>,
                 and <m>R</m> at time <m>t = 0</m>.
                 How much do these new values differ from the original values 45,400, 2100, 2500?
@@ -1665,7 +1606,7 @@ In the text we went one day into the future and then back again to the present.
         </li>
       </ol>
     </subsubsection>
-    <subsubsection xml:id="sec_the-spread-of-disease_subsubsec_other-diseases">
+    <subsubsection xml:id="subsubsec_other-diseases">
       <title>Other Diseases</title>
       <ol>
         <li>
@@ -1738,7 +1679,7 @@ In the text we went one day into the future and then back again to the present.
               <mrow>R' \amp =                   \amp      \amp  b I</mrow>
             </md>.
             <ol>
-              <li xml:id="sec_the-spread-of-disease_x_setthresh_">
+              <li xml:id="x_setthresh_">
                 <p>
                   The threshold level for <m>S</m><mdash/>below which the number of infected will only decline<mdash/>can be expressed in terms of the transmission coefficient <m>a</m> and the recovery coefficient <m>b</m>.
                   What is that expression?
@@ -1757,7 +1698,7 @@ In the text we went one day into the future and then back again to the present.
         </li>
       </ol>
     </subsubsection>
-    <subsubsection xml:id="sec_the-spread-of-disease_subsubsec_what-goes-around-comes-around">
+    <subsubsection xml:id="subsubsec_what-goes-around-comes-around">
       <title>What Goes Around Comes Around</title>
       <p>
         Some relatively mild illnesses,

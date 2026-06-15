@@ -1,25 +1,20 @@
-<section xml:id="sec_the-fundamental-theorem-of-calculus_sec_the-fundamental-theorem-of-calculus">
+<section xml:id="sec_the-fundamental-theorem-of-calculus">
   <title>The Fundamental Theorem of Calculus</title>
   <introduction>
     <p>
       \hyphenation{cal-cu-lus}
     </p>
   </introduction>
-  <subsection xml:id="sec_the-fundamental-theorem-of-calculus_subsec_two-views-of-power-and-energy">
+  <subsection xml:id="subsec_two-views-of-power-and-energy">
     <title>Two Views of Power and Energy</title>
     <p>
           <idx><h>energy</h></idx>
           <idx><h>power</h><h>electric</h></idx>
-      In section<nbsp/>1 we considered how much energy a town consumed over 24 hours when it was using <m>p(t)</m> megawatts of power at time <m>t</m>.
-      Suppose <m>E(T)</m> megawatt-hours of energy were consumed during the first <m>T</m> hours.
     </p>
-    <aside>
-      <p>
-        Energy is the integral of power<ellipsis/>
-      </p>
-    </aside>
     <p>
-      Then the integral, introduced in section<nbsp/>3,
+      In section<nbsp/>1 we considered how much energy a town consumed over 24 hours when it was using <m>p(t)</m> megawatts of power at time <m>t</m>.
+      Suppose <m>E(T)</m> megawatt-hours of energy were consumed during the first <m>T</m> hours. [[NOTE:Energy is the integral of power<ellipsis/>]] Then the integral,
+      introduced in section<nbsp/>3,
       gave us the language to describe how <m>E</m> depends on <m>p</m>:
       <me>
         E(T) = \int_0^T p(t) \, dt
@@ -29,19 +24,20 @@
       Because <m>E</m> is the integral of <m>p</m>,
       we can visualize <m>E(T)</m> as the area under the power graph
       <m>y = p(t)</m> as the time <m>t</m> sweeps from 0 hours to <m>T</m> hours:
-      <image width="73%" source="images/power4.png"/> As <m>T</m> increases,
-      so does <m>E(T)</m>.
+    </p>
+    <p>
+      <image width="73%" source="images/power4.png"/>
+    </p>
+    <p>
+      As <m>T</m> increases, so does <m>E(T)</m>.
       The exact relation between <m>E</m> and <m>T</m> is shown in the graph below.
       The height of the graph of <m>E</m> at any point <m>T</m> is equal to the area under the graph of <m>p</m> from 0 out to the point <m>T</m>.
-      <image width="73%" source="images/power5.png"/> The microscope window on the graph of <m>E</m> reminds us that the slope of the graph at any point <m>T</m> is
     </p>
-    <aside>
-      <p>
-        <ellipsis/> and power is the derivative of energy
-      </p>
-    </aside>
     <p>
-      just<nbsp/><m>p(T)</m>:
+      <image width="73%" source="images/power5.png"/>
+    </p>
+    <p>
+      The microscope window on the graph of <m>E</m> reminds us that the slope of the graph at any point <m>T</m> is [[NOTE:<ellipsis/> and power is the derivative of energy]] just<nbsp/><m>p(T)</m>:
       <me>
         p(T) = E'(T)
       </me>.
@@ -50,6 +46,8 @@
       We discovered this fact in section<nbsp/>1,
       where we stated it in the following form:
       <em>power is the rate at which energy is consumed</em>.
+    </p>
+    <p>
       Pause now to study the graphs of power and energy.
       You should convince yourself that the <em>height</em>
       of the <m>E</m> graph at any time equals the <em>area</em>
@@ -70,25 +68,22 @@
       of the <m>p</m> graph at that point.
       Thus, for example,
       the graph of <m>E</m> will be steepest where the graph of <m>p</m> is tallest.
+    </p>
+    <p>
       Notice that when we write the energy accumulation function<idx><h>function</h><h>energy accumulation</h></idx> <m>E(T)</m> as an integral,
       <me>
         E(T) = \int_0^T p(t) \, dt
       </me>,
-      we have introduced a new ingredient.
-    </p>
-    <aside>
-      <p>
-        A new ingredient: variable limits of integration
-      </p>
-    </aside>
-    <p>
-      The time variable <m>T</m> appears as one of the
+      we have introduced a new ingredient. [[NOTE:A new ingredient:
+      variable limits of integration]] The time variable <m>T</m> appears as one of the
       <q>limits of integration.</q>
       By definition, the integral is a single number.
       However, that number depends on the interval of integration <m>[0, T]</m>.
       As soon as we treat <m>T</m> as a variable,
       the integral itself becomes a variable, too.
       Here the value of the integral varies with <m>T</m>.
+    </p>
+    <p>
       We now have two ways of viewing the relation between power and energy.
       According to the first view,
       the energy accumulation function <m>E</m> is the integral of power demand:
@@ -97,15 +92,7 @@
       </me>.
     </p>
     <p>
-      According to the second view,
-    </p>
-    <aside>
-      <p>
-        This integral is a solution to a differential equation
-      </p>
-    </aside>
-    <p>
-      the energy accumulation function is the solution
+      According to the second view, [[NOTE:This integral is a solution to a differential equation]] the energy accumulation function is the solution
       <m>y = E(t)</m> to an initial value problem defined by power demand:
       <me>
         y' = p(t); \qquad y(0) = 0
@@ -117,29 +104,25 @@
       If we take the second view,
       then we can find <m>E</m> by using any of the methods for solving initial value problems that we studied in chapter 4.
       Thus, the energy integral is a solution to a certain differential equation.
+    </p>
+    <p>
       This is unexpected.
       Differential equations involve derivatives.
       At first glance, they have nothing to do with integrals.
       Nevertheless,
-      the relation between power and energy shows us that there is a deep connection between derivatives and integrals.
-    </p>
-    <aside>
-      <p>
-        The fundamental theorem of calculus
-      </p>
-    </aside>
-    <p>
-      As we shall see,
+      the relation between power and energy shows us that there is a deep connection between derivatives and integrals. [[NOTE:The fundamental theorem of calculus]] As we shall see,
       the connection holds for the integral of <em>any</em> function.
       The connection is so important<mdash/>because it links together the two basic processes of calculus<mdash/>that it has been called the
       <em> fundamental theorem of calculus</em>.
+    </p>
+    <p>
       The fundamental theorem gives us a powerful new tool to calculate integrals.
       Our aim in this section is to see why the theorem is true,
       and to begin to explore its use as a tool.
       In Calculus II we will consider many specific integration techniques that are based on the fundamental theorem.
     </p>
   </subsection>
-  <subsection xml:id="sec_the-fundamental-theorem-of-calculus_subsec_integrals-and-differential-equations">
+  <subsection xml:id="subsec_integrals-and-differential-equations">
     <title>Integrals and Differential Equations</title>
     <introduction>
       <p>
@@ -163,15 +146,7 @@
         we get the value of the integral by evaluating <m>A</m> at <m>x = b</m>.
       </p>
       <p>
-        To see how all this works,
-      </p>
-      <aside>
-        <p>
-          A test case
-        </p>
-      </aside>
-      <p>
-        let's find the value of the integral
+        To see how all this works, [[NOTE:A test case]] let's find the value of the integral
         <me>
           \int_0^4 \cos(x^2) \, dx
         </me>
@@ -180,37 +155,28 @@
           y' = \cos(x^2);  y(0) = 0
         </me>
         using Euler's method.
-        To estimate the value of the integral, we use the program
       </p>
-      <aside>
-        <p>
-          RIEMANN versus<ellipsis/>
-        </p>
-      </aside>
       <p>
-        RIEMANN
+        To estimate the value of the integral,
+        we use the program [[NOTE:RIEMANN versus<ellipsis/>]] RIEMANN
             <idx><h>program</h><h>RIEMANN</h></idx>
         from <xref ref="program_RIEMANN"></xref>.
         It produces the sequence of left endpoint sums shown in the table below on the left.
         Since the first three digits have stabilized,
         the value of the integral is <m>.594\ldots</m><nbsp/>.
         The integral was deliberately chosen to lead to the initial value problem we first considered <xref ref="accum_delta_y">on</xref>.
-        We solved that problem by Euler's method, using the program
-      </p>
-      <aside>
-        <p>
-          <ellipsis/> TABLE
-        </p>
-      </aside>
-      <p>
-        TABLE,
+        We solved that problem by Euler's method,
+        using the program [[NOTE:<ellipsis/> TABLE]] TABLE,
             <idx><h>program</h><h>TABLE</h></idx>
         and produced the table of estimates for the value of <m>y(4)</m> that appear in the table on the right.
         We see <m>y(4) = .594\ldots</m><nbsp/>.
       </p>
-      <sidebyside>
+      <p>
         Program: RIEMANN
+      </p>
+      <p>
         Left endpoint Riemann sums
+      </p>
 <pre>
 DEF fnf (x) = COS(x ^ 2)
 a = 0
@@ -226,23 +192,27 @@ x = x + deltax
 NEXT k
 PRINT accumulation
 </pre>
-        <me>
-          \begin{array}{cc}
-          \mbox{number}  \amp  \mbox{estimated value}  \\
-          \mbox{of steps}  \amp  \mbox{of the integral}     \\
-          \hline \\ [-7pt]
-          \begin{array}{l}
-          2^3 \\ 2^6 \\ 2^9 \\ 2^{12} \\ 2^{15} \\ 2^{18}
-          \end{array}
-          \amp
-          \begin{array}{r}
-          1.13304 \\ 0.65639 \\ 0.60212 \\ 0.59542 \\ 0.59458 \\
-          0.59448
-          \end{array}
-          \end{array}
-        </me>
+      <me>
+        \begin{array}{cc}
+        \mbox{number}  \amp  \mbox{estimated value}  \\
+        \mbox{of steps}  \amp  \mbox{of the integral}     \\
+        \hline \\ [-7pt]
+        \begin{array}{l}
+        2^3 \\ 2^6 \\ 2^9 \\ 2^{12} \\ 2^{15} \\ 2^{18}
+        \end{array}
+        \amp
+        \begin{array}{r}
+        1.13304 \\ 0.65639 \\ 0.60212 \\ 0.59542 \\ 0.59458 \\
+        0.59448
+        \end{array}
+        \end{array}
+      </me>
+      <p>
         Program: TABLE
+      </p>
+      <p>
         Euler's method
+      </p>
 <pre>
 DEF fnf (t) = COS(t ^ 2)
 tinitial = 0
@@ -258,50 +228,47 @@ t = t + deltat
 NEXT k
 PRINT accumulation
 </pre>
-        <me>
-          \begin{array}{cc}
-          \mbox{number}  \amp  \mbox{estimated value }  \\
-          \mbox{of steps}  \amp  \mbox{of \(y(4)\)}     \\
-          \hline \\ [-7pt]
-          \begin{array}{l}
-          2^3 \\ 2^6 \\ 2^9 \\ 2^{12} \\ 2^{15} \\ 2^{18}
-          \end{array}
-          \amp
-          \begin{array}{r}
-          1.13304 \\ 0.65639 \\ 0.60212 \\ 0.59542 \\ 0.59458 \\
-          0.59448
-          \end{array}
-          \end{array}
-        </me>
-      </sidebyside>
+      <me>
+        \begin{array}{cc}
+        \mbox{number}  \amp  \mbox{estimated value }  \\
+        \mbox{of steps}  \amp  \mbox{of \(y(4)\)}     \\
+        \hline \\ [-7pt]
+        \begin{array}{l}
+        2^3 \\ 2^6 \\ 2^9 \\ 2^{12} \\ 2^{15} \\ 2^{18}
+        \end{array}
+        \amp
+        \begin{array}{r}
+        1.13304 \\ 0.65639 \\ 0.60212 \\ 0.59542 \\ 0.59458 \\
+        0.59448
+        \end{array}
+        \end{array}
+      </me>
       <p>
         RIEMANN estimates the value of an integral by calculating Riemann sums.
         TABLE solves a differential equation by constructing estimates using Euler's method.
         These appear to be quite different tasks,
         but they lead to exactly the same results!
         But this is no accident.
-        Compare the programs. (In both,
-        the <c>PRINT</c> statement has been put outside the loop.
-      </p>
-      <aside>
-        <p>
-          The two programs are the same
-        </p>
-      </aside>
-      <p>
-        This speeds up the calculations but still gives us the final outcome.) Once you make necessary modifications (e.g., change <c>x</c> to <c> t</c>,
+        Compare the programs.
+        (In both, the <c>PRINT</c> statement has been put outside the loop. [[NOTE:The two programs are the same]] This speeds up the calculations but still gives us the final outcome.)
+        Once you make necessary modifications (e.g., change <c>x</c> to <c> t</c>,
         <c>a</c> to <c>tinitial</c>,
         <em>et cetera</em>),
         you can see the two programs are the same.
+      </p>
+      <p>
         The very fact that these two programs do the same thing gives us one proof of the fundamental theorem of calculus.
             <idx><h>fundamental theorem of calculus</h></idx>
       </p>
     </introduction>
-    <subsubsection xml:id="sec_the-fundamental-theorem-of-calculus_subsubsec_graphing-accumulation-functions">
+    <subsubsection xml:id="subsubsec_graphing-accumulation-functions">
       <title>Graphing accumulation functions</title>
       <p>
             <idx><h>function</h><h>accumulation</h></idx>
-        Let's take a closer look at the solution <m>y = A(x)</m> to the initial value problem
+      </p>
+      <p>
+        Let's take a closer look at the solution
+        <m>y = A(x)</m> to the initial value problem
         <me>
           y' = \cos(x^2); \qquad y(0) = 0
         </me>.
@@ -319,7 +286,12 @@ PRINT accumulation
         <mdash/><xref ref="program_PLOT">see</xref>),
         we can graph<nbsp/><m>A</m>.
         Here is the result.
-        <image width="73%" source="images/int2.png"/> The relation between <m>y = \cos(x^2)</m> and
+      </p>
+      <p>
+        <image width="73%" source="images/int2.png"/>
+      </p>
+      <p>
+        The relation between <m>y = \cos(x^2)</m> and
         <m>y = A(x)</m> is the same as the relation between power and energy.
         <ul>
           <li>
@@ -355,40 +327,41 @@ PRINT accumulation
         In summary, the lower curve is the integral of the upper one,
         and the upper curve is the derivative of the lower one.
       </p>
-      <sidebyside>
+      <p>
         \special{psfile=../ps/calc1/int5.ps}
-        <nbsp/><nbsp/>  To get a better idea of the simplicity and power of this
-        approach to integrals, let's look at another example:
+      </p>
+      <p>
+        To get a better idea of the simplicity and power of this approach to integrals,
+        let's look at another example:
         <me>
           A(X) = \int_1^X \ln{x} \, dx
         </me>.
+      </p>
+      <p>
         The function <m>A</m> is the solution to the initial value problem
         <me>
           y' = \ln{x}, \qquad y(1) = 0;
         </me>
-        we find it, as usual, by Euler's method.  The graphs <m>y = \ln{x}</m> and
-        <m>y = A(x)</m> are shown at the left.  Notice once again that the height
-        of the graph of <m>A(x)</m> at any point <m>x = X</m> equals the area under the
-        graph of <m>y = \ln{x}</m> from <m>x = 1</m> to <m>x = X</m>.  Also, the graph of <m>A</m>
-        becomes steeper as the height of <m>\ln{x}</m> increases.  In particular,
-        the graph of <m>A</m> is horizontal (at <m>x = 1</m>) when <m>\ln{x} = 0</m>.
-      </sidebyside>
+        we find it, as usual, by Euler's method.
+        The graphs <m>y = \ln{x}</m> and
+        <m>y = A(x)</m> are shown at the left.
+        Notice once again that the height of the graph of <m>A(x)</m> at any point <m>x = X</m> equals the area under the graph of
+        <m>y = \ln{x}</m> from <m>x = 1</m> to <m>x = X</m>.
+        Also, the graph of <m>A</m> becomes steeper as the height of <m>\ln{x}</m> increases.
+        In particular, the graph of <m>A</m> is horizontal
+        (at <m>x = 1</m>)
+        when <m>\ln{x} = 0</m>.
+      </p>
     </subsubsection>
   </subsection>
-  <subsection xml:id="sec_the-fundamental-theorem-of-calculus_subsec_antiderivatives">
+  <subsection xml:id="subsec_antiderivatives">
     <title>Antiderivatives</title>
     <introduction>
       <p>
             <idx><h>antiderivative</h></idx>
-        We have developed a
       </p>
-      <aside>
-        <p>
-          Find an integral<ellipsis/>
-        </p>
-      </aside>
       <p>
-        novel approach to integration in this section.
+        We have developed a [[NOTE:Find an integral<ellipsis/>]] novel approach to integration in this section.
         We start by replacing a given integral by an accumulation function:<idx><h>function</h><h>accumulation</h></idx>
         <me>
           \int_a^b f(x) \, dx \qquad \leadsto \qquad A(X) = \int_a^X f(x) \, dx
@@ -397,6 +370,8 @@ PRINT accumulation
       <p>
         Then we try to find <m>A(X)</m>.
         If we do, then the original integral is just the value of <m>A</m> at <m>X = b</m>.
+      </p>
+      <p>
         At first glance, this doesn't seem to be a sensible approach.
         We appear to be making the problem harder:
         instead of searching for a single number,
@@ -407,28 +382,16 @@ PRINT accumulation
         </me>.
       </p>
       <p>
-        This means we can use the complete <sq>bag of tools</sq>
-      </p>
-      <aside>
-        <p>
-          <ellipsis/> by solving a differential equation <ellipsis/>
-        </p>
-      </aside>
-      <p>
-        we have for solving differential equations to find <m>A</m>.
+        This means we can use the complete <sq>bag of tools</sq> [[NOTE:<ellipsis/> by solving a differential equation <ellipsis/>]] we have for solving differential equations to find <m>A</m>.
         The real advantage of the new approach is that it reduces integration to the fundamental activity of calculus<mdash/>solving differential equations.
+      </p>
+      <p>
         The differential equation <m>y' = f(x)</m> that arises in integration problems is special.
         The right hand side depends only on the input variable <m>x</m>.
-        We studied this differential equation
-      </p>
-      <aside>
-        <p>
-          <ellipsis/> using antidifferentiation
-        </p>
-      </aside>
-      <p>
-        in chapter<nbsp/>4.5, where we developed a special method to solve it<mdash/><term>antidifferentiation</term>.
+        We studied this differential equation [[NOTE:<ellipsis/> using antidifferentiation]] in chapter<nbsp/>4.5, where we developed a special method to solve it<mdash/><term>antidifferentiation</term>.
             <idx><h>antidifferentiation</h></idx>
+      </p>
+      <p>
         We say that <m>F(x)</m> is an <term>antiderivative</term>
         of <m>f(x)</m> if <m>f</m> is the derivative of <m>F</m>:
         <m>F'(x) = f(x)</m>.
@@ -438,17 +401,12 @@ PRINT accumulation
         </me>
       </p>
       <p>
-        Since <m>y = A(x)</m> solves the differential equation <m>y' = f(x)</m>,
-      </p>
-      <aside>
-        <p>
-          <m>A</m> is an antiderivative of <m>f</m>
-        </p>
-      </aside>
-      <p>
-        we have <m>A'(x) = f(x)</m>.
+        Since <m>y = A(x)</m> solves the differential equation
+        <m>y' = f(x)</m>, [[NOTE<m>:A</m> is an antiderivative of <m>f</m>]] we have <m>A'(x) = f(x)</m>.
         Thus, <m>A(x)</m> is an antiderivative of <m>f(x)</m>,
         so we can try to find <m>A</m> by antidifferentiating <m>f</m>.
+      </p>
+      <p>
         Here is an example.
         Suppose we want to find
         <me>
@@ -464,15 +422,8 @@ PRINT accumulation
         </me>.
       </p>
       <p>
-        The problem is that <m>F</m> must also
-      </p>
-      <aside>
-        <p>
-          Check the condition <m>A(2) = 0</m>
-        </p>
-      </aside>
-      <p>
-        satisfy the initial condition <m>F(2) = 0</m>.
+        The problem is that <m>F</m> must also [[NOTE:Check the condition
+        <m>A(2) = 0</m>]] satisfy the initial condition <m>F(2) = 0</m>.
         However,
         <me>
           F(2) = 2^5 - \tfrac{1}{2} \cdot 2^4 = 32 - \tfrac{1}{2} \cdot 16 = 24 \neq 0
@@ -509,20 +460,19 @@ PRINT accumulation
         then so is <m>F + C</m>, for any constant <m>C</m>.
         The general procedure for finding an accumulation function involves these two steps:
       </p>
-      <image source="images/ff55880804c308cc1c3cae2a530afdceb59760d4.png"/>
+      <image source=""/>
+    </introduction>
+    <subsubsection>
+      <title>Comment:</title>
       <p>
-        <term>Comment</term>: Recall that some functions <m>f</m>
-      </p>
-      <aside>
-        <p>
-          A caution
-        </p>
-      </aside>
-      <p>
-        simply cannot be integrated<mdash/>the Riemann sums they define may not converge.
+        Recall that some functions <m>f</m> [[NOTE:A caution]] simply cannot be integrated<mdash/>the Riemann sums they define may not converge.
         Although we have not stated it explicitly,
         you should keep in mind that the procedure just described applies only to functions that can be integrated.
-        <term>Example</term>.
+      </p>
+    </subsubsection>
+    <subsubsection xml:id="fund_th-antider">
+      <title>Example</title>
+      <p>
         To illustrate the procedure, let's find the accumulation function
         <me>
           A(X) = \int_0^X \sin{x} \, dx
@@ -539,15 +489,12 @@ PRINT accumulation
       </p>
       <p>
         The graphs <m>y = \sin{x}</m> and <m>y = 1 - \cos{x}</m> are shown below.
-        <image width="73%" source="images/int6.png"/> Now that we have a
       </p>
-      <aside>
-        <p>
-          Evaluating specific integrals
-        </p>
-      </aside>
       <p>
-        formula for <m>A(x)</m> we can find the exact value of integrals involving <m>\sin{x}</m>.
+        <image width="73%" source="images/int6.png"/>
+      </p>
+      <p>
+        Now that we have a [[NOTE:Evaluating specific integrals]] formula for <m>A(x)</m> we can find the exact value of integrals involving <m>\sin{x}</m>.
         For instance,
         <me>
           \int_0^{\pi} \sin{x} \, dx = A(\pi) = 1 - \cos{\pi} = 1 - (-1) = 2
@@ -619,19 +566,13 @@ PRINT accumulation
         </me>
       </p>
       <p>
-        According to the table,
-        the value of the integral is 1.000000<ellipsis/>, to six decimal places accuracy.
-      </p>
-      <aside>
-        <p>
-          The fundamental theorem makes absolute precision possible
-        </p>
-      </aside>
-      <p>
-        That is valuable information,
+        According to the table, the value of the integral is 1.000000<ellipsis/>,
+        to six decimal places accuracy. [[NOTE:The fundamental theorem makes absolute precision possible]] That is valuable information,
         and is often as accurate as we need.
         However, the fundamental theorem tells us that the value of the integral is 1 <em>exactly</em>!
         With the new approach, we can achieve absolute precision.
+      </p>
+      <p>
         Precision is the result of having a
         <em>formula</em> for the antiderivative.
         Notice how we used that formula to express the value of the integral.
@@ -649,11 +590,20 @@ PRINT accumulation
       <p>
         In other words,
       </p>
-      <image source="images/c13e65a893a0b054167d781f0eca22a207504d06.png"/>
+      <observation>
+      <p>
+        If <m>F(x)</m> is any antiderivative of <m>f(x)</m>, \rule[-6pt]{0pt}{15pt}
+      </p>
+      <p>
+        then <m>{\displaystyle \int_a^b f(x) \, dx = F(b) - F(a)}</m>.
+      </p>
+      </observation>
       <p>
         <term>Example</term>.
-        Evaluate <m>{\displaystyle \int_0^{\ln{2}} e^{-u} \, du.}</m> For the antiderivative,
-        we can choose <m>F(u) = -e^{-u}</m>.
+        Evaluate <m>{\displaystyle \int_0^{\ln{2}} e^{-u} \, du.}</m>
+      </p>
+      <p>
+        For the antiderivative, we can choose <m>F(u) = -e^{-u}</m>.
         Then
         <md>
           <mrow>\int_0^{\ln{2}} e^{-u} \, du \amp = F(\ln{2}) - F(0)</mrow>
@@ -662,8 +612,10 @@ PRINT accumulation
       </p>
       <p>
         <term>Example</term>.
-        Evaluate <m>{\displaystyle \int_2^3 \ln{t} \, dt.}</m> For the antiderivative,
-        we can choose <m>F(t) = t \ln{t} - t</m>.
+        Evaluate <m>{\displaystyle \int_2^3 \ln{t} \, dt.}</m>
+      </p>
+      <p>
+        For the antiderivative, we can choose <m>F(t) = t \ln{t} - t</m>.
         Using the product rule, we can show that this is indeed an antiderivative:
         <me>
           F'(t) =  t \cdot \dfrac{1}{t} + 1 \cdot \ln{t} - 1 = 1 + \ln{t} - 1 = \ln{t}
@@ -689,38 +641,29 @@ PRINT accumulation
         Many techniques have been devised to find the formula for an antiderivative.
         In chapter 11 of Calculus II we will survey some of those that are most frequently used.
       </p>
-    </introduction>
-    <subsubsection xml:id="sec_the-fundamental-theorem-of-calculus_subsubsec_parameters">
+    </subsubsection>
+    <subsubsection xml:id="subsubsec_parameters">
       <title>Parameters</title>
       <p>
             <idx><h>parameter</h></idx>
-        In chapter<nbsp/>4.2 we considered differential equations that involved parameters (see <xref ref="DEs_w__params-begin">pages</xref><ndash/> <xref ref="DEs_w__params-end"></xref>).
       </p>
-      <aside>
-        <p>
-          When integrals depend on parameters <ellipsis/>
-        </p>
-      </aside>
       <p>
-        It also happens that integrals can involve parameters.
+        In chapter<nbsp/>4.2 we considered differential equations that involved parameters
+        (see <xref ref="DEs_w__params-begin">pages</xref><ndash/> <xref ref="DEs_w__params-end"></xref>). [[NOTE:When integrals depend on parameters <ellipsis/>]] It also happens that integrals can involve parameters.
         However, parameters complicate numerical work.
         If we calculate the value of an integral numerically,
         by making estimates with Riemann sums,
         we must first fix the value of any parameters that appear.
         This makes it difficult to see how the value of the integral depends on the parameters.
         We would have to give new values to the parameters and then recalculate the Riemann sums.
-        The outcome is much simpler
       </p>
-      <aside>
-        <p>
-          <ellipsis/> the fundamental theorem can help make the relation clearer
-        </p>
-      </aside>
       <p>
-        and more transparent if we are able to use the fundamental theorem to get a
+        The outcome is much simpler [[NOTE:<ellipsis/> the fundamental theorem can help make the relation clearer]] and more transparent if we are able to use the fundamental theorem to get a
         <em>formula</em> for the integral.
         The parameters just appear in the formula,
         so it is immediately clear how the integral depends on the parameters.
+      </p>
+      <p>
         Here is an example that we shall explore further later.
         We want to see how the integrals
         <me>
@@ -754,7 +697,7 @@ PRINT accumulation
   </subsection>
   <subsection>
     <title>Exercises</title>
-    <subsubsection xml:id="sec_the-fundamental-theorem-of-calculus_subsubsec_constructing-accumulation-functions">
+    <subsubsection xml:id="subsubsec_constructing-accumulation-functions">
       <title>Constructing accumulation functions</title>
       <p>
             <idx><h>function</h><h>accumulation</h></idx>
@@ -836,7 +779,7 @@ PRINT accumulation
         </li>
       </ol>
     </subsubsection>
-    <subsubsection xml:id="sec_the-fundamental-theorem-of-calculus_subsubsec_using-the-fundamental-theorem">
+    <subsubsection xml:id="subsubsec_using-the-fundamental-theorem">
       <title>Using the fundamental theorem</title>
       <p>
             <idx><h>fundamental theorem of calculus</h></idx>
@@ -970,7 +913,7 @@ PRINT accumulation
         </li>
       </ol>
     </subsubsection>
-    <subsubsection xml:id="sec_the-fundamental-theorem-of-calculus_subsubsec_formulas-for-integrals">
+    <subsubsection xml:id="subsubsec_formulas-for-integrals">
       <title>Formulas for integrals</title>
       <p>
             <idx><h>integral</h></idx>

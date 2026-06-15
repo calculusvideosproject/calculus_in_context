@@ -1,4 +1,4 @@
-<section xml:id="sec_taylor-series_sec_taylor-series">
+<section xml:id="sec_taylor-series">
   <title>Taylor Series</title>
   <introduction>
     <p>
@@ -20,10 +20,7 @@
       polynomial.
       This infinite sum is called the
       <term>Taylor series</term><idx><h>Taylor series</h><h>definition</h></idx> centered at <m>x=0</m> for <m>\sin(x)</m>.
-      But what would we even mean by such an infinite sum? \cicmarginnote {You have seen
-    </p>
-    <p>
-      infinite sums before} We will explore this question in detail in section<nbsp/>5,
+      But what would we even mean by such an infinite sum? [[NOTE:You have seen infinite sums before]] We will explore this question in detail in section<nbsp/>5,
       but you should already have some intuition about what it means,
       for it can be interpreted in exactly the same way we interpret a more familiar statement like
       <md>
@@ -43,15 +40,9 @@
       or however many terms we need to get the accuracy we want.
       Put another way, we are saying that 1/3 is the <em>limit</em>
       of the finite sums of the right hand side of the equation.
-      Our new formulas for Taylor series
     </p>
-    <aside>
-      <p>
-        Infinite degree polynomials are to be viewed like infinite decimals
-      </p>
-    </aside>
     <p>
-      are meant to be used exactly the same way:
+      Our new formulas for Taylor series [[NOTE:Infinite degree polynomials are to be viewed like infinite decimals]] are meant to be used exactly the same way:
       when a computation is involved,
       take only the beginning of the sum, and drop the tail.
       Just where you cut off the tail depends on the input value <m>x</m> and on the level of accuracy needed.
@@ -74,6 +65,8 @@
       or even three terms may have been adequate for the needs at hand.
       The crucial fact is that these are all honest calculations using <em>only</em>
       the four operations of elementary arithmetic.
+    </p>
+    <p>
       Note that if we had wanted to get the same 6 place accuracy for <m>\cos(x)</m> for a larger value of <m>x</m>,
       we might need to go further out in the series.
       For instance <m>\cos(7\pi/3)</m> is also equal to 0.5, but the tenth degree Taylor polynomial centered at <m>x=0</m> gives
@@ -86,6 +79,8 @@
       while to get <m>\cos(19\pi/3)</m>
       (also equal to 0.5)
       to 6 decimals we need the Taylor polynomial centered at <m>x=0</m> of degree 66!
+    </p>
+    <p>
       The key fact, though, is that,
       for any value of <m>x</m>, if we go out in the series far enough
       (where what constitutes
@@ -95,6 +90,8 @@
       For any <m>x</m>,
       the value of <m>\cos(x)</m> is the limit of the finite sums of the Taylor series,
       just as 1/3 is the limit of the finite sums of its infinite series representation.
+    </p>
+    <p>
       In general, given a function <m>f(x)</m>,
       its Taylor series<idx><h>Taylor series</h><h>definition</h></idx> centered at <m>x=0</m> will be
       <me>
@@ -111,23 +108,23 @@
     </p>
     <p>
           <idx><h>Taylor series</h><h>table of</h></idx>
-      While it is true that <m>\cos(x)</m> and <m>e^x</m> equal their Taylor series, just as <m>\sin(x)</m> did, we have to be more careful with the last four functions.
+    </p>
+    <p>
+      While it is true that <m>\cos(x)</m> and <m>e^x</m> equal their Taylor series,
+      just as <m>\sin(x)</m> did,
+      we have to be more careful with the last four functions.
       To see why this is, let's graph
       <m>1/(1+x^2)</m> and its Taylor polynomials
       <m>P_n(x) = 1-x^2+ x^4-x^6+\cdots \pm x^n</m> for <m>n=2</m>, 4, 6, 8, 10, 12, 14, 16, 200, and 202.
       Since all the graphs are symmetric about the <m>y</m>-axis
       (why is this?),
       we draw only the graphs for positive<nbsp/><m>x</m>:
-      <image width="73%" source="images/Darct.png"/> <idx><h>Taylor polynomial</h><h>graphs for
-      <m>1/(1+x^2)</m></h></idx> It appears that the
     </p>
-    <aside>
-      <p>
-        A Taylor series may not converge for all values of <m>x</m>
-      </p>
-    </aside>
     <p>
-      graphs of the Taylor polynomials <m>P_n(x)</m> approach the graph of <m>1/(1+x^2)</m> very nicely
+      <image width="73%" source="images/Darct.png"/> <idx><h>Taylor polynomial</h><h>graphs for <m>1/(1+x^2)</m></h></idx>
+    </p>
+    <p>
+      It appears that the [[NOTE:A Taylor series may not converge for all values of <m>x</m>]] graphs of the Taylor polynomials <m>P_n(x)</m> approach the graph of <m>1/(1+x^2)</m> very nicely
       <em>so long as <m>x \lt  1</m></em>.
       If <m>x\geq1</m>, though,
       it looks like there is no convergence,
@@ -147,19 +144,15 @@
       like those for <m>1/(1+x^2)</m> and <m>\ln(1-x)</m>,
       have finite intervals of convergence.
     </p>
-    <aside>
-      <p>
-        Brook Taylor (1685<ndash/>1731)
-            <idx><h>Taylor, Brook</h></idx>
-        was an English mathematician who developed the series that bears his name in his book
-        <em>Methodus incrementorum</em> (1715).
-        He did not worry about questions of convergence,
-        but used the series freely to attack many kinds of problems,
-        including differential equations.
-      </p>
-    </aside>
     <p>
-      <term>Remark</term> On the one hand it is perhaps not too surprising that a function should equal its Taylor series<mdash/>after all,
+      [[NOTE:Brook Taylor (1685<ndash/>1731) was an English mathematician who developed the series that bears his name in his book
+      <em>Methodus incrementorum</em> (1715).
+      He did not worry about questions of convergence,
+      but used the series freely to attack many kinds of problems,
+      including differential equations.]]
+    </p>
+    <p>
+      \subsubsection{Remark} On the one hand it is perhaps not too surprising that a function should equal its Taylor series<mdash/>after all,
       with more and more coefficients to fiddle with,
       we can control more and more of the behavior of the associated polynomials.
       On the other hand,
@@ -167,7 +160,7 @@
       so perhaps it is surprising after all!
     </p>
   </introduction>
-  <subsection xml:id="sec_taylor-series_subsec_exercises">
+  <subsection xml:id="subsec_exercises">
     <title>Exercises</title>
     <ol>
       <li>
@@ -203,7 +196,7 @@
           </me>
           with <m>x=-4</m>.
           What happens when you do this, and why?
-          Try a few more values for <m>x</m> and see if you can make a conjecture about the interval of convergence for this Taylor series. \ans{The Taylor series converges for <m>-1\leq x \lt  1</m>.}
+          Try a few more values for <m>x</m> and see if you can make a conjecture about the interval of convergence for this Taylor series.  \ans{The Taylor series converges for <m>-1\leq x \lt  1</m>.}
           <ol>
             <li>
               <p>

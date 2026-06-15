@@ -1,30 +1,27 @@
-<section xml:id="sec_estimation-and-error-analysis_sec_estimation-and-error-analysis">
+<section xml:id="sec_estimation-and-error-analysis">
   <title>Estimation and Error Analysis</title>
-  <subsection xml:id="sec_estimation-and-error-analysis_subsec_making-estimates">
+  <subsection xml:id="subsec_making-estimates">
     <title>Making Estimates</title>
     <introduction>
       <p>
             <idx><h>estimate</h></idx>
       </p>
     </introduction>
-    <subsubsection xml:id="sec_estimation-and-error-analysis_subsubsec_the-expanding-house">
+    <subsubsection xml:id="subsubsec_the-expanding-house">
       <title>The Expanding House</title>
       <p>
             <idx><h>expanding house</h></idx>
-        In the book <em>The Secret House <mdash/> 24 hours in the strange and unexpected world in which we spend our nights and days</em> (Simon and Schuster, 1986), David Bodanis describes many remarkable events that occur at the microscopic level in an ordinary house.
-        At one point he explains how sunlight heats up the structure,
-        stretching it imperceptibly in every direction through the day until it has become several cubic inches larger than it was the night before.
       </p>
-      <aside>
-        <p>
-          How much does a house expand in the heat?
-        </p>
-      </aside>
       <p>
-        Is it plausible that a house can become several cubic inches larger as it expands in the heat of the day?
+        In the book <em>The Secret House <mdash/> 24 hours in the strange and unexpected world in which we spend our nights and days</em>
+        (Simon and Schuster, 1986), David Bodanis describes many remarkable events that occur at the microscopic level in an ordinary house.
+        At one point he explains how sunlight heats up the structure,
+        stretching it imperceptibly in every direction through the day until it has become several cubic inches larger than it was the night before. [[NOTE:How much does a house expand in the heat?]] Is it plausible that a house can become several cubic inches larger as it expands in the heat of the day?
         In particular, how much longer, wider,
         and taller would it have to become if it were to grow in volume by,
         let us say, 3<nbsp/>cubic inches?
+      </p>
+      <p>
         For simplicity, assume the house is a cube 200 inches on a side.
         (This is about 17 feet,
         so the house is the size of a small, two-story cottage.)
@@ -54,6 +51,8 @@
           <mrow>3 \ \mbox{cubic inches}  \amp \approx 120000 \ \dfrac{\mbox{cubic inches} }{\mbox{inches} } \times \Delta s \ \mbox{inches} </mrow>
         </md>,
         so <m>\Delta s \approx 3/120000 = 0.000025</m> inches<mdash/>many times thinner than a human hair!
+      </p>
+      <p>
         This value is much too small.
         To get a more realistic value,
         let's suppose the house is made of wood and the temperature increases about 30<m>^\circ</m>F from night to day.
@@ -69,12 +68,14 @@
         So even as he opens our eyes to the effects of thermal expansion, Bodanis dramatically understates his point.
       </p>
     </subsubsection>
-    <subsubsection xml:id="sec_estimation-and-error-analysis_subsubsec_estimates-versus-exact-values">
+    <subsubsection xml:id="subsubsec_estimates-versus-exact-values">
       <title>Estimates versus Exact Values</title>
       <p>
         Don't lose sight of the fact that the values we derived for the expanding house are <em>estimates</em>.
         In some cases we can get the exact values.
         Why don't we, whenever we can?
+      </p>
+      <p>
         For example,
         we can calculate exactly how much the volume increases when we add
         <m>\Delta s = 0.01</m> inches to <m>s = 200</m> inches.
@@ -96,20 +97,16 @@
       </p>
       <p>
         That is, the difference is only 1/200 of 1% of the calculated volume.
-        To get the exact value we had to cube two numbers and take their difference.
-        To get the estimate we only had to do a single multiplication.
       </p>
-      <aside>
-        <p>
-          Exact values can be harder to calculate than estimates.
-        </p>
-      </aside>
       <p>
-        Estimates made with the microscope equation are always easy to calculate<mdash/>they involve only linear functions.
+        To get the exact value we had to cube two numbers and take their difference.
+        To get the estimate we only had to do a single multiplication. [[NOTE:Exact values can be harder to calculate than estimates.]] Estimates made with the microscope equation are always easy to calculate<mdash/>they involve only linear functions.
         Exact values are usually harder to calculate.
         As you can see in the example,
         the extra effort may not gain us extra information.
         That's one reason why we don't always calculate exact values when we can.
+      </p>
+      <p>
         Here's another reason.
         Go back to the question: How large must
         <m>\Delta s</m> be if <m>\Delta V</m> = 3 cubic inches?
@@ -136,6 +133,8 @@
       <p>
         Thus, another reason we don't calculate exact values at every opportunity is that the calculations can be daunting.
         The microscope estimates are always straightforward.
+      </p>
+      <p>
         Perhaps the most important reason,
         though, is the insight that calculating <m>V'</m> gave us.
         Let's translate into English what we have really been talking about:
@@ -153,7 +152,7 @@
       </p>
     </subsubsection>
   </subsection>
-  <subsection xml:id="sec_estimation-and-error-analysis_subsec_propagation-of-error">
+  <subsection xml:id="subsec_propagation-of-error">
     <title>Propagation of Error</title>
     <introduction>
       <p>
@@ -161,7 +160,7 @@
             <idx><h>propagation of error</h></idx>
       </p>
     </introduction>
-    <subsubsection xml:id="sec_estimation-and-error-analysis_subsubsec_from-measurements-to-calculations">
+    <subsubsection xml:id="subsubsec_from-measurements-to-calculations">
       <title>From Measurements to Calculations</title>
       <p>
         We can view all the estimates we made for the expanding house from another perspective<mdash/>the lack of precision in measurement.
@@ -176,18 +175,14 @@
         you believe the true length lies between 199.5 inches and 200.5 inches,
         but you are uncertain precisely where it lies within that interval.
         How uncertain does that make your calculation of the volume?
-        There is a direct approach to this question:
       </p>
-      <aside>
-        <p>
-          How uncertain is the calculated value of the volume?
-        </p>
-      </aside>
       <p>
-        we can simply say that the volume must lie between <m>199.5^3</m> = 7,940,149.875 cubic inches and <m>200.5^3</m> = 8,060,150.125 cubic inches.
+        There is a direct approach to this question: [[NOTE:How uncertain is the calculated value of the volume?]] we can simply say that the volume must lie between <m>199.5^3</m> = 7,940,149.875 cubic inches and <m>200.5^3</m> = 8,060,150.125 cubic inches.
         In a sense, these values are almost too precise.
         They don't reveal a general pattern.
         We would like to know how an uncertainty<mdash/>or error<mdash/>in measuring the length of the side of a cube propagates to an error in calculating its volume.
+      </p>
+      <p>
         Let's take another approach.
         If we measure <m>s</m> as 200 inches,
         and the true value differs from this by <m>\Delta s</m> inches,
@@ -210,18 +205,12 @@
         </me>.
       </p>
       <p>
-        Thus, for example,
-      </p>
-      <aside>
-        <p>
-          The microscope equation describes how errors propagate
-        </p>
-      </aside>
-      <p>
-        an error of 1/2 inch in measuring <m>s</m> propagates to an error of about 60,000 cubic inches in calculating <m>V</m>.
+        Thus, for example, [[NOTE:The microscope equation describes how errors propagate]] an error of 1/2 inch in measuring <m>s</m> propagates to an error of about 60,000 cubic inches in calculating <m>V</m>.
         This is about 35 cubic feet, the size of a large refrigerator!
         Putting it another way: if <m>s = 200 \pm 0.5</m> inches,
         then <m>V \approx 8,000,000 \pm 60,000</m> cubic inches.
+      </p>
+      <p>
         If we keep in mind the error propagation equation <m>\Delta V \approx 120000\,\Delta s</m>,
         we can quickly answer other questions about measuring the same cube.
         For instance,
@@ -232,11 +221,13 @@
         This is just a little more than 1/32 inch.
       </p>
     </subsubsection>
-    <subsubsection xml:id="sec_estimation-and-error-analysis_subsubsec_relative-error">
+    <subsubsection xml:id="subsubsec_relative-error">
       <title>Relative Error</title>
       <p>
             <idx><h>relative error</h></idx>
             <idx><h>error</h><h>relative</h></idx>
+      </p>
+      <p>
         Suppose we have a second cube whose side is twice as large (<m>s = 400</m> inches),
         and once again we measure its length with an error of 1/2 inch.
         Then the error in the calculated value of the volume is
@@ -247,44 +238,29 @@
       <p>
         (In the exercises you will be asked to show <m>V'(400)</m> = 480,000.) The error in our calculation for the bigger cube is four times what it was for the smaller cube,
         even though the length was measured to the same accuracy in both cases!
-        There is no mistake here.
-      </p>
-      <aside>
-        <p>
-          Bigger numbers have bigger errors
-        </p>
-      </aside>
-      <p>
-        In fact, the volume of the second cube is eight times the volume of the first,
+        There is no mistake here. [[NOTE:Bigger numbers have bigger errors]] In fact,
+        the volume of the second cube is eight times the volume of the first,
         so the numbers we are dealing with in the second case are roughly eight times as large.
         We should not be surprised if the error is larger, too.
+      </p>
+      <p>
         In general, we must expect that the size of an error will depend on the size of the numbers we are working with.
         We expect big numbers to have big errors and small numbers to have small errors.
         In a sense, though,
         an error of 1 inch in a measurement of 50 inches is no worse than an error of 1/10-th of an inch in a measurement of 5 inches:
         both errors are 1/50-th the size of the quantity being measured.
       </p>
-      <aside>
-        <p>
-          A watchmaker who measures the tiny objects that go into a watch only as accurately as a carpenter measures lumber would never make a watch that worked;
-          likewise, a carpenter who takes the pains to measure things as accurately as a watchmaker does would take forever to build a house.
-          The scale of allowable errors is dictated by the scale of the objects they work on.
-        </p>
-      </aside>
+      <p>
+        [[NOTE:A watchmaker who measures the tiny objects that go into a watch only as accurately as a carpenter measures lumber would never make a watch that worked;
+        likewise, a carpenter who takes the pains to measure things as accurately as a watchmaker does would take forever to build a house.
+        The scale of allowable errors is dictated by the scale of the objects they work on.]]
+      </p>
       <p>
         The errors <m>\Delta x</m> we have been considering are called
         <em> absolute errors</em>;
             <idx><h>absolute error</h></idx>
             <idx><h>error</h><h>absolute</h></idx>
-        their values depend on the size of the quantities <m>x</m> we are working with.
-      </p>
-      <aside>
-        <p>
-          Absolute and relative error
-        </p>
-      </aside>
-      <p>
-        To reduce the effect of differences due to the size of <m>x</m>,
+        their values depend on the size of the quantities <m>x</m> we are working with. [[NOTE:Absolute and relative error]] To reduce the effect of differences due to the size of <m>x</m>,
         we can look instead at the error as a <em>fraction</em>
         of the number being measured or calculated.
         This fraction <m>\Delta x/x</m> is called
@@ -298,6 +274,8 @@
         the second is .05<nbsp/>inch per inch.)
         To judge how good or bad a measurement really is,
         we usually take the relative error instead of the absolute error.
+      </p>
+      <p>
         Let's compare the propagation of relative and absolute errors.
         For example,
         the absolute error in calculating the volume of a cube whose side measures <m>s</m> is
@@ -310,6 +288,8 @@
         but the multiplier <m>V'(s)</m> depends on the size of <m>s</m>.
         (We saw above that the multiplier is 120,000 cubic inches per inch when <m>s = 200</m> inches,
         but it grows to 480,000 cubic inches per inch when <m>s = 400</m> inches.)
+      </p>
+      <p>
         In section<nbsp/>5, which deals with formulas for derivatives,
         we will see that <m>V'(s) = 3\,s^2</m>.
         If we substitute <m>3s^2</m> for <m>V'(s)</m> in the propagation equation for absolute error, we get
@@ -329,6 +309,8 @@
         but the multiplier is always 3;
         it doesn't depend on the size of the cube,
         as it did for absolute errors.
+      </p>
+      <p>
         Return to the case where <m>\Delta s = 0.5</m> inch and <m>s = 200</m> inches.
         Since <m>\Delta s</m> and <m>s</m> have the same units,
         the relative error <m>\Delta s/s</m> is
@@ -336,15 +318,7 @@
         <mdash/>it has no units.
         We can, however,
         describe <m>\Delta s/s</m> as a <em>percentage</em>:
-        <m>\Delta s/s = 0.5/200 =</m> .25%, or 1/4 of 1%. For this reason,
-      </p>
-      <aside>
-        <p>
-          Percentage error is relative error
-        </p>
-      </aside>
-      <p>
-        relative error is sometimes called
+        <m>\Delta s/s = 0.5/200 =</m> .25%, or 1/4 of 1%. For this reason, [[NOTE:Percentage error is relative error]] relative error is sometimes called
         <term>percentage error</term>.
             <idx><h>percentage error</h></idx>
             <idx><h>error</h><h>percentage</h></idx>
@@ -362,7 +336,7 @@
   </subsection>
   <subsection>
     <title>Exercises</title>
-    <subsubsection xml:id="sec_estimation-and-error-analysis_subsubsec_estimation">
+    <subsubsection xml:id="subsubsec_estimation">
       <title>Estimation</title>
       <p>
             <idx><h>estimate</h></idx>
@@ -472,7 +446,7 @@
         </li>
       </ol>
     </subsubsection>
-    <subsubsection xml:id="sec_estimation-and-error-analysis_subsubsec_error-analysis">
+    <subsubsection xml:id="subsubsec_error-analysis">
       <title>Error analysis</title>
       <p>
             <idx><h>error</h></idx>

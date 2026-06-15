@@ -1,42 +1,37 @@
-<section xml:id="sec_optimal-shapes_sec_optimal-shapes">
+<section xml:id="sec_optimal-shapes">
   <title>Optimal Shapes</title>
-  <subsection xml:id="sec_optimal-shapes_subsec_the-problem-of-the-optimal-tin-can">
+  <subsection xml:id="subsec_the-problem-of-the-optimal-tin-can">
     <title>The Problem of the Optimal Tin Can</title>
-    <aside>
-      <p>
-        What is the minimum surface area?
-      </p>
-    </aside>
-    <sidebyside>
-      Suppose you are a tin can manufacturer.  You must make a can to hold a
-      certain volume <m>V</m> of canned tomatoes.  Naturally, the can will be a
-      cylinder, but the proportions, the height <m>h</m> and the radius <m>r</m>, can
-      vary. Your task is to choose the proportions so that you use the least
-      amount of tin to make the can.  In other words, you want the surface
-      area of that can to be as small as possible.
-      \special{psfile=../ps/calc1/pic257a.ps}
-    </sidebyside>
+    <p>
+      [[NOTE:What is the minimum surface area?]]
+    </p>
+    <p>
+      Suppose you are a tin can manufacturer.
+      You must make a can to hold a certain volume <m>V</m> of canned tomatoes.
+      Naturally, the can will be a cylinder, but the proportions,
+      the height <m>h</m> and the radius <m>r</m>, can vary.
+      Your task is to choose the proportions so that you use the least amount of tin to make the can.
+      In other words,
+      you want the surface area of that can to be as small as possible. \special{psfile=../ps/calc1/pic257a.ps}
+    </p>
   </subsection>
-  <subsection xml:id="sec_optimal-shapes_subsec_the-solution">
+  <subsection xml:id="subsec_the-solution">
     <title>The Solution</title>
     <p>
       The surface area is the sum of the areas of the two circles at the top and bottom of the can,
       plus the area of the rectangle that would be obtained if the top and bottom were removed and the side cut vertically.
-      <image width="73%" source="images/pic257b.png"/> Thus <m>A</m> depends on <m>r</m> and <m>h</m>:
+    </p>
+    <p>
+      <image width="73%" source="images/pic257b.png"/>
+    </p>
+    <p>
+      Thus <m>A</m> depends on <m>r</m> and <m>h</m>:
       <me>
         A = 2 \pi r^2 + 2 \pi r h
       </me>.
     </p>
     <p>
-      However, <m>r</m> and <m>h</m> cannot vary independently.
-    </p>
-    <aside>
-      <p>
-        Finding <m>A</m> as a function of <m>r</m>
-      </p>
-    </aside>
-    <p>
-      Because the volume <m>V</m> is fixed,
+      However, <m>r</m> and <m>h</m> cannot vary independently. [[NOTE:Finding <m>A</m> as a function of <m>r</m>]] Because the volume <m>V</m> is fixed,
       <m>r</m> and <m>h</m> are related by
       <me>
         V = \pi r^2 h
@@ -52,24 +47,16 @@
         A = f(r) = 2 \pi r^2 + 2 \pi r \frac{V}{\pi r^2} = 2\pi r^2 + \frac{2V}{r}
       </me>
     </p>
-    <aside>
-      <p>
-        <m>V</m> is a parameter
-      </p>
-    </aside>
+    <p>
+      [[NOTE<m>:V</m> is a parameter]]
+    </p>
     <p>
       Notice that the formula for this function involves the parameter <m>V\/</m>.
       The mathematical description of our task is to find the value of <m>r</m> that makes <m>A=f(r)</m> a minimum.
-      Following the procedure of the previous section,
-      we first determine the domain of the function.
     </p>
-    <aside>
-      <p>
-        Finding the domain of <m>f(r)</m>
-      </p>
-    </aside>
     <p>
-      Clearly this problem makes physical sense only for <m>r>0</m>.
+      Following the procedure of the previous section,
+      we first determine the domain of the function. [[NOTE:Finding the domain of <m>f(r)</m>]] Clearly this problem makes physical sense only for <m>r>0</m>.
       Looking at the equation
       <me>
         h = \frac{V}{\pi r^2}
@@ -80,6 +67,8 @@
       Thus the domain of our function is <m>r>0</m>,
       which is not a closed interval,
       so we have no guarantee that a minimum exists.
+    </p>
+    <p>
       Next we compute <m>f'(r)</m>,
       keeping in mind that the symbols <m>V</m> and <m>\pi</m> represent constants and that we are differentiating with respect to the variable <m>r</m>.
       <me>
@@ -88,15 +77,7 @@
     </p>
     <p>
       The derivative is undefined at <m>r=0</m>,
-      which is outside the domain under consideration.
-    </p>
-    <aside>
-      <p>
-        Looking for critical points
-      </p>
-    </aside>
-    <p>
-      So now we set the derivative equal to zero and solve for any possible critical points.
+      which is outside the domain under consideration. [[NOTE:Looking for critical points]] So now we set the derivative equal to zero and solve for any possible critical points.
       <md>
         <mrow>f'(r) \amp = \frac{4 \pi r^3 - 2V}{r^2}</mrow>
         <mrow>0 \amp = \frac{4 \pi r^3 - 2V}{r^2}</mrow>
@@ -106,15 +87,9 @@
     </p>
     <p>
       Thus <m>r=\sqrt[3]{V/2 \pi}</m> is the only critical point.
-      We can actually sketch the shape of the graph of <m>A</m> versus <m>r</m>
     </p>
-    <aside>
-      <p>
-        Finding the shape of the graph of <m>A</m>
-      </p>
-    </aside>
     <p>
-      based on this analysis of <m>f'(r)</m>.
+      We can actually sketch the shape of the graph of <m>A</m> versus <m>r</m> [[NOTE:Finding the shape of the graph of <m>A</m>]] based on this analysis of <m>f'(r)</m>.
       The sign of <m>f'(r)</m> is determined by its numerator,
       since the denominator <m>r^2</m> is always positive.
       <ul>
@@ -133,22 +108,17 @@
       </ul>
     </p>
     <p>
-      <image width="73%" source="images/pic259.png"/> Obviously,
-      <m>A</m> has a <em>minimum</em> at
+      <image width="73%" source="images/pic259.png"/>
+    </p>
+    <p>
+      Obviously, <m>A</m> has a <em>minimum</em> at
       <me>
         r_{ extreme}=\sqrt[3]{V/2 \pi}
       </me>.
     </p>
     <p>
-      It is also obvious
-    </p>
-    <aside>
-      <p>
-        A has a minimum but no maximum
-      </p>
-    </aside>
-    <p>
-      that there is no <em>maximum</em> area, since
+      It is also obvious [[NOTE:A has a minimum but no maximum]] that there is no
+      <em>maximum</em> area, since
       <me>
         \lim_{r \rightarrow 0} A = \infty \mbox{and}   \lim_{r \rightarrow \infty} A = \infty
       </me>.
@@ -158,7 +128,7 @@
       optimization problem has a solution.
     </p>
   </subsection>
-  <subsection xml:id="sec_optimal-shapes_subsec_the-mathematical-context-optimal-shapes">
+  <subsection xml:id="subsec_the-mathematical-context-optimal-shapes">
     <title>The Mathematical Context:  Optimal Shapes</title>
     <p>
       It is interesting to find the value of the height
@@ -178,6 +148,8 @@
       Campbell soup cans are far from optimal,
       but a can of Progresso plum tomatoes has diameter 4 inches and height 4.5 inches.
       Does someone at Progresso know calculus?
+    </p>
+    <p>
       Problems like the one above<mdash/>as well as others that you will find in the exercises<mdash/>have been among the mainstays of calculus courses for generations.
       However, if you really had to face the problem of optimizing the shape of a tin can as a practical matter,
       you would probably have a numerical value for <m>V</m> specified in advance.
@@ -190,20 +162,16 @@
       Moreover, the functions encountered in many other real problems are often complicated and messy,
       and their derivatives are hard to analyze.
       A graphing utility may provide the only practical course open to you.
-      So why insist that you use derivatives on these problems?
     </p>
-    <aside>
-      <p>
-        So why do things the hard way?
-      </p>
-    </aside>
     <p>
-      It is because the actual context of these examples is not really saving money for food canners.
+      So why insist that you use derivatives on these problems? [[NOTE:So why do things the hard way?]] It is because the actual context of these examples is not really saving money for food canners.
       The real context is geometry.
       If we had used a graphing facility to solve the can problem,
       we might have noticed that the optimal radius was about half the height,
       but we wouldn't have known the relationship is exact.
       Nor would we have recognized that the relationship holds for cylinders of arbitrary volume.
+    </p>
+    <p>
       Using a graphing utility is essentially mindless,
       which is part of its virtue if we just need a specific answer to a particular problem.
       Part of the purpose of a calculus course, though,
@@ -214,19 +182,11 @@
       not just that of the specific problem being addressed,
       the better intuitions we will develop that will help us see unsuspected relationships in the problem at hand or think more creatively about other problems in other settings.
       The ability to give precise expression to our intuitions can lead to deeper insights.
-      You should thus try to see the exercises that follow as not just
-    </p>
-    <aside>
-      <p>
-        Symmetric shapes are often optimal
-      </p>
-    </aside>
-    <p>
-      about fences and storage bins<mdash/>they are opportunities to observe that, often,
+      You should thus try to see the exercises that follow as not just [[NOTE:Symmetric shapes are often optimal]] about fences and storage bins<mdash/>they are opportunities to observe that, often,
       the geometric regularity that pleases the eye is also optimal.
     </p>
   </subsection>
-  <subsection xml:id="sec_optimal-shapes_subsec_exercises">
+  <subsection xml:id="subsec_exercises">
     <title>Exercises</title>
     <p>
       For each of the following problems,

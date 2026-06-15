@@ -1,4 +1,4 @@
-<section xml:id="sec_making-approximations_sec_making-approximations">
+<section xml:id="sec_making-approximations">
   <title>Making Approximations</title>
   <introduction>
     <p>
@@ -18,18 +18,13 @@
       of the relations among the different components of an epidemic.
       Almost immediately, though,
       we began using the rate equations in the model as a <em>recipe</em>
-      for predicting what happens over the course of the epidemic: If we know at some time <m>t</m> the values of <m>S(t), I(t), \mbox{ and } R(t)</m>),
-    </p>
-    <aside>
-      <p>
-        Rate equations tell us where to go next
-      </p>
-    </aside>
-    <p>
-      then the equations tell us how to estimate values of the functions at other times.
+      for predicting what happens over the course of the epidemic: If we know at some time <m>t</m> the values of
+      <m>S(t), I(t), \mbox{ and } R(t)</m>), [[NOTE:Rate equations tell us where to go next]] then the equations tell us how to estimate values of the functions at other times.
       We used this approach in the last chapter to move backwards and forwards in time,
       calculating the values of <m>S</m>,
       <m>I</m>, and <m>R</m> as we went.
+    </p>
+    <p>
       While we got numbers,
       there were some questions about how accurate these numbers were<mdash/>that is,
       how exactly they represented the values implied by the model.
@@ -42,7 +37,7 @@
       Resolving this discrepancy will be an important feature of the technique developed in this section.
     </p>
   </introduction>
-  <subsection xml:id="sec_making-approximations_subsec_the-longest-march-begins-with-a-single-step">
+  <subsection xml:id="subsec_the-longest-march-begins-with-a-single-step">
     <title>The Longest March Begins with a Single Step</title>
     <introduction>
       <p>
@@ -60,10 +55,14 @@
         producing a sequence of approximations to the values we are looking for.
       </p>
     </introduction>
-    <subsubsection xml:id="sec_making-approximations_subsubsec_there-and-back-again-again">
+    <subsubsection xml:id="subsubsec_there-and-back-again-again">
       <title>There and Back Again Again</title>
       <p>
-            <idx><h>there and back again</h></idx> <xref ref="x_thereback_">On</xref> in chapter 1 we used the rate equations to go forward a day and come back again.
+            <idx><h>there and back again</h></idx>
+      </p>
+      <p>
+        <xref ref="x_thereback_">On</xref>
+        in chapter 1 we used the rate equations to go forward a day and come back again.
         We started with the initial values
         <me>
           S(0)=45400,  I(0) = 2100,  R(0) = 2500
@@ -79,8 +78,10 @@
         <ndash/>-which are rather far from the values of <m>S(0)</m>,
         <m>I(0)</m>,
         and <m>R(0)</m> we started with.
+      </p>
+      <p>
         A clue to the resolution of this discrepancy appeared in problem 18,
-        <xref ref="sec_the-spread-of-disease_x_therebackprob_"></xref>.
+        <xref ref="x_therebackprob_"></xref>.
         There you were asked to go forward two days and come back again in two different ways,
         using <m>\Delta t=2</m> (a total of 2 steps) in the first case and
         <m>\Delta t=1</m> (a total of 4 steps) in the second.
@@ -111,19 +112,14 @@
       <p>
         While the discrepancy is fairly large in either case,
         <m>\Delta t=1</m> clearly does better than <m>\Delta t=2</m>.
-        But if smaller
-      </p>
-      <aside>
-        <p>
-          Smaller steps generate a smaller discrepancy
-        </p>
-      </aside>
-      <p>
-        is better, why stop at <m>\Delta t=1</m>?
+        But if smaller [[NOTE:Smaller steps generate a smaller discrepancy]] is better,
+        why stop at <m>\Delta t=1</m>?
         What happens if we take even smaller time steps,
         get the corresponding new values of <m>S</m>, <m>I</m>,
         and <m>R</m>,
         and use these values to recalculate the rates each time?
+      </p>
+      <p>
         Recall that the rate <m>S'</m>
         (or <m>I'</m> or <m>R'</m>)
         is simply the multiplier which gives
@@ -144,6 +140,8 @@
         <q>(estimated)</q>
         throughout to emphasize the fact that if <m>S'</m> is not constant over the entire time <m>\Delta t</m>,
         then the value we get for <m>\Delta S</m> will typically be only an approximation to the real change in <m>S</m>.
+      </p>
+      <p>
         Let's try going forward one day and coming back,
         using different values for <m>\Delta t</m>.
         As we reduce <m>\Delta t</m> the number of calculations will increase.
@@ -336,14 +334,10 @@
           <li>
             <p>
               Change the next three lines to use the values we just calculated for <m>S(1)</m>,
-              <m>I(1)</m>, and <m>R(1)</m> as our
-              <em>starting</em> values in
-              <aside>
-                <p>
-                  The <em>sign</em> of <c>deltat</c> determines whether we move forward or backward in time
-                </p>
-              </aside>
-              SIR.
+              <m>I(1)</m>,
+              and <m>R(1)</m> as our <em>starting</em>
+              values in [[NOTE:The <em>sign</em>
+              of <c>deltat</c> determines whether we move forward or backward in time]] SIR.
             </p>
           </li>
           <li>
@@ -362,6 +356,8 @@
       </p>
       <p>
         This is clearly a considerable improvement over the values obtained with <m>\Delta t=1</m>.
+      </p>
+      <p>
         With this promising result,
         the obvious thing to do is to try even smaller values of <m>\Delta t</m>,
         perhaps <m>\Delta t = 0.01</m>.
@@ -373,8 +369,9 @@
             <idx><h>program</h><h>SIRVALUE</h></idx>
         below and compare it with SIR.
       </p>
-      <sidebyside>
+      <p>
         <term>Program: SIRVALUE</term>
+      </p>
 <pre>
 tinitial = 0
 tfinal = 1
@@ -398,7 +395,9 @@ R = R + deltaR
 NEXT k
 PRINT t, S, I, R
 </pre>
+      <p>
         <term>Program: SIR</term>
+      </p>
 <pre>
 t = 0
 S = 45400
@@ -419,7 +418,6 @@ R = R + deltaR
 PRINT t, S, I, R
 NEXT k
 </pre>
-      </sidebyside>
       <p>
         You will see that the major change is to place the <c>PRINT</c> statement outside the loop,
         so only the final values of <m>S</m>,
@@ -430,16 +428,11 @@ NEXT k
         Another change is that the value of <c>deltat</c> no longer needs to be specified<mdash/>it is automatically determined by the values of <c>tinitial</c>,
         <c> tfinal</c>,
         and <c>numberofsteps</c>.
-        As written above, SIR and SIRVALUE both run for 10 steps of size <m>0.1</m>.
-        By changing the value of <c>numberofsteps</c> in the program we can quickly get estimates
       </p>
-      <aside>
-        <p>
-          With a computer we can generate lots of data and look for patterns
-        </p>
-      </aside>
       <p>
-        for <m>S(1)</m>, <m>I(1)</m>,
+        As written above, SIR and SIRVALUE both run for 10 steps of size <m>0.1</m>.
+        By changing the value of <c>numberofsteps</c> in the program we can quickly get estimates [[NOTE:With a computer we can generate lots of data and look for patterns]] for <m>S(1)</m>,
+        <m>I(1)</m>,
         and <m>R(1)</m> for a wide range of values for <m>\Delta t </m>.
         Moreover, once we have these estimates we can use SIRVALUE again to go backwards in time to <m>t=0</m>,
         by making changes similar to those we made in SIR earlier.
@@ -450,6 +443,8 @@ NEXT k
         <m>I(1)</m>, and <m>R(1)</m>.
         With these changes, SIRVALUE will give us the corresponding estimated values for <m>S(0)</m>,
         <m>I(0)</m>, and <m>R(0)</m>.
+      </p>
+      <p>
         If we use SIRVALUE with <m>\Delta t</m> ranging from 1 to 0.00001
         (which means letting <c>numberofsteps</c> range from 1 to 100,000)
         we get the table below.
@@ -458,6 +453,8 @@ NEXT k
         followed by the estimated value of <m>S(0)</m> obtained by running SIRVALUE backward in time from these new values,
         and, finally,
         the discrepancy between this estimated value of <m>S(0)</m> and the original value <m>S(0) = 45400</m>.
+      </p>
+      <p>
         Estimated values of <m>S, I, \mbox{ and } R</m> when <m>t = 1</m>,
       </p>
       <p>
@@ -609,19 +606,13 @@ NEXT k
       <p>
         There are several striking features of this table.
         The first is that if we go forward one day and come back again,
-        we can get back as close as
-      </p>
-      <aside>
-        <p>
-          Smaller steps generate a discrepancy which can be made as small as we like
-        </p>
-      </aside>
-      <p>
-        we want to our initial value of <m>S(0)</m>
+        we can get back as close as [[NOTE:Smaller steps generate a discrepancy which can be made as small as we like]] we want to our initial value of <m>S(0)</m>
         <em>provided we recalculate the rates frequently enough</em>.
         After 200,000 rounds of calculations (<m>\Delta t = 0.00001</m>) we ended up only 0.0034 away from our starting value.
         In fact, there is a clear pattern to the values of the errors as we decrease the step size.
         In the exercises it is left for you to explore this pattern and show that similar results hold for <m>I</m> and for <m>R</m>.
+      </p>
+      <p>
         A second feature is that as we read down the column under <m>S(1)</m>,
         we find each digit <term>stabilizes</term>
             <idx><h>stabilize</h></idx>
@@ -636,16 +627,10 @@ NEXT k
         The table is revealing to us,
         digit by digit, the true value of <m>S(1)</m>.
         By the fifth stage we learn that the integer part of <m>S(1)</m> is 44255.
-        By the sixth stage we can say that the true value of <m>S(1)</m> is
-        <m>44255.4\ldots</m> . When we write <m>S(1) = 44255.4\ldots</m>
+        By the sixth stage we can say that the true value of <m>S(1)</m> is <m>44255.4\ldots</m> .
       </p>
-      <aside>
-        <p>
-          Approximations lead to exact values
-        </p>
-      </aside>
       <p>
-        we are expressing <m>S(1)</m> to
+        When we write <m>S(1) = 44255.4\ldots</m> [[NOTE:Approximations lead to exact values]] we are expressing <m>S(1)</m> to
         <term>one decimal place accuracy</term>.
             <idx><h>accuracy to a given number of decimal places</h></idx>
         This says, first,
@@ -663,6 +648,8 @@ NEXT k
         we need to stabilize the first eleven digits in our estimates of <m>S(1)</m>.
         The table suggests that <m>\Delta t</m> should probably be about
         <m>10^{-10}</m><mdash/>i.e., <m>N = 10</m>.
+      </p>
+      <p>
         The true value of <m>S(1)</m> emerges through a process that generates a sequence of successive approximations.
             <idx><h>successive approximation</h></idx>
         We say <m>S(1) = 44255.4</m><ellipsis/> is the <term>limit</term>
@@ -684,20 +671,20 @@ NEXT k
         <q>as <m>N</m> goes to infinity.</q>
         However, it is often more instructive to say
         <q>as <m>N</m> gets larger and larger, without bound.</q>
+      </p>
+      <p>
         You should check that similar patterns are occurring in the <m>I(1)</m> and <m>R(1)</m> columns as well.
       </p>
-      <aside>
-        <p>
-          The limit concept lies at the heart of calculus.
-          Later on we'll give a precise definition,
-          but you should first see limits at work in a number of contexts and begin to develop some intuitions about what they are.
-          This approach mirrors the historical development of calculus<mdash/>mathematicians freely used limits for well over a century before a careful,
-          rigorous definition was developed.
-        </p>
-      </aside>
+      <p>
+        [[NOTE:The limit concept lies at the heart of calculus.
+        Later on we'll give a precise definition,
+        but you should first see limits at work in a number of contexts and begin to develop some intuitions about what they are.
+        This approach mirrors the historical development of calculus<mdash/>mathematicians freely used limits for well over a century before a careful,
+        rigorous definition was developed.]]
+      </p>
     </subsubsection>
   </subsection>
-  <subsection xml:id="sec_making-approximations_subsec_one-picture-is-worth-a-hundred-tables">
+  <subsection xml:id="subsec_one-picture-is-worth-a-hundred-tables">
     <title>One Picture Is Worth a Hundred Tables</title>
     <p>
       As we noted,
@@ -706,13 +693,23 @@ NEXT k
       and <m>R</m> because it would typically take too much space to print out the intermediate values.
       However, if instead of printing these values we plot them graphically,
       we can convey all this intermediate information in a compact and comprehensible form.
+    </p>
+    <p>
       Suppose, for instance,
       that we wanted to record the calculations leading up to <m>S(3)</m> by plotting all the points.
       The graphs below plot all the pairs of values <m>(t, S)</m> that are calculated along the way for the cases <m>\Delta t =1</m> (4 points),
       <m>\Delta t =.1</m> (31 points),
-      and <m>\Delta t =.01</m> (301 points).<image width="73%" source="images/picture3.png"/> By the time we get to steps of size 0.01,
+      and <m>\Delta t =.01</m> (301 points).
+    </p>
+    <p>
+      <image width="73%" source="images/picture3.png"/>
+    </p>
+    <p>
+      By the time we get to steps of size 0.01,
       the resulting graph begins to look like a continuous curve.
       This suggests that instead of simply plotting the points we might want to draw lines connecting the points as they're calculated.
+    </p>
+    <p>
       We can easily modify SIRVALUE to do this<mdash/>the only changes will be to replace the <c>PRINT</c> command with a command to draw a line and to move this command inside the loop
       (so that it is executed every time new values are computed).
       We will also need to add a line or two at the beginning to tell the computer to set up the screen to plot points.
@@ -735,6 +732,8 @@ NEXT k
       The computational core of SIRVALUE is unchanged.
       Here is what the new program looks like if we want to use
       <m>\Delta t = 0.1</m> and connect the points with straight lines:
+    </p>
+    <p>
       <term>Program: SIRPLOT</term>
           <idx><h>program</h><h>SIRPLOT</h></idx>
       <em>Set up GRAPHICS</em>
@@ -772,6 +771,8 @@ NEXT k
       <c>(t, S)</c> in place of the command to plot the line,
       moving this command down two lines so it came after we had computed the new values of <c>t</c> and <c>S</c>.
       We would also need to place that command before the loop so that the initial point corresponding to <m>t = 0</m> gets plotted.
+    </p>
+    <p>
       When we
       <q>connect the dots</q>
       like this we emphasize graphically the underlying assumption we have been making in all our estimates:
@@ -779,21 +780,21 @@ NEXT k
       Let's see what the graphs look like when we do this for the three values of <m>\Delta t</m> we used above.
       To compare the results more readily we'll plot the graphs on the same set of axes.
       (We will look at a program for doing this in the next section.)
-      We get the following picture:<image width="73%" source="images/picture2.png"/> The graphs become indistinguishable from each other and increasingly look like smooth
+      We get the following picture:
     </p>
-    <aside>
-      <p>
-        Graphs made up of line segments look like smooth curves if the segments are short enough
-      </p>
-    </aside>
     <p>
-      curves as the number of segments increases.
+      <image width="73%" source="images/picture2.png"/>
+    </p>
+    <p>
+      The graphs become indistinguishable from each other and increasingly look like smooth [[NOTE:Graphs made up of line segments look like smooth curves if the segments are short enough]] curves as the number of segments increases.
       If we plotted the 3000-step graph as well,
       it would be indistinguishable from the 300-step graph at this scale.
       If we now shift our focus from the end value <m>S(3)</m> and look at all the intermediate values as well,
       we find that each graph gives an approximate value for <m>S(t)</m> for <em>every</em>
       value of <m>t</m> between 0 and 3.
       We are seeing the entire function <m>S(t)</m> over this interval.
+    </p>
+    <p>
       Just as we wrote
       <me>
         S(3) = \lim_{N \to \infty}\{\mbox{the estimate of \(S(3)\) with \(\Delta t = 10^{-N}\)} \}
@@ -810,10 +811,12 @@ NEXT k
       It has wide-ranging implications which will occupy much of our attention for the rest of the course.
     </p>
   </subsection>
-  <subsection xml:id="sec_making-approximations_subsec_piecewise-linear-functions">
+  <subsection xml:id="subsec_piecewise-linear-functions">
     <title>Piecewise Linear Functions</title>
     <p>
           <idx><h>piecewise linear function</h></idx>
+    </p>
+    <p>
       Let's examine the implications of this approach more closely by considering the
       <q>one-step</q>
       (<m>\Delta t=3</m>) approximation to <m>S(t)</m> and the
@@ -919,15 +922,7 @@ NEXT k
       estimate</em>.
       With three smaller steps of size <m>\Delta t = 1</m>,
       we get a function whose graph is composed of three line segments,
-      each starting at the <m>(t, S)</m> point at the
-    </p>
-    <aside>
-      <p>
-        A single function may not be specified by a single equation
-      </p>
-    </aside>
-    <p>
-      beginning of each day and with a slope equal to the corresponding rate of new infections at the beginning of the day.
+      each starting at the <m>(t, S)</m> point at the [[NOTE:A single function may not be specified by a single equation]] beginning of each day and with a slope equal to the corresponding rate of new infections at the beginning of the day.
       Let's call this function <m>S_{3}(t)</m>.
       The three-step estimate <m>S_{3}(t)</m> is hence not a linear function,
       strictly speaking.
@@ -958,17 +953,23 @@ NEXT k
       and usually more informative,
       just to define <m>S_{3}(t)</m> by its graph<mdash/>it is nevertheless important to realize that there really is an approximating function defined for all values of <m>t</m> in the interval <m>[0, 3]</m>,
       not just at the finite set of <m>t</m> values where we make the recalculations.
+    </p>
+    <p>
       By the time we are dealing with the 300-step function
       <m>S_{300}(t)</m> we can't even tell by its graph that it is piecewise linear unless we zoom in very close.
       In principle, though,
       we could still write down a simple linear formula for each of its segments
       (see the exercises).
+    </p>
+    <p>
       <em>An appraisal</em>.
       The graph of <m>S_{1}(t)</m> gives us a rough idea of what is happening to the true function <m>S(t)</m> during the first three days.
       It starts off at the same rate as <m>S'</m>,
       but subsequently the rates move apart.
       The value of <m>S_{1}'</m> never changes,
       while <m>S'</m> changes with the (ever-changing) values of <m>S</m> and<nbsp/><m>I</m>.
+    </p>
+    <p>
       The graph of <m>S_{3}(t)</m> is a distinct improvement because it changes its direction twice,
       modifying its slope at the beginning of each day to come back into agreement with the rate equation.
       But since the three-step graph is still piecewise linear,
@@ -980,6 +981,8 @@ NEXT k
       Nevertheless,
       <m>S_{3}(t)</m> does satisfy the rate equation in our original model three times<mdash/>at the beginning of each segment<mdash/>and isn't too far off at other times.
       When we get to <m>S_{300}(t)</m> we have a function which satisfies the rate equation at 300 times and is very close in between.
+    </p>
+    <p>
       Each of these graphs gives us an idea of the behavior of the true function <m>S(t)</m> during the time interval <m>0 \leq t \leq 3</m>.
       None is strictly correct, but none is hopelessly wrong, either.
       All are <em> approximations</em> to the truth.
@@ -997,121 +1000,109 @@ NEXT k
       </me>.
     </p>
   </subsection>
-  <subsection xml:id="sec_making-approximations_subsec_approximate-versus-exact">
+  <subsection xml:id="subsec_approximate-versus-exact">
     <title>Approximate versus Exact</title>
-    <p>
-      You may find it unsettling that our efforts give us only a sequence of approximations to <m>S(3)</m>,
-      and not the exact value,
-      or only a sequence of piecewise-linear approximations to <m>S(t)</m>, not the
-      <q>real</q>
-      function itself.
-      In what sense can we say we
-      <q>know</q>
-      the number <m>S(3)</m> or the function <m>S(t)</m>?
-      The answer is: in
-    </p>
-    <aside>
+    <introduction>
       <p>
-        What does it mean to "know" a number like<nbsp/><m>\pi</m>?
+        You may find it unsettling that our efforts give us only a sequence of approximations to <m>S(3)</m>,
+        and not the exact value,
+        or only a sequence of piecewise-linear approximations to <m>S(t)</m>, not the
+        <q>real</q>
+        function itself.
+        In what sense can we say we
+        <q>know</q>
+        the number <m>S(3)</m> or the function <m>S(t)</m>?
+        The answer is:
+        in [[NOTE:What does it mean to "know" a number like<nbsp/><m>\pi</m>?]] the same sense that we
+        <q>know</q>
+        a number like <m>\sqrt{2}</m> or <m>\pi</m>.
+        There are two distinct aspects to the way we know a number.
+        On the one hand, we can <term>characterize</term>
+        a number precisely and completely:
       </p>
-    </aside>
-    <p>
-      the same sense that we
-      <q>know</q>
-      a number like <m>\sqrt{2}</m> or <m>\pi</m>.
-      There are two distinct aspects to the way we know a number.
-      On the one hand, we can <term>characterize</term>
-      a number precisely and completely:
-    </p>
-    <tabular>
-      <row>
-        <cell><m>\pi</m>:</cell>
-        <cell>the ratio of the circumference of a circle to its diameter;</cell>
-      </row>
-      <row>
-        <cell><m>\sqrt{2}</m>:</cell>
-        <cell>the positive number whose square is 2;</cell>
-      </row>
-    </tabular>
-    <p>
-      On the other hand, when we try to <term>construct</term>
-      the decimal expansion of a number,
-      we usually get only approximate and incomplete results.
-      For example,
-      when we do calculations by hand we might use the rough estimates
-      <m>\sqrt{2} \approx 1.414</m> and <m>\pi \approx 3.1416</m>.
-      With a desk-top computer we might have
-      <m>\sqrt{2} \approx 1.414\,213\,562\,373\,095</m> and <m>\pi \approx 3.141\,592\,653\,589\,793</m>,
-      but these are still approximations, and we are really saying
-      <me>
-        \begin{array}{rcl} \sqrt{2} \amp =\amp  1.414\,213\,562\,373\,09 \ldots \\ \pi \amp =\amp  3.141\,592\,653\,589\,79 \ldots \ . \end{array}
-      </me>
-    </p>
-    <p>
-      The <em>complete</em> decimal expansions for
-      <m>\sqrt{2}</m> and <m>\pi</m> are unknown!
-      The exact values exist as limits of approximations that involve successively longer strings of digits,
-      but we never see the limits<mdash/>only approximations.
-      In the final section of this chapter we will see ways of generating these approximations for <m>\sqrt{2}</m> and for <m>\pi</m>.
-      What we say about <m>\pi</m> and
-      <m>\sqrt{2}</m> is true for <m>S(3)</m> in exactly the same way.
-      We can <em>characterize</em> it quite precisely,
-      and we can <em>construct</em> approximations to its numerical value to any desired degree of accuracy.
-      Here, for example, is a characterization of <m>S(3)</m>:
-    </p>
-    <blockquote>
-      The <m>S</m>-<m>I</m>-<m>R</m> problem for which <m>a = 0.00001</m> and <m>b = 1/14</m> and for
-      which <m>S = 45400</m>, <m>I = 2100</m>, <m>R = 2500</m> when <m>t = 0</m> determines
-      three functions <m>S(t)</m>, <m>I(t)</m>, and <m>R(t)</m>.  The number <m>S(3)</m> is the
-      value that the function <m>S(t)</m> has when <m>t = 3</m>.
-    </blockquote>
-    <p>
-      You should try to extend this argument to describe the sense in which we
-      <q>know</q>
-      the function <m>S(t)</m> by knowing its piecewise-linear approximations.
-      Try to convince yourself that this is operationally no different from the way we
-      <q>know</q>
-      functions like <m>f(x)=\sqrt{x}</m>.
-      In each instance we can <term>characterize</term> the function completely,
-      but we can only <term>construct</term>
-      an approximation to most values of the function or to its graph.
-      All this discussion of approximations may strike you as an unfortunate departure from the accuracy and precision you may have been led to expect
-    </p>
-    <aside>
+      <tabular>
+        <row>
+          <cell><m>\pi</m>:</cell>
+          <cell>the ratio of the circumference of a circle to its diameter;</cell>
+        </row>
+        <row>
+          <cell><m>\sqrt{2}</m>:</cell>
+          <cell>the positive number whose square is 2;</cell>
+        </row>
+      </tabular>
       <p>
-        Being able to approximate a number to 12 decimal places is usually as good as knowing its value precisely
+        On the other hand, when we try to <term>construct</term>
+        the decimal expansion of a number,
+        we usually get only approximate and incomplete results.
+        For example,
+        when we do calculations by hand we might use the rough estimates
+        <m>\sqrt{2} \approx 1.414</m> and <m>\pi \approx 3.1416</m>.
+        With a desk-top computer we might have
+        <m>\sqrt{2} \approx 1.414\,213\,562\,373\,095</m> and <m>\pi \approx 3.141\,592\,653\,589\,793</m>,
+        but these are still approximations, and we are really saying
+        <me>
+          \begin{array}{rcl} \sqrt{2} \amp =\amp  1.414\,213\,562\,373\,09 \ldots \\ \pi \amp =\amp  3.141\,592\,653\,589\,79 \ldots \ . \end{array}
+        </me>
       </p>
-    </aside>
-    <p>
-      in mathematics up until now.
-      In fact, it is precisely this ability to make quick and accurate approximations to problems that is one of the most powerful features of mathematics.
-      This is what goes on every time you use your calculator to evaluate <m>\log 3</m> or <m>\sin 37</m>.
-      Your calculator doesn't really know what these numbers are<mdash/>but it does know how to approximate them quickly to 12 decimal places.
-      Similar kinds of approximations are also at the heart of how bridges are built and spaceships are sent to the moon.
-      <term>A Caution:</term> The fact that computers and calculators are really only dealing with approximations
-    </p>
-    <aside>
       <p>
-        However <ellipsis/>
+        The <em>complete</em> decimal expansions for
+        <m>\sqrt{2}</m> and <m>\pi</m> are unknown!
+        The exact values exist as limits of approximations that involve successively longer strings of digits,
+        but we never see the limits<mdash/>only approximations.
+        In the final section of this chapter we will see ways of generating these approximations for <m>\sqrt{2}</m> and for <m>\pi</m>.
       </p>
-    </aside>
-    <p>
-      when we think they are being exact occasionally leads to problems,
-      the most common of which involves
-      <term>roundoff errors</term>.
-          <idx><h>roundoff error</h></idx>
-      You can probably generate a relatively harmless manifestation of this on your computer with the SIRVALUE program.
-      Modify the <c> PRINT</c> line so it prints out the final value of <c>t</c> to 10 or 12 digits,
-      and try running it with a high value for <c>numberofsteps</c>,
-      say 1 million or 10 million.
-      You would expect the final value of <c>t</c> to be exactly 1 in every case,
-      since you are adding <c> deltat = 1/numberofsteps</c> to itself <c>numberofsteps</c> times.
-      The catch is that the computer doesn't store the exact value <c> 1/numberofsteps</c> unless <c>numberofsteps</c> is a power of 2.
-      In all other cases it will only be using an approximation,
-      and if you add up enough quantities that are slightly off,
-      their cumulative error will begin to show.
-      We will encounter a somewhat less benign manifestation of roundoff error in the next chapter.
-    </p>
+      <p>
+        What we say about <m>\pi</m> and
+        <m>\sqrt{2}</m> is true for <m>S(3)</m> in exactly the same way.
+        We can <em>characterize</em> it quite precisely,
+        and we can <em>construct</em> approximations to its numerical value to any desired degree of accuracy.
+        Here, for example, is a characterization of <m>S(3)</m>:
+      </p>
+      <blockquote>
+        The <m>S</m>-<m>I</m>-<m>R</m> problem for which <m>a = 0.00001</m> and <m>b = 1/14</m> and for
+        which <m>S = 45400</m>, <m>I = 2100</m>, <m>R = 2500</m> when <m>t = 0</m> determines
+        three functions <m>S(t)</m>, <m>I(t)</m>, and <m>R(t)</m>.  The number <m>S(3)</m> is the
+        value that the function <m>S(t)</m> has when <m>t = 3</m>.
+      </blockquote>
+      <p>
+        You should try to extend this argument to describe the sense in which we
+        <q>know</q>
+        the function <m>S(t)</m> by knowing its piecewise-linear approximations.
+        Try to convince yourself that this is operationally no different from the way we
+        <q>know</q>
+        functions like <m>f(x)=\sqrt{x}</m>.
+        In each instance we can <term>characterize</term> the function completely,
+        but we can only <term>construct</term>
+        an approximation to most values of the function or to its graph.
+      </p>
+      <p>
+        All this discussion of approximations may strike you as an unfortunate departure from the accuracy and precision you may have been led to expect [[NOTE:Being able to approximate a number to 12 decimal places is usually as good as knowing its value precisely]] in mathematics up until now.
+        In fact, it is precisely this ability to make quick and accurate approximations to problems that is one of the most powerful features of mathematics.
+        This is what goes on every time you use your calculator to evaluate <m>\log 3</m> or <m>\sin 37</m>.
+        Your calculator doesn't really know what these numbers are<mdash/>but it does know how to approximate them quickly to 12 decimal places.
+        Similar kinds of approximations are also at the heart of how bridges are built and spaceships are sent to the moon.
+      </p>
+    </introduction>
+    <subsubsection>
+      <title>A Caution:</title>
+      <p>
+        The fact that computers and calculators are really only dealing with approximations [[NOTE:However <ellipsis/>]] when we think they are being exact occasionally leads to problems,
+        the most common of which involves
+        <term>roundoff errors</term>.
+            <idx><h>roundoff error</h></idx>
+        You can probably generate a relatively harmless manifestation of this on your computer with the SIRVALUE program.
+        Modify the <c> PRINT</c> line so it prints out the final value of <c>t</c> to 10 or 12 digits,
+        and try running it with a high value for <c>numberofsteps</c>,
+        say 1 million or 10 million.
+        You would expect the final value of <c>t</c> to be exactly 1 in every case,
+        since you are adding <c> deltat = 1/numberofsteps</c> to itself <c>numberofsteps</c> times.
+        The catch is that the computer doesn't store the exact value <c> 1/numberofsteps</c> unless <c>numberofsteps</c> is a power of 2.
+        In all other cases it will only be using an approximation,
+        and if you add up enough quantities that are slightly off,
+        their cumulative error will begin to show.
+        We will encounter a somewhat less benign manifestation of roundoff error in the next chapter.
+      </p>
+    </subsubsection>
   </subsection>
   <subsection>
     <title>Exercises</title>
@@ -1288,7 +1279,7 @@ NEXT k
         </li>
       </ol>
     </subsubsection>
-    <subsubsection xml:id="sec_making-approximations_DO-WHILE">
+    <subsubsection xml:id="DO-WHILE">
       <title>The DO<ndash/>WHILE loop</title>
       <p>
             <idx><h>loop</h><h>DO-WHILE</h></idx>
@@ -1299,6 +1290,8 @@ NEXT k
         loop that keeps looping only while some specified condition is true.
         A DO<ndash/>WHILE loop is one useful way to do this.
         Here's how the modified SIRPLOT program would look:
+      </p>
+      <p>
             <idx><h>program</h><h>DO-WHILE</h></idx>
       </p>
       <p>
@@ -1333,7 +1326,7 @@ LOOP
 PRINT t - deltat
 </pre>
       <p>
-        } The changes we have made are:
+        The changes we have made are:
         <ul>
           <li>
             <p>

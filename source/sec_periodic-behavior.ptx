@@ -1,129 +1,118 @@
-<section xml:id="sec_periodic-behavior_sec_periodic-behavior">
+<section xml:id="sec_periodic-behavior">
   <title>Periodic Behavior</title>
-  <p>
-    <term>Example 1: Populations</term>.
-    In chapter 4 we studied several models that describe how interacting populations might change over time.
-    Two of those models<mdash/>one devised by May
-        <idx><h>May, R.</h></idx>
-    and the other by Lotka and Volterra<idx><h>Lotka<ndash/>Volterra model</h></idx>
-    <mdash/>predict that when one species preys on another,
-    both predator and prey populations will fluctuate periodically over time.
-    How can we tell if that actually happens in nature?
-  </p>
-  <aside>
+  <subsection>
+    <title>[[EX:1]]: Populations</title>
     <p>
-      Predator and prey populations fluctuate periodically
+      In chapter 4 we studied several models that describe how interacting populations might change over time.
+      Two of those models<mdash/>one devised by May
+          <idx><h>May, R.</h></idx>
+      and the other by Lotka and Volterra<idx><h>Lotka<ndash/>Volterra model</h></idx>
+      <mdash/>predict that when one species preys on another,
+      both predator and prey populations will fluctuate periodically over time.
+      How can we tell if that actually happens in nature? [[NOTE:Predator and prey populations fluctuate periodically]] Ecologists have examined data for a number of species.
+      Some of the best evidence is found in the records of Hudson's Bay Company,
+          <idx><h>Hudson's Bay Company</h></idx>
+      which trapped fur-bearing animals in Canada for almost 200 years.
+      The graph on the next page gives the data for the numbers of lynx
+          <idx><h>lynx</h></idx>
+      pelts harvested in the Mackenzie River region of Canada during the years 1821 to 1934 (Finerty, 1980).
+          <idx><h>Finerty</h></idx>
+      (The lynx is a predator;
+      its main prey is the snowshoe hare.) Clearly the numbers go up and down every 10 years in something like a periodic pattern.
+      There is even a more complex pattern,
+      with one large bulge and three smaller ones,
+      that repeats about every 40 years.
+      Data sets like this appear frequently in scientific inquiries,
+      and they raise important questions.
+      Here is one: If a quantity we are studying really does fluctuate in a periodic
+          <idx><h>periodic</h></idx>
+      way, why might that happen?
+      Here is another: If there appear to be several periodic influences,
+      what are they, and how strong are they?
+      To explore these questions we will develop a language to describe and analyze periodic functions.
     </p>
-  </aside>
-  <p>
-    Ecologists have examined data for a number of species.
-    Some of the best evidence is found in the records of Hudson's Bay Company,
-        <idx><h>Hudson's Bay Company</h></idx>
-    which trapped fur-bearing animals in Canada for almost 200 years.
-    The graph on the next page gives the data for the numbers of lynx
-        <idx><h>lynx</h></idx>
-    pelts harvested in the Mackenzie River region of Canada during the years 1821 to 1934 (Finerty, 1980).
-        <idx><h>Finerty</h></idx>
-    (The lynx is a predator;
-    its main prey is the snowshoe hare.) Clearly the numbers go up and down every 10 years in something like a periodic pattern.
-    There is even a more complex pattern,
-    with one large bulge and three smaller ones,
-    that repeats about every 40 years.
-    Data sets like this appear frequently in scientific inquiries,
-    and they raise important questions.
-    Here is one: If a quantity we are studying really does fluctuate in a periodic
-        <idx><h>periodic</h></idx>
-    way, why might that happen?
-    Here is another: If there appear to be several periodic influences,
-    what are they, and how strong are they?
-    To explore these questions we will develop a language to describe and analyze periodic functions.
-    <image width="73%" source="images/lynx1.png"/>
-    <term>Example 2: The earth's orbit</term>.
-    The earth orbits the sun,
-  </p>
-  <aside>
     <p>
-      The position and the shape of the earth's orbit both fluctuate periodically
+      <image width="73%" source="images/lynx1.png"/>
     </p>
-  </aside>
-  <p>
-    returning to its original position after one year.
-    This is the most obvious periodic behavior;
-    it explains the cycle of seasons, for example.
-    But there are other, more subtle,
-    periodicities in the earth's orbital motion.
-    The orbit is an ellipse which turns slowly in space,
-    returning to its original position after about 23,000 years.
-    This movement is called <term>precession</term>.
-        <idx><h>precession</h></idx>
-    The orbit fluctuates in other ways that have periods of 41,000 years
-    (the <em> obliquity</em> cycle
-        <idx><h>obliquity cycle</h></idx>
-    )
-    and 95,000, 123,000, and 413,000 years
-    (the <term>eccentricity</term> cycles).
-        <idx><h>eccentricity cycle</h></idx>
-    <term>Example 3: The climate</term>.
-    In 1941 the Serbian geophysicist Milutin Milankovitch
-        <idx><h>Milankovitch, M.</h></idx>
-  </p>
-  <aside>
+  </subsection>
+  <subsection>
+    <title>[[EX:2]]: The earth's orbit</title>
     <p>
-      Fluctuations in the climate appear in the geological record
+      The earth orbits the sun, [[NOTE:The position and the shape of the earth's orbit both fluctuate periodically]] returning to its original position after one year.
+      This is the most obvious periodic behavior;
+      it explains the cycle of seasons, for example.
+      But there are other, more subtle,
+      periodicities in the earth's orbital motion.
+      The orbit is an ellipse which turns slowly in space,
+      returning to its original position after about 23,000 years.
+      This movement is called <term>precession</term>.
+          <idx><h>precession</h></idx>
+      The orbit fluctuates in other ways that have periods of 41,000 years
+      (the <em> obliquity</em> cycle
+          <idx><h>obliquity cycle</h></idx>
+      )
+      and 95,000, 123,000, and 413,000 years
+      (the <term>eccentricity</term> cycles).
+          <idx><h>eccentricity cycle</h></idx>
     </p>
-  </aside>
-  <p>
-    proposed that all the different periodicities in the earth's orbit affect the climate<mdash/>that is,
-    the long-term weather patterns over the entire planet.
-    Therefore, he concluded,
-    there should also be periodic fluctuations in the climate,
-    with the same periods as the earth's orbit.
-    In fact, it is possible to test this hypothesis,
-    because there are features of the geological record that tell us about long-term weather patterns.
-    For example, in a year when the weather is warm and wet,
-    rains will fill streams and rivers with mud that is eventually carried to lake bottoms.
-    The result is a thick sediment layer.
-    In a dry year, the sediment layer will be thinner.
-    Over geological time,
-    lakes dry out and their beds turn to clay or shale.
-    By measuring the annual layers over thousands of years,
-    we can see how the climate has varied.
-    Other features that have been analyzed the same way are the thickness of annual ice layers in the Antarctic ice cap,
-    the fluctuations of CO<m>{}_2</m> concentrations in the ice caps,
-    changes in the O<m>{}^{18}</m>/O<m>{}^{16}</m> ratio in deep-sea sediments and ice caps.
-    In chapter 12 we will look at the results of one such study.
-    <image width="73%" source="images/sunspot.png"/>
-    <term>Example 4: Sunspot cycles</term>.
-    The number of sunspots fluctuates,
-    reaching a peak every 11 years or so.
-    The graph above shows the average daily number of sunspots during each year from 1821 to 1934.
-    Compare this with the lynx graph which covers the same years.
-    Some earthbound events (e.g., auroras,
-    television interference) seem to follow the same 11-year pattern.
-    According to some scientists,
-    other meteorological phenomena<mdash/>such as rainfall,
-    average temperature,
-    and CO<m>{}_2</m> concentrations in the atmosphere<mdash/>are also
-    <q>sunspot cycles,</q>
-    fluctuating with the same 11-year period.
-  </p>
-  <aside>
+  </subsection>
+  <subsection>
+    <title>[[EX:3]]: The climate</title>
     <p>
-      Data can have both periodic and random influences
+      In 1941 the Serbian geophysicist Milutin Milankovitch
+          <idx><h>Milankovitch, M.</h></idx>
+      [[NOTE:Fluctuations in the climate appear in the geological record]] proposed that all the different periodicities in the earth's orbit affect the climate<mdash/>that is,
+      the long-term weather patterns over the entire planet.
+      Therefore, he concluded,
+      there should also be periodic fluctuations in the climate,
+      with the same periods as the earth's orbit.
+      In fact, it is possible to test this hypothesis,
+      because there are features of the geological record that tell us about long-term weather patterns.
+      For example, in a year when the weather is warm and wet,
+      rains will fill streams and rivers with mud that is eventually carried to lake bottoms.
+      The result is a thick sediment layer.
+      In a dry year, the sediment layer will be thinner.
+      Over geological time,
+      lakes dry out and their beds turn to clay or shale.
+      By measuring the annual layers over thousands of years,
+      we can see how the climate has varied.
+      Other features that have been analyzed the same way are the thickness of annual ice layers in the Antarctic ice cap,
+      the fluctuations of CO<m>{}_2</m> concentrations in the ice caps,
+      changes in the O<m>{}^{18}</m>/O<m>{}^{16}</m> ratio in deep-sea sediments and ice caps.
+      In chapter 12 we will look at the results of one such study.
     </p>
-  </aside>
-  <p>
-    It is difficult to get firm evidence, though,
-    because many fluctuations with different possible causes can be found in the data.
-    Even if there is an 11-year cycle, it may be
-    <q>drowned out</q>
-    by the effects of these other causes.
-    The problem of detecting periodic fluctuations in
-    <q>noisy</q>
-    data is one that scientists often face.
-    In chapter 12 we will introduce a mathematical tool called the
-    <term>power spectrum</term>,
-        <idx><h>power spectrum</h></idx>
-    and we will use it to detect and measure periodic behavior<mdash/>even when it is swamped by random fluctuations.
-  </p>
+    <p>
+      <image width="73%" source="images/sunspot.png"/>
+    </p>
+  </subsection>
+  <subsection>
+    <title>[[EX:4]]: Sunspot cycles</title>
+    <p>
+      The number of sunspots fluctuates,
+      reaching a peak every 11 years or so.
+      The graph above shows the average daily number of sunspots during each year from 1821 to 1934.
+      Compare this with the lynx graph which covers the same years.
+      Some earthbound events (e.g., auroras,
+      television interference) seem to follow the same 11-year pattern.
+      According to some scientists,
+      other meteorological phenomena<mdash/>such as rainfall,
+      average temperature,
+      and CO<m>{}_2</m> concentrations in the atmosphere<mdash/>are also
+      <q>sunspot cycles,</q>
+      fluctuating with the same 11-year period. [[NOTE:Data can have both periodic and random influences]] It is difficult to get firm evidence, though,
+      because many fluctuations with different possible causes can be found in the data.
+      Even if there is an 11-year cycle, it may be
+      <q>drowned out</q>
+      by the effects of these other causes.
+    </p>
+    <p>
+      The problem of detecting periodic fluctuations in
+      <q>noisy</q>
+      data is one that scientists often face.
+      In chapter 12 we will introduce a mathematical tool called the
+      <term>power spectrum</term>,
+          <idx><h>power spectrum</h></idx>
+      and we will use it to detect and measure periodic behavior<mdash/>even when it is swamped by random fluctuations.
+    </p>
+  </subsection>
 </section>

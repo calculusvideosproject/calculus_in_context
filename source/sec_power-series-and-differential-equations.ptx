@@ -1,4 +1,4 @@
-<section xml:id="sec_power-series-and-differential-equations_sec_power-series-and-differential-equations">
+<section xml:id="sec_power-series-and-differential-equations">
   <title>Power Series and Differential Equations</title>
   <introduction>
     <p>
@@ -11,6 +11,8 @@
           <idx><h>power series</h></idx>
       <mdash/>which represents the function,
       and then see if we can determine the coefficients of the polynomial.
+    </p>
+    <p>
       This technique is especially useful in dealing with differential equations.
       To see why this is the case, think of the alternatives.
       If we can approximate the solution <m>y=y(x)</m> to a certain differential equation to an acceptable degree of accuracy by,
@@ -28,6 +30,8 @@
       and is not much faster than evaluating a polynomial.
       Until 30 years ago,
       the table approach was the standard one<mdash/>all scientists and mathematicians had a handbook of mathematical functions containing hundreds of pages of numbers giving the values of every function they might need.
+    </p>
+    <p>
       To see how this can happen,
       let's first look at a familiar differential equation whose solutions we already know:
       <me>
@@ -45,6 +49,8 @@
       that solves the differential equation.
       Can we, in fact, determine values for the coefficients
       <m>a_0, a_1, a_2, \cdots , a_n , \cdots</m> that will make <m>y'=y</m>?
+    </p>
+    <p>
       Using the rules for differentiation, we have
       <me>
         y'= a_1 + 2a_2\,x + 3 a_3\,x^2 + 4 a_4\,x^3 + \cdots + n a_n\,x^{n-1} + \cdots
@@ -98,7 +104,9 @@
       where <m>a_0</m> is an arbitrary constant.
       Notice that <m>y(0)=a_0</m>,
       so the value of <m>a_0</m> will be determined if the initial value of <m>y</m> is specified.
-      <term>Note</term> In general,
+    </p>
+    <p>
+      \subsubsection{Note} In general,
       once we have derived a power series expression for a function,
       that power series will also be the Taylor series for that function.
       Although the two series are the same,
@@ -106,7 +114,7 @@
       as in the preceding section.
     </p>
   </introduction>
-  <subsection xml:id="sec_power-series-and-differential-equations_subsec_bessels-equation">
+  <subsection xml:id="subsec_bessels-equation">
     <title>Bessel's Equation</title>
     <p>
           <idx><h>Bessel equation</h></idx>
@@ -133,12 +141,10 @@
       To evaluate such a function we could use Euler's method,
       or we could try to find a power series solution.
     </p>
-    <aside>
-      <p>
-        Friedrich Wilhelm Bessel (1784<ndash/>1846)<idx><h>Bessel, Wilhelm Friedrich</h></idx> was a German astronomer who studied the functions that now bear his name in his efforts to analyze the perturbations of planetary motions,
-        particularly those of Saturn.
-      </p>
-    </aside>
+    <p>
+      [[NOTE:Friedrich Wilhelm Bessel (1784<ndash/>1846) was a German astronomer who studied the functions that now bear his name in his efforts to analyze the perturbations of planetary motions,
+      particularly those of Saturn.]]
+    </p>
     <p>
       Consider the Bessel equation with <m>p=0</m>.
       We are thus trying to solve the differential equation
@@ -173,15 +179,7 @@
       </me>
     </p>
     <p>
-      In general,
-    </p>
-    <aside>
-      <p>
-        Finding the coefficient of <m>x^n</m>
-      </p>
-    </aside>
-    <p>
-      the coefficient of <m>x^n</m> in the combination will be
+      In general, [[NOTE:Finding the coefficient of <m>x^n</m>]] the coefficient of <m>x^n</m> in the combination will be
       <me>
         (n+1)n\, b_{n+1} + (n+1)\, b_{n+1} +b_{n-1} = (n+1)^2\, b_{n+1} +b_{n-1}
       </me>.
@@ -235,17 +233,14 @@
       </me>.
     </p>
     <p>
-      Here is the graph of <m>J_0(x)</m> together with the
+      Here is the graph of <m>J_0(x)</m> together with the [[NOTE:The graph of the \mbox{Bessel function <m>J_0</m>} ]] polynomial approximations of degree 2, 4, 6, <ellipsis/> , 30 over the interval <m>[0,14]</m>:
     </p>
-    <aside>
-      <p>
-        The graph of the \mbox{Bessel function <m>J_0</m>}
-      </p>
-    </aside>
     <p>
-      polynomial approximations of degree 2, 4, 6, <ellipsis/> , 30 over the interval <m>[0,14]</m>:
       <image width="73%" source="images/Bessel.png"/> <idx><h>Bessel function</h><h><m>J_0</m>,
-      graph of</h></idx> The graph of <m>J_0</m> is suggestive:
+      graph of</h></idx>
+    </p>
+    <p>
+      The graph of <m>J_0</m> is suggestive:
       it appears to be oscillatory,
       with decreasing amplitude.
       Both observations are correct:
@@ -254,117 +249,94 @@
       and that <m>\lim_{x \to\infty} J_0(x) = 0</m>.
     </p>
   </subsection>
-  <subsection xml:id="sec_power-series-and-differential-equations_subsec_the-s-i-r-model-one-more-time">
+  <subsection xml:id="subsec_the-s-i-r-model-one-more-time">
     <title>The <m>S</m>-<m>I</m>-<m>R</m> Model One More Time</title>
-    <p>
-      In exactly the same way,
-      we can find power series solutions when there are several interacting variables involved.
-      Let's look at the example we've considered at a number of points in this text to see how this works.
-      In the
-    </p>
-    <aside>
+    <introduction>
       <p>
-        The <m>S</m>-<m>I</m>-<m>R</m> model
+        In exactly the same way,
+        we can find power series solutions when there are several interacting variables involved.
+        Let's look at the example we've considered at a number of points in this text to see how this works.
+        In the [[NOTE:The <m>S</m>-<m>I</m>-<m>R</m> model]] <m>S</m>-<m>I</m>-<m>R</m> model we basically wanted to solve the system of equations
+        <md>
+          <mrow>S'\amp = -a SI,</mrow>
+          <mrow>I'\amp = aSI - bI,</mrow>
+          <mrow>R'\amp = bI </mrow>
+        </md>,
+        where <m>a</m> and <m>b</m> were parameters depending on the specific situation.
+        Let's look for solutions of the form
+        <md>
+          <mrow>S\amp = s_0 + s_1\,t + s_2\,t^2 + s_3\,t^3 + \cdots ,</mrow>
+          <mrow>I\amp = i_0 + i_1\,t + i_2\,t^2 + i_3\,t^3 + \cdots ,</mrow>
+          <mrow>R\amp = r_0 + r_1\,t + r_2\,t^2 + r_3\,t^3 + \cdots </mrow>
+        </md>.
       </p>
-    </aside>
-    <p>
-      <m>S</m>-<m>I</m>-<m>R</m> model we basically wanted to solve the system of equations
-      <md>
-        <mrow>S'\amp = -a SI,</mrow>
-        <mrow>I'\amp = aSI - bI,</mrow>
-        <mrow>R'\amp = bI </mrow>
-      </md>,
-      where <m>a</m> and <m>b</m> were parameters depending on the specific situation.
-      Let's look for solutions of the form
-      <md>
-        <mrow>S\amp = s_0 + s_1\,t + s_2\,t^2 + s_3\,t^3 + \cdots ,</mrow>
-        <mrow>I\amp = i_0 + i_1\,t + i_2\,t^2 + i_3\,t^3 + \cdots ,</mrow>
-        <mrow>R\amp = r_0 + r_1\,t + r_2\,t^2 + r_3\,t^3 + \cdots </mrow>
-      </md>.
-    </p>
-    <p>
-      If we put these series in the equation <m>S'= -a\, S\, I</m>, we get
-      <md>
-        <mrow>s_1 + 2s_2t + 3s_3t^2 + \cdots \amp = -a(s_0 + s_1t + s_2t^2 + \cdots)(i_0 + i_1t + i_2t^2 + \cdots)</mrow>
-        <mrow>\amp = -a(s_0i_0 + (s_0i_1+s_1i_0)t+(s_0i_2+s_1i_1+s_2i_0)t^2 + \cdots )</mrow>
-      </md>.
-    </p>
-    <p>
-      As before,
-    </p>
-    <aside>
       <p>
-        Finding the coefficients of the power series for <m>S(t)</m>
+        If we put these series in the equation <m>S'= -a\, S\, I</m>, we get
+        <md>
+          <mrow>s_1 + 2s_2t + 3s_3t^2 + \cdots \amp = -a(s_0 + s_1t + s_2t^2 + \cdots)(i_0 + i_1t + i_2t^2 + \cdots)</mrow>
+          <mrow>\amp = -a(s_0i_0 + (s_0i_1+s_1i_0)t+(s_0i_2+s_1i_1+s_2i_0)t^2 + \cdots )</mrow>
+        </md>.
       </p>
-    </aside>
-    <p>
-      if the two sides of the differential equation are to be equal,
-      the coefficients of corresponding powers of <m>t</m> must be equal:
-      <md>
-        <mrow>s_1  \amp = -as_0i_0,</mrow>
-        <mrow>2s_2 \amp = -a(s_0i_1+s_1i_0),</mrow>
-        <mrow>3s_3 \amp = -a(s_0i_2+s_1i_1+s_2i_0),</mrow>
-        <mrow>[-5pt] \amp \ \, \vdots</mrow>
-        <mrow>[-5pt] ns_n \amp = -a(s_0i_{n-1}+s_1i_{n-2}+ \ldots +s_{n-2}i_1+s_{n-1}i_0)</mrow>
-        <mrow>[-5pt] \amp \ \, \vdots</mrow>
-        <mrow>[-5pt]</mrow>
-      </md>
-    </p>
-    <p>
-      While this looks messy,
-      it has the crucial recursive feature<mdash/>each <m>s_k</m> is expressed in terms of previous terms.
-    </p>
-    <aside>
       <p>
-        Recursion again
+        As before, [[NOTE:Finding the coefficients of the power series for <m>S(t)</m>]] if the two sides of the differential equation are to be equal,
+        the coefficients of corresponding powers of <m>t</m> must be equal:
+        <md>
+          <mrow>s_1  \amp = -as_0i_0,</mrow>
+          <mrow>2s_2 \amp = -a(s_0i_1+s_1i_0),</mrow>
+          <mrow>3s_3 \amp = -a(s_0i_2+s_1i_1+s_2i_0),</mrow>
+          <mrow>[-5pt] \amp \ \, \vdots</mrow>
+          <mrow>[-5pt] ns_n \amp = -a(s_0i_{n-1}+s_1i_{n-2}+ \ldots +s_{n-2}i_1+s_{n-1}i_0)</mrow>
+          <mrow>[-5pt] \amp \ \, \vdots</mrow>
+          <mrow>[-5pt]</mrow>
+        </md>
       </p>
-    </aside>
-    <p>
-      That is, if we knew all the <m>s</m> and the <m>i</m> coefficients out through the coefficients of, say,
-      <m>t^6</m> in the series for <m>S</m> and <m>I</m>,
-      we could immediately calculate <m>s_7</m>.
-      We again have a <em>recursion relation</em>.
-          <idx><h>recursion relation</h></idx>
-      We could expand the equation <m>I'= aSI - bI</m> in the same way,
-    </p>
-    <aside>
       <p>
-        Finding the power series for <m>I(t)</m>
+        While this looks messy,
+        it has the crucial recursive feature<mdash/>each <m>s_k</m> is expressed in terms of previous terms. [[NOTE:Recursion again]] That is,
+        if we knew all the <m>s</m> and the <m>i</m> coefficients out through the coefficients of, say,
+        <m>t^6</m> in the series for <m>S</m> and <m>I</m>,
+        we could immediately calculate <m>s_7</m>.
+        We again have a <em>recursion relation</em>.
+            <idx><h>recursion relation</h></idx>
       </p>
-    </aside>
-    <p>
-      and get recursion relations for the coefficients <m>i_k</m>.
-      In this model, though,
-      there is a shortcut if we observe that since <m>S'= -aSI</m>,
-      and since <m>I'= aSI - bI</m>,
-      we have <m>I' = -S' -bI</m>.
-      If we substitute the power series in this expression and equate coefficients, we get
-      <me>
-        ni_n = -ns_n - bi_{n-1}
-      </me>,
-      which leads to
-      <me>
-        i_n = -s_n-\frac{b}{n}i_{n-1}
-      </me>
-    </p>
-    <p>
-      <ndash/>-so if we know <m>s_n</m> and <m>i_{n-1}</m>,
-      we can calculate <m>i_n</m>.
-      We are now in a position to calculate the coefficients as far out as we like.
-      For we will be given values for <m>a</m> and <m>b</m> when we are given the model.
-      Moreover, since <m>s_0=S(0) =</m> the initial <m>S</m>-population,
-      and <m>i_0=I(0)=</m> the initial <m>I</m>-population,
-      we will also typically be given these values as well.
-      But knowing <m>s_0</m> and <m>i_0</m>,
-      we can determine <m>s_1</m> and then <m>i_1</m>.
-      But then, knowing these values,
-      we can determine <m>s_2</m> and then <m>i_2</m>, and so on.
-      Since the arithmetic is tedious,
-      this is obviously a place for a computer.
-      Here is a program that calculates the first 50 coefficients in the power series for <m>S(t)</m> and <m>I(t)</m>:
-          <idx><h>program</h><h>SIRSERIES</h></idx>
-      <term>Program: SIRSERIES</term>
-    </p>
+      <p>
+        We could expand the equation
+        <m>I'= aSI - bI</m> in the same way, [[NOTE:Finding the power series for <m>I(t)</m>]] and get recursion relations for the coefficients <m>i_k</m>.
+        In this model, though,
+        there is a shortcut if we observe that since <m>S'= -aSI</m>,
+        and since <m>I'= aSI - bI</m>,
+        we have <m>I' = -S' -bI</m>.
+        If we substitute the power series in this expression and equate coefficients, we get
+        <me>
+          ni_n = -ns_n - bi_{n-1}
+        </me>,
+        which leads to
+        <me>
+          i_n = -s_n-\frac{b}{n}i_{n-1}
+        </me>
+      </p>
+      <p>
+        <ndash/>-so if we know <m>s_n</m> and <m>i_{n-1}</m>,
+        we can calculate <m>i_n</m>.
+      </p>
+      <p>
+        We are now in a position to calculate the coefficients as far out as we like.
+        For we will be given values for <m>a</m> and <m>b</m> when we are given the model.
+        Moreover, since <m>s_0=S(0) =</m> the initial <m>S</m>-population,
+        and <m>i_0=I(0)=</m> the initial <m>I</m>-population,
+        we will also typically be given these values as well.
+        But knowing <m>s_0</m> and <m>i_0</m>,
+        we can determine <m>s_1</m> and then <m>i_1</m>.
+        But then, knowing these values,
+        we can determine <m>s_2</m> and then <m>i_2</m>, and so on.
+        Since the arithmetic is tedious,
+        this is obviously a place for a computer.
+        Here is a program that calculates the first 50 coefficients in the power series for <m>S(t)</m> and <m>I(t)</m>:
+            <idx><h>program</h><h>SIRSERIES</h></idx>
+      </p>
+      <p>
+        <term>Program: SIRSERIES</term>
+      </p>
 <pre>
 DIM S(0 to 50), I(0 to 50)
 a = 0.00001
@@ -380,105 +352,105 @@ S(k) = -a * SUM/k
 I(k) = -S(k) - b * I(k - 1)/k
 NEXT k
 </pre>
-    <p>
-      <term>Comment:</term> The opening command in this program introduces a new feature.
-      It notifies the computer that the variables <c>S</c> and <c> I</c> are going to be <term>arrays</term>
-          <idx><h>array</h></idx>
-      <mdash/>strings of numbers<mdash/>and that each array will consist of 51 elements.
-      The element <c>S(k)</c> corresponds to what we have been calling <m>s_k</m>.
-      The integer <c>k</c> is called the <term>index</term>
-          <idx><h>index</h></idx>
-      of the term in the array.
-      The indices in this program run from 0 to 50.
-      The effect of running this program is thus to create two 51-element arrays,
-      <c>S</c> and <c>I</c>,
-      containing the coefficients of the power series for <m>S</m> and <m>I</m> out to degree 50.
-      If we just wanted to see these coefficients,
-      we could have the computer list them.
-      Here are the first 35 coefficients for <m>S</m> (read across the rows):
-    </p>
-    <tabular>
-      <row>
-        <cell>45400</cell>
-        <cell><m>-953.4</m></cell>
-        <cell><m>-172.3611</m></cell>
-        <cell><m>-17.982061</m></cell>
-        <cell><m>-0.86969127</m></cell>
-      </row>
-      <row>
-        <cell>5.4479852e-2</cell>
-        <cell>1.5212707e-2</cell>
-        <cell>1.4463108e-3</cell>
-        <cell>4.3532884e-5</cell>
-        <cell><m>-7.9100481</m>e-6</cell>
-      </row>
-      <row>
-        <cell><m>-1.4207959</m>e-6</cell>
-        <cell><m>-1.0846994</m>e-7</cell>
-        <cell><m>-6.512610</m>e-10</cell>
-        <cell>9.304633e-10</cell>
-        <cell>1.256507e-10</cell>
-      </row>
-      <row>
-        <cell>7.443310e-12</cell>
-        <cell><m>-2.191966</m>e-13</cell>
-        <cell><m>-9.787285</m>e-14</cell>
-        <cell><m>-1.053428</m>e-14</cell>
-        <cell><m>-4.382620</m>e-16</cell>
-      </row>
-      <row>
-        <cell>4.230290e-17</cell>
-        <cell>9.548369e-18</cell>
-        <cell>8.321674e-19</cell>
-        <cell>1.760392e-20</cell>
-        <cell><m>-5.533369</m>e-21</cell>
-      </row>
-      <row>
-        <cell><m>-8.770972</m>e-22</cell>
-        <cell><m>-6.101928</m>e-23</cell>
-        <cell>3.678170e-25</cell>
-        <cell>6.193375e-25</cell>
-        <cell>7.627253e-26</cell>
-      </row>
-      <row>
-        <cell>4.011923e-27</cell>
-        <cell><m>-1.986216</m>e-28</cell>
-        <cell><m>-6.318305</m>e-29</cell>
-        <cell><m>-6.271724</m>e-30</cell>
-        <cell><m>-2.150100</m>e-31</cell>
-      </row>
-    </tabular>
-    <p>
-      Thus the power series for <m>S</m> begins
-      <me>
-        45400 - 953.4t - 172.3611t^2 - 17.982061t^3 - 0.86969127t^4 + \\ \cdots - 2.15010\times 10^{-31}t^{34} + \cdots
-      </me>
-    </p>
-    <p>
-      In the same fashion, we find that the power series for <m>I</m> begins
-      <me>
-        2100 +803.4t + 143.66824t^2 + 14.561389t^3 + 0.60966648t^4 + \cdots + 2.021195\times 10^{-31}t^{34} + \cdots
-      </me>
-    </p>
-    <p>
-      If we now wanted to graph these polynomials over,
-    </p>
-    <aside>
+    </introduction>
+    <subsubsection>
+      <title>Comment:</title>
       <p>
-        Extending SIRSERIES to graph <m>S</m> and <m>I</m>
+        The opening command in this program introduces a new feature.
+        It notifies the computer that the variables <c>S</c> and <c> I</c> are going to be <term>arrays</term>
+            <idx><h>array</h></idx>
+        <mdash/>strings of numbers<mdash/>and that each array will consist of 51 elements.
+        The element <c>S(k)</c> corresponds to what we have been calling <m>s_k</m>.
+        The integer <c>k</c> is called the <term>index</term>
+            <idx><h>index</h></idx>
+        of the term in the array.
+        The indices in this program run from 0 to 50.
       </p>
-    </aside>
-    <p>
-      say, <m>0\le t\le 10</m>,
-      we can do it by adding the following lines to SIRSERIES. We first define a couple of short subroutines <c>SUS</c> and <c>INF</c><idx><h>subroutines <c>SUS</c> and <c>INF</c></h></idx> to calculate the polynomial approximations for <m>S(t)</m> and <m>I(t)</m> using the coefficients we've derived in the first part of the program.
-      (Note that these subroutines calculate polynomials in the straightforward,
-      inefficient way.
-      If you did the exercises in section<nbsp/>3 which developed techniques for evaluating polynomials rapidly,
-      you might want to modify these subroutines to take advantage of the increased speed available.)
-      Remember, too,
-      that you will need to set up the graphics at the beginning of the program to be able to plot.
-      Extension to <em>SIRSERIES</em>
-    </p>
+      <p>
+        The effect of running this program is thus to create two 51-element arrays,
+        <c>S</c> and <c>I</c>,
+        containing the coefficients of the power series for <m>S</m> and <m>I</m> out to degree 50.
+        If we just wanted to see these coefficients,
+        we could have the computer list them.
+        Here are the first 35 coefficients for <m>S</m> (read across the rows):
+      </p>
+      <tabular>
+        <row>
+          <cell>45400</cell>
+          <cell><m>-953.4</m></cell>
+          <cell><m>-172.3611</m></cell>
+          <cell><m>-17.982061</m></cell>
+          <cell><m>-0.86969127</m></cell>
+        </row>
+        <row>
+          <cell>5.4479852e-2</cell>
+          <cell>1.5212707e-2</cell>
+          <cell>1.4463108e-3</cell>
+          <cell>4.3532884e-5</cell>
+          <cell><m>-7.9100481</m>e-6</cell>
+        </row>
+        <row>
+          <cell><m>-1.4207959</m>e-6</cell>
+          <cell><m>-1.0846994</m>e-7</cell>
+          <cell><m>-6.512610</m>e-10</cell>
+          <cell>9.304633e-10</cell>
+          <cell>1.256507e-10</cell>
+        </row>
+        <row>
+          <cell>7.443310e-12</cell>
+          <cell><m>-2.191966</m>e-13</cell>
+          <cell><m>-9.787285</m>e-14</cell>
+          <cell><m>-1.053428</m>e-14</cell>
+          <cell><m>-4.382620</m>e-16</cell>
+        </row>
+        <row>
+          <cell>4.230290e-17</cell>
+          <cell>9.548369e-18</cell>
+          <cell>8.321674e-19</cell>
+          <cell>1.760392e-20</cell>
+          <cell><m>-5.533369</m>e-21</cell>
+        </row>
+        <row>
+          <cell><m>-8.770972</m>e-22</cell>
+          <cell><m>-6.101928</m>e-23</cell>
+          <cell>3.678170e-25</cell>
+          <cell>6.193375e-25</cell>
+          <cell>7.627253e-26</cell>
+        </row>
+        <row>
+          <cell>4.011923e-27</cell>
+          <cell><m>-1.986216</m>e-28</cell>
+          <cell><m>-6.318305</m>e-29</cell>
+          <cell><m>-6.271724</m>e-30</cell>
+          <cell><m>-2.150100</m>e-31</cell>
+        </row>
+      </tabular>
+      <p>
+        Thus the power series for <m>S</m> begins
+        <me>
+          45400 - 953.4t - 172.3611t^2 - 17.982061t^3 - 0.86969127t^4 + \\ \cdots - 2.15010\times 10^{-31}t^{34} + \cdots
+        </me>
+      </p>
+      <p>
+        In the same fashion, we find that the power series for <m>I</m> begins
+        <me>
+          2100 +803.4t + 143.66824t^2 + 14.561389t^3 + 0.60966648t^4 + \cdots + 2.021195\times 10^{-31}t^{34} + \cdots
+        </me>
+      </p>
+      <p>
+        If we now wanted to graph these polynomials over, [[NOTE:Extending SIRSERIES to graph <m>S</m> and <m>I</m>]] say,
+        <m>0\le t\le 10</m>,
+        we can do it by adding the following lines to SIRSERIES. We first define a couple of short subroutines <c>SUS</c> and <c>INF</c><idx><h>subroutines <c>SUS</c> and <c>INF</c></h></idx> to calculate the polynomial approximations for <m>S(t)</m> and <m>I(t)</m> using the coefficients we've derived in the first part of the program.
+        (Note that these subroutines calculate polynomials in the straightforward,
+        inefficient way.
+        If you did the exercises in section<nbsp/>3 which developed techniques for evaluating polynomials rapidly,
+        you might want to modify these subroutines to take advantage of the increased speed available.)
+        Remember, too,
+        that you will need to set up the graphics at the beginning of the program to be able to plot.
+      </p>
+      <p>
+        Extension to <em>SIRSERIES</em>
+      </p>
 <pre>
 DEF SUS(x)
 Sum = S(0)
@@ -496,43 +468,54 @@ INF = Sum
 END DEF
 FOR x = 0 TO 10 STEP 0.01
 </pre>
-    <p>
-      <em>Plot the line from <c>(x, SUS(x))</c></em>
-      <em>to <c>(x + 0.01, SUS(x + 0.01))</c></em>
-    </p>
-    <p>
-      <em>Plot the line from <c>(x, INF(x))</c></em>
-      <em>to <c>(x + 0.01, INF(x + 0.01))</c></em>
-    </p>
+      <p>
+        <em>Plot the line from <c>(x, SUS(x))</c></em>
+        <em>to <c>(x + 0.01, SUS(x + 0.01))</c></em>
+      </p>
+      <p>
+        <em>Plot the line from <c>(x, INF(x))</c></em>
+        <em>to <c>(x + 0.01, INF(x + 0.01))</c></em>
+      </p>
 <pre>
 NEXT x
 </pre>
-    <p>
-      Here is the graph of <m>I(t)</m> over a 25-day period,
-      together with the polynomial approximations of degree 5, 20, 30, and 70.
-      <image width="73%" source="images/sircalc.png"/> Note that these polynomials appear to converge to <m>I(t)</m> only out to values of <m>t</m> around 10.
-      If we needed polynomial approximations beyond that point,
-      we could shift to a different point on the curve,
-      find the values of <m>I</m> and <m>S</m> there by Euler's method,
-      then repeat the above process.
-      For instance, when <m>t=12</m>,
-      we get by Euler's method that
-      <m>S(12)=7670</m> and <m>I(12)=27,136</m><nbsp/>.
-      If we now shift our clock to measure time in terms of <m>\tau=t-12</m>,
-      we get the following polynomial of degree 30:
-      <me>
-        27136 +143.0455\tau-282.0180\tau^2+23.5594\tau^3+.4548\tau^4+\cdots+1.2795\times10^{-25}\tau^{30} \
-      </me>,
-    </p>
-    <p>
-      Here is what the graph of this polynomial looks like when plotted with the graph of <m>I</m>.
-      On the horizontal axis we list the <m>t</m>-coordinates with the corresponding <m>\tau</m>-coordinates underneath.
-      <image width="73%" source="images/sircalc2.png"/> The interval of convergence seems to be approximately <m>4\lt t\lt 20</m>.
-      Thus if we combine this polynomial with the 30-th degree polynomial from the previous graph,
-      we would have very accurate approximations for <m>I</m> over the entire interval <m>[0, 20]</m>.
-    </p>
+      <p>
+        Here is the graph of <m>I(t)</m> over a 25-day period,
+        together with the polynomial approximations of degree 5, 20, 30, and 70.
+      </p>
+      <p>
+        <image width="73%" source="images/sircalc.png"/>
+      </p>
+      <p>
+        Note that these polynomials appear to converge to <m>I(t)</m> only out to values of <m>t</m> around 10.
+        If we needed polynomial approximations beyond that point,
+        we could shift to a different point on the curve,
+        find the values of <m>I</m> and <m>S</m> there by Euler's method,
+        then repeat the above process.
+        For instance, when <m>t=12</m>,
+        we get by Euler's method that
+        <m>S(12)=7670</m> and <m>I(12)=27,136</m><nbsp/>.
+        If we now shift our clock to measure time in terms of <m>\tau=t-12</m>,
+        we get the following polynomial of degree 30:
+        <me>
+          27136 +143.0455\tau-282.0180\tau^2+23.5594\tau^3+.4548\tau^4+\cdots+1.2795\times10^{-25}\tau^{30} \
+        </me>,
+      </p>
+      <p>
+        Here is what the graph of this polynomial looks like when plotted with the graph of <m>I</m>.
+        On the horizontal axis we list the <m>t</m>-coordinates with the corresponding <m>\tau</m>-coordinates underneath.
+      </p>
+      <p>
+        <image width="73%" source="images/sircalc2.png"/>
+      </p>
+      <p>
+        The interval of convergence seems to be approximately <m>4\lt t\lt 20</m>.
+        Thus if we combine this polynomial with the 30-th degree polynomial from the previous graph,
+        we would have very accurate approximations for <m>I</m> over the entire interval <m>[0, 20]</m>.
+      </p>
+    </subsubsection>
   </subsection>
-  <subsection xml:id="sec_power-series-and-differential-equations_subsec_exercises">
+  <subsection xml:id="subsec_exercises">
     <title>Exercises</title>
     <ol>
       <li>
