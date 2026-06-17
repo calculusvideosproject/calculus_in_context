@@ -1,0 +1,1818 @@
+<chapter xml:id="ch7-chap-periodicity">
+  <title>Periodicity</title>
+  <introduction>
+    <p>
+			In seeking to describe and understand natural processes, we search for patterns. Patterns that repeat are particularly useful, because we can predict what they will do in the future. 
+<aside>
+        <p>Many patterns are periodic</p>
+      </aside>
+ The sun rises every day and the seasons repeat every year. These are the most obvious examples of cyclic, or periodic, patterns, but there are many more of scientific interest, too. Periodic behavior is the subject of this chapter. We shall take up the questions of describing and measuring it. To begin, let’s look at some intriguing examples of periodic or near-periodic behavior.
+		</p>
+  </introduction><section xml:id="ch7-sec-periodic-behavior">
+    <title>Periodic Behavior</title>
+    <paragraphs xml:id="ch7-ex1-populations">
+      <title>[[EX:1]]: Populations.</title>
+      <p>
+					In chapter 4 we studied several models that describe how interacting populations might change over time. Two of those models—one devised by May and the other by Lotka and Volterra—predict that when one species preys on another, both predator and prey populations will fluctuate periodically over time. How can we tell if that actually happens in nature? 
+<aside>
+          <p>Predator and prey populations fluctuate periodically</p>
+        </aside>
+ Ecologists have examined data for a number of species. Some of the best evidence is found in the records of Hudson’s Bay Company, which trapped fur-bearing animals in Canada for almost 200 years. The graph on the next page gives the data for the numbers of lynx pelts harvested in the Mackenzie River region of Canada during the years 1821 to 1934 (Finerty, 1980). (The lynx is a predator; its main prey is the snowshoe hare.) Clearly the numbers go up and down every 10 years in something like a periodic pattern. There is even a more complex pattern, with one large bulge and three smaller ones, that repeats about every 40 years. Data sets like this appear frequently in scientific inquiries, and they raise important questions. Here is one: If a quantity we are studying really does fluctuate in a periodic way, why might that happen? Here is another: If there appear to be several periodic influences, what are they, and how strong are they? To explore these questions we will develop a language to describe and analyze periodic functions.
+				</p>
+      <figure xml:id="fig_calc2_lynx1">
+        <image source="images/calc2_lynx1" />
+        <caption>image</caption>
+      </figure>
+
+
+				<paragraphs xml:id="ch7-ex2-the-earths-orbit">
+        <title>[[EX:2]]: The earth’s orbit.</title>
+        <p>
+						The earth orbits the sun, 
+<aside>
+            <p>The position and the shape of the earth’s orbit both fluctuate periodically</p>
+          </aside>
+ returning to its original position after one year. This is the most obvious periodic behavior; it explains the cycle of seasons, for example. But there are other, more subtle, periodicities in the earth’s orbital motion. The orbit is an ellipse which turns slowly in space, returning to its original position after about 23,000 years. This movement is called <term>precession</term>. The orbit fluctuates in other ways that have periods of 41,000 years (the  <term>obliquity</term> cycle) and 95,000, 123,000, and 413,000 years (the <term>eccentricity</term> cycles).
+					</p>
+      </paragraphs>
+
+				<paragraphs xml:id="ch7-ex3-the-climate">
+        <title>[[EX:3]]: The climate.</title>
+        <p>
+						In 1941 the Serbian geophysicist Milutin Milankovitch 
+<aside>
+            <p>Fluctuations in the climate appear in the geological record</p>
+          </aside>
+ proposed that all the different periodicities in the earth’s orbit affect the climate—that is, the long-term weather patterns over the entire planet. Therefore, he concluded, there should also be periodic fluctuations in the climate, with the same periods as the earth’s orbit. In fact, it is possible to test this hypothesis, because there are features of the geological record that tell us about long-term weather patterns. For example, in a year when the weather is warm and wet, rains will fill streams and rivers with mud that is eventually carried to lake bottoms. The result is a thick sediment layer. In a dry year, the sediment layer will be thinner. Over geological time, lakes dry out and their beds turn to clay or shale. By measuring the annual layers over thousands of years, we can see how the climate has varied. Other features that have been analyzed the same way are the thickness of annual ice layers in the Antarctic ice cap, the fluctuations of CO<m>{}_2</m> concentrations in the ice caps, changes in the O<m>{}^{18}</m>/O<m>{}^{16}</m> ratio in deep-sea sediments and ice caps. In chapter 12 we will look at the results of one such study.
+					</p>
+
+					<figure xml:id="fig_calc2_sunspot">
+          <image source="images/calc2_sunspot" />
+          <caption>image</caption>
+        </figure>
+      </paragraphs>
+
+				<paragraphs xml:id="ch7-ex4-sunspot-cycles">
+        <title>[[EX:4]]: Sunspot cycles.</title>
+        <p>
+						The number of sunspots fluctuates, reaching a peak every 11 years or so. The graph above shows the average daily number of sunspots during each year from 1821 to 1934. Compare this with the lynx graph which covers the same years. Some earthbound events (e.g., auroras, television interference) seem to follow the same 11-year pattern. According to some scientists, other meteorological phenomena—such as rainfall, average temperature, and CO<m>{}_2</m> concentrations in the atmosphere—are also <q>sunspot cycles,</q> fluctuating with the same 11-year period. 
+<aside>
+            <p>Data can have both periodic and random influences</p>
+          </aside>
+ It is difficult to get firm evidence, though, because many fluctuations with different possible causes can be found in the data. Even if there is an 11-year cycle, it may be <q>drowned out</q> by the effects of these other causes.
+					</p>
+
+					<p>
+						The problem of detecting periodic fluctuations in <q>noisy</q> data is one that scientists often face. In chapter 12 we will introduce a mathematical tool called the <term>power spectrum</term>, and we will use it to detect and measure periodic behavior—even when it is swamped by random fluctuations.
+					</p>
+      </paragraphs>
+    </paragraphs>
+  </section>
+
+		<section xml:id="ch7-sec-period-frequency-and-the-circular-functions">
+    <title>Period, Frequency, and<!-- linebreak -->the Circular Functions</title>
+
+			<p>
+				We are familiar with the notions of period and frequency from everyday experience. For example, a full moon occurs every 28 days, which means that a lunar cycle has a <em>period</em> of 28 days and a  <em>frequency</em> of once per 28 days. Moreover, whatever phase the moon is in today, it will be in the same phase 28 days from now. Let’s see how to extend these notions to functions.
+			</p>
+
+			<p>
+				The function <m>y = g(x)</m> whose graph is 
+<aside>
+        <p>Defining a periodic function</p>
+      </aside>
+ sketched below has a pattern that repeats. The space <m>T</m> between one high point and the next tells us the period of this repeating pattern. There is nothing special about the high point, though. If we take <em>any</em> two points <m>x</m> and <m>x + T</m> that are spaced one period apart, we find that <m>g</m> has the same value at those point.
+			</p>
+
+			<figure xml:id="fig_calc2_period1">
+      <image source="images/calc2_period1" />
+      <caption>image</caption>
+    </figure>
+
+			<p>
+				(This is analogous to saying that the moon is in the same phase on any two days that are 28 days apart.) The condition <m>g(x +
+T) = g(x)</m> for every <m>x</m> guarantees that <m>g</m> will be periodic. We make it the basis of our definition.
+			</p>
+
+<figure xml:id="ch7-pic001">
+      <image source="images/ch7_pic001" />
+      <caption />
+    </figure>
+    <p>
+				Since the graph of <m>g</m> repeats after <m>x</m> increases by <m>T</m>, 
+<aside>
+        <p>A periodic function has many periods…</p>
+      </aside>
+ it also repeats after <m>x</m> increases by <m>2T</m>, or <m>-3T</m>, or any integer multiple (positive or negative) of <m>T</m>. This means that a periodic function always has many periods. (That’s why the definition refers to <q>
+        <em>a</em> period</q> rather than <q>
+        <em>the</em> period.</q>) The same is true of the moon; its phases also repeat 
+<aside>
+        <p>…but we call the smallest positive one <em>the</em> period</p>
+      </aside>
+ after <m>2 \times 28</m> days, or <m>3 \times 28</m>, days. Nevertheless, we think of 28 days as <em>the</em> period of the lunar cycle, because we see the entire pattern precisely once. We can say the same for any periodic function:
+			</p>
+
+<figure xml:id="ch7-pic002">
+      <image source="images/ch7_pic002" />
+      <caption />
+    </figure>
+    <p>
+				Another measure of a periodic function is its 
+<aside>
+        <p>Frequency</p>
+      </aside>
+ frequency. Consider first the lunar cycle. Its frequency is the number of cycles—or fractions of a cycle—that occur in unit time. If we measure time in days, then the frequency is 1/28-th of a cycle per day. If we measure time in <em>years</em>, though, then the frequency is about 13 cycles per year. Here is the calculation: <md>\dfrac{365 \ \mbox{days/year}}{28 \ \mbox{days/cycle}} \approx
+    13 \ \mbox{cycles/year}.</md> Using this example as a pattern, we make the following definition.
+			</p>
+
+<figure xml:id="ch7-pic003">
+      <image source="images/ch7_pic003" />
+      <caption />
+    </figure>
+    <p>
+				Notice that the period and the frequency of the lunar cycle 
+<aside>
+        <p>The frequency of a cycle is the reciprocal of its period</p>
+      </aside>
+ are reciprocals: the period is 28 days—the time needed to complete one cycle—while the frequency is 1/28-th of a cycle per day. In the example below, <m>t</m> is measured in seconds and <m>g</m> has a period of .2 seconds. Its frequency is therefore 5 cycles per second.
+			</p>
+
+			<figure xml:id="fig_calc2_period2">
+      <image source="images/calc2_period2" />
+      <caption>image</caption>
+    </figure>
+
+			<p>
+				In general, if <m>f</m> is the frequency of a periodic function <m>g(x)</m> and <m>T</m> is its period, then we have <md>f = \dfrac{1}{T} \qquad \mbox{and} \qquad T = \dfrac{1}{f}.</md> The units are also related in a reciprocal fashion: if the period is measured in seconds, then the frequency is measured in cycles per second.
+			</p>
+
+			<p>
+				Because many quantities fluctuate periodically over time, the input variable of a periodic function will often be <em>time</em>. 
+<aside>
+        <p>The units for measuring frequency over time</p>
+      </aside>
+ If time is measured in seconds, then frequency is measured in <q>cycles per second.</q> The term <term>Hertz</term> is a special unit used to measure time frequencies; it equals one cycle per second. Hertz is abbreviated Hz; thus a <term>kilohertz</term> (kHz) and a <term>megahertz</term> (MHz) are 1,000 and 1,000,000 cycles per second, respectively. This unit is commonly used to describe sound, light, radio, and television waves. For example, an orchestra tunes to an A at 440 Hz. If an FM radio station broadcasts at 88.5 MHz, this means its carrier frequency is 88,500,000 cycles per second.
+			</p>
+
+			<p>
+				Quantities may also be periodic in other dimensions. For instance, a scientist studying the 
+<aside>
+        <p>Functions can be periodic over other units as well</p>
+      </aside>
+ phenomenon of ripple formation in a river bed might be interested in the function <m>h(x)</m> measuring the height of a ripple as a function of its distance <m>x</m> along the river bed. This would lead to a function of period, say, 10 inches and corresponding frequency of .1 cycle per inch.
+			</p>
+
+			<p>
+      <term>Circular functions</term>. While there are innumerable examples of periodic functions, two in particular are considered basic: the sine and the cosine. They are called circular functions because they are defined by means of a circle. To be specific, take the circle of radius 1 centered at the origin in the <m>x, y</m>-plane. Given any real number <m>t</m>, measure a distance of <m>t</m> units around the circumference of the circle. Start on the positive <m>x</m>-axis, and measure
+			</p>
+
+			<p>
+				counterclockwise if <m>t</m> is positive, clockwise if <m>t</m> is negative. The coordinates of the point you reach this way are, by definition, the cosine and the sine functions of <m>t</m>, respectively: <md>
+        <mrow>x \amp=  \cos(t),</mrow>
+        <mrow>y \amp=  \sin(t).</mrow>
+      </md>
+    </p>
+
+			<p>
+				The whole circumference of the circle measures <m>2\pi</m> units. 
+<aside>
+        <p>Why <m>\cos{t}</m> and <m>\sin{t}</m> are periodic</p>
+      </aside>
+ Therefore, if we add <m>2\pi</m> units to the <m>t</m> units we have already measured, we will arrive back at the same point on the circle. That is, we get to the same point on the circle by measuring either <m>t</m> or <m>t + 2\pi</m> units around the circumference. We can describe the coordinates of this point two ways: <md>(\cos(t), \sin(t)) \qquad \mbox{or} \qquad 
+        (\cos(t + 2\pi), \sin(t + 2\pi)).</md> Thus <md>\cos(t + 2\pi) = \cos(t) \qquad  \sin(t + 2\pi) = \sin(t),</md> so <m>\cos(t)</m> and <m>\sin(t)</m> are both periodic, and they have the same period, <m>2\pi</m>. Here are their graphs. By reading their slopes we can see <m>(\sin{t})' =  \cos{t}</m> and <m>(\cos{t})' = -\sin{t}</m>.
+			</p>
+
+			<figure xml:id="fig_calc2_sincos">
+      <image source="images/calc2_sincos" />
+      <caption>image</caption>
+    </figure>
+
+			<figure xml:id="fig_calc2_circle2">
+      <image source="images/calc2_circle2" />
+      <caption>image</caption>
+    </figure>
+
+			<p>
+				The circular functions are constructed 
+<aside>
+        <p>Radian measure</p>
+      </aside>
+ without reference to angles; the variable <m>t</m> is measured around the circumference of a circle (of radius 1). Nevertheless, we <em>can</em> think of <m>t</m> as measuring an angle, as shown at the right. In this case, <m>t</m> is called the <term>radian measure</term> of the angle. The units are very different from the degree measurement of an angle: an angle of 1 radian is much larger than an angle of 1 degree. The radian measure of a 90<m>^\circ</m> angle is <m>\pi/2 \approx
+1.57</m>, for instance. If we thought of <m>t</m> as an angle measured in degrees, the slope of <m>\sin(t)</m> would equal <m>.017\cos{t}</m>! (See the exercises.) Only when we measure <m>t</m> in radians do we get a simple result: <m>(\sin{t})' = \cos{t}</m>. This is why we always measure angles in radians in calculus.
+			</p>
+
+			<p>
+				Compare the graph of <m>y = \sin(t)</m> above 
+<aside>
+        <p>Changing the frequency</p>
+      </aside>
+ with that of <m>y = \sin(4t)</m>, below.
+			</p>
+
+			<figure xml:id="fig_calc2_sin4t">
+      <image source="images/calc2_sin4t" />
+      <caption>image</caption>
+    </figure>
+
+			<p>
+				Their scales are identical, so it is clear that the frequency of <m>\sin(4t)</m> is four times the frequency of <m>\sin(t)</m>. The general pattern is described in the following table. <md>\begin{array}{ccc}
+     \mbox{function}    &amp; \mbox{period} &amp; \mbox{frequency} \\[2pt]
+    \hline \\ [-9pt]
+    \sin(t) \quad \ \cos(t) &amp; 2\pi      &amp; 1/2\pi\\
+    \sin(4t)\quad \cos(4t)  &amp; 2\pi/4    &amp; 4/2\pi\\
+    \sin(bt)\quad \cos(bt)  &amp; 2\pi/b    &amp; b/2\pi
+    \end{array}</md> Notice that it is the <em>frequency</em>—not the period—that is increased by a factor of <m>b</m> when we multiply the input variable by <m>b</m>.
+			</p>
+
+			<p>
+				By using the information in the table, 
+<aside>
+        <p>Constructing a circular function with a given frequency</p>
+      </aside>
+ we can construct circular functions with any period or frequency whatsoever. For instance, suppose we wanted a cosine function <m>x =
+\cos(bt)</m> with a frequency of 5 cycles per unit <m>t</m>. This means <md>5 = \mbox{frequency} = \dfrac{b}{2\pi},</md> which implies that we should set <m>b = 10\pi</m> and <m>x = \cos(10\pi t)</m>. In order to see the high-frequency behavior of this function better, we magnify the graph a bit. In the figure below, you can compare the graphs of <m>x = \cos(10 \pi t)</m> and <m>x = \cos(t)</m> directly. We still have equal scales on the horizontal and vertical axes. Finally, notice that <m>\cos(10 \pi t)</m> has exactly 5 cycles on the interval <m>0
+\leq t \leq 1</m>.
+			</p>
+
+			<figure xml:id="fig_calc2_cos10pit">
+      <image source="images/calc2_cos10pit" />
+      <caption>image</caption>
+    </figure>
+
+			<p>
+				We will denote the frequency by <m>\omega</m>, 
+<aside>
+        <p>Frequency <m>\omega</m>
+        </p>
+      </aside>
+ the lower case letter <em>omega</em> from the Greek alphabet. If <md>\omega = \mbox{frequency} = \dfrac{b}{2\pi},</md> then <m>b = 2 \pi \omega</m>. Therefore, the basic circular functions of frequency <m>\omega</m> are <m>\cos(2 \pi \omega t)</m> and <m>\sin(2 \pi \omega
+t)</m>.
+			</p>
+
+			<p>
+				Suppose we take the basic sine function 
+<aside>
+        <p>Amplitude</p>
+      </aside>
+ <m>\sin(2 \pi \omega t)</m> of frequency <m>\omega</m> and multiply it by a factor <m>A</m>: <md>y = A \sin(2 \pi \omega t).</md> The graph of this function oscillates between <m>y = -A</m> and <m>y = +A</m>. The number <m>A</m> is called the <term>amplitude</term> of the function.
+			</p>
+
+			<figure xml:id="fig_calc2_ampli">
+      <image source="images/calc2_ampli" />
+      <caption>image</caption>
+    </figure>
+
+
+			<paragraphs xml:id="ch7-physical-interpretations">
+      <title>Physical interpretations.</title>
+      <p>
+					Sounds are transmitted to our ears as fluctuations in air pressure. Light is transmitted to our eyes as fluctuations in a more abstract medium—the electromagnetic field. Both kinds of fluctuations can be described using circular functions of time <m>t</m>. The amplitude and the frequency of these functions have the physical interpretations given in the following table.
+				</p>
+
+<!-- div attr= class="center"-->
+      <table>
+        <title />
+        <tabular>
+          <row class="odd">
+            <cell halign="center" />
+            <cell halign="center" />
+            <cell halign="center" />
+            <cell halign="center" />
+            <cell halign="center" />
+            <cell halign="center">frequency</cell>
+          </row>
+					<row class="even">
+            <cell halign="center" />
+            <cell halign="center" />
+            <cell halign="center">amplitude</cell>
+            <cell halign="center" />
+            <cell halign="center">frequency</cell>
+            <cell halign="center">range</cell>
+          </row>
+					<row class="odd">
+            <cell halign="center" />
+            <cell halign="center" />
+            <cell halign="center" />
+            <cell halign="center" />
+            <cell halign="center" />
+            <cell halign="center" />
+          </row>
+					<row class="even">
+            <cell halign="center">
+              <em>sound</em>
+            </cell>
+						<cell halign="center" />
+            <cell halign="center">loudness</cell>
+            <cell halign="center" />
+            <cell halign="center">pitch</cell>
+            <cell halign="center">10–15000 Hz</cell>
+          </row>
+					<row class="odd">
+            <cell halign="center">
+              <em>light</em>
+            </cell>
+						<cell halign="center" />
+            <cell halign="center">intensity</cell>
+            <cell halign="center" />
+            <cell halign="center">color</cell>
+            <cell halign="center">
+              <m>4 \times 10^{14}</m> – <m>7.5 \times 10^{14}</m> Hz</cell>
+          </row>
+        </tabular>
+      </table><!--</div attr= class="center">-->
+    </paragraphs>
+
+			<exercises xml:id="ch7-subsec-exercises">
+      <title>Exercises</title>
+      <exercisegroup xml:id="ch7-subsubsec-circular-functions">
+        <title>Circular functions</title>
+        <exercise>
+          <introduction>
+            <p>
+												Choose <m>\omega</m> so that the function <m>\cos(2 \pi \omega t)</m> has each of the following periods.
+											</p>
+          </introduction><task>
+            <p>
+																		 1 b)  5 c)  <m>2\pi</m> d)  <m>\pi</m> e)  1/3
+																	</p>
+          </task>
+        </exercise><exercise>
+          <introduction>
+            <p>
+												Determine the period and the frequency of the following functions.
+											</p>
+          </introduction><task>
+            <p>
+              <m>\sin(x)</m>, <m>\sin(2x)</m>, <m>\sin(x) + \sin(2x)</m>
+            </p>
+          </task><task>
+            <p>
+              <m>\sin(2x)</m>, <m>\sin(3x)</m>, <m>\sin(2x) + \sin(3x)</m>
+            </p>
+          </task><task>
+            <p>
+              <m>\sin(6x)</m>, <m>\sin(9x)</m>, <m>\sin(6x) + \sin(9x)</m>
+            </p>
+          </task>
+        </exercise><exercise>
+          <statement>
+            <p>
+												Suppose <m>a</m> and <m>b</m> are positive integers. Describe how the periods of <m>\sin(ax)</m>, <m>\sin(bx)</m>, <m>\sin(ax) + \sin(bx)</m> are related. (As the previous exercise shows, the relation between the periods depends on the relation between <m>a</m> and <m>b</m>. Make this clear in your explanation.)
+											</p>
+          </statement>
+        </exercise><exercise>
+          <introduction>
+            <p>
+												What are the amplitude and frequency of <m>g(x) = 5 \cos(3x)</m>?
+											</p>
+          </introduction><task>
+            <p>
+																		What are the amplitude and frequency of <m>g'(x)</m>?
+																	</p>
+          </task>
+        </exercise><exercise>
+          <introduction>
+            <p>
+												Is the antiderivative <m>\dint_0^x 5 \cos(3t) \, dt</m> periodic?
+											</p>
+          </introduction><task>
+            <p>
+																		If so, what are its amplitude and frequency?
+																	</p>
+          </task>
+        </exercise><exercise>
+          <statement>
+            <p>
+												Use the definition of the circular functions to explain why <md alignat-columns="3">
+                <mrow>sin(-t) \amp= -\sin(t), \amp \qquad  
+						    \sin\!\left(\dfrac{\pi}{2} - t\right) \amp= \cos(t),</mrow>
+                <mrow>\cos(-t) \amp= +\cos(t), \amp \sin(\pi - t) \amp= \sin(t),</mrow>
+              </md> hold for all values of <m>t</m>. Describe how these properties are reflected in the graphs of the sine and cosine functions.
+											</p>
+          </statement>
+        </exercise><exercise>
+          <introduction>
+            <p>
+												What is the average value of the function <m>\sin(s)</m> over the interval <m>0 \leq s \leq \pi</m>? (This is a half-period.)
+											</p>
+          </introduction><task>
+            <p>
+																		What is the average value of <m>\sin(s)</m> over <m>\pi/2 \leq s \leq
+												3\pi/2</m>? (This is also a half-period.)
+																	</p>
+          </task><task>
+            <p>
+																		What is the average value of <m>\sin(s)</m> over <m>0 \leq s \leq 2\pi</m>? (This is a full period.)
+																	</p>
+          </task><task>
+            <p>
+																		Let <m>c</m> be any number. Find the average value of <m>\sin(s)</m> over the full period <m>c \leq s \leq c + 2\pi</m>.
+																	</p>
+          </task><task>
+            <p>
+																		Your work should demonstrate that the average value of <m>\sin(s)</m> over a full period does not depend on the point <m>c</m> where you begin the period. Does it? Is the same true for the average value over a <em>half</em> period? Explain.
+																	</p>
+          </task>
+        </exercise><exercise>
+          <introduction>
+            <p>
+												What is the period <m>T</m> of <m>P(t) = A\sin(bt)</m>?
+											</p>
+          </introduction><task>
+            <p>
+																		Let <m>c</m> be any number. Find the average value of <m>P(t)</m> over the full period <m>c \leq t \leq c + T</m>. Does this value depend on the choice of <m>c</m>?
+																	</p>
+          </task><task>
+            <p>
+																		What is the average value of <m>P(t)</m> over the half-period <m>0 \leq
+												t \leq T/2</m>?
+																	</p>
+          </task>
+        </exercise>
+      </exercisegroup><exercisegroup xml:id="ch7-phase">
+        <title>Phase</title>
+        <introduction>
+          <p>
+						
+					</p>
+          <p>
+						There is still another aspect of circular functions to consider besides amplitude and frequency. It is called <em>phase difference</em>. We can illustrate this with the two functions graphed below. They have the same amplitude and frequency,  but differ in phase.
+					</p>
+
+					<figure xml:id="fig_calc2_phase1">
+            <image source="images/calc2_phase1" />
+            <caption>image</caption>
+          </figure>
+
+					<p>
+						Specifically, the variable <m>u</m> in the expression <m>\sin(u)</m> is called the <term>phase</term>. In the dotted graph the phase is <m>u = bt</m>, while in the solid graph it is <m>u = bt - \varphi</m>. They differ in phase by <m>bt
+- (bt - \varphi) = \varphi</m>. In the exercises you will see why a  <term>phase difference</term> of <m>\varphi</m> produces a shift—which we call a
+					</p>
+
+					<p>
+            <term>phase shift</term>—of <m>\varphi/b</m> in the graphs. (<m>\varphi</m> is the Greek letter <em>phi</em>.)
+					</p>
+        </introduction><exercise>
+          <statement>
+            <p>
+												The functions <m>\sin(x)</m> and <m>\cos(x)</m> have the same amplitude and frequency; they differ only in phase. In other words, <md>\cos(x) = \sin(x - \varphi)</md> for an appropriately chosen phase difference <m>\varphi</m>. What is the value of <m>\varphi</m>?
+											</p>
+          </statement>
+        </exercise><exercise>
+          <statement>
+            <p>
+												The functions <m>\sin(x)</m> and <m>-\sin(x)</m>
+              <em>also</em> differ only in phase. What is their phase difference? In other words, find <m>\varphi</m> so that <md>\sin(x - \varphi) = -\sin(x).</md> [Note: A circular function and its negative are sometimes said to be <q>180 degrees out of phase.</q> The value of <m>\varphi</m> you found here should explain this phrase.]
+											</p>
+          </statement>
+        </exercise><exercise>
+          <statement>
+            <p>
+												What is the phase difference between <m>\sin(x)</m> and <m>-\cos(x)</m>?
+											</p>
+          </statement>
+        </exercise><exercise>
+          <introduction>
+            <p>
+												Graph <m>y = \sin(t)</m> and <m>y = \sin(t - \pi/3)</m> on the same plane.
+											</p>
+          </introduction><task>
+            <p>
+																		What is the phase difference between these two functions?
+																	</p>
+          </task><task>
+            <p>
+																		What is the phase shift between their graphs?
+																	</p>
+          </task>
+        </exercise><exercise>
+          <introduction>
+            <p>
+												Graph together on the same coordinate plane <m>y = \cos(t)</m> and <m>y
+						= \cos(t + \pi/4)</m>.
+											</p>
+          </introduction><task>
+            <p>
+																		What is the phase difference between these two functions?
+																	</p>
+          </task><task>
+            <p>
+																		What is the phase shift between their graphs?
+																	</p>
+          </task>
+        </exercise><exercise>
+          <statement>
+            <p>
+												We know <m>y = \cos(t)</m> has a maximum at the origin. Determine the point closest to the origin where <m>y = \cos(t + \pi/4)</m> has  <em>its</em> maximum. Is the second maximum shifted from the first by the amount of the phase shift you identified in the previous question?
+											</p>
+          </statement>
+        </exercise><exercise>
+          <statement>
+            <p>
+												Repeat the last two exercises for the pair of functions <m>y =
+						\cos(2t)</m> and <m>\cos(2t + \pi/4)</m>. Is the phase difference equal to the phase shift in this case?
+											</p>
+          </statement>
+        </exercise><exercise>
+          <statement>
+            <p>
+												Verify that the graph of <m>y = A\sin(bt - \varphi)</m> crosses the <m>t</m>-axis at the point <m>t = \varphi/b</m>. This shows that <m>A\sin(bt -
+						\varphi)</m> is <q>phase-shifted</q> by the amount <m>\varphi/b</m> in relation to <m>A\sin(bt)</m>. (Refer to the graph on page .)
+											</p>
+          </statement>
+        </exercise><exercise>
+          <introduction>
+            <p>
+												At what point nearest the origin does the function <m>A\cos(bt -
+						\varphi)</m> reach its maximum value?
+											</p>
+          </introduction><task>
+            <p>
+																		Explain why this shows <m>A\cos(bt - \varphi)</m> is <q>phase-shifted</q> by the amount <m>\varphi/b</m> in relation to <m>A\cos(bt)</m>.
+																	</p>
+          </task>
+        </exercise><exercise>
+          <introduction>
+            <p>
+												Let <m>f(x) = \sin(x) - .7\cos(x)</m>. Using a graphing utility, sketch the graph of <m>f(x)</m>.
+											</p>
+          </introduction><task>
+            <p>
+																		The function <m>f(x)</m> is periodic. What is its period? From your graph, estimate its amplitude.
+																	</p>
+          </task><task>
+            <p>
+																		In fact, <m>f(x)</m> can be viewed as a <q>phase-shifted</q> sine function: <md>f(x) = A\sin(bx - \varphi).</md> From your graph, estimate the phase difference <m>\varphi</m> and the amplitude <m>A</m>.
+																	</p>
+          </task>
+        </exercise><exercise>
+          <introduction>
+            <p>
+												For each of the values <m>\varphi = 0</m>, <m>\pi/4</m>, <m>\pi/2</m>, <m>3\pi/4</m>, <m>\pi</m>, sketch the graph <m>y = \sin(x) \cdot \sin(x -
+						\varphi)</m> over the interval <m>0 \leq x \leq 2\pi</m>. Put the five graphs on the same coordinate plane.
+											</p>
+          </introduction><task>
+            <p>
+																		For which graphs is the average value positive, for which is it negative, and for which is it 0? Estimate by eye.
+																	</p>
+          </task>
+        </exercise><exercise>
+          <statement>
+            <p>
+												The purpose of this exercise is to determine the average value <md>F(\varphi) = \dfrac{1}{2\pi} \int_0^{2\pi} \sin(x)\sin(x - \varphi)\,dx</md> for an <em>arbitrary</em> value of the parameter <m>\varphi</m>. To stress that the average value is actually a function of <m>\varphi</m>, we have written it as <m>F(\varphi)</m>. Here is one way to determine a formula for <m>F(\varphi)</m> in terms of <m>\varphi</m>. First, using a <q>sum of two angles</q> formula and exercise 6, above, write <md>\sin(x - \varphi) = \cos(\varphi)\sin(x) - \sin(\varphi)\cos(x)</md> Then consider <md>\dfrac{1}{2\pi} \left[\cos(\varphi)\int_0^{2\pi} (\sin(x))^2 dx -
+						        \sin(\varphi)\int_0^{2\pi} \sin(x)\cos(x) \, dx \right],</md> and determine the values of the two integrals separately.
+											</p>
+          </statement>
+        </exercise><exercise>
+          <introduction>
+            <p>
+												Sketch the graph of the <em>average value function</em>
+              <m>F(\varphi)</m> you found in the previous exercise. Use the interval <m>0
+						\leq \varphi \leq \pi</m>.
+											</p>
+          </introduction><task>
+            <p>
+																		In exercise 19 you estimated the value of <m>F(\varphi)</m> for five specific values of <m>\varphi</m>. Compare your estimates with the exact values that you can now calculate using the formula for <m>F(\varphi)</m>.
+																	</p>
+          </task>
+        </exercise><exercise>
+          <statement>
+            <p>
+												Sketch the graph of <m>y = \cos(x)\sin(x - \varphi)</m> for each of the following values of <m>\varphi</m>: 0, <m>\pi/2</m>, <m>2\pi/3</m>, <m>\pi</m>. Use the interval <m>0 \leq x \leq 2\pi</m>. Estimate by eye the average value of each function over that interval.
+											</p>
+          </statement>
+        </exercise><exercise>
+          <introduction>
+            <p>
+												Obtain a formula for the average value function <md>G(\varphi) = \dfrac{1}{2\pi} \int_0^{2\pi} \cos(x)\sin(x - \varphi)\,dx.</md> and sketch the graph of <m>G(\varphi)</m> over the interval <m>0 \leq \varphi
+						\leq \pi</m>.
+											</p>
+          </introduction><task>
+            <p>
+																		Use your formula for <m>G(\varphi)</m> to compute the average value of the function <m>\cos(x)\sin(x - \varphi)</m> exactly for <m>\varphi = 0</m>, <m>\pi/2</m>, <m>2\pi/3</m>, <m>\pi</m>. Compare these values with your estimates in the previous exercise.
+																	</p>
+          </task>
+        </exercise><exercise>
+          <statement>
+            <p>
+												How large a phase difference <m>\varphi</m> is needed to make the graphs of <m>y = \sin(3x)</m> and <m>y = \sin(3x - \varphi)</m> coincide?
+											</p>
+          </statement>
+        </exercise><exercise>
+          <introduction>
+            <p>
+												Sketch the graphs of the following functions.
+											</p>
+          </introduction><task>
+            <p>
+              <m>y = 3\sin(2x - \pi/6) - 1</m>
+            </p>
+          </task><task>
+            <p>
+              <m>y = 4\sin(2x - \pi) + 2</m>.
+																	</p>
+          </task><task>
+            <p>
+              <m>y = 4\sin(2x + \pi) + 2</m>.
+																	</p>
+          </task>
+        </exercise><exercise>
+          <statement>
+            <p>
+												The function whose graph is sketched at the right has the form <md>G(x) = A \sin(bx - \varphi) + C.</md> Determine the values of <m>A</m>, <m>b</m>, <m>C</m>, and <m>\varphi</m>.
+											</p>
+						
+											<figure xml:id="fig_calc2_phase2">
+              <image source="images/calc2_phase2" />
+              <caption>image</caption>
+            </figure>
+          </statement>
+        </exercise><exercise>
+          <statement>
+            <p>
+												Write equations for three different functions that all have amplitude 4, period 5, and whose graphs pass through the point <m>(6,
+						7)</m>. Be sure the functions are really different—if <m>g(t)</m> is one solution, then <m>h(t)=g(t+5)</m> would really be just the same solution.
+											</p>
+          </statement>
+        </exercise>
+      </exercisegroup><exercisegroup xml:id="ch7-subsubsec-derivatives-with-degrees">
+        <title>Derivatives with degrees</title>
+        <exercise>
+          <introduction>
+            <p>
+												In this exercise measure the angle <m>\theta</m> in degrees. Estimate the derivative of <m>\sin(\theta)</m> at <m>\theta = 0^{\circ}</m> by calculating <m>\sin(\theta)/\theta</m> for <m>\theta = 2^{\circ}</m>, <m>1^{\circ}</m>, <m>.5^{\circ}</m>.
+											</p>
+          </introduction><task>
+            <p>
+																		Estimate the derivative of <m>\sin(\theta)</m> at <m>\theta =
+												60^{\circ}</m> in a similar way. Is <m>(\sin(30^{\circ}))' =
+												\cos(30^{\circ})</m>?
+																	</p>
+          </task>
+        </exercise><exercise>
+          <introduction>
+            <p>
+												Your calculations in the previous exercise should support the claim that <m>(\sin(\theta))' = k\cos(\theta)</m> for a particular value of <m>k</m>, when <m>\theta</m> is measured in degrees. What is <m>k</m>, approximately?
+											</p>
+          </introduction><task>
+            <p>
+																		If <m>t</m> is the radian measure of an angle, and if <m>\theta</m> is its degree measure, then <m>\theta</m> will be a function of <m>t</m>. What is it? Now use the chain rule to get a precise expression for the constant <m>k</m>.
+																	</p>
+          </task>
+        </exercise>
+      </exercisegroup>
+    </exercises>
+  </section>
+
+		<section xml:id="ch7-sec-differential-equations-with-periodic-mboxsolutions">
+    <title>Differential Equations with Periodic Solutions</title>
+    <introduction>
+      <p>
+				The models of predator–prey interactions constructed by Lotka–Volterra and May (see chapter 4) provide us with examples of systems of differential equations that have periodic solutions. Similar examples can be found in many areas of science. We shall analyze some of them in this section. In particular, we will try to understand how the frequency and the amplitude of the periodic solutions depend on the parameters given in the model.
+			</p>
+    </introduction><subsection xml:id="ch7-oscillating-springs">
+      <title>Oscillating Springs</title>
+      <p>
+					
+				</p>
+      <p>
+					We want to study the motion of a weight that hangs from the end of a spring. First let the weight come to rest. Then pull down on it. You can feel the spring pulling it back up. If you push up on the weight, the spring (and gravity) push it back down. The force you feel is called the <term>spring force</term>. Now release the weight; it will
+				</p>
+
+				<figure xml:id="fig_calc2_spring8">
+        <image source="images/calc2_spring8" />
+        <caption>image</caption>
+      </figure>
+
+				<p>
+					move. We’ll assume that the only influence on the motion is the spring force. (In particular, we will ignore the force of friction.) With this assumption we can construct a model to describe the motion. We’ll suppose the weight has a mass of <m>m</m> grams, and it is <m>x</m> centimeters above its rest position after <m>t</m> seconds. (If the weight goes below the rest position, then <m>x</m> will be negative.)
+				</p>
+
+
+				<paragraphs xml:id="ch7-subsubsec-the-linear-spring">
+        <title>The linear spring</title>
+        <p>
+						The simplest assumption we can reasonably make 
+<aside>
+            <p>A linear spring</p>
+          </aside>
+ is that the spring force is proportional to the amount <m>x</m> that the spring has been displaced: <md>\mbox{force} = -c\,x.</md> In this case the spring is said to be  <term>linear</term>. The multiplier <m>c</m> is called the  <term>spring constant</term>. It is a positive number that varies from one spring to another. The minus sign tells us the force pushes down if <m>x &gt; 0</m>, and it pushes up if <m>x &lt; 0</m>. Because this model describes an oscillating spring governed by a linear spring force, it is called the <term>linear oscillator</term>.
+					</p>
+
+					<p>
+						To see how the spring force affects the motion of the weight, 
+<aside>
+            <p>Newton’s laws of motion</p>
+          </aside>
+ we use Newton’s laws. In their simplest form, they say that the force acting on a body is the product of its mass and its acceleration. Suppose <m>v = dx/dt</m> is the velocity of the weight in cm/sec, and <m>dv/dt</m> is its acceleration in cm/sec<m>^2</m>. Then <md>\mbox{force} = m \dfrac{dv}{dt} \quad \mbox{gm-cm/sec$^2$}.</md> If we equate our two expressions for the force, we get <md>m \dfrac{dv}{dt} = -c\,x \qquad \mbox{or} \qquad 
+        \dfrac{dv}{dt} = -b^2 x \quad \mbox{cm/sec$^2$},</md> where we have set <m>c/m = b^2</m>. It is more convenient to write <m>c/m</m> as <m>b^2</m> here, because then <m>b = \sqrt{c/m}</m> itself will be measured in units of 1/sec. (To see why, note that <m>-b^2 x</m> is measured in units of cm/sec<m>^2</m>.)
+					</p>
+
+					<p>
+						Suppose we move the weight to the point <m>x = a</m> cm on the scale, 
+<aside>
+            <p>The linear oscillator</p>
+          </aside>
+ hold it motionless for a moment, and then release it at time <m>t = 0</m> sec. This gives us the initial value problem <md alignat-columns="3">
+            <mrow>x' \amp= v,      \amp\qquad  x(0) \amp= a,</mrow>
+            <mrow>v' \amp= -b^2 x, \amp\qquad  v(0) \amp= 0.</mrow>
+          </md>
+        </p>
+
+					<p>
+						If we give the parameters <m>a</m> and <m>b</m> specific values, 
+<aside>
+            <p>The solution with fixed parameters</p>
+          </aside>
+ we can solve this initial value problem using Euler’s method. The figure below shows the solution <m>x(t)</m> for two different sets of parameter values: <md alignat-columns="3">
+            <mrow>a \amp= 4 \ \mbox{cm},  \amp\qquad  a \amp= -5 \ \mbox{cm},</mrow>
+            <mrow>b \amp= 5 \ \mbox{per sec}, \amp\qquad  b \amp= 9 \ \mbox{per sec}.</mrow>
+          </md>
+        </p>
+
+					<figure xml:id="fig_calc2_spring1">
+          <image source="images/calc2_spring1" />
+          <caption>image</caption>
+        </figure>
+
+					<p>
+						The graphs were made in the usual way, with the differential equation solver of a computer. They indicate that the weight bounces up and down in a periodic fashion. The amplitude of the oscillation is precisely <m>a</m>, and the frequency appears to be linked directly to the value of <m>b</m>. For instance, when <m>b = 9</m> /sec, the motion completes just under 3 cycles in 2 seconds. This is a frequency of slightly less than 1.5 cycles per second. When <m>b = 5</m> /sec, the motion undergoes roughly 2 cycles in 2.5 seconds, a frequency of about .8 cycles per second. If the frequency is indeed proportional to <m>b</m>, the multiplier must be about 1/6: <md>\mbox{frequency} \approx \dfrac{b}{6} \ \mbox{cycles/sec}.</md>
+        </p>
+
+					<p>
+						We can get a better idea how the parameters in a problem 
+<aside>
+            <p>The solution for arbitrary parameter values</p>
+          </aside>
+ affect the solution if we solve the problem with a method that doesn’t require us to fix the values of the parameters in advance. This point is discussed in chapter 4.2, pages –. It is particularly useful if we can express the solution by a <em>formula</em>, which it turns out we can do in this case. To get a formula, let us begin by noticing that <md>(x')' = v' = -b^2 x.</md> In other words, <m>x(t)</m> is a function whose second derivative is the negative of itself (times the constant <m>b^2</m>). This suggests that we try <md>x(t) = \sin(bt) \qquad \mbox{or} \qquad x(t) = \cos(bt).</md> You should check that <m>x'' = -b^2 x</m> in both cases.
+					</p>
+
+					<p>
+						Turn now to the initial conditions. Since <m>\sin(0) = 0</m>, there is no way to modify <m>\sin(bt)</m> to make it satisfy the condition <m>x(0) = a</m>. However, <md>x(t) = a \cos(bt)</md>
+          <em>does</em> satisfy it. Finally, we can use the differential equation <m>x' = v</m> to define <m>v(t)</m>: <md>v(t) = (a \cos(bt))' = -ab \sin(bt).</md> Notice that <m>v(0) = -ab \sin(0) = 0</m>, so the second initial condition is satisfied.
+					</p>
+
+					<p>
+						In summary, we have a formula for the solution 
+<aside>
+            <p>The formula <em>proves</em> the motion is periodic</p>
+          </aside>
+ that incorporates the parameters. With this formula we see that the motion is really periodic—a fact that Euler’s method could only suggest. Furthermore, the parameters determine the amplitude and frequency of the solution in the following way: <md>\begin{array}{rl}
+    \mbox{position}:&amp; a \cos(bt) \ \mbox{cm from rest after $t$ sec} \\
+    \mbox{amplitude}:&amp; a \ \mbox{cm} \\
+    \mbox{frequency}:&amp; b/2\pi \ \mbox{cycles/sec}
+    \end{array}</md> We can see the relation between the motion and the parameters in the graph 
+<aside>
+            <p>Graph of the general linear oscillator</p>
+          </aside>
+ below (in which we take <m>a &gt; 0</m>).
+					</p>
+
+					<figure xml:id="fig_calc2_spring2">
+          <image source="images/calc2_spring2" />
+          <caption>image</caption>
+        </figure>
+
+					<p>
+						Here are some further properties of the motion that follow from our formula for the solution. Recall that the parameter <m>b</m> depends on the mass <m>m</m> of the weight and the spring constant <m>c</m>: <m>b^2 = c/m</m>.
+					</p>
+
+					<p>
+          <ul>
+            <li>
+              <p>
+												The amplitude depends only on the initial conditions, not on the mass <m>m</m> or the spring constant <m>c</m>.
+											</p>
+            </li>
+
+						<li>
+              <p>
+												The frequency depends only on the mass and the spring constant, not on the initial amplitude.
+											</p>
+            </li>
+          </ul>
+        </p>
+
+					<p>
+						These properties are a consequence of the fact that the spring force is <em>linear</em>. As we shall see, a non-linear spring and a pendulum move differently.
+					</p>
+      </paragraphs>
+
+				<paragraphs xml:id="ch7-the-non-linear-spring">
+        <title>The non-linear spring</title>
+        <p>
+						
+					</p>
+        <p>
+						The harder you pull on a spring, the more it stretches. If the stretch is exactly proportional to the pull (i.e., the force), the spring is linear.
+					</p>
+        <p>
+          <image source="images/calc2_spring3" /> In other words, to double the stretch you must double the force. Most springs behave this way when they are stretched only a small amount. This is called their <term>linear range</term>. Outside that range, the relation is more complicated. One possibility is that, to double the stretch, you must increase the force by <em>more than</em> double. A spring that works this way is called a <term>hard spring</term>. The graph at the left shows the relation between the applied force and the displacement (or stretch <m>x</m>) of a hard spring.
+					</p>
+
+					<p>
+						In a <em>nonlinear</em> spring, force is no longer proportional to displacement. Thus, if we write <md>\mbox{force} = -c\, x</md> we must allow the multiplier <m>c</m> to depend on <m>x</m>. One simple way to achieve this is to replace <m>c</m> by <m>c + \gamma x^2</m>. (We use <m>x^2</m> rather than just <m>x</m> to ensure that <m>-x</m> will have the same effect as <m>+x</m>. The multiplier <m>\gamma</m> is the Greek letter <em>gamma</em>.) Then <md>\mbox{force} = -c\, x - \gamma  x^3.</md> Since <m>\mbox{force} = m \, dv/dt</m> as well, we have <md>m \dfrac{dv}{dt} = -c\, x - \gamma x^3 \qquad \mbox{or} \qquad
+        \dfrac{dv}{dt} = - b^2 x - \beta x^3 \quad \mbox{cm/sec$^2$}.</md> Here <m>b^2 = c/m</m> and <m>\beta = \gamma/m</m>. By taking the same initial conditions as before, we get the following initial value 
+<aside>
+            <p>A non-linear oscillator</p>
+          </aside>
+ problem: <md alignat-columns="3">
+            <mrow>x' \amp= v,                  \amp\qquad  x(0) \amp= a,</mrow>
+            <mrow>v' \amp= -b^2 x - \beta x^3, \amp\qquad  v(0) \amp= 0.</mrow>
+          </md> To solve this problem using Euler’s method, we must fix the values of the three parameters. For the two parameters that determine the spring force, we choose: <md>b = 5 \ \mbox{per sec} \qquad \beta = .2 \ \mbox{per cm$^2$-sec$^2$}.</md>
+        </p>
+
+					<p>
+						We have deliberately chosen <m>b</m> to have the same value it did for our first solution to the linear problem. In this way, 
+<aside>
+            <p>Comparing a hard spring to a linear spring</p>
+          </aside>
+ we can compare the non-linear spring to the linear spring that has the same spring constant. We do this in the figure below. The dashed graph shows the linear spring when its initial amplitude is <m>a = 4</m> cm. The solid graph shows the hard spring when its initial amplitude is <m>a = 1.5</m> cm. Note that the two oscillations have the same frequency.
+					</p>
+
+					<figure xml:id="fig_calc2_spring4">
+          <image source="images/calc2_spring4" />
+          <caption>image</caption>
+        </figure>
+
+					<p>
+						The non-linear spring behaves 
+<aside>
+            <p>The effect of amplitude on acceleration</p>
+          </aside>
+ like the linear one because the amplitudes are small. To understand this reason, we must compare the accelerations of the two springs. For the linear spring we have <m>v' = -25 x</m>, while for the non-linear spring, <m>v' = -25 x - .2 x^3</m>. As the following graph shows, these expressions are approximately equal when the amplitude <m>x</m> lies between <m>+2</m> cm and <m>-2</m> cm. In other words, the linear range of the hard spring is
+					</p>
+
+					<figure xml:id="fig_calc2_spring5">
+          <image source="images/calc2_spring5" />
+          <caption>image</caption>
+        </figure>
+
+					<p>
+          <m>-2 \leq x \leq 2</m> cm. Since the initial amplitude was 1.5 cm—well within the linear range—the hard spring acts like a linear one. In particular, its frequency is approximated closely by the formula <m>b/2\pi</m> cycles per second. This is <m>5/2\pi \approx .8</m> Hz.
+					</p>
+
+					<p>
+						A different set of circumstances 
+<aside>
+            <p>Large-amplitude oscillations</p>
+          </aside>
+ is reflected in the following graph. The hard spring has been given an initial amplitude of 8 cm. As the graph of <m>v'</m> shown above indicates, the hard spring experiences an acceleration about 50% greater than the linear spring at the that amplitude.
+					</p>
+
+					<figure xml:id="fig_calc2_spring6">
+          <image source="images/calc2_spring6" />
+          <caption>image</caption>
+        </figure>
+
+					<p>
+						As a consequence, 
+<aside>
+            <p>The frequency of a non-linear spring depends on its amplitude</p>
+          </aside>
+ the hard spring oscillates with a noticeably higher frequency! It completes 3 cycles in the time it takes the linear spring to complete <m>2\tfrac{1}{2}</m>—or 6 cycles while the linear spring completes 5. The frequency of the hard spring is therefore about 6/5-th the frequency of the linear spring, or <m>6/5 \times 5/2\pi = 3/\pi \approx
+.95</m> Hz.
+					</p>
+
+					<p>
+						The solutions of the non-linear spring problem still look like cosine functions, but they’re not. It’s easier to see the difference if we take a large amplitude solution, and look at velocity instead of position. In the graph below 
+<aside>
+            <p>A mathematical comment</p>
+          </aside>
+ you can see how the velocity of a hard spring differs from a pure sine function of the same period and amplitude. Since there are no sine or cosine functions here, we can’t even yet be sure that the motion of a non-linear spring is truly periodic! We will prove this, though, in the next section by using the notion of a <term>first integral</term>.
+					</p>
+
+					<figure xml:id="fig_calc2_spring7">
+          <image source="images/calc2_spring7" />
+          <caption>image</caption>
+        </figure>
+
+					<p>
+						There are other ways we might have modified 
+<aside>
+            <p>Other non-linear springs</p>
+          </aside>
+ the basic equation <m>v' = -b^2 x</m> to make the spring non-linear. The formula <m>v' = -b^2 x - \beta x^3</m> is only one possibility. Incidentally, our study of a hard spring was based on choosing <m>\beta &gt; 0</m> in this formula. Suppose we choose <m>\beta &lt; 0</m> instead. As you will see in the exercises, this is a <term>soft</term> spring: we can double the stretch in a soft spring by using <em>less than</em> double the force. The pendulum, which we will study next, behaves like a soft spring.
+					</p>
+
+					<p>
+						Although we can use sine and cosine functions to solve the  <em>linear</em> oscillator problem, there are, in general, no formulas for the solutions to the <em>non-linear</em> oscillator problems. We must use numerical methods to find their graphs—as we have done in the last three pages.
+					</p>
+
+					<p>
+						The basic differential equation for a linear spring is also used to model a vibrating string. 
+<aside>
+            <p>The harmonic oscillator</p>
+          </aside>
+ Think of a tightly-stretched wire, like a piano string or a guitar string. Let <m>x</m> be the distance the center of the string has moved from rest at any instant <m>t</m>. The larger <m>x</m> is, the more strongly the tension on the string will pull it back towards its rest position. Since <m>x</m> is usually very small, it makes sense to assume that this <q>restoring force</q> is a linear function of <m>x</m>: <m>-c\, x</m>. If <m>v</m> is the velocity of the string, then <m>mv' = -c\, x</m> by Newton’s laws of motion. Because of the connection between vibrating strings and music, this differential equation is called the <term>harmonic oscillator</term>.
+					</p>
+      </paragraphs>
+    </subsection>
+
+			<subsection xml:id="ch7-the-sine-and-cosine-revisited">
+      <title>The Sine and Cosine Revisited</title>
+      <p>
+					
+				</p>
+      <p>
+					The sine and cosine functions first appear in trigonometry, where they are defined for the acute angles of a right triangle. Negative angles and angles larger than <m>90^{\circ}</m>, are outside their domain. This is a serious limitation. To overcome it, we redefine the sine and cosine on a circle. The main consequence of this change is that the sine and cosine become <em>periodic</em>.
+				</p>
+
+				<p>
+					However, neither circles nor triangles are particularly useful 
+<aside>
+          <p>A computable definition of the sine and cosine</p>
+        </aside>
+ if we want to <em>calculate</em> the values of the sine or the cosine. (How would you use one of them to determine <m>\sin(1)</m> to four—or even two—decimal places accuracy?) Our experience with the harmonic oscillator gives yet another way to define the sine and the cosine functions—a way that conveys computational power.
+				</p>
+
+				<p>
+					The idea is simple. With hindsight we know that <m>u = \sin(t)</m> and <m>v
+= \cos(t)</m> are the solutions to the initial value problem <md alignat-columns="3">
+          <mrow>u' \amp= v,   \amp\qquad  u(0) \amp= 0,</mrow>
+          <mrow>v' \amp= -u   \amp\qquad  v(0) \amp= 1.</mrow>
+        </md> Now make a fresh start with this initial value problem, and  <em>define</em>
+        <m>u = \sin(t)</m> and <m>v = \cos(t)</m> to be its solution! Then we can calculate <m>\sin(1)</m>, for instance, by Euler’s method. Here is the result.
+				</p>
+
+<!-- div attr= class="center"-->
+      <table>
+        <title />
+        <tabular>
+          <row class="odd">
+            <cell halign="center">number</cell>
+            <cell halign="center">estimate of</cell>
+          </row>
+					<row class="even">
+            <cell halign="center">of steps</cell>
+            <cell halign="center">
+              <m>\sin(1)</m>
+            </cell>
+          </row>
+					<row class="odd">
+            <cell halign="center" />
+            <cell halign="center" />
+          </row>
+					<row>
+            <cell halign="right">100</cell>
+            <cell halign="left">.845671</cell>
+          </row><row>
+            <cell halign="right">1 000</cell>
+            <cell halign="left">.841892</cell>
+          </row><row>
+            <cell halign="right">10 000</cell>
+            <cell halign="left">.841513</cell>
+          </row><row>
+            <cell halign="right">100 000</cell>
+            <cell halign="left">.841475</cell>
+          </row><row>
+            <cell halign="right">1 000 000</cell>
+            <cell halign="left">.841471</cell>
+          </row>
+        </tabular>
+      </table><!--</div attr= class="center">-->
+      <p>
+					So we can say <m>\sin(1) = .8415</m> to four decimal places accuracy.
+				</p>
+
+				<p>
+					Our point of view here is that <em>differential equations define functions</em>. In chapter 10, we shall consider still another method for defining and calculating these important functions, using infinite series.
+				</p>
+    </subsection>
+
+			<subsection xml:id="ch7-the-pendulum">
+      <title>The Pendulum</title>
+      <p>
+					
+				</p>
+      <figure xml:id="fig_calc2_pend1">
+        <image source="images/calc2_pend1" />
+        <caption>image</caption>
+      </figure>
+
+				<p>
+					We are going to study the motion of a pendulum that can swing in a full 360<m>^\circ</m> circle. To keep the physical details as simple as possible, we’ll assume its mass is 1 unit, and that all the mass is concentrated in the center of the pendulum bob, 1 unit from the pivot point. Assume that the pendulum is <m>x</m> units from its rest position at time <m>t</m>, where <m>x</m> is measured around the circular path that the bob traces out. Assume the velocity is <m>v</m>. Take counterclockwise positions and velocities to be positive, clockwise ones to be negative. When the pendulum is at rest we have <m>x = v = 0</m>.
+				</p>
+
+				<figure xml:id="fig_calc2_pend2">
+        <image source="images/calc2_pend2" />
+        <caption>image</caption>
+      </figure>
+
+				<p>
+					When the pendulum is moving, there must be forces at work. Let’s ignore friction, as we did with the spring. The force that pulls the pendulum back toward the rest position is gravity. However, gravity itself—<term>G</term> in the figure at the right—pulls straight down. Part of the pull of <term>G</term> works straight along the arm of the pendulum, and is resisted by the pivot. (If not, the pendulum would be pulled out of the pivot and fall to the floor!) It is the other part, labelled <term>F</term>, that moves the pendulum sideways.
+				</p>
+
+				<p>
+					The size of <term>F</term> depends on the position <m>x</m> of the pendulum. When <m>x = 0</m>, the sideways force <term>F</term> is zero. When <m>x = \pi/2</m> (the pendulum is horizontal), the entire pull of <term>G</term> is <q>sideways</q>, so <term>F</term> = <term>G</term>. To see how <term>F</term> depends on <m>x</m> in general, note first that we can think of <m>x</m> as the radian measure of the angle between the pendulum and the vertical (because <m>x</m> is measured around a circle of radius 1). In the small right triangle, the hypotenuse is
+				</p>
+
+				<p>
+        <term>G</term> and the side opposite the angle <m>x</m> is exactly as long as  <term>F</term>. By trigonometry, <term>F</term> = <term>G</term>
+        <m>\sin{x}</m>.
+				</p>
+
+				<p>
+					Let’s choose units which make the size of <term>G</term> equal to 1. 
+<aside>
+          <p>Newton’s laws produce a model of the pendulum</p>
+        </aside>
+ Then the size of <term>F</term> is simply <m>\sin{x}</m>. Since <term>F</term> points in the clockwise (or negative) direction when <m>x</m> is positive, we must write <term>F</term> = <m>-\sin{x}</m>. According to Newton’s laws of motion, the force <term>F</term> is the product of the mass and the acceleration of the pendulum. Since the mass is 1 unit and the acceleration is <m>v' = x''</m>, we finally get <m>x''
+= -\sin{x}</m>, or <md>x' = v \qquad v' = -\sin{x}.</md>
+      </p>
+
+				<p>
+					Now that we have an explicit description of the restoring force, 
+<aside>
+          <p>The pendulum is a soft spring</p>
+        </aside>
+ we can see that the pendulum behaves like a non-linear spring. However, it is true that doubling the displacement <m>x</m> always  <em>less than</em> doubles the force, as the graph below demonstrates. Thus the pendulum is like a <term>soft</term> spring.
+				</p>
+
+				<figure xml:id="fig_calc2_pend3">
+        <image source="images/calc2_pend3" />
+        <caption>image</caption>
+      </figure>
+
+				<p>
+					Because a swinging pendulum is used keep time, it is important to control the period of the swing. Physics analyzes how the period depends on the pendulum’s length and mass. We will confine ourselves to analyzing how the period depends on its amplitude.
+				</p>
+      <p>
+					Let’s draw on our experience with springs. 
+<aside>
+          <p>Small-amplitude oscillations</p>
+        </aside>
+ According to the graph above, the restoring force of the pendulum is essentially linear for small amplitudes—say, for <m>-.5 \leq x \leq
+.5</m> radians. Therefore, if the amplitude stays small, it is reasonable to expect that the pendulum will behave like a linear oscillator. As the graph indicates, the differential equation of the linear oscillator is <m>v' = -x</m>. This is of the form <m>v' = -b^2 x</m> with <m>b = 1</m>. The period of such a linear oscillator is <m>2\pi/b =
+2\pi \approx 6.28</m>. Let’s see if the pendulum has this period when it swings with a small amplitude. We use Euler’s method to solve the initial value problem <md alignat-columns="3">
+          <mrow>x' \amp= v,        \amp\qquad  x(0) \amp= a,</mrow>
+          <mrow>v' \amp= -\sin{x}, \amp\qquad  v(0) \amp= 0,</mrow>
+        </md> for several small values of <m>a</m>. The results appear in the graph below.
+				</p>
+
+				<figure xml:id="fig_calc2_pend4">
+        <image source="images/calc2_pend4" />
+        <caption>image</caption>
+      </figure>
+
+				<p>
+					As you can see, small amplitude oscillations have virtually the same period. Thus, we would not expect the fluctuations in the amplitude of the pendulum on a grandfather’s clock to affect the timekeeping.
+				</p>
+      <p>
+					What happens to the period, though, 
+<aside>
+          <p>Large-amplitude oscillations</p>
+        </aside>
+ if the pendulum swings in a large arc? The largest possible initial amplitude we can give the pendulum would point it straight up. The pendulum is then 180<m>^\circ</m> from the rest position, corresponding to a value of <m>x = \pi = 3.14159\ldots</m>. In the graph below we see the solution that has an initial amplitude of <m>x = 3</m>, which is very near the maximum possible. Its period is much larger than the period of the solution with <m>x = .5</m>, which has been carried over from the previous graph for comparison. Even the solution with <m>x = 2</m> has a period which is significantly larger that the solution with <m>x = .5</m>.
+				</p>
+
+				<figure xml:id="fig_calc2_pend5">
+        <image source="images/calc2_pend5" />
+        <caption>image</caption>
+      </figure>
+
+				<figure xml:id="fig_calc2_pend6">
+        <image source="images/calc2_pend6" />
+        <caption>image</caption>
+      </figure>
+
+				<p>
+					We saw that the period of a hard spring got shorter (its frequency increased) when its amplitude increased. But the pendulum is a soft spring and shows motions of longer period as its initial amplitude is increased. Notice how flat the large-amplitude graph is. This means that the pendulum lingers at the top of its swing for a long time. That’s why the period becomes so large. Check the graph now and confirm that the period of the large swing is about 17.
+				</p>
+      <p>
+					Although we can’t get formulas to describe 
+<aside>
+          <p>The pendulum at rest</p>
+        </aside>
+ the motion of the pendulum for most initial conditions, there are two special circumstances when we can. Consider a pendulum that is initially at rest: <m>x = 0</m> and <m>v = 0</m> when <m>t = 0</m>. It will remain at rest forever: <m>x(t) = 0</m>, <m>v(t) = 0</m> for all <m>t \geq 0</m>. What we really mean is that the constant functions <m>x(t) = 0</m> and <m>v(t) = 0</m> solve the initial value problem <md alignat-columns="3">
+          <mrow>x' \amp= v,        \amp\qquad  x(0) \amp= 0,</mrow>
+          <mrow>v' \amp= -\sin{x}, \amp\qquad  v(0) \amp= 0.</mrow>
+        </md>
+      </p>
+
+				<p>
+					There is another way for the pendulum to remain at rest. 
+<aside>
+          <p>The pendulum balanced on end</p>
+        </aside>
+ The key is that <m>v</m> must not change. But <m>v' = -\sin{x}</m>, so <m>v</m> will remain fixed if <m>v' = -\sin{x} = 0</m>. Now, <m>\sin{x} = 0</m> if <m>x = 0</m>. This yields the rest solution we have just identified. But <m>\sin{x}</m> is also zero if <m>x = \pi</m>. You should check that the constant functions <m>x(t) = \pi</m>, <m>v(t) = 0</m> solve this initial value problem: <md alignat-columns="3">
+          <mrow>x' \amp= v,        \amp\qquad  x(0) \amp= \pi,</mrow>
+          <mrow>v' \amp= -\sin{x}, \amp\qquad  v(0) \amp= 0.</mrow>
+        </md> Since the pendulum points straight up when <m>x = \pi</m> radians, this motionless solution corresponds to the pendulum balancing on its end.
+				</p>
+
+				<p>
+					These two solutions are called 
+				</p>
+      <p>
+        <term>equilibrium</term>
+        <aside>
+          <p>Stable and unstable equilibrium solutions</p>
+        </aside>
+ solutions (from the Latin <em>æqui-</em>, equal + <em>libra</em>, a balance scale). If the pendulum is disturbed from its rest position, it tends to return to rest. For this reason, rest is said to be a
+				</p>
+
+				<p>
+        <term>stable</term> equilibrium. Contrast what happens if the pendulum is disturbed when it is balanced upright. This is said to be an <term>unstable</term> equilibrium. We will take a longer look at equilibria in chapter 8.
+				</p>
+    </subsection>
+
+			<subsection xml:id="ch7-predatorprey-ecology">
+      <title>Predator–Prey Ecology</title>
+      <p>
+					
+				</p>
+      <p>
+					Many animal populations 
+<aside>
+          <p>Why do populations fluctuate?</p>
+        </aside>
+ undergo nearly periodic fluctuations in size. It is even more remarkable that the period of those fluctuations varies little from species to species. This fascinates ecologists and frustrates many who hunt, fish, and trap those populations to make their livelihood. Why should there be fluctuations, and can something be done to alter or eliminate them?
+				</p>
+      <p>
+					There are models of predator-prey interaction that exhibit periodic behavior. Consequently, some researchers have proposed that the fluctuations observed in a real population occur because that species is either the predator or the prey for another species. The models themselves have different properties; we will study one proposed by R. May. As we did with the spring and the pendulum, we will ask how the frequency and amplitude of periodic solutions depend on the initial conditions.
+				</p>
+      <p>
+					May’s model involves two populations that vary in size over time: the predator <m>y</m> and the prey <m>x</m>. The numbers <m>x</m> and <m>y</m> have been set to an arbitrary scale; they lie between 0 and 20. The model also has six adjustable parameters, but we will simply fix their values: <md>
+          <mrow>mbox{prey:} \quad x' 
+   \amp= .6\,x\left(1-\frac{x}{10}\right) - \frac{.5\,xy}{x+1},</mrow>
+          <mrow>\mbox{predator:} \quad y' 
+   \amp= .1\,y\left(1-\frac{y}{2x}\right).</mrow>
+        </md> These equations will be our starting point. However, if you wish to learn more about the premises behind May’s model, you can refer to chapter 4.1 (page ).
+				</p>
+
+				<p>
+					To begin to explore the model, 
+<aside>
+          <p>A predator-free equilibrium …</p>
+        </aside>
+ let’s see what happens to the prey population when there are no predators (<m>y = 0</m>). Then the size of <m>x</m> is governed by the simpler differential equation <m>x' = .6x(1 - x/10)</m>. This is logistic growth, and <m>x</m> will eventually approach the carrying capacity of the environment, which in this case is 10. (See chapter 4.1, pages –.) In fact, you should check that <md>x(t) = 10, \qquad y(t) = 0,</md> is an equilibrium solution of May’s original differential equations. Now suppose we introduce a small number 
+<aside>
+          <p>…upset by predators</p>
+        </aside>
+ of predators: <m>y = .1</m>. Then the equilibrium is lost, and the predator and prey populations fall into cyclic patterns with the same period:
+				</p>
+
+				<figure xml:id="fig_calc2_may1">
+        <image source="images/calc2_may1" />
+        <caption>image</caption>
+      </figure>
+
+				<p>
+					In the other models of periodic behavior we have studied, 
+<aside>
+          <p>Solutions with various initial conditions …</p>
+        </aside>
+ the frequency and amplitude have depended on the initial conditions. Is the same true here? The following graphs illustrate what happens if the initial populations are either <md>x = 8, \quad y = 2, \qquad \mbox{or} \qquad x = 1.1, \quad y = 2.2.</md> For the sake of comparison, the solution with <m>x = 10</m>, <m>y = .1</m> is also carried over from the previous page.
+				</p>
+
+				<figure xml:id="fig_calc2_may2">
+        <image source="images/calc2_may2" />
+        <caption>image</caption>
+      </figure>
+
+				<p>
+					In all of these graphs, periodic behavior eventually emerges. What is most striking, though, is that it is the <em>same</em> behavior in all cases. 
+<aside>
+          <p>…all have the same amplitude and frequency</p>
+        </aside>
+ The amplitude and the period <em>do not</em> depend on the initial conditions. Moreover, even though the populations peak at different times on the three graphs (i.e., the <em>phases</em> are different), the <m>y</m> peak always comes about 14 time units after the <m>x</m> peak.
+				</p>
+    </subsection>
+
+			<subsection xml:id="ch7-subsec-proving-a-solution-is-periodic">
+      <title>Proving a Solution Is Periodic</title>
+      <p>
+					The graphs in the last ten pages provide strong evidence that 
+<aside>
+          <p>Can we <em>prove</em> that systems have periodic oscillations?</p>
+        </aside>
+ non-linear springs, pendulums, and predator-prey systems can oscillate in a periodic way. The evidence is numerical, though. It is based on Euler’s method, which gives us only <em>approximate</em> solutions to differential equations. Can we now go one step further and <em>prove</em> that the solutions to these and other systems are periodic?
+				</p>
+
+				<p>
+					Notice that we already have a proof in the case of a linear spring. The solutions are given by formulas 
+<aside>
+          <p>The virtue of a formula</p>
+        </aside>
+ that involve sines and cosines, and these are periodic by their very design as circular functions. But we have no formulas for the solutions of the other systems. In particular, we are not able to say anything about the general properties of the solutions (the way we can about sine and cosine functions). The approach we take now does not depend on having a formula for the solution.
+				</p>
+      
+<aside>
+        <p>It may seem that what we should do is develop more methods for finding formulas for solutions. In fact, two hundred years of research was devoted to this goal, and much has been accomplished. However, it is now clear that most solutions simply have no representation <q>in closed form</q> (that is, as formulas). This isn’t a confession that we can’t  <em>find</em> the solutions. It just means the formulas we have are inadequate to describe the the solutions we can find.</p>
+      </aside>
+
+
+
+				<paragraphs xml:id="ch7-subsubsec-the-pendulum-a-qualitative-approach">
+        <title>The pendulum—a qualitative approach</title>
+        <p>
+						Let’s work with the pendulum and model it by the following initial value problem: <md alignat-columns="3">
+            <mrow>x' \amp= v,        \amp\qquad  x(0) \amp= a,</mrow>
+            <mrow>v' \amp= -\sin{x}, \amp\qquad  v(0) \amp= 0.</mrow>
+          </md> We’ll assume <m>0 &lt; a &lt; \pi</m>. Thus, at the start the pendulum is motionless and raised to the right. Call this <term>stage 1</term>. We’ll analyze what happens to <m>x</m> and <m>v</m> in a qualitative sense. That is, we’ll pay attention to the <em>signs</em> of these quantities, and whether they’re increasing or decreasing, but not their exact numerical values.
+					</p>
+
+					<p>
+						According to the differential equations, <m>v</m> determines the rate at which <m>x</m> changes, and <m>x</m> determines the rate at which <m>v</m> changes. In particular, since we start with <m>0 &lt; x &lt; \pi</m>, the expression <m>-\sin{x}</m> must be negative. Thus <m>v'</m> is negative, so <m>v</m> decreases, becoming more and more negative as time goes on. Consequently, <m>x</m> changes at an ever increasing negative rate, and eventually its value drops to 0. The moment this happens the pendulum is hanging straight down and moving left with some large negative velocity <m>-V_1</m>. This is <term>stage 2</term>.
+					</p>
+
+					<p>
+						Immediately after the pendulum passes through stage 2, <m>x</m> becomes negative. Consequently, <m>v' = -\sin{x}</m> now has a positive value (because <m>x</m> is negative). So <m>v</m> stops decreasing and starts increasing. Since <m>x</m> gets more and more negative, <m>v</m> increases more and more rapidly. Eventually <m>v</m> must become 0. Suppose <m>x = -B_1</m> at the moment this happens. The pendulum is then poised motionless and raised up <m>B_1</m> units to the left. We have reached <term>stage 3</term>.
+					</p>
+
+					<p>
+						The situation is now similar to stage 1, because <m>v = 0</m> once again. The difference is that <m>x</m> is now negative instead of positive. This just means that <m>v'</m> is positive. Consequently <m>v</m> becomes more and more positive, implying that <m>x</m> changes at an ever increasing positive rate. Eventually <m>x</m> reaches 0. The moment this happens the pendulum is again hanging straight down (as it was at stage 2), but now it is moving to the right with some large positive velocity <m>V_2</m>. Let’s call this <term>stage 4</term>. It is similar to stage 2.
+					</p>
+
+					<p>
+						Immediately after the pendulum passes through stage 4, <m>x</m> becomes positive. This makes <m>v' = -\sin{x}</m> negative, so <m>v</m> stops increasing and starts decreasing. Eventually <m>v</m> becomes 0 again (just as it did in the events that lead up to stage 3). At the moment the pendulum stops, <m>x</m> has reached some positive value <m>B_2</m>. Let’s call this <term>stage 5</term>.
+					</p>
+      </paragraphs>
+
+				<paragraphs xml:id="ch7-subsubsec-the-trade-off-between-speed-and-height">
+        <title>The <q>trade-off</q> between speed and height</title>
+
+					<p>
+						We appear to have gone <q>full circle.</q> The pendulum has returned to the right and is once again motionless—just as it was at the start. 
+<aside>
+            <p>Are we back where we started?</p>
+          </aside>
+ However, we don’t know that the <em>current</em> position of the pendulum (which is <m>x = B_2</m>) is the same as its <em>initial</em> position (<m>x = a</m>). This is a consequence of working qualitatively instead of quantitatively. But it is also the nub of the problem. For the motion of the pendulum to repeat itself exactly we must have <m>B_2 = a</m>. Can we prove that <m>B_2 = a</m>?
+					</p>
+
+					<p>
+						Since <m>a</m> and <m>B_2</m> are the successive positive values of <m>x</m> that occur when <m>v = 0</m>, it makes sense to explore the connection between <m>x</m> and <m>v</m>. In a real pendulum there is an obvious connection. The higher the pendulum bob rises, the more slowly it moves. If you review the sequence of stages we just went through, you’ll see that the same thing is true of our mathematical model. This suggests that we should focus on the height of the pendulum bob and the magnitude of the velocity. This is called the <term>speed</term>; it is just the absolute value <m>|v|</m> of the velocity.
+					</p>
+
+					<p>
+						 A little trigonometry shows us that when the pendulum makes an angle of <m>x</m> radians with the vertical, the height of the pendulum bob is <md>h = 1 - \cos{x}.</md> When <m>x</m> is a function of time <m>t</m>, then <m>h</m> is too and we have <md>h(t) = 1 - \cos(x(t)).</md>
+        </p>
+
+					<p>
+						Our intuition about the pendulum tells us that every change in height is offset by a change in speed. (This is the <q>trade-off.</q>) It makes sense, therefore, to compare the <em>rates</em> at which the height and the speed change over time. 
+<aside>
+            <p>Changes in speed …modified</p>
+          </aside>
+ However, the speed <m>|v(t)|</m> involves an absolute value, and this is difficult to deal with in calculus. (The absolute value function is not differentiable at 0.) Since we are using <m>|v|</m> simply as a way to ignore the difference between positive and negative velocities, we can replace <m>|v|</m> by <m>v^2</m>. Then we find <md>\dfrac{d}{dt} (v(t))^2 = 2 \cdot v(t) \cdot v'(t) = 
+        -2 \cdot v \cdot \sin{x}.</md> Notice that we needed the chain rule to differentiate <m>(v(t))^2</m>. After that we used the differential equations of the pendulum to replace <m>v'</m> by <m>-\sin{x}</m>.
+					</p>
+
+					<p>
+						The height of the pendulum 
+<aside>
+            <p>Changes in height</p>
+          </aside>
+ changes at this rate: <md>\dfrac{d}{dt} h(t) = \sin(x(t)) \cdot x'(t) = \sin{x} \cdot v.</md> We needed the chain rule again, and we used the differential equations of the pendulum to replace <m>x'</m> by <m>v</m>.
+					</p>
+
+					<p>
+						The two derivatives are almost exactly the same; except for sign, they differ only by a factor <m>2</m>. If we use <m>\tfrac{1}{2} v^2</m> instead of <m>v^2</m>, then the trade-off is exact: every increase in <m>\tfrac{1}{2}
+v^2</m> is <em>exactly</em> matched by a decrease in <m>h</m>, and <em>vice versa</em>. Therefore, if we combine <m>\tfrac{1}{2} v^2</m> and <m>h</m> to make the new quantity <md>E = \tfrac{1}{2} v^2  + h = 
+        \tfrac{1}{2} v^2  +  1 - \cos{x},</md> then we can say that the value of <m>E</m> does not change as the pendulum moves.
+					</p>
+
+					<p>
+						Since <m>E</m> depends on <m>v</m> and <m>h</m>, 
+<aside>
+            <p>Showing <m>E</m> is a constant</p>
+          </aside>
+ and these are functions of the time <m>t</m>, <m>E</m> itself is a function of <m>t</m>. To say that <m>E</m> doesn’t change as the pendulum moves is to say that this function is a constant—in other words, that its derivative is 0. This was, in fact, the way we constructed <m>E</m> in the first place. Let’s remind ourselves of why this worked. Since <m>E =
+\tfrac{1}{2} v^2 + h</m>, <md>\dfrac{dE}{dt} = v \cdot v' + h'
+     = v \cdot (-\sin{x}) + \sin{x} \cdot v = 0.</md> To get the second line we used the fact that <m>v' = -\sin{x}</m> and <m>x' =
+v</m> when <m>x(t)</m> and <m>v(t)</m> describe pendulum motion.
+					</p>
+
+					<p>
+						The quantity <m>E</m> is called the <term>energy</term> of the pendulum. The fact that <m>E</m> doesn’t change is called <term>the conservation of energy</term> of the pendulum. A number of problems in physics can be analyzed starting from the fact that the energy of many systems is constant.
+					</p>
+
+					<p>
+						Let’s calculate the value of <m>E</m> at the five different stages of our pendulum:  <md>\begin{array}{ccccc}
+    \mbox{stage}    &amp; v &amp; x &amp; h     &amp; E \\ [2pt]
+    \hline \\ [-9pt]
+    1       &amp; 0 &amp; a &amp; 1-\cos{a} &amp; 1-\cos{a} \\
+    2       &amp;-V_1&amp;0&amp;0&amp; \tfrac{1}{2}(-V_1)^2 \\
+    3       &amp;0&amp;-B_1&amp;1-\cos{B_1} &amp; 1-\cos{B_1} \\
+    4       &amp;V_2&amp;0&amp;0&amp;\tfrac{1}{2} {V_2}^2 \\    5       &amp; 0     &amp; B_2   &amp; 1-\cos{B_2} &amp; 1-\cos{B_2} 
+    \end{array}</md>  By the conservation of energy, all the quantities in the right-hand column have the same value. Looking at the value for <m>E</m> in stages 2 and 4, we see that <m>V_1=V_2</m>—<em>whenever the pendulum is at the bottom of its swing (<m>x=0</m>), it is moving with the same speed</em>, the velocity being positive when the pendulum is swinging to the right, negative when it is swinging to the left. Similarly, if we look at the value of <m>E</m> at stages 1, 3, and 5, we see that <md>1 - \cos{a} = 1 - \cos{B_1}= 1 - \cos{B_2}.</md> We can put this another way: <em>whenever the pendulum is motionless, it must be back at its starting height <m>h = 1 - \cos{a}</m>
+          </em>.
+					</p>
+
+					<p>
+						In particular, we have thus shown that <m>B_2</m> (the position of the pendulum after it’s gone over and back) <m>= a</m> (the position of the pendulum at the beginning). Thus the value for <m>x</m> and the value for <m>v</m> are the same in stage 5 and in stage 1—the two stages are mathematically indistinguishable. 
+<aside>
+            <p>…and that the oscillations are periodic</p>
+          </aside>
+ Since the solution to an initial value problem depends only on the differential equation and the initial values, what happens after stage 5 must be identical to what happens after stage 1—the second swing of the pendulum must be identical to the first! Thus the motion is periodic, which completes our proof.
+					</p>
+
+					<p>
+						You can also use the fact that the value of <m>E</m> doesn’t change to determine the velocities <m>-V_1</m> and <m>V_2</m> that the pendulum achieves at the bottom of its swing. In the exercises you are asked to show that <md>V_1 = V_2 = \sqrt{2 - 2\cos{a}}.</md>
+        </p>
+      </paragraphs>
+
+				<paragraphs xml:id="ch7-subsubsec-first-integrals">
+        <title>First Integrals</title>
+        <p>
+						Notice in what we have just done that we haven’t solved the differential equation for the pendulum in the sense of finding explicit formulas giving <m>x</m> and <m>v</m> in terms of <m>t</m>. Instead we found a combination of <m>x</m> and <m>v</m> that remained constant over time and used this to deduce some of the behavior of <m>x</m> and <m>v</m>. Such a combination of the variables that remains constant is called a 
+<aside>
+            <p>First integrals</p>
+          </aside>
+        </p>
+
+					<p>
+          <term>first integral</term> of the differential equation. A surprising amount of information about a system can be inferred from first integrals (when they exist). They play an important role in many branches of physics, giving rise to the basic conservation laws for energy, momentum, and angular momentum. We will have more to say about first integrals and conservation laws in chapter 8.
+					</p>
+
+					<p>
+						In the exercises you are asked to explore first integrals for linear and non-linear springs—and to prove thereby that (frictionless) non-linear springs have periodic motions.
+					</p>
+      </paragraphs>
+    </subsection>
+
+			<exercises xml:id="ch7-subsec-exercises-2">
+      <title>Exercises</title>
+      <exercisegroup xml:id="ch7-linear-springs">
+        <title>Linear springs</title>
+        <introduction>
+          <p>
+						
+					</p>
+          <p>
+						In the text we always assumed that the weight on the spring was motionless at <m>t = 0</m> seconds. The first four exercises explore what happens if the weight is given an initial  <em>impulse</em>. For example, instead of simply releasing the weight, you could hit it out of your hand with a hammer. This means <m>v(0) \neq 0</m>. The general initial value problem is <md alignat-columns="3">
+              <mrow>x' \amp= v,      \amp\qquad  x(0) \amp= a,</mrow>
+              <mrow>v' \amp= -b^2 x, \amp\qquad  v(0) \amp= p.</mrow>
+            </md> The aim is to see how the period, amplitude, and phase of the solution depend on this new condition.
+					</p>
+        </introduction><exercise>
+          <introduction>
+            <p>
+              <term>Pure impulse</term>. Take <m>b = 5</m> per second, as in the first example in the text, but suppose <md>a = 0 \ \mbox{cm}, \qquad p = 20 \ \mbox{cm/sec}.</md> (In other words, you strike the weight with a hammer as it sits motionless at the rest position <m>x = 0</m> cm.)
+											</p>
+          </introduction><task>
+            <p>
+																		Use the differential equation solver on a computer to solve the initial value problem numerically and graph the result.
+																	</p>
+          </task><task>
+            <p>
+																		From the graph, estimate the period and the amplitude of the solution.
+																	</p>
+          </task><task>
+            <p>
+																		Find a formula for this solution, using the graph as a guide.
+																	</p>
+          </task><task>
+            <p>
+																		From the formula, determine the period and amplitude of the solution. Does the period depend the initial impulse <m>p</m>, or only on the spring constant <m>b</m>? Does the amplitude depend on <m>p</m>?
+																	</p>
+          </task>
+        </exercise><exercise>
+          <introduction>
+            <p>
+              <term>Impulse and displacement</term>. Take <m>a = 4</m> cm and <m>b = 5</m> per second, as in the first example on page . But assume now that the weight is given an initial <em>downward</em> impulse of <m>p = -20</m> cm/sec.
+											</p>
+          </introduction><task>
+            <p>
+																		Solve the initial value problem numerically and graph the result.
+																	</p>
+          </task><task>
+            <p>
+																		From the graph, estimate the period and the amplitude of the solution. Compare these with the period and the amplitude of the solution obtained in the text for <m>p = 0</m> cm/sec.
+																	</p>
+          </task>
+        </exercise><exercise>
+          <statement>
+            <p>
+												Let <m>a</m> and <m>b</m> have the values they did in the last exercise, but change <m>p</m> to <m>+20</m> cm/sec. Graph the solution, and compare the amplitude and phase of this solution with the solution of the previous exercise.
+											</p>
+          </statement>
+        </exercise><exercise>
+          <statement>
+            <p>
+												Let <m>a</m>, <m>b</m>, and <m>p</m> have arbitrary values. The last two exercises suggest that the solution to the general initial value problem for a linear spring can be given by the formula <m>x(t) =
+						A\sin(bt - \varphi)</m>. The amplitude <m>A</m> and the phase difference <m>\varphi</m> depend on the initial conditions. Show that the formula for <m>x(t)</m> is correct by expressing <m>A</m> and <m>\varphi</m> in terms of the initial conditions.
+											</p>
+          </statement>
+        </exercise><exercise>
+          <statement>
+            <p>
+              <term>Strength of the spring</term>. Take two springs, and suppose the second is twice as strong as the first. That is, assume the second spring constant is twice the first. Put equal weights on the ends of the two springs, and use the initial value <m>v(0)=0</m> in both cases. Which weight oscillates with the higher frequency? How are the frequencies of the two related—e.g., is the frequency of the second equal to twice the frequency of the first, or should the multiplier be a different number?
+											</p>
+          </statement>
+        </exercise><exercise>
+          <introduction>
+            <p>
+              <term>Effect of the weight</term>. Hang weights from two identical springs (i.e., springs with the same spring constant). Suppose the mass of the second weight is twice that of the first. Which weight oscillates with the higher frequency? How much higher—twice as high, or some other multiplier?
+											</p>
+          </introduction><task>
+            <p>
+																		Do this experiment in your head. Measure the frequency of the oscillations of a 200 gram weight on a spring. Suppose a second weight oscillates at twice the frequency; what is <em>its</em> mass?
+																	</p>
+          </task>
+        </exercise>
+      </exercisegroup><exercisegroup xml:id="ch7-a-reality-check">
+        <title>A reality check.</title>
+        <introduction>
+          <p>
+						Do your results in the last two exercises agree with your intuitions about the way springs operate?
+					</p>
+        </introduction><exercise>
+          <introduction>
+            <p>
+              <term>First integral</term>. Show that <m>E =
+						\tfrac{1}{2}v^2 + \tfrac{1}{2} b^2 x^2</m> is a first integral for the linear spring <md alignat-columns="3">
+                <mrow>x' \amp= v,      \amp\qquad  x(0) \amp= a,</mrow>
+                <mrow>v' \amp= -b^2 x, \amp\qquad  v(0) \amp= p.</mrow>
+              </md> In other words, if the functions <m>x(t)</m> and <m>v(t)</m> solve this initial value problem, you must show that the combination <md>E = \tfrac{1}{2}\left(v(t)\right)^2 + 
+						        \tfrac{1}{2} b^2 \left(x(t)\right)^2</md> does not change as <m>t</m> varies.
+											</p>
+          </introduction><task>
+            <p>
+																		What value does <m>E</m> have in this problem?
+																	</p>
+          </task><task>
+            <p>
+																		If <m>x</m> is measured in cm and <m>t</m> in sec, what are the units for <m>E</m>?
+																	</p>
+          </task>
+        </exercise><exercise>
+          <introduction>
+            <p>
+												This exercise concerns the initial value problem in the previous question. When <m>x = 0</m>, what are the possible values that <m>v</m> can have?
+											</p>
+          </introduction><task>
+            <p>
+																		At a moment when the weight on the spring is motionless, how far is it from the rest position?
+																	</p>
+          </task>
+        </exercise><exercise>
+          <statement>
+            <p>
+												You already know that initial value problem in exercise  has a solution of the form <m>x(t) = A\sin(bt -
+						\varphi)</m> and therefore must be periodic. Given a different proof of periodicity using the first integral from the same exercise, following the approach used by the book in the case of the pendulum.
+											</p>
+          </statement>
+        </exercise>
+      </exercisegroup><exercisegroup xml:id="ch7-non-linear-springs">
+        <title>Non-linear springs</title>
+        <introduction>
+          <p>
+						
+					</p>
+        </introduction><exercise>
+          <introduction>
+            <p>
+												Suppose the acceleration <m>v'</m> of the weight on a hard spring depends on the displacement <m>x</m> of the weight according to the formula <m>v' = -16x - x^3</m> cm/sec<m>^2</m>. If you pull the weight down <m>a = 2</m> cm, hold it motionless (so <m>p = 0</m> cm/sec) and then release it, what will its frequency be?
+											</p>
+          </introduction><task>
+            <p>
+																		How far must you pull the weight so that its frequency will be double the frequency in part (a)? (Assume <m>p = 0</m> cm/sec, so there is still no initial impulse.)
+																	</p>
+          </task>
+        </exercise><exercise>
+          <statement>
+            <p>
+												Suppose the acceleration of the weight on a hard spring is given by <m>v' = -16x - .1\,x^3</m> cm/sec<m>^2</m>. If the weight is oscillating with very small amplitude, what is the frequency of the oscillation?
+											</p>
+          </statement>
+        </exercise><exercise>
+          <introduction>
+            <p>
+												Suppose a weight on a spring accelerates according to the formula <md>\dfrac{dv}{dt} = - \, \dfrac{25x}{1 + x^2} \quad \mbox{cm/sec$^2$}.</md> This is a soft spring. Explain why. [Graph <m>v'</m> as a function of <m>x</m>.]
+											</p>
+          </introduction><task>
+            <p>
+																		If the initial amplitude of the weight is <m>a = 4</m> cm, and there is no initial impulse (so <m>p = 0</m> cm/sec), what is the frequency of the oscillation?
+																	</p>
+          </task><task>
+            <p>
+																		Double the initial amplitude, making <m>a = 8</m> cm but keeping <m>p =
+												0</m> cm/sec. What happens to the frequency?
+																	</p>
+          </task><task>
+            <p>
+																		Suppose you make the initial amplitude <m>a = 100</m> cm. Now what happens to the frequency?
+																	</p>
+          </task>
+        </exercise><exercise>
+          <statement>
+            <p>
+              <term>First integrals</term>. Suppose the acceleration on a non-linear spring is <md>v' = -b^2x - \beta x^3, \qquad \mbox{where} \quad v = x'.</md> Show that the function <md>E = \tfrac{1}{2} v^2 + \tfrac{1}{2} b^2 x^2
+						        + \tfrac{1}{4} \beta x^4</md> is a first integral. (See the text (page ) and exercise , above.)
+											</p>
+          </statement>
+        </exercise><exercise>
+          <introduction>
+            <p>
+												Suppose the acceleration on a non-linear spring is <m>v' = -16 x -
+						x^3</m> cm/sec<m>^2</m>, and initially <m>x = 2</m> cm and <m>v = 0</m> cm/sec.
+											</p>
+          </introduction><task>
+            <p>
+																		The first integral of the preceding exercise must have a fixed value for this spring. What is that value?
+																	</p>
+          </task><task>
+            <p>
+																		How fast is the spring moving when it passes through the rest position?
+																	</p>
+          </task><task>
+            <p>
+																		Can the spring ever be more than 2 cm away from the rest position? Explain your answer.
+																	</p>
+          </task>
+        </exercise><exercise>
+          <statement>
+            <p>
+												Construct a first integral for the initial value problem <md alignat-columns="3">
+                <mrow>x' \amp= v,          \amp\qquad   x(0) \amp= a,</mrow>
+                <mrow>v' \amp= -b^2 x - \beta x^3, \amp\qquad   v(0) \amp= p,</mrow>
+              </md> and use it to show that the solution to the problem is periodic.
+											</p>
+          </statement>
+        </exercise><exercise>
+          <introduction>
+            <p>
+												 Show that the function <md>E = \tfrac{1}{2} v^2 + \tfrac{25}{2} \ln (1+x^2)</md> is a first integral for the soft spring in exercise .
+											</p>
+          </introduction><task>
+            <p>
+																		If the initial amplitude is <m>a = 4</m> cm and the initial velocity is 0 cm/sec, what is the speed of the weight as it moves past the rest position?
+																	</p>
+          </task><task>
+            <p>
+																		Prove that the motion of this spring is periodic.
+																	</p>
+          </task>
+        </exercise><exercise>
+          <statement>
+            <p>
+												Suppose the acceleration on a non-linear spring has the general form <m>v' = -f(x)</m>. Can you find a first integral for this spring? In other words, you are being asked to show that a first integral always exists whenever the rate of change of the velocity depends only on the position <m>x</m> (and not, for instance, on <m>v</m> itself, or on the time <m>t</m>).
+											</p>
+          </statement>
+        </exercise>
+      </exercisegroup><exercisegroup xml:id="ch7-the-pendulum-1">
+        <title>The pendulum</title>
+        <introduction>
+          <p>
+						
+					</p>
+          <p>
+						These questions deal with the initial value problem <md alignat-columns="3">
+              <mrow>x' \amp= v,    \amp\qquad x(0) \amp= a,</mrow>
+              <mrow>v' \amp= -\sin{x}, \amp\qquad v(0) \amp= p.</mrow>
+            </md> In particular, we want to allow an initial impulse <m>p \neq 0</m>.
+					</p>
+        </introduction><exercise>
+          <statement>
+            <p>
+												Take <m>a = 0</m> and given the pendulum three different initial impulses: <m>p = .05</m>, <m>p = .1</m>, <m>p = .2</m>. Use the differential equation solver on a computer to graph the three motions that result. Determine the period of the motion in each case. Are the periods noticeably different?
+											</p>
+          </statement>
+        </exercise><exercise>
+          <statement>
+            <p>
+												What is the period of the motion if <m>p = 1</m>; if <m>p = 2</m>?
+											</p>
+          </statement>
+        </exercise><exercise>
+          <statement>
+            <p>
+												By experiment, find how large an initial impulse <m>p</m> is needed to knock the pendulum <q>over the top</q>, so it spins around its axis instead of oscillating? Assume <m>x(0) = 0</m>. (Note: when the pendulum spins, <m>x</m> just keeps getting larger and larger.) Of course any enormous value for <m>p</m> will guarantee that the pendulum spins. Your task is to find the <em>threshold</em>; this is the smallest initial impulse that will cause spinning.
+											</p>
+          </statement>
+        </exercise><exercise>
+          <introduction>
+            <p>
+												Suppose the initial position is horizontal: <m>a = +\pi/2</m>. If you give the pendulum an initial impulse <m>p</m> in the same direction (that is, <m>p &gt; 0</m>), find by experiment how large <m>p</m> must be to cause the pendulum to spin? Once again, the challenge is to find the threshold value.
+											</p>
+          </introduction><task>
+            <p>
+																		Reverse the direction of the initial impulse: <m>p &lt; 0</m>, and choose <m>p</m> so the pendulum spins. What is the smallest <m>|p|</m> that will cause spinning?
+																	</p>
+          </task>
+        </exercise><exercise>
+          <statement>
+            <p>
+              <term>First integrals</term>. Consider the initial value problem described in the text: <md alignat-columns="3">
+                <mrow>x' \amp= v,    \amp\qquad x(0) \amp= a,</mrow>
+                <mrow>v' \amp= -\sin{x}, \amp\qquad v(0) \amp= 0.</mrow>
+              </md> Use the first integral for this problem found on page  to show that <m>v = \sqrt{2 - 2\cos{a}}</m> when <m>x = 0</m>.
+											</p>
+          </statement>
+        </exercise><exercise>
+          <introduction>
+            <p>
+												Suppose the pendulum described in the previous exercise is at rest (<m>x(0) = 0</m>), but given an initial impulse <m>v(0) = p</m>. What value does the first integral have in this case?
+											</p>
+          </introduction><task>
+            <p>
+																		Redo exercise  using the information the first integral gives you. You should be able to find the exact threshhold value of the impulse that will push the pendulum <q>over the top.</q>
+            </p>
+          </task>
+        </exercise><exercise>
+          <statement>
+            <p>
+												Redo exercise  using an appropriate first integral. Find the threshhold value exactly.
+											</p>
+          </statement>
+        </exercise>
+      </exercisegroup><exercisegroup xml:id="ch7-predator-prey-ecology">
+        <title>Predator-prey ecology</title>
+        <introduction>
+          <p>
+						
+					</p>
+        </introduction><exercise>
+          <introduction>
+            <p>
+              <term>The May model</term>. The differential equations for this model are on page . Show that the constant functions <md>x(t) = 10, \qquad y(t) = 0,</md> are a solution to the equations. This is an equilibrium solution, as defined in the discussion of the pendulum (page ).
+											</p>
+          </introduction><task>
+            <p>
+																		Is <m>x(t) = 0</m>, <m>y(t) = 0</m> an equilibrium solution?
+																	</p>
+          </task><task>
+            <p>
+																		Here is yet another equilibrium solution: <md>x(t) = \dfrac{-23 \pm \sqrt{889}}{6}, \qquad 
+												        y(t) = \dfrac{-23 \pm \sqrt{889}}{3}.</md> Either verify that it <em>is</em> an equilibrium, or explain how it was derived.
+																	</p>
+          </task>
+        </exercise><exercise>
+          <introduction>
+            <p>
+												Use a computer differential equation solver to graph the solution to the May model that is determined by the initial conditions <md>x(0) = 1.13, \qquad y(0) = 2.27.</md> These initial conditions are very close to the equilibrium solution in part (c) of the previous exercise. Does the solution you’ve just graphed suggest that this equilibrium is <em>stable</em> or that it is <em>unstable</em> (as described on page ).
+											</p>
+          </introduction><task>
+            <p>
+																		Change the initial conditions to <md>x(0) = 5, \qquad y(0) = 5,</md> and graph the solution. Compare this solution to those determined by the initial conditions used in the text. In particular, compare the shapes of the graphs, their periods, and the time interval between the peak of <m>x</m> and the peak of <m>y</m>.
+																	</p>
+          </task>
+        </exercise><exercise>
+          <statement>
+            <p>
+												Consider this scenario. Imagine that the prey species <m>x</m> is an agricultural pest, while the predator <m>y</m> does not harm any crops. Farmers would like to eliminate the pest, and they propose to do so by bringing in a large number of predators. Does this strategy work, according to the May model? Suppose that we start with a relatively large number of predators: <md>x(0) = 5, \qquad y(0) = 50.</md> What happens? In particular, does the pest disappear?
+											</p>
+          </statement>
+        </exercise><exercise>
+          <statement>
+            <p>
+              <term>The Lotka–Volterra model</term>. We use the differential equations found in chapter 4, page , modified so that relevant values of <m>x</m> and <m>y</m> will be roughly the same size: <md>
+                <mrow>x' \amp= .1 x - .005 xy,</mrow>
+                <mrow>y' \amp= .004 xy - .04 y.</mrow>
+              </md> Take <m>x(0) = 20</m> and <m>y(0) = 10</m>. Use a computer differential equation solver to graph the solution to this initial value problem. The solutions are periodic. What is the period? Which peaks first, the prey <m>x</m> or the predator <m>y</m>? How much sooner?
+											</p>
+          </statement>
+        </exercise><exercise>
+          <statement>
+            <p>
+												Solve the Lotka–Volterra model with <m>x(0) = 10</m> and <m>y(0) = 5</m>. What is the period of the solutions, and what is the difference between the times when the two populations peak? Compare these results with those of the previous exercise.
+											</p>
+          </statement>
+        </exercise><exercise>
+          <statement>
+            <p>
+												Show that <m>x(t) = 0</m>, <m>y(t) = 0</m> is an equilibrium solution of the Lotka–Volterra equations. Test the stability of this solution, take these nearby initial conditions: <md>x(0) = .1, \qquad y(0) = .1,</md> and find the solution. Does it remain near the equilibrium? If so, the equilibrium is stable; if not, it is unstable.
+											</p>
+          </statement>
+        </exercise><exercise>
+          <statement>
+            <p>
+												Show that <m>x(t) = 10</m>, <m>y(t) = 20</m> is another equilibrium solution of these Lotka–Volterra equations. Is this equilibrium stable? (We will have more to say about stability of equilibria in chapter 8.)
+											</p>
+          </statement>
+        </exercise><exercise>
+          <statement>
+            <p>
+												This is a repeat of the biological pest control scenario you treated above, using the May model. Solve the Lotka–Volterra model when the initial populations are <md>x(0) = 5, \qquad y (0) = 50.</md> What happens? In particular, does the pest disappear?
+											</p>
+          </statement>
+        </exercise><exercise>
+          <statement>
+            <p>
+              <term>First integrals</term>. As remarkable as it may seem, the Lotka–Volterra model has a first integral. Show that the function <md>E = a \ln{y} + d \ln{x} - b y - c x</md> is a first integral of Lotka–Volterra model given in the general form <md>
+                <mrow>x' \amp= a x - b xy,</mrow>
+                <mrow>y' \amp= c xy - d y.</mrow>
+              </md>
+            </p>
+          </statement>
+        </exercise><exercise>
+          <statement>
+            <p>
+												Prove that the solutions of the Lotka–Volterra equations are periodic.
+											</p>
+          </statement>
+        </exercise>
+      </exercisegroup><exercisegroup xml:id="ch7-subsubsec-the-van-der-pol-oscillator">
+        <title>The van der Pol oscillator</title>
+        <introduction>
+          <p>
+						One of the essential functions of the electronic circuits in a television or radio transmitter is to generate a periodic <q>signal</q> that is stable in amplitude and period. One such circuit is described by the van der Pol differential equations. In this circuit <m>x(t)</m> represents the current, and <m>y(t)</m> the voltage, at time <m>t</m>. These functions satisfy the differential equations <md>x' = y,  \qquad y' = Ay - By^3 - x, \qquad \mbox{ with $A, B &gt; 0$}.</md>
+          </p>
+        </introduction><exercise>
+          <statement>
+            <p>
+												Take <m>A = 4</m>, <m>B = 1</m>. Make a sketch of the solution whose initial values are <m>x(0) = .1</m>, <m>y(0) = 0</m>. Your sketch should show that this solution is <em>not</em> periodic at the outset, but becomes periodic after some time has passed. Determine the (eventual) period and amplitude of this solution.
+											</p>
+          </statement>
+        </exercise><exercise>
+          <statement>
+            <p>
+												Obtain the solution whose initial values are <m>x(0) = 2</m>, <m>y(0) =
+						0</m>, and then the one whose initial values are <m>x(0) = 4</m>, <m>y(0) = 0</m>. What are the periods and amplitudes of these solutions? What effect does the initial current <m>x(0)</m> have on the period or the amplitude?
+											</p>
+          </statement>
+        </exercise>
+      </exercisegroup>
+    </exercises>
+  </section>
+
+		<section xml:id="ch7-sec-chapter-summary">
+    <title>Chapter Summary</title>
+    <subsection xml:id="ch7-subsec-the-main-ideas">
+      <title>The Main Ideas</title>
+      <p>
+        <ul>
+          <li>
+            <p>
+										There are many phenomena which exhibit <term>periodic</term> and near-periodic behavior. They are modelled by differential equations with periodic solutions.
+									</p>
+          </li>
+
+					<li>
+            <p>
+										A periodic function repeats: the smallest number <m>T</m> for which <m>g(x+T) = g(x)</m> for all <m>x</m> is the <term>period</term> of the function <m>g</m>. Its <term>frequency</term> is the reciprocal of its period, <m>\omega = 1/T</m>.
+									</p>
+          </li>
+
+					<li>
+            <p>
+										The <term>circular functions</term> are periodic; they include the sine, cosine and tangent functions. The period of <m>\sin(t)</m> and <m>\cos(t)</m> is <m>2 \pi</m> and the frequency is <m>1/2 \pi</m>. The frequency of <m>A\sin(bt)</m> and <m>A\cos(bt)</m> is <m>b/2 \pi</m>, and the <term>amplitude</term> is <m>A</m>. In <m>A \sin(bt + \varphi)</m>, the <term>phase</term> is shifted by <m>\varphi</m>.
+									</p>
+          </li>
+
+					<li>
+            <p>
+										A <term>linear spring</term> is one for which the spring force is proportional to the amount that the spring has been displaced. The motion of a linear spring is periodic. Its amplitude depends only on the initial conditions, and its frequency only on the mass and the spring constant.
+									</p>
+          </li>
+
+					<li>
+            <p>
+										In a <term>non-linear spring</term>, the force is no longer proportional to the displacement. The motion of a non-linear spring can still be periodic, although it is no longer described simply by sines and cosines. Its frequency depends on its amplitude. A pendulum in a non-linear spring. It has two <term>equilibria</term>, one <term>stable</term> and one <term>unstable</term>.
+									</p>
+          </li>
+
+					<li>
+            <p>
+										Many quantities oscillate periodically, or nearly so. Frequently the behavior of these quantities can be modelled by systems of differential equations. Pendulums, electronic components, and animal populations are some examples.
+									</p>
+          </li>
+
+					<li>
+            <p>
+										In some initial value problems, it may still be possible to find a <term>first integral</term>—a combination of the variables that remains constant—even when we can’t find formulas for the variables separately. We can often derive important properties of the system (such as periodicity) from these constant combinations.
+									</p>
+          </li>
+        </ul>
+      </p>
+    </subsection>
+
+			<subsection xml:id="ch7-subsec-expectations">
+      <title>Expectations</title>
+      <p>
+        <ul>
+          <li>
+            <p>
+										You should be able to find the <term>period</term>, <term>frequency</term> and <term>amplitude</term> of sine and cosine functions.
+									</p>
+          </li>
+
+					<li>
+            <p>
+										You should be able to convert between <term>radian</term> measure and degrees.
+									</p>
+          </li>
+
+					<li>
+            <p>
+										You should be able to find a formula for the solution of the differential equation describing a <term>linear spring</term>.
+									</p>
+          </li>
+
+					<li>
+            <p>
+										You should be able to use Euler’s method to describe the motion of a non-linear spring.
+									</p>
+          </li>
+
+					<li>
+            <p>
+										You should be able to analyze oscillations of various kinds to determine their periodicity.
+									</p>
+          </li>
+        </ul>
+      </p>
+    </subsection>
+  </section>
+</chapter>

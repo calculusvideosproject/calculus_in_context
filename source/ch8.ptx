@@ -1,0 +1,1804 @@
+<chapter xml:id="ch8-chap-dynamical-systems">
+  <title>Dynamical Systems</title>
+  <introduction>
+    <p>
+			A recurring theme in this book is the use of mathematical models consisting of a set of differential equations to explore the behavior of physical systems as they evolve over time. Some examples we have encountered are the <m>S</m>-<m>I</m>-<m>R</m> epidemiological model, predator-prey systems, and the motion of a pendulum. We call such a set of differential equations a <term>dynamical system</term>. Dynamical systems play important roles in all branches of science. In this chapter we will develop some general tools for thinking about them, with particular emphasis on the kinds of geometric insight provided by the concepts of <term>state space</term> and
+		</p>
+
+		<p>
+      <term>vector field</term>.
+		</p>
+  </introduction><section xml:id="ch8-sec-state-spaces-and-vector-fields">
+    <title>State Spaces and Vector Fields</title>
+    <introduction>
+      <p>
+				If you look back at the examples we’ve considered, 
+<aside>
+          <p>The standard way to graph solutions</p>
+        </aside>
+ many of them take the following form: we have two (or more) variable quantities <m>x</m> and <m>y</m> that are functions of time, and we want to find the nature of these functions. What we have to work with is a model for the way the functions <m>x(t)</m> and <m>y(t)</m> are changing—i.e., we are told how to calculate <m>x'(t)</m> and <m>y'(t)</m> whenever we know the values of <m>x</m> and <m>y</m>, and possibly <m>t</m>. From a given starting point, we typically used something like Euler’s method to get values for <m>x</m> and <m>y</m> at times on either side of the starting value. We then graphed the solutions as functions of time—<m>x</m> against <m>t</m> and <m>y</m> against <m>t</m>.
+			</p>
+
+			<p>
+				In many instances, the rules determining <m>x'(t)</m> and <m>y'(t)</m> depend only on the current values of <m>x</m> and <m>y</m>, but not on the value of <m>t</m>, so that knowing the current state of the system (as specified by its <m>x</m> and <m>y</m> values) is sufficient to determine the future and past states of the system. Such systems are said to be  <term>autonomous</term>. These are the only systems we will be considering in this chapter.
+			</p>
+
+			<p>
+				In autonomous systems 
+<aside>
+          <p>A new way to graph solutions: as trajectories in state space</p>
+        </aside>
+ there is another way of visualizing the solutions that can be very powerful. Instead of plotting values of <m>x</m> and <m>y</m> as functions of time, we view these values as coordinates of a point in the <m>x</m>-<m>y</m> plane. As the system changes, the point <m>(x, y)</m> will trace out a curve in this plane. The point <m>(x, y)</m> is called a  <term>state</term>, and the portion of the plane corresponding to physically possible states is called the <term>state space</term> of the system. The solution curves that get traced out in state space are called <term>trajectories</term>. By looking at three examples, we will see how this method of analysis can help us understand the overall behavior of a system.
+			</p>
+
+			<p>
+				There are a number of effective software packages available which can perform efficiently all the operations we will be considering, and one of them would probably be the most useful tool for exploring the ideas in this chapter. On the other hand, the basic numerical operations are quite simple, and it is easy to modify the programs developed earlier in the text to perform these operations as well. For those of you who enjoy programming, we will from time to time point out some of these modifications. It can be instructive to implement them in your own programs, and we urge you to do so.
+			</p>
+    </introduction><subsection xml:id="ch8-predatorprey-models">
+      <title>Predator–Prey Models</title>
+      <p>
+					
+				</p>
+      <p>
+					In chapter 4.1, we looked at several models for the dynamics of a simple system consisting of foxes (<m>F</m>) and rabbits (<m>R</m>). Our first model was <md>
+          <mrow>R' \amp= .1 R\left( 1- \dfrac{R}{10000}\right) - .005\, R F \quad 
+                  \mbox{rabbits per month},</mrow>
+          <mrow>F' \amp= .00004 \, RF-.04 \, F \quad \mbox{foxes per month}.</mrow>
+        </md>
+      </p>
+
+				<p>
+					When we started with the initial values <m>R(0)=2000</m> rabbits and <m>F(0)=
+10</m> foxes, Euler’s method produced the following solutions for the first 250 months:
+				</p>
+
+				<figure xml:id="fig_calc2_pred1">
+        <image source="images/calc2_pred1" />
+        <caption>image</caption>
+      </figure>
+
+				<p>
+					Let’s see how the same model looks 
+<aside>
+          <p>Two ways of representing the same solution graphically</p>
+        </aside>
+ when we express it in the language of state spaces. The state space consists of points in the <m>R</m>-<m>F</m> plane. For physical reasons our state space consists only of points <m>(R, F)</m> satisfying <m>R\geq 0</m> and <m>F\geq 0</m>. That is, our state space is the first quadrant of the <m>R</m>-<m>F</m> plane together with the bounding portions of the <m>R</m>-axis and the <m>F</m>-axis.We can easily modify the program used to obtain the curves in the previous picture to plot the corresponding trajectory in the <m>R</m>-<m>F</m> plane. We only need change the specification of the dimensions of the viewing window and change the <c>plot</c> command to plot points with coordinates <m>(R, F)</m> instead of <m>(t, R)</m> and <m>(t,
+F)</m>; all the rest of the calculations are unchanged. Here’s what the same solution looks like when we do this:
+				</p>
+
+				<p>
+					
+				</p>
+      <figure xml:id="fig_calc2_pred2">
+        <image source="images/calc2_pred2" />
+        <caption>image</caption>
+      </figure>
+
+				<p>
+					You should notice several things here:
+				</p>
+      <p>
+        <ul>
+          <li>
+            <p>
+										The trajectory looks like a spiral, moving in towards, but never reaching, some point at its center. We will see later (see page ) how to determine the coordinates of this limit state.
+									</p>
+          </li>
+
+					<li>
+            <p>
+										If we had started at any other initial state with <m>R&gt;0</m> and <m>F&gt;0</m>, we would have gotten another spiral converging to the same limit (try it and see).
+									</p>
+          </li>
+
+					<li>
+            <p>
+										From the trajectory alone, there is no way of determining the time at which the system passes through the different states. In part, this simply emphasizes that the succession of states the system moves through does not depend on the initial value of <m>t</m>, nor does it depend on the units in which <m>t</m> is measured—if <m>t</m> were measured in days or years, rather than in months, the trajectory would be unchanged.
+									</p>
+          </li>
+        </ul>
+      </p>
+
+				<p>
+					 If we wanted to include some information about time, one way would be to label some points on the trajectory with the associated time value. If we label the points every 6 months, say, we would get the picture at the right. Note that the points are not uniformly spaced along the trajectory: the spacing is
+				</p>
+      <figure xml:id="fig_calc2_predtime">
+        <image source="images/calc2_predtime" />
+        <caption>image</caption>
+      </figure>
+
+				<p>
+					largest between points relatively far from the origin, where the values of <m>R</m> and <m>F</m> are largest. Moreover, the closer we come to the limit state, the tighter the spacing becomes.
+				</p>
+
+				<p>
+					Could we have foreseen some of this behavior 
+<aside>
+          <p>The differential equations indicate how the state changes</p>
+        </aside>
+ by looking at the original differential equations? Since the differential equations give <m>R'</m> and <m>F'</m> as functions of <m>R</m> and <m>F</m> alone, for each point <m>(R, F)</m> in the state space we can calculate the associated values for <m>R'</m> and <m>F'</m>. Knowing these values, we can in turn tell in what direction and with what speed a trajectory would be moving as it passed through the point <m>(R, F)</m>. Using our (by now) standard argument, in time <m>\Delta t</m> the change in <m>R</m> would be <m>\approx R'\Delta t</m>, while <m>F</m> would change by <m>\approx F'\Delta t</m>. We can convey this information graphically by choosing a number of points in the state space, and from each point <m>(R, F)</m> drawing an arrow to the point <m>(R+R'\Delta t, F+F'\Delta t)</m>. We would typically choose a value for <m>\Delta t</m> that keeps the arrows a reasonable size. Here’s what we get in our current example when we choose a <m>16\times
+16</m> grid of points in the region <m>0\leq R\leq 3000</m> and <m>0\leq F\leq
+30</m>, with <m>\Delta t =1</m>.
+				</p>
+
+				<p>
+					
+				</p>
+      <figure xml:id="fig_calc2_vecf1">
+        <image source="images/calc2_vecf1" />
+        <caption>image</caption>
+      </figure>
+
+				<p>
+					Several things are immediately clear from this picture: 
+<aside>
+          <p>Arrows indicate the change in state…</p>
+        </aside>
+ the arrows suggest a general counter-clockwise flow in the plane; change is most rapid in the upper right corner; near the limit point of the flow and near the origin change is so slow that arrows don’t even show up there.
+				</p>
+      <p>
+					Moreover, since the method used to construct the arrows is exactly the way Euler’s method calculates the trajectories themselves, the solution trajectory through a given initial state is a curve 
+<aside>
+          <p>…and trajectories are tangent to the arrows</p>
+        </aside>
+ in the state space which at every point is tangent to the arrow at that point. For instance, if we superpose the trajectory graphed on page  on the picture above, we get the following:
+				</p>
+      <figure xml:id="fig_calc2_vecf2">
+        <image source="images/calc2_vecf2" />
+        <caption>image</caption>
+      </figure>
+
+				<p>
+					The net effect of this construction is thus 
+<aside>
+          <p>How to construct a geometrical visualization of a dynamical system</p>
+        </aside>
+ to transform a problem in <em>analysis</em>—findinging a solution to a system of differential equations—into a problem in  <em>geometry</em>—finding a curve which is tangent everywhere to a prescribed set of arrows. This correspondence between the analytical and the geometrical ways of formulating a problem is very powerful. Let’s sum up the way this correspondence was established:
+				</p>
+
+				<p>
+        <ul>
+          <li>
+            <p>
+										We set up a <term>state space</term> for the system being studied. Each point—called a <term>state</term>—in the space corresponds to a possible pair of values the system could have.
+									</p>
+          </li>
+
+					<li>
+            <p>
+										There is a rule which assigns to each point in the state space a <term>velocity vector</term>—which can be visualized as an arrow in the space based at the given point—specifying the rates at which the coordinates of the point are changing. The rule itself, which is just our original set of rate equations, is called a <term>vector field</term>. Geometrically, we can visualize the vector field as the state space with all the associated arrows.
+									</p>
+          </li>
+
+					<li>
+            <p>
+										Solutions to the dynamical system correspond to  <term>trajectories</term> in the state space. At every point on a trajectory the associated velocity vector specified by the vector field will be tangent to the trajectory. The existence and uniqueness principle for the solutions of differential equations—there is a unique solution for each set of initial values—is geometrically expressed by the property that every point in the state space lies on exactly one trajectory. The set of all possible trajectories is called the <term>phase portrait</term> of the system. For instance, part of the phase portrait of the system we have been considering appears below. We have drawn only a few trajectories—if we had drawn them all, we would have seen only a black rectangle since there is a trajectory through every point.
+									</p>
+          </li>
+        </ul>
+      </p>
+
+				<figure xml:id="fig_calc2_phasepor">
+        <image source="images/calc2_phasepor" />
+        <caption>image</caption>
+      </figure>
+
+				<p>
+					There is almost too much detail 
+<aside>
+          <p>Simplifying the picture</p>
+        </aside>
+ in the picture of the vector field and the phase portrait. One way to see the underlying simplicity is to notice that the space is divided into four regions according to whether <m>F'</m> and <m>R'</m> are positive or negative. The <em>signs</em> of <m>F'</m> and <m>R'</m> in turn determine the <em>direction</em> of the associated velocity vector. For instance, if <m>F'</m> and <m>R'</m> are both positive, then <m>F</m> and <m>R</m> must both be increasing, which means the velocity vector will be pointing up and to the right, while if <m>F'&gt;0</m> and <m>R'&lt;0</m>, the velocity vector will be pointing up (<m>F'&gt;0</m>) and to the left (<m>R'&lt;0</m>). Let’s see which states correspond to which behaviors. Here are original rate equations: <md>
+          <mrow>R' \amp= .1 R\left(1 - \dfrac{R}{10000}\right) - .005\,R F \quad 
+          \mbox{rabbits per month},</mrow>
+          <mrow>F' \amp= .00004\,RF-.04\,F \quad \mbox{foxes per month}.</mrow>
+        </md>
+      </p>
+
+				<p>
+					The equation for <m>F'</m> is slightly simpler, so we’ll start there. We see that <m>F'=0</m> in exactly two cases:
+				</p>
+
+				<p>
+        <ol>
+          <li>
+            <p>
+										when <m>F=0</m>, or
+									</p>
+          </li>
+
+					<li>
+            <p>
+										when <m>.00004R-.04=0</m>, which is equivalent to saying <m>R=1000</m>.
+									</p>
+          </li>
+        </ol>
+      </p>
+
+				<p>
+					The first case simply says that if we are ever on the <m>R</m>-axis <m>(F=0)</m>, then we stay there—a trajectory starting on the <m>R</m>-axis must move horizontally. (If you start with no foxes, you will never have any at a later time.) The second case says that the value of <m>F</m> isn’t changing whenever <m>R=1000</m>. The set of points satisfying <m>R=1000</m> is just a vertical line in the state space. The condition that <m>F'=0</m> on this line can be expressed geometrically by saying that any trajectory crossing this line must do so horizontally (why?).
+				</p>
+
+				<p>
+					The remainder of the quadrant consists of two regions: 
+<aside>
+          <p>Divide the state space into regions</p>
+        </aside>
+ one consists of all points <m>(R, F)</m> with <m>0\leq R&lt;1000</m> and <m>F&gt;0</m>, the other consists of all points <m>(R, F)</m> with <m>R&gt;1000</m> and <m>F&gt;0</m>. Moreover, since we’ve already accounted for all the points where <m>F'=0</m>, it must be true that at every point of these two regions <m>F'</m> must be <m>&gt;0</m> or <m>&lt;0</m>; <m>F'</m> can’t equal 0 in either region. Further, within any one region <m>F'</m> must be always positive or always negative. If it were positive at some points and negative at others in a single region, there would have to be transition points where it took on the value 0, which we have just observed can’t happen. (Be sure you see why this is so!) Thus to determine the sign of <m>F'</m> in an entire region, we only need to see what the sign is at one point in that region. For instance if we let <m>R=2000</m> and <m>F=1</m>, we see that <m>F'=
+.08-.04</m>, which is positive. Therefore we will have <m>F'&gt;0</m> (fox population increasing) for any other state <m>(R, F)</m> with <m>R&gt;1000</m>. Similarly we can show that <m>F'&lt;0</m> (fox population decreasing) if <m>0\leq R&lt;1000</m>—the test point <m>R=0</m> and <m>F=1</m> is easy to evaluate. We could, of course, have arrived at the same conclusions through more formal algebraic arguments, which are fairly straightforward in this instance. In other problems, though, the <q>test point</q> approach may be the more convenient.
+				</p>
+
+				<p>
+					In exactly the same way, if we look at the first rate equation, we find that <m>R'=0</m> in two cases:
+				</p>
+
+				<p>
+        <ol>
+          <li>
+            <p>
+										when <m>R=0</m>, or
+									</p>
+          </li>
+
+					<li>
+            <p>
+										when <m>.1\,(1-R/10000)-.005\,F=0</m>. This is just the equation of a line, which can be rewritten as <m>F=20-.002\,R</m>.
+									</p>
+          </li>
+        </ol>
+      </p>
+
+				<p>
+					The interpretations of these two cases are similar to the preceding analysis: any trajectory starting on the <m>F</m>-axis must stay on the <m>F</m>-axis; any trajectory crossing the line <m>F=20-.002\,R</m> must cross it vertically, since <m>R'=0</m>—the <m>R</m>-value isn’t changing—there. Further, for any other state <m>(R, F)</m> we have <m>R'&gt;0</m> if the point is below this line (the point <m>R=1</m> and <m>F=0</m> is a convenient test point where it’s easy to see without doing any arithmetic that <m>R'&gt;0</m>), and <m>R'&lt;0</m> if the point is above the line.
+				</p>
+
+				<p>
+					We can combine all this information into the following picture. We have drawn a number of velocity vectors along the lines where <m>R'=0</m> and <m>F'=0</m>, with one or two others in each region.
+				</p>
+
+				<p>
+					
+				</p>
+      <figure xml:id="fig_calc2_pred3">
+        <image source="images/calc2_pred3" />
+        <caption>image</caption>
+      </figure>
+
+				<p>
+					We see that the entire state space is divided into four regions:
+				</p>
+      <p>
+        <ol>
+          <li>
+            <p>
+										Region I, above the line <m>F=20-.002\,R</m> and to the right of the line <m>R=1000</m> . Here <m>R'&lt;0</m> , and <m>F'&gt;0</m> , so all velocity vectors are pointing up and to the left.
+									</p>
+          </li>
+
+					<li>
+            <p>
+										Region II, below the line <m>F=20-.002\,R</m> and to the right of the line <m>R=1000</m> . Here <m>R'&gt;0</m> , and <m>F'&gt;0</m> , and all velocity vectors are pointing up and to the right.
+									</p>
+          </li>
+
+					<li>
+            <p>
+										Region III, below the line <m>F=20-.002\,R</m> and to the left of the line <m>R=1000</m> . Here <m>R'&gt;0</m> , and <m>F'&lt;0</m> , and all velocity vectors are pointing down and to the right.
+									</p>
+          </li>
+
+					<li>
+            <p>
+										Region IV, above the line <m>F=20-.002\,R</m> and to the left of the line <m>R=1000</m> . Here <m>R'&lt;0</m> , and <m>F'&lt;0</m> , and all velocity vectors are pointing down and to the left.
+									</p>
+          </li>
+        </ol>
+      </p>
+
+				<p>
+					Notice that this diagram makes it clear 
+<aside>
+          <p>There are simple trajectories: three are just points…</p>
+        </aside>
+ what the limit state of the spirals is: it is the point <m>Q=(1000,
+18)</m> where the line <m>R=1000</m> and the line <m>F=20-.002\,R</m> intersect. Notice that at <m>Q</m> both <m>R'=0</m> and <m>F'=0</m>, so that if we are ever at <m>Q</m>, we never leave—the point <m>Q</m> is a trajectory all by itself. The points <m>O = (0, 0)</m> and <m>P = (10\,000, 0)</m> are the two other such point trajectories. While the typical trajectory looks like a spiral coming into the point <m>Q</m>, note that this picture contains three other 
+<aside>
+          <p>…and three are straight line segments</p>
+        </aside>
+ <q>special</q> trajectories in addition to the point trajectories:
+				</p>
+
+				<p>
+        <ul>
+          <li>
+            <p>
+										The <m>F</m>-axis for <m>F&gt;0</m>. The point <m>(0, 0)</m> is <em>not</em> part of this trajectory.
+									</p>
+          </li>
+
+					<li>
+            <p>
+										The portion of the <m>R</m>-axis with <m>0 &lt; R &lt; 10000</m>. Here the flow is toward the right, towards the point <m>P</m>.
+									</p>
+          </li>
+
+					<li>
+            <p>
+										The portion of the <m>R</m>-axis with <m>10000 &lt; R</m>. Flow is to the left, towards <m>P</m>, with movement being slower and slower as <m>P</m> is approached. Note that this is entirely separate from the preceding trajectory—you can’t start at any point on one of them and get to any point on the other.
+									</p>
+          </li>
+        </ul>
+      </p>
+
+
+				<paragraphs xml:id="ch8-equilibrium-points">
+        <title>Equilibrium Points</title>
+        <p>
+						
+					</p>
+        <p>
+						The three points <m>O</m>, <m>P</m>, and <m>Q</m>
+          <aside>
+            <p>Different kinds of equilibrium points</p>
+          </aside>
+ in the previous figure—single points which are also trajectories—are called <term>equilibrium points</term> for the system. If the ststem ever in such a state, it stays in it forever. Moreover, the system can’t reach such a state from any other state (although it may be able to come very close). Nevertheless, the behavior of the system is not the same near the three points. If we zoom in on each of these points and draw some of the nearby trajectories, we get the following pictures:
+					</p>
+
+					<figure xml:id="fig_calc2_eqpoints">
+          <image source="images/calc2_eqpoints" />
+          <caption>image</caption>
+        </figure>
+
+					<p>
+						Points <m>O</m> and <m>P</m> look fairly similar—they would look even more alike if we crossed over into the negative <m>R</m> and negative <m>F</m> regions and included the trajectories there as well (impossible to do in the real world, but elementary in mathematics!). In both cases there is one direction from which trajectories come straight towards the point (in the case of <m>O</m>, this is the <m>F</m>-axis; for <m>P</m> this is the <m>R</m>-axis), and one direction in which trajectories move directly away from the point (the <m>R</m>-axis in the case of point <m>O</m>, and the line of slope <m>-.0092</m> (we’ll see how to find this later!) in the case of <m>P</m>). The remaining trajectories look sort of like hyperbolas asymptotic to these two lines. Equilibrium points of this sort 
+<aside>
+            <p>Saddle point equilibrium</p>
+          </aside>
+ are called <term>saddle points</term>. They are characterized by the property that there is exactly one direction along which the system can be displaced and still move back towards the equilibrium point. Displacements in any other direction get amplified, with the state eventually moving even further away.
+					</p>
+
+					<p>
+						Point <m>Q</m> is quite different. If the state experiences a small displacement away from <m>Q</m> in any direction, over time it will move back towards <m>Q</m>. Such equilibrium points are called  <term>attractors</term>, and <m>Q</m> is an example of a particular kind of attractor called a 
+<aside>
+            <p>Spiral equilibrium</p>
+          </aside>
+        </p>
+
+					<p>
+          <term>spiral attractor</term>. In this example, <m>Q</m> is an attractor for almost the entire space—if we start with any point <m>(R, F)</m> with <m>R&gt;0</m> and <m>F&gt;0</m>, the trajectory through <m>(R, F)</m> will eventually come arbitrarily close to <m>Q</m> and stay there. We will shortly see examples (see page , for instance) of attractors that draw from more limited portions of the state space.
+					</p>
+
+					<p>
+						For future reference, 
+<aside>
+            <p>Attractors and repellors</p>
+          </aside>
+ we define here the concept of <term>repellor</term> and <term>spiral repellor</term>. Their vector fields look just like those for the attractors, but with all the arrows reversed. If the state experiences a small displacement from a repellor, over time this displacement will increase. We will see examples of a repellor in [the section about repellors] It turns out that there is a relatively small number of kinds of equilibrium points that a system can have, and we will meet most of them in the next several examples. We will turn more systematically to the problem of identifying the kinds of equilibrium points in [the section about equations].
+					</p>
+      </paragraphs>
+    </subsection>
+
+			<subsection xml:id="ch8-the-pendulum-revisited">
+      <title>The Pendulum Revisited</title>
+      <p>
+					 
+				</p>
+      <figure xml:id="fig_calc2_pend1a">
+        <image source="images/calc2_pend1a" />
+        <caption>image</caption>
+      </figure>
+
+				<p>
+					In chapter 7 we analyzed the motion of a pendulum. Let’s see how this analysis looks when translated into the language of state space. We first need to figure out what the appropriate coordinates are, which means deciding what information we need in order to specify the state of a pendulum. If you look back at the model in the last chapter, you will recall that the two variables we needed were the displacement <m>x</m> and the velocity <m>v</m>. Since <m>x</m> and <m>v</m> can potentially take on any values, our state space will be the entire <m>x</m>-<m>v</m> plane. As before, the dynamical system is specified by the equations <md>x' = v, \qquad v' = -\sin{x}.</md> Here is what the vector field for this system looks like:
+				</p>
+
+				<figure xml:id="fig_calc2_pendvf">
+        <image source="images/calc2_pendvf" />
+        <caption>image</caption>
+      </figure>
+
+				<p>
+					We have included in this diagram the lines where <m>v'=0</m> (the vertical lines at every multiple of <m>\pi</m>) and the line where <m>x'=0</m> (the horizontal line at <m>v=0</m>). Note that the velocity vectors are horizontal on the lines corresponding to <m>v'=0</m> and are vertical on the line corresponding to <m>x'=0</m>. 
+<aside>
+          <p>The equilibrium points</p>
+        </aside>
+ The points where these two sets of lines intersect—all points of the form <m>(k\pi, 0)</m> for <m>k</m> an integer—are the equilibrium points of the system. Let’s sketch the phase portrait of this system to see more clearly what’s going on:
+				</p>
+
+				<figure xml:id="fig_calc2_pendpha">
+        <image source="images/calc2_pendpha" />
+        <caption>image</caption>
+      </figure>
+
+				<p>
+					We see that there are several different kinds of trajectories:
+				</p>
+      <p>
+        <ul>
+          <li>
+            <p>
+										There are the wavy trajectories moving from left to right across the top of the state space. Note that for these trajectories the value of <m>v</m> is 
+<aside>
+                <p>Trajectories from left to right in the state plane correspond to <m>v&gt;0</m>
+                </p>
+              </aside>
+ always positive, and <m>x</m> just keeps increasing. These trajectories correspond to the cases where the velocity is great enough that the pendulum can go over the top, continuing to loop around counterclockwise (since <m>x</m> is increasing and <m>x</m> is measured in a counterclockwise direction) forever. Notice that <m>v</m> takes on its minimum value when <m>x</m> is an odd multiple of <m>\pi</m>, which is what we would expect, since the pendulum is at the top of its arc then. Similarly, <m>v</m> takes on its maximum value at the bottom of its arc—<m>x</m> an even multiple of <m>\pi</m>.
+									</p>
+          </li>
+
+					<li>
+            <p>
+										The wavy trajectories moving from right to left across the bottom are similar, except that <m>v</m> is always negative. This corresponds to the pendulum wrapping around in a clockwise direction.
+									</p>
+          </li>
+
+					<li>
+            <p>
+										There are the closed loops. Here <m>x</m> oscillates back and forth 
+<aside>
+                <p>Oscillations of the pendulum correspond to closed loops in the state plane</p>
+              </aside>
+ between some maximum and minimum value symmetrically placed about an even multiple of <m>\pi</m>. These trajectories correspond to a pendulum swinging back and forth. The fact that some are centered at <m>x</m>-values other than 0 is due to the fact that the same position of the pendulum can be specified by an infinite number of values of <m>x</m>, all differing from each other by multiples of <m>2\pi</m>.
+									</p>
+          </li>
+
+					<li>
+            <p>
+										There are the equilibrium points <m>(k\pi, 0)</m>, 
+<aside>
+                <p>A center: a neutral equilibrium</p>
+              </aside>
+ with <m>k</m> an even integer. This corresponds to the pendulum hanging straight down. If we perturb the system to a state slightly away from such a point, the pendulum swings back and forth, and the corresponding trajectory loops around the equilibrium point forever. The system neither comes back to the equilibrium point—the condition for an attractor—nor does it go wandering off even further away—the condition for a repellor. Such an equilibrium point is called a <term>center</term>. Notice that it is neither an attractor or a repellor; it is said to be a <term>neutral equilibrium</term>.
+									</p>
+          </li>
+
+					<li>
+            <p>
+										There are the equilibrium points <m>(k\pi, 0)</m>, with <m>k</m> an odd integer, correspond to the pendulum balanced vertically. These are saddle points—if we perturb the system slightly with  <em>exactly</em> the right <m>v</m>-value for the given <m>x</m>-value, the system will move back toward the vertical position; any other combination, though, will cause the pendulum to wrap around and around forever or to oscillate back and forth forever, depending on whether the <m>v</m>-value is greater than or less than the critical value.
+									</p>
+          </li>
+
+					<li>
+            <p>
+										There are the trajectories connecting the saddle points. These correspond to cases where the pendulum has just enough velocity so that it keeps moving closer to the vertical position without either overshooting and wrapping around, or coming to a stop and reversing direction. In fact, these 
+<aside>
+                <p>A connected curve in the phase portrait may be composed of more than one trajectory</p>
+              </aside>
+ trajectories divide the state space: on one side of such a trajectory are points corresponding to states where the pendulum will wrap around, and on the other side are points corresponding to states where the pendulum will swing back and forth. Note that the saddle points are  <em>not</em> part of these trajectories, and that each arc between saddle points is a separate trajectory—you can’t get from a point on one of them to a point on another.
+									</p>
+          </li>
+        </ul>
+      </p>
+
+
+				<paragraphs xml:id="ch8-first-integrals-again">
+        <title>First Integrals Again</title>
+        <p>
+						
+					</p>
+        <p>
+						In the case of the pendulum, we have another way of thinking about the trajectories. Recall that in chapter 7.3 we saw that, for any given initial conditions, the quantity <m>E = \tfrac{1}{2} v^2 + 1 -
+\cos{x}</m> was constant over time. In the vocabulary of this chapter, if <m>(x, v)</m> is any state on the trajectory through <m>(x_1, v_1)</m>, then it must be true that <m>\tfrac{1}{2} v^2 + 1 - \cos{x} = \tfrac{1}{2}
+v_1^2 + 1 - \cos{x_1}</m>. But this 
+<aside>
+            <p>First integrals can give equations of trajectories</p>
+          </aside>
+ relation determines a curve in the <m>x</m>-<m>v</m> plane. We thus have an algebraic condition for each of the trajectories, which will depend on the initial values. In this example we could actually get an equation for each trajectory by first using the initial values to determine the energy <m>E = \tfrac{1}{2} v_1^2 + 1 - \cos{x_1}</m>. We could then solve for <m>v</m> in terms of <m>x</m> by <m>v=\pm \sqrt{2(E-1+\cos{x})}</m> and plot the resulting function. (Whether we took the plus sign or the minus sign would depend on whether the pendulum was moving counterclockwise or clockwise.) Let’s return to our previous sketch of the phase portrait and label some of the trajectories by their corresponding values of <m>E</m>:
+					</p>
+
+					<figure xml:id="fig_calc2_pendpha2">
+          <image source="images/calc2_pendpha2" />
+          <caption>image</caption>
+        </figure>
+
+					<p>
+						Note that for each value of <m>E\geq 0</m> there is more than one trajectory having that value as its energy.
+					</p>
+
+					<p>
+						We can now characterize the different kinds of trajectories by their associated energy <m>E</m>:
+					</p>
+
+					<p>
+          <ul>
+            <li>
+              <p>
+												If <m>E&gt;2</m> we get a trajectory extending from <m>x = \infty</m> to <m>x=
+						  -\infty</m> (or vice versa).
+											</p>
+            </li>
+
+						<li>
+              <p>
+												If <m>0&lt;E&lt;2</m>, the trajectory is a closed loop.
+											</p>
+            </li>
+
+						<li>
+              <p>
+												If <m>E=0</m>, we get a neutral equilibrium point.
+											</p>
+            </li>
+
+						<li>
+              <p>
+												If <m>E=2</m>, we get either a saddle point equilibrium, or a trajectory connecting two such saddle points.
+											</p>
+            </li>
+          </ul>
+        </p>
+
+					<p>
+						
+					</p>
+      </paragraphs>
+    </subsection>
+
+			<subsection xml:id="ch8-a-model-for-the-acquisition-of-immunity">
+      <title>A Model for the Acquisition of Immunity</title>
+      <p>
+					
+				</p>
+      <p>
+					One of the roles of mathematical 
+<aside>
+          <p>A mathematical model can be used to think about the feasibility of a proposed explanation</p>
+        </aside>
+ modelling is to allow researchers to explore possible mechanisms to explain an observed phenomenon. As an example of this, consider the phenomenon of immunity: for many infections, particularly those due to viruses, once you’ve been exposed to the disease your body continues to produce high levels of antibodies to the disease for the rest of your life, even in the absence of any further stimulation from the virus.
+				</p>
+      
+<aside>
+        <p>A capsule summary of the immune response: Vertebrates have a wide variety of specialized cells called <em>lymphocytes</em> circulating in their blood streams and lymphatic systems at all times. Each lymphocyte has the ability to recognize and bind with a specific kind of invading organism. The invader is called an  <em>antigen</em>, and the neutralizing molecules produced by the responding lymphocytes are called <em>antibodies</em>. Prior to infection, the concentration level of a particular antibody is typically so low as to be undetectable, but the appearance of the antigen causes the system to respond by producing large quantities of the appropriate antibody. If the body can continue to produce high levels of antibodies, it will be immune to reinfection.</p>
+      </aside>
+
+
+				<p>
+					In their book <em>Infectious Diseases of Humans</em>, Roy Anderson and Robert May propose the following model as a possible mechanism for how antibody levels are sustained. Suppose that there are two kinds of lymphocytes (called <em>effector cells</em>) whose densities at time <m>t</m> are denoted by <m>E_1(t)</m> and <m>E_2(t)</m>, with the type 2 cells being the potential antibodies for the disease in question. They assume further that new cells of type <m>i</m> (<m>i=1</m> or <m>i=2</m>) are produced by the bone marrow at constant rates <m>\Lambda_i</m> and they die at a per capita rates of <m>\mu_i</m>. They assume that each cell type is an antigen for the other—that is, contact with cell type 2 triggers cell type 1 to proliferate, and vice versa. They further assume that this proliferation response saturates to a maximum net rate which is dependent on the product of their respective densities. The following equations express this behavior: <md>
+          <mrow>dE_1/dt \amp= \Lambda_1-\mu_1E_1+a_1E_1E_2/(1+b_1E_1E_2),</mrow>
+          <mrow>dE_2/dt \amp= \Lambda_2-\mu_2E_2+a_2E_1E_2/(1+b_2E_1E_2).</mrow>
+        </md> Here the parameters <m>\Lambda_i</m>, <m>\mu_i</m>, <m>a_i</m>, and <m>b_i</m> would have to be determined by experimental means. At this stage, though, when we are simply exploring to see if such a mechanism might account for the phenomenon of permanent immunity, we can try a range of values for the parameters to see how they affect the behavior of the model.
+				</p>
+
+				<p>
+					
+				</p>
+      <figure xml:id="fig_calc2_andmay1">
+        <image source="images/calc2_andmay1" />
+        <caption>image</caption>
+      </figure>
+
+				<p>
+					In the figure above, we have taken <m>\Lambda_1=\Lambda_2=8000</m>, <m>\mu_1=\mu_2=1000</m>, <m>a_1=a_2=10</m>, and <m>b_1=b_2=10^{-6}</m>.
+				</p>
+
+				<p>
+					There are a couple of features to notice about this graph:
+				</p>
+      <p>
+        <ol>
+          <li>
+            <p>
+										Since the velocity vectors differ so much in their size, we 
+<aside>
+                <p>Knowing the direction of the trajectories is often sufficient</p>
+              </aside>
+ have recorded only the direction of the velocity vectors, drawing all the arrows to be the same length. Thus we don’t really show the vector field, but its close relative, the  <term>direction field</term>. This is often a useful substitute.
+									</p>
+          </li>
+
+					<li>
+            <p>
+										Since the range of values we want to represent is so great we have employed a common device from the sciences of plotting the values on a <term>log-log scale</term>. That is, we have plotted the values so that each interval spanning a power of 10—from <m>10^0</m> to <m>10^1</m>, or from <m>10^3</m> to <m>10^4</m>—gets the same space. 
+<aside>
+                <p>Expressing graphical information over several different orders of magnitude</p>
+              </aside>
+ This is equivalent to plotting the logarithms of the values on ordinary graph paper. This allows us to see effects that take place at different scales. If we hadn’t done this, but had plotted this information on regular graph paper with the values running from 0 to <m>10^5</m>, then some of our most interesting behavior—from <m>10^0</m> to <m>10^2</m>—would be compressed into the lower left-hand corner of the graph, occupying only .001 of the vertical and horizontal scales.
+									</p>
+          </li>
+        </ol>
+      </p>
+
+				<p>
+					We have included in the graph the two curves corresponding to all points satisfying <m>E_1'=0</m> and <m>E_2'=0</m> (note that these curves are <em>not</em> trajectories). These curves intersect at the three points <m>P_1=(8.7689, 8.7689)</m>, <m>P_2=(92.0869, 92.0869)</m>, and <m>P_3=(9907.14,
+9907.14)</m>, which are then the equilibrium points of this system. The points <m>P_1</m> and <m>P_3</m> appear to be attractors, while the point <m>P_2</m> is a saddle point. In the next section (see page ) we will see how to zoom in and look at the trajectories near each of these points to confirm this impression. Here is a picture of the phase portrait for this system.
+				</p>
+
+				<figure xml:id="fig_calc2_andmay3">
+        <image source="images/calc2_andmay3" />
+        <caption>image</caption>
+      </figure>
+
+				<p>
+					Note that neither <m>P_1</m> nor <m>P_3</m> is an attractor for the entire system. The <term>basin of attraction</term> for <m>P_1</m> appears to be a region in the lower left of the graph, while the basin of attraction for <m>P_3</m> is everything else. The boundary separating these two basins is formed by the two heavily shaded trajectories which come toward the point <m>P_2</m> (since <m>P_2</m> is a saddle point, there are only two such trajectories—every other trajectory eventually veers off and heads toward either <m>P_1</m> or <m>P_3</m>).
+				</p>
+
+				<p>
+					We can now interpret this system in the following way. State <m>P_1</m> represents the <term>virgin</term> or <term>resting state</term> of the system, with coordinate values on the order of magnitude of <m>E_i\approx \Lambda_i /\mu_i</m>, which would just be the steady state values we would have if there were no interactions between the two kinds of cells (why?). Note that after small perturbations (i.e., anything roughly less than a 10-fold increase of type 1 or type 2 cells) from <m>P_1</m>, the system will settle back to this resting state.
+				</p>
+
+				<p>
+					Now, though, suppose a viral pathogen appears which possesses an antigen which is identical to that expressed by cell type 1. This has an effect equivalent to moving vertically in the <m>E_1</m>-<m>E_2</m> plane to a state which is now in the basin for <m>P_3</m>. As a result, the system immediately starts producing large quantities of type 2 cells (which are antibodies for the virus) very rapidly, the virus is wiped out, and the system settles into a new state—the <term>immune state</term>—<m>P_3</m> and remains there. There are now so many type 2 cells permanently floating around the body that no further infection by the viral pathogen is possible. The only way the system can be switched back to state <m>P_1</m> is if some other agent, such as radiation therapy or infection with an HIV virus, for instance, kills off large numbers of <em>both</em> the type 1 and type 2 cells, moving the system back into the basin of attraction for <m>P_1</m>. Just killing off large numbers of one type of cell won’t move the system back to state<m>P_1</m>—do you see why?
+				</p>
+    </subsection>
+
+			<exercises xml:id="ch8-subsec-exercises">
+      <title>Exercises</title>
+      <exercisegroup xml:id="ch8-subsubsec-two-species-interactions">
+        <title>Two-species interactions</title>
+        <introduction>
+          <p>
+						We look at some variations of the predator-prey model. While the original context is given in terms of rabbits and foxes, similar models can be constructed for a variety of interactions between populations—not just predator and prey. The key features of the models are determined by the nature of the <term>feedback structure</term> between the populations. In the predator-prey models, the number of foxes has a negative effect on the growth rate of rabbits—the more foxes, the slower the rabbit population grows—while the number of rabbits has a positive effect on the growth rate of foxes. Can you think of other pairs of quantities whose interaction is of this sort? In the first problem we will look at several different models for predator-prey interactions. In the following three problems we will look at models for other kinds of feedback structures.
+					</p>
+        </introduction><exercise>
+          <introduction>
+            <p>
+												Below are four predator-prey models. In each model all the letters other than <m>R</m> and <m>F</m> are constant parameters. You can perform a general analysis, giving your answers in terms of the unspecified parameters <m>a</m>, <m>b</m>, <m>c</m>, etc., or, if you are more comfortable with specific values, perform the analysis using <m>a=.1</m>, <m>b=.005</m>, <m>c=.00004</m>, <m>d=g=.04</m>, <m>e=.001</m>, <m>f=.05</m>, <m>h=.004</m>, and <m>K=10,000</m>. For each model you should carry out the following steps to sketch the vector field for the model in the first quadrant of the <m>R</m>-<m>F</m> plane. Compare your work with the steps that led up to the analysis of the vector field on page .
+											</p>
+						
+											<p>
+              <ul>
+                <li>
+                  <p>
+																		Write down in words a justification for each rate equation—why is the model a reasonable one? What is it saying about the way rabbit and fox populations change?
+																	</p>
+                </li>
+						
+												<li>
+                  <p>
+																		Draw (in red) the set of points where <m>R' = 0</m>, and mark the regions where <m>R' &gt; 0</m> and <m>R' &lt; 0</m>.
+																	</p>
+                </li>
+						
+												<li>
+                  <p>
+																		Draw (in green) the set of points where <m>F' = 0</m>, and mark the regions where <m>F' &gt; 0</m> and <m>F' &lt; 0</m>.
+																	</p>
+                </li>
+						
+												<li>
+                  <p>
+																		Mark the equilibrium points. What color are they?
+																	</p>
+                </li>
+						
+												<li>
+                  <p>
+																		Sketch representative vectors of the vector field, and then sketch a couple of trajectories that follow these vectors. You might use a computer to verify your sketches.
+																	</p>
+                </li>
+						
+												<li>
+                  <p>
+																		On the basis of your sketches make a conjecture about the stability of the equilibrium points.
+																	</p>
+                </li>
+              </ul>
+            </p>
+          </introduction><task>
+            <p>
+																		The original Lotka–Volterra model, proposed independently in the mid-1920’s by Lotka and Volterra. This model stimulated much of the subsequent development of mathematical population biology. <md>
+                <mrow>R' \amp= aR-bR\,F,</mrow>
+                <mrow>F' \amp= cR\,F-dF.</mrow>
+              </md>
+            </p>
+          </task><task>
+            <p>
+																		The Leslie–Gower model. <md>
+                <mrow>R' \amp= aR-bRF,</mrow>
+                <mrow>F' \amp= \left( e - f \dfrac{F}{R}\right) F.</mrow>
+              </md>
+            </p>
+          </task><task>
+            <p>
+																		Leslie–Gower with carrying capacity for rabbits. <md>
+                <mrow>R' \amp= aR\left( 1- \dfrac{R}{K}\right) - b RF,</mrow>
+                <mrow>F' \amp= \left( e - f \dfrac{F}{R}\right) F.</mrow>
+              </md>
+            </p>
+          </task><task>
+            <p>
+																		Another combination. <md>
+                <mrow>R' \amp= aR\left( 1- \dfrac{R}{K}\right) - b RF,</mrow>
+                <mrow>F' \amp= cRF+gF-hF^2.</mrow>
+              </md>
+            </p>
+          </task>
+        </exercise><exercise>
+          <introduction>
+            <p>
+              <term>Symbiosis and mutualism</term>. Many flowers cannot pollinate themselves; instead insects like bees transport pollen from one flower to another. For their part, bees collect nectar from flowers and make honey to feed new bees. This sort of feedback structure in which the presence of each element has a positive effect on the growth rate of the other is called  <term>symbiosis</term> or <term>mutualism</term> (there is a distinction made between these two interactions, but mathematically they are similar). Here is a model: <m>B</m> is the number of bees per acre, measured in hundreds of bees, while <m>C</m> is the weight of clover per acre, in thousands of pounds. Assume time to be measured in months. <md>
+                <mrow>B' \amp= .1(1 - .01B + .005C) B,</mrow>
+                <mrow>C' \amp= .03(1 + .04B - .1C) C.</mrow>
+              </md>
+            </p>
+          </introduction><task>
+            <p>
+																		Do these equations describe symbiosis? What terms account for symbiosis?
+																	</p>
+          </task><task>
+            <p>
+																		Each equation has a negative term in it. What aspect of reality is this term capturing?
+																	</p>
+          </task><task>
+            <p>
+																		Sketch the vector field for this system in the <m>B</m>-<m>C</m> plane. Find the equilibrium points, and mark them on your sketch.
+																	</p>
+          </task><task>
+            <p>
+																		Draw some trajectories on your sketch, and use them to determine the stability of the equilibrium points.
+																	</p>
+          </task><task>
+            <p>
+																		Suppose an acre of land has 10,000 pounds of clover on it, and a hive of 2,000 bees is introduced. (What are the values of <m>B(0)</m> and <m>C(0)</m> in this case?) What happens? Answer this question both by drawing a trajectory and by describing the situation in words.
+																	</p>
+          </task><task>
+            <p>
+																		Let a couple of years pass after the situation in part (e) has stabilized. Suppose the field is now mowed so only 2,000 pounds of clover remain on it. The bee–clover system is now at what point on the <m>B</m>-<m>C</m> plane? What happens now? Does the bee population drop? Does it stay down, or does it recover? Does the clover grow back?
+																	</p>
+          </task><task>
+            <p>
+																		This scenario is an alternative to part (f); it is also played out a couple of years after the situation in part (e) has stabilized. Suppose an insecticide applied to the clover field kills two-thirds of the bees. The insecticide is then washed away by rain, leaving the remaining bees unaffected. What happens?
+																	</p>
+          </task>
+        </exercise><exercise>
+          <introduction>
+            <p>
+              <term>Competition</term> As a third kind of feedback structure, consider two species X and Y competing for the same food or territory. In this case each has a negative impact on the growth rate of the other. If we let <m>x</m> and <m>y</m> be the number of individuals of species X and Y, respectively, then the larger <m>y</m> is, the less rapidly <m>x</m> increases—and vice versa. Here is a specific model to consider: <md>
+                <mrow>x' \amp= .15(1 - .005x - .010y)x,</mrow>
+                <mrow>y' \amp= .03(1 -.004x - .005y)y.</mrow>
+              </md> The term <m>-.010y</m> in the first equation shows explicitly how an increase in <m>y</m> reduces the growth rate <m>x'</m>. In the second equation <m>-.004x</m> tells us how much X affects the growth of Y. Notice that Y affects X more strongly than X affects Y.
+											</p>
+						
+											<p>
+												If <m>x</m> and <m>y</m> are both small, then the parenthetical terms are approximately equal to 1, so the equations reduce to <md>
+                <mrow>x' \amp= .15x,</mrow>
+                <mrow>y' \amp=  .03y.</mrow>
+              </md> Thus, in these circumstances X’s per capita growth rate is five times as large as Y’s.
+											</p>
+						
+											<p>
+												In the competition for resources will the growth rate advantage permit X to win the competition and drive out Y, or will the more adverse effect that Y has on the growth of X permit Y to win? Perhaps the two species will both survive and share the resources for which they compete. The purpose of this exercise is to decide these questions.
+											</p>
+          </introduction><task>
+            <p>
+																		Suppose we start with <m>x = y = 10</m>. What are the two growth rates <m>x'</m> and <m>y'</m>? Is <m>x'</m> about five times as large as <m>y'</m> in this case? What are the approximate values of <m>x</m> and <m>y</m> after .5 time units have elapsed? Is X growing significantly more rapidly than Y?
+																	</p>
+          </task><task>
+            <p>
+																		How many equilibrium points does this system have, and where are they?
+																	</p>
+          </task><task>
+            <p>
+																		Sketch <em>and label</em> in the <m>x</m>-<m>y</m> plane the points where <m>x' = 0</m> and where <m>y'= 0</m>. The vector field typically points in one of four directions: up and to the right; up and to the left; down and to the right; or, down and to the left. Indicate on your sketch the zones where these different directions occur and draw representative vectors in each zone.
+																	</p>
+          </task><task>
+            <p>
+																		Sketch on the <m>x</m>-<m>y</m> plane the trajectory that starts at the point <m>(x, y) = (10, 10)</m>. Now answer the question: What happens to a population of 10 individuals each from species X and from species Y? In particular, does X gain an early lead? Does X keep its lead? Does either X or Y eventually vanish?
+																	</p>
+          </task><task>
+            <p>
+																		Is the outcome of part (d) typical, or is it not? Try several other starting points: <m>(x, y) = (150, 25)</m>, <m>(300, 10)</m>, <m>(200,
+												200)</m>, <m>(50, 200)</m>. Do these starting points lead to the same  <em>eventual</em> outcome, or are there different outcomes? Use a computer to confirm your analysis.
+																	</p>
+          </task><task>
+            <p>
+																		Describe the type of each equilibrium point you found in part (a). Is any equilibrium an attractor?
+																	</p>
+          </task>
+        </exercise><exercise>
+          <introduction>
+            <p>
+              <term>Fairer competition</term>. The vector field in question 3 shows that species X didn’t have a chance: all trajectories in the first quadrant flow to the equilibrium at <m>(0, 200)</m>. We can attribute this to the strength of the adverse effect Y has on X—that is, to the size of the term <m>-.010y</m> in the first equation when compared to the corresponding term <m>-.004x</m> in the second equation. Let’s try to give X a better chance by increasing this term to <m>-.006x</m>. The equations become <md>
+                <mrow>x' \amp= .15(1 - .005x - .010y)x,</mrow>
+                <mrow>y' \amp= .03(1 -.006x - .005y)y.</mrow>
+              </md>
+            </p>
+          </introduction><task>
+            <p>
+																		Sketch and label in the <m>x</m>-<m>y</m> plane the points where <m>x' = 0</m> and where <m>y' = 0</m>. Sketch representative vectors for the vector field. Mark all equilibrium points.
+																	</p>
+          </task><task>
+            <p>
+																		What happens to a population consisting of 10 individuals each from species X and species Y? Is the outcome significantly different from what it was in question 3? To get quantitatively precise results you will probably find a computer helpful.
+																	</p>
+          </task><task>
+            <p>
+																		What happens to a population consisting of 150 individuals from species X and 25 individuals from species Y? Is this outcome significantly different from what it was in question 3?
+																	</p>
+          </task><task>
+            <p>
+																		Is it possible for X and Y to coexist? What must <m>x</m> and <m>y</m> be? Is that coexistence <em>stable</em>; that is, if <m>x</m> and <m>y</m> are changed slightly, will the original values be restored?
+																	</p>
+          </task><task>
+            <p>
+																		Sometimes X wins the competition, sometimes Y. Mark in the <m>x</m>-<m>y</m> plane the dividing line between those starting points which lead to X winning and those which lead to Y winning.
+																	</p>
+          </task><task>
+            <p>
+																		Identify the type of each equilibrium point.
+																	</p>
+          </task><task>
+            <p>
+																		An often-articulated concept in ecology is the <em>principle of competitive exclusion</em>, which states that you can’t have a stable situation in which two species compete for the same resource—one of them will eventually crowd out the other. Is the model you’ve been exploring in this problem consistent with such a principle?
+																	</p>
+          </task>
+        </exercise><exercise>
+          <introduction>
+            <p>
+              <term>More on the Lotka–Volterra model</term>. The Lotka–Volterra model, <md>
+                <mrow>R' \amp= aR-bRF,</mrow>
+                <mrow>F' \amp= cRF-dF,</mrow>
+              </md> while it had a major impact on the development of mathematical biology, was found to be flawed in several important ways. The chief problem is that the equilibrium point <m>(d/c, a/b)</m> is a neutral equilibrium point—given any starting state, the system would follow a closed trajectory. This in itself was all right and, in fact, stimulated a great many important investigations on whether or not cycles were an intrinsic feature of many populations. The difficulty was that there were so many possible closed trajectories—which one the system followed depended on where it started. A second difficulty, related to the first, is that there is a first integral for the Lotka–Volterra model. What is seen as a virtue in a physical system like the pendulum—since it is equivalent to the conservation of energy—is unrealistic in an ecological system, where there are almost certainly too many outside forces at work for any quantity to be conserved there. In the following exercises we will explore some of these behaviors. As before, you can either perform a general analysis of the model or use the specific parameter values <m>a=.1</m>, <m>b=.005</m>, <m>c=.00004</m>, and <m>d=.04</m>.
+											</p>
+          </introduction><task>
+            <p>
+																		Sketch the vector field, together with some typical trajectories, in the rest of the <m>R</m>-<m>F</m> plane, including negative values. What happens to any trajectory starting at a state with a negative <m>R</m> or negative <m>F</m> value?
+																	</p>
+          </task><task>
+            <p>
+																		For this exercise you will need to go back to a computer program that implements Euler’s method of approximating the trajectory by drawing a straight line segment from a point in the direction indicated by the velocity vector (commercial packages use fancier routines which accommodate for the kind of phenomena you are about to see!). Using the specific values for <m>a</m>, <m>b</m>, <m>c</m>, and <m>d</m> suggested above, starting from the point <m>(2000, 10)</m> in the <m>R</m>-<m>F</m> plane, and using a time step <m>\Delta t=1</m>, draw the first 500 segments of Euler’s approximation to the trajectory. What does the trajectory look like? Would you think the trajectory was a closed loop on the basis of this result? How small does <m>\Delta t</m> have to be before the trajectory looks like it closes? Can you explain this phenomenon?
+																	</p>
+          </task><task>
+            <p>
+																		Using the same values for <m>a</m>, <m>b</m>, <m>c</m>, and <m>d</m> as in the preceding part, start at the point <m>(2000, 1)</m> and use <m>\Delta t=2</m>. This time calculate the first 1000 segments of Euler’s approximation; what happens? (Your computer will probably give you some sort of overflow message.) Can you explain this? (Think about your answer to part (a).)
+																	</p>
+          </task><task>
+            <p>
+              <term>Getting a first integral for the system</term>Show that the Lotka–Volterra equations imply that <md>\dfrac{R'}{R}(cR-d) = \dfrac{F'}{F}(a-bF).</md> Integrate this equation and show that the expression <md>cR+bF-d\ln{R} - a \ln{F}</md> must be a constant for all points on a given trajectory. If we know one point on the trajectory (such as the starting point), we can evaluate the constant.
+																	</p>
+          </task><task>
+            <p>
+																		Show that the function <m>f(R)=cR-d\ln R</m> is decreasing for <m>0&lt;R&lt;d/c</m> and is increasing for <m>d/c&lt;R&lt;\infty</m>. Hence argue that for any given value of <m>F</m> there are at most two values of <m>R</m> giving the same value for the expression <m>cR+bF-d\ln R-a\ln F</m>. Hence conclude that the trajectories for the Lotka–Volterra equations can’t be spirals, but must then be closed loops.
+																	</p>
+          </task>
+        </exercise>
+      </exercisegroup><exercisegroup xml:id="ch8-subsubsec-the-pendulum">
+        <title>The pendulum</title>
+        <exercise>
+          <statement>
+            <p>
+												Suppose instead of an idealized frictionless pendulum, we wanted to model a pendulum that <q>ran down</q>. One approach we might try is to throw in a term for air resistance. Let’s see what happens when we add a term to the expression for <m>v'</m> which suggests that there is a drag effect which is proportional to the value of <m>v</m>—the larger <m>v</m> is, the greater will be the drag. Here are equations that do this: <md>
+                <mrow>x' \amp= v,</mrow>
+                <mrow>v' \amp= -\sin x-.1v.</mrow>
+              </md> Perform a vector field analysis of this model, indicating the regions where the velocity vectors are pointing in the various combinations of up, down, right, and left. Try sketching in some trajectories. Where are the equilibrium points? What kinds are they?
+											</p>
+          </statement>
+        </exercise>
+      </exercisegroup><exercisegroup xml:id="ch8-subsubsec-the-anderson-may-model">
+        <title>The Anderson–May model</title>
+        <exercise>
+          <statement>
+            <p>
+												Consider <m>dE_1/dt=\Lambda_1-\mu_1E_1+a_1E_1E_2/(1+b_1E_1E_2)</m>. For what values of <m>E_1</m> is it possible to find a value for <m>E_2</m> making <m>dE_1/dt=0</m>? Express your answer in terms of the parameters <m>\Lambda_1</m>, <m>\mu_1</m>, <m>a_1</m>, and <m>b_1</m>. Is your answer consistent with the graph on page ?
+											</p>
+          </statement>
+        </exercise><exercise>
+          <introduction>
+            <p>
+												In the same book—<em>Infectious Diseases of Humans</em>—containing the previous model, Anderson and May propose another model to explain the acquisition of (apparently) permanent immunity. In this model there is just the virus and the lymphocyte cells (effector cells) that kill the virus. We denote their populations at time <m>t</m> by <m>V(t)</m> and <m>E(t)</m>. They propose the model <md>
+                <mrow>dE/dt \amp= \Lambda-\mu E +\varepsilon VE,</mrow>
+                <mrow>dV/dt \amp= rV-\sigma VE.</mrow>
+              </md> Here <m>\Lambda</m> is the (constant) rate of background production of the lymphocytes by the bone marrow, <m>\mu</m> is the per capita death rate of such cells, and <m>r</m> is the intrinsic growth rate of the virus if none of the specific lymphocytes was present. Both the increased production of the lymphocytes and the death of the virus are assumed to proceed at rates proportional to the number of their interactions, determined by their product.
+											</p>
+          </introduction><task>
+            <p>
+																		Show that in the absence of any virus, the effector cells have a stable equilibrium of <m>\Lambda /\mu</m>.
+																	</p>
+          </task><task>
+            <p>
+																		Perform a state space analysis of the vector field. Note that there will be two very different cases, depending on whether <m>\Lambda
+												/\mu&gt;r/\sigma</m> or <m>\Lambda /\mu&lt;r/\sigma</m>. In each case say what you can about the equilibrium points and the expected long-term behavior of the system.
+																	</p>
+          </task><task>
+            <p>
+																		Using parameter values <m>\Lambda=1</m>, <m>\mu=r=.5</m>, and <m>\varepsilon=\sigma=.01</m>, and starting values <m>E=V=1</m> find the resulting trajectory. (The trajectory will be a spiral, but it moves in very slowly.)
+																	</p>
+          </task><task>
+            <p>
+																		How long, approximately, will it take the spiral to make one revolution? If this time, call it <m>T</m>, is roughly the same length as the lifetime of the infected individual, what will appear to be happening? It might help to plot both <m>E</m> and <m>V</m> as functions of time over the interval <m>[0,T]</m>.
+																	</p>
+          </task>
+        </exercise>
+      </exercisegroup>
+    </exercises>
+  </section>
+
+		<section xml:id="ch8-sec-local-behavior-of-dynamical-systems">
+    <title>Local Behavior of Dynamical Systems</title>
+    <introduction>
+      <p>
+				
+			</p>
+    </introduction><subsection xml:id="ch8-subsec-a-microscopic-view">
+      <title>A Microscopic View</title>
+      <p>
+					One of the themes of this book has been the concept of the <q>microscope</q>. 
+<aside>
+          <p>Phase portraits under the microscope</p>
+        </aside>
+ When we zoom in on some part of a geometrical object, the structure typically becomes much simpler. In chapter 3 we used this approach to think about the behavior of functions. In this section we will use the same idea to analyze the behavior of a vector field and its phase portrait. There are two parts to this process:
+				</p>
+
+				<p>
+        <ol>
+          <li>
+            <p>
+										We shift the origin of the coordinate system to center on the point we are interested in—we <term>localize</term>—and
+									</p>
+          </li>
+
+					<li>
+            <p>
+										We approximate both the vector field and its phase portrait by suitable linear approximations—we  <term>linearize</term>.
+									</p>
+          </li>
+        </ol>
+      </p>
+
+				<p>
+					To get a feel for how this works, let’s go back and look at problem 4 on page  of the previous section. There we had two species X and Y competing for the same food source. We modeled the dynamics of this system by the equations <md>
+          <mrow>x' \amp= .15(1 - .005x - .010y)x,</mrow>
+          <mrow>y' \amp= .03(1 -.006x - .005y)y.</mrow>
+        </md> The phase portrait for this system looks like the following figure.
+				</p>
+
+				<figure xml:id="fig_calc2_locbeha1">
+        <image source="images/calc2_locbeha1" />
+        <caption>image</caption>
+      </figure>
+
+				<p>
+					The three equilibrium points—<m>P=(0,200)</m>, <m>R=(1000/7, 200/7)</m>, and <m>S=(0, 200)</m>—are indicated, together with a generic point <m>Q=(35,
+50)</m>. Note that <m>P</m> and <m>S</m> are attractors and that <m>R</m> is a saddle point. As was the case with the Anderson–May model, there is a trajectory flowing away from <m>R</m> to each of the attractors. There are also two trajectories (not shown) flowing directly toward <m>R</m> and forming the boundary between the basins of attraction for <m>P</m> and <m>S</m>. We will see how to construct this boundary shortly (page ).
+				</p>
+
+				<p>
+					Let’s first zoom in on the point <m>Q</m> and see what the phase portrait looks like there. If we take the region <m>\pm 1</m> unit on either side of <m>Q</m>, we get the following phase portrait:
+				</p>
+
+				<figure xml:id="fig_calc2_locbeha2">
+        <image source="images/calc2_locbeha2" />
+        <caption>image</caption>
+      </figure>
+
+				<p>
+					At this level, all the trajectories appear to be parallel straight lines. How could we have anticipated this picture? The first step in analyzing this phase portrait is to observe that since we are interested in its behavior near <m>Q=(35, 50)</m>, instead of working with the variables <m>x(t)</m> and <m>y(t)</m>, we introduce new variables <m>r(t)</m> and <m>s(t)</m> which measure how far we are from <m>Q</m>: <md>
+          <mrow>r(t) \amp= x(t)-35,</mrow>
+          <mrow>s(t) \amp= y(t) - 50.</mrow>
+        </md> The effect of this transformation is simply to shift the origin to the point <m>Q</m>—the location of every point in the plane is now measured relative to <m>Q</m>
+        <aside>
+          <p>Shifting the origin</p>
+        </aside>
+ rather than to the <m>x</m>-<m>y</m> origin. A point is close to the point <m>Q</m> if its <m>r</m>-<m>s</m> coordinates are small. Further, if we are given the <m>r</m>-<m>s</m> coordinates of a point, we can always recover the <m>x</m>-<m>y</m> coordinates, and vice versa—we can transform in either direction: <md alignat-columns="3">
+          <mrow>r \amp= x-35, \amp\quad\Longleftrightarrow\quad x \amp= r+35,</mrow>
+          <mrow>s \amp= y-50, \amp\quad\Longleftrightarrow\quad y \amp= s+50.</mrow>
+        </md>
+      </p>
+
+				<p>
+					Next, note that <m>r'(t) = x'(t)</m> and <m>s'(t) = y'(t)</m> so that the new variables change at the same rates as the old ones. We can now express our original differential equations in terms of the variables <m>r</m> and <m>s</m> by replacing <m>x'</m> by <m>r'</m>, <m>x</m> by <m>r+35</m>, <m>y'</m> by <m>s'</m>, and <m>y</m> by <m>s+50</m>. When we do this, we get <md>
+          <mrow>r' \amp=  .15(1- .005(r+35) - .010(s+50))(r+ 35)</mrow>
+          <mrow>\amp= 1.70625+.0225r-.0525s-.00075r^2-.0015rs,</mrow>
+          <mrow>s' \amp= .03(1-.006(r+35) - .005(s+50))(s+50)</mrow>
+          <mrow>\amp= .81-.009r+.0087s-.00018rs-.00015s^2.</mrow>
+        </md>
+      </p>
+
+				<p>
+					What we have accomplished by this is to transform a problem about trajectories near the point <m>(35, 50) )</m> in the <m>x</m>-<m>y</m> plane into a problem about trajectories near the origin in the <m>r</m>-<m>s</m> plane—we have <term>localized</term> the problem to the point we are interested in.
+				</p>
+
+				<p>
+					The second step comes in analyzing the <m>r</m>-<m>s</m> system: since we are only interested in its behavior near the origin, we will be looking at values of <m>r</m> and <m>s</m> that are small. Under these 
+<aside>
+          <p>Near an ordinary point, a vector field is almost constant</p>
+        </aside>
+ circumstances, the contributions of the constant terms will far outweigh the contributions of any of the terms involving <m>r</m> and <m>s</m>. For instance, in our current example we are looking at a window that is <m>\pm 1</m> unit wide and <m>\pm 1</m> unit high around <m>Q</m>. In this window, the terms involving <m>r</m> or <m>s</m> are at most 3% of the constant term in the case of <m>r'</m>, and a little over 1% in the case of <m>s'</m>. If we had used a smaller window, the contributions of the non-constant terms would be even less significant. This means that <em>near the <m>r</m>-<m>s</m> origin</em> the vector field for this system is well-approximated by the behavior of the related <term>constant linear system</term>: <md>
+          <mrow>r' \amp= 1.70625,</mrow>
+          <mrow>s' \amp= 0.81.</mrow>
+        </md> Note that 1.70625 and .81 are just the values of <m>x'</m> and <m>y'</m> at <m>Q</m>.
+				</p>
+
+				<p>
+					In this linearized system, any change <m>\Delta t</m> in the time produces a change <m>\Delta r =1.70625\Delta t</m> in <m>r</m>, and a change <m>\Delta
+s=.81\Delta t</m> in <m>s</m>. Thus the velocity vectors in the vector field near <m>Q</m> would all have the same length 
+<aside>
+          <p>Near an ordinary point all trajectories look the same</p>
+        </aside>
+ and would be pointing in the same direction, with slope <m>\Delta
+s/\Delta r =.81/1.70625=.4747</m>. This in turn means that near <m>Q</m> all trajectories have the same slope and are traversed at the same speed.
+				</p>
+
+				<p>
+					We would see a similar picture—a family of parallel straight lines—whenever we zoom in on the phase portrait near any other ordinary (i.e., non-equilibrium) point <m>(x_\ast, y_\ast)</m> The vector field near such a point can always be approximated by a constant linear system of the form <md>
+          <mrow>r' \amp= e,</mrow>
+          <mrow>s' \amp= f,</mrow>
+        </md> where <m>e</m> and <m>f</m> are the values of <m>x'</m> and <m>y'</m> at <m>(x_\ast,
+y_\ast)</m>. The trajectories of this approximating linear system will be lines of slope <m>f/e</m>.
+				</p>
+
+				<p>
+					Near an 
+<aside>
+          <p>Equilibrium points are different</p>
+        </aside>
+ equilibrium point, the picture is more complicated. No matter how far in we zoom, the phase portrait never looks like a family of straight lines. For instance, here’s what the picture looks like when we zoom in on <m>R=(1000/7, 200/7)\approx (142.857, 28.571)</m> :
+				</p>
+
+				<figure xml:id="fig_calc2_locbeha3">
+        <image source="images/calc2_locbeha3" />
+        <caption>image</caption>
+      </figure>
+
+				<p>
+					—if we zoomed in to a window 1/100-th the size of this one, the picture would be indistinguishable from this one.
+				</p>
+      <p>
+					Here we see four trajectories that look almost like straight lines—two coming directly towards <m>R</m> and two going directly away. All the other trajectories appear to be asymptotic to these two sets. On page  in the next section you will see how to find the equations of these asymptotes.
+				</p>
+
+				<p>
+					What happens when we linearize the vector field at <m>R</m>? As before, we first shift the origin so that it is centered at <m>R</m> by changing to coordinates <m>r</m> and <m>s</m>, where <md>
+          <mrow>r(t) \amp= x(t)-1000/7,</mrow>
+          <mrow>s(t) \amp= y(t) - 200/7.</mrow>
+        </md>
+      </p>
+
+				<p>
+					When we then write the differential equations in terms of <m>r</m> and <m>s</m>, we get as before that <m>x'=r'</m> and <m>y'=s'</m> and <md>
+          <mrow>r' \amp= .15(1- .005(r+1000/7) - .010(s+200/7))(r+ 1000/7)</mrow>
+          <mrow>\amp= -.107143r-.214286s-.00075r^2-.0015rs,</mrow>
+          <mrow>s' \amp= .03(1-.006(r+1000/7) - .005(s+200/7))(s+200/7)</mrow>
+          <mrow>\amp= -.00514286r-.00428571s-.00018rs-.00015s^2.</mrow>
+        </md>
+      </p>
+
+				<p>
+					This time, though, the constant term 
+<aside>
+          <p>Linear approximation of the vector field</p>
+        </aside>
+ in the expression for both <m>r'</m> and <m>s'</m> is 0. This is because the point <m>R</m> was an equilibrium point, which meant that both <m>x'</m> and <m>y'</m>, and hence <m>r'</m> and <m>s'</m>, were 0 there. If we are considering only small values of <m>r</m> and <m>s</m>, though, say much smaller than 1, then the terms involving <m>r^2</m> or <m>s^2</m> or <m>rs</m> will be much smaller than the terms involving <m>r</m> and <m>s</m> alone. We can therefore simplify our equations at <m>R</m> by taking only the first powers of <m>r</m> and <m>s</m>, getting for the linearized system <md>
+          <mrow>r' \amp=  -.107143r-.214286s,</mrow>
+          <mrow>s' \amp=  -.00514286r-.00428571s.</mrow>
+        </md>
+      </p>
+
+				<p>
+					In a similar fashion we could hope to explore the behavior of any other dynamical system about any of its equilibrium points by approximating the vector field there by a linear system of the form <md>
+          <mrow>r' \amp= ar +bs,</mrow>
+          <mrow>s' \amp= cr + ds,</mrow>
+        </md> for suitable constants <m>a</m>, <m>b</m>, <m>c</m>, and <m>d</m>.
+				</p>
+
+				<p>
+					We will see in section [about taxonomy] how to use this linearized form of the vector field to discover many of the properties of equilibrium points.
+				</p>
+
+				<p>
+					How can we find values for the constants <m>a</m>, <m>b</m>, <m>c</m>, and <m>d</m>? If the differential equations specifying the rates of change of the variables are polynomials, then we can proceed as above:
+				</p>
+
+				<p>
+        <ul>
+          <li>
+            <p>
+										Shift the origin to the point we’re interested in;
+									</p>
+          </li>
+
+					<li>
+            <p>
+										Express the rate equations in terms of the new local variables;
+									</p>
+          </li>
+
+					<li>
+            <p>
+										Throw away all the terms except the first degree terms.
+									</p>
+          </li>
+        </ul>
+      </p>
+
+				<p>
+					This process requires some fairly tedious algebra. Moreover, what if the differential equations are not polynomials? Suppose, for instance, we wanted to study the local behavior of the Anderson–May model (page ) at the saddle point <m>P_2=(92.0869,
+92.0869)</m>. Note that the differential equations are of the form <md>
+          <mrow>dE_1/dt \amp= f_1(E_1,E_2),</mrow>
+          <mrow>dE_2/dt \amp= f_2(E_1,E_2),</mrow>
+        </md> where <m>f_1</m> and <m>f_2</m> are the functions given in the text. But <m>f_1</m> and <m>f_2</m> are just 
+<aside>
+          <p>To linearize a vector field, linearize the functions that determine it</p>
+        </aside>
+ functions, and we learned in chapter 3 how to construct locally linear approximations to them. This was, in fact, how we defined derivatives in the first place. Thus if <m>E_1</m> changes by a small amount <m>\Delta
+E_1=E_1-92.0869</m>, the function <m>f_i</m> will change by approximately <m>\partial f_i/\partial E_1 \times \Delta E_1</m>. Similarly, a small change <m>\Delta E_2=E_2-92.0869</m> will produce a change of approximately <m>\partial f_i/\partial E_2 \times \Delta E_2</m> in the function <m>f_i</m>. The total change in the function <m>f_i</m> can then be approximated by the sum of these changes: <md>
+          <mrow>Delta f_1(E_1,E_2) \amp\approx 
+       \dfrac{\partial f_1}{\partial E_1}\Delta E_1 
+       + \dfrac{\partial f_1}{\partial E_2}\Delta E_2,</mrow>
+          <mrow>\Delta f_2(E_1,E_2) \amp\approx 
+       \dfrac{\partial f_2}{\partial E_1}\Delta E_1 
+       + \dfrac{\partial f_2}{\partial E_2}\Delta E_2.</mrow>
+        </md>
+      </p>
+
+				<p>
+					But since <m>P_2</m> is an equilibrium point, 
+<aside>
+          <p>General form for the local linearization at an equilibrium point…</p>
+        </aside>
+ we have by definition that <m>f_1</m> and <m>f_2</m> are both zero there, so <m>\Delta f_i(E_1,E_2) = f_i(E_1,E_2) - f_i(P_2)</m> is just <m>f_i(E_1,E_2)</m>. Further, if you look closely you will see that the quantity <m>\Delta E_1=E_1-92.0869</m> is identical with what we have been calling the local coordinate <m>r</m>, and <m>\Delta E_2=E_2-92.0869</m> is just the other local coordinate <m>s</m>. Thus, since <m>E_1'=r'</m> and <m>E_2'=s'</m>, we have <md>
+          <mrow>r'\amp= \dfrac{\partial f_1}{\partial E_1}\,r 
+     + \dfrac{\partial f_1}{\partial E_2}\,s,</mrow>
+          <mrow>s'\amp= \dfrac{\partial f_2}{\partial E_1}\,r 
+     + \dfrac{\partial f_2}{\partial E_2}\,s,</mrow>
+        </md> where the partial derivatives are evaluated at <m>P_2</m>. Notice that there is nothing in this expression which is specific to this particular problem. The local linearization of any vector field at any equilibrium point will be in this form.
+				</p>
+
+				<p>
+					Finally, using the values given for the different parameters back on page , we can evaluate all the partial derivatives to get the specific local linearization for the point <m>P_2</m>: <md>
+          <mrow>r' \amp= -94.5525\,r + 905.448\,s,</mrow>
+          <mrow>s' \amp= 905.448\,r - 94.5525\,s,</mrow>
+        </md>
+      </p>
+
+				<p>
+					We will see in the next section how knowing this form will allow us to find the boundary between the two basins of attraction.
+				</p>
+      <p>
+					For completeness, 
+<aside>
+          <p>…and at a generic point</p>
+        </aside>
+ let’s remind ourselves of what the local linearization would look like at a nonequilibrium point in the current formulation. The result is immediate and simple, using the analysis we used before. If <m>Q</m> is a generic point, then the local linearization consists of parallel lines, whose slopes are given by the constant rate equations <md>
+          <mrow>r' \amp= f_1(Q),</mrow>
+          <mrow>s' \amp= f_2(Q).</mrow>
+        </md>
+      </p>
+    </subsection>
+
+			<exercises xml:id="ch8-subsec-exercises-2">
+      <title>Exercises</title>
+      <exercise>
+        <statement>
+          <p>
+										Find the local linearizations at all the equilibrium points in exercises 2–4 at the end of the previous section.
+									</p>
+        </statement>
+      </exercise><exercise>
+        <introduction>
+          <p>
+										The Lotka–Volterra equations <md>
+              <mrow>R' \amp= aR-bRF,</mrow>
+              <mrow>F' \amp= cRF-dF,</mrow>
+            </md> have an equilibrium point at <m>(R, F) = 00(d/c, a/b)</m>.
+									</p>
+        </introduction><task>
+          <p>
+															What is the local linearization there?
+														</p>
+        </task><task>
+          <p>
+															What is a striking feature of this linearization, and what is its physical significance?
+														</p>
+        </task><task>
+          <p>
+															The trajectories for the local linearizations turn out to be ellipses. If <m>r</m> and <m>f</m> are the local variables, find constants <m>\alpha</m> and <m>\beta</m> such that the expression <m>\alpha\,
+										r^2+\beta\,f^2</m> is constant on any trajectory.
+														</p>
+        </task>
+      </exercise><exercise>
+        <statement>
+          <p>
+										Find the local linearization at the point <m>P_1</m> in the Anderson–May model for the acquisition of immunity discussed in the previous section, using the parameter values given in the text on page .
+									</p>
+        </statement>
+      </exercise><exercise>
+        <statement>
+          <p>
+										Go back to the second Anderson–May model analyzed in problem 8 of the previous section (page ). Using the parameter values given in part (c) there, find the local linearizations at all equilibrium points.
+									</p>
+        </statement>
+      </exercise>
+    </exercises>
+  </section>
+
+		<section xml:id="ch8-sec-a-taxonomy-of-equilibrium-points">
+    <title>A Taxonomy of Equilibrium Points</title>
+    <introduction>
+      <p>
+				
+			</p>
+      <p>
+				In the exercises and examples we have seen so far in this chapter, 
+<aside>
+          <p>An intuitive classification of equilibrium points</p>
+        </aside>
+ there have been several kinds of trajectories near equilibrium points: spirals towards and spirals away from the equilibrium, closed loops about the equilibrium, trajectories that looked vaguely like hyperbolas, and trajectories that seemed to arc more or less directly into or away from the equilibrium. It turns out that this rough classification covers virtually all the equilibrium behaviors we might encounter in a two-dimensional state space. There are many ways to demonstrate this, but we can accomplish almost everything with a couple of simple insights. We begin with a summary of the different kinds of equilibrium points, then turn to the question of devising ways to figure out from the equations what kind we are dealing with.
+			</p>
+    <p>
+				Suppose, then, that we are studying a two-dimensional dynamical system and that we have linearized the system at an equilibrium point. The point is either an attractor, repellor, saddle point, or neutral point. Attractors and repellors can be further subdivided according to whether they have one or two straight line trajectories, or whether their trajectories are spirals. Note that any attractor can be converted into a repellor simply by reversing the arrows, and vice versa (how do you accomplish this arrow reversal at the level of the defining differential equations?). If you reverse all the arrows at a saddle point, you get another saddle point. If you reverse the arrows at a neutral point, you get the same closed loops, but they are traversed in the opposite direction.
+			</p>
+      <p>
+				Here, then, is a listing of all the kinds of equilibrium points. There are five generic types. (<em>Generic</em> here means <q>general</q>; if you generate a random equilibrium point, it will almost certainly be one of these.) They are most easily categorized by whether or not they have <term>fixed line</term> trajectories—that is, trajectories which are straight lines going directly toward or directly away from the equilibrium point.
+			</p>
+
+			
+<aside>
+        <p>The existence or not of straight line trajectories and how to find them when they do exist is an instance of the so-called  <em>eigenvector</em> problem. Analogous problems occur elsewhere in many parts of mathematics, physics, and even population biology. Being able to find such eigenvectors efficiently is an important problem in computational mathematics.</p>
+      </aside>
+
+
+			<p>
+        <term>Nodes</term>. Two pairs of fixed lines, all trajectories flowing toward the equilibrium (attractors) or away from it (repellors).
+			</p>
+
+			<figure xml:id="fig_calc2_classeq1">
+        <image source="images/calc2_classeq1" />
+        <caption>image</caption>
+      </figure>
+
+			<p>
+        <term>Spirals</term>. No fixed lines, all trajectories spiraling toward the equilibrium (attractors) or away from it (repellors).
+			</p>
+
+			<figure xml:id="fig_calc2_classeq2">
+        <image source="images/calc2_classeq2" />
+        <caption>image</caption>
+      </figure>
+
+			<p>
+        <term>Saddle Point</term>. Two pairs of fixed lines, with the flow along one pair being toward the equilibrium, and the flow along the other pair away from it. All other trajectories are asymptotic to these lines.
+			</p>
+
+			<figure xml:id="fig_calc2_classeq3">
+        <image source="images/calc2_classeq3" />
+        <caption>image</caption>
+      </figure>
+
+			<p>
+				In addition to these five generic cases, there are three more types which arise under more specialized conditions:
+			</p>
+    </introduction><paragraphs xml:id="ch8-special-nodes">
+      <title>Special Nodes.</title>
+      <p>
+					One pair of fixed lines, all trajectories flowing toward the equilibrium (attractors) or away from it (repellors).
+				</p>
+      <figure xml:id="fig_calc2_classeq4">
+        <image source="images/calc2_classeq4" />
+        <caption>image</caption>
+      </figure>
+
+
+				<paragraphs xml:id="ch8-center">
+        <title>Center.</title>
+        <p>
+						No fixed lines, all trajectories flowing around the equilibrium in closed loops.
+					</p>
+        <figure xml:id="fig_calc2_classeq5">
+          <image source="images/calc2_classeq5" />
+          <caption>image</caption>
+        </figure>
+
+					<p>
+						Except for a variety of highly specialized (or <em>degenerate</em>, in mathematical terminology) cases, examples of which are given in the exercises, the region near every equilibrium point will look like one of the above (although the exact shape may vary).
+					</p>
+
+					<p>
+						Clearly, it would be helpful to have an efficient way to determine whether or not fixed lines exist, and what their equations are if they do.
+					</p>
+      </paragraphs>
+    </paragraphs>
+
+			<subsection xml:id="ch8-subsec-straight-line-trajectories">
+      <title>Straight-Line Trajectories</title>
+      <p>
+					Given a dynamical system <md>
+          <mrow>r' \amp= ar +bs,</mrow>
+          <mrow>s' \amp= cr + ds,</mrow>
+        </md> how can we tell whether or not it has any straight-line trajectories? If <m>b = 0</m>, then the (vertical) line <m>r
+= 0</m> is a trajectory. Otherwise, note that the line <m>s=mr</m> will be a trajectory for this system provided the slope of the line—namely <m>m</m>—equals the slope of the vector field at every point <m>(r,s)</m> on the line. But the slope of the vector field at any point <m>(r,s)</m> is just <m>s'/r'</m>, which in turn is equal to <m>(cr + ds)/(ar +bs)</m>. Since every point on the line of slope <m>m</m> is of the form <m>(r, mr)</m>, what we are really asking, then, is whether there are any 
+<aside>
+          <p>The condition for a fixed-line trajectory</p>
+        </aside>
+ values of <m>m</m> which satisfy the equation <md>m=\frac{cr+dmr}{ar+bmr}=\frac{c+dm}{a+bm}</md>
+      </p>
+
+				<p>
+					To see how this works, let’s return to the example of two competing species which we last looked at on page . There we zoomed in on the saddle point <m>R=(1000/7, 200/7)</m> and found that the local linear approximation was <md>
+          <mrow>r' \amp= -.1071r -.2143s,</mrow>
+          <mrow>s' \amp= -.0051r - .0043s.</mrow>
+        </md> If this system has a straight-line trajectory of slope <m>m</m>, then <m>m</m> must satisfy <md>m= \dfrac{ -.0051 - .0043m}{ -.1071 -.2143m},</md> which leads to the quadratic equation <md>.2143m^2+.1028m-.0051=0,</md> which has roots <md>m=.0454 \quad \mbox{and} \quad m = -.5250.</md> Thus the lines <m>s=.0454r</m> and <m>s=-.5250r</m> are trajectories of the linear system. To be more exact, each of these lines is made up of three distinct trajectories: the portion of the line consisting of all points with <m>r&gt;0</m>, the portion with <m>r&lt;0</m>, and the origin (which is the saddle point <m>R</m>) by itself, which is always a trajectory in any linear system. To see whether flow along these trajectories is towards the origin or away from it, we could look to see where the lines lie in the state plane. It is just as simple, though, to try a test point. For instance, a typical point on the line <m>s=.0454r</m> is <m>(1, .0454)</m>. When we substitute these values into the original rate equations, we find that <md>
+          <mrow>r' \amp= -.1071\times 1-.2143\times .0454,</mrow>
+          <mrow>s' \amp= -.0051\times 1 - .0043 \times .0454.</mrow>
+        </md>
+      </p>
+
+				<p>
+					We don’t even need to do the arithmetic to be able to tell that both <m>r'</m> and <m>s'</m> are negative at this point, hence both <m>r</m> and <m>s</m> are decreasing, which means that on the line of slope .0454 movement is towards the origin. Similarly, on the line of slope <m>-.5250</m> the flow is away from the origin. Finally, it turns out (as is the case with every linear system with straight-line trajectories) that every other trajectory is asymptotic to these lines.
+				</p>
+
+				<p>
+					The crux of this approach was the use of the quadratic formula. Of course, it may happen—and we will see examples in the exercises—that when we try the same approach on another system we find there are no real roots to the equation. This means that there are no fixed lines, so that trajectories must be spirals or closed loops.
+				</p>
+      <paragraphs xml:id="ch8-boundary">
+        <title>Attractors and Basins of Attraction</title>
+        <p>
+						
+					</p>
+        <p>
+						One byproduct of the analysis in the previous section is that it gives us a technique for sketching the boundary separating two basins of attraction. Let’s continue with the previous example to illustrate how this is done. We observed that the boundary between the two basins was formed by the two trajectories coming directly into the saddle point <m>R</m> between the two attractors <m>P</m> and <m>S</m>. We have just seen that near <m>R</m> these two trajectories looked like the straight line of slope .0454. We can therefore take a point on this line on each side of <m>R</m> and run the system backward (if we go forward, we simply approach <m>R</m>) in time to reconstruct the trajectories, and hence get the boundary of the basins of attraction.
+					</p>
+      </paragraphs>
+    </subsection>
+
+			<exercises xml:id="ch8-subsec-exercises-3">
+      <title>Exercises</title>
+      <exercise>
+        <introduction>
+          <p>
+										In this exercise we look at a number of different linear systems to see what kinds of trajectories we get. In each case you should sketch the trajectories. Do this as before by first identifying the regions in the plane where <m>r'=0, r'&gt;0</m>, and <m>r'&lt;0</m>, and similarly for <m>s'</m>. Then sketch trajectories consistent with this information. You might want to use a graphing program to check any answer you’re unsure of.
+									</p>
+        </introduction><task>
+          <p>
+            <m>r' = 4r + s</m>, <m>s' = 2r + 3s</m>.
+														</p>
+        </task><task>
+          <p>
+            <m>r' = 4r + s</m>, <m>s' = -2r + 3s</m>.
+														</p>
+        </task><task>
+          <p>
+            <m>r' = 2r + 3s</m>, <m>s' = 4r + s</m>.
+														</p>
+        </task><task>
+          <p>
+            <m>r' = -4r + 4s</m>, <m>s' = 2r + s</m>.
+														</p>
+        </task><task>
+          <p>
+            <m>r' = -.4r - 4s</m>, <m>s' = 2r - .5s</m>.
+														</p>
+        </task><task>
+          <p>
+            <m>r' = -.4r - 4s</m>, <m>s' = 2r + .4s</m>.
+														</p>
+        </task><task>
+          <p>
+															Make up and analyze four more linear systems.
+														</p>
+        </task>
+      </exercise><exercise>
+        <statement>
+          <p>
+										If you start with a given linear system and consider the related system in which all the coefficients are four times as big, how do the trajectories change?
+									</p>
+        </statement>
+      </exercise><exercise>
+        <statement>
+          <p>
+										If you start with a given linear system and consider the related system in which all the coefficients have their signs reversed, how do the trajectories change?
+									</p>
+        </statement>
+      </exercise><exercise>
+        <introduction>
+          <p>
+										Use the quadratic formula to find the general solution to the equation <md>m=\frac{c+dm}{a+bm}.</md>
+          </p>
+        </introduction><task>
+          <p>
+															In exercises 1, 3, and 4 in the previous section you found local linearizations at the equilibrium points of a number of examples discussed earlier. Determine which of these have straight-line trajectories and which do not. For those that do, find the equations of the lines and determine for each line whether the flow is towards the origin or away from it.
+														</p>
+        </task><task>
+          <p>
+															What is the general condition for a linear dynamical system to have straight-line trajectories?
+														</p>
+        </task>
+      </exercise><exercise>
+        <statement>
+          <p>
+										Make up a system that has the lines of slope <m>\pm 1</m> as trajectories.
+									</p>
+        </statement>
+      </exercise><exercise>
+        <statement>
+          <p>
+										What is the condition for a system to have exactly one fixed line? Construct a couple of systems that have only one fixed line and sketch their phase portraits.
+									</p>
+        </statement>
+      </exercise><exercise>
+        <introduction>
+          <p>
+            <term>Degeneracy</term>The analysis developed in this section implicitly assumed that in the local linearization, at least one of the coefficients in each of the expressions for <m>r'</m> and <m>s'</m> was non-zero. If this is not true, then many more possibilities open up. The following two systems have the origin as their only equilibrium point. In each case, write down the local linearization and draw in the trajectory pattern for the linearized system. Notice that the linearized systems have more than one equilibrium point. Then do the standard phase plane analysis for the original system—identify the regions in the plane where <m>r'=0</m>and where <m>s'=0</m>, and specify what the direction field is doing in the rest of the plane, as usual. Sketch in some typical trajectories. Comment on the connections between the linearized and unlinearized forms.
+									</p>
+        </introduction><task>
+          <p>
+            <m>r' = r^2</m>, <m>s' = -s</m>. You should see sort of a hybrid between a saddle point and an attractor here.
+														</p>
+        </task><task>
+          <p>
+            <m>r' = r^2+s^2</m>, <m>s' = r</m>.
+														</p>
+        </task>
+      </exercise><exercise>
+        <introduction>
+          <p>
+										Use the technique presented at the end of this section (page  to graph the boundary between the two basins of attraction.
+									</p>
+        </introduction><task>
+          <p>
+															In the same way, construct the boundary between the two basins in the competing species model we’ve been discussing—problem 4 on page .
+														</p>
+        </task>
+      </exercise><exercisegroup xml:id="ch8-subsubsec-distance-from-the-origin">
+        <title>Distance from the Origin</title>
+        <introduction>
+          <p>
+						Another way to distinguish between different kinds of trajectories is to see how their distance from the origin varies over time. For saddle points the distance will first decrease and then increase. For spiral attractors and nodal attractors the distance may be always decreasing, or it may fluctuate, depending on how flat the trajectory is.
+					</p>
+          <p>
+						Again, let’s look at a general linear system <md>
+              <mrow>r' \amp=  ar +bs,</mrow>
+              <mrow>s' \amp=  cr + ds.</mrow>
+            </md> onsider the system moving along some trajectory in <m>r</m>-<m>s</m> space. At time <m>t</m> it will be at a point <m>(r(t), s(t)</m>, situated at a distance <m>d(t) = \sqrt{r(t)^2 + s(t)^2}</m>. We would like to know how the function <m>d(t)</m> behaves. Is it always increasing? Always decreasing? Or does it have local maxima and minima? To answer this we need to know if <m>d'(t)</m> is ever <m>=0</m>, or if it is always positive or always negative. We can simplify our calculations if we look at the square of the distance: <m>D(t) = d(t)^2 =r(t)^2 + s(t)^2</m>. The function <m>D</m> will be increasing and decreasing at exactly the same points as the function <m>d</m>, and it’s easier to work with.
+					</p>
+        </introduction><exercise>
+          <introduction>
+            <p>
+												Show that <md>
+                <mrow>D'(t) \amp= 2 r(t)r'(t) + 2 s(t)s'(t)</mrow>
+                <mrow>\amp= 2[r(ar+bs)+s(cr+ds)]</mrow>
+                <mrow>\amp= 2[ar^2+(b+c)rs+ds^2].</mrow>
+              </md>
+            </p>
+          </introduction><task>
+            <p>
+																		Show that if we look at points on the line of slope <m>m</m>, so that <m>s=mr</m>, we will have <m>D'(t)=0</m> there if and only if <md>a+(b+c)m+dm^2=0\, .</md>
+            </p>
+          </task><task>
+            <p>
+																		Use the quadratic formula to conclude that this happens precisely where <md>m=\frac{-(b+c) \pm \sqrt{(b+c)^2-4ad}}{2d}\, .</md>
+            </p>
+          </task><task>
+            <p>
+																		Show in particular, if <m>(b+c)^2-4ad&lt;0</m>, there are no solutions to <m>D'(t)=0</m>, and the distance must always be strictly increasing along all trajectories, or strictly decreasing along all trajectories.
+																	</p>
+          </task><task>
+            <p>
+																		Return to the example <md>
+                <mrow>r' \amp=  -.1071r -.2143s,</mrow>
+                <mrow>s' \amp=  -.0051r - .0043s,</mrow>
+              </md> and find the equations of the two lines where trajectories pass closest to the origin. These lines will not be trajectories themselves. Their significance is that the <sq>vertices</sq> of all the trajectories will lie along them.
+																	</p>
+          </task>
+        </exercise><exercise>
+          <statement>
+            <p>
+												Choose four of the exercise in the first part of this section and analyze them to see where (and whether) trajectories have a closest approach to the origin.
+											</p>
+          </statement>
+        </exercise><exercise>
+          <introduction>
+            <p>
+												Use the results of this section to construct a dynamical system whose trajectories are spirals that are always moving away from the origin.
+											</p>
+          </introduction><task>
+            <p>
+																		Use the results to construct a dynamical system whose trajectories are flattened spirals, so that the distance from the origin, while increasing overall, has local maxima and minima.
+																	</p>
+          </task>
+        </exercise><exercise>
+          <statement>
+            <p>
+												It turns out that trajectories which form closed loops should really be considered as a special kind of spiral. In fact, a flattened spiral will close up precisely when the two directions in which the distance is a maximum or minimum are perpendicular to each other. Express this as a condition on the coefficients <m>a, b, c,</m> and <m>d</m> in the dynamical system.
+											</p>
+          </statement>
+        </exercise><exercise>
+          <statement>
+            <p>
+												Write down the equations of some dynamical systems that will have closed orbits.
+											</p>
+          </statement>
+        </exercise>
+      </exercisegroup>
+    </exercises>
+  </section>
+
+		<section xml:id="ch8-sec-limit-cycles">
+    <title>Limit Cycles</title>
+    <p>
+				
+			</p>
+    <p>
+				With this analysis of the behavior of vector fields near equilibrium points, we now know most of the possibilities for the long-term behavior of trajectories. The one important phenomenon we haven’t discussed is <term>limit cycles</term>. To see an example of this, let’s return to May’s predator–prey model we first encountered in chapter 4. If <m>x(t)</m> and <m>y(t)</m> are the prey and predator populations, respectively, at time <m>t</m>, then the general form of May’s model is <md>
+        <mrow>x' \amp= ax\left(1-\frac{x}{b}\right) - \frac{cxy}{x+d},</mrow>
+        <mrow>y' \amp= ey\left(1-\frac{y}{fx}\right);</mrow>
+      </md> the parameters <m>a</m>, <m>b</m>, <m>c</m>, <m>d</m>, <m>e</m> and <m>f</m> are all positive.
+			</p>
+
+			<p>
+				Using parameter values of <m>a = .6</m>, <m>b = 10</m>, <m>c = .5</m>, <m>d = 1</m>, <m>e =
+.1</m> and <m>f = 2</m>, let’s take several different starting values and sketch the resulting trajectories. Here’s what we find:
+			</p>
+
+			<figure xml:id="fig_calc2_limcyc">
+      <image source="images/calc2_limcyc" />
+      <caption>image</caption>
+    </figure>
+
+			<p>
+				Notice that no matter where we start, the trajectory is apparently always drawn to the closed loop shown in dashes above. This loop is an example of an <term>attracting limit cycle</term>. As usual, we could reverse all the arrows in our vector field, in which case this example would be converted to a <term>repelling limit cycle</term>.
+			</p>
+
+			<p>
+				A limit cycle is very different from the kind of behavior we saw in the neighborhood of a neutral equilibrium point called a center. Around a center there is a closed loop 
+<aside>
+        <p>Limit cycles give models for cyclic behavior</p>
+      </aside>
+ trajectory through every point: displace the state slightly, and it would move happily along the new loop. If the state is on an attracting limit cycle, though, and you displace it, it will move back toward the cycle it started from. For this reason limit cycles make very good models for cyclic behavior, whether it is in the firing of neurons or population cycles of mammals.
+			</p>
+    <p>
+				The size of the limit cycle, and even its very existence, depends on the specific values of the parameters in the model. If you change the parameters, you change the limit cycle. If you change the parameters enough, the limit cycle may disappear all together. (See the exercises.)
+			</p>
+    <p>
+				A result proved early in this century is the  <term>Poincaré–Bendixson Theorem</term> which says that equilibrium points and limit cycles are as complicated as dynamical systems in two variables can get. Once we pass to three variables, the situation becomes much more complicated. Many of the phenomena associated with such systems have been discovered only within the past 50 years, and their exploration is a subject of continuing research. In the next section we will give a brief introduction of some of the new behaviors that can arise.
+			</p>
+
+
+			<exercises xml:id="ch8-subsec-exercises-4">
+      <title>Exercises</title>
+      <exercise>
+        <statement>
+          <p>
+										Using the parameter values given in the text, find the coordinates of the equilibrium point at the center of the limit cycle and show that it is, in fact, a repellor.
+									</p>
+        </statement>
+      </exercise><exercise>
+        <statement>
+          <p>
+										May’s model is interesting in that it exhibits a phenomenon known as <term>Hopf bifurcation</term>. Namely, the existence of a limit cycle depends on the values of the parameters. Choose one of the parameters in May’s model and try a range of values both larger and smaller than in the example we’ve worked out. At what value does the limit cycle disappear? When this happens, the equilibrium point inside the cycle has become an attractor. Can you work out analytically when this happens?
+									</p>
+        </statement>
+      </exercise>
+    </exercises>
+  </section>
+
+		<section xml:id="ch8-sec-beyond-the-plane-three-dimensional-systems">
+    <title>Beyond the Plane:<!-- linebreak -->Three-Dimensional Systems</title>
+
+			<p>
+				Up to now we have worked with dynamical systems in which there are only two interacting quantities. We have thought of the two quantities as specifying a point in the state space, which we think of as some subset of the plane. The dynamical system defined a vector field on the state space. These geometric notions carry over to dynamical systems involving more than two interacting quantities.
+			</p>
+    <p>
+				In particular, if we have a dynamical system consisting of three interacting quantities, then we think of the values of the three quantities as specifying a point (or state) in three-dimensional space. So, for instance, if we have an ecological system consisting of three species, then we think of the numbers <m>x</m>, <m>y</m>, <m>z</m> of each of the three species as specifying a point <m>(x,y,z)</m> in space. The set of all possible points or <q>states</q> is the set of points <md>\{(x,y,z): x \ge 0, y\ge 0, z\ge 0\}</md> that constitute the <q>first octant</q> in Cartesian 3-space. We think of the dynamical system as a vector field: that is, as a rule which assigns to each point of the state space a vector. As in the case of the plane, we can define equilibrium points, trajectories, limit cycles, attractors, and the like.
+			</p>
+
+			<p>
+				In three-space there is a much wider range of behavior possible, even in the case of equilibrium points. We do, of course, have point attractors and repellors: all trajectories near a point attractor flow towards the attractor and all trajectories near a point repellor flow away from the repellor. However, a greater range of combinations is possible: an equilibrium point can attract all points along some plane, but repel all other points. Or the equilibrium point could be a center, surrounded by closed orbits lying in some plane which attract trajectories off the plane.
+			</p>
+    <figure xml:id="fig_calc2_ctr">
+      <image source="images/calc2_ctr" />
+      <caption>image</caption>
+    </figure>
+
+			<p>
+				It is worth pointing out that we can represent the two-dimensional systems we’ve been exploring so far in this chapter in three dimensions by introducing a time axis. This has the effect of ‘unwinding" the trajectories by stretching them out in the <m>t</m>-direction: closed trajectories become endless coils, equilibrium points become straight lines parallel to the <m>t</m>-axis, and so on.
+			</p>
+
+			<p>
+				The analytic tools we introduced to find and explore the nature of equilibrium points in two-dimensional systems carry over to three dimensions. In particular, in investigating the nature of an equilibrium point analytically, we first localize the system at the equilibrium point and linearize. The behavior of the linearized system can then be explored using analogues of the techniques introduced in the previous section (or using simple linear algebra).
+			</p>
+    <p>
+				There are also, of course, limit cycles, which can be attractors, repellors of a mix of the two (attracting, for example, all trajectories on a plane, but repelling all trajectories off the plane) in three-dimensional systems. As in the case of dynamical systems in the plane, attracting limit cycles in a three-dimensional system signal stable periodic behavior.
+			</p>
+    <figure xml:id="fig_calc2_cycle">
+      <image source="images/calc2_cycle" />
+      <caption>image</caption>
+    </figure>
+
+			<p>
+				However, more complicated types of periodic behavior are possible in the three-dimensional case: we could, for example, have an attracting torus in the state space.
+			</p>
+    <figure xml:id="fig_calc2_torus">
+      <image source="images/calc2_torus" />
+      <caption>image</caption>
+    </figure>
+
+			<p>
+				In this case, the behavior of the states does not settle down to periodic behavior, but a behavior which is approximately periodic (often called <term>quasi-periodic</term>). In the plane, there is a well studied phenomenon called Hopf bifurcation in which changing the parameters in a dynamical system can cause an attracting fixed point to become a repellor surrounded by a stable attracting limit cycle. Such dynamical systems arise in modelling situations in which a state begins to oscillate. In three dimensions we also sees the same sort of phenomenon in which an attractor can give birth to an attracting limit cycle. However, there are also three-dimensional systems in which varying the parameters results in an attracting limit cycle becoming a repelling limit cycle enclosed by an attracting torus (this is also called Hopf bifurcation and is frequently encountered in applications).
+			</p>
+
+			<p>
+				These sorts of behavior are relatively straightforward generalizations of behavior in the plane. At the turn of the century, Poincaré realized that simple three-dimensional systems could have exceedingly complicated trajectories which exhibit behavior totally unlike any two-dimensional trajectory. Discoveries in the last three decades have made it clear that qualitatively new types of <em>attractors</em> (not just trajectories) can exist in three-dimensional systems with even very simple equations. The most famous such attractor was discovered by a meteorologist, Edward Lorenz, in the course of using dynamical systems to model weather patterns. He discovered a class of simple systems with an attractor which corresponded to behavior which was in no sense periodic. An example of such a system is <md>
+        <mrow>x' \amp= -3x - 3y,</mrow>
+        <mrow>y' \amp= -xz + 30x - y,</mrow>
+        <mrow>z' \amp= xy - z.</mrow>
+      </md> All trajectories of the system entered a bounded region of the state space and tended towards a clearly defined geometrical object (resembling a butterfly). But along the attractor, nearby points followed trajectories which rapidly diverged from one another. Below, we have sketched two views of a trajectory beginning at (0,1,0) of the system above.
+			</p>
+
+			<figure xml:id="fig_calc2_lor">
+      <image source="images/calc2_lor" />
+      <caption>image</caption>
+    </figure>
+
+			<p>
+				As Lorenz noted in the paper describing his discovery (Deterministic Nonperiodic Flow, <em>J. Atmos. Sci.</em>, <term>20</term> 130 (1963)), this divergence of trajectories along an attractor has astonishing practical implications. It means that that the trajectories of nearby points in state space could (and would) wind up following very different paths along the attractor. Since we never know initial conditions exactly (and even if we did, a computer truncates decimal expansions of the coordinates of any point, effectively replacing the point with a nearby point), this means that long-term predictions using a model possessing such an attractor are impossible. In other words, although the future is completely determined by a dynamical system given an initial state, it is unknowable in systems of the sort discovered by Lorenz, because initial states are never known exactly in practice. Such systems are called <term>chaotic</term> and attractors which are not points, limit cycles or tori are called <term>strange attractors</term>. These systems have been intensively studied in the last thirty years and are still far from completely understood. Chaotic systems have been used to attempt to model a wide variety of real situations which exhibit unpredictable behavior: business cycles, turbulence, heart attacks, etc. Although fascinating and philosophically provocative, most of this work is still very speculative and has yet to prove of practical value.
+			</p>
+
+			<p>
+				Systems involving more than three variables can still be treated geometrically: we think of the space of states as a higher dimensional space (one dimension for each quantity) and the dynamical system as defining a vector field on the state space. Of course, we cannot visualize such spaces directly, but the geometrical insight we gain in dimensions two and three very frequently allows us to handle such systems.
+			</p>
+    <exercises xml:id="ch8-subsec-exercises-5">
+      <title>Exercises</title>
+      <introduction>
+        <p>
+					In the next two exercises, we look at some three-dimensional systems which arise in ecology. These questions are challenging and you will probably find it helpful to work them out in a group.
+				</p>
+      </introduction><exercise>
+        <introduction>
+          <p>
+										Consider a system consisting of three species: giant carnivorous reptiles, vegetarian mammals, and plants. Suppose that the populations of these are given by <m>x</m>, <m>y</m> and <m>z</m> respectively. The reptiles eat the mammals, the mammals eat the plants, and the plants compete among themselves. Explain why the following system is consistent with these hypotheses: <md>
+              <mrow>x' \amp= -.2 x + .0001 x y,</mrow>
+              <mrow>y' \amp= -.05 y - .001 x y + .000001 y z,</mrow>
+              <mrow>z' \amp= z - .00001 z^2 - .0001 y z.</mrow>
+            </md>
+          </p>
+        </introduction><task>
+          <p>
+															Find all equilibrium points of the system. There are five, one of which is physically impossible. Describe the significance of the other four.
+														</p>
+        </task><task>
+          <p>
+															The most interesting equilibrium is the one in which all three species are present. Localize the system at this equilibrium, using local variables <m>u</m>, <m>v</m>, and <m>w</m>. Linearize. Show that the linearized system has the form <md alignat-columns="3">
+              <mrow>u' \amp=     \amp \hphantom{-}.003v, \amp</mrow>
+              <mrow>v' \amp= -2u \amp       \amp+ .002w,</mrow>
+              <mrow>w' \amp=     \amp -8v   \amp- .8w.</mrow>
+            </md> Can you determine whether the equilibrium is an attractor? This is a hard question—it <em>is</em> an attractor. One way to show this is a generalization of the technique we used in the preceding section to examine the distance of points on a trajectory from the origin over time. For the current problem we use a <term>generalized distance function</term>
+            <md>D(t) = 8\cdot 10^6u^2+12000v^2+3w^2.</md> Show, using arguments like those we used when we looked at ordinary distance, that as we move along a trajectory, the value of <m>D</m> must decrease. Hence conclude that the equilibrium point must be an attractor.
+														</p>
+        </task>
+      </exercise><exercise>
+        <introduction>
+          <p>
+										The system of equations <md>
+              <mrow>x' \amp= x - .001 x^2 + .002 x y -.1 x z,</mrow>
+              <mrow>y' \amp= y - .01 y ^2 + .001 x y,</mrow>
+              <mrow>z' \amp= -z + .001 x z.</mrow>
+            </md> arises in a general family of models proposed in 1980 by Heithaus, Culver, and Beattie (<q>Models of Some Ant-Plant Mutualisms,</q>
+            <em>American Naturalist</em>, <term>116</term> (1980) pp. 347-361) for investigating the interactions three species: violets, ants, and mice. Violets produce seeds with density <m>x</m> (per square meter, say). The ants take some of the seeds and use the seed covering for food. But they leave the remainder, which is still a perfectly good seed, in their refuse piles, which happily turn out to be good sites for germination. The ants have density <m>y</m>. Finally, the seeds are also taken by mice, who use the whole seed for food (destroying both the cover and the seed within). The mice have density <m>z</m>.
+									</p>
+        </introduction><task>
+          <p>
+															Explain why these equations are consistent with the hypotheses we made on the interactions between the violets, ants and mice.
+														</p>
+        </task><task>
+          <p>
+															Find all equilibrium points for the system. Don’t forget the points where one or more of the variables equals 0. <md>
+              <mrow>x' \amp= x - .001 x^2 + .002 x y -.1 x z,</mrow>
+              <mrow>y' \amp= y - .01 y ^2 + .001 x y,</mrow>
+              <mrow>z' \amp= -z + .001 x z.</mrow>
+            </md>
+          </p>
+        </task><task>
+          <p>
+															Localize the model at each of these equilibria, using local coordinates <m>u</m>, <m>v</m>, and <m>w</m> as before, and linearize.
+														</p>
+        </task><task>
+          <p>
+															In the case of the equilibrium point (1000, 200, 4) the local linearization is <md>
+              <mrow>u' \amp= -u + 2 v - 100 w,</mrow>
+              <mrow>v' \amp= .2 u - 2 v,</mrow>
+              <mrow>w' \amp= .004 u.</mrow>
+            </md> As in the preceding problem, show that this point is an attractor by examining the generalized distance function <m>R(t)=u(t)^2+v(t)^2+25000w(t)^2</m> and showing that the value of <m>R</m> decreases as you move along a trajectory.
+														</p>
+        </task>
+      </exercise>
+    </exercises>
+  </section>
+
+		<section xml:id="ch8-sec-chapter-summary">
+    <title>Chapter Summary</title>
+    <subsection xml:id="ch8-subsec-the-main-ideas">
+      <title>The Main Ideas</title>
+      <p>
+        <ul>
+          <li>
+            <p>
+										A dynamical system can be viewed as a geometrical object. The possible values of the dependent variables are then the coordinates of a point—called a <term>state</term>. The set of all possible points is called the <term>state space</term> for the system.
+									</p>
+          </li>
+
+					<li>
+            <p>
+										The differential equations become a rule assigning a  <term>velocity vector</term> to each state. Thought of in this way, the equations are called a <term>vector field</term>.
+									</p>
+          </li>
+
+					<li>
+            <p>
+										Solutions to the differential equations correspond to  <term>trajectories</term> in the state space. At every point a trajectory is tangent to the corresponding velocity vector, and is changing at the rate given by the length of the vector. The set of all possible trajectories is called the <term>phase portrait</term> of the system.
+									</p>
+          </li>
+
+					<li>
+            <p>
+              <term>Equilibrium points</term> are points where the velocity vector is 0. An equilibrium point is a trajectory consisting of a single point. A dynamical system is conveniently analyzed by examining the nature of its equilibrium points—whether they are  <term>attractors</term>, <term>repellors</term>, <term>saddle points</term>, or  <term>centers</term>.
+									</p>
+          </li>
+
+					<li>
+            <p>
+										To study the nature of an equilibrium point it is helpful to look at the <term>local linearization</term> of the vector field near the point.
+									</p>
+          </li>
+
+					<li>
+            <p>
+										Determining whether <term>fixed-line trajectories</term> exist is a crucial part of analyzing the nature of an equilibrium point.
+									</p>
+          </li>
+
+					<li>
+            <p>
+										In addition to equilibrium points, dynamical systems in two dimensions may also have <term>limit cycles</term> that shape the asymptotic behavior of the system.
+									</p>
+          </li>
+
+					<li>
+            <p>
+										In higher dimensional state spaces, there are not only the obvious extensions of point attractors and limit cycles, but it is possible to have an <term>attracting torus</term> as well. There are even more complicated attracting objects called <term>strange attractors</term>.
+									</p>
+          </li>
+        </ul>
+      </p>
+    </subsection>
+
+			<subsection xml:id="ch8-subsec-expectations">
+      <title>Expectations</title>
+      <p>
+        <ul>
+          <li>
+            <p>
+										You should be able to describe the assumptions embodied in a particular dynamical system modeling the interaction between two (or three) species and evaluate whether the assumptions seem reasonable.
+									</p>
+          </li>
+
+					<li>
+            <p>
+										For a dynamical system with two dependent variables, you should be able to determine the regions where each variable is zero or has a constant sign, find equilibrium points, sketch representative vectors of the vector field, and draw trajectories that are consistent with this information.
+									</p>
+          </li>
+
+					<li>
+            <p>
+										You should be able to determine whether a linear system of differential equations with two dependent variables has <term>fixed-line</term> trajectories—that is, trajectories that are straight lines going directly toward or directly away from an equilibrium point.
+									</p>
+          </li>
+
+					<li>
+            <p>
+										You should be able to <term>localize</term> and <term>linearize</term> a dynamical system in two variables to explore its behavior near an equilibrium point.
+									</p>
+          </li>
+
+					<li>
+            <p>
+										You should be able to recognize the five generic types of equilibrium points: attracting and repelling <term>nodes</term>, attracting and repelling <term>spirals</term>, and <term>saddle points</term>.
+									</p>
+          </li>
+
+					<li>
+            <p>
+										Using a differential equation solver, you should be able to recognize when a dnamical system has a <term>limit cycle</term>.
+									</p>
+          </li>
+
+					<li>
+            <p>
+										You should be able to analyze a dynamical system with three dependent variables.
+									</p>
+          </li>
+        </ul>
+      </p>
+    </subsection>
+  </section>
+</chapter>
