@@ -1,4 +1,4 @@
-# Calculus in Context (2008 Version)
+# Calculus in Context (2026 Version)
 A PreTeXt version of the original Calculus in Context book by the Five Colleges Calculus Project
 
 Shield: [![CC BY-SA 4.0][cc-by-sa-shield]][cc-by-sa]
